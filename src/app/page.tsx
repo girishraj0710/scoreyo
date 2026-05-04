@@ -1,65 +1,442 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import { examCategories, type Exam } from "@/lib/exams";
+
+export default function HomePage() {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [questionCount, setQuestionCount] = useState(5);
+  const [difficulty, setDifficulty] = useState<string>("mixed");
+  const [stats, setStats] = useState<any>(null);
+  const [subData, setSubData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch("/api/stats")
+      .then((r) => r.json())
+      .then(setStats)
+      .catch(() => {});
+    fetch("/api/subscription")
+      .then((r) => r.json())
+      .then(setSubData)
+      .catch(() => {});
+  }, []);
+
+  const handleStartQuiz = () => {
+    if (!selectedExam || !selectedSubject || !selectedTopic) return;
+    const params = new URLSearchParams({
+      examId: selectedExam.id,
+      subjectId: selectedSubject,
+      topic: selectedTopic,
+      count: questionCount.toString(),
+      difficulty,
+    });
+    window.location.href = `/quiz?${params.toString()}`;
+  };
+
+  const currentSubjects = selectedExam?.subjects || [];
+  const currentTopics =
+    currentSubjects.find((s) => s.id === selectedSubject)?.topics || [];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <section className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+            Smart Exam Prep
+          </span>
+        </h1>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-6">
+          Practice with expert-curated questions from NCERT, previous year papers &amp; standard textbooks for JEE, NEET, UPSC, SSC,
+          Banking, CAT &amp; 20+ Indian competitive exams. Track your progress and
+          master every topic.
+        </p>
+
+        {/* Quick Stats */}
+        {stats?.stats && stats.stats.totalSessions > 0 && (
+          <div className="flex justify-center gap-6 mb-8">
+            <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
+              <div className="text-2xl font-bold text-indigo-600">
+                {stats.stats.totalQuestions}
+              </div>
+              <div className="text-xs text-slate-500">Questions Solved</div>
+            </div>
+            <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
+              <div className="text-2xl font-bold text-emerald-600">
+                {stats.stats.accuracy}%
+              </div>
+              <div className="text-xs text-slate-500">Accuracy</div>
+            </div>
+            <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200 streak-pulse">
+              <div className="text-2xl font-bold text-amber-500">
+                {stats.stats.streak}
+              </div>
+              <div className="text-xs text-slate-500">Day Streak</div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* Step 1: Category Selection */}
+      <section className="mb-8">
+        <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+          <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+            1
+          </span>
+          Choose Exam Category
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          {examCategories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => {
+                setSelectedCategory(
+                  selectedCategory === category.id ? null : category.id
+                );
+                setSelectedExam(null);
+                setSelectedSubject(null);
+                setSelectedTopic(null);
+              }}
+              className={`card-hover p-4 rounded-xl border-2 text-center ${
+                selectedCategory === category.id
+                  ? "border-indigo-500 bg-indigo-50 shadow-md"
+                  : "border-slate-200 bg-white hover:border-indigo-300"
+              }`}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <div className="text-2xl mb-1">{category.icon}</div>
+              <div className="text-sm font-medium text-slate-700">
+                {category.name}
+              </div>
+              <div className="text-xs text-slate-400 mt-1">
+                {category.exams.length} exam
+                {category.exams.length > 1 ? "s" : ""}
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Step 2: Exam Selection */}
+      {selectedCategory && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+              2
+            </span>
+            Select Exam
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {examCategories
+              .find((c) => c.id === selectedCategory)
+              ?.exams.map((exam) => (
+                <button
+                  key={exam.id}
+                  onClick={() => {
+                    setSelectedExam(
+                      selectedExam?.id === exam.id ? null : exam
+                    );
+                    setSelectedSubject(null);
+                    setSelectedTopic(null);
+                  }}
+                  className={`card-hover p-4 rounded-xl border-2 text-left ${
+                    selectedExam?.id === exam.id
+                      ? "border-indigo-500 bg-indigo-50 shadow-md"
+                      : "border-slate-200 bg-white hover:border-indigo-300"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl shrink-0"
+                      style={{ backgroundColor: exam.color + "20" }}
+                    >
+                      {exam.icon}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-semibold text-slate-800">
+                        {exam.name}
+                      </div>
+                      <div className="text-xs text-slate-500 truncate">
+                        {exam.description}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-xs text-slate-400">
+                    {exam.subjects.length} subjects |{" "}
+                    {exam.subjects.reduce(
+                      (sum, s) => sum + s.topics.length,
+                      0
+                    )}{" "}
+                    topics
+                  </div>
+                </button>
+              ))}
+          </div>
+        </section>
+      )}
+
+      {/* Step 3: Subject Selection */}
+      {selectedExam && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+              3
+            </span>
+            Select Subject
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {currentSubjects.map((subject) => (
+              <button
+                key={subject.id}
+                onClick={() => {
+                  setSelectedSubject(
+                    selectedSubject === subject.id ? null : subject.id
+                  );
+                  setSelectedTopic(null);
+                }}
+                className={`card-hover p-4 rounded-xl border-2 text-center ${
+                  selectedSubject === subject.id
+                    ? "border-indigo-500 bg-indigo-50 shadow-md"
+                    : "border-slate-200 bg-white hover:border-indigo-300"
+                }`}
+              >
+                <div className="text-xl mb-1">{subject.icon}</div>
+                <div className="text-sm font-medium text-slate-700">
+                  {subject.name}
+                </div>
+                <div className="text-xs text-slate-400 mt-1">
+                  {subject.topics.length} topics
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Step 4: Topic Selection */}
+      {selectedSubject && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+              4
+            </span>
+            Select Topic
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {currentTopics.map((topic) => (
+              <button
+                key={topic}
+                onClick={() =>
+                  setSelectedTopic(selectedTopic === topic ? null : topic)
+                }
+                className={`px-4 py-2 rounded-full text-sm font-medium border-2 ${
+                  selectedTopic === topic
+                    ? "border-indigo-500 bg-indigo-500 text-white shadow-md"
+                    : "border-slate-200 bg-white text-slate-600 hover:border-indigo-300 hover:bg-indigo-50"
+                }`}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Step 5: Quiz Settings & Start */}
+      {selectedTopic && (
+        <section className="mb-12">
+          <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 shadow-lg max-w-lg mx-auto">
+            <h2 className="text-lg font-semibold text-slate-800 mb-5 text-center">
+              Quiz Settings
+            </h2>
+
+            {/* Quiz Summary */}
+            <div className="bg-indigo-50 rounded-xl p-4 mb-5">
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="text-slate-500">Exam:</div>
+                <div className="font-medium text-slate-800">
+                  {selectedExam?.name}
+                </div>
+                <div className="text-slate-500">Subject:</div>
+                <div className="font-medium text-slate-800">
+                  {currentSubjects.find((s) => s.id === selectedSubject)?.name}
+                </div>
+                <div className="text-slate-500">Topic:</div>
+                <div className="font-medium text-slate-800">
+                  {selectedTopic}
+                </div>
+              </div>
+            </div>
+
+            {/* Number of Questions */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Number of Questions
+              </label>
+              <div className="flex gap-2">
+                {[5, 10, 15, 20].map((n) => (
+                  <button
+                    key={n}
+                    onClick={() => setQuestionCount(n)}
+                    className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
+                      questionCount === n
+                        ? "border-indigo-500 bg-indigo-500 text-white"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-indigo-300"
+                    }`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Difficulty */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Difficulty
+              </label>
+              <div className="flex gap-2">
+                {[
+                  { value: "mixed", label: "Mixed" },
+                  { value: "easy", label: "Easy" },
+                  { value: "medium", label: "Medium" },
+                  { value: "hard", label: "Hard" },
+                ].map((d) => (
+                  <button
+                    key={d.value}
+                    onClick={() => setDifficulty(d.value)}
+                    className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
+                      difficulty === d.value
+                        ? "border-indigo-500 bg-indigo-500 text-white"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-indigo-300"
+                    }`}
+                  >
+                    {d.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Quiz Limit Info */}
+            {subData && !subData.isPro && (
+              <div className={`mb-4 p-3 rounded-xl text-sm ${
+                subData.quizzesRemaining === 0
+                  ? "bg-red-50 border border-red-200"
+                  : "bg-amber-50 border border-amber-200"
+              }`}>
+                <div className="flex items-center justify-between">
+                  <span className={subData.quizzesRemaining === 0 ? "text-red-700" : "text-amber-700"}>
+                    {subData.quizzesRemaining === 0
+                      ? "Daily limit reached!"
+                      : `${subData.todayQuizCount} of ${subData.quizLimit} free quizzes used today`}
+                  </span>
+                  <a href="/pricing" className="text-indigo-600 font-medium text-xs hover:text-indigo-700">
+                    Upgrade
+                  </a>
+                </div>
+                {subData.quizzesRemaining !== null && subData.quizzesRemaining > 0 && (
+                  <div className="mt-2 w-full bg-amber-200 rounded-full h-1.5">
+                    <div
+                      className="bg-amber-500 h-1.5 rounded-full"
+                      style={{ width: `${(subData.todayQuizCount / subData.quizLimit) * 100}%` }}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+
+            {subData?.isPro && (
+              <div className="mb-4 p-3 rounded-xl text-sm bg-indigo-50 border border-indigo-200 flex items-center gap-2">
+                <span className="px-2 py-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-bold rounded-full">PRO</span>
+                <span className="text-indigo-700">Unlimited quizzes</span>
+              </div>
+            )}
+
+            {/* Start Button */}
+            <button
+              onClick={handleStartQuiz}
+              disabled={subData && !subData.isPro && subData.quizzesRemaining === 0}
+              className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              {subData && !subData.isPro && subData.quizzesRemaining === 0
+                ? "Upgrade to Start Quiz"
+                : `Start Quiz (${questionCount} Questions)`}
+            </button>
+
+            {subData && !subData.isPro && subData.quizzesRemaining === 0 && (
+              <a
+                href="/pricing"
+                className="block mt-3 w-full py-2 text-center text-sm font-medium text-indigo-600 bg-indigo-50 rounded-xl hover:bg-indigo-100"
+              >
+                View Pro Plans →
+              </a>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Exam Count Banner */}
+      <section className="mt-8 text-center">
+        <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-sm border border-slate-200">
+          <span className="text-sm text-slate-600">
+            Covering{" "}
+            <span className="font-bold text-indigo-600">
+              {examCategories.reduce(
+                (sum, cat) => sum + cat.exams.length,
+                0
+              )}
+            </span>{" "}
+            exams across{" "}
+            <span className="font-bold text-indigo-600">
+              {examCategories.length}
+            </span>{" "}
+            categories with{" "}
+            <span className="font-bold text-indigo-600">
+              {examCategories
+                .flatMap((c) => c.exams)
+                .flatMap((e) => e.subjects)
+                .flatMap((s) => s.topics).length}
+              +
+            </span>{" "}
+            topics
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Trust & Credibility Section */}
+      <section className="mt-10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <h3 className="font-semibold text-slate-800 mb-1">Expert Verified</h3>
+            <p className="text-xs text-slate-500">Questions curated from NCERT, previous year papers &amp; standard textbooks</p>
+          </div>
+          <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+              </svg>
+            </div>
+            <h3 className="font-semibold text-slate-800 mb-1">Exam-Pattern Based</h3>
+            <p className="text-xs text-slate-500">Questions match the actual difficulty and pattern of your target exam</p>
+          </div>
+          <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <h3 className="font-semibold text-slate-800 mb-1">Smart Progress</h3>
+            <p className="text-xs text-slate-500">Tracks weak topics and schedules revision using spaced repetition</p>
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

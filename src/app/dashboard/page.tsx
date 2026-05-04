@@ -1,0 +1,359 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { getAllExams, getExamById } from "@/lib/exams";
+
+interface Stats {
+  totalSessions: number;
+  totalQuestions: number;
+  totalCorrect: number;
+  accuracy: number;
+  streak: number;
+  examBreakdown: Array<{
+    exam_id: string;
+    sessions: number;
+    questions: number;
+    correct: number;
+  }>;
+}
+
+interface MasteryItem {
+  exam_id: string;
+  subject_id: string;
+  topic: string;
+  total_attempted: number;
+  total_correct: number;
+  mastery_score: number;
+  last_attempted: string;
+}
+
+interface Session {
+  id: string;
+  exam_id: string;
+  subject_id: string;
+  topic: string;
+  total_questions: number;
+  correct_answers: number;
+  time_taken_seconds: number;
+  created_at: string;
+}
+
+export default function DashboardPage() {
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [mastery, setMastery] = useState<MasteryItem[]>([]);
+  const [recentSessions, setRecentSessions] = useState<Session[]>([]);
+  const [weakTopics, setWeakTopics] = useState<MasteryItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedExamFilter, setSelectedExamFilter] = useState<string>("");
+
+  useEffect(() => {
+    async function loadStats() {
+      try {
+        const url = selectedExamFilter
+          ? `/api/stats?examId=${selectedExamFilter}`
+          : "/api/stats";
+        const res = await fetch(url);
+        const data = await res.json();
+        setStats(data.stats);
+        setMastery(data.mastery || []);
+        setRecentSessions(data.recentSessions || []);
+        setWeakTopics(data.weakTopics || []);
+      } catch {
+        // ignore
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadStats();
+  }, [selectedExamFilter]);
+
+  const formatTime = (seconds: number) => {
+    if (!seconds) return "0:00";
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  };
+
+  const formatDate = (dateStr: string) => {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  if (isLoading) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="bg-white rounded-xl p-6 h-24 shimmer" />
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[1, 2].map((i) => (
+            <div key={i} className="bg-white rounded-xl p-6 h-64 shimmer" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (!stats || stats.totalSessions === 0) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+        <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
+          <div className="text-6xl mb-6">📚</div>
+          <h2 className="text-2xl font-bold text-slate-800 mb-3">
+            No Quiz Data Yet
+          </h2>
+          <p className="text-slate-500 mb-6">
+            Take your first quiz to see your dashboard with progress tracking,
+            streaks, and performance analytics!
+          </p>
+          <a
+            href="/"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg"
+          >
+            Start Your First Quiz
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-800">Your Dashboard</h1>
+          <p className="text-slate-500 text-sm mt-1">
+            Track your preparation progress across all exams
+          </p>
+        </div>
+        <a
+          href="/"
+          className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700"
+        >
+          New Quiz
+        </a>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
+          <div className="text-sm text-slate-500 mb-1">Total Quizzes</div>
+          <div className="text-3xl font-bold text-slate-800">
+            {stats.totalSessions}
+          </div>
+        </div>
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
+          <div className="text-sm text-slate-500 mb-1">Questions Solved</div>
+          <div className="text-3xl font-bold text-indigo-600">
+            {stats.totalQuestions}
+          </div>
+        </div>
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
+          <div className="text-sm text-slate-500 mb-1">Accuracy</div>
+          <div className="text-3xl font-bold text-emerald-600">
+            {stats.accuracy}%
+          </div>
+          <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
+            <div
+              className="bg-emerald-500 h-2 rounded-full animate-progress"
+              style={{ width: `${stats.accuracy}%` }}
+            />
+          </div>
+        </div>
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 streak-pulse">
+          <div className="text-sm text-slate-500 mb-1">Day Streak</div>
+          <div className="text-3xl font-bold text-amber-500">
+            {stats.streak}
+          </div>
+          <div className="text-xs text-slate-400 mt-1">
+            {stats.streak > 0 ? "Keep it up!" : "Start your streak!"}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Exam-wise Breakdown */}
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">
+            Exam-wise Performance
+          </h3>
+          {stats.examBreakdown.length === 0 ? (
+            <p className="text-slate-400 text-sm">No exam data yet</p>
+          ) : (
+            <div className="space-y-3">
+              {stats.examBreakdown.map((eb) => {
+                const exam = getExamById(eb.exam_id);
+                const accuracy =
+                  eb.questions > 0
+                    ? Math.round((eb.correct / eb.questions) * 100)
+                    : 0;
+                return (
+                  <div key={eb.exam_id} className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0"
+                      style={{
+                        backgroundColor: (exam?.color || "#6366f1") + "20",
+                      }}
+                    >
+                      {exam?.icon || "📝"}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-slate-700 truncate">
+                          {exam?.name || eb.exam_id}
+                        </span>
+                        <span className="text-sm font-bold text-slate-800">
+                          {accuracy}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-slate-100 rounded-full h-2 mt-1">
+                        <div
+                          className="h-2 rounded-full animate-progress"
+                          style={{
+                            width: `${accuracy}%`,
+                            backgroundColor: exam?.color || "#6366f1",
+                          }}
+                        />
+                      </div>
+                      <div className="text-xs text-slate-400 mt-1">
+                        {eb.sessions} quizzes | {eb.questions} questions
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Weak Topics */}
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">
+            Topics to Improve
+          </h3>
+          {mastery.length === 0 ? (
+            <p className="text-slate-400 text-sm">
+              Complete more quizzes to see weak areas
+            </p>
+          ) : (
+            <div className="space-y-3">
+              {mastery
+                .filter((m) => m.mastery_score < 80)
+                .slice(0, 6)
+                .map((m, idx) => {
+                  const exam = getExamById(m.exam_id);
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-100"
+                    >
+                      <div>
+                        <div className="text-sm font-medium text-slate-700">
+                          {m.topic}
+                        </div>
+                        <div className="text-xs text-slate-400">
+                          {exam?.name} | {m.total_attempted} questions
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div
+                          className={`text-lg font-bold ${
+                            m.mastery_score < 50
+                              ? "text-red-600"
+                              : "text-amber-600"
+                          }`}
+                        >
+                          {Math.round(m.mastery_score)}%
+                        </div>
+                        <a
+                          href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
+                          className="text-xs text-indigo-600 hover:underline"
+                        >
+                          Practice
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          )}
+        </div>
+
+        {/* Recent Sessions */}
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">
+            Recent Quizzes
+          </h3>
+          {recentSessions.length === 0 ? (
+            <p className="text-slate-400 text-sm">No quizzes taken yet</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left text-slate-500 border-b border-slate-100">
+                    <th className="pb-3 font-medium">Exam</th>
+                    <th className="pb-3 font-medium">Topic</th>
+                    <th className="pb-3 font-medium text-center">Score</th>
+                    <th className="pb-3 font-medium text-center">Time</th>
+                    <th className="pb-3 font-medium text-right">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recentSessions.map((s: any) => {
+                    const exam = getExamById(s.exam_id);
+                    const accuracy =
+                      s.total_questions > 0
+                        ? Math.round(
+                            (s.correct_answers / s.total_questions) * 100
+                          )
+                        : 0;
+                    return (
+                      <tr
+                        key={s.id}
+                        className="border-b border-slate-50 hover:bg-slate-50"
+                      >
+                        <td className="py-3">
+                          <span className="font-medium text-slate-700">
+                            {exam?.name || s.exam_id}
+                          </span>
+                        </td>
+                        <td className="py-3 text-slate-600">{s.topic}</td>
+                        <td className="py-3 text-center">
+                          <span
+                            className={`inline-block px-2 py-1 rounded-full text-xs font-bold ${
+                              accuracy >= 80
+                                ? "bg-emerald-100 text-emerald-700"
+                                : accuracy >= 50
+                                  ? "bg-amber-100 text-amber-700"
+                                  : "bg-red-100 text-red-700"
+                            }`}
+                          >
+                            {s.correct_answers}/{s.total_questions} ({accuracy}
+                            %)
+                          </span>
+                        </td>
+                        <td className="py-3 text-center text-slate-500">
+                          {formatTime(s.time_taken_seconds)}
+                        </td>
+                        <td className="py-3 text-right text-slate-400 text-xs">
+                          {formatDate(s.created_at)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

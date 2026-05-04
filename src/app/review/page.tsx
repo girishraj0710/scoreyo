@@ -1,0 +1,187 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useLocale } from "@/context/locale-context";
+import { getExamById } from "@/lib/exams";
+
+interface ReviewTopic {
+  exam_id: string;
+  subject_id: string;
+  topic: string;
+  total_attempted: number;
+  total_correct: number;
+  mastery_score: number;
+  last_attempted: string;
+  next_review: string;
+}
+
+export default function ReviewPage() {
+  const { t } = useLocale();
+  const [overdue, setOverdue] = useState<ReviewTopic[]>([]);
+  const [dueToday, setDueToday] = useState<ReviewTopic[]>([]);
+  const [upcoming, setUpcoming] = useState<ReviewTopic[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/review")
+      .then((r) => r.json())
+      .then((data) => {
+        setOverdue(data.overdue || []);
+        setDueToday(data.dueToday || []);
+        setUpcoming(data.upcoming || []);
+      })
+      .catch(() => {})
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+  };
+
+  const totalDue = overdue.length + dueToday.length;
+
+  if (isLoading) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="space-y-4">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="bg-white rounded-xl p-6 h-24 shimmer" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const TopicCard = ({ topic, urgency }: { topic: ReviewTopic; urgency: "overdue" | "today" | "upcoming" }) => {
+    const exam = getExamById(topic.exam_id);
+    const mastery = Math.round(topic.mastery_score);
+    const masteryColor = mastery >= 70 ? "text-emerald-600" : mastery >= 50 ? "text-amber-600" : "text-red-600";
+    const masteryBg = mastery >= 70 ? "bg-emerald-500" : mastery >= 50 ? "bg-amber-500" : "bg-red-500";
+
+    return (
+      <div className={`bg-white rounded-xl p-4 border-2 ${
+        urgency === "overdue" ? "border-red-200" : urgency === "today" ? "border-amber-200" : "border-slate-200"
+      }`}>
+        <div className="flex items-center justify-between">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-lg">{exam?.icon || "📝"}</span>
+              <span className="text-sm font-medium text-indigo-600">{exam?.name || topic.exam_id}</span>
+            </div>
+            <h3 className="font-semibold text-slate-800 truncate">{topic.topic}</h3>
+            <div className="flex items-center gap-3 mt-1 text-xs text-slate-400">
+              <span>{topic.total_attempted} {t("questionsAttempted")}</span>
+              <span>|</span>
+              <span>{t("lastPracticed")}: {formatDate(topic.last_attempted)}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 ml-4">
+            {/* Mastery Score */}
+            <div className="text-center">
+              <div className={`text-2xl font-bold ${masteryColor}`}>{mastery}%</div>
+              <div className="text-xs text-slate-400">{t("mastery")}</div>
+              <div className="w-16 bg-slate-100 rounded-full h-1.5 mt-1">
+                <div className={`${masteryBg} h-1.5 rounded-full`} style={{ width: `${mastery}%` }} />
+              </div>
+            </div>
+
+            {/* Review Button */}
+            <a
+              href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topic.topic)}&count=5&difficulty=mixed`}
+              className={`px-4 py-2 text-sm font-medium rounded-lg text-white shrink-0 ${
+                urgency === "overdue"
+                  ? "bg-red-500 hover:bg-red-600"
+                  : urgency === "today"
+                    ? "bg-amber-500 hover:bg-amber-600"
+                    : "bg-indigo-500 hover:bg-indigo-600"
+              }`}
+            >
+              {t("reviewNow")}
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-slate-800">{t("reviewTitle")}</h1>
+        <p className="text-slate-500 text-sm mt-1">{t("reviewSubtitle")}</p>
+        {totalDue > 0 && (
+          <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full">
+            <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+            <span className="text-sm font-medium text-amber-700">
+              {totalDue} {t("topicsDueForReview")}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Empty State */}
+      {overdue.length === 0 && dueToday.length === 0 && upcoming.length === 0 && (
+        <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200 text-center">
+          <div className="text-6xl mb-4">🎉</div>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">{t("allCaughtUp")}</h2>
+          <p className="text-slate-500 mb-6">{t("noReviewsDesc")}</p>
+          <a
+            href="/"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg"
+          >
+            {t("startQuiz")} →
+          </a>
+        </div>
+      )}
+
+      {/* Overdue Section */}
+      {overdue.length > 0 && (
+        <section className="mb-8">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-red-600 mb-3">
+            <span className="w-3 h-3 bg-red-500 rounded-full" />
+            {t("overdueTopics")} ({overdue.length})
+          </h2>
+          <div className="space-y-3">
+            {overdue.map((topic, idx) => (
+              <TopicCard key={idx} topic={topic} urgency="overdue" />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Due Today Section */}
+      {dueToday.length > 0 && (
+        <section className="mb-8">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-amber-600 mb-3">
+            <span className="w-3 h-3 bg-amber-500 rounded-full" />
+            {t("dueTodayTopics")} ({dueToday.length})
+          </h2>
+          <div className="space-y-3">
+            {dueToday.map((topic, idx) => (
+              <TopicCard key={idx} topic={topic} urgency="today" />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Upcoming Section */}
+      {upcoming.length > 0 && (
+        <section className="mb-8">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-slate-600 mb-3">
+            <span className="w-3 h-3 bg-indigo-400 rounded-full" />
+            {t("upcomingTopics")} ({upcoming.length})
+          </h2>
+          <div className="space-y-3">
+            {upcoming.map((topic, idx) => (
+              <TopicCard key={idx} topic={topic} urgency="upcoming" />
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}
