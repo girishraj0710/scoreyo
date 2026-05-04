@@ -13,18 +13,18 @@ export async function GET(request: NextRequest) {
   const examId = request.nextUrl.searchParams.get("examId");
 
   try {
-    const stats = getUserStats(userId);
-    const recentSessions = getRecentSessions(userId, 20);
-    const reviewTopics = getTopicsForReview(userId);
+    const stats = await getUserStats(userId);
+    const recentSessions = await getRecentSessions(userId, 20);
+    const reviewTopics = await getTopicsForReview(userId);
 
     let mastery: any[] = [];
     let weakTopics: any[] = [];
 
     if (examId) {
-      mastery = getTopicMastery(userId, examId);
-      weakTopics = getWeakTopics(userId, examId, 5);
+      mastery = await getTopicMastery(userId, examId);
+      weakTopics = await getWeakTopics(userId, examId, 5);
     } else {
-      mastery = getAllMastery(userId);
+      mastery = await getAllMastery(userId);
     }
 
     return NextResponse.json({

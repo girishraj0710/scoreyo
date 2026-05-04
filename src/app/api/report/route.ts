@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     const userId = request.cookies.get("prepgenie-user-id")?.value || "default-user";
-    saveReport(
+    await saveReport(
       userId,
       examId || "",
       subjectId || "",

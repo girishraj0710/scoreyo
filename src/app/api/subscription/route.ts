@@ -11,10 +11,10 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Not logged in" }, { status: 401 });
     }
 
-    const isPro = isProUser(userId);
-    const subscription = getUserSubscription(userId);
-    const todayQuizCount = getTodayQuizCount(userId);
-    const paymentHistory = getPaymentHistory(userId);
+    const isPro = await isProUser(userId);
+    const subscription = await getUserSubscription(userId);
+    const todayQuizCount = await getTodayQuizCount(userId);
+    const paymentHistory = await getPaymentHistory(userId);
 
     return NextResponse.json({
       isPro,

@@ -81,9 +81,9 @@ export async function PUT(request: NextRequest) {
     }
 
     // Activate subscription
-    createSubscription(userId, plan, planDetails.amount, razorpay_payment_id, razorpay_order_id);
+    await createSubscription(userId, plan, planDetails.amount, razorpay_payment_id, razorpay_order_id);
 
-    const subscription = getUserSubscription(userId);
+    const subscription = await getUserSubscription(userId);
 
     return NextResponse.json({
       success: true,

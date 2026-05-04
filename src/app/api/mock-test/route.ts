@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
   }
 
   if (action === "resume") {
-    const inProgress = getInProgressMockTest(userId);
+    const inProgress = await getInProgressMockTest(userId);
     if (inProgress) {
       return NextResponse.json({ mockTest: inProgress });
     }
@@ -49,13 +49,13 @@ export async function GET(request: NextRequest) {
   if (action === "result") {
     const testId = request.nextUrl.searchParams.get("id");
     if (!testId) return NextResponse.json({ error: "Missing test ID" }, { status: 400 });
-    const test = getMockTest(testId, userId);
+    const test = await getMockTest(testId, userId);
     if (!test) return NextResponse.json({ error: "Test not found" }, { status: 404 });
     return NextResponse.json({ mockTest: test });
   }
 
   // Default: return history
-  const history = getUserMockTests(userId);
+  const history = await getUserMockTests(userId);
   return NextResponse.json({ history });
 }
 
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Only Pro users can take mock tests
-    if (!isProUser(userId)) {
+    if (!(await isProUser(userId))) {
       return NextResponse.json(
         { error: "Mock tests are a Pro feature. Upgrade to access.", proRequired: true },
         { status: 403 }
@@ -103,10 +103,10 @@ export async function POST(request: NextRequest) {
       const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
       // Get from cache
-      const cached = getCachedQuestions(examId, section.subjectId, randomTopic, "mixed", needed);
+      const cached = await getCachedQuestions(examId, section.subjectId, randomTopic, "mixed", needed);
       if (cached.length > 0) {
         const cacheIds = cached.map((q: any) => q._cacheId).filter(Boolean);
-        if (cacheIds.length > 0) markCachedQuestionsUsed(cacheIds);
+        if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
         sectionQuestions = cached.map((q: any) => {
           const { _cacheId, ...rest } = q;
           return { ...rest, subjectId: section.subjectId, subjectName: section.subjectName };
@@ -115,7 +115,6 @@ export async function POST(request: NextRequest) {
 
       // If not enough, get verified questions from various topics
       if (sectionQuestions.length < needed) {
-        const remaining = needed - sectionQuestions.length;
         for (const t of shuffle(topics).slice(0, 5)) {
           const verified = getVerifiedQuestions(examId, section.subjectId, t);
           const shuffled = shuffle(verified);
@@ -144,7 +143,7 @@ export async function POST(request: NextRequest) {
           }
           // Save to cache
           if (aiQuestions.length > 0 && !aiQuestions[0].question.includes("[Service Unavailable]")) {
-            saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+            await saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
           }
         } catch (err) {
           console.error(`[MockTest] AI generation failed for ${section.subjectName}:`, err);
@@ -161,7 +160,7 @@ export async function POST(request: NextRequest) {
     const testId = uuidv4();
     const timeLimitSeconds = config.timeLimitMinutes * 60;
 
-    createMockTest(
+    await createMockTest(
       testId,
       userId,
       examId,
@@ -197,7 +196,7 @@ export async function PUT(request: NextRequest) {
     const body = await request.json();
     const { testId, answers, timeTaken } = body;
 
-    const test = getMockTest(testId, userId);
+    const test = await getMockTest(testId, userId);
     if (!test) {
       return NextResponse.json({ error: "Test not found" }, { status: 404 });
     }
@@ -230,7 +229,7 @@ export async function PUT(request: NextRequest) {
       if (r.isCorrect) sectionResults[r.subjectId].correct++;
     });
 
-    completeMockTest(testId, userId, correct, timeTaken || 0, JSON.stringify(answers));
+    await completeMockTest(testId, userId, correct, timeTaken || 0, JSON.stringify(answers));
 
     return NextResponse.json({
       testId,

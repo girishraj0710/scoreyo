@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   const userId = request.cookies.get(COOKIE_NAME)?.value;
 
   if (userId) {
-    const user = getUser(userId);
+    const user = await getUser(userId);
     if (user) {
       return NextResponse.json({ user });
     }
@@ -32,12 +32,12 @@ export async function POST(request: NextRequest) {
     const cleanEmail = email.toLowerCase().trim();
 
     // Check that the email was verified via OTP
-    if (!isOtpVerified(cleanEmail)) {
+    if (!(await isOtpVerified(cleanEmail))) {
       return NextResponse.json({ error: "Email not verified. Please complete OTP verification first." }, { status: 403 });
     }
 
     // Check if user already exists with this email
-    let user = getUserByEmail(cleanEmail);
+    let user = await getUserByEmail(cleanEmail);
 
     if (user) {
       // Existing user — log them in
@@ -58,8 +58,8 @@ export async function POST(request: NextRequest) {
 
     const id = uuidv4();
     const avatarColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
-    createNewUser(id, name.trim(), cleanEmail, avatarColor);
-    user = getUser(id);
+    await createNewUser(id, name.trim(), cleanEmail, avatarColor);
+    user = await getUser(id);
 
     const response = NextResponse.json({ user, isNewUser: true });
     response.cookies.set(COOKIE_NAME, user!.id as string, {
@@ -90,8 +90,8 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
 
-    updateUserProfile(userId, name.trim(), email?.trim() || "");
-    const user = getUser(userId);
+    await updateUserProfile(userId, name.trim(), email?.trim() || "");
+    const user = await getUser(userId);
 
     return NextResponse.json({ user });
   } catch (error) {

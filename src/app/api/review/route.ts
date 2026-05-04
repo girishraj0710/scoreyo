@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
   const userId = request.cookies.get("prepgenie-user-id")?.value || "default-user";
 
   try {
-    const summary = getReviewSummary(userId);
+    const summary = await getReviewSummary(userId);
     return NextResponse.json(summary);
   } catch (error) {
     console.error("Review error:", error);

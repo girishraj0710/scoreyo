@@ -9,9 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.3",
     "@openrouter/ai-sdk-provider": "^2.9.0",
     "ai": "^6.0.170",
-    "better-sqlite3": "^12.9.0",
     "lucide-react": "^1.14.0",
     "next": "16.2.4",
     "razorpay": "^2.9.6",
@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

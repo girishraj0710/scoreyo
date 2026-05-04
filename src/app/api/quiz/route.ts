@@ -39,9 +39,9 @@ function backgroundCacheFill(
 ) {
   // Don't await — this runs in the background
   generateQuiz(examFullName, subjectName, topic, count, difficulty as any)
-    .then((questions) => {
+    .then(async (questions) => {
       if (questions.length > 0 && !questions[0].question.includes("[Service Unavailable]")) {
-        const saved = saveCachedQuestions(examId, subjectId, topic, questions);
+        const saved = await saveCachedQuestions(examId, subjectId, topic, questions);
         console.log(`[Cache] Background fill: saved ${saved} new questions for ${topic}`);
       }
     })
@@ -64,8 +64,8 @@ export async function POST(request: NextRequest) {
 
     // Check quiz limit for free users
     const userId = request.cookies.get("prepgenie-user-id")?.value;
-    if (userId && !isProUser(userId)) {
-      const todayCount = getTodayQuizCount(userId);
+    if (userId && !(await isProUser(userId))) {
+      const todayCount = await getTodayQuizCount(userId);
       if (todayCount >= FREE_QUIZ_LIMIT) {
         return NextResponse.json(
           {
@@ -111,7 +111,7 @@ export async function POST(request: NextRequest) {
 
     // ── TIER 2: Cached AI questions (instant) ────────────
     if (remaining > 0) {
-      const cached = getCachedQuestions(examId, subjectId, topic, difficulty, remaining);
+      const cached = await getCachedQuestions(examId, subjectId, topic, difficulty, remaining);
 
       // Filter out questions that match any verified question text (avoid duplicates)
       const verifiedTexts = new Set(verifiedToUse.map((q) => q.question.toLowerCase().trim()));
@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
 
       // Mark them as used (so least-used questions get priority next time)
       if (cacheIds.length > 0) {
-        markCachedQuestionsUsed(cacheIds);
+        await markCachedQuestionsUsed(cacheIds);
       }
 
       // Clean up _cacheId before sending to client
@@ -162,9 +162,7 @@ export async function POST(request: NextRequest) {
     const sessionId = uuidv4();
 
     // ── Background pre-fill cache for next quiz ──────────
-    // If we had to use AI this time, pre-generate more questions in background
-    // so next quiz on this topic is instant
-    const currentCacheCount = getCachedQuestionCount(examId, subjectId, topic);
+    const currentCacheCount = await getCachedQuestionCount(examId, subjectId, topic);
     if (currentCacheCount < 20) {
       backgroundCacheFill(
         exam.fullName,
@@ -243,7 +241,7 @@ export async function PUT(request: NextRequest) {
     });
 
     // Save to database
-    createQuizSession(
+    await createQuizSession(
       sessionId,
       userId,
       examId,
@@ -254,10 +252,10 @@ export async function PUT(request: NextRequest) {
       timeTaken || 0
     );
 
-    saveQuestionAttempts(attempts);
+    await saveQuestionAttempts(attempts);
 
     // Update topic mastery
-    updateTopicMastery(
+    await updateTopicMastery(
       userId,
       examId,
       subjectId,

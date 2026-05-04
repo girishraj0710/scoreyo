@@ -5,11 +5,11 @@ export async function GET(request: NextRequest) {
   const userId = request.cookies.get("prepgenie-user-id")?.value || "default-user";
 
   try {
-    const personalBests = getPersonalBests(userId);
-    const longestStreak = getLongestStreak(userId);
-    const milestones = getMilestones(userId);
-    const leaderboard = getLeaderboard();
-    const stats = getUserStats(userId);
+    const personalBests = await getPersonalBests(userId);
+    const longestStreak = await getLongestStreak(userId);
+    const milestones = await getMilestones(userId);
+    const leaderboard = await getLeaderboard();
+    const stats = await getUserStats(userId);
 
     return NextResponse.json({
       personalBests,

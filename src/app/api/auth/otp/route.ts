@@ -25,16 +25,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    if (action === "verify") {
-      // Verify OTP
-      const { code } = await request.json().catch(() => ({ code: "" }));
-      // code is already in the original body, re-parse won't work
-      // Actually we already parsed body above, let me fix this
-    }
-
     // Generate and save OTP
     const code = generateOtp();
-    saveOtp(cleanEmail, code, 10); // Expires in 10 minutes
+    await saveOtp(cleanEmail, code, 10); // Expires in 10 minutes
 
     // Send email via Resend
     const { error } = await resend.emails.send({
@@ -81,7 +74,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const cleanEmail = email.toLowerCase().trim();
-    const isValid = verifyOtp(cleanEmail, code.trim());
+    const isValid = await verifyOtp(cleanEmail, code.trim());
 
     if (!isValid) {
       return NextResponse.json({ error: "Invalid or expired code. Please try again." }, { status: 400 });

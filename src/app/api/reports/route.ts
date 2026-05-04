@@ -9,15 +9,15 @@ export async function GET(request: NextRequest) {
     }
 
     // Only Pro users get detailed reports
-    if (!isProUser(userId)) {
+    if (!(await isProUser(userId))) {
       return NextResponse.json(
         { error: "Performance reports are a Pro feature. Upgrade to access.", proRequired: true },
         { status: 403 }
       );
     }
 
-    const stats = getUserStats(userId);
-    const performance = getDetailedPerformance(userId);
+    const stats = await getUserStats(userId);
+    const performance = await getDetailedPerformance(userId);
 
     return NextResponse.json({
       stats,
