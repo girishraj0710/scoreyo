@@ -1,19 +1,24 @@
 "use client";
 
+import { useEffect } from "react";
 import { useUser } from "@/context/user-context";
-import { useLocale } from "@/context/locale-context";
+import { InlineLoginForm } from "@/components/inline-login-form";
 
 export function LandingPage() {
   const { setShowLoginModal } = useUser();
-  const { t } = useLocale();
+
+  // Hide the modal popup since we have inline form
+  useEffect(() => {
+    setShowLoginModal(false);
+  }, [setShowLoginModal]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-[1fr,400px] gap-8 items-start">
           {/* Left: Content */}
-          <div>
+          <div className="lg:pr-8">
             <div className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6">
               🎓 Smart Exam Preparation Platform
             </div>
@@ -27,22 +32,6 @@ export function LandingPage() {
               AI-powered practice platform for JEE, NEET, UPSC, SSC, Banking, CAT, GATE & 20+ Indian competitive exams.
               Get personalized quizzes, mock tests, and smart progress tracking to achieve your dream score.
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <button
-                onClick={() => setShowLoginModal(true)}
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all text-lg"
-              >
-                Start Learning Free →
-              </button>
-              <a
-                href="#features"
-                className="px-8 py-4 border-2 border-indigo-200 text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all text-lg text-center"
-              >
-                Learn More
-              </a>
-            </div>
 
             {/* Trust Indicators */}
             <div className="flex items-center gap-6 text-sm text-slate-600">
@@ -61,30 +50,15 @@ export function LandingPage() {
             </div>
           </div>
 
-          {/* Right: Student Illustration/Image */}
-          <div className="relative">
-            <div className="relative bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 shadow-2xl">
-              {/* Placeholder for student image - using emoji illustration for now */}
-              <div className="text-center">
-                <div className="text-9xl mb-4">👨‍🎓</div>
-                <div className="flex justify-center gap-4 mb-4">
-                  <div className="text-5xl">📚</div>
-                  <div className="text-5xl">✅</div>
-                  <div className="text-5xl">🏆</div>
-                </div>
-              </div>
-
-              {/* Floating Stats Cards */}
-              <div className="absolute -top-4 -left-4 bg-white rounded-xl px-4 py-3 shadow-lg">
-                <div className="text-2xl font-bold text-indigo-600">20+</div>
-                <div className="text-xs text-slate-500">Exams</div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-4 py-3 shadow-lg">
-                <div className="text-2xl font-bold text-purple-600">500+</div>
-                <div className="text-xs text-slate-500">Topics</div>
-              </div>
-            </div>
+          {/* Right: Login Form */}
+          <div className="lg:block hidden">
+            <InlineLoginForm />
           </div>
+        </div>
+
+        {/* Mobile Login Form - Below hero on mobile */}
+        <div className="lg:hidden mt-8">
+          <InlineLoginForm />
         </div>
       </section>
 
