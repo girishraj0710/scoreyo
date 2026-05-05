@@ -107,7 +107,6 @@ Where correctAnswer is the 0-based index of the correct option (0 for A, 1 for B
     // Race all models in parallel — first valid response wins
     const result = await Promise.any(
       FREE_MODELS.map(async (modelId) => {
-        console.log(`[PrepGenie] Racing model: ${modelId}`);
         const { text } = await generateText({
           model: openrouter(modelId),
           prompt,
@@ -115,7 +114,6 @@ Where correctAnswer is the 0-based index of the correct option (0 for A, 1 for B
           temperature: 0.5, // Lower temperature for more accurate/deterministic answers
         });
         const questions = parseQuizResponse(text);
-        console.log(`[PrepGenie] Winner: ${modelId} (${questions.length} questions)`);
         return questions;
       })
     );

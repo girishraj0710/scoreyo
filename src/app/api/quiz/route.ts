@@ -41,8 +41,7 @@ function backgroundCacheFill(
   generateQuiz(examFullName, subjectName, topic, count, difficulty as any)
     .then(async (questions) => {
       if (questions.length > 0 && !questions[0].question.includes("[Service Unavailable]")) {
-        const saved = await saveCachedQuestions(examId, subjectId, topic, questions);
-        console.log(`[Cache] Background fill: saved ${saved} new questions for ${topic}`);
+        await saveCachedQuestions(examId, subjectId, topic, questions);
       }
     })
     .catch((err) => {
@@ -174,10 +173,6 @@ export async function POST(request: NextRequest) {
         10
       );
     }
-
-    console.log(
-      `[Quiz] Served ${finalQuestions.length} questions: ${verifiedCount} verified + ${cachedCount} cached + ${aiCount} AI-generated`
-    );
 
     return NextResponse.json({
       sessionId,
