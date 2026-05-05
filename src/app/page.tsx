@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { examCategories, type Exam } from "@/lib/exams";
+import { useUser } from "@/context/user-context";
+import { LandingPage } from "@/components/landing-page";
 
 export default function HomePage() {
+  const { user } = useUser();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
@@ -40,6 +43,12 @@ export default function HomePage() {
   const currentTopics =
     currentSubjects.find((s) => s.id === selectedSubject)?.topics || [];
 
+  // Show landing page if not logged in
+  if (!user) {
+    return <LandingPage />;
+  }
+
+  // Show quiz selection interface for logged-in users
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Hero Section */}
