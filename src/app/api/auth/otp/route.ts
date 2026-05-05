@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const { error } = await resend.emails.send({
-      from: "PrepGenie <onboarding@resend.dev>",
+      from: "PrepGenie <noreply@prepgenie.co.in>",
       to: cleanEmail,
       subject: `${code} is your PrepGenie verification code`,
       html: `
