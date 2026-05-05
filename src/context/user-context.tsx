@@ -40,10 +40,18 @@ export function UserProvider({ children }: { children: ReactNode }) {
       if (data.user) {
         setUser(data.user);
       } else {
-        setShowLoginModal(true);
+        // Only auto-show modal if NOT on homepage (landing page has inline form)
+        const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
+        if (!isHomePage) {
+          setShowLoginModal(true);
+        }
       }
     } catch {
-      setShowLoginModal(true);
+      // Only auto-show modal if NOT on homepage
+      const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
+      if (!isHomePage) {
+        setShowLoginModal(true);
+      }
     } finally {
       setIsLoading(false);
     }

@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
-import { useUser } from "@/context/user-context";
 import { InlineLoginForm } from "@/components/inline-login-form";
 
 export function LandingPage() {
-  const { setShowLoginModal } = useUser();
-
-  // Hide the modal popup since we have inline form
-  useEffect(() => {
-    setShowLoginModal(false);
-  }, [setShowLoginModal]);
+  const scrollToForm = () => {
+    const formElement = document.getElementById("signup-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Focus the email input
+      const emailInput = formElement.querySelector("input[type='email']") as HTMLInputElement;
+      if (emailInput) {
+        setTimeout(() => emailInput.focus(), 500);
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
@@ -51,13 +54,13 @@ export function LandingPage() {
           </div>
 
           {/* Right: Login Form */}
-          <div className="lg:block hidden">
+          <div className="lg:block hidden" id="signup-form">
             <InlineLoginForm />
           </div>
         </div>
 
         {/* Mobile Login Form - Below hero on mobile */}
-        <div className="lg:hidden mt-8">
+        <div className="lg:hidden mt-8" id="signup-form">
           <InlineLoginForm />
         </div>
       </section>
@@ -97,10 +100,10 @@ export function LandingPage() {
 
           <div className="text-center mt-8">
             <button
-              onClick={() => setShowLoginModal(true)}
+              onClick={scrollToForm}
               className="text-indigo-600 font-semibold hover:text-indigo-700"
             >
-              View all 20+ exams →
+              Sign up to view all 20+ exams →
             </button>
           </div>
         </div>
@@ -234,7 +237,7 @@ export function LandingPage() {
                 </li>
               </ul>
               <button
-                onClick={() => setShowLoginModal(true)}
+                onClick={scrollToForm}
                 className="w-full py-3 border-2 border-indigo-200 text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all"
               >
                 Start Free
@@ -276,7 +279,7 @@ export function LandingPage() {
                 </li>
               </ul>
               <button
-                onClick={() => setShowLoginModal(true)}
+                onClick={scrollToForm}
                 className="w-full py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all"
               >
                 Start Free Trial
@@ -296,7 +299,7 @@ export function LandingPage() {
             Join thousands of students who are mastering their competitive exams with PrepGenie
           </p>
           <button
-            onClick={() => setShowLoginModal(true)}
+            onClick={scrollToForm}
             className="px-8 py-4 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 shadow-xl hover:shadow-2xl transition-all text-lg"
           >
             Get Started Free →
