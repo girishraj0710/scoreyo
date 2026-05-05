@@ -59,5 +59,5 @@ TURSO_AUTH_TOKEN=...
 - ✅ Phase 2: OTP email auth, bilingual support
 - ✅ Phase 3: Razorpay payments, mock tests, performance reports
 - ✅ Database migrated from local SQLite to Turso (cloud)
-- ⏳ Next: Deploy to Vercel
-- ⏳ Later: Mobile app (Capacitor), Resend custom domain
+- ✅ Deployed to Vercel: https://prepgenie-ashen.vercel.app
+- ⏳ Later: Custom domain, mobile app (Capacitor), Resend custom domain
