@@ -3,14 +3,15 @@
 import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
+import { Mail, Smartphone, X } from "lucide-react";
 
-type Step = "email" | "otp" | "name";
+type Step = "method" | "email" | "otp" | "name";
 
 export function LoginModal() {
-  const { user, showLoginModal, sendOtp, verifyOtp, completeLogin } = useUser();
+  const { user, showLoginModal, setShowLoginModal, sendOtp, verifyOtp, completeLogin } = useUser();
   const { t } = useLocale();
 
-  const [step, setStep] = useState<Step>("email");
+  const [step, setStep] = useState<Step>("method");
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [name, setName] = useState("");
@@ -26,6 +27,34 @@ export function LoginModal() {
     const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
     return () => clearTimeout(timer);
   }, [countdown]);
+
+  // Reset step when modal is closed/opened
+  useEffect(() => {
+    if (showLoginModal) {
+      setStep("method");
+      setEmail("");
+      setOtp(["", "", "", "", "", ""]);
+      setName("");
+      setError("");
+    }
+  }, [showLoginModal]);
+
+  // Close on escape key and prevent body scroll
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && showLoginModal) {
+        setShowLoginModal(false);
+      }
+    };
+    if (showLoginModal) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [showLoginModal, setShowLoginModal]);
 
   if (!showLoginModal || user) return null;
 
@@ -163,58 +192,124 @@ export function LoginModal() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4">
-      <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl">
-        {/* Logo */}
-        <div className="text-center mb-6">
-          <div className="w-14 h-14 mx-auto mb-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
-            P
-          </div>
-          <h2 className="text-xl font-bold text-slate-800">{t("welcomeTo")}</h2>
-        </div>
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[100] p-4 animate-fade-in">
+      {/* Backdrop - click to close */}
+      <div
+        className="absolute inset-0"
+        onClick={() => setShowLoginModal(false)}
+      />
 
-        {/* Step 1: Email */}
-        {step === "email" && (
-          <form onSubmit={handleSendOtp}>
-            <p className="text-sm text-slate-500 text-center mb-5">
-              Enter your email to sign in or create an account
+      {/* Modal */}
+      <div className="relative bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in">
+        {/* Close Button */}
+        <button
+          onClick={() => setShowLoginModal(false)}
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+        >
+          <X size={20} />
+        </button>
+
+        {/* Method Selection Step */}
+        {step === "method" && (
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">
+              Log in or sign up in seconds
+            </h2>
+            <p className="text-slate-600 mb-8">
+              Use your email or another service to continue with PrepGenie (it's free)!
             </p>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-slate-700 mb-1">
-                Email Address
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => { setEmail(e.target.value); setError(""); }}
-                placeholder="you@example.com"
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl text-sm focus:outline-none focus:border-indigo-500"
-                autoFocus
-                required
-              />
+
+            {/* Login Options */}
+            <div className="space-y-3">
+              {/* Email Option */}
+              <button
+                onClick={() => setStep("email")}
+                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-left group"
+              >
+                <Mail className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
+                <span className="font-medium text-slate-800">Continue with email</span>
+              </button>
+
+              {/* Phone Option (Coming Soon) */}
+              <button
+                disabled
+                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 rounded-xl opacity-50 cursor-not-allowed text-left"
+              >
+                <Smartphone className="w-5 h-5 text-slate-600" />
+                <span className="font-medium text-slate-800">Continue with phone number</span>
+                <span className="ml-auto text-xs text-slate-400">Soon</span>
+              </button>
             </div>
-            {error && (
-              <p className="text-red-500 text-xs mb-3 text-center">{error}</p>
-            )}
-            <button
-              type="submit"
-              disabled={!email.trim() || isSubmitting}
-              className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg disabled:opacity-50 text-sm"
-            >
-              {isSubmitting ? "Sending code..." : "Send Verification Code"}
-            </button>
-          </form>
+
+            <div className="mt-8 pt-6 border-t border-slate-200 text-center">
+              <p className="text-xs text-slate-500">
+                By continuing, you agree to PrepGenie's{" "}
+                <a href="/terms" className="text-indigo-600 hover:underline">Terms of Use</a>.
+                Read our{" "}
+                <a href="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</a>.
+              </p>
+            </div>
+          </div>
         )}
 
-        {/* Step 2: OTP Verification */}
+        {/* Email Input Step */}
+        {step === "email" && (
+          <div>
+            <button
+              onClick={() => setStep("method")}
+              className="mb-4 text-sm text-slate-500 hover:text-slate-700 flex items-center gap-1"
+            >
+              ← Back
+            </button>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Continue with email
+            </h2>
+            <p className="text-slate-600 mb-6">
+              We'll send you a verification code
+            </p>
+
+            <form onSubmit={handleSendOtp} className="space-y-4">
+              <div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl text-base focus:outline-none focus:border-indigo-500 transition-colors"
+                  autoFocus
+                  required
+                />
+              </div>
+              {error && (
+                <p className="text-red-500 text-sm">{error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={!email.trim() || isSubmitting}
+                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending..." : "Continue"}
+              </button>
+            </form>
+          </div>
+        )}
+
+        {/* OTP Verification Step */}
         {step === "otp" && (
           <div>
-            <p className="text-sm text-slate-500 text-center mb-1">
-              We sent a 6-digit code to
+            <button
+              onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
+              className="mb-4 text-sm text-slate-500 hover:text-slate-700 flex items-center gap-1"
+            >
+              ← Back
+            </button>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Enter verification code
+            </h2>
+            <p className="text-slate-600 mb-1">
+              We sent a code to
             </p>
-            <p className="text-sm font-semibold text-indigo-600 text-center mb-5">
-              {email}
-            </p>
+            <p className="text-indigo-600 font-medium mb-6">{email}</p>
 
             {/* OTP Input Boxes */}
             <div className="flex justify-center gap-2 mb-4" onPaste={handleOtpPaste}>
@@ -228,28 +323,28 @@ export function LoginModal() {
                   value={digit}
                   onChange={(e) => handleOtpChange(idx, e.target.value)}
                   onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                  className={`w-12 h-14 text-center text-xl font-bold border-2 rounded-xl focus:outline-none transition-colors ${
+                  className={`w-12 h-14 text-center text-xl font-bold border-2 rounded-xl focus:outline-none transition-all ${
                     digit
                       ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                      : "border-slate-200 text-slate-800"
-                  } focus:border-indigo-500`}
+                      : "border-slate-200 text-slate-800 focus:border-indigo-500"
+                  }`}
                 />
               ))}
             </div>
 
             {error && (
-              <p className="text-red-500 text-xs mb-3 text-center">{error}</p>
+              <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
             )}
 
             {isSubmitting && (
-              <p className="text-indigo-600 text-sm text-center mb-3">Verifying...</p>
+              <p className="text-indigo-600 text-sm text-center mb-4">Verifying...</p>
             )}
 
             {/* Resend */}
-            <div className="text-center mt-4">
+            <div className="text-center mt-6">
               {countdown > 0 ? (
-                <p className="text-xs text-slate-400">
-                  Resend code in <span className="font-medium text-slate-600">{countdown}s</span>
+                <p className="text-sm text-slate-500">
+                  Resend code in <span className="font-medium text-slate-700">{countdown}s</span>
                 </p>
               ) : (
                 <button
@@ -257,62 +352,81 @@ export function LoginModal() {
                   disabled={isSubmitting}
                   className="text-sm text-indigo-600 hover:text-indigo-700 font-medium disabled:opacity-50"
                 >
-                  Resend Code
+                  Resend code
                 </button>
               )}
             </div>
-
-            {/* Change email */}
-            <button
-              onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
-              className="w-full mt-3 py-2 text-xs text-slate-400 hover:text-slate-600"
-            >
-              Change email address
-            </button>
           </div>
         )}
 
-        {/* Step 3: Name (new user) */}
+        {/* Name Input Step */}
         {step === "name" && (
-          <form onSubmit={handleCompleteName}>
-            <div className="text-center mb-4">
-              <div className="w-10 h-10 mx-auto mb-2 bg-emerald-100 rounded-full flex items-center justify-center">
-                <svg className="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+          <div>
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <p className="text-sm text-emerald-600 font-medium">Email verified!</p>
+              <p className="text-emerald-600 font-medium">Email verified!</p>
             </div>
-            <p className="text-sm text-slate-500 text-center mb-5">
-              One last step — tell us your name
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              What's your name?
+            </h2>
+            <p className="text-slate-600 mb-6">
+              We'll use this to personalize your experience
             </p>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-slate-700 mb-1">
-                {t("yourName")}
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => { setName(e.target.value); setError(""); }}
-                placeholder="Enter your name"
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl text-sm focus:outline-none focus:border-indigo-500"
-                autoFocus
-                required
-              />
-            </div>
-            {error && (
-              <p className="text-red-500 text-xs mb-3 text-center">{error}</p>
-            )}
-            <button
-              type="submit"
-              disabled={!name.trim() || isSubmitting}
-              className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg disabled:opacity-50 text-sm"
-            >
-              {isSubmitting ? "Creating account..." : t("startLearning")}
-            </button>
-          </form>
+
+            <form onSubmit={handleCompleteName} className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => { setName(e.target.value); setError(""); }}
+                  placeholder="Enter your name"
+                  className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl text-base focus:outline-none focus:border-indigo-500 transition-colors"
+                  autoFocus
+                  required
+                />
+              </div>
+              {error && (
+                <p className="text-red-500 text-sm">{error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={!name.trim() || isSubmitting}
+                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Creating account..." : "Start learning"}
+              </button>
+            </form>
+          </div>
         )}
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes scale-in {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.15s ease-out;
+        }
+        .animate-scale-in {
+          animation: scale-in 0.2s ease-out;
+        }
+      `}</style>
     </div>
   );
 }
