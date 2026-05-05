@@ -29,6 +29,9 @@ export async function POST(request: NextRequest) {
     const code = generateOtp();
     await saveOtp(cleanEmail, code, 10); // Expires in 10 minutes
 
+    // Log OTP for testing (REMOVE IN PRODUCTION!)
+    console.log(`🔐 OTP for ${cleanEmail}: ${code}`);
+
     // Send email via Resend
     const { error } = await resend.emails.send({
       from: "PrepGenie <onboarding@resend.dev>",
