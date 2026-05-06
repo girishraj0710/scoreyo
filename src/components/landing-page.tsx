@@ -1,27 +1,14 @@
 "use client";
 
-import { InlineLoginForm } from "@/components/inline-login-form";
+import { useUser } from "@/context/user-context";
 
 export function LandingPage() {
-  const scrollToForm = () => {
-    const formElement = document.getElementById("signup-form");
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      const emailInput = formElement.querySelector("input[type='email']") as HTMLInputElement;
-      if (emailInput) {
-        setTimeout(() => emailInput.focus(), 500);
-      }
-    }
-  };
-
+  const { setShowLoginModal } = useUser();
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left: Main Content (takes 2/3 width) */}
-          <div className="flex-1 lg:max-w-[calc(100%-350px)]">
-            {/* Hero Section */}
-            <section className="mb-12">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <section className="mb-12 max-w-4xl mx-auto text-center">
               <div className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6">
                 🎓 Smart Exam Preparation Platform
               </div>
@@ -32,7 +19,7 @@ export function LandingPage() {
                 </span>
               </h1>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                AI-powered practice platform for JEE, NEET, UPSC, SSC, Banking, CAT, GATE & 20+ Indian competitive exams.
+                AI-powered practice platform for JEE, NEET, UPSC, SSC, Banking, CAT, GATE & 50+ Indian competitive exams.
                 Get personalized quizzes, mock tests, and smart progress tracking to achieve your dream score.
               </p>
 
@@ -58,19 +45,96 @@ export function LandingPage() {
                 </div>
               </div>
 
-              {/* CTA for Mobile */}
-              <div className="lg:hidden">
-                <button
-                  onClick={scrollToForm}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all text-lg"
-                >
-                  Get Started Free →
-                </button>
-              </div>
-            </section>
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for exams, subjects, topics..."
+                className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
+              />
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
-            {/* Exams Covered Section */}
-            <section className="mb-12">
+          {/* CTA Button */}
+          <div className="flex justify-center mb-8">
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-lg rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+            >
+              Get Started Free →
+            </button>
+          </div>
+
+          {/* Real Content Stats */}
+          <div className="flex flex-wrap justify-center gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-indigo-600">60</div>
+              <div className="text-sm text-slate-600">Major Exams</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-indigo-600">209</div>
+              <div className="text-sm text-slate-600">Subjects Covered</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-indigo-600">1,870+</div>
+              <div className="text-sm text-slate-600">Practice Topics</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Flow Section */}
+        <section className="mb-12 max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
+            <h2 className="text-2xl font-bold text-center mb-8">Your Path to Success</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-slate-800 mb-1">Learn</h3>
+                <p className="text-sm text-slate-600">Access expert content</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-slate-800 mb-1">Practice</h3>
+                <p className="text-sm text-slate-600">Solve daily quizzes</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-slate-800 mb-1">Improve</h3>
+                <p className="text-sm text-slate-600">Track progress</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-slate-800 mb-1">Succeed</h3>
+                <p className="text-sm text-slate-600">Crack your exam</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Exams Covered Section */}
+        <section className="mb-12 max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Exams We Cover
               </h2>
@@ -103,19 +167,19 @@ export function LandingPage() {
                 ))}
               </div>
 
-              <div className="text-center mt-6">
-                <button
-                  onClick={scrollToForm}
-                  className="text-indigo-600 font-semibold hover:text-indigo-700 text-sm"
-                >
-                  Sign up to view all 20+ exams →
-                </button>
-              </div>
-            </section>
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="text-indigo-600 font-semibold hover:text-indigo-700 text-sm"
+            >
+              Sign up to view all 60 exams →
+            </button>
+          </div>
+        </section>
 
-            {/* Features Section */}
-            <section className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        {/* Features Section */}
+        <section className="mb-12 max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Why Students Choose PrepGenie
               </h2>
               <p className="text-slate-600 mb-8">
@@ -200,11 +264,149 @@ export function LandingPage() {
                     Practice in English or Hindi. Switch languages anytime to match your comfort level.
                   </p>
                 </div>
-              </div>
-            </section>
+            </div>
+        </section>
 
-            {/* Final CTA */}
-            <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 text-center">
+        {/* Why Choose PrepGenie Section */}
+        <section className="mb-12 max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">
+            Why Students Choose PrepGenie
+          </h2>
+          <p className="text-center text-slate-600 mb-8">Join our growing community of exam aspirants</p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Feature 1 */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200 text-center">
+              <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-md">
+                <div className="text-3xl">📚</div>
+              </div>
+              <h3 className="text-xl font-bold text-indigo-600 mb-2">Expert Content</h3>
+              <p className="text-sm text-slate-600">Questions curated from NCERT, previous year papers & standard textbooks</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-200 text-center">
+              <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-md">
+                <div className="text-3xl">🎯</div>
+              </div>
+              <h3 className="text-xl font-bold text-emerald-600 mb-2">Smart Practice</h3>
+              <p className="text-sm text-slate-600">AI-powered quizzes, spaced repetition & personalized recommendations</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200 text-center">
+              <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-md">
+                <div className="text-3xl">📊</div>
+              </div>
+              <h3 className="text-xl font-bold text-purple-600 mb-2">Track Progress</h3>
+              <p className="text-sm text-slate-600">Detailed analytics, performance reports & weakness analysis</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Upcoming Exam Calendar Section */}
+        <section className="mb-12 max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Upcoming Exam Calendar</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Exam Card 1 */}
+            <div className="bg-white rounded-xl p-5 border-2 border-amber-200 hover:border-amber-400 transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-2xl">📅</div>
+                <div>
+                  <h3 className="font-bold text-slate-800">JEE Main 2026</h3>
+                  <p className="text-xs text-slate-500">Session 1</p>
+                </div>
+              </div>
+              <div className="bg-amber-50 rounded-lg px-3 py-2 text-center">
+                <div className="text-xs text-amber-700 font-medium">Exam Date</div>
+                <div className="text-lg font-bold text-amber-900">22nd Jan 2026</div>
+              </div>
+            </div>
+
+            {/* Exam Card 2 */}
+            <div className="bg-white rounded-xl p-5 border-2 border-green-200 hover:border-green-400 transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">🩺</div>
+                <div>
+                  <h3 className="font-bold text-slate-800">NEET UG 2026</h3>
+                  <p className="text-xs text-slate-500">Medical Entrance</p>
+                </div>
+              </div>
+              <div className="bg-green-50 rounded-lg px-3 py-2 text-center">
+                <div className="text-xs text-green-700 font-medium">Exam Date</div>
+                <div className="text-lg font-bold text-green-900">5th May 2026</div>
+              </div>
+            </div>
+
+            {/* Exam Card 3 */}
+            <div className="bg-white rounded-xl p-5 border-2 border-blue-200 hover:border-blue-400 transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">📋</div>
+                <div>
+                  <h3 className="font-bold text-slate-800">SSC CGL 2026</h3>
+                  <p className="text-xs text-slate-500">Tier 1</p>
+                </div>
+              </div>
+              <div className="bg-blue-50 rounded-lg px-3 py-2 text-center">
+                <div className="text-xs text-blue-700 font-medium">Exam Date</div>
+                <div className="text-lg font-bold text-blue-900">June 2026</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="text-indigo-600 font-semibold hover:text-indigo-700 text-sm"
+            >
+              View full exam calendar →
+            </button>
+          </div>
+        </section>
+
+        {/* Mobile App Section */}
+        <section className="mb-12 max-w-4xl mx-auto bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 md:p-12">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-4">Practice Anytime, Anywhere</h2>
+            <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+              Download PrepGenie mobile app and prepare for your exams on the go. Available on Android and iOS.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <a href="#" className="inline-block">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-12" />
+              </a>
+              <a href="#" className="inline-block">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="h-12" />
+              </a>
+            </div>
+
+            <div className="flex justify-center gap-6 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Offline Access</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Daily Notifications</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Progress Sync</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 text-center max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">
                 Ready to Start Your Success Journey?
               </h2>
@@ -212,27 +414,13 @@ export function LandingPage() {
                 Join thousands of students mastering their competitive exams
               </p>
               <button
-                onClick={scrollToForm}
+                onClick={() => setShowLoginModal(true)}
                 className="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 shadow-xl hover:shadow-2xl transition-all"
               >
                 Get Started Free →
               </button>
-              <p className="text-indigo-100 text-xs mt-3">No credit card required • Start in 30 seconds</p>
-            </section>
-          </div>
-
-          {/* Right: Sticky Signup Form (takes fixed width) */}
-          <div className="hidden lg:block w-[330px] flex-shrink-0">
-            <div className="sticky top-8" id="signup-form">
-              <InlineLoginForm />
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Signup Form */}
-        <div className="lg:hidden mt-8" id="signup-form">
-          <InlineLoginForm />
-        </div>
+          <p className="text-indigo-100 text-xs mt-3">No credit card required • Start in 30 seconds</p>
+        </section>
       </div>
     </div>
   );
