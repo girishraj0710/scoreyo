@@ -125,36 +125,154 @@ Requirements:
   }
 }
 
-// Exam configurations
+// Exam configurations - ALL EXAMS
 const EXAMS = {
   'jee-main': {
     name: 'JEE Main',
     subjects: [
-      { id: 'jee-physics', name: 'Physics', topics: ['Mechanics', 'Thermodynamics', 'Electricity'] },
-      { id: 'jee-chemistry', name: 'Chemistry', topics: ['Physical Chemistry', 'Organic Chemistry'] },
-      { id: 'jee-maths', name: 'Mathematics', topics: ['Algebra', 'Calculus', 'Trigonometry'] },
+      { id: 'jee-physics', name: 'Physics', topics: ['Mechanics', 'Thermodynamics', 'Electricity', 'Optics', 'Modern Physics'] },
+      { id: 'jee-chemistry', name: 'Chemistry', topics: ['Physical Chemistry', 'Organic Chemistry', 'Inorganic Chemistry'] },
+      { id: 'jee-maths', name: 'Mathematics', topics: ['Algebra', 'Calculus', 'Trigonometry', 'Coordinate Geometry'] },
+    ],
+  },
+  'jee-advanced': {
+    name: 'JEE Advanced',
+    subjects: [
+      { id: 'jee-adv-physics', name: 'Physics', topics: ['Mechanics', 'Electromagnetism', 'Modern Physics'] },
+      { id: 'jee-adv-chemistry', name: 'Chemistry', topics: ['Physical Chemistry', 'Organic Chemistry', 'Inorganic Chemistry'] },
+      { id: 'jee-adv-maths', name: 'Mathematics', topics: ['Algebra', 'Calculus', 'Coordinate Geometry'] },
     ],
   },
   'neet-ug': {
     name: 'NEET UG',
     subjects: [
-      { id: 'neet-physics', name: 'Physics', topics: ['Mechanics', 'Optics'] },
-      { id: 'neet-chemistry', name: 'Chemistry', topics: ['Organic Chemistry', 'Inorganic Chemistry'] },
-      { id: 'neet-biology', name: 'Biology', topics: ['Cell Biology', 'Genetics', 'Human Physiology'] },
+      { id: 'neet-physics', name: 'Physics', topics: ['Mechanics', 'Optics', 'Electricity', 'Thermodynamics'] },
+      { id: 'neet-chemistry', name: 'Chemistry', topics: ['Organic Chemistry', 'Inorganic Chemistry', 'Physical Chemistry'] },
+      { id: 'neet-biology', name: 'Biology', topics: ['Cell Biology', 'Genetics', 'Human Physiology', 'Plant Physiology', 'Ecology'] },
+    ],
+  },
+  'neet-pg': {
+    name: 'NEET PG',
+    subjects: [
+      { id: 'neet-pg-medicine', name: 'Medicine', topics: ['Internal Medicine', 'Pathology', 'Pharmacology'] },
+      { id: 'neet-pg-surgery', name: 'Surgery', topics: ['General Surgery', 'Orthopedics'] },
     ],
   },
   'upsc-cse': {
     name: 'UPSC CSE',
     subjects: [
-      { id: 'upsc-history', name: 'History', topics: ['Ancient India', 'Modern India'] },
-      { id: 'upsc-polity', name: 'Polity', topics: ['Constitution', 'Governance'] },
+      { id: 'upsc-history', name: 'History', topics: ['Ancient India', 'Medieval India', 'Modern India', 'World History'] },
+      { id: 'upsc-polity', name: 'Polity', topics: ['Constitution', 'Governance', 'Political System'] },
+      { id: 'upsc-geography', name: 'Geography', topics: ['Physical Geography', 'Indian Geography', 'World Geography'] },
+      { id: 'upsc-economy', name: 'Economy', topics: ['Indian Economy', 'Economic Development', 'Government Budgeting'] },
+    ],
+  },
+  'gate': {
+    name: 'GATE CS',
+    subjects: [
+      { id: 'gate-cs', name: 'Computer Science', topics: ['Data Structures', 'Algorithms', 'Operating Systems', 'DBMS', 'Computer Networks'] },
+      { id: 'gate-aptitude', name: 'General Aptitude', topics: ['Verbal Ability', 'Numerical Ability'] },
+      { id: 'gate-engineering-math', name: 'Engineering Mathematics', topics: ['Linear Algebra', 'Calculus', 'Probability'] },
     ],
   },
   'ssc-cgl': {
     name: 'SSC CGL',
     subjects: [
+      { id: 'ssc-quant', name: 'Quantitative Aptitude', topics: ['Arithmetic', 'Algebra', 'Geometry', 'Trigonometry'] },
+      { id: 'ssc-reasoning', name: 'Reasoning', topics: ['Logical Reasoning', 'Verbal Reasoning', 'Non-Verbal Reasoning'] },
+      { id: 'ssc-english', name: 'English', topics: ['Grammar', 'Vocabulary', 'Comprehension'] },
+      { id: 'ssc-gk', name: 'General Knowledge', topics: ['History', 'Geography', 'Current Affairs', 'Science'] },
+    ],
+  },
+  'ssc-chsl': {
+    name: 'SSC CHSL',
+    subjects: [
       { id: 'ssc-quant', name: 'Quantitative Aptitude', topics: ['Arithmetic', 'Algebra'] },
       { id: 'ssc-reasoning', name: 'Reasoning', topics: ['Logical Reasoning', 'Verbal Reasoning'] },
+      { id: 'ssc-english', name: 'English', topics: ['Grammar', 'Vocabulary'] },
+      { id: 'ssc-gk', name: 'General Knowledge', topics: ['Current Affairs', 'General Science'] },
+    ],
+  },
+  'ibps-po': {
+    name: 'IBPS PO',
+    subjects: [
+      { id: 'ibps-quant', name: 'Quantitative Aptitude', topics: ['Arithmetic', 'Data Interpretation'] },
+      { id: 'ibps-reasoning', name: 'Reasoning', topics: ['Logical Reasoning', 'Puzzles'] },
+      { id: 'ibps-english', name: 'English', topics: ['Grammar', 'Reading Comprehension'] },
+      { id: 'ibps-gk', name: 'General Awareness', topics: ['Banking Awareness', 'Current Affairs'] },
+    ],
+  },
+  'sbi-po': {
+    name: 'SBI PO',
+    subjects: [
+      { id: 'sbi-quant', name: 'Quantitative Aptitude', topics: ['Arithmetic', 'Data Interpretation'] },
+      { id: 'sbi-reasoning', name: 'Reasoning', topics: ['Logical Reasoning', 'Puzzles'] },
+      { id: 'sbi-english', name: 'English', topics: ['Grammar', 'Reading Comprehension'] },
+      { id: 'sbi-gk', name: 'General Awareness', topics: ['Banking Awareness', 'Current Affairs'] },
+    ],
+  },
+  'cat': {
+    name: 'CAT',
+    subjects: [
+      { id: 'cat-quant', name: 'Quantitative Aptitude', topics: ['Arithmetic', 'Algebra', 'Geometry'] },
+      { id: 'cat-varc', name: 'Verbal Ability & RC', topics: ['Reading Comprehension', 'Verbal Ability'] },
+      { id: 'cat-dilr', name: 'Data Interpretation & LR', topics: ['Data Interpretation', 'Logical Reasoning'] },
+    ],
+  },
+  'xat': {
+    name: 'XAT',
+    subjects: [
+      { id: 'xat-quant', name: 'Quantitative Aptitude', topics: ['Arithmetic', 'Algebra'] },
+      { id: 'xat-verbal', name: 'Verbal Ability', topics: ['Reading Comprehension', 'Grammar'] },
+      { id: 'xat-decision', name: 'Decision Making', topics: ['Situational Judgment', 'Ethics'] },
+    ],
+  },
+  'clat': {
+    name: 'CLAT',
+    subjects: [
+      { id: 'clat-english', name: 'English', topics: ['Grammar', 'Comprehension'] },
+      { id: 'clat-gk', name: 'Current Affairs & GK', topics: ['Current Affairs', 'Static GK'] },
+      { id: 'clat-legal', name: 'Legal Reasoning', topics: ['Legal Principles', 'Case Studies'] },
+      { id: 'clat-logical', name: 'Logical Reasoning', topics: ['Logical Puzzles', 'Critical Reasoning'] },
+    ],
+  },
+  'nda': {
+    name: 'NDA',
+    subjects: [
+      { id: 'nda-maths', name: 'Mathematics', topics: ['Algebra', 'Trigonometry', 'Calculus', 'Geometry'] },
+      { id: 'nda-gat', name: 'General Ability Test', topics: ['Physics', 'Chemistry', 'General Science', 'History', 'Geography'] },
+    ],
+  },
+  'cds': {
+    name: 'CDS',
+    subjects: [
+      { id: 'cds-english', name: 'English', topics: ['Grammar', 'Vocabulary', 'Comprehension'] },
+      { id: 'cds-gk', name: 'General Knowledge', topics: ['History', 'Geography', 'Current Affairs', 'Science'] },
+      { id: 'cds-maths', name: 'Elementary Mathematics', topics: ['Arithmetic', 'Algebra', 'Geometry'] },
+    ],
+  },
+  'rrb-ntpc': {
+    name: 'RRB NTPC',
+    subjects: [
+      { id: 'rrb-maths', name: 'Mathematics', topics: ['Arithmetic', 'Number System'] },
+      { id: 'rrb-reasoning', name: 'Reasoning', topics: ['Logical Reasoning', 'Verbal Reasoning'] },
+      { id: 'rrb-gk', name: 'General Awareness', topics: ['Current Affairs', 'General Science'] },
+    ],
+  },
+  'ctet': {
+    name: 'CTET',
+    subjects: [
+      { id: 'ctet-child-dev', name: 'Child Development', topics: ['Child Psychology', 'Learning Theories'] },
+      { id: 'ctet-language-1', name: 'Language I', topics: ['Grammar', 'Comprehension'] },
+      { id: 'ctet-language-2', name: 'Language II', topics: ['Grammar', 'Pedagogy'] },
+    ],
+  },
+  'ca-foundation': {
+    name: 'CA Foundation',
+    subjects: [
+      { id: 'ca-accounts', name: 'Accounting', topics: ['Basic Accounting', 'Final Accounts'] },
+      { id: 'ca-law', name: 'Business Laws', topics: ['Indian Contract Act', 'Companies Act'] },
+      { id: 'ca-maths', name: 'Business Mathematics', topics: ['Ratio & Proportion', 'Permutations', 'Statistics'] },
     ],
   },
 };
