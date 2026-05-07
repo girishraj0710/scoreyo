@@ -1,5 +1,7 @@
 "use client";
 
+import { AIClarificationChat } from "./ai-clarification-chat";
+
 interface RichExplanationProps {
   explanation: string | {
     logic: string;
@@ -133,6 +135,15 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
           <div className="text-sm text-emerald-900 font-medium">{options[correctAnswer]}</div>
         </div>
       </div>
+
+      {/* AI Clarification Chat - Only show for wrong answers */}
+      {userAnswer !== correctAnswer && userAnswer !== -1 && (
+        <AIClarificationChat
+          questionText={typeof explanation === 'string' ? explanation : explanation.logic}
+          correctAnswer={options[correctAnswer]}
+          userAnswer={options[userAnswer]}
+        />
+      )}
     </div>
   );
 }

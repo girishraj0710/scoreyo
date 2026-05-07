@@ -113,19 +113,6 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_weakness_profiles_user ON weakness_profiles(user_id);
 
-    CREATE TABLE IF NOT EXISTS clarifications (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id TEXT NOT NULL,
-      question_text TEXT NOT NULL,
-      user_question TEXT NOT NULL,
-      ai_response TEXT NOT NULL,
-      helpful BOOLEAN DEFAULT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users(id)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_clarifications_question ON clarifications(question_text);
-
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
