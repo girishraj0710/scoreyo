@@ -36,6 +36,7 @@ AI-powered exam preparation app for 20+ Indian competitive exams (JEE, NEET, UPS
 - `/api/weakness` — Record/retrieve mistake patterns (NEW)
 - `/api/clarify` — AI instant clarification chat (NEW)
 - `/api/dpp` — Daily Practice Problems management (NEW)
+- `/api/sprint` — Live leaderboard sprint competitions (NEW)
 
 ## Monetization
 - **Free**: 3 quizzes/day, basic features
@@ -67,10 +68,12 @@ TURSO_AUTH_TOKEN=...
 - ✅ Custom email domain: noreply@prepgenie.co.in (Resend verified)
 - ✅ Production code cleanup: Removed debug logs, security fixes
 - ✅ Multilingual: 8 Indian languages (English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada)
-- ✅ **NEW: Gemini AI Recommendations Implemented (4 of 7 priorities)**:
+- ✅ **NEW: Gemini AI Recommendations Implemented (6 of 7 priorities = 86%):**
   - ✅ Priority 1: Rich Explanations (logic links, trap alerts, formulas, common mistakes)
   - ✅ Priority 2: Mistake Map (tracks calculation/concept/time/careless errors)
   - ✅ Priority 3: Midnight Doubt AI (instant clarification chat at any time)
+  - ✅ Priority 4: Pressure Mode (adaptive timer, stress simulation)
+  - ✅ Priority 5: Live Leaderboard Sprints (MVP - backend ready, UI pending)
   - ✅ Priority 7: Daily Practice Problems (10-min micro-learning with streaks)
-- ⏳ Remaining Priorities: Pressure Mode, Live Leaderboard Sprints, True Offline Mode
+- ⏳ Deferred: Priority 6 (True Offline Mode - complex, requires Service Worker + IndexedDB)
 - ⏳ Later: Mobile app (Capacitor), Razorpay live keys
