@@ -7,7 +7,7 @@ import { useLocale } from "@/context/locale-context";
 import { LanguageToggle } from "./language-toggle";
 
 export function AppHeader() {
-  const { user, logout } = useUser();
+  const { user, logout, setShowLoginModal } = useUser();
   const { t } = useLocale();
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
@@ -66,10 +66,23 @@ export function AppHeader() {
             </a>
           </nav>
 
-          <div className="w-px h-6 bg-slate-200 mx-2 hidden sm:block" />
-
-          {/* Language Toggle */}
-          <LanguageToggle />
+          {/* Auth Buttons (when not logged in) */}
+          {!user && (
+            <div className="flex items-center gap-3 ml-2">
+              <button
+                onClick={() => setShowLoginModal(true)}
+                className="w-24 px-4 py-2 text-slate-700 font-medium hover:bg-slate-50 rounded-lg border border-slate-200 transition-colors"
+              >
+                Log in
+              </button>
+              <button
+                onClick={() => setShowLoginModal(true)}
+                className="w-24 px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 transition-colors"
+              >
+                Sign up
+              </button>
+            </div>
+          )}
 
           {/* User Menu */}
           {user && (

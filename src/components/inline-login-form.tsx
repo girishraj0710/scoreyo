@@ -3,14 +3,15 @@
 import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
+import { Mail } from "lucide-react";
 
-type Step = "email" | "otp" | "name";
+type Step = "method" | "email" | "otp" | "name";
 
 export function InlineLoginForm() {
   const { sendOtp, verifyOtp, completeLogin } = useUser();
   const { t } = useLocale();
 
-  const [step, setStep] = useState<Step>("email");
+  const [step, setStep] = useState<Step>("method");
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [name, setName] = useState("");
@@ -156,57 +157,96 @@ export function InlineLoginForm() {
 
   return (
     <div className="bg-white rounded-2xl p-6 shadow-2xl sticky top-8">
-      {/* Logo */}
-      <div className="text-center mb-6">
-        <div className="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-          P
-        </div>
-        <h3 className="text-lg font-bold text-slate-800">Sign In / Sign Up</h3>
-        <p className="text-xs text-slate-500 mt-1">Start your free trial today</p>
-      </div>
-
-      {/* Step 1: Email */}
-      {step === "email" && (
-        <form onSubmit={handleSendOtp}>
-          <div className="mb-4">
-            <label className="block text-xs font-medium text-slate-700 mb-1">
-              Email Address
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => { setEmail(e.target.value); setError(""); }}
-              placeholder="you@example.com"
-              className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500"
-              autoFocus
-              required
-            />
-          </div>
-          {error && (
-            <p className="text-red-500 text-xs mb-3">{error}</p>
-          )}
-          <button
-            type="submit"
-            disabled={!email.trim() || isSubmitting}
-            className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-lg disabled:opacity-50 text-sm"
-          >
-            {isSubmitting ? "Sending..." : "Send Verification Code"}
-          </button>
-          <p className="text-xs text-slate-400 text-center mt-3">
-            No credit card required • Free forever
+      {/* Method Selection Step */}
+      {step === "method" && (
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">
+            Log in or sign up in seconds
+          </h2>
+          <p className="text-sm text-slate-600 mb-6">
+            Use your email or another service to continue (it's free)!
           </p>
-        </form>
+
+          {/* Login Options */}
+          <div className="space-y-3 mb-6">
+            {/* Email Option */}
+            <button
+              onClick={() => setStep("email")}
+              className="w-full flex items-center gap-3 px-4 py-3 border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-left group"
+            >
+              <Mail className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
+              <span className="font-medium text-slate-800 text-sm">Continue with email</span>
+            </button>
+          </div>
+
+          <div className="pt-4 border-t border-slate-200">
+            <p className="text-xs text-slate-500 text-center">
+              By continuing, you agree to PrepGenie's{" "}
+              <a href="/terms" className="text-indigo-600 hover:underline">Terms</a> & {" "}
+              <a href="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
       )}
 
-      {/* Step 2: OTP Verification */}
+      {/* Email Input Step */}
+      {step === "email" && (
+        <div>
+          <button
+            onClick={() => setStep("method")}
+            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1"
+          >
+            ← Back
+          </button>
+          <h3 className="text-xl font-bold text-slate-900 mb-2">
+            Continue with email
+          </h3>
+          <p className="text-xs text-slate-600 mb-4">
+            We'll send you a verification code
+          </p>
+
+          <form onSubmit={handleSendOtp}>
+            <div className="mb-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                placeholder="Enter your email"
+                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500"
+                autoFocus
+                required
+              />
+            </div>
+            {error && (
+              <p className="text-red-500 text-xs mb-3">{error}</p>
+            )}
+            <button
+              type="submit"
+              disabled={!email.trim() || isSubmitting}
+              className="w-full py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 text-sm"
+            >
+              {isSubmitting ? "Sending..." : "Continue"}
+            </button>
+          </form>
+        </div>
+      )}
+
+      {/* OTP Verification Step */}
       {step === "otp" && (
         <div>
-          <p className="text-xs text-slate-500 text-center mb-1">
-            Code sent to
+          <button
+            onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
+            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1"
+          >
+            ← Back
+          </button>
+          <h3 className="text-xl font-bold text-slate-900 mb-2">
+            Enter verification code
+          </h3>
+          <p className="text-xs text-slate-600 mb-1">
+            We sent a code to
           </p>
-          <p className="text-xs font-semibold text-indigo-600 text-center mb-4">
-            {email}
-          </p>
+          <p className="text-sm text-indigo-600 font-medium mb-4">{email}</p>
 
           {/* OTP Input Boxes */}
           <div className="flex justify-center gap-1.5 mb-3" onPaste={handleOtpPaste}>
@@ -220,28 +260,28 @@ export function InlineLoginForm() {
                 value={digit}
                 onChange={(e) => handleOtpChange(idx, e.target.value)}
                 onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none transition-colors ${
+                className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none transition-all ${
                   digit
                     ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                    : "border-slate-200 text-slate-800"
-                } focus:border-indigo-500`}
+                    : "border-slate-200 text-slate-800 focus:border-indigo-500"
+                }`}
               />
             ))}
           </div>
 
           {error && (
-            <p className="text-red-500 text-xs mb-2 text-center">{error}</p>
+            <p className="text-red-500 text-xs mb-3 text-center">{error}</p>
           )}
 
           {isSubmitting && (
-            <p className="text-indigo-600 text-xs text-center mb-2">Verifying...</p>
+            <p className="text-indigo-600 text-xs text-center mb-3">Verifying...</p>
           )}
 
           {/* Resend */}
-          <div className="text-center mt-3">
+          <div className="text-center mt-4">
             {countdown > 0 ? (
-              <p className="text-xs text-slate-400">
-                Resend in <span className="font-medium text-slate-600">{countdown}s</span>
+              <p className="text-xs text-slate-500">
+                Resend code in <span className="font-medium text-slate-700">{countdown}s</span>
               </p>
             ) : (
               <button
@@ -249,56 +289,56 @@ export function InlineLoginForm() {
                 disabled={isSubmitting}
                 className="text-xs text-indigo-600 hover:text-indigo-700 font-medium disabled:opacity-50"
               >
-                Resend Code
+                Resend code
               </button>
             )}
           </div>
-
-          <button
-            onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
-            className="w-full mt-2 py-1.5 text-xs text-slate-400 hover:text-slate-600"
-          >
-            Change email
-          </button>
         </div>
       )}
 
-      {/* Step 3: Name */}
+      {/* Name Input Step */}
       {step === "name" && (
-        <form onSubmit={handleCompleteName}>
-          <div className="text-center mb-3">
-            <div className="w-8 h-8 mx-auto mb-1 bg-emerald-100 rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+        <div>
+          <div className="text-center mb-4">
+            <div className="w-12 h-12 mx-auto mb-2 bg-emerald-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
-            <p className="text-xs text-emerald-600 font-medium">Email verified!</p>
+            <p className="text-sm text-emerald-600 font-medium">Email verified!</p>
           </div>
-          <div className="mb-4">
-            <label className="block text-xs font-medium text-slate-700 mb-1">
-              {t("yourName")}
-            </label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => { setName(e.target.value); setError(""); }}
-              placeholder="Enter your name"
-              className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500"
-              autoFocus
-              required
-            />
-          </div>
-          {error && (
-            <p className="text-red-500 text-xs mb-3">{error}</p>
-          )}
-          <button
-            type="submit"
-            disabled={!name.trim() || isSubmitting}
-            className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-lg disabled:opacity-50 text-sm"
-          >
-            {isSubmitting ? "Creating..." : t("startLearning")}
-          </button>
-        </form>
+
+          <h3 className="text-xl font-bold text-slate-900 mb-2">
+            What's your name?
+          </h3>
+          <p className="text-xs text-slate-600 mb-4">
+            We'll use this to personalize your experience
+          </p>
+
+          <form onSubmit={handleCompleteName}>
+            <div className="mb-3">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => { setName(e.target.value); setError(""); }}
+                placeholder="Enter your name"
+                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500"
+                autoFocus
+                required
+              />
+            </div>
+            {error && (
+              <p className="text-red-500 text-xs mb-3">{error}</p>
+            )}
+            <button
+              type="submit"
+              disabled={!name.trim() || isSubmitting}
+              className="w-full py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 text-sm"
+            >
+              {isSubmitting ? "Creating account..." : "Start learning"}
+            </button>
+          </form>
+        </div>
       )}
     </div>
   );

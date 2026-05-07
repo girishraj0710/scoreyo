@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
-import { Mail, Smartphone, X } from "lucide-react";
+import { Mail, X } from "lucide-react";
 
 type Step = "method" | "email" | "otp" | "name";
 
@@ -228,16 +228,6 @@ export function LoginModal() {
               >
                 <Mail className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
                 <span className="font-medium text-slate-800">Continue with email</span>
-              </button>
-
-              {/* Phone Option (Coming Soon) */}
-              <button
-                disabled
-                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 rounded-xl opacity-50 cursor-not-allowed text-left"
-              >
-                <Smartphone className="w-5 h-5 text-slate-600" />
-                <span className="font-medium text-slate-800">Continue with phone number</span>
-                <span className="ml-auto text-xs text-slate-400">Soon</span>
               </button>
             </div>
 
