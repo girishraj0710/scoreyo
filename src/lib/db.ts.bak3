@@ -40,7 +40,6 @@ async function initializeDb() {
       total_questions INTEGER NOT NULL,
       correct_answers INTEGER NOT NULL,
       time_taken_seconds INTEGER DEFAULT 0,
-      pressure_mode BOOLEAN DEFAULT 0,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users(id)
     );

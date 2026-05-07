@@ -156,6 +156,7 @@ function QuizContent() {
   const topic = searchParams.get("topic") || "";
   const count = parseInt(searchParams.get("count") || "5");
   const difficulty = searchParams.get("difficulty") || "mixed";
+  const pressureMode = searchParams.get("pressureMode") === "true";
 
   const [quizData, setQuizData] = useState<QuizData | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -175,12 +176,26 @@ function QuizContent() {
     topic: string;
   } | null>(null);
 
-  // Timer
+  // Timer (adaptive in pressure mode)
   useEffect(() => {
     if (isLoading || isSubmitted) return;
-    const timer = setInterval(() => setTimeElapsed((t) => t + 1), 1000);
+
+    // In pressure mode, timer accelerates based on time elapsed
+    const getTimerInterval = () => {
+      if (!pressureMode) return 1000; // Normal: 1 second
+
+      // Pressure mode: speeds up as time passes
+      if (timeElapsed < 60) return 1000;      // First minute: normal
+      if (timeElapsed < 120) return 900;      // 2nd minute: 10% faster
+      if (timeElapsed < 180) return 800;      // 3rd minute: 20% faster
+      if (timeElapsed < 240) return 700;      // 4th minute: 30% faster
+      return 600;                              // After 4 min: 40% faster (insane!)
+    };
+
+    const interval = getTimerInterval();
+    const timer = setInterval(() => setTimeElapsed((t) => t + 1), interval);
     return () => clearInterval(timer);
-  }, [isLoading, isSubmitted]);
+  }, [isLoading, isSubmitted, timeElapsed, pressureMode]);
 
   // Load quiz
   useEffect(() => {
@@ -663,7 +678,20 @@ function QuizContent() {
             <span className="text-sm text-slate-500">{quizData.topic}</span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-sm font-mono text-slate-600 bg-slate-100 px-3 py-1 rounded-lg">
+            {pressureMode && (
+              <span className="text-xs font-semibold text-red-600 bg-red-100 px-2 py-1 rounded-full animate-pulse">
+                ⚡ PRESSURE
+              </span>
+            )}
+            <span className={`text-sm font-mono px-3 py-1 rounded-lg ${
+              pressureMode
+                ? timeElapsed < 120
+                  ? "text-orange-700 bg-orange-100 animate-pulse"
+                  : timeElapsed < 240
+                    ? "text-red-700 bg-red-100 animate-pulse"
+                    : "text-red-900 bg-red-200 animate-bounce font-bold"
+                : "text-slate-600 bg-slate-100"
+            }`}>
               {formatTime(timeElapsed)}
             </span>
           </div>

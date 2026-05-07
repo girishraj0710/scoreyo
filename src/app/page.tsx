@@ -13,6 +13,7 @@ export default function HomePage() {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [questionCount, setQuestionCount] = useState(5);
   const [difficulty, setDifficulty] = useState<string>("mixed");
+  const [pressureMode, setPressureMode] = useState(false);
   const [stats, setStats] = useState<any>(null);
   const [subData, setSubData] = useState<any>(null);
 
@@ -35,6 +36,7 @@ export default function HomePage() {
       topic: selectedTopic,
       count: questionCount.toString(),
       difficulty,
+      pressureMode: pressureMode.toString(),
     });
     window.location.href = `/quiz?${params.toString()}`;
   };
@@ -326,6 +328,28 @@ export default function HomePage() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Pressure Mode Toggle */}
+            <div className="mb-4">
+              <label className="flex items-center gap-3 p-4 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-xl cursor-pointer hover:from-red-100 hover:to-orange-100 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={pressureMode}
+                  onChange={(e) => setPressureMode(e.target.checked)}
+                  className="w-5 h-5 text-red-600 rounded focus:ring-2 focus:ring-red-500"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">⚡</span>
+                    <span className="font-semibold text-red-900">Pressure Mode</span>
+                    <span className="px-2 py-0.5 bg-red-600 text-white text-xs font-bold rounded-full">INTENSE</span>
+                  </div>
+                  <p className="text-xs text-red-700 mt-1">
+                    Timer accelerates as time runs out. Simulates real exam stress! 🔥
+                  </p>
+                </div>
+              </label>
             </div>
 
             {/* Quiz Limit Info */}
