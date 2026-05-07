@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
-import { LanguageToggle } from "./language-toggle";
+import { LanguageSelector } from "./language-selector";
 
 export function AppHeader() {
   const { user, logout, setShowLoginModal } = useUser();
@@ -65,6 +65,11 @@ export function AppHeader() {
               {t("pricing")}
             </a>
           </nav>
+
+          {/* Language Selector */}
+          <div className="ml-2">
+            <LanguageSelector />
+          </div>
 
           {/* Auth Buttons (when not logged in) */}
           {!user && (

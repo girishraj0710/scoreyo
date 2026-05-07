@@ -1,7 +1,9 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
-import { translations, type Locale } from "@/lib/i18n/translations";
+import { translations, type Locale as LocaleType } from "@/lib/i18n/translations";
+
+export type Locale = LocaleType;
 
 interface LocaleContextType {
   locale: Locale;
@@ -16,7 +18,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("prepgenie-locale") as Locale;
-    if (saved && (saved === "en" || saved === "hi")) {
+    const validLocales = ["en", "hi", "ta", "te", "bn", "mr", "gu", "kn"];
+    if (saved && validLocales.includes(saved)) {
       setLocaleState(saved);
       document.documentElement.lang = saved;
     }
