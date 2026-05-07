@@ -126,31 +126,6 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_clarifications_question ON clarifications(question_text);
 
-    CREATE TABLE IF NOT EXISTS daily_practice_problems (
-      id TEXT PRIMARY KEY,
-      date TEXT NOT NULL UNIQUE,
-      title TEXT NOT NULL,
-      exam_id TEXT NOT NULL,
-      subject_id TEXT NOT NULL,
-      topic TEXT NOT NULL,
-      questions TEXT NOT NULL,
-      duration_minutes INTEGER DEFAULT 10,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS dpp_completions (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id TEXT NOT NULL,
-      dpp_id TEXT NOT NULL,
-      score INTEGER NOT NULL,
-      total_questions INTEGER NOT NULL,
-      completed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users(id),
-      FOREIGN KEY (dpp_id) REFERENCES daily_practice_problems(id)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_dpp_completions_user ON dpp_completions(user_id);
-
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,

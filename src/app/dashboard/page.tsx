@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
+import { DPPCard } from "@/components/dpp-card";
 
 interface Stats {
   totalSessions: number;
@@ -233,6 +234,9 @@ export default function DashboardPage() {
             </div>
           )}
         </div>
+
+        {/* Daily Practice Problem */}
+        <DPPCard />
 
         {/* Mistake Map */}
         <MistakeMapWidget />
