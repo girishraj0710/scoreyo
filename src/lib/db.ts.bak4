@@ -152,33 +152,6 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_dpp_completions_user ON dpp_completions(user_id);
 
-    CREATE TABLE IF NOT EXISTS daily_sprints (
-      id TEXT PRIMARY KEY,
-      date TEXT NOT NULL,
-      start_time DATETIME NOT NULL,
-      end_time DATETIME NOT NULL,
-      topic TEXT NOT NULL,
-      exam_id TEXT NOT NULL,
-      subject_id TEXT NOT NULL,
-      questions TEXT NOT NULL,
-      status TEXT DEFAULT 'active',
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS sprint_participations (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      sprint_id TEXT NOT NULL,
-      user_id TEXT NOT NULL,
-      score INTEGER NOT NULL,
-      total_questions INTEGER NOT NULL,
-      time_taken_seconds INTEGER NOT NULL,
-      completed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (sprint_id) REFERENCES daily_sprints(id),
-      FOREIGN KEY (user_id) REFERENCES users(id)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_sprint_participations ON sprint_participations(sprint_id, score DESC);
-
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
