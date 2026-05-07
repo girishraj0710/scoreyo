@@ -378,10 +378,6 @@ export function LandingPage() {
         {/* AI-Powered Features Section */}
         <section className="mb-12 max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full mb-4">
-              <span className="text-2xl">🤖</span>
-              <span className="text-sm font-bold text-indigo-700">AI-POWERED LEARNING</span>
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
               What Makes PrepGenie <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Different</span>
             </h2>
@@ -394,7 +390,9 @@ export function LandingPage() {
             {/* Feature 1: Rich Explanations */}
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-200 hover:border-emerald-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <span className="text-3xl">💡</span>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Rich Explanations with Trap Alerts</h3>
               <p className="text-slate-700 text-sm mb-3">
@@ -428,7 +426,9 @@ export function LandingPage() {
             {/* Feature 2: Mistake Map */}
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <span className="text-3xl">📊</span>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Mistake Map - Your Weakness Tracker</h3>
               <p className="text-slate-700 text-sm mb-3">
@@ -462,7 +462,9 @@ export function LandingPage() {
             {/* Feature 3: Midnight Doubt AI */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <span className="text-3xl">🤖</span>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">24/7 AI Doubt Solver</h3>
               <p className="text-slate-700 text-sm mb-3">
@@ -496,7 +498,9 @@ export function LandingPage() {
             {/* Feature 4: Pressure Mode */}
             <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-6 border-2 border-red-200 hover:border-red-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <span className="text-3xl">⚡</span>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Pressure Mode Training</h3>
               <p className="text-slate-700 text-sm mb-3">
@@ -530,7 +534,9 @@ export function LandingPage() {
             {/* Feature 5: Daily Practice Problems */}
             <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <span className="text-3xl">🔥</span>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Daily Practice + Streaks</h3>
               <p className="text-slate-700 text-sm mb-3">
@@ -564,7 +570,9 @@ export function LandingPage() {
             {/* Feature 6: Multilingual Support */}
             <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border-2 border-teal-200 hover:border-teal-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <span className="text-3xl">🌏</span>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">8 Indian Languages</h3>
               <p className="text-slate-700 text-sm mb-3">
