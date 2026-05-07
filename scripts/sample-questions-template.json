@@ -1,0 +1,62 @@
+[
+  {
+    "question": "A body of mass 5 kg is moving with a velocity of 10 m/s. The kinetic energy of the body is:",
+    "option_a": "250 J",
+    "option_b": "500 J",
+    "option_c": "1000 J",
+    "option_d": "2500 J",
+    "correct_answer": 0,
+    "explanation": "KE = ½mv² = ½ × 5 × (10)² = ½ × 5 × 100 = 250 J",
+    "difficulty": "easy",
+    "exam_id": "jee-main",
+    "subject_id": "jee-physics",
+    "topic": "Mechanics",
+    "year": "JEE Main 2024",
+    "source_detail": "Shift 1"
+  },
+  {
+    "question": "Which of the following is NOT a greenhouse gas?",
+    "option_a": "Carbon dioxide",
+    "option_b": "Methane",
+    "option_c": "Nitrogen",
+    "option_d": "Water vapor",
+    "correct_answer": 2,
+    "explanation": "Nitrogen (N₂) is not a greenhouse gas. It makes up 78% of the atmosphere but does not trap heat. CO₂, CH₄, and H₂O are all greenhouse gases.",
+    "difficulty": "easy",
+    "exam_id": "neet-ug",
+    "subject_id": "neet-chemistry",
+    "topic": "Environmental Chemistry",
+    "year": "NEET 2024",
+    "source_detail": ""
+  },
+  {
+    "question": "The Constitution of India was adopted on:",
+    "option_a": "26th January 1950",
+    "option_b": "26th November 1949",
+    "option_c": "15th August 1947",
+    "option_d": "26th January 1949",
+    "correct_answer": 1,
+    "explanation": "The Constitution was adopted by the Constituent Assembly on 26th November 1949 and came into effect on 26th January 1950 (Republic Day).",
+    "difficulty": "easy",
+    "exam_id": "upsc-cse",
+    "subject_id": "upsc-history",
+    "topic": "Modern India",
+    "year": "UPSC CSE 2023",
+    "source_detail": "Prelims Paper 1"
+  },
+  {
+    "question": "If 20% of a number is 50, then 50% of that number is:",
+    "option_a": "100",
+    "option_b": "125",
+    "option_c": "150",
+    "option_d": "200",
+    "correct_answer": 1,
+    "explanation": "Let the number be x. 20% of x = 50 → 0.2x = 50 → x = 250. Now 50% of 250 = 0.5 × 250 = 125",
+    "difficulty": "medium",
+    "exam_id": "ssc-cgl",
+    "subject_id": "ssc-quant",
+    "topic": "Percentage",
+    "year": "SSC CGL 2024",
+    "source_detail": ""
+  }
+]
