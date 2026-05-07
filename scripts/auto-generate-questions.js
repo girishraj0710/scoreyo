@@ -26,9 +26,9 @@ const path = require('path');
 const CONFIG = {
   OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
   MODELS: [
-    'google/gemini-2.0-flash-exp:free',
-    'meta-llama/llama-3.1-8b-instruct:free',
-    'microsoft/phi-3-mini-128k-instruct:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'qwen/qwen3-next-80b-a3b-instruct:free',
+    'nousresearch/hermes-3-llama-3.1-405b:free',
   ],
   QUALITY_THRESHOLD: 80, // 0-100
   BATCH_SIZE: 10,
