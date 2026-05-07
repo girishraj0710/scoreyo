@@ -644,6 +644,28 @@ export const mockTestConfigs: MockTestConfig[] = [
       { subjectId: "isi-stats", subjectName: "Statistics", questionCount: 10 },
     ],
   },
+  {
+    examId: "aipvt",
+    examName: "AIPVT (Veterinary)",
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "aipvt-physics", subjectName: "Physics", questionCount: 9 },
+      { subjectId: "aipvt-chemistry", subjectName: "Chemistry", questionCount: 8 },
+      { subjectId: "aipvt-biology", subjectName: "Biology", questionCount: 8 },
+    ],
+  },
+  {
+    examId: "indian-army",
+    examName: "Indian Army (TES/NCC)",
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "army-maths", subjectName: "Mathematics", questionCount: 9 },
+      { subjectId: "army-physics", subjectName: "Physics", questionCount: 8 },
+      { subjectId: "army-chemistry", subjectName: "Chemistry", questionCount: 8 },
+    ],
+  },
 ];
 
 export function getMockTestConfig(examId: string): MockTestConfig | undefined {
