@@ -241,47 +241,326 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* Process Flow Section */}
-        <section className="mb-12 max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
-            <h2 className="text-2xl font-bold text-center mb-8">Your Path to Success</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-800 mb-1">Learn</h3>
-                <p className="text-sm text-slate-600">Access expert content</p>
+        {/* AI-Powered Features Section - NEW! */}
+        <section className="mb-12 max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full mb-4">
+              <span className="text-2xl">🤖</span>
+              <span className="text-sm font-bold text-indigo-700">AI-POWERED LEARNING</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              What Makes PrepGenie <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Different</span>
+            </h2>
+            <p className="text-slate-600 text-lg">
+              India's first exam prep platform with intelligent AI features that actually help you learn
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Feature 1: Rich Explanations */}
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-200 hover:border-emerald-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-3xl">💡</span>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-800 mb-1">Practice</h3>
-                <p className="text-sm text-slate-600">Solve daily quizzes</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Rich Explanations with Trap Alerts</h3>
+              <p className="text-slate-700 text-sm mb-3">
+                Don't just see the answer—understand the <strong>WHY</strong>. Every question includes:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1.5">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 mt-0.5">✓</span>
+                  <span>Core concept explanation in simple language</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 mt-0.5">✓</span>
+                  <span>Step-by-step formula breakdown</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 mt-0.5">✓</span>
+                  <span><strong>Trap alerts</strong> showing why wrong options tempt you</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 mt-0.5">✓</span>
+                  <span>Common mistakes to avoid</span>
+                </li>
+              </ul>
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-emerald-300">
+                <p className="text-xs text-slate-600 italic">
+                  "Finally understand WHY I got it wrong, not just WHAT is correct!"
+                </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-800 mb-1">Improve</h3>
-                <p className="text-sm text-slate-600">Track progress</p>
+            </div>
+
+            {/* Feature 2: Mistake Map */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-3xl">📊</span>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-800 mb-1">Succeed</h3>
-                <p className="text-sm text-slate-600">Crack your exam</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Mistake Map - Your Weakness Tracker</h3>
+              <p className="text-slate-700 text-sm mb-3">
+                Stop repeating the same mistakes. Our AI categorizes every error into:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1.5">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-0.5">🧮</span>
+                  <span><strong>Calculation errors</strong> - Math mistakes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-0.5">🧠</span>
+                  <span><strong>Concept gaps</strong> - Understanding issues</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-0.5">⏱️</span>
+                  <span><strong>Time pressure</strong> - Rushed answers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-0.5">😴</span>
+                  <span><strong>Careless errors</strong> - Silly mistakes</span>
+                </li>
+              </ul>
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-purple-300">
+                <p className="text-xs text-slate-600 italic">
+                  Get personalized practice recommendations based on your weakness patterns
+                </p>
               </div>
+            </div>
+
+            {/* Feature 3: Midnight Doubt AI */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-3xl">🤖</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">24/7 AI Doubt Solver</h3>
+              <p className="text-slate-700 text-sm mb-3">
+                Stuck at 2 AM? No problem. Ask our AI tutor anything, anytime:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1.5">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">⚡</span>
+                  <span><strong>Instant answers</strong> in under 3 seconds</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">💬</span>
+                  <span>Simple, conversational explanations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">🔄</span>
+                  <span>Ask follow-up questions until you get it</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">🎯</span>
+                  <span>Context-aware (knows the question you're solving)</span>
+                </li>
+              </ul>
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-blue-300">
+                <p className="text-xs text-slate-600 italic">
+                  "Like having a patient tutor available 24/7—even during late night study sessions!"
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 4: Pressure Mode */}
+            <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-6 border-2 border-red-200 hover:border-red-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-3xl">⚡</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Pressure Mode Training</h3>
+              <p className="text-slate-700 text-sm mb-3">
+                Build mental toughness for exam day. Our adaptive timer simulates real exam stress:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1.5">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 mt-0.5">🔥</span>
+                  <span><strong>Timer accelerates</strong> as you progress (up to 40% faster)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 mt-0.5">💪</span>
+                  <span>Visual stress elements (pulsing clock, color changes)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 mt-0.5">🎯</span>
+                  <span>Practice staying calm under pressure</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 mt-0.5">📈</span>
+                  <span>Separate tracking to measure performance under stress</span>
+                </li>
+              </ul>
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-red-300">
+                <p className="text-xs text-slate-600 italic">
+                  Train your brain to perform when the clock is ticking
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 5: Daily Practice Problems */}
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-3xl">🔥</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Daily Practice + Streaks</h3>
+              <p className="text-slate-700 text-sm mb-3">
+                Build a daily study habit with gamified micro-learning:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1.5">
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 mt-0.5">📅</span>
+                  <span><strong>Auto-generated DPPs</strong> every day (10 questions, 10 mins)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 mt-0.5">🔥</span>
+                  <span>Streak tracking keeps you motivated</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 mt-0.5">🎯</span>
+                  <span>Smart topic rotation covers all subjects</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 mt-0.5">⏰</span>
+                  <span>Bite-sized sessions fit your busy schedule</span>
+                </li>
+              </ul>
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-amber-300">
+                <p className="text-xs text-slate-600 italic">
+                  Consistency beats intensity—make daily practice your superpower
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 6: Multilingual Support */}
+            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border-2 border-teal-200 hover:border-teal-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-3xl">🌏</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">8 Indian Languages</h3>
+              <p className="text-slate-700 text-sm mb-3">
+                Practice in your mother tongue for better understanding:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1.5">
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-600 mt-0.5">🇮🇳</span>
+                  <span>English, हिंदी, தமிழ், తెలుగు, বাংলা, मराठी, ગુજરાતી, ಕನ್ನಡ</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-600 mt-0.5">🔄</span>
+                  <span>Switch languages anytime</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-600 mt-0.5">📖</span>
+                  <span>Complete UI + questions translated</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-600 mt-0.5">✨</span>
+                  <span>Covers 95% of India's exam aspirants</span>
+                </li>
+              </ul>
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-teal-300">
+                <p className="text-xs text-slate-600 italic">
+                  Learn in the language you think in—no translation friction
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA after features */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-lg rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+            >
+              Experience These Features Free →
+            </button>
+            <p className="text-sm text-slate-500 mt-3">No credit card • Start in 30 seconds • 3 free quizzes daily</p>
+          </div>
+        </section>
+
+        {/* Comparison Section - Why PrepGenie vs Others */}
+        <section className="mb-12 max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 border-2 border-slate-200">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-3">
+              Why PrepGenie Over Other Platforms?
+            </h2>
+            <p className="text-center text-slate-600 mb-8">
+              We focus on <strong>intelligent practice</strong>, not just video lectures
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Other Platforms */}
+              <div className="bg-white rounded-xl p-6 border-2 border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-slate-200 rounded-lg flex items-center justify-center">
+                    <span className="text-2xl">📹</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-700">Other Platforms</h3>
+                    <p className="text-xs text-slate-500">Unacademy, PhysicsWallah, etc.</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-400 mt-1">✗</span>
+                    <span className="text-slate-600">Focus on <strong>passive video watching</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-400 mt-1">✗</span>
+                    <span className="text-slate-600">Basic MCQ practice with simple answers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-400 mt-1">✗</span>
+                    <span className="text-slate-600">No instant doubt resolution (wait for live classes)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-400 mt-1">✗</span>
+                    <span className="text-slate-600">Generic feedback, no weakness analysis</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-400 mt-1">✗</span>
+                    <span className="text-slate-600">Expensive subscriptions (₹5,000-15,000/year)</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* PrepGenie */}
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-300 shadow-lg">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center shadow-md">
+                    <span className="text-2xl">✨</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-indigo-900">PrepGenie</h3>
+                    <p className="text-xs text-indigo-600">AI-Powered Practice Platform</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-600 mt-1">✓</span>
+                    <span className="text-slate-700">Focus on <strong>active problem-solving</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-600 mt-1">✓</span>
+                    <span className="text-slate-700"><strong>Rich explanations</strong> with trap alerts & formulas</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-600 mt-1">✓</span>
+                    <span className="text-slate-700"><strong>24/7 AI tutor</strong> for instant doubt resolution</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-600 mt-1">✓</span>
+                    <span className="text-slate-700"><strong>Personalized weakness tracking</strong> & recommendations</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-600 mt-1">✓</span>
+                    <span className="text-slate-700"><strong>Affordable</strong> (₹79/month, free daily quizzes)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center">
+              <p className="text-sm text-slate-600 bg-white rounded-lg px-4 py-3 inline-block border border-slate-200">
+                <strong className="text-indigo-600">Smart students don't just watch lectures—they practice intelligently.</strong><br />
+                PrepGenie is built for serious aspirants who want to <em>actually solve problems</em>, not just watch others solve them.
+              </p>
             </div>
           </div>
         </section>
