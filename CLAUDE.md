@@ -17,7 +17,7 @@ AI-powered exam preparation app for 20+ Indian competitive exams (JEE, NEET, UPS
 - `src/lib/quiz-generator.ts` — AI question generation via OpenRouter
 - `src/lib/question-bank.ts` — Verified question bank
 - `src/lib/mock-test-config.ts` — Mock test configs (8 exams)
-- `src/lib/i18n/translations.ts` — Bilingual (English/Hindi)
+- `src/lib/i18n/translations.ts` — Multilingual (8 languages: en, hi, ta, te, bn, mr, gu, kn)
 - `src/context/user-context.tsx` — User auth context
 - `src/context/locale-context.tsx` — Language context
 
@@ -56,11 +56,12 @@ TURSO_AUTH_TOKEN=...
 
 ## Current Status (May 2026)
 - ✅ Phase 1: Quiz engine, auth, dashboard, review, leaderboard
-- ✅ Phase 2: OTP email auth, bilingual support
+- ✅ Phase 2: OTP email auth, multilingual support (8 languages)
 - ✅ Phase 3: Razorpay payments, mock tests, performance reports
 - ✅ Database migrated from local SQLite to Turso (cloud)
 - ✅ Deployed to Vercel: https://prepgenie.co.in
 - ✅ Custom domain setup: prepgenie.co.in (DNS + SSL configured)
 - ✅ Custom email domain: noreply@prepgenie.co.in (Resend verified)
 - ✅ Production code cleanup: Removed debug logs, security fixes
+- ✅ Multilingual: 8 Indian languages (English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada)
 - ⏳ Later: Mobile app (Capacitor), Razorpay live keys
