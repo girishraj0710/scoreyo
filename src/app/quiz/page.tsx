@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { RichExplanation } from "@/components/rich-explanation";
 
 interface Question {
   question: string;
@@ -735,21 +736,12 @@ function QuizContent() {
 
         {/* Explanation */}
         {showExplanation && (
-          <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-blue-600 font-semibold text-sm">
-                Explanation
-              </span>
-              {question.source !== "verified" && (
-                <span className="text-xs text-slate-500 bg-slate-50 px-2 py-0.5 rounded-full">
-                  Report if incorrect
-                </span>
-              )}
-            </div>
-            <p className="text-sm text-blue-800 leading-relaxed">
-              {question.explanation}
-            </p>
-          </div>
+          <RichExplanation
+            explanation={question.explanation}
+            correctAnswer={question.correctAnswer}
+            userAnswer={answers[currentQuestion] ?? -1}
+            options={question.options}
+          />
         )}
       </div>
 

@@ -343,15 +343,21 @@ export async function saveQuestionAttempts(
     correctAnswer: number;
     userAnswer: number | null;
     isCorrect: boolean;
-    explanation: string;
+    explanation: string | { logic: string; formula?: string | null; calculation?: string | null; trapAlerts: string[]; commonMistakes: string[]; };
   }>
 ) {
   const db = getClient();
   await ensureInitialized();
 
   // Use batch for transactional inserts
-  const statements = attempts.map((item) => ({
-    sql: `INSERT INTO question_attempts (session_id, user_id, exam_id, subject_id, topic, question_text, options, correct_answer, user_answer, is_correct, explanation)
+  const statements = attempts.map((item) => {
+    // Serialize explanation to string for storage
+    const explanationStr = typeof item.explanation === 'string'
+      ? item.explanation
+      : JSON.stringify(item.explanation);
+
+    return {
+      sql: `INSERT INTO question_attempts (session_id, user_id, exam_id, subject_id, topic, question_text, options, correct_answer, user_answer, is_correct, explanation)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     args: [
       item.sessionId,
@@ -364,9 +370,10 @@ export async function saveQuestionAttempts(
       item.correctAnswer,
       item.userAnswer,
       item.isCorrect ? 1 : 0,
-      item.explanation,
+      explanationStr,
     ] as any[],
-  }));
+    };
+  });
 
   await db.batch(statements, "write");
 }
@@ -498,7 +505,13 @@ export async function saveCachedQuestions(
   examId: string,
   subjectId: string,
   topic: string,
-  questions: Array<{ question: string; options: string[]; correctAnswer: number; explanation: string; difficulty: string }>
+  questions: Array<{
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation: string | { logic: string; formula?: string | null; calculation?: string | null; trapAlerts: string[]; commonMistakes: string[]; };
+    difficulty: string
+  }>
 ) {
   await ensureInitialized();
   const db = getClient();
