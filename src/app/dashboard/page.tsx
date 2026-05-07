@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
+import { MistakeMapWidget } from "@/components/mistake-map-widget";
 
 interface Stats {
   totalSessions: number;
@@ -232,6 +233,9 @@ export default function DashboardPage() {
             </div>
           )}
         </div>
+
+        {/* Mistake Map */}
+        <MistakeMapWidget />
 
         {/* Weak Topics */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">

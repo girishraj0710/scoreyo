@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { RichExplanation } from "@/components/rich-explanation";
+import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
 
 interface Question {
   question: string;
@@ -167,6 +168,12 @@ function QuizContent() {
   const [results, setResults] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [reportQuestion, setReportQuestion] = useState<Question | null>(null);
+  const [showWeaknessTracker, setShowWeaknessTracker] = useState(false);
+  const [currentWeaknessQuestion, setCurrentWeaknessQuestion] = useState<{
+    examId: string;
+    subjectId: string;
+    topic: string;
+  } | null>(null);
 
   // Timer
   useEffect(() => {
@@ -224,6 +231,45 @@ function QuizContent() {
 
   const checkAnswer = () => {
     setShowExplanation(true);
+
+    // Show weakness tracker if answer is wrong
+    if (quizData && answers[currentQuestion] !== null) {
+      const question = quizData.questions[currentQuestion];
+      const isCorrect = answers[currentQuestion] === question.correctAnswer;
+
+      if (!isCorrect) {
+        setCurrentWeaknessQuestion({
+          examId: quizData.examId,
+          subjectId: quizData.subjectId,
+          topic: quizData.topic
+        });
+        setShowWeaknessTracker(true);
+      }
+    }
+  };
+
+  const handleWeaknessSelect = async (type: 'calculation' | 'concept' | 'time' | 'careless') => {
+    if (currentWeaknessQuestion) {
+      try {
+        await fetch('/api/weakness', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...currentWeaknessQuestion,
+            weaknessType: type
+          })
+        });
+      } catch (err) {
+        console.error('Failed to record weakness:', err);
+      }
+    }
+    setShowWeaknessTracker(false);
+    setCurrentWeaknessQuestion(null);
+  };
+
+  const handleWeaknessSkip = () => {
+    setShowWeaknessTracker(false);
+    setCurrentWeaknessQuestion(null);
   };
 
   const nextQuestion = () => {
@@ -826,6 +872,14 @@ function QuizContent() {
           </button>
         ))}
       </div>
+
+      {/* Weakness Tracker Modal */}
+      {showWeaknessTracker && (
+        <WeaknessTrackerModal
+          onSelect={handleWeaknessSelect}
+          onSkip={handleWeaknessSkip}
+        />
+      )}
     </div>
   );
 }

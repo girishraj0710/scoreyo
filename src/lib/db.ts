@@ -95,6 +95,24 @@ async function initializeDb() {
     CREATE INDEX IF NOT EXISTS idx_topic_mastery_user ON topic_mastery(user_id, exam_id);
     CREATE INDEX IF NOT EXISTS idx_reported_questions ON reported_questions(status);
 
+    CREATE TABLE IF NOT EXISTS weakness_profiles (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL,
+      exam_id TEXT NOT NULL,
+      subject_id TEXT NOT NULL,
+      topic TEXT NOT NULL,
+      calculation_errors INTEGER DEFAULT 0,
+      concept_errors INTEGER DEFAULT 0,
+      time_errors INTEGER DEFAULT 0,
+      careless_errors INTEGER DEFAULT 0,
+      total_errors INTEGER DEFAULT 0,
+      last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(user_id, exam_id, subject_id, topic),
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_weakness_profiles_user ON weakness_profiles(user_id);
+
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
@@ -929,5 +947,85 @@ export async function getDetailedPerformance(userId: string) {
     mockTestHistory,
     strongTopics: topicPerformance.slice(0, 5),
     weakTopics: topicPerformance.slice(-5).reverse(),
+  };
+}
+
+// ─── Weakness Profile functions ──────────────────────────
+
+export async function recordWeaknessType(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  topic: string,
+  weaknessType: 'calculation' | 'concept' | 'time' | 'careless'
+) {
+  await ensureInitialized();
+  const db = getClient();
+
+  const columnMap = {
+    calculation: 'calculation_errors',
+    concept: 'concept_errors',
+    time: 'time_errors',
+    careless: 'careless_errors'
+  };
+
+  const column = columnMap[weaknessType];
+
+  await db.execute({
+    sql: `INSERT INTO weakness_profiles (user_id, exam_id, subject_id, topic, ${column}, total_errors, last_updated)
+          VALUES (?, ?, ?, ?, 1, 1, CURRENT_TIMESTAMP)
+          ON CONFLICT(user_id, exam_id, subject_id, topic) DO UPDATE SET
+            ${column} = ${column} + 1,
+            total_errors = total_errors + 1,
+            last_updated = CURRENT_TIMESTAMP`,
+    args: [userId, examId, subjectId, topic]
+  });
+}
+
+export async function getWeaknessProfile(userId: string, examId: string) {
+  await ensureInitialized();
+
+  const rows = await queryAll(
+    `SELECT
+      exam_id,
+      subject_id,
+      topic,
+      calculation_errors,
+      concept_errors,
+      time_errors,
+      careless_errors,
+      total_errors,
+      last_updated
+    FROM weakness_profiles
+    WHERE user_id = ? AND exam_id = ?
+    ORDER BY total_errors DESC
+    LIMIT 10`,
+    [userId, examId]
+  );
+
+  return rows;
+}
+
+export async function getWeaknessSummary(userId: string) {
+  await ensureInitialized();
+
+  const result = await queryOne(
+    `SELECT
+      SUM(calculation_errors) as calculation,
+      SUM(concept_errors) as concept,
+      SUM(time_errors) as time,
+      SUM(careless_errors) as careless,
+      SUM(total_errors) as total
+    FROM weakness_profiles
+    WHERE user_id = ?`,
+    [userId]
+  );
+
+  return result || {
+    calculation: 0,
+    concept: 0,
+    time: 0,
+    careless: 0,
+    total: 0
   };
 }
