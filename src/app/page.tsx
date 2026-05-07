@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { examCategories, type Exam } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
 import { LandingPage } from "@/components/landing-page";
@@ -16,6 +16,18 @@ export default function HomePage() {
   const [pressureMode, setPressureMode] = useState(false);
   const [stats, setStats] = useState<any>(null);
   const [subData, setSubData] = useState<any>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+
+  // Refs for auto-scrolling
+  const categoryRef = useRef<HTMLElement>(null);
+  const examRef = useRef<HTMLElement>(null);
+  const subjectRef = useRef<HTMLElement>(null);
+  const topicRef = useRef<HTMLElement>(null);
+  const settingsRef = useRef<HTMLElement>(null);
+
+  // Ref for search container to detect outside clicks
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("/api/stats")
@@ -26,6 +38,20 @@ export default function HomePage() {
       .then((r) => r.json())
       .then(setSubData)
       .catch(() => {});
+  }, []);
+
+  // Handle click outside to close search results
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setShowSearchDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const handleStartQuiz = () => {
@@ -44,6 +70,93 @@ export default function HomePage() {
   const currentSubjects = selectedExam?.subjects || [];
   const currentTopics =
     currentSubjects.find((s) => s.id === selectedSubject)?.topics || [];
+
+  // Search logic for logged-in users
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return null;
+
+    const query = searchQuery.toLowerCase();
+    const results: Array<{
+      type: "exam" | "subject" | "topic";
+      exam: Exam;
+      subject?: { id: string; name: string; icon: string };
+      topic?: string;
+      category: string;
+    }> = [];
+
+    examCategories.forEach((category) => {
+      category.exams.forEach((exam) => {
+        // Check exam name
+        if (exam.name.toLowerCase().includes(query) ||
+            exam.fullName.toLowerCase().includes(query) ||
+            exam.description.toLowerCase().includes(query)) {
+          results.push({
+            type: "exam",
+            exam,
+            category: category.name,
+          });
+        }
+
+        // Check subjects and topics
+        exam.subjects.forEach((subject) => {
+          if (subject.name.toLowerCase().includes(query)) {
+            results.push({
+              type: "subject",
+              exam,
+              subject: { id: subject.id, name: subject.name, icon: subject.icon },
+              category: category.name,
+            });
+          }
+
+          // Check topics
+          subject.topics.forEach((topic) => {
+            if (topic.toLowerCase().includes(query)) {
+              results.push({
+                type: "topic",
+                exam,
+                subject: { id: subject.id, name: subject.name, icon: subject.icon },
+                topic,
+                category: category.name,
+              });
+            }
+          });
+        });
+      });
+    });
+
+    return results.slice(0, 10); // Limit to 10 results
+  }, [searchQuery]);
+
+  const handleSearchSelect = (result: any) => {
+    if (result.type === "topic" && result.subject && result.topic) {
+      // Auto-fill all fields and jump to quiz settings
+      const category = examCategories.find(c => c.exams.some(e => e.id === result.exam.id));
+      setSelectedCategory(category?.id || null);
+      setSelectedExam(result.exam);
+      setSelectedSubject(result.subject.id);
+      setSelectedTopic(result.topic);
+      setShowSearchDropdown(false);
+      setTimeout(() => settingsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    } else if (result.type === "subject" && result.subject) {
+      // Auto-fill exam and subject
+      const category = examCategories.find(c => c.exams.some(e => e.id === result.exam.id));
+      setSelectedCategory(category?.id || null);
+      setSelectedExam(result.exam);
+      setSelectedSubject(result.subject.id);
+      setSelectedTopic(null);
+      setShowSearchDropdown(false);
+      setTimeout(() => topicRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    } else if (result.type === "exam") {
+      // Auto-fill exam
+      const category = examCategories.find(c => c.exams.some(e => e.id === result.exam.id));
+      setSelectedCategory(category?.id || null);
+      setSelectedExam(result.exam);
+      setSelectedSubject(null);
+      setSelectedTopic(null);
+      setShowSearchDropdown(false);
+      setTimeout(() => subjectRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    }
+  };
 
   // Show landing page if not logged in
   if (!user) {
@@ -65,6 +178,85 @@ export default function HomePage() {
           Banking, CAT &amp; 20+ Indian competitive exams. Track your progress and
           master every topic.
         </p>
+
+        {/* Search Bar for logged-in users */}
+        <div ref={searchContainerRef} className="max-w-2xl mx-auto mb-6">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Quick search: exams, subjects, topics..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSearchDropdown(true);
+              }}
+              onFocus={() => setShowSearchDropdown(true)}
+              className="w-full px-6 py-3 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
+            />
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Search Results Dropdown */}
+          {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length > 0 && (
+            <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 overflow-hidden">
+              <div className="p-3 border-b border-slate-200 bg-slate-50">
+                <p className="text-sm font-semibold text-slate-700">
+                  Found {searchResults.length} result{searchResults.length !== 1 ? "s" : ""}
+                </p>
+              </div>
+              <div className="max-h-96 overflow-y-auto">
+                {searchResults.map((result, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleSearchSelect(result)}
+                    className="w-full px-4 py-3 hover:bg-indigo-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="text-2xl mt-0.5">{result.exam.icon}</div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-slate-800">{result.exam.name}</span>
+                          <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
+                            {result.category}
+                          </span>
+                        </div>
+                        {result.type === "exam" && (
+                          <p className="text-sm text-slate-600">Full exam</p>
+                        )}
+                        {result.type === "subject" && result.subject && (
+                          <p className="text-sm text-slate-600">
+                            <span className="font-medium">{result.subject.name}</span>
+                          </p>
+                        )}
+                        {result.type === "topic" && result.subject && result.topic && (
+                          <p className="text-sm text-slate-600">
+                            <span className="font-medium">{result.subject.name}</span> → {result.topic}
+                          </p>
+                        )}
+                      </div>
+                      <svg className="w-5 h-5 text-slate-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* No Results */}
+          {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
+            <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-6 text-center">
+              <div className="text-4xl mb-2">🔍</div>
+              <p className="font-semibold text-slate-800 mb-1">No results found</p>
+              <p className="text-sm text-slate-600">Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
+            </div>
+          )}
+        </div>
 
         {/* Quick Stats */}
         {stats?.stats && stats.stats.totalSessions > 0 && (
@@ -92,53 +284,61 @@ export default function HomePage() {
       </section>
 
       {/* Step 1: Category Selection */}
-      <section className="mb-8">
-        <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-          <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
-            1
-          </span>
-          Choose Exam Category
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-          {examCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => {
-                setSelectedCategory(
-                  selectedCategory === category.id ? null : category.id
-                );
-                setSelectedExam(null);
-                setSelectedSubject(null);
-                setSelectedTopic(null);
-              }}
-              className={`card-hover p-4 rounded-xl border-2 text-center ${
-                selectedCategory === category.id
-                  ? "border-indigo-500 bg-indigo-50 shadow-md"
-                  : "border-slate-200 bg-white hover:border-indigo-300"
-              }`}
-            >
-              <div className="text-2xl mb-1">{category.icon}</div>
-              <div className="text-sm font-medium text-slate-700">
-                {category.name}
-              </div>
-              <div className="text-xs text-slate-400 mt-1">
-                {category.exams.length} exam
-                {category.exams.length > 1 ? "s" : ""}
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
+      {!selectedCategory && (
+        <section ref={categoryRef} className="mb-8">
+          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+              1
+            </span>
+            Choose Exam Category
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {examCategories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => {
+                  setSelectedCategory(category.id);
+                  setSelectedExam(null);
+                  setSelectedSubject(null);
+                  setSelectedTopic(null);
+                  setTimeout(() => examRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                }}
+              className="card-hover p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-indigo-300"
+              >
+                <div className="text-2xl mb-1">{category.icon}</div>
+                <div className="text-sm font-medium text-slate-700">
+                  {category.name}
+                </div>
+                <div className="text-xs text-slate-400 mt-1">
+                  {category.exams.length} exam
+                  {category.exams.length > 1 ? "s" : ""}
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Step 2: Exam Selection */}
       {selectedCategory && (
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
-              2
-            </span>
-            Select Exam
-          </h2>
+        <section ref={examRef} className="mb-8">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
+              <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+                2
+              </span>
+              Select Exam
+            </h2>
+            <button
+              onClick={() => {
+                setSelectedCategory(null);
+                setTimeout(() => categoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+              }}
+              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+            >
+              ← Change Category
+            </button>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {examCategories
               .find((c) => c.id === selectedCategory)
@@ -146,11 +346,10 @@ export default function HomePage() {
                 <button
                   key={exam.id}
                   onClick={() => {
-                    setSelectedExam(
-                      selectedExam?.id === exam.id ? null : exam
-                    );
+                    setSelectedExam(selectedExam?.id === exam.id ? null : exam);
                     setSelectedSubject(null);
                     setSelectedTopic(null);
+                    setTimeout(() => subjectRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                   }}
                   className={`card-hover p-4 rounded-xl border-2 text-left ${
                     selectedExam?.id === exam.id
@@ -190,7 +389,7 @@ export default function HomePage() {
 
       {/* Step 3: Subject Selection */}
       {selectedExam && (
-        <section className="mb-8">
+        <section ref={subjectRef} className="mb-8">
           <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
             <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
               3
@@ -202,10 +401,9 @@ export default function HomePage() {
               <button
                 key={subject.id}
                 onClick={() => {
-                  setSelectedSubject(
-                    selectedSubject === subject.id ? null : subject.id
-                  );
+                  setSelectedSubject(selectedSubject === subject.id ? null : subject.id);
                   setSelectedTopic(null);
+                  setTimeout(() => topicRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                 }}
                 className={`card-hover p-4 rounded-xl border-2 text-center ${
                   selectedSubject === subject.id
@@ -228,7 +426,7 @@ export default function HomePage() {
 
       {/* Step 4: Topic Selection */}
       {selectedSubject && (
-        <section className="mb-8">
+        <section ref={topicRef} className="mb-8">
           <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
             <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
               4
@@ -239,9 +437,10 @@ export default function HomePage() {
             {currentTopics.map((topic) => (
               <button
                 key={topic}
-                onClick={() =>
-                  setSelectedTopic(selectedTopic === topic ? null : topic)
-                }
+                onClick={() => {
+                  setSelectedTopic(selectedTopic === topic ? null : topic);
+                  setTimeout(() => settingsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+                }}
                 className={`px-4 py-2 rounded-full text-sm font-medium border-2 ${
                   selectedTopic === topic
                     ? "border-indigo-500 bg-indigo-500 text-white shadow-md"
@@ -257,7 +456,7 @@ export default function HomePage() {
 
       {/* Step 5: Quiz Settings & Start */}
       {selectedTopic && (
-        <section className="mb-12">
+        <section ref={settingsRef} className="mb-12">
           <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 shadow-lg max-w-lg mx-auto">
             <h2 className="text-lg font-semibold text-slate-800 mb-5 text-center">
               Quiz Settings

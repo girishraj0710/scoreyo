@@ -1,9 +1,91 @@
 "use client";
 
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "@/context/user-context";
+import { examCategories } from "@/lib/exams";
 
 export function LandingPage() {
   const { setShowLoginModal } = useUser();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+
+  // Ref for search container to detect outside clicks
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Search logic - filters exams, subjects, and topics
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return null;
+
+    const query = searchQuery.toLowerCase();
+    const results: Array<{
+      type: "exam" | "subject" | "topic";
+      examName: string;
+      examIcon: string;
+      subjectName?: string;
+      topicName?: string;
+      category: string;
+    }> = [];
+
+    examCategories.forEach((category) => {
+      category.exams.forEach((exam) => {
+        // Check exam name
+        if (exam.name.toLowerCase().includes(query) ||
+            exam.fullName.toLowerCase().includes(query) ||
+            exam.description.toLowerCase().includes(query)) {
+          results.push({
+            type: "exam",
+            examName: exam.name,
+            examIcon: exam.icon,
+            category: category.name,
+          });
+        }
+
+        // Check subjects and topics
+        exam.subjects.forEach((subject) => {
+          if (subject.name.toLowerCase().includes(query)) {
+            results.push({
+              type: "subject",
+              examName: exam.name,
+              examIcon: exam.icon,
+              subjectName: subject.name,
+              category: category.name,
+            });
+          }
+
+          // Check topics
+          subject.topics.forEach((topic) => {
+            if (topic.toLowerCase().includes(query)) {
+              results.push({
+                type: "topic",
+                examName: exam.name,
+                examIcon: exam.icon,
+                subjectName: subject.name,
+                topicName: topic,
+                category: category.name,
+              });
+            }
+          });
+        });
+      });
+    });
+
+    return results.slice(0, 10); // Limit to 10 results
+  }, [searchQuery]);
+
+  // Handle click outside to close search results
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setShowSearchDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -46,19 +128,90 @@ export function LandingPage() {
               </div>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-8">
+          <div ref={searchContainerRef} className="max-w-2xl mx-auto mb-8">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search for exams, subjects, topics..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setShowSearchDropdown(true);
+                }}
+                onFocus={() => setShowSearchDropdown(true)}
                 className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
               />
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-              </button>
+              </div>
             </div>
+
+            {/* Search Results Dropdown */}
+            {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length > 0 && (
+              <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 overflow-hidden">
+                <div className="p-3 border-b border-slate-200 bg-slate-50">
+                  <p className="text-sm font-semibold text-slate-700">
+                    Found {searchResults.length} result{searchResults.length !== 1 ? "s" : ""}
+                  </p>
+                </div>
+                <div className="max-h-96 overflow-y-auto">
+                  {searchResults.map((result, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setShowLoginModal(true)}
+                      className="w-full px-4 py-3 hover:bg-indigo-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="text-2xl mt-0.5">{result.examIcon}</div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-semibold text-slate-800">{result.examName}</span>
+                            <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
+                              {result.category}
+                            </span>
+                          </div>
+                          {result.type === "exam" && (
+                            <p className="text-sm text-slate-600">Full exam</p>
+                          )}
+                          {result.type === "subject" && (
+                            <p className="text-sm text-slate-600">
+                              <span className="font-medium">{result.subjectName}</span>
+                            </p>
+                          )}
+                          {result.type === "topic" && (
+                            <p className="text-sm text-slate-600">
+                              <span className="font-medium">{result.subjectName}</span> → {result.topicName}
+                            </p>
+                          )}
+                        </div>
+                        <svg className="w-5 h-5 text-slate-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
+                  <button
+                    onClick={() => setShowLoginModal(true)}
+                    className="text-sm font-semibold text-indigo-600 hover:text-indigo-700"
+                  >
+                    Sign up to start practicing →
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* No Results */}
+            {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
+              <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-6 text-center">
+                <div className="text-4xl mb-2">🔍</div>
+                <p className="font-semibold text-slate-800 mb-1">No results found</p>
+                <p className="text-sm text-slate-600">Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
+              </div>
+            )}
           </div>
 
           {/* CTA Button */}

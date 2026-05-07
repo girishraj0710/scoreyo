@@ -987,6 +987,57 @@ export const examCategories: ExamCategory[] = [
           },
         ],
       },
+      {
+        id: "ailet",
+        name: "AILET",
+        fullName: "All India Law Entrance Test",
+        category: "law",
+        icon: "⚖️",
+        color: "#BE123C",
+        description: "For admission to National Law University Delhi",
+        subjects: [
+          {
+            id: "ailet-english",
+            name: "English Language",
+            icon: "📝",
+            topics: [
+              "Reading Comprehension", "Grammar (Parts of speech, Tenses, Voice)",
+              "Vocabulary (Synonyms, Antonyms)", "Sentence Correction",
+              "Verbal Ability", "Idioms & Phrases"
+            ],
+          },
+          {
+            id: "ailet-gk",
+            name: "General Knowledge & Current Affairs",
+            icon: "🌐",
+            topics: [
+              "Current Affairs (National & International, last 12 months)",
+              "Indian History, Geography & Polity", "Legal Affairs (Landmark judgments, New laws)",
+              "National & International Events", "Awards & Honors", "Sports"
+            ],
+          },
+          {
+            id: "ailet-reasoning",
+            name: "Logical & Legal Reasoning",
+            icon: "🧩",
+            topics: [
+              "Logical Reasoning (Syllogisms, Analogies, Series)",
+              "Analytical Reasoning (Puzzles, Arrangements)", "Critical Thinking",
+              "Legal Reasoning (Legal principles, Case-based reasoning)"
+            ],
+          },
+          {
+            id: "ailet-maths",
+            name: "Elementary Mathematics",
+            icon: "🔢",
+            topics: [
+              "Arithmetic (Percentage, Profit & Loss, Ratio, Average)",
+              "Algebra (Linear equations)", "Geometry (Basic mensuration)",
+              "Data Interpretation (Tables, Charts)"
+            ],
+          },
+        ],
+      },
     ],
   },
 
@@ -1943,123 +1994,6 @@ export const examCategories: ExamCategory[] = [
               "Logical Reasoning", "Analytical Ability",
               "Mental Ability", "Data Interpretation",
               "Basic Numeracy", "Reading Comprehension"
-            ],
-          },
-        ],
-      },
-    ],
-  },
-
-  // ─── LAW ENTRANCE ──────────────────────────────────────
-  {
-    id: "law",
-    name: "Law Entrance",
-    icon: "⚖️",
-    exams: [
-      {
-        id: "clat",
-        name: "CLAT",
-        fullName: "Common Law Admission Test",
-        category: "law",
-        icon: "⚖️",
-        color: "#9F1239",
-        description: "For admission to National Law Universities",
-        subjects: [
-          {
-            id: "clat-english",
-            name: "English Language",
-            icon: "📝",
-            topics: [
-              "Reading Comprehension", "Grammar", "Vocabulary",
-              "Verbal Ability", "Error Correction", "Sentence Completion"
-            ],
-          },
-          {
-            id: "clat-gk",
-            name: "Current Affairs & GK",
-            icon: "🌐",
-            topics: [
-              "Current Affairs", "Static GK", "National Affairs",
-              "International Affairs", "Legal Affairs", "Constitutional Developments"
-            ],
-          },
-          {
-            id: "clat-legal",
-            name: "Legal Reasoning",
-            icon: "⚖️",
-            topics: [
-              "Legal Principles", "Legal Maxims", "Case Studies",
-              "Application of Law", "Legal Aptitude"
-            ],
-          },
-          {
-            id: "clat-logical",
-            name: "Logical Reasoning",
-            icon: "🧩",
-            topics: [
-              "Critical Reasoning", "Analytical Reasoning",
-              "Syllogisms", "Assumptions", "Conclusions",
-              "Arguments", "Inferences"
-            ],
-          },
-          {
-            id: "clat-quant",
-            name: "Quantitative Techniques",
-            icon: "🔢",
-            topics: [
-              "Percentage", "Ratio & Proportion", "Profit & Loss",
-              "Interest", "Average", "Data Interpretation"
-            ],
-          },
-        ],
-      },
-      {
-        id: "ailet",
-        name: "AILET",
-        fullName: "All India Law Entrance Test",
-        category: "law",
-        icon: "⚖️",
-        color: "#BE123C",
-        description: "For admission to National Law University Delhi",
-        subjects: [
-          {
-            id: "ailet-english",
-            name: "English Language",
-            icon: "📝",
-            topics: [
-              "Reading Comprehension", "Grammar (Parts of speech, Tenses, Voice)",
-              "Vocabulary (Synonyms, Antonyms)", "Sentence Correction",
-              "Verbal Ability", "Idioms & Phrases"
-            ],
-          },
-          {
-            id: "ailet-gk",
-            name: "General Knowledge & Current Affairs",
-            icon: "🌐",
-            topics: [
-              "Current Affairs (National & International, last 12 months)",
-              "Indian History, Geography & Polity", "Legal Affairs (Landmark judgments, New laws)",
-              "National & International Events", "Awards & Honors", "Sports"
-            ],
-          },
-          {
-            id: "ailet-reasoning",
-            name: "Logical & Legal Reasoning",
-            icon: "🧩",
-            topics: [
-              "Logical Reasoning (Syllogisms, Analogies, Series)",
-              "Analytical Reasoning (Puzzles, Arrangements)", "Critical Thinking",
-              "Legal Reasoning (Legal principles, Case-based reasoning)"
-            ],
-          },
-          {
-            id: "ailet-maths",
-            name: "Elementary Mathematics",
-            icon: "🔢",
-            topics: [
-              "Arithmetic (Percentage, Profit & Loss, Ratio, Average)",
-              "Algebra (Linear equations)", "Geometry (Basic mensuration)",
-              "Data Interpretation (Tables, Charts)"
             ],
           },
         ],
