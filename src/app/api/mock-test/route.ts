@@ -76,9 +76,9 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { examId } = body;
+    const { examId, testNumber = 1 } = body;
 
-    const config = getMockTestConfig(examId);
+    const config = getMockTestConfig(examId, testNumber);
     if (!config) {
       return NextResponse.json({ error: "Mock test not available for this exam" }, { status: 400 });
     }

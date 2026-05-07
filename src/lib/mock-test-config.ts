@@ -4,6 +4,7 @@
 export interface MockTestConfig {
   examId: string;
   examName: string;
+  testNumber: number;
   totalQuestions: number;
   timeLimitMinutes: number;
   sections: {
@@ -17,6 +18,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "jee-main",
     examName: "JEE Main",
+    testNumber: 1,
     totalQuestions: 30,
     timeLimitMinutes: 60,
     sections: [
@@ -28,6 +30,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "jee-advanced",
     examName: "JEE Advanced",
+    testNumber: 1,
     totalQuestions: 30,
     timeLimitMinutes: 60,
     sections: [
@@ -39,6 +42,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "neet-ug",
     examName: "NEET UG",
+    testNumber: 1,
     totalQuestions: 30,
     timeLimitMinutes: 60,
     sections: [
@@ -50,6 +54,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "upsc-cse",
     examName: "UPSC CSE Prelims",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -63,6 +68,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "gate",
     examName: "GATE CS",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -74,6 +80,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ssc-cgl",
     examName: "SSC CGL",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -86,6 +93,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ibps-po",
     examName: "IBPS PO",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -98,6 +106,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "cat",
     examName: "CAT",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -109,6 +118,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "neet-pg",
     examName: "NEET PG",
+    testNumber: 1,
     totalQuestions: 30,
     timeLimitMinutes: 60,
     sections: [
@@ -120,6 +130,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ssc-chsl",
     examName: "SSC CHSL",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -132,6 +143,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "sbi-po",
     examName: "SBI PO",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -144,6 +156,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ibps-clerk",
     examName: "IBPS Clerk",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -156,6 +169,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rbi-grade-b",
     examName: "RBI Grade B",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -168,6 +182,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "clat",
     examName: "CLAT",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -180,6 +195,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "xat",
     examName: "XAT",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -191,6 +207,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "nda",
     examName: "NDA",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -201,6 +218,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "cds",
     examName: "CDS",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -212,6 +230,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ugc-net",
     examName: "UGC NET",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -223,6 +242,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ctet",
     examName: "CTET",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 45,
     sections: [
@@ -234,6 +254,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rrb-ntpc",
     examName: "RRB NTPC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -245,6 +266,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rrb-group-d",
     examName: "RRB Group D",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -256,6 +278,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "uppsc",
     examName: "UPPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -268,6 +291,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "mppsc",
     examName: "MPPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -280,6 +304,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "delhi-police",
     examName: "Delhi Police",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -291,6 +316,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "nift",
     examName: "NIFT",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -301,6 +327,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ca-foundation",
     examName: "CA Foundation",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -312,6 +339,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ailet",
     examName: "AILET",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -324,6 +352,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "cs-foundation",
     examName: "CS Foundation",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -335,6 +364,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "nid",
     examName: "NID DAT",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -345,6 +375,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "nata",
     examName: "NATA",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -355,6 +386,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "nchmct",
     examName: "NCHMCT JEE",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -367,6 +399,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "htet",
     examName: "HTET",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -378,6 +411,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "uptet",
     examName: "UPTET",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -389,6 +423,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rtet",
     examName: "RTET",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -400,6 +435,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "kvs",
     examName: "KVS",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 45,
     sections: [
@@ -411,6 +447,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "dsssb",
     examName: "DSSSB",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -423,6 +460,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "up-police",
     examName: "UP Police",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -434,6 +472,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "cisf",
     examName: "CISF",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -445,6 +484,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "bpsc",
     examName: "BPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -455,6 +495,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rpsc",
     examName: "RPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -465,6 +506,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "lic-aao",
     examName: "LIC AAO",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -477,6 +519,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "afcat",
     examName: "AFCAT",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -489,6 +532,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "indian-navy",
     examName: "Indian Navy",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -500,6 +544,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rrb-alp",
     examName: "RRB ALP",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -512,6 +557,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "rrb-je",
     examName: "RRB JE",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 45,
     sections: [
@@ -523,6 +569,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "postal-assistant",
     examName: "Postal Assistant",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -535,6 +582,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "gds",
     examName: "GDS",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 40,
     sections: [
@@ -546,6 +594,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "tnpsc",
     examName: "TNPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -556,6 +605,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "kpsc",
     examName: "KPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -566,6 +616,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "wbpsc",
     examName: "WBPSC",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -575,6 +626,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "ifs",
     examName: "IFS (Indian Forest Service)",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -585,6 +637,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "judicial-services",
     examName: "Judicial Services",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -595,6 +648,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "iimc",
     examName: "IIMC",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 40,
     sections: [
@@ -605,6 +659,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "aiims-nursing",
     examName: "AIIMS Nursing",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 45,
     sections: [
@@ -615,6 +670,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "gpat",
     examName: "GPAT",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -626,6 +682,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "icar-aieea",
     examName: "ICAR AIEEA",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -637,6 +694,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "isi",
     examName: "ISI Admission Test",
+    testNumber: 1,
     totalQuestions: 20,
     timeLimitMinutes: 50,
     sections: [
@@ -647,6 +705,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "aipvt",
     examName: "AIPVT (Veterinary)",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -658,6 +717,7 @@ export const mockTestConfigs: MockTestConfig[] = [
   {
     examId: "indian-army",
     examName: "Indian Army (TES/NCC)",
+    testNumber: 1,
     totalQuestions: 25,
     timeLimitMinutes: 50,
     sections: [
@@ -666,12 +726,391 @@ export const mockTestConfigs: MockTestConfig[] = [
       { subjectId: "army-chemistry", subjectName: "Chemistry", questionCount: 8 },
     ],
   },
+  {
+    examId: "jee-main",
+    examName: "JEE Main",
+    testNumber: 2,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "jee-physics", subjectName: "Physics", questionCount: 10 },
+      { subjectId: "jee-chemistry", subjectName: "Chemistry", questionCount: 10 },
+      { subjectId: "jee-maths", subjectName: "Mathematics", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "jee-main",
+    examName: "JEE Main",
+    testNumber: 3,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "jee-physics", subjectName: "Physics", questionCount: 10 },
+      { subjectId: "jee-chemistry", subjectName: "Chemistry", questionCount: 10 },
+      { subjectId: "jee-maths", subjectName: "Mathematics", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "jee-advanced",
+    examName: "JEE Advanced",
+    testNumber: 2,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "jee-adv-physics", subjectName: "Physics", questionCount: 10 },
+      { subjectId: "jee-adv-chemistry", subjectName: "Chemistry", questionCount: 10 },
+      { subjectId: "jee-adv-maths", subjectName: "Mathematics", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "jee-advanced",
+    examName: "JEE Advanced",
+    testNumber: 3,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "jee-adv-physics", subjectName: "Physics", questionCount: 10 },
+      { subjectId: "jee-adv-chemistry", subjectName: "Chemistry", questionCount: 10 },
+      { subjectId: "jee-adv-maths", subjectName: "Mathematics", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "neet-ug",
+    examName: "NEET UG",
+    testNumber: 2,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "neet-physics", subjectName: "Physics", questionCount: 10 },
+      { subjectId: "neet-chemistry", subjectName: "Chemistry", questionCount: 10 },
+      { subjectId: "neet-biology", subjectName: "Biology", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "neet-ug",
+    examName: "NEET UG",
+    testNumber: 3,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "neet-physics", subjectName: "Physics", questionCount: 10 },
+      { subjectId: "neet-chemistry", subjectName: "Chemistry", questionCount: 10 },
+      { subjectId: "neet-biology", subjectName: "Biology", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "upsc-cse",
+    examName: "UPSC CSE Prelims",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "upsc-polity", subjectName: "Polity", questionCount: 5 },
+      { subjectId: "upsc-history", subjectName: "History", questionCount: 5 },
+      { subjectId: "upsc-geography", subjectName: "Geography", questionCount: 5 },
+      { subjectId: "upsc-economy", subjectName: "Economy", questionCount: 5 },
+      { subjectId: "upsc-science", subjectName: "Science", questionCount: 5 },
+    ],
+  },
+  {
+    examId: "upsc-cse",
+    examName: "UPSC CSE Prelims",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "upsc-polity", subjectName: "Polity", questionCount: 5 },
+      { subjectId: "upsc-history", subjectName: "History", questionCount: 5 },
+      { subjectId: "upsc-geography", subjectName: "Geography", questionCount: 5 },
+      { subjectId: "upsc-economy", subjectName: "Economy", questionCount: 5 },
+      { subjectId: "upsc-science", subjectName: "Science", questionCount: 5 },
+    ],
+  },
+  {
+    examId: "gate",
+    examName: "GATE CS",
+    testNumber: 2,
+    totalQuestions: 20,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "gate-cs", subjectName: "Computer Science", questionCount: 14 },
+      { subjectId: "gate-aptitude", subjectName: "General Aptitude", questionCount: 3 },
+      { subjectId: "gate-engineering-math", subjectName: "Engineering Math", questionCount: 3 },
+    ],
+  },
+  {
+    examId: "gate",
+    examName: "GATE CS",
+    testNumber: 3,
+    totalQuestions: 20,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "gate-cs", subjectName: "Computer Science", questionCount: 14 },
+      { subjectId: "gate-aptitude", subjectName: "General Aptitude", questionCount: 3 },
+      { subjectId: "gate-engineering-math", subjectName: "Engineering Math", questionCount: 3 },
+    ],
+  },
+  {
+    examId: "ssc-cgl",
+    examName: "SSC CGL",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "ssc-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "ssc-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "ssc-english", subjectName: "English", questionCount: 6 },
+      { subjectId: "ssc-gk", subjectName: "General Knowledge", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "ssc-cgl",
+    examName: "SSC CGL",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "ssc-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "ssc-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "ssc-english", subjectName: "English", questionCount: 6 },
+      { subjectId: "ssc-gk", subjectName: "General Knowledge", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "ibps-po",
+    examName: "IBPS PO",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "ibps-quant", subjectName: "Quantitative Aptitude", questionCount: 6 },
+      { subjectId: "ibps-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "ibps-english", subjectName: "English", questionCount: 7 },
+      { subjectId: "ibps-gk", subjectName: "General Awareness", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "ibps-po",
+    examName: "IBPS PO",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "ibps-quant", subjectName: "Quantitative Aptitude", questionCount: 6 },
+      { subjectId: "ibps-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "ibps-english", subjectName: "English", questionCount: 7 },
+      { subjectId: "ibps-gk", subjectName: "General Awareness", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "cat",
+    examName: "CAT",
+    testNumber: 2,
+    totalQuestions: 20,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "cat-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "cat-varc", subjectName: "Verbal Ability & RC", questionCount: 7 },
+      { subjectId: "cat-dilr", subjectName: "Data Interpretation & LR", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "cat",
+    examName: "CAT",
+    testNumber: 3,
+    totalQuestions: 20,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "cat-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "cat-varc", subjectName: "Verbal Ability & RC", questionCount: 7 },
+      { subjectId: "cat-dilr", subjectName: "Data Interpretation & LR", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "neet-pg",
+    examName: "NEET PG",
+    testNumber: 2,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "neet-pg-medicine", subjectName: "Medicine", questionCount: 10 },
+      { subjectId: "neet-pg-surgery", subjectName: "Surgery", questionCount: 10 },
+      { subjectId: "neet-pg-obs-gyn", subjectName: "Obs & Gynae", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "neet-pg",
+    examName: "NEET PG",
+    testNumber: 3,
+    totalQuestions: 30,
+    timeLimitMinutes: 60,
+    sections: [
+      { subjectId: "neet-pg-medicine", subjectName: "Medicine", questionCount: 10 },
+      { subjectId: "neet-pg-surgery", subjectName: "Surgery", questionCount: 10 },
+      { subjectId: "neet-pg-obs-gyn", subjectName: "Obs & Gynae", questionCount: 10 },
+    ],
+  },
+  {
+    examId: "ssc-chsl",
+    examName: "SSC CHSL",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "ssc-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "ssc-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "ssc-english", subjectName: "English", questionCount: 6 },
+      { subjectId: "ssc-gk", subjectName: "General Knowledge", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "ssc-chsl",
+    examName: "SSC CHSL",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "ssc-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "ssc-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "ssc-english", subjectName: "English", questionCount: 6 },
+      { subjectId: "ssc-gk", subjectName: "General Knowledge", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "sbi-po",
+    examName: "SBI PO",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "sbi-quant", subjectName: "Quantitative Aptitude", questionCount: 6 },
+      { subjectId: "sbi-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "sbi-english", subjectName: "English", questionCount: 7 },
+      { subjectId: "sbi-gk", subjectName: "General Awareness", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "sbi-po",
+    examName: "SBI PO",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "sbi-quant", subjectName: "Quantitative Aptitude", questionCount: 6 },
+      { subjectId: "sbi-reasoning", subjectName: "Reasoning", questionCount: 6 },
+      { subjectId: "sbi-english", subjectName: "English", questionCount: 7 },
+      { subjectId: "sbi-gk", subjectName: "General Awareness", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "clat",
+    examName: "CLAT",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "clat-english", subjectName: "English", questionCount: 6 },
+      { subjectId: "clat-gk", subjectName: "Current Affairs & GK", questionCount: 6 },
+      { subjectId: "clat-legal", subjectName: "Legal Reasoning", questionCount: 7 },
+      { subjectId: "clat-logical", subjectName: "Logical Reasoning", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "clat",
+    examName: "CLAT",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "clat-english", subjectName: "English", questionCount: 6 },
+      { subjectId: "clat-gk", subjectName: "Current Affairs & GK", questionCount: 6 },
+      { subjectId: "clat-legal", subjectName: "Legal Reasoning", questionCount: 7 },
+      { subjectId: "clat-logical", subjectName: "Logical Reasoning", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "xat",
+    examName: "XAT",
+    testNumber: 2,
+    totalQuestions: 20,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "xat-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "xat-verbal", subjectName: "Verbal Ability", questionCount: 7 },
+      { subjectId: "xat-decision", subjectName: "Decision Making", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "xat",
+    examName: "XAT",
+    testNumber: 3,
+    totalQuestions: 20,
+    timeLimitMinutes: 40,
+    sections: [
+      { subjectId: "xat-quant", subjectName: "Quantitative Aptitude", questionCount: 7 },
+      { subjectId: "xat-verbal", subjectName: "Verbal Ability", questionCount: 7 },
+      { subjectId: "xat-decision", subjectName: "Decision Making", questionCount: 6 },
+    ],
+  },
+  {
+    examId: "nda",
+    examName: "NDA",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "nda-maths", subjectName: "Mathematics", questionCount: 13 },
+      { subjectId: "nda-gat", subjectName: "General Ability Test", questionCount: 12 },
+    ],
+  },
+  {
+    examId: "nda",
+    examName: "NDA",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "nda-maths", subjectName: "Mathematics", questionCount: 13 },
+      { subjectId: "nda-gat", subjectName: "General Ability Test", questionCount: 12 },
+    ],
+  },
+  {
+    examId: "cds",
+    examName: "CDS",
+    testNumber: 2,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "cds-english", subjectName: "English", questionCount: 9 },
+      { subjectId: "cds-gk", subjectName: "General Knowledge", questionCount: 8 },
+      { subjectId: "cds-maths", subjectName: "Elementary Mathematics", questionCount: 8 },
+    ],
+  },
+  {
+    examId: "cds",
+    examName: "CDS",
+    testNumber: 3,
+    totalQuestions: 25,
+    timeLimitMinutes: 50,
+    sections: [
+      { subjectId: "cds-english", subjectName: "English", questionCount: 9 },
+      { subjectId: "cds-gk", subjectName: "General Knowledge", questionCount: 8 },
+      { subjectId: "cds-maths", subjectName: "Elementary Mathematics", questionCount: 8 },
+    ],
+  },
 ];
 
-export function getMockTestConfig(examId: string): MockTestConfig | undefined {
+export function getMockTestConfig(examId: string, testNumber?: number): MockTestConfig | undefined {
+  if (testNumber) {
+    return mockTestConfigs.find((c) => c.examId === examId && c.testNumber === testNumber);
+  }
   return mockTestConfigs.find((c) => c.examId === examId);
 }
 
 export function getAllMockTestConfigs(): MockTestConfig[] {
   return mockTestConfigs;
+}
+
+export function getMockTestsByExam(examId: string): MockTestConfig[] {
+  return mockTestConfigs.filter((c) => c.examId === examId);
 }

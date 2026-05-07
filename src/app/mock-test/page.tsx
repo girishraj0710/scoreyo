@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
@@ -8,6 +8,7 @@ import { getExamById } from "@/lib/exams";
 interface MockTestConfig {
   examId: string;
   examName: string;
+  testNumber: number;
   totalQuestions: number;
   timeLimitMinutes: number;
   sections: { subjectId: string; subjectName: string; questionCount: number }[];
@@ -33,6 +34,11 @@ export default function MockTestPage() {
   const [configs, setConfigs] = useState<MockTestConfig[]>([]);
   const [history, setHistory] = useState<any[]>([]);
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
+
+  // Search state
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   // Test state
   const [testId, setTestId] = useState("");
@@ -71,6 +77,45 @@ export default function MockTestPage() {
     load();
   }, []);
 
+  // Click outside handler for search dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setShowSearchDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Filtered and grouped configs based on search
+  const filteredConfigs = useMemo(() => {
+    if (!searchQuery.trim()) return configs;
+    const query = searchQuery.toLowerCase();
+    return configs.filter(
+      (c) =>
+        c.examName.toLowerCase().includes(query) ||
+        c.examId.toLowerCase().includes(query) ||
+        c.sections.some((s) => s.subjectName.toLowerCase().includes(query))
+    );
+  }, [configs, searchQuery]);
+
+  // Group configs by examId to show multiple tests
+  const groupedConfigs = useMemo(() => {
+    const groups: { [key: string]: MockTestConfig[] } = {};
+    filteredConfigs.forEach((config) => {
+      if (!groups[config.examId]) {
+        groups[config.examId] = [];
+      }
+      groups[config.examId].push(config);
+    });
+    // Sort each group by testNumber
+    Object.keys(groups).forEach((examId) => {
+      groups[examId].sort((a, b) => a.testNumber - b.testNumber);
+    });
+    return groups;
+  }, [filteredConfigs]);
+
   // Countdown timer
   useEffect(() => {
     if (pageState !== "test" || timeRemaining <= 0) return;
@@ -95,13 +140,13 @@ export default function MockTestPage() {
     return `${m}:${s.toString().padStart(2, "0")}`;
   };
 
-  async function startTest(examId: string) {
+  async function startTest(examId: string, testNumber: number = 1) {
     setPageState("loading");
     try {
       const res = await fetch("/api/mock-test", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ examId }),
+        body: JSON.stringify({ examId, testNumber }),
       });
       const data = await res.json();
 
@@ -458,14 +503,83 @@ export default function MockTestPage() {
 
   // Selection screen (default)
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold mb-3">
           <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             {t("mockTestTitle")}
           </span>
         </h1>
-        <p className="text-slate-500 max-w-lg mx-auto">{t("mockTestSubtitle")}</p>
+        <p className="text-slate-500 max-w-lg mx-auto mb-6">{t("mockTestSubtitle")}</p>
+
+        {/* Search Bar */}
+        <div className="max-w-xl mx-auto relative" ref={searchContainerRef}>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search mock tests by exam name..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSearchDropdown(true);
+              }}
+              onFocus={() => setShowSearchDropdown(true)}
+              className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+            />
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            {searchQuery && (
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setShowSearchDropdown(false);
+                }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
+
+          {/* Search Dropdown */}
+          {showSearchDropdown && searchQuery && (
+            <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-2xl border border-slate-200 max-h-80 overflow-y-auto z-50">
+              {Object.keys(groupedConfigs).length === 0 ? (
+                <div className="p-6 text-center text-slate-400">No mock tests found</div>
+              ) : (
+                Object.keys(groupedConfigs).map((examId) => {
+                  const exam = getExamById(examId);
+                  const testConfigs = groupedConfigs[examId];
+                  return (
+                    <div key={examId} className="border-b border-slate-100 last:border-0">
+                      <div className="p-3 flex items-center gap-3">
+                        <span className="text-2xl">{exam?.icon || "📝"}</span>
+                        <div className="flex-1">
+                          <div className="font-semibold text-slate-800">{testConfigs[0].examName}</div>
+                          <div className="text-xs text-slate-400">{testConfigs.length} test{testConfigs.length > 1 ? 's' : ''} available</div>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setSearchQuery("");
+                            setShowSearchDropdown(false);
+                            const element = document.getElementById(`exam-${examId}`);
+                            element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          }}
+                          className="px-3 py-1.5 text-xs bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100"
+                        >
+                          View Tests
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {isLoadingConfigs ? (
@@ -476,54 +590,74 @@ export default function MockTestPage() {
         </div>
       ) : (
         <>
-          {/* Available Mock Tests */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            {configs.map((config) => {
-              const exam = getExamById(config.examId);
-              return (
-                <div key={config.examId} className="bg-white rounded-2xl p-5 border-2 border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}>
-                      {exam?.icon || "📝"}
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-slate-800">{config.examName}</h3>
-                      <p className="text-xs text-slate-400">{exam?.description || ""}</p>
-                    </div>
-                  </div>
+          {/* Available Mock Tests - Grouped by Exam */}
+          <div className="space-y-6 mb-10">
+            {Object.keys(groupedConfigs).length === 0 ? (
+              <div className="text-center py-12 text-slate-400">No mock tests found matching your search</div>
+            ) : (
+              Object.keys(groupedConfigs).map((examId) => {
+                const exam = getExamById(examId);
+                const testConfigs = groupedConfigs[examId];
+                const firstConfig = testConfigs[0];
 
-                  <div className="flex items-center gap-4 mb-4 text-sm text-slate-500">
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                      {config.totalQuestions} {t("questions")}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      {config.timeLimitMinutes} min
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>
-                      {config.sections.length} {t("subjects")}
-                    </span>
-                  </div>
+                return (
+                  <div key={examId} id={`exam-${examId}`} className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-300 transition-all">
+                    {/* Exam Header */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl shrink-0" style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}>
+                        {exam?.icon || "📝"}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-slate-800 mb-1">{firstConfig.examName}</h3>
+                        <p className="text-sm text-slate-500">{exam?.description || ""}</p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <div className="text-2xl font-bold text-indigo-600">{testConfigs.length}</div>
+                        <div className="text-xs text-slate-400">Test{testConfigs.length > 1 ? 's' : ''}</div>
+                      </div>
+                    </div>
 
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {config.sections.map((s) => (
-                      <span key={s.subjectId} className="text-xs bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full">
-                        {s.subjectName} ({s.questionCount})
+                    {/* Test Details */}
+                    <div className="flex items-center gap-4 mb-4 text-sm text-slate-500">
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        {firstConfig.totalQuestions} {t("questions")}
                       </span>
-                    ))}
-                  </div>
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        {firstConfig.timeLimitMinutes} min
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        {firstConfig.sections.length} {t("subjects")}
+                      </span>
+                    </div>
 
-                  <button
-                    onClick={() => startTest(config.examId)}
-                    className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md text-sm"
-                  >
-                    {t("startMockTest")}
-                  </button>
-                </div>
-              );
-            })}
+                    {/* Subjects */}
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {firstConfig.sections.map((s) => (
+                        <span key={s.subjectId} className="text-xs bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full">
+                          {s.subjectName} ({s.questionCount})
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Test Buttons */}
+                    <div className="grid grid-cols-3 gap-2">
+                      {testConfigs.map((config) => (
+                        <button
+                          key={config.testNumber}
+                          onClick={() => startTest(config.examId, config.testNumber)}
+                          className="py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md text-sm transition-all"
+                        >
+                          Test {config.testNumber}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
 
           {/* Past Mock Tests */}
