@@ -999,4 +999,816 @@ Progress will be saved. You can stop and resume anytime.
 ================================================================================
 
 📝 RRB ALP - Test 1/5 (100Q)...
-  📚 Mathematics (30Q): 
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓ DONE
+  📚 General Awareness (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Science (20Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 RRB ALP - Test 2/5 (100Q)...
+  📚 Mathematics (30Q): ✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✓✓✗✓✗✓✓✓✓✓ DONE
+  📚 General Awareness (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Science (20Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 RRB ALP - Test 3/5 (100Q)...
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗ DONE
+  📚 General Awareness (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Science (20Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 RRB ALP - Test 4/5 (100Q)...
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✗✓✓✓✓✓✓✗✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓ DONE
+  📚 General Awareness (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓ DONE
+  📚 General Science (20Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 RRB ALP - Test 5/5 (100Q)...
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✗✗✗✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Awareness (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Science (20Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓ DONE
+
+  ✅ RRB ALP: 475 questions → rrb-alp-complete-mock-tests.csv
+
+================================================================================
+📋 RRB JE (Railways) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 RRB JE - Test 1/3 (100Q)...
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✗✓✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓ DONE
+  📚 Technical (45Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 RRB JE - Test 2/3 (100Q)...
+  📚 Mathematics (30Q): ✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✗✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Technical (45Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✗ DONE
+
+📝 RRB JE - Test 3/3 (100Q)...
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+  📚 Technical (45Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+
+  ✅ RRB JE: 283 questions → rrb-je-complete-mock-tests.csv
+
+================================================================================
+📋 Postal Assistant (Railways) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 Postal Assistant - Test 1/3 (100Q)...
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Quantitative Aptitude (25Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (25Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+
+📝 Postal Assistant - Test 2/3 (100Q)...
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Quantitative Aptitude (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓ DONE
+
+📝 Postal Assistant - Test 3/3 (100Q)...
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✓✗✗✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Quantitative Aptitude (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ Postal Assistant: 290 questions → postal-assistant-complete-mock-tests.csv
+
+================================================================================
+📋 GDS (Railways) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 GDS - Test 1/3 (100Q)...
+  📚 Mathematics (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✓✓✓✗✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✗✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 GDS - Test 2/3 (100Q)...
+  📚 Mathematics (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✗✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 GDS - Test 3/3 (100Q)...
+  📚 Mathematics (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ GDS: 286 questions → gds-complete-mock-tests.csv
+
+================================================================================
+📋 NDA (Defense) - 5 tests × 120Q = 600 total
+================================================================================
+
+📝 NDA - Test 1/5 (120Q)...
+  📚 Mathematics (60Q): ✗✗✓✗✗✗✓✗✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Ability Test (60Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 NDA - Test 2/5 (120Q)...
+  📚 Mathematics (60Q): ✓✓✓✗✗✗✗✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Ability Test (60Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 NDA - Test 3/5 (120Q)...
+  📚 Mathematics (60Q): ✓✓✓✗✓✗✗✗✓✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Ability Test (60Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 NDA - Test 4/5 (120Q)...
+  📚 Mathematics (60Q): ✗✓✗✗✗✗✗✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Ability Test (60Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 NDA - Test 5/5 (120Q)...
+  📚 Mathematics (60Q): ✗✗✗✗✓✗✗✓✗✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓ DONE
+  📚 General Ability Test (60Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ NDA: 558 questions → nda-complete-mock-tests.csv
+
+================================================================================
+📋 CDS (Defense) - 5 tests × 100Q = 500 total
+================================================================================
+
+📝 CDS - Test 1/5 (100Q)...
+  📚 English (34Q): ✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓ DONE
+  📚 General Knowledge (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Elementary Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✗✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CDS - Test 2/5 (100Q)...
+  📚 English (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Elementary Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✗✗✓✗✓✓✗✓✓✓✓✓✓✓✓✗✓✓ DONE
+
+📝 CDS - Test 3/5 (100Q)...
+  📚 English (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Elementary Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CDS - Test 4/5 (100Q)...
+  📚 English (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Elementary Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✓✓✗✓✓✓✓✓✓✓✓✓✓✗✓✓✓ DONE
+
+📝 CDS - Test 5/5 (100Q)...
+  📚 English (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓ DONE
+  📚 General Knowledge (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Elementary Mathematics (33Q): ✓✓✓✓✗✓✓✓✓✗✓✓✓✓✓✓✓✓✗✗✗✗✗✓✓✓✓✓✓✗✓✓✓ DONE
+
+  ✅ CDS: 465 questions → cds-complete-mock-tests.csv
+
+================================================================================
+📋 AFCAT (Defense) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 AFCAT - Test 1/3 (100Q)...
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Verbal Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✗✓✓✗✓✓✓✓✓ DONE
+  📚 Reasoning (20Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 AFCAT - Test 2/3 (100Q)...
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Verbal Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓ DONE
+  📚 Numerical Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✓✗✓✓✗✗✓✓✓ DONE
+  📚 Reasoning (20Q): ✓✓✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 AFCAT - Test 3/3 (100Q)...
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Verbal Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✗✓✗✗✗✗✗✓✗✓ DONE
+  📚 Reasoning (20Q): ✓✓✓✓✓✗✓✓✓✗✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ AFCAT: 275 questions → afcat-complete-mock-tests.csv
+
+================================================================================
+📋 Indian Navy (Defense) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 Indian Navy - Test 1/3 (100Q)...
+  📚 Mathematics (35Q): ✗✗✗✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 Physics (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Indian Navy - Test 2/3 (100Q)...
+  📚 Mathematics (35Q): ✓✗✓✓✗✓✓✓✗✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Physics (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Indian Navy - Test 3/3 (100Q)...
+  📚 Mathematics (35Q): ✓✓✓✓✓✗✓✗✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 Physics (35Q): ✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ Indian Navy: 279 questions → indian-navy-complete-mock-tests.csv
+
+================================================================================
+📋 Indian Army (TES/NCC) (Defense) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 Indian Army (TES/NCC) - Test 1/3 (100Q)...
+  📚 Mathematics (35Q): ✓✗✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Physics (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Chemistry (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Indian Army (TES/NCC) - Test 2/3 (100Q)...
+  📚 Mathematics (35Q): ✗✓✓✓✗✗✗✓✗✗✓✗✓✓✓✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Physics (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Chemistry (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Indian Army (TES/NCC) - Test 3/3 (100Q)...
+  📚 Mathematics (35Q): ✗✗✓✗✗✗✓✗✓✓✓✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Physics (35Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Chemistry (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ Indian Army (TES/NCC): 277 questions → indian-army-complete-mock-tests.csv
+
+================================================================================
+📋 CISF (Defense) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 CISF - Test 1/3 (100Q)...
+  📚 General Knowledge (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓ DONE
+
+📝 CISF - Test 2/3 (100Q)...
+  📚 General Knowledge (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓ DONE
+
+📝 CISF - Test 3/3 (100Q)...
+  📚 General Knowledge (40Q): ✗✓✗✓✗✓✗✗✗✗✗✗✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✗✗✗✗✗✗✗✗ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ CISF: 275 questions → cisf-complete-mock-tests.csv
+
+================================================================================
+📋 UP Police (Defense) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 UP Police - Test 1/3 (100Q)...
+  📚 General Knowledge (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UP Police - Test 2/3 (100Q)...
+  📚 General Knowledge (40Q): ✗✗✗✗✗✗✗✗✗✗✗✗✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✗ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UP Police - Test 3/3 (100Q)...
+  📚 General Knowledge (40Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (30Q): ✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ UP Police: 280 questions → up-police-complete-mock-tests.csv
+
+================================================================================
+📋 Delhi Police (Defense) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 Delhi Police - Test 1/3 (100Q)...
+  📚 Reasoning (35Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Delhi Police - Test 2/3 (100Q)...
+  📚 Reasoning (35Q): ✓✓✓✗✓✓✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 General Knowledge (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+
+📝 Delhi Police - Test 3/3 (100Q)...
+  📚 Reasoning (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓✓✓✓✓✗✓✓✓✓✓ DONE
+  📚 General Knowledge (35Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Numerical Ability (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✗✓✓✓✓✗✓✓✓✓✓✓ DONE
+
+  ✅ Delhi Police: 287 questions → delhi-police-complete-mock-tests.csv
+
+================================================================================
+📋 CAT (Management) - 10 tests × 66Q = 660 total
+================================================================================
+
+📝 CAT - Test 1/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✗✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✗✓✓✗✗✗✓✗✗✓✗✓✓✓✗✓✗✓✓✓✓✓ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✗✓✓✗✓✓✓✗✗✓✗✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 2/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✗✗✓✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✓✗✓✓✗✗✗✗✓✗✓✓✓✓✗✓✓✓✗✓✓✗ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✓✓✓✗✓✓✗✗✓✗✗✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 3/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✗✗✓✓✗✓✓✓✓✓✓✓✓✗✓✗✓✗✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✗✗✗✗✗✗✓✗✗✓✓✗✓✗✗✓✓✓✓✓✗✗ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 4/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✗✗✓✗✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✗✗✗✗✗✓✗✗✓✓✓✓✓✓✗✓✓✓✓✓✓✗ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✗✓✓✓✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 5/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✗✓✗✓✓✓✓✓✓✓✓✓✗✓✗✓✗✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✓✗✗✗✓✗✗✗✗✓✓✓✓✓✓✓✓✗✗✗✓✓ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✗✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 6/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✗✗✓✓✗ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✓✗✗✗✗✗✗✓✓✓✓✓✓✓✓✗✓✓✗✓✓✓ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✓✓✓✗✗✓✗✓✓✗✗✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 7/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✗✗✗✓✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✓✗✗✗✗✗✗✓✓✓✓✓✗✓✓✓✓✓✓✓✗✗ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✓✓✓✓✓✗✗✓✗✓✓✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 8/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✗✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✗✗✗✗✗✗✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✗✓✓✓✓✗✗✓✗✗✓✓✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 9/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✗✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✗✓✓✗✓ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✓✗✗✗✓✗✗✗✓✓✓✓✓✓✓✓✓✓✗✓✓✓ DONE
+  📚 Quantitative Aptitude (22Q): ✓✓✓✓✓✓✓✓✓✗✗✗✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CAT - Test 10/10 (66Q)...
+  📚 Verbal Ability & Reading Comprehension (22Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✓✗ DONE
+  📚 Data Interpretation & Logical Reasoning (22Q): ✗✗✗✗✗✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Quantitative Aptitude (22Q): ✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+
+  ✅ CAT: 492 questions → cat-complete-mock-tests.csv
+
+================================================================================
+📋 XAT (Management) - 5 tests × 100Q = 500 total
+================================================================================
+
+📝 XAT - Test 1/5 (100Q)...
+  📚 Quantitative Aptitude (28Q): ✓✓✗✓✓✓✗✓✓✓✓✓✓✗✗✓✓✓✗✓✓✓✓✓✓✓✓✓ DONE
+  📚 Verbal Ability (26Q): ✓✓✓✓✓✓✓✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Decision Making (21Q): ✓✓✓✓✓✓✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 XAT - Test 2/5 (100Q)...
+  📚 Quantitative Aptitude (28Q): ✓✓✗✓✓✓✓✓✓✗✓✓✗✗✗✗✓✗✗✓✓✓✓✓✓✓✓✓ DONE
+  📚 Verbal Ability (26Q): ✓✓✓✓✓✗✓✓✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Decision Making (21Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓ DONE
+
+📝 XAT - Test 3/5 (100Q)...
+  📚 Quantitative Aptitude (28Q): ✓✓✗✓✓✓✓✓✓✓✓✗✗✗✗✗✓✗✓✓✗✓✓✓✓✓✓✓ DONE
+  📚 Verbal Ability (26Q): ✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Decision Making (21Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 XAT - Test 4/5 (100Q)...
+  📚 Quantitative Aptitude (28Q): ✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓✗✓✓✓✓✓✓✓✓✓✗✓ DONE
+  📚 Verbal Ability (26Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Decision Making (21Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓ DONE
+
+📝 XAT - Test 5/5 (100Q)...
+  📚 Quantitative Aptitude (28Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✓✓✓✗✓✓✓✗✓✓✓✓ DONE
+  📚 Verbal Ability (26Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Decision Making (21Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ XAT: 459 questions → xat-complete-mock-tests.csv
+
+================================================================================
+📋 NCHMCT JEE (Management) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 NCHMCT JEE - Test 1/3 (100Q)...
+  📚 Numerical Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✗✓✗✓✓✓✓✗✗✓✓✗✓✓✓✗✓✓✓✗✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 NCHMCT JEE - Test 2/3 (100Q)...
+  📚 Numerical Ability (25Q): ✓✗✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✗✓✗✓✓✓✓✗ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✓✗✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (25Q): ✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+
+📝 NCHMCT JEE - Test 3/3 (100Q)...
+  📚 Numerical Ability (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✗✓✓✓✓✓ DONE
+  📚 Reasoning (25Q): ✓✓✓✓✓✗✗✗✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ NCHMCT JEE: 272 questions → nchmct-complete-mock-tests.csv
+
+================================================================================
+📋 CLAT (Law) - 5 tests × 120Q = 600 total
+================================================================================
+
+📝 CLAT - Test 1/5 (120Q)...
+  📚 English (30Q): ✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Current Affairs & GK (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Reasoning (30Q): ✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Logical Reasoning (30Q): ✓✗✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✗✓✓✓✓✗✓✗✓✓✓✓✓ DONE
+
+📝 CLAT - Test 2/5 (120Q)...
+  📚 English (30Q): ✓✓✓✓✓✓✓✗✓✗✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✓✓✓ DONE
+  📚 Current Affairs & GK (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Logical Reasoning (30Q): ✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✗✓✓✓✓✗✓✓✗✗ DONE
+
+📝 CLAT - Test 3/5 (120Q)...
+  📚 English (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓ DONE
+  📚 Current Affairs & GK (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Logical Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✗✗✓✓✗✓✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CLAT - Test 4/5 (120Q)...
+  📚 English (30Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Current Affairs & GK (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓ DONE
+  📚 Legal Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓ DONE
+  📚 Logical Reasoning (30Q): ✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓✓✗✗✓✓✓✓ DONE
+
+📝 CLAT - Test 5/5 (120Q)...
+  📚 English (30Q): ✓✓✗✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Current Affairs & GK (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓ DONE
+  📚 Logical Reasoning (30Q): ✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✗✗✓✓✓✗✓✓✓✓✓✓✓✗ DONE
+
+  ✅ CLAT: 557 questions → clat-complete-mock-tests.csv
+
+================================================================================
+📋 AILET (Law) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 AILET - Test 1/3 (100Q)...
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Aptitude (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (20Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✗✗✓✓ DONE
+
+📝 AILET - Test 2/3 (100Q)...
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Aptitude (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (20Q): ✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 AILET - Test 3/3 (100Q)...
+  📚 English (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (25Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Legal Aptitude (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓ DONE
+  📚 Reasoning (20Q): ✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓✓✓✓✓✗ DONE
+
+  ✅ AILET: 292 questions → ailet-complete-mock-tests.csv
+
+================================================================================
+📋 Judicial Services (Law) - 3 tests × 150Q = 450 total
+================================================================================
+
+📝 Judicial Services - Test 1/3 (150Q)...
+  📚 Law (100Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (50Q): ✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Judicial Services - Test 2/3 (150Q)...
+  📚 Law (100Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (50Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 Judicial Services - Test 3/3 (150Q)...
+  📚 Law (100Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ Judicial Services: 445 questions → judicial-services-complete-mock-tests.csv
+
+================================================================================
+📋 IIMC (Law) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 IIMC - Test 1/3 (100Q)...
+  📚 General Awareness (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓ DONE
+
+📝 IIMC - Test 2/3 (100Q)...
+  📚 General Awareness (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗ DONE
+
+📝 IIMC - Test 3/3 (100Q)...
+  📚 General Awareness (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✗✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ IIMC: 289 questions → iimc-complete-mock-tests.csv
+
+================================================================================
+📋 CTET (Teaching) - 5 tests × 150Q = 750 total
+================================================================================
+
+📝 CTET - Test 1/5 (150Q)...
+  📚 Child Development & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language I (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language II (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓ DONE
+  📚 Mathematics & Pedagogy (30Q): ✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CTET - Test 2/5 (150Q)...
+  📚 Child Development & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language I (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language II (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✓✓✓ DONE
+  📚 Mathematics & Pedagogy (30Q): ✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CTET - Test 3/5 (150Q)...
+  📚 Child Development & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language I (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language II (30Q): ✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓ DONE
+  📚 Mathematics & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CTET - Test 4/5 (150Q)...
+  📚 Child Development & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language I (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language II (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics & Pedagogy (30Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CTET - Test 5/5 (150Q)...
+  📚 Child Development & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language I (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language II (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics & Pedagogy (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ CTET: 739 questions → ctet-complete-mock-tests.csv
+
+================================================================================
+📋 HTET (Teaching) - 3 tests × 150Q = 450 total
+================================================================================
+
+📝 HTET - Test 1/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Hindi (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✗✓✓✗ DONE
+
+📝 HTET - Test 2/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (30Q): ✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Hindi (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✗✓✓✗✓✓✓✓✓✗✓✓ DONE
+
+📝 HTET - Test 3/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Hindi (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 General Knowledge (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✗✓✓✓✓✓ DONE
+
+  ✅ HTET: 433 questions → htet-complete-mock-tests.csv
+
+================================================================================
+📋 UPTET (Teaching) - 3 tests × 150Q = 450 total
+================================================================================
+
+📝 UPTET - Test 1/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (30Q): ✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Hindi (30Q): ✓✗✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✗✗✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UPTET - Test 2/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Hindi (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UPTET - Test 3/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 English (30Q): ✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Hindi (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Environmental Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ UPTET: 438 questions → uptet-complete-mock-tests.csv
+
+================================================================================
+📋 RTET (Teaching) - 3 tests × 150Q = 450 total
+================================================================================
+
+📝 RTET - Test 1/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Science (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Social Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 RTET - Test 2/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Science (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Social Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓ DONE
+
+📝 RTET - Test 3/3 (150Q)...
+  📚 Child Development (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Mathematics (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Science (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Social Studies (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Language (30Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ RTET: 447 questions → rtet-complete-mock-tests.csv
+
+================================================================================
+📋 UGC NET (Teaching) - 5 tests × 150Q = 750 total
+================================================================================
+
+📝 UGC NET - Test 1/5 (150Q)...
+  📚 Teaching Aptitude (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Research & Reasoning (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✗✓✓✓✓✗✗✓✗ DONE
+  📚 Comprehension & Communication (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UGC NET - Test 2/5 (150Q)...
+  📚 Teaching Aptitude (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Research & Reasoning (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✗✓✗✓✓✓✓✗✓✓✓✗✓✓✓✓✓✗✓ DONE
+  📚 Comprehension & Communication (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UGC NET - Test 3/5 (150Q)...
+  📚 Teaching Aptitude (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Research & Reasoning (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✗✗✓✗✓✓✓✓✓✗✗ DONE
+  📚 Comprehension & Communication (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UGC NET - Test 4/5 (150Q)...
+  📚 Teaching Aptitude (50Q): ✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Research & Reasoning (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✗✓✓✓✓✗✓✓✓✗✗ DONE
+  📚 Comprehension & Communication (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 UGC NET - Test 5/5 (150Q)...
+  📚 Teaching Aptitude (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Research & Reasoning (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✗ DONE
+  📚 Comprehension & Communication (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ UGC NET: 717 questions → ugc-net-complete-mock-tests.csv
+
+================================================================================
+📋 KVS (Teaching) - 3 tests × 150Q = 450 total
+================================================================================
+
+📝 KVS - Test 1/3 (150Q)...
+  📚 General Studies (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (50Q): ✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✗✓ DONE
+  📚 Subject Knowledge (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 KVS - Test 2/3 (150Q)...
+  📚 General Studies (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (50Q): ✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Subject Knowledge (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 KVS - Test 3/3 (150Q)...
+  📚 General Studies (50Q): ✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Reasoning (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Subject Knowledge (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ KVS: 433 questions → kvs-complete-mock-tests.csv
+
+================================================================================
+📋 CA Foundation (Professional) - 5 tests × 100Q = 500 total
+================================================================================
+
+📝 CA Foundation - Test 1/5 (100Q)...
+  📚 Accounting (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Laws (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CA Foundation - Test 2/5 (100Q)...
+  📚 Accounting (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Laws (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Mathematics (33Q): ✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CA Foundation - Test 3/5 (100Q)...
+  📚 Accounting (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Laws (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CA Foundation - Test 4/5 (100Q)...
+  📚 Accounting (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Laws (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 Business Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CA Foundation - Test 5/5 (100Q)...
+  📚 Accounting (34Q): ✓✓✓✓✓✓✓✓✓✗✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Laws (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Mathematics (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗ DONE
+
+  ✅ CA Foundation: 494 questions → ca-foundation-complete-mock-tests.csv
+
+================================================================================
+📋 CS Foundation (Professional) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 CS Foundation - Test 1/3 (100Q)...
+  📚 Business Economics (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Environment (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Fundamentals of Accounting (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CS Foundation - Test 2/3 (100Q)...
+  📚 Business Economics (34Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Environment (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Fundamentals of Accounting (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 CS Foundation - Test 3/3 (100Q)...
+  📚 Business Economics (34Q): ✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Business Environment (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Fundamentals of Accounting (33Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ CS Foundation: 298 questions → cs-foundation-complete-mock-tests.csv
+
+================================================================================
+📋 GPAT (Professional) - 3 tests × 125Q = 375 total
+================================================================================
+
+📝 GPAT - Test 1/3 (125Q)...
+  📚 Pharmaceutics (42Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Pharmacology (42Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Pharmaceutical Chemistry (41Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 GPAT - Test 2/3 (125Q)...
+  📚 Pharmaceutics (42Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Pharmacology (42Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Pharmaceutical Chemistry (41Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 GPAT - Test 3/3 (125Q)...
+  📚 Pharmaceutics (42Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Pharmacology (42Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Pharmaceutical Chemistry (41Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ GPAT: 364 questions → gpat-complete-mock-tests.csv
+
+================================================================================
+📋 ICAR AIEEA (Professional) - 3 tests × 150Q = 450 total
+================================================================================
+
+📝 ICAR AIEEA - Test 1/3 (150Q)...
+  📚 Physics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Chemistry (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓ DONE
+  📚 Biology/Agriculture (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 ICAR AIEEA - Test 2/3 (150Q)...
+  📚 Physics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Chemistry (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Biology/Agriculture (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 ICAR AIEEA - Test 3/3 (150Q)...
+  📚 Physics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Chemistry (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Biology/Agriculture (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ ICAR AIEEA: 445 questions → icar-aieea-complete-mock-tests.csv
+
+================================================================================
+📋 NIFT (Others) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 NIFT - Test 1/3 (100Q)...
+  📚 General Ability Test (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Creative Ability Test (50Q): ✓✓✓✓✓✗✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+
+📝 NIFT - Test 2/3 (100Q)...
+  📚 General Ability Test (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Creative Ability Test (50Q): ✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗ DONE
+
+📝 NIFT - Test 3/3 (100Q)...
+  📚 General Ability Test (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✗✗✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Creative Ability Test (50Q): ✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✗✓✓✓✓✗✓✓✓✓✓ DONE
+
+  ✅ NIFT: 281 questions → nift-complete-mock-tests.csv
+
+================================================================================
+📋 ISI Admission Test (Others) - 3 tests × 100Q = 300 total
+================================================================================
+
+📝 ISI Admission Test - Test 1/3 (100Q)...
+  📚 Mathematics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✗✗✗✓✓✓✗✗✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✓✓✓ DONE
+  📚 Statistics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 ISI Admission Test - Test 2/3 (100Q)...
+  📚 Mathematics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✗✗✗✗✓✗✗✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Statistics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+📝 ISI Admission Test - Test 3/3 (100Q)...
+  📚 Mathematics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✗✗✗✗✗✗✓✓✗✗✗✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+  📚 Statistics (50Q): ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✗✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ DONE
+
+  ✅ ISI Admission Test: 264 questions → isi-complete-mock-tests.csv
+
+
+╔═════════════════════════════════════════════════════════════════════╗
+║              ✅ COMPLETE GENERATION FINISHED! ✅                       ║
+╚═════════════════════════════════════════════════════════════════════╝
+
+🎉 FINAL SUMMARY:
+   ✅ Exams Completed: 59/59
+   ✅ Questions Generated: 30,621
+   ⏱️  Time Taken: 3h 50m 38s
+   📁 Output: .agents/artifacts/complete-mock-tests/
+
+📦 Next Step: Import to database
+   Run: node scripts/import-all-complete-mock-tests.js
+

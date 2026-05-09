@@ -665,3 +665,10 @@
  GET / 200 in 15ms (next.js: 855µs, application-code: 14ms)
  GET / 200 in 8ms (next.js: 660µs, application-code: 7ms)
 ✓ Compiled in 45ms
+ GET / 200 in 116ms (next.js: 15ms, application-code: 101ms)
+ GET /api/auth 200 in 910ms (next.js: 61ms, application-code: 849ms)
+ GET /api/subscription 200 in 1140ms (next.js: 44ms, application-code: 1096ms)
+ GET /api/stats 200 in 1431ms (next.js: 23ms, application-code: 1408ms)
+✓ Compiled in 87ms
+✓ Compiled in 79ms
+✓ Compiled in 84ms
