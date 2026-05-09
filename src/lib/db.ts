@@ -183,6 +183,52 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_sprint_participations ON sprint_participations(sprint_id, score DESC);
 
+    CREATE TABLE IF NOT EXISTS english_progress (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL,
+      path_id TEXT NOT NULL,
+      topic_id TEXT NOT NULL,
+      level TEXT NOT NULL,
+      completed_questions INTEGER DEFAULT 0,
+      correct_answers INTEGER DEFAULT 0,
+      total_time_seconds INTEGER DEFAULT 0,
+      last_practiced DATETIME,
+      mastery_score REAL DEFAULT 0,
+      streak_days INTEGER DEFAULT 0,
+      UNIQUE(user_id, path_id, topic_id),
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_english_progress_user ON english_progress(user_id);
+
+    CREATE TABLE IF NOT EXISTS english_questions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      path_id TEXT NOT NULL,
+      topic_id TEXT NOT NULL,
+      level TEXT NOT NULL,
+      question TEXT NOT NULL,
+      options TEXT NOT NULL,
+      correct_answer INTEGER NOT NULL,
+      explanation TEXT NOT NULL,
+      difficulty TEXT DEFAULT 'medium',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_english_questions_lookup ON english_questions(path_id, topic_id, level);
+
+    CREATE TABLE IF NOT EXISTS english_daily_practice (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL,
+      date TEXT NOT NULL,
+      questions_completed INTEGER DEFAULT 0,
+      correct_answers INTEGER DEFAULT 0,
+      streak_days INTEGER DEFAULT 0,
+      UNIQUE(user_id, date),
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_english_daily_user ON english_daily_practice(user_id, date DESC);
+
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
@@ -1137,4 +1183,130 @@ export async function getWeaknessSummary(userId: string) {
     careless: 0,
     total: 0
   };
+}
+
+// ─── English Learning functions ──────────────────────────
+
+export async function getEnglishProgress(userId: string, pathId: string) {
+  return queryAll(
+    "SELECT * FROM english_progress WHERE user_id = ? AND path_id = ? ORDER BY last_practiced DESC",
+    [userId, pathId]
+  );
+}
+
+export async function getEnglishTopicProgress(userId: string, pathId: string, topicId: string) {
+  return queryOne(
+    "SELECT * FROM english_progress WHERE user_id = ? AND path_id = ? AND topic_id = ?",
+    [userId, pathId, topicId]
+  );
+}
+
+export async function updateEnglishProgress(
+  userId: string,
+  pathId: string,
+  topicId: string,
+  level: string,
+  questionsCompleted: number,
+  correctAnswers: number,
+  timeTakenSeconds: number
+) {
+  const existing = await queryOne(
+    "SELECT * FROM english_progress WHERE user_id = ? AND path_id = ? AND topic_id = ?",
+    [userId, pathId, topicId]
+  );
+
+  if (existing) {
+    const newTotal = (existing.completed_questions as number) + questionsCompleted;
+    const newCorrect = (existing.correct_answers as number) + correctAnswers;
+    const newTime = (existing.total_time_seconds as number) + timeTakenSeconds;
+    const mastery = newTotal > 0 ? (newCorrect / newTotal) * 100 : 0;
+
+    await execute(
+      "UPDATE english_progress SET completed_questions = ?, correct_answers = ?, total_time_seconds = ?, mastery_score = ?, last_practiced = CURRENT_TIMESTAMP WHERE id = ?",
+      [newTotal, newCorrect, newTime, mastery, existing.id]
+    );
+  } else {
+    const mastery = questionsCompleted > 0 ? (correctAnswers / questionsCompleted) * 100 : 0;
+    await execute(
+      "INSERT INTO english_progress (user_id, path_id, topic_id, level, completed_questions, correct_answers, total_time_seconds, mastery_score, last_practiced) VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
+      [userId, pathId, topicId, level, questionsCompleted, correctAnswers, timeTakenSeconds, mastery]
+    );
+  }
+}
+
+export async function getEnglishQuestions(pathId: string, topicId: string, level: string, limit: number = 10) {
+  return queryAll(
+    "SELECT * FROM english_questions WHERE path_id = ? AND topic_id = ? AND level = ? ORDER BY RANDOM() LIMIT ?",
+    [pathId, topicId, level, limit]
+  );
+}
+
+export async function saveEnglishQuestions(
+  questions: Array<{
+    pathId: string;
+    topicId: string;
+    level: string;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation: string;
+    difficulty: string;
+  }>
+) {
+  await ensureInitialized();
+  const db = getClient();
+
+  const statements = questions.map((q) => ({
+    sql: "INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    args: [q.pathId, q.topicId, q.level, q.question, JSON.stringify(q.options), q.correctAnswer, q.explanation, q.difficulty] as any[],
+  }));
+
+  await db.batch(statements, "write");
+}
+
+export async function getEnglishDailyStreak(userId: string) {
+  const rows = await queryAll(
+    "SELECT date, questions_completed, correct_answers, streak_days FROM english_daily_practice WHERE user_id = ? ORDER BY date DESC LIMIT 30",
+    [userId]
+  );
+  return rows;
+}
+
+export async function updateEnglishDailyPractice(
+  userId: string,
+  questionsCompleted: number,
+  correctAnswers: number
+) {
+  const today = new Date().toISOString().split("T")[0];
+  const existing = await queryOne(
+    "SELECT * FROM english_daily_practice WHERE user_id = ? AND date = ?",
+    [userId, today]
+  );
+
+  // Calculate streak
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+  const yesterdayRecord = await queryOne(
+    "SELECT streak_days FROM english_daily_practice WHERE user_id = ? AND date = ?",
+    [userId, yesterday]
+  );
+
+  const streakDays = existing
+    ? existing.streak_days
+    : yesterdayRecord
+    ? (yesterdayRecord.streak_days as number) + 1
+    : 1;
+
+  if (existing) {
+    await execute(
+      "UPDATE english_daily_practice SET questions_completed = questions_completed + ?, correct_answers = correct_answers + ?, streak_days = ? WHERE id = ?",
+      [questionsCompleted, correctAnswers, streakDays, existing.id]
+    );
+  } else {
+    await execute(
+      "INSERT INTO english_daily_practice (user_id, date, questions_completed, correct_answers, streak_days) VALUES (?, ?, ?, ?, ?)",
+      [userId, today, questionsCompleted, correctAnswers, streakDays]
+    );
+  }
+
+  return streakDays;
 }

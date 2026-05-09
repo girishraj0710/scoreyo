@@ -1,0 +1,142 @@
+{
+  "jee-main": {
+    "questions": 713,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/jee-main-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T09:46:41.192Z"
+  },
+  "jee-advanced": {
+    "questions": 691,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/jee-advanced-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T09:51:40.474Z"
+  },
+  "gate": {
+    "questions": 624,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/gate-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T09:55:43.126Z"
+  },
+  "nata": {
+    "questions": 234,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/nata-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T09:57:07.489Z"
+  },
+  "nid": {
+    "questions": 164,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/nid-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T09:57:59.204Z"
+  },
+  "neet-ug": {
+    "questions": 1753,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/neet-ug-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:05:14.974Z"
+  },
+  "neet-pg": {
+    "questions": 986,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/neet-pg-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:09:36.444Z"
+  },
+  "aiims-nursing": {
+    "questions": 300,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/aiims-nursing-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:10:41.440Z"
+  },
+  "aipvt": {
+    "questions": 533,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/aipvt-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:12:44.471Z"
+  },
+  "upsc-cse": {
+    "questions": 1483,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/upsc-cse-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:18:21.701Z"
+  },
+  "uppsc": {
+    "questions": 745,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/uppsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:20:59.281Z"
+  },
+  "mppsc": {
+    "questions": 746,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/mppsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:23:37.897Z"
+  },
+  "tnpsc": {
+    "questions": 749,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/tnpsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:26:00.524Z"
+  },
+  "kpsc": {
+    "questions": 746,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/kpsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:28:32.124Z"
+  },
+  "bpsc": {
+    "questions": 748,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/bpsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:31:05.863Z"
+  },
+  "rpsc": {
+    "questions": 748,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/rpsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:33:40.001Z"
+  },
+  "wbpsc": {
+    "questions": 743,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/wbpsc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:36:09.794Z"
+  },
+  "ifs": {
+    "questions": 299,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/ifs-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:37:15.715Z"
+  },
+  "ssc-cgl": {
+    "questions": 897,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/ssc-cgl-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:42:07.472Z"
+  },
+  "ssc-chsl": {
+    "questions": 469,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/ssc-chsl-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:44:21.852Z"
+  },
+  "dsssb": {
+    "questions": 283,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/dsssb-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:45:43.287Z"
+  },
+  "sbi-po": {
+    "questions": 853,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/sbi-po-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:51:18.061Z"
+  },
+  "ibps-po": {
+    "questions": 842,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/ibps-po-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:56:43.316Z"
+  },
+  "ibps-clerk": {
+    "questions": 457,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/ibps-clerk-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T10:59:06.963Z"
+  },
+  "rbi-grade-b": {
+    "questions": 436,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/rbi-grade-b-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T11:01:32.797Z"
+  },
+  "lic-aao": {
+    "questions": 246,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/lic-aao-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T11:02:58.349Z"
+  },
+  "rrb-ntpc": {
+    "questions": 472,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/rrb-ntpc-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T11:04:47.191Z"
+  },
+  "rrb-group-d": {
+    "questions": 472,
+    "file": "/Users/girish.raj/prepgenie/.agents/artifacts/complete-mock-tests/rrb-group-d-complete-mock-tests.csv",
+    "timestamp": "2026-05-09T11:06:41.334Z"
+  }
+}

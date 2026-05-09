@@ -1,0 +1,841 @@
+🚀 Starting: jee-main (PID: 14005)
+🚀 Starting: jee-advanced (PID: 14013)
+🚀 Starting: neet-ug (PID: 14021)
+[neet-ug] 
+[neet-ug] ╔═══════════════════════════════════════════════════════════════╗
+[neet-ug] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[neet-ug] ╚═══════════════════════════════════════════════════════════════╝
+[neet-ug] 
+[neet-ug] Configuration:
+[neet-ug]   Exam:     NEET UG
+[neet-ug]   Count:    2 NEW questions
+[neet-ug]   Model:    llama3.2 (local, FREE)
+[neet-ug]   File:     .agents/artifacts/ollama-generated/neet-ug.csv
+[neet-ug]   Existing: 0 questions
+[neet-ug]   Total after: 2 questions
+[neet-ug] 
+[neet-ug] 🚀 Starting generation...
+[neet-ug] 
+[neet-ug]    Generating: Mechanics (easy)...
+[neet-ug]    ⚠️  No valid JSON found
+[neet-ug]    Generating: Inorganic Chemistry (medium)...
+[neet-ug]    ⚠️  Missing required fields
+[neet-ug] 
+[neet-ug] ✨ Generation complete!
+[neet-ug]    Generated: 0 / 2 questions
+[neet-ug] 
+[neet-ug] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: neet-ug
+🚀 Starting: neet-pg (PID: 14066)
+[jee-advanced] 
+[jee-advanced] ╔═══════════════════════════════════════════════════════════════╗
+[jee-advanced] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[jee-advanced] ╚═══════════════════════════════════════════════════════════════╝
+[jee-advanced] 
+[jee-advanced] Configuration:
+[jee-advanced]   Exam:     JEE Advanced
+[jee-advanced]   Count:    2 NEW questions
+[jee-advanced]   Model:    llama3.2 (local, FREE)
+[jee-advanced]   File:     .agents/artifacts/ollama-generated/jee-advanced.csv
+[jee-advanced]   Existing: 0 questions
+[jee-advanced]   Total after: 2 questions
+[jee-advanced] 
+[jee-advanced] 🚀 Starting generation...
+[jee-advanced] 
+[jee-advanced]    Generating: Mechanics (easy)...
+[jee-advanced]    ✅ Generated successfully
+[jee-advanced]    Generating: Organic Chemistry (medium)...
+[jee-advanced]    ✅ Generated successfully
+[jee-advanced] 
+[jee-advanced] ✨ Generation complete!
+[jee-advanced]    Generated: 2 / 2 questions
+[jee-advanced] 
+[jee-advanced] 💾 Updated: .agents/artifacts/ollama-generated/jee-advanced.csv
+[jee-advanced]    Previous: 0 questions
+[jee-advanced]    Added:    2 questions
+[jee-advanced]    Total:    2 questions
+[jee-advanced] 
+[jee-advanced] 📥 Auto-importing to question bank...
+[jee-advanced] 
+[jee-advanced] 📂 Reading file: .agents/artifacts/ollama-generated/jee-advanced.csv
+[jee-advanced] 📊 Parsing CSV...
+[jee-advanced] ✅ Found 2 questions
+[jee-advanced] 
+[jee-advanced] 🔍 Validating questions...
+[jee-advanced] ✅ All questions validated successfully!
+[jee-advanced] 
+[jee-advanced] 📦 Grouped into 2 arrays:
+[jee-advanced] 
+[jee-advanced]    ✅ jee-advanced → jee-adv-physics → Mechanics: 1 questions
+[jee-advanced]       Saved to: .agents/artifacts/imported-questions/jee_advanced_jee_adv_physics_Mechanics.ts
+[jee-advanced] 
+[jee-advanced]    ✅ jee-advanced → jee-adv-chemistry → Organic Chemistry: 1 questions
+[jee-advanced]       Saved to: .agents/artifacts/imported-questions/jee_advanced_jee_adv_chemistry_Organic_Chemistry.ts
+[jee-advanced] 
+[jee-advanced] 
+[jee-advanced] ✨ Success! 2 questions imported.
+[jee-advanced] 
+[jee-advanced] 📁 Output files:
+[jee-advanced]    Individual: .agents/artifacts/imported-questions/
+[jee-advanced]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[jee-advanced] 
+[jee-advanced] 📝 Next steps:
+[jee-advanced]    1. Review the generated TypeScript code
+[jee-advanced]    2. Copy the arrays into src/lib/question-bank.ts
+[jee-advanced]    3. Update the export mappings in question-bank.ts
+[jee-advanced]    4. Test with: npm run build
+[jee-advanced] 
+[jee-advanced] 
+[jee-advanced] ✅ Successfully imported to question bank!
+[jee-advanced] 
+[jee-advanced] 🎉 Done! Run this script again anytime to add more questions.
+[jee-advanced]    Completely FREE - no API costs ever!
+[jee-advanced] 
+✅ Completed: jee-advanced
+🚀 Starting: upsc-cse (PID: 14088)
+[jee-main] 
+[jee-main] ╔═══════════════════════════════════════════════════════════════╗
+[jee-main] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[jee-main] ╚═══════════════════════════════════════════════════════════════╝
+[jee-main] 
+[jee-main] Configuration:
+[jee-main]   Exam:     JEE Main
+[jee-main]   Count:    2 NEW questions
+[jee-main]   Model:    llama3.2 (local, FREE)
+[jee-main]   File:     .agents/artifacts/ollama-generated/jee-main.csv
+[jee-main]   Existing: 0 questions
+[jee-main]   Total after: 2 questions
+[jee-main] 
+[jee-main] 🚀 Starting generation...
+[jee-main] 
+[jee-main]    Generating: Mechanics (easy)...
+[jee-main]    ❌ Failed to parse: Bad control character in string literal in JSON at position 726 (line 8 column 299)
+[jee-main]    Generating: Organic Chemistry (medium)...
+[jee-main]    ⚠️  Missing required fields
+[jee-main] 
+[jee-main] ✨ Generation complete!
+[jee-main]    Generated: 0 / 2 questions
+[jee-main] 
+[jee-main] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: jee-main
+🚀 Starting: gate (PID: 14104)
+[neet-pg] 
+[neet-pg] ╔═══════════════════════════════════════════════════════════════╗
+[neet-pg] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[neet-pg] ╚═══════════════════════════════════════════════════════════════╝
+[neet-pg] 
+[neet-pg] Configuration:
+[neet-pg]   Exam:     NEET PG
+[neet-pg]   Count:    2 NEW questions
+[neet-pg]   Model:    llama3.2 (local, FREE)
+[neet-pg]   File:     .agents/artifacts/ollama-generated/neet-pg.csv
+[neet-pg]   Existing: 0 questions
+[neet-pg]   Total after: 2 questions
+[neet-pg] 
+[neet-pg] 🚀 Starting generation...
+[neet-pg] 
+[neet-pg]    Generating: Internal Medicine (easy)...
+[neet-pg]    ⚠️  No valid JSON found
+[neet-pg]    Generating: Orthopedics (medium)...
+[neet-pg]    ⚠️  No valid JSON found
+[neet-pg] 
+[neet-pg] ✨ Generation complete!
+[neet-pg]    Generated: 0 / 2 questions
+[neet-pg] 
+[neet-pg] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: neet-pg
+🚀 Starting: ssc-cgl (PID: 14127)
+[upsc-cse] 
+[upsc-cse] ╔═══════════════════════════════════════════════════════════════╗
+[upsc-cse] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[upsc-cse] ╚═══════════════════════════════════════════════════════════════╝
+[upsc-cse] 
+[upsc-cse] Configuration:
+[upsc-cse]   Exam:     UPSC CSE
+[upsc-cse]   Count:    2 NEW questions
+[upsc-cse]   Model:    llama3.2 (local, FREE)
+[upsc-cse]   File:     .agents/artifacts/ollama-generated/upsc-cse.csv
+[upsc-cse]   Existing: 0 questions
+[upsc-cse]   Total after: 2 questions
+[upsc-cse] 
+[upsc-cse] 🚀 Starting generation...
+[upsc-cse] 
+[upsc-cse]    Generating: Ancient India (easy)...
+[upsc-cse]    ⚠️  No valid JSON found
+[upsc-cse]    Generating: Governance (medium)...
+[upsc-cse]    ⚠️  No valid JSON found
+[upsc-cse] 
+[upsc-cse] ✨ Generation complete!
+[upsc-cse]    Generated: 0 / 2 questions
+[upsc-cse] 
+[upsc-cse] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: upsc-cse
+🚀 Starting: ssc-chsl (PID: 14145)
+[gate] 
+[gate] ╔═══════════════════════════════════════════════════════════════╗
+[gate] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[gate] ╚═══════════════════════════════════════════════════════════════╝
+[gate] 
+[gate] Configuration:
+[gate]   Exam:     GATE CS
+[gate]   Count:    2 NEW questions
+[gate]   Model:    llama3.2 (local, FREE)
+[gate]   File:     .agents/artifacts/ollama-generated/gate.csv
+[gate]   Existing: 0 questions
+[gate]   Total after: 2 questions
+[gate] 
+[gate] 🚀 Starting generation...
+[gate] 
+[gate]    Generating: Data Structures (easy)...
+[gate]    ⚠️  No valid JSON found
+[gate]    Generating: Numerical Ability (medium)...
+[gate]    ✅ Generated successfully
+[gate] 
+[gate] ✨ Generation complete!
+[gate]    Generated: 1 / 2 questions
+[gate] 
+[gate] 💾 Updated: .agents/artifacts/ollama-generated/gate.csv
+[gate]    Previous: 0 questions
+[gate]    Added:    1 questions
+[gate]    Total:    1 questions
+[gate] 
+[gate] 📥 Auto-importing to question bank...
+[gate] 
+[gate] 📂 Reading file: .agents/artifacts/ollama-generated/gate.csv
+[gate] 📊 Parsing CSV...
+[gate] ✅ Found 1 questions
+[gate] 
+[gate] 🔍 Validating questions...
+[gate] ✅ All questions validated successfully!
+[gate] 
+[gate] 📦 Grouped into 1 arrays:
+[gate] 
+[gate]    ✅ gate → gate-aptitude → Numerical Ability: 1 questions
+[gate]       Saved to: .agents/artifacts/imported-questions/gate_gate_aptitude_Numerical_Ability.ts
+[gate] 
+[gate] 
+[gate] ✨ Success! 1 questions imported.
+[gate] 
+[gate] 📁 Output files:
+[gate]    Individual: .agents/artifacts/imported-questions/
+[gate]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[gate] 
+[gate] 📝 Next steps:
+[gate]    1. Review the generated TypeScript code
+[gate]    2. Copy the arrays into src/lib/question-bank.ts
+[gate]    3. Update the export mappings in question-bank.ts
+[gate]    4. Test with: npm run build
+[gate] 
+[gate] 
+[gate] ✅ Successfully imported to question bank!
+[gate] 
+[gate] 🎉 Done! Run this script again anytime to add more questions.
+[gate]    Completely FREE - no API costs ever!
+[gate] 
+✅ Completed: gate
+🚀 Starting: ibps-po (PID: 14166)
+[ssc-cgl] 
+[ssc-cgl] ╔═══════════════════════════════════════════════════════════════╗
+[ssc-cgl] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[ssc-cgl] ╚═══════════════════════════════════════════════════════════════╝
+[ssc-cgl] 
+[ssc-cgl] Configuration:
+[ssc-cgl]   Exam:     SSC CGL
+[ssc-cgl]   Count:    2 NEW questions
+[ssc-cgl]   Model:    llama3.2 (local, FREE)
+[ssc-cgl]   File:     .agents/artifacts/ollama-generated/ssc-cgl.csv
+[ssc-cgl]   Existing: 0 questions
+[ssc-cgl]   Total after: 2 questions
+[ssc-cgl] 
+[ssc-cgl] 🚀 Starting generation...
+[ssc-cgl] 
+[ssc-cgl]    Generating: Arithmetic (easy)...
+[ssc-cgl]    ⚠️  No valid JSON found
+[ssc-cgl]    Generating: Verbal Reasoning (medium)...
+[ssc-cgl]    ⚠️  No valid JSON found
+[ssc-cgl] 
+[ssc-cgl] ✨ Generation complete!
+[ssc-cgl]    Generated: 0 / 2 questions
+[ssc-cgl] 
+[ssc-cgl] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: ssc-cgl
+🚀 Starting: sbi-po (PID: 14196)
+[ssc-chsl] 
+[ssc-chsl] ╔═══════════════════════════════════════════════════════════════╗
+[ssc-chsl] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[ssc-chsl] ╚═══════════════════════════════════════════════════════════════╝
+[ssc-chsl] 
+[ssc-chsl] Configuration:
+[ssc-chsl]   Exam:     SSC CHSL
+[ssc-chsl]   Count:    2 NEW questions
+[ssc-chsl]   Model:    llama3.2 (local, FREE)
+[ssc-chsl]   File:     .agents/artifacts/ollama-generated/ssc-chsl.csv
+[ssc-chsl]   Existing: 0 questions
+[ssc-chsl]   Total after: 2 questions
+[ssc-chsl] 
+[ssc-chsl] 🚀 Starting generation...
+[ssc-chsl] 
+[ssc-chsl]    Generating: Arithmetic (easy)...
+[ssc-chsl]    ✅ Generated successfully
+[ssc-chsl]    Generating: Verbal Reasoning (medium)...
+[ssc-chsl]    ⚠️  No valid JSON found
+[ssc-chsl] 
+[ssc-chsl] ✨ Generation complete!
+[ssc-chsl]    Generated: 1 / 2 questions
+[ssc-chsl] 
+[ssc-chsl] 💾 Updated: .agents/artifacts/ollama-generated/ssc-chsl.csv
+[ssc-chsl]    Previous: 0 questions
+[ssc-chsl]    Added:    1 questions
+[ssc-chsl]    Total:    1 questions
+[ssc-chsl] 
+[ssc-chsl] 📥 Auto-importing to question bank...
+[ssc-chsl] 
+[ssc-chsl] 📂 Reading file: .agents/artifacts/ollama-generated/ssc-chsl.csv
+[ssc-chsl] 📊 Parsing CSV...
+[ssc-chsl] ✅ Found 1 questions
+[ssc-chsl] 
+[ssc-chsl] 🔍 Validating questions...
+[ssc-chsl] ✅ All questions validated successfully!
+[ssc-chsl] 
+[ssc-chsl] 📦 Grouped into 1 arrays:
+[ssc-chsl] 
+[ssc-chsl]    ✅ ssc-chsl → ssc-quant → Arithmetic: 1 questions
+[ssc-chsl]       Saved to: .agents/artifacts/imported-questions/ssc_chsl_ssc_quant_Arithmetic.ts
+[ssc-chsl] 
+[ssc-chsl] 
+[ssc-chsl] ✨ Success! 1 questions imported.
+[ssc-chsl] 
+[ssc-chsl] 📁 Output files:
+[ssc-chsl]    Individual: .agents/artifacts/imported-questions/
+[ssc-chsl]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[ssc-chsl] 
+[ssc-chsl] 📝 Next steps:
+[ssc-chsl]    1. Review the generated TypeScript code
+[ssc-chsl]    2. Copy the arrays into src/lib/question-bank.ts
+[ssc-chsl]    3. Update the export mappings in question-bank.ts
+[ssc-chsl]    4. Test with: npm run build
+[ssc-chsl] 
+[ssc-chsl] 
+[ssc-chsl] ✅ Successfully imported to question bank!
+[ssc-chsl] 
+[ssc-chsl] 🎉 Done! Run this script again anytime to add more questions.
+[ssc-chsl]    Completely FREE - no API costs ever!
+[ssc-chsl] 
+✅ Completed: ssc-chsl
+🚀 Starting: cat (PID: 14219)
+[ibps-po] 
+[ibps-po] ╔═══════════════════════════════════════════════════════════════╗
+[ibps-po] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[ibps-po] ╚═══════════════════════════════════════════════════════════════╝
+[ibps-po] 
+[ibps-po] Configuration:
+[ibps-po]   Exam:     IBPS PO
+[ibps-po]   Count:    2 NEW questions
+[ibps-po]   Model:    llama3.2 (local, FREE)
+[ibps-po]   File:     .agents/artifacts/ollama-generated/ibps-po.csv
+[ibps-po]   Existing: 0 questions
+[ibps-po]   Total after: 2 questions
+[ibps-po] 
+[ibps-po] 🚀 Starting generation...
+[ibps-po] 
+[ibps-po]    Generating: Arithmetic (easy)...
+[ibps-po]    ❌ Failed to parse: Bad control character in string literal in JSON at position 1188 (line 8 column 835)
+[ibps-po]    Generating: Puzzles (medium)...
+[ibps-po]    ✅ Generated successfully
+[ibps-po] 
+[ibps-po] ✨ Generation complete!
+[ibps-po]    Generated: 1 / 2 questions
+[ibps-po] 
+[ibps-po] 💾 Updated: .agents/artifacts/ollama-generated/ibps-po.csv
+[ibps-po]    Previous: 0 questions
+[ibps-po]    Added:    1 questions
+[ibps-po]    Total:    1 questions
+[ibps-po] 
+[ibps-po] 📥 Auto-importing to question bank...
+[ibps-po] 
+[ibps-po] 📂 Reading file: .agents/artifacts/ollama-generated/ibps-po.csv
+[ibps-po] 📊 Parsing CSV...
+[ibps-po] ✅ Found 1 questions
+[ibps-po] 
+[ibps-po] 🔍 Validating questions...
+[ibps-po] ✅ All questions validated successfully!
+[ibps-po] 
+[ibps-po] 📦 Grouped into 1 arrays:
+[ibps-po] 
+[ibps-po]    ✅ ibps-po → ibps-reasoning → Puzzles: 1 questions
+[ibps-po]       Saved to: .agents/artifacts/imported-questions/ibps_po_ibps_reasoning_Puzzles.ts
+[ibps-po] 
+[ibps-po] 
+[ibps-po] ✨ Success! 1 questions imported.
+[ibps-po] 
+[ibps-po] 📁 Output files:
+[ibps-po]    Individual: .agents/artifacts/imported-questions/
+[ibps-po]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[ibps-po] 
+[ibps-po] 📝 Next steps:
+[ibps-po]    1. Review the generated TypeScript code
+[ibps-po]    2. Copy the arrays into src/lib/question-bank.ts
+[ibps-po]    3. Update the export mappings in question-bank.ts
+[ibps-po]    4. Test with: npm run build
+[ibps-po] 
+[ibps-po] 
+[ibps-po] ✅ Successfully imported to question bank!
+[ibps-po] 
+[ibps-po] 🎉 Done! Run this script again anytime to add more questions.
+[ibps-po]    Completely FREE - no API costs ever!
+[ibps-po] 
+✅ Completed: ibps-po
+🚀 Starting: xat (PID: 14240)
+[sbi-po] 
+[sbi-po] ╔═══════════════════════════════════════════════════════════════╗
+[sbi-po] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[sbi-po] ╚═══════════════════════════════════════════════════════════════╝
+[sbi-po] 
+[sbi-po] Configuration:
+[sbi-po]   Exam:     SBI PO
+[sbi-po]   Count:    2 NEW questions
+[sbi-po]   Model:    llama3.2 (local, FREE)
+[sbi-po]   File:     .agents/artifacts/ollama-generated/sbi-po.csv
+[sbi-po]   Existing: 0 questions
+[sbi-po]   Total after: 2 questions
+[sbi-po] 
+[sbi-po] 🚀 Starting generation...
+[sbi-po] 
+[sbi-po]    Generating: Arithmetic (easy)...
+[sbi-po]    ⚠️  No valid JSON found
+[sbi-po]    Generating: Puzzles (medium)...
+[sbi-po]    ✅ Generated successfully
+[sbi-po] 
+[sbi-po] ✨ Generation complete!
+[sbi-po]    Generated: 1 / 2 questions
+[sbi-po] 
+[sbi-po] 💾 Updated: .agents/artifacts/ollama-generated/sbi-po.csv
+[sbi-po]    Previous: 0 questions
+[sbi-po]    Added:    1 questions
+[sbi-po]    Total:    1 questions
+[sbi-po] 
+[sbi-po] 📥 Auto-importing to question bank...
+[sbi-po] 
+[sbi-po] 📂 Reading file: .agents/artifacts/ollama-generated/sbi-po.csv
+[sbi-po] 📊 Parsing CSV...
+[sbi-po] ✅ Found 1 questions
+[sbi-po] 
+[sbi-po] 🔍 Validating questions...
+[sbi-po] ✅ All questions validated successfully!
+[sbi-po] 
+[sbi-po] 📦 Grouped into 1 arrays:
+[sbi-po] 
+[sbi-po]    ✅ sbi-po → sbi-reasoning → Puzzles: 1 questions
+[sbi-po]       Saved to: .agents/artifacts/imported-questions/sbi_po_sbi_reasoning_Puzzles.ts
+[sbi-po] 
+[sbi-po] 
+[sbi-po] ✨ Success! 1 questions imported.
+[sbi-po] 
+[sbi-po] 📁 Output files:
+[sbi-po]    Individual: .agents/artifacts/imported-questions/
+[sbi-po]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[sbi-po] 
+[sbi-po] 📝 Next steps:
+[sbi-po]    1. Review the generated TypeScript code
+[sbi-po]    2. Copy the arrays into src/lib/question-bank.ts
+[sbi-po]    3. Update the export mappings in question-bank.ts
+[sbi-po]    4. Test with: npm run build
+[sbi-po] 
+[sbi-po] 
+[sbi-po] ✅ Successfully imported to question bank!
+[sbi-po] 
+[sbi-po] 🎉 Done! Run this script again anytime to add more questions.
+[sbi-po]    Completely FREE - no API costs ever!
+[sbi-po] 
+✅ Completed: sbi-po
+🚀 Starting: clat (PID: 14267)
+[cat] 
+[cat] ╔═══════════════════════════════════════════════════════════════╗
+[cat] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[cat] ╚═══════════════════════════════════════════════════════════════╝
+[cat] 
+[cat] Configuration:
+[cat]   Exam:     CAT
+[cat]   Count:    2 NEW questions
+[cat]   Model:    llama3.2 (local, FREE)
+[cat]   File:     .agents/artifacts/ollama-generated/cat.csv
+[cat]   Existing: 0 questions
+[cat]   Total after: 2 questions
+[cat] 
+[cat] 🚀 Starting generation...
+[cat] 
+[cat]    Generating: Arithmetic (easy)...
+[cat]    ⚠️  No valid JSON found
+[cat]    Generating: Verbal Ability (medium)...
+[cat]    ❌ Failed to parse: Bad control character in string literal in JSON at position 391 (line 8 column 45)
+[cat] 
+[cat] ✨ Generation complete!
+[cat]    Generated: 0 / 2 questions
+[cat] 
+[cat] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: cat
+🚀 Starting: nda (PID: 14285)
+[xat] 
+[xat] ╔═══════════════════════════════════════════════════════════════╗
+[xat] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[xat] ╚═══════════════════════════════════════════════════════════════╝
+[xat] 
+[xat] Configuration:
+[xat]   Exam:     XAT
+[xat]   Count:    2 NEW questions
+[xat]   Model:    llama3.2 (local, FREE)
+[xat]   File:     .agents/artifacts/ollama-generated/xat.csv
+[xat]   Existing: 0 questions
+[xat]   Total after: 2 questions
+[xat] 
+[xat] 🚀 Starting generation...
+[xat] 
+[xat]    Generating: Arithmetic (easy)...
+[xat]    ⚠️  No valid JSON found
+[xat]    Generating: Grammar (medium)...
+[xat]    ✅ Generated successfully
+[xat] 
+[xat] ✨ Generation complete!
+[xat]    Generated: 1 / 2 questions
+[xat] 
+[xat] 💾 Updated: .agents/artifacts/ollama-generated/xat.csv
+[xat]    Previous: 0 questions
+[xat]    Added:    1 questions
+[xat]    Total:    1 questions
+[xat] 
+[xat] 📥 Auto-importing to question bank...
+[xat] 
+[xat] 📂 Reading file: .agents/artifacts/ollama-generated/xat.csv
+[xat] 📊 Parsing CSV...
+[xat] ✅ Found 1 questions
+[xat] 
+[xat] 🔍 Validating questions...
+[xat] ✅ All questions validated successfully!
+[xat] 
+[xat] 📦 Grouped into 1 arrays:
+[xat] 
+[xat]    ✅ xat → xat-verbal → Grammar: 1 questions
+[xat]       Saved to: .agents/artifacts/imported-questions/xat_xat_verbal_Grammar.ts
+[xat] 
+[xat] 
+[xat] ✨ Success! 1 questions imported.
+[xat] 
+[xat] 📁 Output files:
+[xat]    Individual: .agents/artifacts/imported-questions/
+[xat]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[xat] 
+[xat] 📝 Next steps:
+[xat]    1. Review the generated TypeScript code
+[xat]    2. Copy the arrays into src/lib/question-bank.ts
+[xat]    3. Update the export mappings in question-bank.ts
+[xat]    4. Test with: npm run build
+[xat] 
+[xat] 
+[xat] ✅ Successfully imported to question bank!
+[xat] 
+[xat] 🎉 Done! Run this script again anytime to add more questions.
+[xat]    Completely FREE - no API costs ever!
+[xat] 
+✅ Completed: xat
+🚀 Starting: cds (PID: 14316)
+[clat] 
+[clat] ╔═══════════════════════════════════════════════════════════════╗
+[clat] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[clat] ╚═══════════════════════════════════════════════════════════════╝
+[clat] 
+[clat] Configuration:
+[clat]   Exam:     CLAT
+[clat]   Count:    2 NEW questions
+[clat]   Model:    llama3.2 (local, FREE)
+[clat]   File:     .agents/artifacts/ollama-generated/clat.csv
+[clat]   Existing: 0 questions
+[clat]   Total after: 2 questions
+[clat] 
+[clat] 🚀 Starting generation...
+[clat] 
+[clat]    Generating: Grammar (easy)...
+[clat]    ❌ Failed to parse: Bad control character in string literal in JSON at position 763 (line 8 column 512)
+[clat]    Generating: Static GK (medium)...
+[clat]    ✅ Generated successfully
+[clat] 
+[clat] ✨ Generation complete!
+[clat]    Generated: 1 / 2 questions
+[clat] 
+[clat] 💾 Updated: .agents/artifacts/ollama-generated/clat.csv
+[clat]    Previous: 0 questions
+[clat]    Added:    1 questions
+[clat]    Total:    1 questions
+[clat] 
+[clat] 📥 Auto-importing to question bank...
+[clat] 
+[clat] 📂 Reading file: .agents/artifacts/ollama-generated/clat.csv
+[clat] 📊 Parsing CSV...
+[clat] ✅ Found 1 questions
+[clat] 
+[clat] 🔍 Validating questions...
+[clat] ✅ All questions validated successfully!
+[clat] 
+[clat] 📦 Grouped into 1 arrays:
+[clat] 
+[clat]    ✅ clat → clat-gk → Static GK: 1 questions
+[clat]       Saved to: .agents/artifacts/imported-questions/clat_clat_gk_Static_GK.ts
+[clat] 
+[clat] 
+[clat] ✨ Success! 1 questions imported.
+[clat] 
+[clat] 📁 Output files:
+[clat]    Individual: .agents/artifacts/imported-questions/
+[clat]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[clat] 
+[clat] 📝 Next steps:
+[clat]    1. Review the generated TypeScript code
+[clat]    2. Copy the arrays into src/lib/question-bank.ts
+[clat]    3. Update the export mappings in question-bank.ts
+[clat]    4. Test with: npm run build
+[clat] 
+[clat] 
+[clat] ✅ Successfully imported to question bank!
+[clat] 
+[clat] 🎉 Done! Run this script again anytime to add more questions.
+[clat]    Completely FREE - no API costs ever!
+[clat] 
+✅ Completed: clat
+🚀 Starting: rrb-ntpc (PID: 14358)
+[nda] 
+[nda] ╔═══════════════════════════════════════════════════════════════╗
+[nda] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[nda] ╚═══════════════════════════════════════════════════════════════╝
+[nda] 
+[nda] Configuration:
+[nda]   Exam:     NDA
+[nda]   Count:    2 NEW questions
+[nda]   Model:    llama3.2 (local, FREE)
+[nda]   File:     .agents/artifacts/ollama-generated/nda.csv
+[nda]   Existing: 0 questions
+[nda]   Total after: 2 questions
+[nda] 
+[nda] 🚀 Starting generation...
+[nda] 
+[nda]    Generating: Algebra (easy)...
+[nda]    ✅ Generated successfully
+[nda]    Generating: Chemistry (medium)...
+[nda]    ❌ Failed to parse: Bad control character in string literal in JSON at position 676 (line 8 column 300)
+[nda] 
+[nda] ✨ Generation complete!
+[nda]    Generated: 1 / 2 questions
+[nda] 
+[nda] 💾 Updated: .agents/artifacts/ollama-generated/nda.csv
+[nda]    Previous: 0 questions
+[nda]    Added:    1 questions
+[nda]    Total:    1 questions
+[nda] 
+[nda] 📥 Auto-importing to question bank...
+[nda] 
+[nda] 📂 Reading file: .agents/artifacts/ollama-generated/nda.csv
+[nda] 📊 Parsing CSV...
+[nda] ✅ Found 1 questions
+[nda] 
+[nda] 🔍 Validating questions...
+[nda] ✅ All questions validated successfully!
+[nda] 
+[nda] 📦 Grouped into 1 arrays:
+[nda] 
+[nda]    ✅ nda → nda-maths → Algebra: 1 questions
+[nda]       Saved to: .agents/artifacts/imported-questions/nda_nda_maths_Algebra.ts
+[nda] 
+[nda] 
+[nda] ✨ Success! 1 questions imported.
+[nda] 
+[nda] 📁 Output files:
+[nda]    Individual: .agents/artifacts/imported-questions/
+[nda]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[nda] 
+[nda] 📝 Next steps:
+[nda]    1. Review the generated TypeScript code
+[nda]    2. Copy the arrays into src/lib/question-bank.ts
+[nda]    3. Update the export mappings in question-bank.ts
+[nda]    4. Test with: npm run build
+[nda] 
+[nda] 
+[nda] ✅ Successfully imported to question bank!
+[nda] 
+[nda] 🎉 Done! Run this script again anytime to add more questions.
+[nda]    Completely FREE - no API costs ever!
+[nda] 
+✅ Completed: nda
+🚀 Starting: ctet (PID: 14385)
+[cds] 
+[cds] ╔═══════════════════════════════════════════════════════════════╗
+[cds] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[cds] ╚═══════════════════════════════════════════════════════════════╝
+[cds] 
+[cds] Configuration:
+[cds]   Exam:     CDS
+[cds]   Count:    2 NEW questions
+[cds]   Model:    llama3.2 (local, FREE)
+[cds]   File:     .agents/artifacts/ollama-generated/cds.csv
+[cds]   Existing: 0 questions
+[cds]   Total after: 2 questions
+[cds] 
+[cds] 🚀 Starting generation...
+[cds] 
+[cds]    Generating: Grammar (easy)...
+[cds]    ❌ Failed to parse: Bad control character in string literal in JSON at position 710 (line 8 column 327)
+[cds]    Generating: Geography (medium)...
+[cds]    ✅ Generated successfully
+[cds] 
+[cds] ✨ Generation complete!
+[cds]    Generated: 1 / 2 questions
+[cds] 
+[cds] 💾 Updated: .agents/artifacts/ollama-generated/cds.csv
+[cds]    Previous: 0 questions
+[cds]    Added:    1 questions
+[cds]    Total:    1 questions
+[cds] 
+[cds] 📥 Auto-importing to question bank...
+[cds] 
+[cds] 📂 Reading file: .agents/artifacts/ollama-generated/cds.csv
+[cds] 📊 Parsing CSV...
+[cds] ✅ Found 1 questions
+[cds] 
+[cds] 🔍 Validating questions...
+[cds] ✅ All questions validated successfully!
+[cds] 
+[cds] 📦 Grouped into 1 arrays:
+[cds] 
+[cds]    ✅ cds → cds-gk → Geography: 1 questions
+[cds]       Saved to: .agents/artifacts/imported-questions/cds_cds_gk_Geography.ts
+[cds] 
+[cds] 
+[cds] ✨ Success! 1 questions imported.
+[cds] 
+[cds] 📁 Output files:
+[cds]    Individual: .agents/artifacts/imported-questions/
+[cds]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[cds] 
+[cds] 📝 Next steps:
+[cds]    1. Review the generated TypeScript code
+[cds]    2. Copy the arrays into src/lib/question-bank.ts
+[cds]    3. Update the export mappings in question-bank.ts
+[cds]    4. Test with: npm run build
+[cds] 
+[cds] 
+[cds] ✅ Successfully imported to question bank!
+[cds] 
+[cds] 🎉 Done! Run this script again anytime to add more questions.
+[cds]    Completely FREE - no API costs ever!
+[cds] 
+✅ Completed: cds
+🚀 Starting: ca-foundation (PID: 14405)
+[rrb-ntpc] 
+[rrb-ntpc] ╔═══════════════════════════════════════════════════════════════╗
+[rrb-ntpc] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[rrb-ntpc] ╚═══════════════════════════════════════════════════════════════╝
+[rrb-ntpc] 
+[rrb-ntpc] Configuration:
+[rrb-ntpc]   Exam:     RRB NTPC
+[rrb-ntpc]   Count:    2 NEW questions
+[rrb-ntpc]   Model:    llama3.2 (local, FREE)
+[rrb-ntpc]   File:     .agents/artifacts/ollama-generated/rrb-ntpc.csv
+[rrb-ntpc]   Existing: 0 questions
+[rrb-ntpc]   Total after: 2 questions
+[rrb-ntpc] 
+[rrb-ntpc] 🚀 Starting generation...
+[rrb-ntpc] 
+[rrb-ntpc]    Generating: Arithmetic (easy)...
+[rrb-ntpc]    ⚠️  No valid JSON found
+[rrb-ntpc]    Generating: Verbal Reasoning (medium)...
+[rrb-ntpc]    ❌ Failed to parse: Bad control character in string literal in JSON at position 596 (line 7 column 181)
+[rrb-ntpc] 
+[rrb-ntpc] ✨ Generation complete!
+[rrb-ntpc]    Generated: 0 / 2 questions
+[rrb-ntpc] 
+[rrb-ntpc] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: rrb-ntpc
+[ctet] 
+[ctet] ╔═══════════════════════════════════════════════════════════════╗
+[ctet] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[ctet] ╚═══════════════════════════════════════════════════════════════╝
+[ctet] 
+[ctet] Configuration:
+[ctet]   Exam:     CTET
+[ctet]   Count:    2 NEW questions
+[ctet]   Model:    llama3.2 (local, FREE)
+[ctet]   File:     .agents/artifacts/ollama-generated/ctet.csv
+[ctet]   Existing: 0 questions
+[ctet]   Total after: 2 questions
+[ctet] 
+[ctet] 🚀 Starting generation...
+[ctet] 
+[ctet]    Generating: Child Psychology (easy)...
+[ctet]    ⚠️  No valid JSON found
+[ctet]    Generating: Comprehension (medium)...
+[ctet]    ❌ Failed to parse: Bad control character in string literal in JSON at position 778 (line 8 column 423)
+[ctet] 
+[ctet] ✨ Generation complete!
+[ctet]    Generated: 0 / 2 questions
+[ctet] 
+[ctet] ❌ No questions generated. Please check Ollama is running.
+✅ Completed: ctet
+[ca-foundation] 
+[ca-foundation] ╔═══════════════════════════════════════════════════════════════╗
+[ca-foundation] ║    PrepGenie - FREE Question Generation (APPEND MODE)         ║
+[ca-foundation] ╚═══════════════════════════════════════════════════════════════╝
+[ca-foundation] 
+[ca-foundation] Configuration:
+[ca-foundation]   Exam:     CA Foundation
+[ca-foundation]   Count:    2 NEW questions
+[ca-foundation]   Model:    llama3.2 (local, FREE)
+[ca-foundation]   File:     .agents/artifacts/ollama-generated/ca-foundation.csv
+[ca-foundation]   Existing: 0 questions
+[ca-foundation]   Total after: 2 questions
+[ca-foundation] 
+[ca-foundation] 🚀 Starting generation...
+[ca-foundation] 
+[ca-foundation]    Generating: Basic Accounting (easy)...
+[ca-foundation]    ✅ Generated successfully
+[ca-foundation]    Generating: Companies Act (medium)...
+[ca-foundation]    ⚠️  No valid JSON found
+[ca-foundation] 
+[ca-foundation] ✨ Generation complete!
+[ca-foundation]    Generated: 1 / 2 questions
+[ca-foundation] 
+[ca-foundation] 💾 Updated: .agents/artifacts/ollama-generated/ca-foundation.csv
+[ca-foundation]    Previous: 0 questions
+[ca-foundation]    Added:    1 questions
+[ca-foundation]    Total:    1 questions
+[ca-foundation] 
+[ca-foundation] 📥 Auto-importing to question bank...
+[ca-foundation] 
+[ca-foundation] 📂 Reading file: .agents/artifacts/ollama-generated/ca-foundation.csv
+[ca-foundation] 📊 Parsing CSV...
+[ca-foundation] ✅ Found 1 questions
+[ca-foundation] 
+[ca-foundation] 🔍 Validating questions...
+[ca-foundation] ✅ All questions validated successfully!
+[ca-foundation] 
+[ca-foundation] 📦 Grouped into 1 arrays:
+[ca-foundation] 
+[ca-foundation]    ✅ ca-foundation → ca-accounts → Basic Accounting: 1 questions
+[ca-foundation]       Saved to: .agents/artifacts/imported-questions/ca_foundation_ca_accounts_Basic_Accounting.ts
+[ca-foundation] 
+[ca-foundation] 
+[ca-foundation] ✨ Success! 1 questions imported.
+[ca-foundation] 
+[ca-foundation] 📁 Output files:
+[ca-foundation]    Individual: .agents/artifacts/imported-questions/
+[ca-foundation]    Combined:   .agents/artifacts/imported-questions/_all_combined.ts
+[ca-foundation] 
+[ca-foundation] 📝 Next steps:
+[ca-foundation]    1. Review the generated TypeScript code
+[ca-foundation]    2. Copy the arrays into src/lib/question-bank.ts
+[ca-foundation]    3. Update the export mappings in question-bank.ts
+[ca-foundation]    4. Test with: npm run build
+[ca-foundation] 
+[ca-foundation] 
+[ca-foundation] ✅ Successfully imported to question bank!
+[ca-foundation] 
+[ca-foundation] 🎉 Done! Run this script again anytime to add more questions.
+[ca-foundation]    Completely FREE - no API costs ever!
+[ca-foundation] 
+✅ Completed: ca-foundation
