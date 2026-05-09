@@ -76,11 +76,24 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { examId, testNumber = 1 } = body;
+    const { examId, testNumber = 1, isFullLength = false } = body;
 
-    const config = getMockTestConfig(examId, testNumber);
+    let config = getMockTestConfig(examId, testNumber);
     if (!config) {
       return NextResponse.json({ error: "Mock test not available for this exam" }, { status: 400 });
+    }
+
+    // If full-length requested, multiply questions by 3x and time by 2.5x
+    if (isFullLength) {
+      config = {
+        ...config,
+        totalQuestions: config.totalQuestions * 3,
+        timeLimitMinutes: Math.round(config.timeLimitMinutes * 2.5),
+        sections: config.sections.map(s => ({
+          ...s,
+          questionCount: s.questionCount * 3,
+        })),
+      };
     }
 
     const exam = getExamById(examId);

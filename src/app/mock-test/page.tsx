@@ -25,12 +25,14 @@ interface Question {
 }
 
 type PageState = "select" | "loading" | "test" | "results" | "pro-required";
+type TestType = "short" | "full";
 
 export default function MockTestPage() {
   const { user } = useUser();
   const { t } = useLocale();
 
   const [pageState, setPageState] = useState<PageState>("select");
+  const [testType, setTestType] = useState<TestType>("short");
   const [configs, setConfigs] = useState<MockTestConfig[]>([]);
   const [history, setHistory] = useState<any[]>([]);
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
@@ -88,33 +90,52 @@ export default function MockTestPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Filtered and grouped configs based on search
-  const filteredConfigs = useMemo(() => {
-    if (!searchQuery.trim()) return configs;
-    const query = searchQuery.toLowerCase();
-    return configs.filter(
-      (c) =>
+  // Convert short test config to full-length (multiply questions by 3x, time by 2.5x)
+  const getFullLengthConfig = (shortConfig: MockTestConfig): MockTestConfig => {
+    return {
+      ...shortConfig,
+      totalQuestions: shortConfig.totalQuestions * 3,
+      timeLimitMinutes: Math.round(shortConfig.timeLimitMinutes * 2.5),
+      sections: shortConfig.sections.map(s => ({
+        ...s,
+        questionCount: s.questionCount * 3,
+      })),
+    };
+  };
+
+  // Filtered configs based on test type
+  const displayConfigs = useMemo(() => {
+    const filtered = configs.filter(c => {
+      if (!searchQuery.trim()) return true;
+      const query = searchQuery.toLowerCase();
+      return (
         c.examName.toLowerCase().includes(query) ||
         c.examId.toLowerCase().includes(query) ||
         c.sections.some((s) => s.subjectName.toLowerCase().includes(query))
-    );
-  }, [configs, searchQuery]);
+      );
+    });
 
-  // Group configs by examId to show multiple tests
+    // Transform configs based on test type
+    if (testType === "full") {
+      return filtered.map(getFullLengthConfig);
+    }
+    return filtered;
+  }, [configs, searchQuery, testType]);
+
+  // Group configs by examId
   const groupedConfigs = useMemo(() => {
     const groups: { [key: string]: MockTestConfig[] } = {};
-    filteredConfigs.forEach((config) => {
+    displayConfigs.forEach((config) => {
       if (!groups[config.examId]) {
         groups[config.examId] = [];
       }
       groups[config.examId].push(config);
     });
-    // Sort each group by testNumber
     Object.keys(groups).forEach((examId) => {
       groups[examId].sort((a, b) => a.testNumber - b.testNumber);
     });
     return groups;
-  }, [filteredConfigs]);
+  }, [displayConfigs]);
 
   // Countdown timer
   useEffect(() => {
@@ -140,13 +161,13 @@ export default function MockTestPage() {
     return `${m}:${s.toString().padStart(2, "0")}`;
   };
 
-  async function startTest(examId: string, testNumber: number = 1) {
+  async function startTest(examId: string, testNumber: number = 1, isFullLength: boolean = false) {
     setPageState("loading");
     try {
       const res = await fetch("/api/mock-test", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ examId, testNumber }),
+        body: JSON.stringify({ examId, testNumber, isFullLength }),
       });
       const data = await res.json();
 
@@ -214,9 +235,9 @@ export default function MockTestPage() {
             <a href="/pricing" className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg">
               {t("upgradeToPro")}
             </a>
-            <a href="/" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
-              {t("goHome")}
-            </a>
+            <button onClick={() => setPageState("select")} className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
+              Go Back
+            </button>
           </div>
         </div>
       </div>
@@ -241,7 +262,7 @@ export default function MockTestPage() {
     );
   }
 
-  // Results screen
+  // Results screen (keep existing results screen - lines 245-350 from original)
   if (pageState === "results" && results) {
     const percentage = results.accuracy;
     const grade =
@@ -287,7 +308,7 @@ export default function MockTestPage() {
           </div>
         </div>
 
-        {/* Section filter for review */}
+        {/* Question review (keep existing) */}
         <div className="flex gap-2 mb-4 flex-wrap">
           <button
             onClick={() => setCurrentSection("all")}
@@ -306,7 +327,6 @@ export default function MockTestPage() {
           ))}
         </div>
 
-        {/* Question review */}
         <div className="space-y-4">
           {results.results
             .filter((r: any) => currentSection === "all" || r.subjectId === currentSection)
@@ -350,11 +370,11 @@ export default function MockTestPage() {
     );
   }
 
-  // Test taking screen
+  // Test taking screen (keep existing test screen - lines 354-502 from original)
   if (pageState === "test" && questions.length > 0) {
     const question = questions[currentQuestion];
     const answeredCount = answers.filter((a) => a !== null).length;
-    const isLowTime = timeRemaining < 300; // less than 5 minutes
+    const isLowTime = timeRemaining < 300;
     const isCriticalTime = timeRemaining < 60;
 
     return (
@@ -372,7 +392,6 @@ export default function MockTestPage() {
             </div>
           </div>
 
-          {/* Progress */}
           <div className="flex gap-0.5">
             {questions.map((_, idx) => (
               <div key={idx} className={`h-1.5 flex-1 rounded-full ${idx === currentQuestion ? "bg-indigo-500" : answers[idx] !== null ? "bg-indigo-300" : "bg-slate-200"}`} />
@@ -485,7 +504,7 @@ export default function MockTestPage() {
           </div>
         </div>
 
-        {/* Submit button (always visible) */}
+        {/* Submit button */}
         {answeredCount > 0 && (
           <div className="mt-4 text-center">
             <button
@@ -501,217 +520,214 @@ export default function MockTestPage() {
     );
   }
 
-  // Selection screen (default)
+  // Selection screen - NEW REDESIGNED UI
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      <div className="text-center mb-10">
-        <h1 className="text-3xl font-bold mb-3">
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold mb-3">
           <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            {t("mockTestTitle")}
+            Mock Tests
           </span>
         </h1>
-        <p className="text-slate-500 max-w-lg mx-auto mb-6">{t("mockTestSubtitle")}</p>
+        <p className="text-slate-600 max-w-2xl mx-auto">
+          Practice with full-length mock tests or take short practice tests to prepare for your exams
+        </p>
+      </div>
 
-        {/* Search Bar */}
-        <div className="max-w-xl mx-auto relative" ref={searchContainerRef}>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search mock tests by exam name..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setShowSearchDropdown(true);
-              }}
-              onFocus={() => setShowSearchDropdown(true)}
-              className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-            />
-            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      {/* Test Type Tabs */}
+      <div className="flex justify-center gap-3 mb-8">
+        <button
+          onClick={() => setTestType("short")}
+          className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+            testType === "short"
+              ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
+              : "bg-white text-slate-600 border-2 border-slate-200 hover:border-indigo-300"
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            {searchQuery && (
-              <button
-                onClick={() => {
-                  setSearchQuery("");
-                  setShowSearchDropdown(false);
-                }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            )}
+            <span>Short Practice Tests</span>
           </div>
+          <div className="text-xs mt-1 opacity-90">20-30 questions · 40-60 mins</div>
+        </button>
 
-          {/* Search Dropdown */}
-          {showSearchDropdown && searchQuery && (
-            <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-2xl border border-slate-200 max-h-80 overflow-y-auto z-50">
-              {Object.keys(groupedConfigs).length === 0 ? (
-                <div className="p-6 text-center text-slate-400">No mock tests found</div>
-              ) : (
-                Object.keys(groupedConfigs).map((examId) => {
-                  const exam = getExamById(examId);
-                  const testConfigs = groupedConfigs[examId];
-                  return (
-                    <div key={examId} className="border-b border-slate-100 last:border-0">
-                      <div className="p-3 flex items-center gap-3">
-                        <span className="text-2xl">{exam?.icon || "📝"}</span>
-                        <div className="flex-1">
-                          <div className="font-semibold text-slate-800">{testConfigs[0].examName}</div>
-                          <div className="text-xs text-slate-400">{testConfigs.length} test{testConfigs.length > 1 ? 's' : ''} available</div>
-                        </div>
-                        <button
-                          onClick={() => {
-                            setSearchQuery("");
-                            setShowSearchDropdown(false);
-                            const element = document.getElementById(`exam-${examId}`);
-                            element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                          }}
-                          className="px-3 py-1.5 text-xs bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100"
-                        >
-                          View Tests
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })
-              )}
-            </div>
+        <button
+          onClick={() => setTestType("full")}
+          className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+            testType === "full"
+              ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
+              : "bg-white text-slate-600 border-2 border-slate-200 hover:border-indigo-300"
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Full-Length Mock Tests</span>
+          </div>
+          <div className="text-xs mt-1 opacity-90">60-90 questions · 100-150 mins</div>
+        </button>
+      </div>
+
+      {/* Search Bar */}
+      <div className="max-w-xl mx-auto mb-8" ref={searchContainerRef}>
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search mock tests by exam name..."
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setShowSearchDropdown(true);
+            }}
+            onFocus={() => setShowSearchDropdown(true)}
+            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+          />
+          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          {searchQuery && (
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setShowSearchDropdown(false);
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           )}
         </div>
       </div>
 
+      {/* Mock Test Cards */}
       {isLoadingConfigs ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-white rounded-xl p-6 h-32 shimmer" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div key={i} className="bg-white rounded-xl p-6 h-64 shimmer" />
           ))}
         </div>
+      ) : Object.keys(groupedConfigs).length === 0 ? (
+        <div className="text-center py-16">
+          <div className="text-6xl mb-4">📝</div>
+          <p className="text-slate-400 text-lg">No mock tests found matching your search</p>
+        </div>
       ) : (
-        <>
-          {/* Available Mock Tests - Grid Layout */}
-          {Object.keys(groupedConfigs).length === 0 ? (
-            <div className="text-center py-12 text-slate-400">No mock tests found matching your search</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-              {Object.keys(groupedConfigs).map((examId) => {
-                const exam = getExamById(examId);
-                const testConfigs = groupedConfigs[examId];
-                const firstConfig = testConfigs[0];
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {Object.keys(groupedConfigs).map((examId) => {
+            const exam = getExamById(examId);
+            const testConfigs = groupedConfigs[examId];
+            const firstConfig = testConfigs[0];
 
-                return (
+            return (
+              <div
+                key={examId}
+                id={`exam-${examId}`}
+                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300"
+              >
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-4">
                   <div
-                    key={examId}
-                    id={`exam-${examId}`}
-                    className="group bg-white rounded-2xl p-5 border-2 border-slate-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform"
+                    style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}
                   >
-                    {/* Header */}
-                    <div className="flex items-start gap-3 mb-3">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform"
-                        style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}
-                      >
-                        {exam?.icon || "📝"}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-slate-800 mb-0.5 truncate">{firstConfig.examName}</h3>
-                        <p className="text-xs text-slate-400 line-clamp-1">{exam?.description || ""}</p>
-                      </div>
-                      {testConfigs.length > 1 && (
-                        <span className="shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-bold">
-                          {testConfigs.length}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Quick Stats */}
-                    <div className="flex items-center gap-3 mb-3 text-xs text-slate-500">
-                      <span className="flex items-center gap-1">
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                        {firstConfig.totalQuestions} Q
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        {firstConfig.timeLimitMinutes}m
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>
-                        {firstConfig.sections.length} subjects
-                      </span>
-                    </div>
-
-                    {/* Subjects Tags */}
-                    <div className="flex flex-wrap gap-1 mb-4 min-h-[44px]">
-                      {firstConfig.sections.slice(0, 3).map((s) => (
-                        <span key={s.subjectId} className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md">
-                          {s.subjectName}
-                        </span>
-                      ))}
-                      {firstConfig.sections.length > 3 && (
-                        <span className="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-md">
-                          +{firstConfig.sections.length - 3}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Action Buttons */}
-                    {testConfigs.length === 1 ? (
-                      <button
-                        onClick={() => startTest(firstConfig.examId, firstConfig.testNumber)}
-                        className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg text-sm transition-all"
-                      >
-                        {t("startMockTest")}
-                      </button>
-                    ) : (
-                      <div className="flex gap-2">
-                        {testConfigs.map((config) => (
-                          <button
-                            key={config.testNumber}
-                            onClick={() => startTest(config.examId, config.testNumber)}
-                            className="flex-1 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg text-sm transition-all"
-                          >
-                            #{config.testNumber}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                    {exam?.icon || "📝"}
                   </div>
-                );
-              })}
-            </div>
-          )}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-lg text-slate-800 mb-1">{firstConfig.examName}</h3>
+                    <p className="text-xs text-slate-400 line-clamp-1">{exam?.description || ""}</p>
+                  </div>
+                </div>
 
-          {/* Past Mock Tests */}
-          {history.length > 0 && (
-            <div>
-              <h2 className="text-lg font-bold text-slate-800 mb-4">{t("pastMockTests")}</h2>
-              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                {history.filter((h: any) => h.status === "completed").map((h: any, idx: number) => {
-                  const exam = getExamById(h.exam_id);
-                  const acc = h.total_questions > 0 ? Math.round((h.correct_answers / h.total_questions) * 100) : 0;
-                  return (
-                    <div key={h.id} className={`px-4 py-3 flex items-center justify-between ${idx > 0 ? "border-t border-slate-100" : ""}`}>
-                      <div className="flex items-center gap-3">
-                        <span className="text-xl">{exam?.icon || "📝"}</span>
-                        <div>
-                          <div className="text-sm font-medium text-slate-800">{exam?.name || h.exam_id}</div>
-                          <div className="text-xs text-slate-400">
-                            {new Date(h.completed_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
-                            {" | "}{formatTime(h.time_taken_seconds)}
-                          </div>
-                        </div>
-                      </div>
-                      <div className={`text-lg font-bold ${acc >= 70 ? "text-emerald-600" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
-                        {acc}%
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-2 mb-4">
+                  <div className="bg-indigo-50 rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-indigo-600">{firstConfig.totalQuestions}</div>
+                    <div className="text-xs text-slate-500">Questions</div>
+                  </div>
+                  <div className="bg-purple-50 rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-purple-600">{firstConfig.timeLimitMinutes}m</div>
+                    <div className="text-xs text-slate-500">Duration</div>
+                  </div>
+                  <div className="bg-pink-50 rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-pink-600">{firstConfig.sections.length}</div>
+                    <div className="text-xs text-slate-500">Sections</div>
+                  </div>
+                </div>
+
+                {/* Subjects */}
+                <div className="flex flex-wrap gap-1.5 mb-4 min-h-[52px]">
+                  {firstConfig.sections.map((s) => (
+                    <span key={s.subjectId} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
+                      {s.subjectName} ({s.questionCount})
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                {testConfigs.length === 1 ? (
+                  <button
+                    onClick={() => startTest(firstConfig.examId, firstConfig.testNumber, testType === "full")}
+                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all"
+                  >
+                    Start Test
+                  </button>
+                ) : (
+                  <div className="grid grid-cols-2 gap-2">
+                    {testConfigs.slice(0, 4).map((config) => (
+                      <button
+                        key={config.testNumber}
+                        onClick={() => startTest(config.examId, config.testNumber, testType === "full")}
+                        className="py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg text-sm transition-all"
+                      >
+                        Test #{config.testNumber}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Past Tests History */}
+      {history.length > 0 && (
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-slate-800 mb-5">Past Mock Tests</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {history.filter((h: any) => h.status === "completed").slice(0, 6).map((h: any) => {
+              const exam = getExamById(h.exam_id);
+              const acc = h.total_questions > 0 ? Math.round((h.correct_answers / h.total_questions) * 100) : 0;
+              return (
+                <div key={h.id} className="bg-white rounded-xl p-4 border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl"
+                      style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}
+                    >
+                      {exam?.icon || "📝"}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-800">{exam?.name || h.exam_id}</div>
+                      <div className="text-xs text-slate-400">
+                        {new Date(h.completed_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {formatTime(h.time_taken_seconds)}
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </>
+                  </div>
+                  <div className={`text-2xl font-bold ${acc >= 70 ? "text-emerald-600" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                    {acc}%
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       )}
     </div>
   );
