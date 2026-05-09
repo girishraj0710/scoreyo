@@ -6,6 +6,10 @@ interface User {
   id: string;
   name: string;
   email: string;
+  age?: number;
+  location?: string;
+  phone_number?: string;
+  exam_preparing_for?: string;
   avatar_color: string;
   created_at: string;
 }
@@ -17,9 +21,23 @@ interface UserContextType {
   setShowLoginModal: (show: boolean) => void;
   sendOtp: (email: string) => Promise<{ success: boolean; error?: string }>;
   verifyOtp: (email: string, code: string) => Promise<{ success: boolean; error?: string }>;
-  completeLogin: (email: string, name?: string) => Promise<{ success: boolean; needsName?: boolean; error?: string }>;
+  completeLogin: (
+    email: string,
+    name?: string,
+    age?: string,
+    location?: string,
+    phoneNumber?: string,
+    examPreparingFor?: string
+  ) => Promise<{ success: boolean; needsSignup?: boolean; error?: string }>;
   logout: () => Promise<void>;
-  updateProfile: (name: string, email?: string) => Promise<void>;
+  updateProfile: (
+    name: string,
+    email?: string,
+    age?: string,
+    location?: string,
+    phoneNumber?: string,
+    examPreparingFor?: string
+  ) => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -91,19 +109,26 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  async function completeLogin(email: string, name?: string) {
+  async function completeLogin(
+    email: string,
+    name?: string,
+    age?: string,
+    location?: string,
+    phoneNumber?: string,
+    examPreparingFor?: string
+  ) {
     try {
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email, name, age, location, phoneNumber, examPreparingFor }),
       });
       const data = await res.json();
       if (!res.ok) {
         return { success: false, error: data.error || "Login failed" };
       }
-      if (data.needsName) {
-        return { success: false, needsName: true };
+      if (data.needsSignup) {
+        return { success: false, needsSignup: true };
       }
       if (data.user) {
         setUser(data.user);
@@ -122,11 +147,18 @@ export function UserProvider({ children }: { children: ReactNode }) {
     setShowLoginModal(true);
   }
 
-  async function updateProfile(name: string, email?: string) {
+  async function updateProfile(
+    name: string,
+    email?: string,
+    age?: string,
+    location?: string,
+    phoneNumber?: string,
+    examPreparingFor?: string
+  ) {
     const res = await fetch("/api/auth", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ name, email, age, location, phoneNumber, examPreparingFor }),
     });
     const data = await res.json();
     if (data.user) {

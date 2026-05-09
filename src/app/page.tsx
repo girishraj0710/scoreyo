@@ -6,7 +6,7 @@ import { useUser } from "@/context/user-context";
 import { LandingPage } from "@/components/landing-page";
 
 export default function HomePage() {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
@@ -157,6 +157,15 @@ export default function HomePage() {
       setTimeout(() => subjectRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
     }
   };
+
+  // Show minimal loading state while checking auth (don't show landing page)
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   // Show landing page if not logged in
   if (!user) {

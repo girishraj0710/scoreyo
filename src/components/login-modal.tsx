@@ -4,8 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { Mail, X } from "lucide-react";
+import { getAllExams } from "@/lib/exams";
 
-type Step = "method" | "email" | "otp" | "name";
+type Step = "method" | "signin-email" | "signin-otp" | "signup-form" | "signup-otp";
 
 export function LoginModal() {
   const { user, showLoginModal, setShowLoginModal, sendOtp, verifyOtp, completeLogin } = useUser();
@@ -14,7 +15,14 @@ export function LoginModal() {
   const [step, setStep] = useState<Step>("method");
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+
+  // Signup fields - collected BEFORE OTP
   const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [location, setLocation] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [examPreparingFor, setExamPreparingFor] = useState("");
+
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [countdown, setCountdown] = useState(0);
@@ -28,18 +36,22 @@ export function LoginModal() {
     return () => clearTimeout(timer);
   }, [countdown]);
 
-  // Reset step when modal is closed/opened
+  // Reset when modal opens/closes
   useEffect(() => {
     if (showLoginModal) {
       setStep("method");
       setEmail("");
       setOtp(["", "", "", "", "", ""]);
       setName("");
+      setAge("");
+      setLocation("");
+      setPhoneNumber("");
+      setExamPreparingFor("");
       setError("");
     }
   }, [showLoginModal]);
 
-  // Close on escape key and prevent body scroll
+  // Close on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && showLoginModal) {
@@ -58,8 +70,8 @@ export function LoginModal() {
 
   if (!showLoginModal || user) return null;
 
-  // Step 1: Send OTP to email
-  const handleSendOtp = async (e: React.FormEvent) => {
+  // SIGNIN: Send OTP
+  const handleSigninSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
     setError("");
@@ -67,9 +79,8 @@ export function LoginModal() {
     try {
       const result = await sendOtp(email.trim());
       if (result.success) {
-        setStep("otp");
+        setStep("signin-otp");
         setCountdown(60);
-        // Focus first OTP input after render
         setTimeout(() => otpRefs.current[0]?.focus(), 100);
       } else {
         setError(result.error || "Failed to send code");
@@ -79,7 +90,30 @@ export function LoginModal() {
     }
   };
 
-  // Handle OTP digit input
+  // SIGNUP: Submit form and send OTP
+  const handleSignupSubmitForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !name.trim()) {
+      setError("Email and Name are required");
+      return;
+    }
+    setError("");
+    setIsSubmitting(true);
+    try {
+      const result = await sendOtp(email.trim());
+      if (result.success) {
+        setStep("signup-otp");
+        setCountdown(60);
+        setTimeout(() => otpRefs.current[0]?.focus(), 100);
+      } else {
+        setError(result.error || "Failed to send code");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // OTP input handling
   const handleOtpChange = (index: number, value: string) => {
     if (value.length > 1) value = value.slice(-1);
     if (value && !/^\d$/.test(value)) return;
@@ -89,7 +123,6 @@ export function LoginModal() {
     setOtp(newOtp);
     setError("");
 
-    // Auto-focus next input
     if (value && index < 5) {
       otpRefs.current[index + 1]?.focus();
     }
@@ -109,7 +142,6 @@ export function LoginModal() {
     }
   };
 
-  // Handle paste of full OTP
   const handleOtpPaste = (e: React.ClipboardEvent) => {
     e.preventDefault();
     const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
@@ -121,12 +153,10 @@ export function LoginModal() {
     setOtp(newOtp);
     if (pasted.length === 6) {
       handleVerifyOtp(pasted);
-    } else {
-      otpRefs.current[pasted.length]?.focus();
     }
   };
 
-  // Step 2: Verify OTP
+  // Verify OTP
   const handleVerifyOtp = async (code?: string) => {
     const fullCode = code || otp.join("");
     if (fullCode.length !== 6) return;
@@ -135,17 +165,33 @@ export function LoginModal() {
     try {
       const result = await verifyOtp(email.trim(), fullCode);
       if (result.success) {
-        // Try to login — if user exists they'll be logged in, if new we need name
-        const loginResult = await completeLogin(email.trim());
-        if (loginResult.success) {
-          // Existing user, done!
-          return;
+        // For signin, try to login
+        if (step === "signin-otp") {
+          const loginResult = await completeLogin(email.trim());
+          if (loginResult.success) {
+            return; // Logged in!
+          }
+          if (loginResult.needsSignup) {
+            setError("No account found. Please sign up first.");
+            setStep("method");
+            return;
+          }
+          setError(loginResult.error || "Login failed");
+        } else {
+          // For signup, create account with all details
+          const signupResult = await completeLogin(
+            email.trim(),
+            name.trim(),
+            age,
+            location.trim(),
+            phoneNumber.trim(),
+            examPreparingFor
+          );
+          if (!signupResult.success) {
+            setError(signupResult.error || "Signup failed");
+          }
+          // Success - user logged in automatically!
         }
-        if (loginResult.needsName) {
-          setStep("name");
-          return;
-        }
-        setError(loginResult.error || "Something went wrong");
       } else {
         setError(result.error || "Invalid code");
         setOtp(["", "", "", "", "", ""]);
@@ -175,75 +221,73 @@ export function LoginModal() {
     }
   };
 
-  // Step 3: Complete registration with name
-  const handleCompleteName = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim()) return;
-    setError("");
-    setIsSubmitting(true);
-    try {
-      const result = await completeLogin(email.trim(), name.trim());
-      if (!result.success) {
-        setError(result.error || "Registration failed");
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  // Get list of popular exams for dropdown
+  const allExams = getAllExams();
+  const popularExams = allExams
+    .filter(e => ['jee-main', 'neet-ug', 'upsc-cse', 'gate', 'ssc-cgl', 'ibps-po', 'sbi-po', 'cat'].includes(e.id))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[100] p-4 animate-fade-in">
-      {/* Backdrop - click to close */}
       <div
         className="absolute inset-0"
         onClick={() => setShowLoginModal(false)}
       />
 
-      {/* Modal */}
-      <div className="relative bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in">
-        {/* Close Button */}
+      <div className="relative bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in max-h-[90vh] overflow-y-auto">
         <button
           onClick={() => setShowLoginModal(false)}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors z-10"
         >
           <X size={20} />
         </button>
 
-        {/* Method Selection Step */}
+        {/* Method Selection */}
         {step === "method" && (
           <div>
             <h2 className="text-3xl font-bold text-slate-900 mb-3">
-              Log in or sign up in seconds
+              Welcome to PrepGenie
             </h2>
             <p className="text-slate-600 mb-8">
-              Use your email or another service to continue with PrepGenie (it's free)!
+              Choose how you'd like to continue
             </p>
 
-            {/* Login Options */}
             <div className="space-y-3">
-              {/* Email Option */}
               <button
-                onClick={() => setStep("email")}
+                onClick={() => setStep("signin-email")}
+                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-indigo-200 bg-indigo-50 rounded-xl hover:border-indigo-300 hover:bg-indigo-100 transition-all text-left group"
+              >
+                <Mail className="w-5 h-5 text-indigo-600 group-hover:text-indigo-700" />
+                <div>
+                  <div className="font-semibold text-slate-900">Sign In</div>
+                  <div className="text-sm text-slate-600">Already have an account</div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setStep("signup-form")}
                 className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-left group"
               >
                 <Mail className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
-                <span className="font-medium text-slate-800">Continue with email</span>
+                <div>
+                  <div className="font-semibold text-slate-900">Sign Up</div>
+                  <div className="text-sm text-slate-600">Create a new account</div>
+                </div>
               </button>
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-200 text-center">
               <p className="text-xs text-slate-500">
                 By continuing, you agree to PrepGenie's{" "}
-                <a href="/terms" className="text-indigo-600 hover:underline">Terms of Use</a>.
-                Read our{" "}
+                <a href="/terms" className="text-indigo-600 hover:underline">Terms of Use</a> and{" "}
                 <a href="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</a>.
               </p>
             </div>
           </div>
         )}
 
-        {/* Email Input Step */}
-        {step === "email" && (
+        {/* Sign In - Email */}
+        {step === "signin-email" && (
           <div>
             <button
               onClick={() => setStep("method")}
@@ -252,31 +296,27 @@ export function LoginModal() {
               ← Back
             </button>
             <h2 className="text-2xl font-bold text-slate-900 mb-2">
-              Continue with email
+              Sign In
             </h2>
             <p className="text-slate-600 mb-6">
-              We'll send you a verification code
+              Enter your email to receive a verification code
             </p>
 
-            <form onSubmit={handleSendOtp} className="space-y-4">
-              <div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => { setEmail(e.target.value); setError(""); }}
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl text-base focus:outline-none focus:border-indigo-500 transition-colors"
-                  autoFocus
-                  required
-                />
-              </div>
-              {error && (
-                <p className="text-red-500 text-sm">{error}</p>
-              )}
+            <form onSubmit={handleSigninSendOtp} className="space-y-4">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                placeholder="Enter your email"
+                className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                autoFocus
+                required
+              />
+              {error && <p className="text-red-500 text-sm">{error}</p>}
               <button
                 type="submit"
                 disabled={!email.trim() || isSubmitting}
-                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Continue"}
               </button>
@@ -284,11 +324,138 @@ export function LoginModal() {
           </div>
         )}
 
-        {/* OTP Verification Step */}
-        {step === "otp" && (
+        {/* Sign Up - Form (BEFORE OTP) */}
+        {step === "signup-form" && (
           <div>
             <button
-              onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
+              onClick={() => setStep("method")}
+              className="mb-4 text-sm text-slate-500 hover:text-slate-700 flex items-center gap-1"
+            >
+              ← Back
+            </button>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Create Your Account
+            </h2>
+            <p className="text-slate-600 mb-6">
+              Fill in your details to get started
+            </p>
+
+            <form onSubmit={handleSignupSubmitForm} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  autoFocus
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => { setName(e.target.value); setError(""); }}
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                  Age
+                </label>
+                <input
+                  type="number"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  placeholder="Your age"
+                  min="10"
+                  max="100"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="City, State"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="+91 XXXXX XXXXX"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                  Preparing For
+                </label>
+                <select
+                  value={examPreparingFor}
+                  onChange={(e) => setExamPreparingFor(e.target.value)}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                >
+                  <option value="">Select exam (optional)</option>
+                  {popularExams.map(exam => (
+                    <option key={exam.id} value={exam.id}>
+                      {exam.name}
+                    </option>
+                  ))}
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              {error && <p className="text-red-500 text-sm">{error}</p>}
+
+              <button
+                type="submit"
+                disabled={!email.trim() || !name.trim() || isSubmitting}
+                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
+              >
+                {isSubmitting ? "Sending verification..." : "Continue to Verification"}
+              </button>
+
+              <p className="text-xs text-slate-500 text-center">
+                We'll send a verification code to your email
+              </p>
+            </form>
+          </div>
+        )}
+
+        {/* OTP Verification (both signin and signup) */}
+        {(step === "signin-otp" || step === "signup-otp") && (
+          <div>
+            <button
+              onClick={() => {
+                setStep(step === "signin-otp" ? "signin-email" : "signup-form");
+                setOtp(["", "", "", "", "", ""]);
+                setError("");
+              }}
               className="mb-4 text-sm text-slate-500 hover:text-slate-700 flex items-center gap-1"
             >
               ← Back
@@ -301,7 +468,6 @@ export function LoginModal() {
             </p>
             <p className="text-indigo-600 font-medium mb-6">{email}</p>
 
-            {/* OTP Input Boxes */}
             <div className="flex justify-center gap-2 mb-4" onPaste={handleOtpPaste}>
               {otp.map((digit, idx) => (
                 <input
@@ -322,15 +488,9 @@ export function LoginModal() {
               ))}
             </div>
 
-            {error && (
-              <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-            )}
+            {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
+            {isSubmitting && <p className="text-indigo-600 text-sm text-center mb-4">Verifying...</p>}
 
-            {isSubmitting && (
-              <p className="text-indigo-600 text-sm text-center mb-4">Verifying...</p>
-            )}
-
-            {/* Resend */}
             <div className="text-center mt-6">
               {countdown > 0 ? (
                 <p className="text-sm text-slate-500">
@@ -346,51 +506,17 @@ export function LoginModal() {
                 </button>
               )}
             </div>
-          </div>
-        )}
 
-        {/* Name Input Step */}
-        {step === "name" && (
-          <div>
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
+            {step === "signup-otp" && (
+              <div className="mt-6 p-4 bg-blue-50 rounded-xl">
+                <p className="text-sm text-blue-800">
+                  📝 <strong>Signing up as:</strong> {name}
+                </p>
+                <p className="text-xs text-blue-600 mt-1">
+                  Verify your email to complete registration
+                </p>
               </div>
-              <p className="text-emerald-600 font-medium">Email verified!</p>
-            </div>
-
-            <h2 className="text-2xl font-bold text-slate-900 mb-2">
-              What's your name?
-            </h2>
-            <p className="text-slate-600 mb-6">
-              We'll use this to personalize your experience
-            </p>
-
-            <form onSubmit={handleCompleteName} className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => { setName(e.target.value); setError(""); }}
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl text-base focus:outline-none focus:border-indigo-500 transition-colors"
-                  autoFocus
-                  required
-                />
-              </div>
-              {error && (
-                <p className="text-red-500 text-sm">{error}</p>
-              )}
-              <button
-                type="submit"
-                disabled={!name.trim() || isSubmitting}
-                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Creating account..." : "Start learning"}
-              </button>
-            </form>
+            )}
           </div>
         )}
       </div>

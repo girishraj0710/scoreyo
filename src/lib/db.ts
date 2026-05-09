@@ -27,6 +27,10 @@ async function initializeDb() {
       id TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       email TEXT DEFAULT '',
+      age INTEGER,
+      location TEXT,
+      phone_number TEXT,
+      exam_preparing_for TEXT,
       avatar_color TEXT DEFAULT '#6366f1',
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
@@ -312,10 +316,19 @@ export async function updateUserName(userId: string, name: string) {
   return execute("UPDATE users SET name = ? WHERE id = ?", [name, userId]);
 }
 
-export async function createNewUser(id: string, name: string, email: string = "", avatarColor: string = "#6366f1") {
+export async function createNewUser(
+  id: string,
+  name: string,
+  email: string = "",
+  age: number | null = null,
+  location: string = "",
+  phoneNumber: string = "",
+  examPreparingFor: string = "",
+  avatarColor: string = "#6366f1"
+) {
   return execute(
-    "INSERT INTO users (id, name, email, avatar_color) VALUES (?, ?, ?, ?)",
-    [id, name, email, avatarColor]
+    "INSERT INTO users (id, name, email, age, location, phone_number, exam_preparing_for, avatar_color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    [id, name, email, age, location, phoneNumber, examPreparingFor, avatarColor]
   );
 }
 
@@ -325,8 +338,38 @@ export async function listUsers() {
   );
 }
 
-export async function updateUserProfile(userId: string, name: string, email: string) {
-  return execute("UPDATE users SET name = ?, email = ? WHERE id = ?", [name, email, userId]);
+export async function updateUserProfile(
+  userId: string,
+  name: string,
+  email: string,
+  age?: number | null,
+  location?: string,
+  phoneNumber?: string,
+  examPreparingFor?: string
+) {
+  const updates: string[] = ["name = ?", "email = ?"];
+  const values: any[] = [name, email];
+
+  if (age !== undefined) {
+    updates.push("age = ?");
+    values.push(age);
+  }
+  if (location !== undefined) {
+    updates.push("location = ?");
+    values.push(location);
+  }
+  if (phoneNumber !== undefined) {
+    updates.push("phone_number = ?");
+    values.push(phoneNumber);
+  }
+  if (examPreparingFor !== undefined) {
+    updates.push("exam_preparing_for = ?");
+    values.push(examPreparingFor);
+  }
+
+  values.push(userId);
+
+  return execute(`UPDATE users SET ${updates.join(", ")} WHERE id = ?`, values);
 }
 
 export async function getUserByEmail(email: string) {

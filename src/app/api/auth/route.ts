@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, name } = body;
+    const { email, name, age, location, phoneNumber, examPreparingFor } = body;
 
     if (!email || !email.trim()) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -51,14 +51,26 @@ export async function POST(request: NextRequest) {
       return response;
     }
 
-    // New user — name is required for registration
+    // New user — require signup data (name is mandatory, others optional)
     if (!name || !name.trim()) {
-      return NextResponse.json({ needsName: true, message: "Please provide your name to complete registration" });
+      return NextResponse.json({
+        needsSignup: true,
+        message: "Please complete signup with your details"
+      });
     }
 
     const id = uuidv4();
     const avatarColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
-    await createNewUser(id, name.trim(), cleanEmail, avatarColor);
+    await createNewUser(
+      id,
+      name.trim(),
+      cleanEmail,
+      age ? parseInt(age) : null,
+      location?.trim() || "",
+      phoneNumber?.trim() || "",
+      examPreparingFor?.trim() || "",
+      avatarColor
+    );
     user = await getUser(id);
 
     const response = NextResponse.json({ user, isNewUser: true });
@@ -84,13 +96,21 @@ export async function PUT(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { name, email } = body;
+    const { name, email, age, location, phoneNumber, examPreparingFor } = body;
 
     if (!name || !name.trim()) {
       return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
 
-    await updateUserProfile(userId, name.trim(), email?.trim() || "");
+    await updateUserProfile(
+      userId,
+      name.trim(),
+      email?.trim() || "",
+      age ? parseInt(age) : undefined,
+      location?.trim(),
+      phoneNumber?.trim(),
+      examPreparingFor?.trim()
+    );
     const user = await getUser(userId);
 
     return NextResponse.json({ user });
