@@ -105,7 +105,7 @@ export function InlineLoginForm() {
         if (loginResult.success) {
           return;
         }
-        if (loginResult.needsName) {
+        if (loginResult.needsSignup) {
           setStep("name");
           return;
         }
