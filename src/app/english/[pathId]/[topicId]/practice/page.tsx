@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { AppHeader } from "@/components/app-header";
 import { getPathById, getTopicById } from "@/lib/english-content";
 import { ChevronLeft, Clock, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 
@@ -140,7 +139,6 @@ export default function EnglishPracticePage() {
   if (!path || !topic) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-        <AppHeader />
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Topic not found</h1>
           <Link href="/english">
@@ -157,7 +155,6 @@ export default function EnglishPracticePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <AppHeader />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Loading State */}

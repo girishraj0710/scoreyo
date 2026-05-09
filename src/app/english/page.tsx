@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { AppHeader } from "@/components/app-header";
 import { englishPaths, type EnglishPath } from "@/lib/english-content";
 import { BookOpen, Target, TrendingUp, Award, Calendar, Zap } from "lucide-react";
 
@@ -54,7 +53,6 @@ export default function EnglishHubPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <AppHeader />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
