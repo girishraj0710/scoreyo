@@ -60,7 +60,7 @@ export function AppHeader() {
               {t("reports")}
             </Link>
             <Link href="/english" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
-              English
+              Learn English
             </Link>
             <Link href="/pricing" className="px-3 py-2 text-sm font-medium text-amber-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg flex items-center gap-1">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
