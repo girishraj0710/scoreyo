@@ -95,7 +95,7 @@ export function AIClarificationChat({
         <span className="text-2xl">🤖</span>
         <div>
           <div className="text-sm font-semibold text-purple-900">Ask AI Tutor</div>
-          <div className="text-xs text-cyan-600">Get instant clarification</div>
+          <div className="text-xs text-slate-500">Get instant clarification</div>
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export function AIClarificationChat({
                 setUserQuestion(q);
                 setTimeout(() => handleAsk(), 100);
               }}
-              className="text-xs px-3 py-1.5 bg-white text-purple-700 rounded-full border border-purple-200 hover:bg-cyan-100 transition-colors"
+              className="text-xs px-3 py-1.5 bg-white text-purple-700 rounded-full border border-purple-200 hover:bg-slate-100 transition-colors"
             >
               {q}
             </button>
@@ -158,7 +158,7 @@ export function AIClarificationChat({
           {/* Feedback */}
           {!hasRated && (
             <div className="flex items-center justify-between">
-              <span className="text-xs text-cyan-600">Was this helpful?</span>
+              <span className="text-xs text-slate-500">Was this helpful?</span>
               <div className="flex gap-2">
                 <button
                   onClick={() => handleRate(true)}
@@ -177,7 +177,7 @@ export function AIClarificationChat({
           )}
 
           {hasRated && (
-            <div className="text-xs text-cyan-600 text-center">
+            <div className="text-xs text-slate-500 text-center">
               Thanks for your feedback! 🙏
             </div>
           )}
@@ -189,7 +189,7 @@ export function AIClarificationChat({
               setUserQuestion("");
               setHasRated(false);
             }}
-            className="w-full px-3 py-2 text-xs bg-cyan-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors font-medium"
+            className="w-full px-3 py-2 text-xs bg-slate-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors font-medium"
           >
             Ask another question
           </button>
@@ -199,7 +199,7 @@ export function AIClarificationChat({
       {/* Close */}
       <button
         onClick={() => setIsOpen(false)}
-        className="mt-3 w-full text-xs text-cyan-600 hover:text-purple-800"
+        className="mt-3 w-full text-xs text-slate-500 hover:text-purple-800"
       >
         Close
       </button>

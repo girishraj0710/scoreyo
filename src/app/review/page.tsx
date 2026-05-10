@@ -58,8 +58,8 @@ export default function ReviewPage() {
   const TopicCard = ({ topic, urgency }: { topic: ReviewTopic; urgency: "overdue" | "today" | "upcoming" }) => {
     const exam = getExamById(topic.exam_id);
     const mastery = Math.round(topic.mastery_score);
-    const masteryColor = mastery >= 70 ? "text-cyan-600" : mastery >= 50 ? "text-amber-600" : "text-red-600";
-    const masteryBg = mastery >= 70 ? "bg-cyan-500" : mastery >= 50 ? "bg-amber-500" : "bg-red-500";
+    const masteryColor = mastery >= 70 ? "text-slate-500" : mastery >= 50 ? "text-amber-600" : "text-red-600";
+    const masteryBg = mastery >= 70 ? "bg-cyan-400" : mastery >= 50 ? "bg-amber-500" : "bg-red-500";
 
     return (
       <div className={`bg-white rounded-xl p-4 border-2 ${
@@ -72,7 +72,7 @@ export default function ReviewPage() {
                 examId={topic.exam_id}
                 size={28}
               />
-              <span className="text-sm font-medium text-blue-600">{exam?.name || topic.exam_id}</span>
+              <span className="text-sm font-medium text-indigo-600">{exam?.name || topic.exam_id}</span>
             </div>
             <h3 className="font-semibold text-slate-800 truncate">{topic.topic}</h3>
             <div className="flex items-center gap-3 mt-1 text-xs text-slate-400">
@@ -100,7 +100,7 @@ export default function ReviewPage() {
                   ? "bg-red-500 hover:bg-red-600"
                   : urgency === "today"
                     ? "bg-amber-500 hover:bg-amber-600"
-                    : "bg-blue-500 hover:bg-blue-600"
+                    : "bg-slate-500 hover:bg-indigo-600"
               }`}
             >
               {t("reviewNow")}
@@ -139,7 +139,7 @@ export default function ReviewPage() {
           <p className="text-slate-500 mb-6">{t("noReviewsDesc")}</p>
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg"
           >
             {t("startQuiz")} →
           </a>

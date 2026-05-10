@@ -102,17 +102,17 @@ export function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <section className="mb-12 max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6">
                 <GraduationCap className="w-4 h-4" />
                 Smart Exam Preparation Platform
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Master Your{" "}
-                <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-cyan-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-violet-500 bg-clip-text text-transparent">
                   Competitive Exams
                 </span>
               </h1>
@@ -124,19 +124,19 @@ export function LandingPage() {
               {/* Trust Indicators */}
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mb-8">
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Free daily quizzes</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Expert verified questions</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>No credit card required</span>
@@ -155,7 +155,7 @@ export function LandingPage() {
                   setShowSearchDropdown(true);
                 }}
                 onFocus={() => setShowSearchDropdown(true)}
-                className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:outline-none text-base"
+                className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,7 +177,7 @@ export function LandingPage() {
                     <button
                       key={index}
                       onClick={() => setShowLoginModal(true)}
-                      className="w-full px-4 py-3 hover:bg-blue-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
+                      className="w-full px-4 py-3 hover:bg-slate-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
                     >
                       <div className="flex items-start gap-3">
                         <div className="mt-0.5">
@@ -189,7 +189,7 @@ export function LandingPage() {
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
                             <span className="font-semibold text-slate-800">{result.examName}</span>
-                            <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">
+                            <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
                               {result.category}
                             </span>
                           </div>
@@ -217,7 +217,7 @@ export function LandingPage() {
                 <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
                   <button
                     onClick={() => setShowLoginModal(true)}
-                    className="text-sm font-semibold text-blue-600 hover:text-blue-700"
+                    className="text-sm font-semibold text-indigo-600 hover:text-indigo-700"
                   >
                     Sign up to start practicing →
                   </button>
@@ -243,7 +243,7 @@ export function LandingPage() {
           <div className="flex justify-center mb-8">
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg hover:shadow-xl transition-all"
+              className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold text-lg rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
             >
               Get Started Free →
             </button>
@@ -252,15 +252,15 @@ export function LandingPage() {
           {/* Real Content Stats */}
           <div className="flex flex-wrap justify-center gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600">60</div>
+              <div className="text-3xl font-bold text-indigo-600">60</div>
               <div className="text-sm text-slate-600">Major Exams</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600">209</div>
+              <div className="text-3xl font-bold text-indigo-600">209</div>
               <div className="text-sm text-slate-600">Subjects Covered</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600">1,870+</div>
+              <div className="text-3xl font-bold text-indigo-600">1,870+</div>
               <div className="text-sm text-slate-600">Practice Topics</div>
             </div>
           </div>
@@ -293,7 +293,7 @@ export function LandingPage() {
                   <button
                     key={exam.name}
                     onClick={() => setShowLoginModal(true)}
-                    className="bg-white rounded-lg p-3 border-2 border-slate-200 text-center hover:shadow-md hover:border-blue-300 transition-all cursor-pointer"
+                    className="bg-white rounded-lg p-3 border-2 border-slate-200 text-center hover:shadow-md hover:border-indigo-300 transition-all cursor-pointer"
                   >
                     <div className="flex justify-center mb-1">
                       <ColorfulExamIcon examId={exam.examId} size={32} />
@@ -306,7 +306,7 @@ export function LandingPage() {
           <div className="text-center mt-6">
             <button
               onClick={() => setShowLoginModal(true)}
-              className="text-blue-600 font-semibold hover:text-blue-700 text-sm"
+              className="text-indigo-600 font-semibold hover:text-indigo-700 text-sm"
             >
               Sign up to view all 60 exams →
             </button>
@@ -325,8 +325,8 @@ export function LandingPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Feature 1 */}
                 <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-3">
+                    <svg className="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                     </svg>
                   </div>
@@ -338,8 +338,8 @@ export function LandingPage() {
 
                 {/* Feature 2 */}
                 <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
-                  <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center mb-3">
+                    <svg className="w-5 h-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -352,7 +352,7 @@ export function LandingPage() {
                 {/* Feature 3 */}
                 <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -390,8 +390,8 @@ export function LandingPage() {
 
                 {/* Feature 6 */}
                 <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-3">
+                    <svg className="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -407,7 +407,7 @@ export function LandingPage() {
         <section className="mb-12 max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              What Makes PrepGenie <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Different</span>
+              What Makes PrepGenie <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500">Different</span>
             </h2>
             <p className="text-slate-600 text-lg">
               India's first exam prep platform with intelligent AI features that actually help you learn
@@ -416,8 +416,8 @@ export function LandingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Feature 1: Rich Explanations */}
-            <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 border-2 border-cyan-200 hover:border-cyan-400 transition-all hover:shadow-xl">
-              <div className="w-14 h-14 bg-cyan-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+            <div className="bg-gradient-to-br from-slate-50 to-indigo-50 rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
@@ -428,31 +428,31 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Core concept explanation in simple language</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Step-by-step formula breakdown</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span><strong>Trap alerts</strong> showing why wrong options tempt you</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Common mistakes to avoid</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-cyan-300">
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-indigo-300">
                 <p className="text-xs text-slate-600 italic">
                   "Finally understand WHY I got it wrong, not just WHAT is correct!"
                 </p>
@@ -472,25 +472,25 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                   <span><strong>Calculation errors</strong> - Math mistakes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                   <span><strong>Concept gaps</strong> - Understanding issues</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span><strong>Time pressure</strong> - Rushed answers</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
                   <span><strong>Careless errors</strong> - Silly mistakes</span>
@@ -504,8 +504,8 @@ export function LandingPage() {
             </div>
 
             {/* Feature 3: Midnight Doubt AI */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl">
-              <div className="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-slate-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
@@ -516,23 +516,23 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <Zap className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <Zap className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Instant answers</strong> in under 3 seconds</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <MessageSquare className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <MessageSquare className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
                   <span>Simple, conversational explanations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <RefreshCw className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <RefreshCw className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
                   <span>Ask follow-up questions until you get it</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Target className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <Target className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
                   <span>Context-aware (knows the question you're solving)</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-blue-300">
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-slate-300">
                 <p className="text-xs text-slate-600 italic">
                   "Like having a patient tutor available 24/7—even during late night study sessions!"
                 </p>
@@ -612,8 +612,8 @@ export function LandingPage() {
             </div>
 
             {/* Feature 6: Multilingual Support */}
-            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border-2 border-teal-200 hover:border-teal-400 transition-all hover:shadow-xl">
-              <div className="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
@@ -624,31 +624,31 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                   </svg>
                   <span>English, हिंदी, தமிழ், తెలుగు, বাংলা, मराठी, ગુજરાતી, ಕನ್ನಡ</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                   <span>Switch languages anytime</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                   <span>Complete UI + questions translated</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span>Covers 95% of India's exam aspirants</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-teal-300">
+              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-indigo-300">
                 <p className="text-xs text-slate-600 italic">
                   Learn in the language you think in—no translation friction
                 </p>
@@ -660,7 +660,7 @@ export function LandingPage() {
           <div className="mt-10 text-center">
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg hover:shadow-xl transition-all"
+              className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold text-lg rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
             >
               Experience These Features Free →
             </button>
@@ -705,16 +705,16 @@ export function LandingPage() {
             </div>
 
             {/* Exam Card 3 */}
-            <div className="bg-white rounded-xl p-5 border-2 border-blue-200 hover:border-blue-400 transition-colors">
+            <div className="bg-white rounded-xl p-5 border-2 border-slate-200 hover:border-blue-400 transition-colors">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">📋</div>
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-2xl">📋</div>
                 <div>
                   <h3 className="font-bold text-slate-800">SSC CGL 2026</h3>
                   <p className="text-xs text-slate-500">Tier 1</p>
                 </div>
               </div>
-              <div className="bg-blue-50 rounded-lg px-3 py-2 text-center">
-                <div className="text-xs text-blue-700 font-medium">Exam Date</div>
+              <div className="bg-slate-50 rounded-lg px-3 py-2 text-center">
+                <div className="text-xs text-indigo-700 font-medium">Exam Date</div>
                 <div className="text-lg font-bold text-blue-900">June 2026</div>
               </div>
             </div>
@@ -723,7 +723,7 @@ export function LandingPage() {
           <div className="text-center mt-6">
             <button
               onClick={() => setShowLoginModal(true)}
-              className="text-blue-600 font-semibold hover:text-blue-700 text-sm"
+              className="text-indigo-600 font-semibold hover:text-indigo-700 text-sm"
             >
               View full exam calendar →
             </button>
@@ -771,7 +771,7 @@ export function LandingPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-2xl p-8 text-center max-w-4xl mx-auto">
+        <section className="bg-gradient-to-r from-indigo-600 to-violet-500 text-white rounded-2xl p-8 text-center max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">
                 Ready to Start Your Success Journey?
               </h2>
@@ -780,7 +780,7 @@ export function LandingPage() {
               </p>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="px-8 py-3 bg-white text-blue-700 font-semibold rounded-xl hover:bg-blue-50 shadow-xl hover:shadow-2xl transition-all"
+                className="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-slate-50 shadow-xl hover:shadow-2xl transition-all"
               >
                 Get Started Free →
               </button>

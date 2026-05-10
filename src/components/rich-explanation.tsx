@@ -19,9 +19,9 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   // Handle legacy string explanations
   if (typeof explanation === 'string') {
     return (
-      <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
+      <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-blue-600 font-semibold text-sm">💡 Explanation</span>
+          <span className="text-indigo-600 font-semibold text-sm">💡 Explanation</span>
         </div>
         <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
       </div>
@@ -34,7 +34,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   return (
     <div className="mt-6 space-y-4">
       {/* Core Logic */}
-      <div className="p-4 bg-cyan-50 rounded-xl border border-cyan-200">
+      <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-lg">💡</span>
           <span className="text-emerald-700 font-semibold text-sm">Core Concept</span>
@@ -44,18 +44,18 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
 
       {/* Formula & Calculation (if numerical) */}
       {explanation.formula && (
-        <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+        <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-lg">📐</span>
-            <span className="text-blue-700 font-semibold text-sm">Formula</span>
+            <span className="text-indigo-700 font-semibold text-sm">Formula</span>
           </div>
-          <div className="bg-white px-3 py-2 rounded-lg border border-blue-200 font-mono text-sm text-indigo-900 mb-2">
+          <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 font-mono text-sm text-indigo-900 mb-2">
             {explanation.formula}
           </div>
           {explanation.calculation && (
             <>
-              <div className="text-blue-700 font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
-              <pre className="text-xs text-indigo-800 leading-relaxed whitespace-pre-wrap font-mono bg-white px-3 py-2 rounded-lg border border-blue-200">
+              <div className="text-indigo-700 font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
+              <pre className="text-xs text-indigo-800 leading-relaxed whitespace-pre-wrap font-mono bg-white px-3 py-2 rounded-lg border border-slate-200">
                 {explanation.calculation}
               </pre>
             </>
@@ -127,11 +127,11 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
 
       {/* Correct Answer Highlight */}
       <div className="p-3 bg-amber-100 rounded-lg border-2 border-emerald-400 flex items-center gap-3">
-        <span className="shrink-0 w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center text-sm font-bold">
+        <span className="shrink-0 w-8 h-8 rounded-full bg-cyan-400 text-white flex items-center justify-center text-sm font-bold">
           {String.fromCharCode(65 + correctAnswer)}
         </span>
         <div className="flex-1">
-          <div className="text-xs text-cyan-600 font-semibold mb-0.5">✓ Correct Answer</div>
+          <div className="text-xs text-slate-500 font-semibold mb-0.5">✓ Correct Answer</div>
           <div className="text-sm text-emerald-900 font-medium">{options[correctAnswer]}</div>
         </div>
       </div>

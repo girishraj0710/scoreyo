@@ -271,9 +271,9 @@ export function LoginModal() {
             <div className="space-y-3">
               <button
                 onClick={() => setStep("signin-email")}
-                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-blue-200 bg-blue-50 rounded-xl hover:border-blue-300 hover:bg-blue-100 transition-all text-left group"
+                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 bg-slate-50 rounded-xl hover:border-slate-300 hover:bg-indigo-100 transition-all text-left group"
               >
-                <Mail className="w-5 h-5 text-blue-600 group-hover:text-blue-700" />
+                <Mail className="w-5 h-5 text-indigo-600 group-hover:text-indigo-700" />
                 <div>
                   <div className="font-semibold text-slate-900">Sign In</div>
                   <div className="text-sm text-slate-600">Already have an account</div>
@@ -295,8 +295,8 @@ export function LoginModal() {
             <div className="mt-8 pt-6 border-t border-slate-200 text-center">
               <p className="text-xs text-slate-500">
                 By continuing, you agree to PrepGenie's{" "}
-                <a href="/terms" className="text-blue-600 hover:underline">Terms of Use</a> and{" "}
-                <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>.
+                <a href="/terms" className="text-indigo-600 hover:underline">Terms of Use</a> and{" "}
+                <a href="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</a>.
               </p>
             </div>
           </div>
@@ -324,7 +324,7 @@ export function LoginModal() {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
-                className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3.5 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                 autoFocus
                 required
               />
@@ -332,7 +332,7 @@ export function LoginModal() {
               <button
                 type="submit"
                 disabled={!email.trim() || isSubmitting}
-                className="w-full py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50"
+                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Continue"}
               </button>
@@ -366,7 +366,7 @@ export function LoginModal() {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setError(""); }}
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                   autoFocus
                   required
                 />
@@ -381,7 +381,7 @@ export function LoginModal() {
                   value={name}
                   onChange={(e) => { setName(e.target.value); setError(""); }}
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                   required
                 />
               </div>
@@ -397,7 +397,7 @@ export function LoginModal() {
                   placeholder="Your age"
                   min="10"
                   max="100"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                 />
               </div>
 
@@ -410,7 +410,7 @@ export function LoginModal() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="City, State"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                 />
               </div>
 
@@ -423,7 +423,7 @@ export function LoginModal() {
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="+91 XXXXX XXXXX"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                 />
               </div>
 
@@ -434,7 +434,7 @@ export function LoginModal() {
                 <select
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                 >
                   <option value="">Select exam (optional)</option>
                   {popularExams.map(exam => (
@@ -451,7 +451,7 @@ export function LoginModal() {
               <button
                 type="submit"
                 disabled={!email.trim() || !name.trim() || isSubmitting}
-                className="w-full py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50"
+                className="w-full py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending verification..." : "Continue to Verification"}
               </button>
@@ -482,7 +482,7 @@ export function LoginModal() {
             <p className="text-slate-600 mb-1">
               We sent a code to
             </p>
-            <p className="text-blue-600 font-medium mb-6">{email}</p>
+            <p className="text-indigo-600 font-medium mb-6">{email}</p>
 
             <div className="flex justify-center gap-2 mb-4" onPaste={handleOtpPaste}>
               {otp.map((digit, idx) => (
@@ -497,15 +497,15 @@ export function LoginModal() {
                   onKeyDown={(e) => handleOtpKeyDown(idx, e)}
                   className={`w-12 h-14 text-center text-xl font-bold border-2 rounded-xl focus:outline-none transition-all ${
                     digit
-                      ? "border-blue-500 bg-blue-50 text-blue-700"
-                      : "border-slate-200 text-slate-800 focus:border-blue-500"
+                      ? "border-indigo-500 bg-slate-50 text-indigo-700"
+                      : "border-slate-200 text-slate-800 focus:border-indigo-500"
                   }`}
                 />
               ))}
             </div>
 
             {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
-            {isSubmitting && <p className="text-blue-600 text-sm text-center mb-4">Verifying...</p>}
+            {isSubmitting && <p className="text-indigo-600 text-sm text-center mb-4">Verifying...</p>}
 
             <div className="text-center mt-6">
               {countdown > 0 ? (
@@ -516,7 +516,7 @@ export function LoginModal() {
                 <button
                   onClick={handleResend}
                   disabled={isSubmitting}
-                  className="text-sm text-blue-600 hover:text-blue-700 font-medium disabled:opacity-50"
+                  className="text-sm text-indigo-600 hover:text-indigo-700 font-medium disabled:opacity-50"
                 >
                   Resend code
                 </button>
@@ -524,14 +524,14 @@ export function LoginModal() {
             </div>
 
             {step === "signup-otp" && (
-              <div className="mt-6 p-4 bg-blue-50 rounded-xl">
+              <div className="mt-6 p-4 bg-slate-50 rounded-xl">
                 <p className="text-sm text-blue-800 flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                   <span><strong>Signing up as:</strong> {name}</span>
                 </p>
-                <p className="text-xs text-blue-600 mt-1">
+                <p className="text-xs text-indigo-600 mt-1">
                   Verify your email to complete registration
                 </p>
               </div>

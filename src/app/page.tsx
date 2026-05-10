@@ -164,7 +164,7 @@ export default function HomePage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -180,7 +180,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-cyan-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-violet-500 bg-clip-text text-transparent">
             Smart Exam Prep
           </span>
         </h1>
@@ -202,7 +202,7 @@ export default function HomePage() {
                 setShowSearchDropdown(true);
               }}
               onFocus={() => setShowSearchDropdown(true)}
-              className="w-full px-6 py-3 rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:outline-none text-base"
+              className="w-full px-6 py-3 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -224,7 +224,7 @@ export default function HomePage() {
                   <button
                     key={index}
                     onClick={() => handleSearchSelect(result)}
-                    className="w-full px-4 py-3 hover:bg-blue-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
+                    className="w-full px-4 py-3 hover:bg-slate-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
                   >
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5">
@@ -236,7 +236,7 @@ export default function HomePage() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-semibold text-slate-800">{result.exam.name}</span>
-                          <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">
+                          <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
                             {result.category}
                           </span>
                         </div>
@@ -282,13 +282,13 @@ export default function HomePage() {
         {stats?.stats && stats.stats.totalSessions > 0 && (
           <div className="flex justify-center gap-6 mb-8">
             <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl font-bold text-indigo-600">
                 {stats.stats.totalQuestions}
               </div>
               <div className="text-xs text-slate-500">Questions Solved</div>
             </div>
             <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
-              <div className="text-2xl font-bold text-cyan-600">
+              <div className="text-2xl font-bold text-slate-500">
                 {stats.stats.accuracy}%
               </div>
               <div className="text-xs text-slate-500">Accuracy</div>
@@ -307,7 +307,7 @@ export default function HomePage() {
       {!selectedCategory && (
         <section ref={categoryRef} className="mb-8">
           <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
               1
             </span>
             Choose Exam Category
@@ -323,7 +323,7 @@ export default function HomePage() {
                   setSelectedTopic(null);
                   setTimeout(() => examRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                 }}
-              className="card-hover p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-blue-300"
+              className="card-hover p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-slate-300"
               >
                 <div className="flex justify-center mb-1">
                   <ColorfulCategoryIcon
@@ -349,7 +349,7 @@ export default function HomePage() {
         <section ref={examRef} className="mb-8">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-              <span className="w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+              <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
                 2
               </span>
               Select Exam
@@ -362,7 +362,7 @@ export default function HomePage() {
                 setSelectedTopic(null);
                 setTimeout(() => categoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
               }}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
               ← Change Category
             </button>
@@ -381,8 +381,8 @@ export default function HomePage() {
                   }}
                   className={`card-hover p-4 rounded-xl border-2 text-left ${
                     selectedExam?.id === exam.id
-                      ? "border-blue-500 bg-blue-50 shadow-md"
-                      : "border-slate-200 bg-white hover:border-blue-300"
+                      ? "border-indigo-500 bg-slate-50 shadow-md"
+                      : "border-slate-200 bg-white hover:border-slate-300"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -419,7 +419,7 @@ export default function HomePage() {
       {selectedExam && (
         <section ref={subjectRef} className="mb-8">
           <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
               3
             </span>
             Select Subject
@@ -435,8 +435,8 @@ export default function HomePage() {
                 }}
                 className={`card-hover p-4 rounded-xl border-2 text-center ${
                   selectedSubject === subject.id
-                    ? "border-blue-500 bg-blue-50 shadow-md"
-                    : "border-slate-200 bg-white hover:border-blue-300"
+                    ? "border-indigo-500 bg-slate-50 shadow-md"
+                    : "border-slate-200 bg-white hover:border-slate-300"
                 }`}
               >
                 <div className="flex justify-center mb-1">
@@ -461,7 +461,7 @@ export default function HomePage() {
       {selectedSubject && (
         <section ref={topicRef} className="mb-8">
           <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
               4
             </span>
             Select Topic
@@ -476,8 +476,8 @@ export default function HomePage() {
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-medium border-2 ${
                   selectedTopic === topic
-                    ? "border-blue-500 bg-blue-500 text-white shadow-md"
-                    : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:bg-blue-50"
+                    ? "border-indigo-500 bg-slate-500 text-white shadow-md"
+                    : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
                 }`}
               >
                 {topic}
@@ -490,13 +490,13 @@ export default function HomePage() {
       {/* Step 5: Quiz Settings & Start */}
       {selectedTopic && (
         <section ref={settingsRef} className="mb-12">
-          <div className="bg-white rounded-2xl border-2 border-blue-200 p-6 shadow-lg max-w-lg mx-auto">
+          <div className="bg-white rounded-2xl border-2 border-slate-200 p-6 shadow-lg max-w-lg mx-auto">
             <h2 className="text-lg font-semibold text-slate-800 mb-5 text-center">
               Quiz Settings
             </h2>
 
             {/* Quiz Summary */}
-            <div className="bg-blue-50 rounded-xl p-4 mb-5">
+            <div className="bg-slate-50 rounded-xl p-4 mb-5">
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="text-slate-500">Exam:</div>
                 <div className="font-medium text-slate-800">
@@ -525,8 +525,8 @@ export default function HomePage() {
                     onClick={() => setQuestionCount(n)}
                     className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
                       questionCount === n
-                        ? "border-blue-500 bg-blue-500 text-white"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-blue-300"
+                        ? "border-indigo-500 bg-slate-500 text-white"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
                     {n}
@@ -552,8 +552,8 @@ export default function HomePage() {
                     onClick={() => setDifficulty(d.value)}
                     className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
                       difficulty === d.value
-                        ? "border-blue-500 bg-blue-500 text-white"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-blue-300"
+                        ? "border-indigo-500 bg-slate-500 text-white"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
                     {d.label}
@@ -597,7 +597,7 @@ export default function HomePage() {
                       ? "Daily limit reached!"
                       : `${subData.todayQuizCount} of ${subData.quizLimit} free quizzes used today`}
                   </span>
-                  <a href="/pricing" className="text-blue-600 font-medium text-xs hover:text-blue-700">
+                  <a href="/pricing" className="text-indigo-600 font-medium text-xs hover:text-indigo-700">
                     Upgrade
                   </a>
                 </div>
@@ -613,9 +613,9 @@ export default function HomePage() {
             )}
 
             {subData?.isPro && (
-              <div className="mb-4 p-3 rounded-xl text-sm bg-blue-50 border border-blue-200 flex items-center gap-2">
-                <span className="px-2 py-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-bold rounded-full">PRO</span>
-                <span className="text-blue-700">Unlimited quizzes</span>
+              <div className="mb-4 p-3 rounded-xl text-sm bg-slate-50 border border-slate-200 flex items-center gap-2">
+                <span className="px-2 py-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 text-white text-xs font-bold rounded-full">PRO</span>
+                <span className="text-indigo-700">Unlimited quizzes</span>
               </div>
             )}
 
@@ -623,7 +623,7 @@ export default function HomePage() {
             <button
               onClick={handleStartQuiz}
               disabled={subData && !subData.isPro && subData.quizzesRemaining === 0}
-              className="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg hover:shadow-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {subData && !subData.isPro && subData.quizzesRemaining === 0
                 ? "Upgrade to Start Quiz"
@@ -633,7 +633,7 @@ export default function HomePage() {
             {subData && !subData.isPro && subData.quizzesRemaining === 0 && (
               <a
                 href="/pricing"
-                className="block mt-3 w-full py-2 text-center text-sm font-medium text-blue-600 bg-blue-50 rounded-xl hover:bg-blue-100"
+                className="block mt-3 w-full py-2 text-center text-sm font-medium text-indigo-600 bg-slate-50 rounded-xl hover:bg-indigo-100"
               >
                 View Pro Plans →
               </a>
@@ -647,18 +647,18 @@ export default function HomePage() {
         <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-sm border border-slate-200">
           <span className="text-sm text-slate-600">
             Covering{" "}
-            <span className="font-bold text-blue-600">
+            <span className="font-bold text-indigo-600">
               {examCategories.reduce(
                 (sum, cat) => sum + cat.exams.length,
                 0
               )}
             </span>{" "}
             exams across{" "}
-            <span className="font-bold text-blue-600">
+            <span className="font-bold text-indigo-600">
               {examCategories.length}
             </span>{" "}
             categories with{" "}
-            <span className="font-bold text-blue-600">
+            <span className="font-bold text-indigo-600">
               {examCategories
                 .flatMap((c) => c.exams)
                 .flatMap((e) => e.subjects)
@@ -675,7 +675,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
             <div className="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
@@ -683,8 +683,8 @@ export default function HomePage() {
             <p className="text-xs text-slate-500">Questions curated from NCERT, previous year papers &amp; standard textbooks</p>
           </div>
           <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
-            <div className="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
               </svg>
             </div>

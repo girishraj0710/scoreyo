@@ -81,7 +81,7 @@ function ReportModal({
           </p>
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
           >
             Close
           </button>
@@ -353,7 +353,7 @@ function QuizContent() {
       );
     }
     return (
-      <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
+      <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
         <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
         </svg>
@@ -381,7 +381,7 @@ function QuizContent() {
           <div className="flex gap-3 justify-center">
             <a
               href="/pricing"
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg"
+              className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg"
             >
               Upgrade to Pro
             </a>
@@ -402,9 +402,9 @@ function QuizContent() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-100 flex items-center justify-center">
             <svg
-              className="animate-spin h-8 w-8 text-blue-600"
+              className="animate-spin h-8 w-8 text-indigo-600"
               viewBox="0 0 24 24"
               fill="none"
             >
@@ -450,7 +450,7 @@ function QuizContent() {
           <div className="flex gap-3 justify-center">
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
             >
               Try Again
             </button>
@@ -475,11 +475,11 @@ function QuizContent() {
       percentage >= 90
         ? {
             label: "Excellent!",
-            color: "text-cyan-600",
-            bg: "bg-cyan-50",
+            color: "text-slate-500",
+            bg: "bg-slate-50",
           }
         : percentage >= 70
-          ? { label: "Good Job!", color: "text-blue-600", bg: "bg-blue-50" }
+          ? { label: "Good Job!", color: "text-indigo-600", bg: "bg-slate-50" }
           : percentage >= 50
             ? {
                 label: "Keep Practicing!",
@@ -520,7 +520,7 @@ function QuizContent() {
 
           <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto mb-6">
             <div className={`${grade.bg} rounded-xl p-3`}>
-              <div className="text-lg font-bold text-cyan-600">
+              <div className="text-lg font-bold text-slate-500">
                 {results.correctAnswers}
               </div>
               <div className="text-xs text-slate-500">Correct</div>
@@ -542,7 +542,7 @@ function QuizContent() {
           <div className="flex gap-3 justify-center">
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+              className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium"
             >
               Retry Same Topic
             </button>
@@ -570,13 +570,13 @@ function QuizContent() {
             <div
               key={idx}
               className={`bg-white rounded-xl p-5 border-2 ${
-                r.isCorrect ? "border-cyan-200" : "border-red-200"
+                r.isCorrect ? "border-slate-200" : "border-red-200"
               }`}
             >
               <div className="flex items-start gap-3 mb-3">
                 <span
                   className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold text-white ${
-                    r.isCorrect ? "bg-cyan-500" : "bg-red-500"
+                    r.isCorrect ? "bg-cyan-400" : "bg-red-500"
                   }`}
                 >
                   {idx + 1}
@@ -605,7 +605,7 @@ function QuizContent() {
                     key={optIdx}
                     className={`px-3 py-2 rounded-lg text-sm ${
                       optIdx === r.correctAnswer
-                        ? "bg-cyan-50 border border-emerald-300 text-emerald-800 font-medium"
+                        ? "bg-slate-50 border border-emerald-300 text-emerald-800 font-medium"
                         : optIdx === r.userAnswer && !r.isCorrect
                           ? "bg-red-50 border border-red-300 text-red-800"
                           : "bg-slate-50 text-slate-600"
@@ -616,7 +616,7 @@ function QuizContent() {
                     </span>
                     {opt}
                     {optIdx === r.correctAnswer && (
-                      <span className="ml-2 text-cyan-600 font-medium">
+                      <span className="ml-2 text-slate-500 font-medium">
                         (Correct)
                       </span>
                     )}
@@ -629,7 +629,7 @@ function QuizContent() {
                 ))}
               </div>
 
-              <div className="ml-10 mt-3 p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
+              <div className="ml-10 mt-3 p-3 bg-slate-50 rounded-lg text-sm text-blue-800">
                 <strong>Explanation:</strong> {r.explanation}
               </div>
             </div>
@@ -637,7 +637,7 @@ function QuizContent() {
         </div>
 
         {/* Quality note at bottom of results */}
-        <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200 text-sm text-indigo-800">
+        <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-indigo-800">
           <strong>Quality First:</strong> Our questions are sourced from NCERT textbooks, previous year papers, and curated by subject experts. If you spot any error, please use the 🚩 report button — our team reviews every report to maintain high accuracy.
         </div>
       </div>
@@ -667,7 +667,7 @@ function QuizContent() {
       <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <span className="text-sm font-medium text-blue-600">
+            <span className="text-sm font-medium text-indigo-600">
               {quizData.examName}
             </span>
             <span className="text-slate-300 mx-2">|</span>
@@ -707,7 +707,7 @@ function QuizContent() {
               key={idx}
               className={`h-2 flex-1 rounded-full ${
                 idx === currentQuestion
-                  ? "bg-blue-500"
+                  ? "bg-slate-500"
                   : answers[idx] !== null
                     ? "bg-indigo-300"
                     : "bg-slate-200"
@@ -793,13 +793,13 @@ function QuizContent() {
                 <span
                   className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
                     showExplanation && idx === question.correctAnswer
-                      ? "bg-cyan-500 border-emerald-500 text-white"
+                      ? "bg-cyan-400 border-emerald-500 text-white"
                       : showExplanation &&
                           idx === answers[currentQuestion] &&
                           idx !== question.correctAnswer
                         ? "bg-red-500 border-red-500 text-white"
                         : answers[currentQuestion] === idx
-                          ? "bg-blue-500 border-blue-500 text-white"
+                          ? "bg-slate-500 border-indigo-500 text-white"
                           : "border-slate-300 text-slate-400"
                   }`}
                 >
@@ -845,7 +845,7 @@ function QuizContent() {
           {showExplanation && !isLastQuestion && (
             <button
               onClick={nextQuestion}
-              className="px-5 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="px-5 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
             >
               Next Question
             </button>
@@ -864,7 +864,7 @@ function QuizContent() {
             <button
               onClick={submitQuiz}
               disabled={isSubmitting}
-              className="px-6 py-2 text-sm font-medium bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 disabled:opacity-50"
+              className="px-6 py-2 text-sm font-medium bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:opacity-50"
             >
               {isSubmitting ? "Submitting..." : "Submit Quiz"}
             </button>
@@ -893,9 +893,9 @@ function QuizContent() {
             }}
             className={`w-8 h-8 rounded-full text-xs font-medium ${
               idx === currentQuestion
-                ? "bg-blue-500 text-white"
+                ? "bg-slate-500 text-white"
                 : answers[idx] !== null
-                  ? "bg-blue-100 text-blue-600"
+                  ? "bg-indigo-100 text-indigo-600"
                   : "bg-slate-100 text-slate-400"
             }`}
           >
@@ -921,9 +921,9 @@ export default function QuizPage() {
       fallback={
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
           <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-100 flex items-center justify-center">
               <svg
-                className="animate-spin h-8 w-8 text-blue-600"
+                className="animate-spin h-8 w-8 text-indigo-600"
                 viewBox="0 0 24 24"
                 fill="none"
               >
