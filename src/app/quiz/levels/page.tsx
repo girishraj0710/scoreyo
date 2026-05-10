@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { LevelMap } from "@/components/level-map";
+import { LevelMapV2 } from "@/components/level-map-v2";
 import { getExamById } from "@/lib/exams";
 import { LevelDefinition } from "@/lib/level-definitions";
 import { ArrowLeft } from "lucide-react";
@@ -145,31 +145,9 @@ function LevelSelectionContent() {
           </div>
         </div>
 
-        {/* Info Banner */}
-        <div className="mb-8 bg-gradient-to-r from-indigo-50 to-violet-50 border-2 border-indigo-200 rounded-2xl p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div>
-              <div className="text-3xl font-bold text-indigo-600">30</div>
-              <div className="text-sm text-slate-600">Total Levels</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-amber-500">
-                {progress?.totalStars || 0} / 90
-              </div>
-              <div className="text-sm text-slate-600">Stars Earned</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-emerald-500">
-                {progress?.completedLevels || 0}
-              </div>
-              <div className="text-sm text-slate-600">Levels Completed</div>
-            </div>
-          </div>
-        </div>
-
         {/* Level Map */}
         {levels.length > 0 ? (
-          <LevelMap
+          <LevelMapV2
             levels={levels}
             userProgress={userProgress}
             onLevelClick={handleLevelClick}
