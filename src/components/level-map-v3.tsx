@@ -43,11 +43,11 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
 
   const renderStars = (stars: number, state: string) => {
     return (
-      <div className="flex gap-0.5 absolute -bottom-2 left-1/2 -translate-x-1/2">
+      <div className="flex gap-0.5 absolute -bottom-1.5 left-1/2 -translate-x-1/2">
         {[1, 2, 3].map((s) => (
           <Star
             key={s}
-            className={`w-3.5 h-3.5 ${
+            className={`w-2.5 h-2.5 ${
               state === "completed" && s <= stars
                 ? "fill-amber-400 text-amber-500 drop-shadow-[0_0_4px_rgba(251,191,36,0.8)]"
                 : "fill-slate-600 text-slate-700"
@@ -119,7 +119,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12 max-w-3xl mx-auto">
+        <div className="grid grid-cols-5 gap-x-3 gap-y-6 mb-12 max-w-2xl mx-auto">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
@@ -144,17 +144,17 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                 >
                   {/* Boss Crown Badge */}
                   {isBoss && (
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-600 z-10">
-                      <Crown className="w-3 h-3 text-amber-900" />
+                    <div className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-amber-400 rounded-full flex items-center justify-center shadow-lg border border-amber-600 z-10">
+                      <Crown className="w-2.5 h-2.5 text-amber-900" />
                     </div>
                   )}
 
                   {/* Level Content */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {state === "locked" ? (
-                      <Lock className="w-5 h-5 text-slate-600" />
+                      <Lock className="w-4 h-4 text-slate-600" />
                     ) : (
-                      <span className="text-2xl font-bold text-white drop-shadow-lg">
+                      <span className="text-xl font-bold text-white drop-shadow-lg">
                         {level.levelNumber}
                       </span>
                     )}
@@ -163,15 +163,6 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   {/* Stars */}
                   {renderStars(userData?.stars_earned || 0, state)}
                 </button>
-
-                {/* Level Name (optional, on hover or always visible) */}
-                {state !== "locked" && (
-                  <div className="mt-6 text-center">
-                    <div className="text-xs text-slate-400 max-w-[80px] truncate">
-                      {isBoss ? '👑 Boss' : `Lv ${level.levelNumber}`}
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}
