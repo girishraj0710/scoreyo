@@ -65,7 +65,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
     <div className="h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 py-4 px-4 flex flex-col">
       <div className="max-w-5xl mx-auto w-full flex flex-col h-full">
         {/* Top Section - Stats */}
-        <div className="mb-4 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-4 border border-indigo-500/30 flex-shrink-0">
+        <div className="mb-2 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-3 border border-indigo-500/30 flex-shrink-0">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
@@ -91,8 +91,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Title Section with Legend */}
-        <div className="mb-4 flex-shrink-0">
-          <div className="text-center mb-2">
+        <div className="mb-2 flex-shrink-0">
+          <div className="text-center mb-1.5">
             <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
               LEVEL SELECTION
             </h1>
@@ -100,15 +100,15 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
 
           {/* Legend - Achievement Info */}
           <div className="flex items-center justify-center gap-2 flex-wrap">
-            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/30 border border-slate-700/30">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
               <div className="text-sm">🏅</div>
               <span className="text-xs text-slate-300">Beginner (10)</span>
             </div>
-            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/30 border border-slate-700/30">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
               <div className="text-sm">🏆</div>
               <span className="text-xs text-slate-300">Expert (20)</span>
             </div>
-            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/30 border border-slate-700/30">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
               <div className="text-sm">👑</div>
               <span className="text-xs text-slate-300">Master (30)</span>
             </div>
@@ -116,7 +116,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-3 mb-3 w-full max-w-lg mx-auto px-2 flex-1 content-center">
+        <div className="grid grid-cols-5 gap-4 my-auto w-full max-w-xl mx-auto px-2 flex-shrink-0">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
@@ -166,14 +166,14 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Page Text Indicator - Above Navigation */}
-        <div className="text-center mb-2 flex-shrink-0">
+        <div className="text-center mb-1.5 flex-shrink-0 mt-auto">
           <span className="text-sm text-slate-300 font-medium">
             Page {currentPage + 1} of {totalPages}
           </span>
         </div>
 
         {/* Bottom Section - Navigation Only */}
-        <div className="bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-3 border border-indigo-500/30 flex-shrink-0">
+        <div className="bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-2.5 border border-indigo-500/30 flex-shrink-0">
           <div className="flex items-center justify-center gap-4">
             {/* Previous Button */}
             <button
