@@ -110,7 +110,7 @@ export default function DashboardPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BookOpen className="w-20 h-20 text-indigo-600" />
+            <BookOpen className="w-20 h-20 text-blue-600" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
             No Quiz Data Yet
@@ -121,7 +121,7 @@ export default function DashboardPage() {
           </p>
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg"
           >
             Start Your First Quiz
           </a>
@@ -141,7 +141,7 @@ export default function DashboardPage() {
         </div>
         <a
           href="/"
-          className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700"
+          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700"
         >
           New Quiz
         </a>
@@ -157,18 +157,18 @@ export default function DashboardPage() {
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
           <div className="text-sm text-slate-500 mb-1">Questions Solved</div>
-          <div className="text-3xl font-bold text-indigo-600">
+          <div className="text-3xl font-bold text-blue-600">
             {stats.totalQuestions}
           </div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
           <div className="text-sm text-slate-500 mb-1">Accuracy</div>
-          <div className="text-3xl font-bold text-emerald-600">
+          <div className="text-3xl font-bold text-cyan-600">
             {stats.accuracy}%
           </div>
           <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
             <div
-              className="bg-emerald-500 h-2 rounded-full animate-progress"
+              className="bg-cyan-500 h-2 rounded-full animate-progress"
               style={{ width: `${stats.accuracy}%` }}
             />
           </div>
@@ -284,7 +284,7 @@ export default function DashboardPage() {
                         </div>
                         <a
                           href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
-                          className="text-xs text-indigo-600 hover:underline"
+                          className="text-xs text-blue-600 hover:underline"
                         >
                           Practice
                         </a>
@@ -339,7 +339,7 @@ export default function DashboardPage() {
                           <span
                             className={`inline-block px-2 py-1 rounded-full text-xs font-bold ${
                               accuracy >= 80
-                                ? "bg-emerald-100 text-emerald-700"
+                                ? "bg-cyan-100 text-cyan-700"
                                 : accuracy >= 50
                                   ? "bg-amber-100 text-amber-700"
                                   : "bg-red-100 text-red-700"
