@@ -71,55 +71,55 @@ export default function EnglishHubPage() {
           </div>
 
           {/* Learning Paths Preview */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <div className="grid md:grid-cols-3 gap-6 mb-16 items-stretch">
             {/* Foundation Builder - First Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
+              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
                 <BookOpen className="w-6 h-6 text-emerald-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">Foundation Builder</h3>
-              <p className="text-slate-600 mb-4">Build strong foundations from A1 to B1 level</p>
-              <ul className="space-y-2 text-sm text-slate-600 flex-1">
+              <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Foundation Builder</h3>
+              <p className="text-slate-600 mb-4 min-h-[3rem]">Build strong foundations from A1 to B1 level</p>
+              <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Start from scratch or strengthen basics</span>
+                  <span>Start from scratch - complete beginner friendly</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Essential grammar rules explained simply</span>
+                  <span>Essential grammar rules with examples</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Common vocabulary for daily use</span>
+                  <span>Common vocabulary for daily communication</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Pronunciation & basic conversation</span>
+                  <span>Pronunciation & conversation practice</span>
                 </li>
               </ul>
             </div>
 
             {/* Competitive Exams - Second Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col">
-              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
                 <Target className="w-6 h-6 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">Competitive Exams</h3>
-              <p className="text-slate-600 mb-4">Master English for SSC, Banking, Railways, state exams</p>
-              <ul className="space-y-2 text-sm text-slate-600 flex-1">
+              <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Competitive Exams</h3>
+              <p className="text-slate-600 mb-4 min-h-[3rem]">Master English for SSC, Banking, Railways, state exams</p>
+              <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Grammar fundamentals & advanced concepts</span>
+                  <span>Grammar fundamentals & advanced topics</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -143,24 +143,24 @@ export default function EnglishHubPage() {
             </div>
 
             {/* IELTS/TOEFL - Third Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
                 <Award className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">IELTS/TOEFL</h3>
-              <p className="text-slate-600 mb-4">Achieve your target band score for study abroad</p>
-              <ul className="space-y-2 text-sm text-slate-600 flex-1">
+              <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">IELTS/TOEFL</h3>
+              <p className="text-slate-600 mb-4 min-h-[3rem]">Achieve your target band score for study abroad</p>
+              <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Academic writing techniques</span>
+                  <span>Academic writing techniques & templates</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Speaking fluency & pronunciation</span>
+                  <span>Speaking fluency & pronunciation drills</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -172,7 +172,7 @@ export default function EnglishHubPage() {
                   <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Test-taking strategies & tips</span>
+                  <span>Test-taking strategies & time management</span>
                 </li>
               </ul>
             </div>
