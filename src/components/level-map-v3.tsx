@@ -64,37 +64,40 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 py-8 px-4">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          {/* Coin/Stars Display */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-amber-500/30">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg">
-                <Star className="w-5 h-5 fill-amber-200 text-amber-200" />
+        {/* Top Section - Stats */}
+        <div className="mb-8 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-6 border border-indigo-500/30">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg">
+                  <Star className="w-4 h-4 fill-amber-200 text-amber-200" />
+                </div>
+                <span className="text-2xl font-bold text-amber-400">{totalStars}</span>
+                <span className="text-slate-400 text-sm">/90</span>
               </div>
-              <span className="text-2xl font-bold text-amber-400">{totalStars}</span>
+              <div className="text-xs text-slate-400">Stars Earned</div>
             </div>
-
-            <div className="hidden sm:flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-indigo-500/30">
-              <span className="text-sm text-slate-300">Progress:</span>
-              <span className="text-lg font-bold text-indigo-400">{completedLevels}/30</span>
+            <div>
+              <div className="text-2xl font-bold text-indigo-400 mb-2">{completedLevels}/30</div>
+              <div className="text-xs text-slate-400">Levels Completed</div>
             </div>
-          </div>
-
-          {/* Page Indicator */}
-          <div className="text-center">
-            <div className="text-xs text-slate-400 mb-1">Page</div>
-            <div className="text-2xl font-bold text-white">
-              {currentPage + 1} / {totalPages}
+            <div>
+              <div className="text-2xl font-bold text-emerald-400 mb-2">
+                {userProgress.filter((l) => l.stars_earned === 3).length}
+              </div>
+              <div className="text-xs text-slate-400">Perfect Scores</div>
             </div>
           </div>
         </div>
 
         {/* Title */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
             LEVEL SELECTION
           </h1>
+          <div className="mt-2 text-sm text-slate-400">
+            Page {currentPage + 1} of {totalPages}
+          </div>
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
@@ -123,17 +126,17 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                 >
                   {/* Boss Crown Badge */}
                   {isBoss && (
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-600 z-10">
-                      <Crown className="w-4 h-4 text-amber-900" />
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-600 z-10">
+                      <Crown className="w-3 h-3 text-amber-900" />
                     </div>
                   )}
 
                   {/* Level Content */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {state === "locked" ? (
-                      <Lock className="w-8 h-8 text-slate-600" />
+                      <Lock className="w-5 h-5 text-slate-600" />
                     ) : (
-                      <span className="text-3xl font-bold text-white drop-shadow-lg">
+                      <span className="text-2xl font-bold text-white drop-shadow-lg">
                         {level.levelNumber}
                       </span>
                     )}
@@ -156,56 +159,92 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
           })}
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-center gap-8 mt-8">
-          {/* Previous Button */}
-          <button
-            onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
-            disabled={currentPage === 0}
-            className={`
-              flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-lg transition-all
-              ${currentPage === 0
-                ? 'bg-slate-800 text-slate-600 cursor-not-allowed'
-                : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:scale-105 shadow-lg hover:shadow-indigo-500/50'
-              }
-            `}
-          >
-            <ChevronLeft className="w-6 h-6" />
-            <span className="hidden sm:inline">BACK</span>
-          </button>
-
-          {/* Next Button */}
-          <button
-            onClick={() => setCurrentPage(Math.min(totalPages - 1, currentPage + 1))}
-            disabled={currentPage === totalPages - 1}
-            className={`
-              flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-lg transition-all
-              ${currentPage === totalPages - 1
-                ? 'bg-slate-800 text-slate-600 cursor-not-allowed'
-                : 'bg-gradient-to-r from-emerald-600 to-cyan-600 text-white hover:scale-105 shadow-lg hover:shadow-emerald-500/50'
-              }
-            `}
-          >
-            <span className="hidden sm:inline">NEXT</span>
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
-
-        {/* Page Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-6">
-          {Array.from({ length: totalPages }).map((_, index) => (
+        {/* Bottom Section - Navigation & Achievements */}
+        <div className="mt-8 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-6 border border-indigo-500/30">
+          {/* Navigation Buttons */}
+          <div className="flex items-center justify-center gap-6 mb-6">
+            {/* Previous Button */}
             <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
+              onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
+              disabled={currentPage === 0}
               className={`
-                w-2 h-2 rounded-full transition-all
-                ${currentPage === index
-                  ? 'w-8 bg-indigo-500'
-                  : 'bg-slate-700 hover:bg-slate-600'
+                flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all
+                ${currentPage === 0
+                  ? 'bg-slate-800 text-slate-600 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:scale-105 shadow-lg hover:shadow-indigo-500/50'
                 }
               `}
-            />
-          ))}
+            >
+              <ChevronLeft className="w-5 h-5" />
+              <span className="hidden sm:inline">BACK</span>
+            </button>
+
+            {/* Page Dots Indicator */}
+            <div className="flex justify-center gap-2">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`
+                    w-2 h-2 rounded-full transition-all
+                    ${currentPage === index
+                      ? 'w-8 bg-indigo-400'
+                      : 'bg-slate-600 hover:bg-slate-500'
+                    }
+                  `}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages - 1, currentPage + 1))}
+              disabled={currentPage === totalPages - 1}
+              className={`
+                flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all
+                ${currentPage === totalPages - 1
+                  ? 'bg-slate-800 text-slate-600 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-emerald-600 to-cyan-600 text-white hover:scale-105 shadow-lg hover:shadow-emerald-500/50'
+                }
+              `}
+            >
+              <span className="hidden sm:inline">NEXT</span>
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Achievement Milestones */}
+          <div className="grid grid-cols-3 gap-3">
+            <div className={`p-3 rounded-lg text-center transition-all ${
+              completedLevels >= 10
+                ? 'bg-emerald-500/20 border border-emerald-500/30'
+                : 'bg-slate-800/30 border border-slate-700/30'
+            }`}>
+              <div className="text-xl mb-1">🏅</div>
+              <div className="text-xs font-semibold text-white">Beginner</div>
+              <div className="text-xs text-slate-400">10 levels</div>
+            </div>
+
+            <div className={`p-3 rounded-lg text-center transition-all ${
+              completedLevels >= 20
+                ? 'bg-violet-500/20 border border-violet-500/30'
+                : 'bg-slate-800/30 border border-slate-700/30'
+            }`}>
+              <div className="text-xl mb-1">🏆</div>
+              <div className="text-xs font-semibold text-white">Expert</div>
+              <div className="text-xs text-slate-400">20 levels</div>
+            </div>
+
+            <div className={`p-3 rounded-lg text-center transition-all ${
+              completedLevels >= 30
+                ? 'bg-amber-500/20 border border-amber-500/30'
+                : 'bg-slate-800/30 border border-slate-700/30'
+            }`}>
+              <div className="text-xl mb-1">👑</div>
+              <div className="text-xs font-semibold text-white">Master</div>
+              <div className="text-xs text-slate-400">30 levels</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
