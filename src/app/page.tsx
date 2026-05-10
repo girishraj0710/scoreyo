@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { examCategories, type Exam } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
 import { LandingPage } from "@/components/landing-page";
@@ -9,6 +10,7 @@ import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/l
 
 export default function HomePage() {
   const { user, isLoading } = useUser();
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
@@ -41,6 +43,38 @@ export default function HomePage() {
       .then(setSubData)
       .catch(() => {});
   }, []);
+
+  // Handle URL parameters to pre-select exam and subject
+  useEffect(() => {
+    const examId = searchParams.get("examId");
+    const subjectId = searchParams.get("subjectId");
+
+    if (examId && subjectId) {
+      // Find the exam
+      let foundExam: Exam | null = null;
+      let foundCategory: string | null = null;
+
+      for (const category of examCategories) {
+        const exam = category.exams.find((e) => e.id === examId);
+        if (exam) {
+          foundExam = exam;
+          foundCategory = category.id;
+          break;
+        }
+      }
+
+      if (foundExam && foundCategory) {
+        setSelectedCategory(foundCategory);
+        setSelectedExam(foundExam);
+        setSelectedSubject(subjectId);
+
+        // Scroll to topic section after a brief delay
+        setTimeout(() => {
+          topicRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 300);
+      }
+    }
+  }, [searchParams]);
 
   // Handle click outside to close search results
   useEffect(() => {
