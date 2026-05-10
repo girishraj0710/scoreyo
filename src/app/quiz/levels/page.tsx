@@ -165,8 +165,7 @@ function LevelSelectionContent() {
           </div>
         )}
       </>
-    </>)
-  );
+    );
 }
 
 export default function LevelSelectionPage() {
