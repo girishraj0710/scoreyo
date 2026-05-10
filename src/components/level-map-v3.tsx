@@ -62,8 +62,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
   const completedLevels = userProgress.filter((l) => l.is_completed).length;
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center p-4">
-      <div className="max-w-5xl w-full flex flex-col max-h-screen">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 py-4 px-4 flex flex-col">
+      <div className="max-w-5xl mx-auto w-full flex flex-col h-full">
         {/* Top Section - Stats */}
         <div className="mb-2 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-3 border border-indigo-500/30 flex-shrink-0">
           <div className="grid grid-cols-3 gap-4 text-center">
@@ -91,7 +91,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Title Section with Legend */}
-        <div className="mb-4 flex-shrink-0">
+        <div className="mb-6 flex-shrink-0">
           <div className="text-center mb-1.5">
             <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
               LEVEL SELECTION
@@ -116,7 +116,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-4 mb-4 w-full max-w-xl mx-auto px-2 flex-shrink-0">
+        <div className="grid grid-cols-5 gap-4 mb-6 w-full max-w-xl mx-auto px-2 flex-shrink-0">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
