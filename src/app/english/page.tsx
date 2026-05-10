@@ -52,7 +52,7 @@ export default function EnglishHubPage() {
               <BookOpen className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-violet-500 bg-clip-text text-transparent">
                 Master English Language
               </span>
             </h1>
@@ -207,7 +207,7 @@ export default function EnglishHubPage() {
           </div>
 
           {/* Learning Topics */}
-          <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-violet-500 rounded-2xl p-8 text-white mb-16">
             <h2 className="text-2xl font-bold mb-6 text-center">What You'll Learn</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
@@ -297,7 +297,7 @@ export default function EnglishHubPage() {
         </div>
 
         {/* Quick Assessment */}
-        <div className="mb-8 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-white shadow-lg">
+        <div className="mb-8 bg-gradient-to-r from-indigo-600 via-violet-600 to-violet-500 rounded-2xl p-6 text-white shadow-lg">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
