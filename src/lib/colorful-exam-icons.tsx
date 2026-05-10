@@ -158,7 +158,7 @@ export const COLORFUL_EXAM_ICONS: Record<string, string> = {
   'ipmat': 'noto:chart-increasing',              // 📈 Chart (IPM)
   'jnu-entrance': 'noto:books',                  // 📚 Books (JNU)
   'iimc': 'noto:microphone',                     // 🎤 Microphone (mass comm)
-  'tnpsc': 'noto:round-pushpin',                 // 📍 Tamil Nadu
+  'tnpsc': 'noto:lotus',                         // 🪷 Lotus (Tamil Nadu state flower)
   'uppsc': 'noto:pinching-hand-light-skin-tone', // 🤏 UP
   'mppsc': 'noto:tiger-face',                    // 🐯 Tiger (MP symbol)
   'bpsc': 'noto:herb',                           // 🌿 Bihar
