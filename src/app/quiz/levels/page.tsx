@@ -115,7 +115,7 @@ function LevelSelectionContent() {
       <div className="fixed top-4 left-4 z-50">
         <a
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md text-[#DAB661] rounded-xl hover:bg-white/20 font-semibold shadow-lg border border-white/20 transition-all"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md text-white rounded-xl hover:bg-white/20 font-semibold shadow-lg border border-white/20 transition-all"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="hidden sm:inline">Back</span>
