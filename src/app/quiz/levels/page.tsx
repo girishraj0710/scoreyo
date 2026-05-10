@@ -115,7 +115,7 @@ function LevelSelectionContent() {
       <div className="fixed top-4 left-4 z-50">
         <a
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#0E1318] rounded-lg hover:shadow-lg font-medium shadow-md transition-all border border-slate-200"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#1A1A1A] rounded-md hover:shadow-md font-medium shadow-sm transition-all border border-[#1A1A1A]/10"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="hidden sm:inline">Back</span>
@@ -126,7 +126,7 @@ function LevelSelectionContent() {
       <div className="fixed top-4 right-4 z-50">
         <a
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#00C4CC] to-[#7D2AE8] text-white rounded-lg hover:shadow-xl font-medium shadow-lg transition-all"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#4F46E5] text-white rounded-md hover:bg-[#4338CA] font-medium shadow-md transition-all"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
