@@ -38,7 +38,8 @@ export default function MockTestPage() {
   const [configs, setConfigs] = useState<MockTestConfig[]>([]);
   const [history, setHistory] = useState<any[]>([]);
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
-  const [selectedTests, setSelectedTests] = useState<{ [key: string]: number }>({});
+  const [selectedExam, setSelectedExam] = useState<string | null>(null);
+  const [selectedTestNumber, setSelectedTestNumber] = useState<number>(1);
 
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
@@ -777,13 +778,23 @@ export default function MockTestPage() {
             const testConfigs = groupedConfigs[examId];
             const firstConfig = testConfigs[0];
 
+            const isSelected = selectedExam === examId;
+
             return (
               <div
                 key={examId}
                 id={`exam-${examId}`}
-                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300"
+                onClick={() => {
+                  setSelectedExam(examId);
+                  setSelectedTestNumber(1);
+                }}
+                className={`group bg-white rounded-2xl p-6 border-2 transition-all duration-300 cursor-pointer ${
+                  isSelected
+                    ? "border-indigo-500 shadow-xl ring-2 ring-indigo-200"
+                    : "border-slate-200 hover:border-indigo-300 hover:shadow-lg"
+                }`}
               >
-                {/* Header */}
+                {/* Header with selection indicator */}
                 <div className="flex items-start gap-3 mb-4">
                   <div className="w-12 h-12 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <ColorfulExamIcon
@@ -795,6 +806,15 @@ export default function MockTestPage() {
                     <h3 className="font-bold text-lg text-slate-800 mb-1">{firstConfig.examName}</h3>
                     <p className="text-xs text-slate-400 line-clamp-1">{exam?.description || ""}</p>
                   </div>
+                  {isSelected && (
+                    <div className="shrink-0">
+                      <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Stats */}
@@ -822,35 +842,30 @@ export default function MockTestPage() {
                   ))}
                 </div>
 
-                {/* Action Button with Test Selector */}
-                <div className="space-y-3">
-                  {testConfigs.length > 1 && (
-                    <div className="flex items-center justify-between px-3 py-2 bg-slate-50 rounded-lg">
-                      <span className="text-sm text-slate-600">Select Test:</span>
-                      <div className="flex gap-1">
-                        {testConfigs.map((config) => (
-                          <button
-                            key={config.testNumber}
-                            onClick={() => setSelectedTests({ ...selectedTests, [examId]: config.testNumber })}
-                            className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
-                              (selectedTests[examId] || 1) === config.testNumber
-                                ? "bg-indigo-600 text-white"
-                                : "bg-white text-slate-600 hover:bg-slate-100"
-                            }`}
-                          >
-                            {config.testNumber}
-                          </button>
-                        ))}
-                      </div>
+                {/* Test Selector (only if multiple tests available) */}
+                {isSelected && testConfigs.length > 1 && (
+                  <div className="flex items-center justify-between px-3 py-2 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <span className="text-sm text-indigo-900 font-medium">Test Number:</span>
+                    <div className="flex gap-1">
+                      {testConfigs.map((config) => (
+                        <button
+                          key={config.testNumber}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedTestNumber(config.testNumber);
+                          }}
+                          className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
+                            selectedTestNumber === config.testNumber
+                              ? "bg-indigo-600 text-white shadow-md"
+                              : "bg-white text-slate-600 hover:bg-slate-100"
+                          }`}
+                        >
+                          {config.testNumber}
+                        </button>
+                      ))}
                     </div>
-                  )}
-                  <button
-                    onClick={() => startTest(firstConfig.examId, selectedTests[examId] || 1, testType === "full")}
-                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all"
-                  >
-                    Start Test {testConfigs.length > 1 ? `#${selectedTests[examId] || 1}` : ""}
-                  </button>
-                </div>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -859,7 +874,7 @@ export default function MockTestPage() {
 
       {/* Past Tests History */}
       {history.length > 0 && (
-        <div className="mt-12">
+        <div className="mt-12 mb-24">
           <h2 className="text-2xl font-bold text-slate-800 mb-5">Past Mock Tests</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {history.filter((h: any) => h.status === "completed").slice(0, 6).map((h: any) => {
@@ -887,6 +902,44 @@ export default function MockTestPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      )}
+
+      {/* Floating Start Test Button */}
+      {selectedExam && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-2xl z-50">
+          <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 flex items-center justify-center">
+                <ColorfulExamIcon examId={selectedExam} size={32} />
+              </div>
+              <div>
+                <div className="font-semibold text-slate-800">
+                  {groupedConfigs[selectedExam][0].examName}
+                </div>
+                <div className="text-xs text-slate-500">
+                  Test #{selectedTestNumber} · {groupedConfigs[selectedExam][0].totalQuestions} questions · {groupedConfigs[selectedExam][0].timeLimitMinutes} mins
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => {
+                  setSelectedExam(null);
+                  setSelectedTestNumber(1);
+                }}
+                className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => startTest(selectedExam, selectedTestNumber, testType === "full")}
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+              >
+                Start Test
+              </button>
+            </div>
           </div>
         </div>
       )}
