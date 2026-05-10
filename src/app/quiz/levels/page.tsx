@@ -122,16 +122,16 @@ function LevelSelectionContent() {
         </a>
       </div>
 
-      {/* Floating Random Mode Button */}
+      {/* Floating Random Quiz Button */}
       <div className="fixed top-4 right-4 z-50">
         <a
-          href="/"
+          href={`/?examId=${examId}&subjectId=${subjectId}`}
           className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl hover:from-cyan-600 hover:to-blue-700 font-semibold shadow-lg shadow-cyan-500/50 transition-all"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
           </svg>
-          <span className="hidden sm:inline">Random Mode</span>
+          <span className="hidden sm:inline">Random Quiz</span>
         </a>
       </div>
 
