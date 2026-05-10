@@ -73,19 +73,19 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   <Star className="w-4 h-4 fill-white text-white" />
                 </div>
                 <span className="text-2xl font-bold text-[#DAB661]">{totalStars}</span>
-                <span className="text-[#C9A961] text-sm">/90</span>
+                <span className="text-white/70 text-sm">/90</span>
               </div>
-              <div className="text-xs text-[#C9A961] font-semibold">Stars Earned</div>
+              <div className="text-xs text-white font-semibold">Stars Earned</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-[#DAB661] mb-2">{completedLevels}/30</div>
-              <div className="text-xs text-[#C9A961] font-semibold">Levels Completed</div>
+              <div className="text-xs text-white font-semibold">Levels Completed</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-[#DAB661] mb-2">
                 {userProgress.filter((l) => l.stars_earned === 3).length}
               </div>
-              <div className="text-xs text-[#C9A961] font-semibold">Perfect Scores</div>
+              <div className="text-xs text-white font-semibold">Perfect Scores</div>
             </div>
           </div>
         </div>
@@ -102,15 +102,15 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">🏅</div>
-              <span className="text-xs text-[#C9A961] font-semibold">Beginner (10)</span>
+              <span className="text-xs text-white font-semibold">Beginner (10)</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">🏆</div>
-              <span className="text-xs text-[#C9A961] font-semibold">Expert (20)</span>
+              <span className="text-xs text-white font-semibold">Expert (20)</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">👑</div>
-              <span className="text-xs text-[#C9A961] font-semibold">Master (30)</span>
+              <span className="text-xs text-white font-semibold">Master (30)</span>
             </div>
           </div>
         </div>
