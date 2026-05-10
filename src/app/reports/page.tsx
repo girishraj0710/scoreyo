@@ -56,7 +56,7 @@ export default function ReportsPage() {
           <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("reportsProOnly")}</h2>
           <p className="text-slate-500 mb-6">{t("reportsProDesc")}</p>
           <div className="flex gap-3 justify-center">
-            <a href="/pricing" className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg">
+            <a href="/pricing" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg">
               {t("upgradeToPro")}
             </a>
             <a href="/dashboard" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
@@ -73,11 +73,11 @@ export default function ReportsPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BarChart3 className="w-20 h-20 text-indigo-600" />
+            <BarChart3 className="w-20 h-20 text-blue-600" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">{t("noReportData")}</h2>
           <p className="text-slate-500 mb-6">{t("noReportDataDesc")}</p>
-          <a href="/" className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg">
+          <a href="/" className="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl shadow-lg">
             {t("startQuiz")}
           </a>
         </div>
@@ -95,7 +95,7 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2">
-          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
             {t("reportsTitle")}
           </span>
         </h1>
@@ -105,15 +105,15 @@ export default function ReportsPage() {
       {/* Overview Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
-          <div className="text-3xl font-bold text-indigo-600">{stats.totalSessions}</div>
+          <div className="text-3xl font-bold text-blue-600">{stats.totalSessions}</div>
           <div className="text-xs text-slate-500 mt-1">{t("totalQuizzes")}</div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
-          <div className="text-3xl font-bold text-purple-600">{stats.totalQuestions}</div>
+          <div className="text-3xl font-bold text-cyan-600">{stats.totalQuestions}</div>
           <div className="text-xs text-slate-500 mt-1">{t("questionsSolved")}</div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
-          <div className="text-3xl font-bold text-emerald-600">{stats.accuracy}%</div>
+          <div className="text-3xl font-bold text-cyan-600">{stats.accuracy}%</div>
           <div className="text-xs text-slate-500 mt-1">{t("accuracy")}</div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
@@ -141,13 +141,13 @@ export default function ReportsPage() {
                           {subject?.name || s.subject_id}
                           <span className="text-xs text-slate-400 ml-1">({exam?.name})</span>
                         </span>
-                        <span className={`text-sm font-bold ${s.accuracy >= 70 ? "text-emerald-600" : s.accuracy >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                        <span className={`text-sm font-bold ${s.accuracy >= 70 ? "text-cyan-600" : s.accuracy >= 50 ? "text-amber-600" : "text-red-600"}`}>
                           {s.accuracy}%
                         </span>
                       </div>
                       <div className="w-full bg-slate-100 rounded-full h-2 mt-1">
                         <div
-                          className={`h-2 rounded-full ${s.accuracy >= 70 ? "bg-emerald-500" : s.accuracy >= 50 ? "bg-amber-500" : "bg-red-500"}`}
+                          className={`h-2 rounded-full ${s.accuracy >= 70 ? "bg-cyan-500" : s.accuracy >= 50 ? "bg-amber-500" : "bg-red-500"}`}
                           style={{ width: `${s.accuracy}%` }}
                         />
                       </div>
@@ -170,7 +170,7 @@ export default function ReportsPage() {
           ) : (
             <div className="space-y-4">
               {[
-                { band: "excellent", label: t("excellentRange"), color: "bg-emerald-500", textColor: "text-emerald-600", IconComponent: Star },
+                { band: "excellent", label: t("excellentRange"), color: "bg-cyan-500", textColor: "text-cyan-600", IconComponent: Star },
                 { band: "good", label: t("goodRange"), color: "bg-blue-500", textColor: "text-blue-600", IconComponent: TrendingUp },
                 { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", IconComponent: BarChart3 },
                 { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
@@ -243,12 +243,12 @@ export default function ReportsPage() {
               {strongTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 return (
-                  <div key={idx} className="flex items-center justify-between p-3 bg-emerald-50 rounded-lg border border-emerald-100">
+                  <div key={idx} className="flex items-center justify-between p-3 bg-cyan-50 rounded-lg border border-emerald-100">
                     <div>
                       <div className="text-sm font-medium text-slate-700">{topic.topic}</div>
                       <div className="text-xs text-slate-400">{exam?.name} | {topic.total_attempted} Q</div>
                     </div>
-                    <div className="text-lg font-bold text-emerald-600">{Math.round(topic.mastery_score)}%</div>
+                    <div className="text-lg font-bold text-cyan-600">{Math.round(topic.mastery_score)}%</div>
                   </div>
                 );
               })}
@@ -277,7 +277,7 @@ export default function ReportsPage() {
                       <span className="text-lg font-bold text-red-600">{Math.round(topic.mastery_score)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topic.topic)}&count=5&difficulty=mixed`}
-                        className="text-xs text-indigo-600 bg-indigo-50 px-2 py-1 rounded hover:bg-indigo-100"
+                        className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded hover:bg-blue-100"
                       >
                         {t("practice")}
                       </a>
@@ -337,7 +337,7 @@ export default function ReportsPage() {
                       </div>
                     </div>
                   </div>
-                  <div className={`text-lg font-bold ${acc >= 70 ? "text-emerald-600" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                  <div className={`text-lg font-bold ${acc >= 70 ? "text-cyan-600" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
                     {acc}%
                   </div>
                 </div>
