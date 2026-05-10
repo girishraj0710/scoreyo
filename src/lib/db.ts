@@ -306,6 +306,59 @@ async function initializeDb() {
     CREATE INDEX IF NOT EXISTS idx_mock_tests_user ON mock_tests(user_id);
     CREATE INDEX IF NOT EXISTS idx_mock_tests_exam ON mock_tests(exam_id);
     CREATE INDEX IF NOT EXISTS idx_mock_tests_status ON mock_tests(status);
+
+    CREATE TABLE IF NOT EXISTS user_quiz_levels (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL,
+      exam_id TEXT NOT NULL,
+      subject_id TEXT NOT NULL,
+      level_number INTEGER NOT NULL,
+      level_type TEXT NOT NULL DEFAULT 'normal',
+      is_unlocked INTEGER DEFAULT 0,
+      is_completed INTEGER DEFAULT 0,
+      stars_earned INTEGER DEFAULT 0,
+      best_accuracy INTEGER DEFAULT 0,
+      attempts INTEGER DEFAULT 0,
+      completed_at TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(user_id, exam_id, subject_id, level_number)
+    );
+
+    CREATE TABLE IF NOT EXISTS user_english_levels (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL,
+      path_id TEXT NOT NULL,
+      topic_id TEXT NOT NULL,
+      level_number INTEGER NOT NULL,
+      is_unlocked INTEGER DEFAULT 0,
+      practice_completed INTEGER DEFAULT 0,
+      test_completed INTEGER DEFAULT 0,
+      stars_earned INTEGER DEFAULT 0,
+      best_accuracy INTEGER DEFAULT 0,
+      attempts INTEGER DEFAULT 0,
+      completed_at TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(user_id, path_id, topic_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS level_definitions (
+      id TEXT PRIMARY KEY,
+      exam_id TEXT NOT NULL,
+      subject_id TEXT NOT NULL,
+      level_number INTEGER NOT NULL,
+      level_name TEXT NOT NULL,
+      level_type TEXT NOT NULL DEFAULT 'normal',
+      difficulty TEXT NOT NULL,
+      topic TEXT,
+      question_count INTEGER NOT NULL,
+      unlock_requirement TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(exam_id, subject_id, level_number)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_user_quiz_levels_user ON user_quiz_levels(user_id, exam_id, subject_id);
+    CREATE INDEX IF NOT EXISTS idx_user_english_levels_user ON user_english_levels(user_id, path_id);
+    CREATE INDEX IF NOT EXISTS idx_level_definitions_exam ON level_definitions(exam_id, subject_id);
   `);
 
   // Create a default user if none exists
@@ -1309,4 +1362,201 @@ export async function updateEnglishDailyPractice(
   }
 
   return streakDays;
+}
+
+// ─── Level System functions ──────────────────────────────
+
+export async function getUserQuizLevel(userId: string, examId: string, subjectId: string, levelNumber: number) {
+  return queryOne(
+    "SELECT * FROM user_quiz_levels WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
+    [userId, examId, subjectId, levelNumber]
+  );
+}
+
+export async function getUserQuizLevels(userId: string, examId: string, subjectId: string) {
+  return queryAll(
+    "SELECT * FROM user_quiz_levels WHERE user_id = ? AND exam_id = ? AND subject_id = ? ORDER BY level_number ASC",
+    [userId, examId, subjectId]
+  );
+}
+
+export async function initializeFirstLevel(userId: string, examId: string, subjectId: string) {
+  const { randomUUID } = await import('crypto');
+
+  // Check if level 1 exists
+  const level1 = await getUserQuizLevel(userId, examId, subjectId, 1);
+
+  if (!level1) {
+    // Initialize level 1 as unlocked
+    await execute(
+      "INSERT INTO user_quiz_levels (id, user_id, exam_id, subject_id, level_number, level_type, is_unlocked) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      [randomUUID(), userId, examId, subjectId, 1, 'normal', 1]
+    );
+  }
+}
+
+export async function completeQuizLevel(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  levelNumber: number,
+  levelType: string,
+  accuracy: number,
+  stars: number
+) {
+  const { randomUUID } = await import('crypto');
+
+  const existing = await getUserQuizLevel(userId, examId, subjectId, levelNumber);
+
+  if (existing) {
+    // Update if better performance
+    if (accuracy > (existing.best_accuracy as number)) {
+      await execute(
+        "UPDATE user_quiz_levels SET is_completed = 1, stars_earned = ?, best_accuracy = ?, attempts = attempts + 1, completed_at = CURRENT_TIMESTAMP WHERE id = ?",
+        [stars, accuracy, existing.id]
+      );
+    } else {
+      await execute(
+        "UPDATE user_quiz_levels SET attempts = attempts + 1 WHERE id = ?",
+        [existing.id]
+      );
+    }
+  } else {
+    // Create new
+    await execute(
+      "INSERT INTO user_quiz_levels (id, user_id, exam_id, subject_id, level_number, level_type, is_unlocked, is_completed, stars_earned, best_accuracy, attempts, completed_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
+      [randomUUID(), userId, examId, subjectId, levelNumber, levelType, 1, 1, stars, accuracy, 1]
+    );
+  }
+
+  // Unlock next level if performance is good enough
+  const shouldUnlock = levelType === 'boss' ? accuracy >= 70 : accuracy >= 60;
+
+  if (shouldUnlock) {
+    const nextLevel = await getUserQuizLevel(userId, examId, subjectId, levelNumber + 1);
+
+    if (!nextLevel) {
+      // Get next level type from level_definitions or assume normal
+      const nextLevelType = (levelNumber + 1) % 10 === 0 ? 'boss' : 'normal';
+
+      await execute(
+        "INSERT INTO user_quiz_levels (id, user_id, exam_id, subject_id, level_number, level_type, is_unlocked) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [randomUUID(), userId, examId, subjectId, levelNumber + 1, nextLevelType, 1]
+      );
+    }
+  }
+}
+
+export async function getQuizLevelProgress(userId: string, examId: string, subjectId: string) {
+  const levels = await getUserQuizLevels(userId, examId, subjectId);
+
+  const totalStars = levels.reduce((sum: number, l: any) => sum + (l.stars_earned || 0), 0);
+  const completedLevels = levels.filter((l: any) => l.is_completed).length;
+  const currentLevel = levels.find((l: any) => l.is_unlocked && !l.is_completed);
+
+  return {
+    levels,
+    totalStars,
+    completedLevels,
+    currentLevel: currentLevel ? currentLevel.level_number : completedLevels + 1,
+  };
+}
+
+// English Level System functions
+
+export async function getUserEnglishLevel(userId: string, pathId: string, topicId: string) {
+  return queryOne(
+    "SELECT * FROM user_english_levels WHERE user_id = ? AND path_id = ? AND topic_id = ?",
+    [userId, pathId, topicId]
+  );
+}
+
+export async function getUserEnglishLevels(userId: string, pathId: string) {
+  return queryAll(
+    "SELECT * FROM user_english_levels WHERE user_id = ? AND path_id = ? ORDER BY level_number ASC",
+    [userId, pathId]
+  );
+}
+
+export async function initializeFirstEnglishLevel(userId: string, pathId: string, firstTopicId: string) {
+  const { randomUUID } = await import('crypto');
+
+  const level1 = await getUserEnglishLevel(userId, pathId, firstTopicId);
+
+  if (!level1) {
+    await execute(
+      "INSERT INTO user_english_levels (id, user_id, path_id, topic_id, level_number, is_unlocked) VALUES (?, ?, ?, ?, ?, ?)",
+      [randomUUID(), userId, pathId, firstTopicId, 1, 1]
+    );
+  }
+}
+
+export async function completeEnglishLevel(
+  userId: string,
+  pathId: string,
+  topicId: string,
+  levelNumber: number,
+  isPractice: boolean,
+  accuracy: number,
+  stars: number,
+  nextTopicId?: string
+) {
+  const { randomUUID } = await import('crypto');
+
+  const existing = await getUserEnglishLevel(userId, pathId, topicId);
+
+  if (existing) {
+    if (isPractice) {
+      await execute(
+        "UPDATE user_english_levels SET practice_completed = 1, attempts = attempts + 1 WHERE id = ?",
+        [existing.id]
+      );
+    } else {
+      // Test completion
+      if (accuracy > (existing.best_accuracy as number)) {
+        await execute(
+          "UPDATE user_english_levels SET test_completed = 1, stars_earned = ?, best_accuracy = ?, attempts = attempts + 1, completed_at = CURRENT_TIMESTAMP WHERE id = ?",
+          [stars, accuracy, existing.id]
+        );
+      } else {
+        await execute(
+          "UPDATE user_english_levels SET attempts = attempts + 1 WHERE id = ?",
+          [existing.id]
+        );
+      }
+
+      // Unlock next topic if stars >= 1 and nextTopicId exists
+      if (stars >= 1 && nextTopicId) {
+        const nextLevel = await getUserEnglishLevel(userId, pathId, nextTopicId);
+
+        if (!nextLevel) {
+          await execute(
+            "INSERT INTO user_english_levels (id, user_id, path_id, topic_id, level_number, is_unlocked) VALUES (?, ?, ?, ?, ?, ?)",
+            [randomUUID(), userId, pathId, nextTopicId, levelNumber + 1, 1]
+          );
+        }
+      }
+    }
+  } else {
+    // Create new
+    await execute(
+      "INSERT INTO user_english_levels (id, user_id, path_id, topic_id, level_number, is_unlocked, practice_completed, test_completed, stars_earned, best_accuracy, attempts, completed_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
+      [randomUUID(), userId, pathId, topicId, levelNumber, 1, isPractice ? 1 : 0, isPractice ? 0 : 1, stars, accuracy, 1]
+    );
+  }
+}
+
+export async function getEnglishLevelProgress(userId: string, pathId: string) {
+  const levels = await getUserEnglishLevels(userId, pathId);
+
+  const totalStars = levels.reduce((sum: number, l: any) => sum + (l.stars_earned || 0), 0);
+  const completedLevels = levels.filter((l: any) => l.test_completed).length;
+  const currentLevel = levels.find((l: any) => l.is_unlocked && !l.test_completed);
+
+  return {
+    levels,
+    totalStars,
+    completedLevels,
+    currentLevel: currentLevel ? currentLevel.level_number : completedLevels + 1,
+  };
 }
