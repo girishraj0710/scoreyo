@@ -43,11 +43,11 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
 
   const renderStars = (stars: number, state: string) => {
     return (
-      <div className="flex gap-0.5 absolute -bottom-1 left-1/2 -translate-x-1/2">
+      <div className="flex gap-0.5 absolute -bottom-0.5 left-1/2 -translate-x-1/2">
         {[1, 2, 3].map((s) => (
           <Star
             key={s}
-            className={`w-2 h-2 ${
+            className={`w-1.5 h-1.5 ${
               state === "completed" && s <= stars
                 ? "fill-amber-400 text-amber-500 drop-shadow-[0_0_4px_rgba(251,191,36,0.8)]"
                 : "fill-slate-600 text-slate-700"
@@ -91,35 +91,32 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Title Section with Legend */}
-        <div className="mb-8">
-          <div className="text-center mb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+        <div className="mb-6">
+          <div className="text-center mb-3">
+            <h1 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
               LEVEL SELECTION
             </h1>
-            <div className="mt-2 text-sm text-slate-400">
-              Page {currentPage + 1} of {totalPages}
-            </div>
           </div>
 
           {/* Legend - Achievement Info */}
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
-              <div className="text-base">🏅</div>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/30 border border-slate-700/30">
+              <div className="text-sm">🏅</div>
               <span className="text-xs text-slate-300">Beginner (10)</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
-              <div className="text-base">🏆</div>
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/30 border border-slate-700/30">
+              <div className="text-sm">🏆</div>
               <span className="text-xs text-slate-300">Expert (20)</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
-              <div className="text-base">👑</div>
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/30 border border-slate-700/30">
+              <div className="text-sm">👑</div>
               <span className="text-xs text-slate-300">Master (30)</span>
             </div>
           </div>
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-x-2 gap-y-4 mb-12 max-w-xl mx-auto">
+        <div className="grid grid-cols-5 gap-2 mb-8 w-full max-w-md mx-auto px-2">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
@@ -144,17 +141,17 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                 >
                   {/* Boss Crown Badge */}
                   {isBoss && (
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full flex items-center justify-center shadow-lg border border-amber-600 z-10">
-                      <Crown className="w-2 h-2 text-amber-900" />
+                    <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-amber-400 rounded-full flex items-center justify-center shadow-lg border border-amber-600 z-10">
+                      <Crown className="w-1.5 h-1.5 text-amber-900" />
                     </div>
                   )}
 
                   {/* Level Content */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {state === "locked" ? (
-                      <Lock className="w-3 h-3 text-slate-600" />
+                      <Lock className="w-2.5 h-2.5 text-slate-600" />
                     ) : (
-                      <span className="text-lg font-bold text-white drop-shadow-lg">
+                      <span className="text-base font-bold text-white drop-shadow-lg">
                         {level.levelNumber}
                       </span>
                     )}
@@ -169,21 +166,21 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Bottom Section - Navigation Only */}
-        <div className="mt-8 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-4 border border-indigo-500/30">
-          <div className="flex items-center justify-center gap-6">
+        <div className="mt-6 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-3 border border-indigo-500/30">
+          <div className="flex items-center justify-center gap-4">
             {/* Previous Button */}
             <button
               onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
               disabled={currentPage === 0}
               className={`
-                flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all
+                flex items-center gap-1 px-4 py-2 rounded-lg font-bold text-sm transition-all
                 ${currentPage === 0
                   ? 'bg-slate-800 text-slate-600 cursor-not-allowed'
                   : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:scale-105 shadow-lg hover:shadow-indigo-500/50'
                 }
               `}
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
               <span className="hidden sm:inline">BACK</span>
             </button>
 
@@ -196,7 +193,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   className={`
                     w-2 h-2 rounded-full transition-all
                     ${currentPage === index
-                      ? 'w-8 bg-indigo-400'
+                      ? 'w-6 bg-indigo-400'
                       : 'bg-slate-600 hover:bg-slate-500'
                     }
                   `}
@@ -209,7 +206,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
               onClick={() => setCurrentPage(Math.min(totalPages - 1, currentPage + 1))}
               disabled={currentPage === totalPages - 1}
               className={`
-                flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all
+                flex items-center gap-1 px-4 py-2 rounded-lg font-bold text-sm transition-all
                 ${currentPage === totalPages - 1
                   ? 'bg-slate-800 text-slate-600 cursor-not-allowed'
                   : 'bg-gradient-to-r from-emerald-600 to-cyan-600 text-white hover:scale-105 shadow-lg hover:shadow-emerald-500/50'
@@ -217,8 +214,15 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
               `}
             >
               <span className="hidden sm:inline">NEXT</span>
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
+          </div>
+
+          {/* Page Text Indicator */}
+          <div className="text-center mt-2">
+            <span className="text-xs text-slate-400">
+              Page {currentPage + 1} of {totalPages}
+            </span>
           </div>
         </div>
       </div>
