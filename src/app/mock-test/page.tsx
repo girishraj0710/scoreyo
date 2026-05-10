@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
+import { FileText } from "lucide-react";
+import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 interface MockTestConfig {
   examId: string;
@@ -614,7 +616,9 @@ export default function MockTestPage() {
         </div>
       ) : Object.keys(groupedConfigs).length === 0 ? (
         <div className="text-center py-16">
-          <div className="text-6xl mb-4">📝</div>
+          <div className="flex justify-center mb-4">
+            <FileText className="w-20 h-20 text-slate-400" />
+          </div>
           <p className="text-slate-400 text-lg">No mock tests found matching your search</p>
         </div>
       ) : (
@@ -632,11 +636,11 @@ export default function MockTestPage() {
               >
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-4">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform"
-                    style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}
-                  >
-                    {exam?.icon || "📝"}
+                  <div className="w-12 h-12 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <ColorfulExamIcon
+                      examId={examId}
+                      size={40}
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-lg text-slate-800 mb-1">{firstConfig.examName}</h3>
@@ -707,11 +711,11 @@ export default function MockTestPage() {
               return (
                 <div key={h.id} className="bg-white rounded-xl p-4 border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl"
-                      style={{ backgroundColor: (exam?.color || "#6366f1") + "20" }}
-                    >
-                      {exam?.icon || "📝"}
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      <ColorfulExamIcon
+                        examId={h.exam_id}
+                        size={32}
+                      />
                     </div>
                     <div>
                       <div className="font-semibold text-slate-800">{exam?.name || h.exam_id}</div>

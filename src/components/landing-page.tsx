@@ -3,6 +3,13 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
+import {
+  Cpu, Stethoscope, Landmark, FileText, Banknote,
+  Briefcase, Cog, Train, Building, Scale, Target, Shield,
+  GraduationCap, TrendingUp, Clock, Zap, MessageSquare,
+  RefreshCw, Flame, Calendar
+} from "lucide-react";
+import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 export function LandingPage() {
   const { setShowLoginModal } = useUser();
@@ -19,8 +26,10 @@ export function LandingPage() {
     const query = searchQuery.toLowerCase();
     const results: Array<{
       type: "exam" | "subject" | "topic";
+      examId: string;
       examName: string;
       examIcon: string;
+      examColor: string;
       subjectName?: string;
       topicName?: string;
       category: string;
@@ -34,8 +43,10 @@ export function LandingPage() {
             exam.description.toLowerCase().includes(query)) {
           results.push({
             type: "exam",
+            examId: exam.id,
             examName: exam.name,
             examIcon: exam.icon,
+            examColor: exam.color,
             category: category.name,
           });
         }
@@ -45,8 +56,10 @@ export function LandingPage() {
           if (subject.name.toLowerCase().includes(query)) {
             results.push({
               type: "subject",
+              examId: exam.id,
               examName: exam.name,
               examIcon: exam.icon,
+              examColor: exam.color,
               subjectName: subject.name,
               category: category.name,
             });
@@ -57,8 +70,10 @@ export function LandingPage() {
             if (topic.toLowerCase().includes(query)) {
               results.push({
                 type: "topic",
+                examId: exam.id,
                 examName: exam.name,
                 examIcon: exam.icon,
+                examColor: exam.color,
                 subjectName: subject.name,
                 topicName: topic,
                 category: category.name,
@@ -91,8 +106,9 @@ export function LandingPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <section className="mb-12 max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6">
-                🎓 Smart Exam Preparation Platform
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6">
+                <GraduationCap className="w-4 h-4" />
+                Smart Exam Preparation Platform
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Master Your{" "}
@@ -164,7 +180,12 @@ export function LandingPage() {
                       className="w-full px-4 py-3 hover:bg-indigo-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
                     >
                       <div className="flex items-start gap-3">
-                        <div className="text-2xl mt-0.5">{result.examIcon}</div>
+                        <div className="mt-0.5">
+                          <ColorfulExamIcon
+                            examId={result.examId}
+                            size={36}
+                          />
+                        </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
                             <span className="font-semibold text-slate-800">{result.examName}</span>
@@ -207,7 +228,11 @@ export function LandingPage() {
             {/* No Results */}
             {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
               <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-6 text-center">
-                <div className="text-4xl mb-2">🔍</div>
+                <div className="flex justify-center mb-2">
+                  <svg className="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
                 <p className="font-semibold text-slate-800 mb-1">No results found</p>
                 <p className="text-sm text-slate-600">Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
               </div>
@@ -252,25 +277,27 @@ export function LandingPage() {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {[
-                  { name: "JEE Main/Advanced", icon: "🎯", color: "bg-blue-50 border-blue-200 text-blue-700" },
-                  { name: "NEET UG/PG", icon: "🏥", color: "bg-green-50 border-green-200 text-green-700" },
-                  { name: "UPSC CSE", icon: "🏛️", color: "bg-purple-50 border-purple-200 text-purple-700" },
-                  { name: "SSC CGL/CHSL", icon: "📝", color: "bg-orange-50 border-orange-200 text-orange-700" },
-                  { name: "Banking (IBPS/SBI)", icon: "🏦", color: "bg-teal-50 border-teal-200 text-teal-700" },
-                  { name: "CAT/MBA", icon: "💼", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
-                  { name: "GATE", icon: "⚙️", color: "bg-red-50 border-red-200 text-red-700" },
-                  { name: "Railway Exams", icon: "🚂", color: "bg-yellow-50 border-yellow-200 text-yellow-700" },
-                  { name: "State PSC", icon: "🏢", color: "bg-pink-50 border-pink-200 text-pink-700" },
-                  { name: "CLAT", icon: "⚖️", color: "bg-cyan-50 border-cyan-200 text-cyan-700" },
-                  { name: "NDA/CDS", icon: "🎖️", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-                  { name: "Delhi Police", icon: "👮", color: "bg-slate-50 border-slate-200 text-slate-700" },
+                  { name: "JEE Main/Advanced", IconComponent: Cpu, color: "bg-blue-50 border-blue-200", iconColor: "text-blue-600" },
+                  { name: "NEET UG/PG", IconComponent: Stethoscope, color: "bg-green-50 border-green-200", iconColor: "text-green-600" },
+                  { name: "UPSC CSE", IconComponent: Landmark, color: "bg-purple-50 border-purple-200", iconColor: "text-purple-600" },
+                  { name: "SSC CGL/CHSL", IconComponent: FileText, color: "bg-orange-50 border-orange-200", iconColor: "text-orange-600" },
+                  { name: "Banking (IBPS/SBI)", IconComponent: Banknote, color: "bg-teal-50 border-teal-200", iconColor: "text-teal-600" },
+                  { name: "CAT/MBA", IconComponent: Briefcase, color: "bg-indigo-50 border-indigo-200", iconColor: "text-indigo-600" },
+                  { name: "GATE", IconComponent: Cog, color: "bg-red-50 border-red-200", iconColor: "text-red-600" },
+                  { name: "Railway Exams", IconComponent: Train, color: "bg-yellow-50 border-yellow-200", iconColor: "text-yellow-600" },
+                  { name: "State PSC", IconComponent: Building, color: "bg-pink-50 border-pink-200", iconColor: "text-pink-600" },
+                  { name: "CLAT", IconComponent: Scale, color: "bg-cyan-50 border-cyan-200", iconColor: "text-cyan-600" },
+                  { name: "NDA/CDS", IconComponent: Target, color: "bg-emerald-50 border-emerald-200", iconColor: "text-emerald-600" },
+                  { name: "Delhi Police", IconComponent: Shield, color: "bg-slate-50 border-slate-200", iconColor: "text-slate-600" },
                 ].map((exam) => (
                   <div
                     key={exam.name}
                     className={`${exam.color} rounded-lg p-3 border-2 text-center hover:shadow-md transition-all`}
                   >
-                    <div className="text-2xl mb-1">{exam.icon}</div>
-                    <div className="font-medium text-xs">{exam.name}</div>
+                    <div className="flex justify-center mb-1">
+                      <exam.IconComponent className={`w-6 h-6 ${exam.iconColor}`} />
+                    </div>
+                    <div className="font-medium text-xs text-slate-700">{exam.name}</div>
                   </div>
                 ))}
               </div>
@@ -444,7 +471,9 @@ export function LandingPage() {
                   <span><strong>Concept gaps</strong> - Understanding issues</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-600 mt-0.5">⏱️</span>
+                  <svg className="w-5 h-5 text-purple-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                   <span><strong>Time pressure</strong> - Rushed answers</span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -472,19 +501,19 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">⚡</span>
+                  <Zap className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Instant answers</strong> in under 3 seconds</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">💬</span>
+                  <MessageSquare className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <span>Simple, conversational explanations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">🔄</span>
+                  <RefreshCw className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <span>Ask follow-up questions until you get it</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">🎯</span>
+                  <Target className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <span>Context-aware (knows the question you're solving)</span>
                 </li>
               </ul>
@@ -508,19 +537,19 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-600 mt-0.5">🔥</span>
+                  <Flame className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Timer accelerates</strong> as you progress (up to 40% faster)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-600 mt-0.5">💪</span>
+                  <Zap className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                   <span>Visual stress elements (pulsing clock, color changes)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-600 mt-0.5">🎯</span>
+                  <Target className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                   <span>Practice staying calm under pressure</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-600 mt-0.5">📈</span>
+                  <TrendingUp className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                   <span>Separate tracking to measure performance under stress</span>
                 </li>
               </ul>
@@ -544,19 +573,19 @@ export function LandingPage() {
               </p>
               <ul className="text-sm text-slate-600 space-y-1.5">
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">📅</span>
+                  <Calendar className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Auto-generated DPPs</strong> every day (10 questions, 10 mins)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">🔥</span>
+                  <Flame className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
                   <span>Streak tracking keeps you motivated</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">🎯</span>
+                  <Target className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
                   <span>Smart topic rotation covers all subjects</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">⏰</span>
+                  <Clock className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
                   <span>Bite-sized sessions fit your busy schedule</span>
                 </li>
               </ul>
@@ -588,11 +617,15 @@ export function LandingPage() {
                   <span>Switch languages anytime</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-teal-600 mt-0.5">📖</span>
+                  <svg className="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
                   <span>Complete UI + questions translated</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-teal-600 mt-0.5">✨</span>
+                  <svg className="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
                   <span>Covers 95% of India's exam aspirants</span>
                 </li>
               </ul>

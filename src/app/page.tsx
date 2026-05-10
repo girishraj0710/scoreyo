@@ -4,6 +4,8 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { examCategories, type Exam } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
 import { LandingPage } from "@/components/landing-page";
+import { Zap, Flame } from "lucide-react";
+import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
 
 export default function HomePage() {
   const { user, isLoading } = useUser();
@@ -225,7 +227,12 @@ export default function HomePage() {
                     className="w-full px-4 py-3 hover:bg-indigo-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="text-2xl mt-0.5">{result.exam.icon}</div>
+                      <div className="mt-0.5">
+                        <ColorfulExamIcon
+                          examId={result.exam.id}
+                          size={36}
+                        />
+                      </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-semibold text-slate-800">{result.exam.name}</span>
@@ -260,7 +267,11 @@ export default function HomePage() {
           {/* No Results */}
           {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
             <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-6 text-center">
-              <div className="text-4xl mb-2">🔍</div>
+              <div className="flex justify-center mb-2">
+                <svg className="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
               <p className="font-semibold text-slate-800 mb-1">No results found</p>
               <p className="text-sm text-slate-600">Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
             </div>
@@ -314,7 +325,12 @@ export default function HomePage() {
                 }}
               className="card-hover p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-indigo-300"
               >
-                <div className="text-2xl mb-1">{category.icon}</div>
+                <div className="flex justify-center mb-1">
+                  <ColorfulCategoryIcon
+                    categoryId={category.id}
+                    size={32}
+                  />
+                </div>
                 <div className="text-sm font-medium text-slate-700">
                   {category.name}
                 </div>
@@ -367,11 +383,11 @@ export default function HomePage() {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl shrink-0"
-                      style={{ backgroundColor: exam.color + "20" }}
-                    >
-                      {exam.icon}
+                    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                      <ColorfulExamIcon
+                        examId={exam.id}
+                        size={32}
+                      />
                     </div>
                     <div className="min-w-0">
                       <div className="font-semibold text-slate-800">
@@ -420,7 +436,12 @@ export default function HomePage() {
                     : "border-slate-200 bg-white hover:border-indigo-300"
                 }`}
               >
-                <div className="text-xl mb-1">{subject.icon}</div>
+                <div className="flex justify-center mb-1">
+                  <ColorfulSubjectIcon
+                    subjectId={subject.id}
+                    size={36}
+                  />
+                </div>
                 <div className="text-sm font-medium text-slate-700">
                   {subject.name}
                 </div>
@@ -549,12 +570,12 @@ export default function HomePage() {
                 />
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">⚡</span>
+                    <Zap className="w-5 h-5 text-red-600" />
                     <span className="font-semibold text-red-900">Pressure Mode</span>
                     <span className="px-2 py-0.5 bg-red-600 text-white text-xs font-bold rounded-full">INTENSE</span>
                   </div>
-                  <p className="text-xs text-red-700 mt-1">
-                    Timer accelerates as time runs out. Simulates real exam stress! 🔥
+                  <p className="text-xs text-red-700 mt-1 flex items-center gap-1">
+                    Timer accelerates as time runs out. Simulates real exam stress! <Flame className="w-3.5 h-3.5 inline" />
                   </p>
                 </div>
               </label>

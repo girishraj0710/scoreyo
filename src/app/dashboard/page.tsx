@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
+import { BookOpen } from "lucide-react";
+import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 interface Stats {
   totalSessions: number;
@@ -107,7 +109,9 @@ export default function DashboardPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="text-6xl mb-6">📚</div>
+          <div className="flex justify-center mb-6">
+            <BookOpen className="w-20 h-20 text-indigo-600" />
+          </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
             No Quiz Data Yet
           </h2>
@@ -198,13 +202,11 @@ export default function DashboardPage() {
                     : 0;
                 return (
                   <div key={eb.exam_id} className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0"
-                      style={{
-                        backgroundColor: (exam?.color || "#6366f1") + "20",
-                      }}
-                    >
-                      {exam?.icon || "📝"}
+                    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                      <ColorfulExamIcon
+                        examId={eb.exam_id}
+                        size={32}
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-center">

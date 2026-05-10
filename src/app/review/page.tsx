@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
+import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 interface ReviewTopic {
   exam_id: string;
@@ -67,7 +68,10 @@ export default function ReviewPage() {
         <div className="flex items-center justify-between">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-lg">{exam?.icon || "📝"}</span>
+              <ColorfulExamIcon
+                examId={topic.exam_id}
+                size={28}
+              />
               <span className="text-sm font-medium text-indigo-600">{exam?.name || topic.exam_id}</span>
             </div>
             <h3 className="font-semibold text-slate-800 truncate">{topic.topic}</h3>
@@ -126,7 +130,11 @@ export default function ReviewPage() {
       {/* Empty State */}
       {overdue.length === 0 && dueToday.length === 0 && upcoming.length === 0 && (
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200 text-center">
-          <div className="text-6xl mb-4">🎉</div>
+          <div className="flex justify-center mb-4">
+            <svg className="w-24 h-24 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+          </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-2">{t("allCaughtUp")}</h2>
           <p className="text-slate-500 mb-6">{t("noReviewsDesc")}</p>
           <a
