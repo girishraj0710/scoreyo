@@ -69,23 +69,23 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#635BFF] to-[#00E5E5] flex items-center justify-center shadow-lg">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
                   <Star className="w-4 h-4 fill-white text-white" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-[#635BFF] to-[#00E5E5] bg-clip-text text-transparent">{totalStars}</span>
-                <span className="text-slate-500 text-sm">/90</span>
+                <span className="text-2xl font-bold text-amber-300">{totalStars}</span>
+                <span className="text-slate-300 text-sm">/90</span>
               </div>
-              <div className="text-xs text-white/90 font-semibold">Stars Earned</div>
+              <div className="text-xs text-slate-200 font-semibold">Stars Earned</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-[#00E5E5] mb-2">{completedLevels}/30</div>
-              <div className="text-xs text-white/90 font-semibold">Levels Completed</div>
+              <div className="text-2xl font-bold text-cyan-300 mb-2">{completedLevels}/30</div>
+              <div className="text-xs text-slate-200 font-semibold">Levels Completed</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-amber-400 mb-2">
+              <div className="text-2xl font-bold text-emerald-300 mb-2">
                 {userProgress.filter((l) => l.stars_earned === 3).length}
               </div>
-              <div className="text-xs text-white/90 font-semibold">Perfect Scores</div>
+              <div className="text-xs text-slate-200 font-semibold">Perfect Scores</div>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         {/* Title Section with Legend */}
         <div className="mb-6">
           <div className="text-center mb-1.5">
-            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 tracking-wide drop-shadow-[0_0_30px_rgba(0,229,229,0.5)]">
+            <h1 className="text-3xl font-bold text-white tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               LEVEL SELECTION
             </h1>
           </div>
@@ -102,15 +102,15 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">🏅</div>
-              <span className="text-xs text-white/90 font-semibold">Beginner (10)</span>
+              <span className="text-xs text-white font-semibold">Beginner (10)</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">🏆</div>
-              <span className="text-xs text-white/90 font-semibold">Expert (20)</span>
+              <span className="text-xs text-white font-semibold">Expert (20)</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">👑</div>
-              <span className="text-xs text-white/90 font-semibold">Master (30)</span>
+              <span className="text-xs text-white font-semibold">Master (30)</span>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
 
         {/* Page Text Indicator - Above Navigation */}
         <div className="text-center mb-1.5">
-          <span className="text-sm text-white/90 font-semibold">
+          <span className="text-sm text-white font-semibold">
             Page {currentPage + 1} of {totalPages}
           </span>
         </div>
