@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { LevelMapV2 } from "@/components/level-map-v2";
+import { LevelMapV3 } from "@/components/level-map-v3";
 import { getExamById } from "@/lib/exams";
 import { LevelDefinition } from "@/lib/level-definitions";
 import { ArrowLeft } from "lucide-react";
@@ -110,70 +110,62 @@ function LevelSelectionContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </a>
+    <>
+      {/* Floating Back Button */}
+      <div className="fixed top-4 left-4 z-50">
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-sm text-white rounded-lg hover:bg-slate-700 font-medium shadow-lg transition-all"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span className="hidden sm:inline">Back</span>
+        </a>
+      </div>
 
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
-                {exam.name} - {subject.name}
-              </h1>
-              <p className="text-slate-600">
-                Complete levels sequentially to unlock new challenges. Earn 3 stars for perfect scores!
-              </p>
-            </div>
+      {/* Floating Random Mode Button */}
+      <div className="fixed top-4 right-4 z-50">
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-sm text-white rounded-lg hover:bg-slate-700 font-medium shadow-lg transition-all"
+        >
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+          <span className="hidden sm:inline">Random Mode</span>
+        </a>
+      </div>
 
-            {/* Switch to Random Mode */}
-            <a
-              href="/"
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-white border-2 border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 font-medium"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
-              Random Mode
-            </a>
-          </div>
-        </div>
-
-        {/* Level Map */}
-        {levels.length > 0 ? (
-          <LevelMapV2
+      {/* Level Map - Full Screen */}
+      {levels.length > 0 ? (
+        <LevelMapV3
             levels={levels}
             userProgress={userProgress}
             onLevelClick={handleLevelClick}
             currentLevel={progress?.currentLevel}
           />
         ) : (
-          <div className="text-center py-12">
-            <div className="text-slate-400 mb-4">
-              <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+          <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center">
+            <div className="text-center py-12 px-4">
+              <div className="text-slate-600 mb-4">
+                <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">No Levels Available Yet</h3>
+              <p className="text-slate-400 mb-6">
+                Level definitions for this subject are coming soon!
+              </p>
+              <a
+                href="/"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600"
+              >
+                Try Random Mode Instead
+              </a>
             </div>
-            <h3 className="text-xl font-bold text-slate-700 mb-2">No Levels Available Yet</h3>
-            <p className="text-slate-500 mb-6">
-              Level definitions for this subject are coming soon!
-            </p>
-            <a
-              href="/"
-              className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600"
-            >
-              Try Random Mode Instead
-            </a>
           </div>
         )}
-      </div>
-    </div>
+      </>
+    </>)
   );
 }
 
