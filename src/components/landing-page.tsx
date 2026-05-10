@@ -290,15 +290,16 @@ export function LandingPage() {
                   { name: "NDA/CDS", examId: "nda" },
                   { name: "Delhi Police", examId: "delhi-police" },
                 ].map((exam) => (
-                  <div
+                  <button
                     key={exam.name}
-                    className="bg-white rounded-lg p-3 border-2 border-slate-200 text-center hover:shadow-md hover:border-indigo-300 transition-all"
+                    onClick={() => setShowLoginModal(true)}
+                    className="bg-white rounded-lg p-3 border-2 border-slate-200 text-center hover:shadow-md hover:border-indigo-300 transition-all cursor-pointer"
                   >
                     <div className="flex justify-center mb-1">
                       <ColorfulExamIcon examId={exam.examId} size={32} />
                     </div>
                     <div className="font-medium text-xs text-slate-700">{exam.name}</div>
-                  </div>
+                  </button>
                 ))}
               </div>
 
