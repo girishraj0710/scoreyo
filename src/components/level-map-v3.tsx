@@ -62,10 +62,10 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
   const completedLevels = userProgress.filter((l) => l.is_completed).length;
 
   return (
-    <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 py-4 px-4">
-      <div className="max-w-5xl mx-auto w-full pb-8">
+    <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 py-8 px-4">
+      <div className="max-w-5xl mx-auto w-full pb-4">
         {/* Top Section - Stats */}
-        <div className="mb-2 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 shadow-lg shadow-black/20">
+        <div className="mb-3 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 shadow-lg shadow-black/20">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
@@ -91,8 +91,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Title Section with Legend */}
-        <div className="mb-6">
-          <div className="text-center mb-1.5">
+        <div className="mb-4">
+          <div className="text-center mb-2">
             <h1 className="text-3xl font-bold text-[#DAB661] tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               SELECT LEVEL
             </h1>
@@ -116,7 +116,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-4 mb-6 w-full max-w-xl mx-auto px-2">
+        <div className="grid grid-cols-5 gap-4 mb-4 w-full max-w-xl mx-auto px-2">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
@@ -166,7 +166,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Page Text Indicator - Above Navigation */}
-        <div className="text-center mb-1.5">
+        <div className="text-center mb-2">
           <span className="text-sm text-[#C9A961] font-semibold">
             Page {currentPage + 1} of {totalPages}
           </span>
