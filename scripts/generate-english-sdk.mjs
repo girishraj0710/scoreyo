@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * Generate English Learning Questions Using Together.ai
- * Uses free credits to generate 1000+ questions across all modules
+ * Generate English Learning Questions Using AI SDK (Same approach as quiz-generator.ts)
+ * Races multiple free models on OpenRouter - fastest valid response wins
  */
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const { createClient } = require('@libsql/client');
+import fs from 'fs';
+import path from 'path';
+import { generateText } from 'ai';
+import { openrouter } from '@openrouter/ai-sdk-provider';
+import { createClient } from '@libsql/client';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Load environment variables
 const envPath = path.join(__dirname, '..', '.env.local');
@@ -25,19 +29,27 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const db = createClient({
   url: process.env.TURSO_DATABASE_URL,
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
 console.log('╔═══════════════════════════════════════════════════════════════╗');
-console.log('║  PrepGenie - AI English Question Generator (OpenRouter)     ║');
+console.log('║  PrepGenie - AI English Question Generator (AI SDK)         ║');
 console.log('╚═══════════════════════════════════════════════════════════════╝\n');
+
+// Free models - race them all
+const FREE_MODELS = [
+  "openai/gpt-oss-120b:free",
+  "minimax/minimax-m2.5:free",
+  "inclusionai/ling-2.6-1t:free",
+  "google/gemma-3-27b-it:free",
+  "meta-llama/llama-3.3-70b-instruct:free",
+  "nvidia/nemotron-3-super-120b-a12b:free",
+];
 
 // Priority topics to generate (Module 1 & 2 - A1 Foundation)
 const topicsToGenerate = [
-  // Module 1: Alphabet & Phonics
   {
     pathId: "foundation",
     topicId: "alphabet-basics",
@@ -61,7 +73,7 @@ Format each question as JSON:
   "difficulty": "easy"
 }
 
-Make questions simple, clear, and suitable for beginners learning English from scratch. Include visual descriptions where needed (capital vs small letters).`
+Make questions simple, clear, and suitable for beginners learning English from scratch.`
   },
 
   {
@@ -78,12 +90,9 @@ Topics to cover:
 - Consonant sounds
 - Vowel vs Consonant recognition
 
-Format each question as JSON with question, 4 options, correctAnswer (0-3), explanation, and difficulty (easy/medium).
-
-Make questions practical with real English words as examples.`
+Format each question as JSON with question, 4 options, correctAnswer (0-3), explanation, and difficulty (easy/medium).`
   },
 
-  // Module 2: Basic Grammar - Parts of Speech
   {
     pathId: "foundation",
     topicId: "parts-of-speech",
@@ -101,14 +110,7 @@ Cover all 8 types:
 7. Conjunction (and, but, or, so, because)
 8. Interjection (Wow!, Oh!, Alas!)
 
-Format: JSON with question, 4 options, correctAnswer (0-3), explanation, difficulty.
-
-Include examples like:
-- "Which word is a noun? (table, quickly, and, wow)"
-- "Identify the verb: She runs fast"
-- "Find the adjective: The blue car"
-
-Make it beginner-friendly with clear explanations.`
+Format: JSON with question, 4 options, correctAnswer (0-3), explanation, difficulty.`
   },
 
   {
@@ -125,12 +127,8 @@ Topics to cover:
 - Material nouns (gold, water, wood)
 - Singular vs Plural (book→books)
 - Irregular plurals (child→children, mouse→mice, tooth→teeth)
-- Countable vs Uncountable nouns
-- Gender (masculine, feminine, neuter)
 
-Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.
-
-Include variety: identification, conversion (singular to plural), categorization.`
+Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.`
   },
 
   {
@@ -146,14 +144,8 @@ Types to cover:
 - Possessive pronouns (mine, yours, his, hers, ours, theirs)
 - Possessive adjectives (my, your, his, her, our, their)
 - Reflexive pronouns (myself, yourself, himself, herself)
-- Demonstrative pronouns (this, that, these, those)
 
-Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.
-
-Examples:
-- "Replace with pronoun: Rahul is my friend. __ lives nearby."
-- "Choose possessive pronoun: This book is __. (mine/my/me/I)"
-- "Reflexive pronoun: I hurt __. (me/myself/I/mine)"`
+Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.`
   },
 
   {
@@ -164,21 +156,14 @@ Examples:
     prompt: `Generate 25 multiple-choice questions about Articles (a, an, the) for English learners.
 
 Rules to cover:
-- Use 'a' before consonant sounds (a book, a university, a one-rupee coin)
-- Use 'an' before vowel sounds (an apple, an hour, an umbrella)
-- Use 'the' for specific things (the book I bought, the sun, the Taj Mahal)
-- When NOT to use articles (zero article: going to school, by car)
-- Common mistakes Indians make
+- Use 'a' before consonant sounds (a book, a university)
+- Use 'an' before vowel sounds (an apple, an hour)
+- Use 'the' for specific things (the book I bought, the sun)
+- When NOT to use articles (zero article: going to school)
 
-Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.
-
-Include fill-in-the-blank and error identification:
-- "Fill: I have __ apple." (a/an/the/no article)
-- "Find error: She goes to the school daily."
-- "Choose article: He is __ honest man." (a/an/the/no article)`
+Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.`
   },
 
-  // Module 3: Tenses (Most Important)
   {
     pathId: "foundation",
     topicId: "present-simple",
@@ -195,15 +180,8 @@ Topics:
 - Negative form (don't/doesn't + V1)
 - Question form (Do/Does + subject + V1?)
 - Time expressions (always, usually, often, sometimes, never, every day)
-- Common mistakes
 
-Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.
-
-Include variety:
-- Fill blanks: "She __ (play/plays) cricket."
-- Error spotting: "He don't like coffee."
-- Sentence formation
-- Time expression usage`
+Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.`
   },
 
   {
@@ -218,20 +196,13 @@ Usage: Actions happening now, temporary situations
 
 Topics:
 - Basic structure (I am studying, She is cooking)
-- Adding -ing to verbs (play→playing, run→running, write→writing)
+- Adding -ing to verbs (play→playing, run→running)
 - Negative (is/am/are + not + V-ing)
 - Questions (Is/Am/Are + subject + V-ing?)
-- Time expressions (now, at the moment, right now, currently)
-- Stative verbs NOT used (know, love, understand, believe)
-- Present Simple vs Present Continuous
+- Time expressions (now, at the moment, right now)
+- Stative verbs NOT used (know, love, understand)
 
-Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.
-
-Include:
-- Fill blanks: "They __ (study) right now."
-- Choosing correct tense
-- Error identification
-- Stative verb recognition`
+Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.`
   },
 
   {
@@ -247,120 +218,81 @@ Usage: Completed actions at specific past time
 Topics:
 - Basic structure (I went, She studied)
 - Regular verbs: -ed (walked, played, studied)
-- Irregular verbs (go→went, eat→ate, see→saw, write→wrote, take→took)
+- Irregular verbs (go→went, eat→ate, see→saw)
 - Negative (didn't + V1)
 - Questions (Did + subject + V1?)
-- Time expressions (yesterday, last week, ago, in 1999)
-- Was/Were for 'be' verb
+- Time expressions (yesterday, last week, ago)
 
-Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.
-
-Include:
-- V1 to V2 conversion
-- Fill blanks with past tense
-- Error spotting
-- Irregular verb mastery
-- Time expression identification`
+Format: JSON with question, 4 options, correctAnswer, explanation, difficulty.`
   },
 ];
 
-// Function to call OpenRouter API
-async function generateQuestionsWithAI(prompt, count) {
-  return new Promise((resolve, reject) => {
-    const data = JSON.stringify({
-      model: "meta-llama/llama-3.3-70b-instruct:free",
-      messages: [
-        {
-          role: "user",
-          content: `You are an expert English teacher creating high-quality multiple-choice questions for Indian students learning English from basics.
+// Parse AI response
+function parseQuestions(text) {
+  let cleanText = text.trim();
+  // Remove markdown code blocks
+  if (cleanText.startsWith("```")) {
+    cleanText = cleanText.replace(/^```(?:json)?\n?/, "").replace(/\n?```$/, "");
+  }
+  // Extract JSON array
+  const jsonStart = cleanText.indexOf("[");
+  const jsonEnd = cleanText.lastIndexOf("]");
+  if (jsonStart !== -1 && jsonEnd !== -1) {
+    cleanText = cleanText.substring(jsonStart, jsonEnd + 1);
+  }
+
+  const questions = JSON.parse(cleanText);
+
+  if (!Array.isArray(questions)) {
+    throw new Error("Invalid response format");
+  }
+
+  // Validate and filter
+  return questions.filter(q =>
+    q.question &&
+    Array.isArray(q.options) &&
+    q.options.length === 4 &&
+    typeof q.correctAnswer === 'number' &&
+    q.correctAnswer >= 0 &&
+    q.correctAnswer <= 3 &&
+    q.explanation
+  );
+}
+
+// Generate questions with AI (race all models)
+async function generateQuestionsWithAI(prompt) {
+  const fullPrompt = `You are an expert English teacher creating high-quality multiple-choice questions for Indian students learning English from basics.
 
 ${prompt}
 
-Return ONLY a valid JSON array with NO markdown, NO code blocks, NO explanatory text - just the raw JSON array starting with [ and ending with ].`
-        }
-      ],
-      max_tokens: 4000,
-      temperature: 0.7,
-      top_p: 0.9
-    });
+Return ONLY a valid JSON array with NO markdown, NO code blocks, NO explanatory text - just the raw JSON array starting with [ and ending with ].`;
 
-    const options = {
-      hostname: 'openrouter.ai',
-      path: '/api/v1/chat/completions',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://prepgenie.co.in',
-        'X-Title': 'PrepGenie English Question Generator',
-        'Content-Length': data.length
-      }
-    };
-
-    const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', (chunk) => body += chunk);
-      res.on('end', () => {
-        try {
-          const response = JSON.parse(body);
-          if (response.error) {
-            reject(new Error(response.error.message || 'API Error'));
-            return;
-          }
-
-          const content = response.choices[0].message.content;
-
-          // Extract JSON array from response
-          let questions = [];
-          try {
-            // Try parsing the entire content as JSON
-            questions = JSON.parse(content);
-          } catch {
-            // Try extracting JSON array from markdown code blocks
-            const jsonMatch = content.match(/\[[\s\S]*\]/);
-            if (jsonMatch) {
-              questions = JSON.parse(jsonMatch[0]);
-            } else {
-              throw new Error('Could not extract JSON from response');
-            }
-          }
-
-          // Validate questions
-          if (!Array.isArray(questions)) {
-            questions = [questions];
-          }
-
-          // Ensure all required fields
-          questions = questions.filter(q =>
-            q.question &&
-            Array.isArray(q.options) &&
-            q.options.length === 4 &&
-            typeof q.correctAnswer === 'number' &&
-            q.correctAnswer >= 0 &&
-            q.correctAnswer <= 3 &&
-            q.explanation
-          );
-
-          resolve(questions);
-        } catch (error) {
-          reject(new Error(`Failed to parse response: ${error.message}`));
-        }
-      });
-    });
-
-    req.on('error', reject);
-    req.write(data);
-    req.end();
-  });
+  try {
+    // Race all models in parallel - first valid response wins
+    const result = await Promise.any(
+      FREE_MODELS.map(async (modelId) => {
+        const { text } = await generateText({
+          model: openrouter(modelId),
+          prompt: fullPrompt,
+          maxTokens: 4096,
+          temperature: 0.7,
+        });
+        const questions = parseQuestions(text);
+        return { questions, model: modelId };
+      })
+    );
+    return result;
+  } catch (error) {
+    throw new Error(`All models failed: ${error.message}`);
+  }
 }
 
 // Main generation function
 async function generateAllQuestions() {
-  console.log('🤖 Using OpenRouter API (Llama 3.3 70B Instruct)');
-  console.log('💰 Cost: $0 (FREE tier)\n');
+  console.log('🤖 Racing 6 free models on OpenRouter');
+  console.log('💰 Cost: $0 (free tier)\n');
 
   let totalGenerated = 0;
-  let totalCost = 0;
 
   for (let i = 0; i < topicsToGenerate.length; i++) {
     const topic = topicsToGenerate[i];
@@ -369,10 +301,10 @@ async function generateAllQuestions() {
     console.log(`   Target: ${topic.count} questions`);
 
     try {
-      console.log(`   🔄 Calling Together.ai API...`);
-      const questions = await generateQuestionsWithAI(topic.prompt, topic.count);
+      console.log(`   🔄 Racing models...`);
+      const { questions, model } = await generateQuestionsWithAI(topic.prompt);
 
-      console.log(`   ✅ Generated ${questions.length} questions`);
+      console.log(`   ✅ Generated ${questions.length} questions (winner: ${model.split('/')[1]})`);
 
       // Save to database
       const statements = questions.map(q => ({
@@ -395,10 +327,7 @@ async function generateAllQuestions() {
 
       totalGenerated += questions.length;
 
-      // Gemini 2.0 Flash is FREE via OpenRouter
-      totalCost = 0;
-
-      // Small delay to avoid rate limits
+      // Small delay
       await new Promise(resolve => setTimeout(resolve, 2000));
 
     } catch (error) {
@@ -417,7 +346,7 @@ async function generateAllQuestions() {
   console.log(`📊 Summary:`);
   console.log(`   ✅ New questions generated: ${totalGenerated}`);
   console.log(`   ✅ Total in database: ${totalCount}`);
-  console.log(`   💰 Estimated cost: $${totalCost.toFixed(4)} (from free credits)`);
+  console.log(`   💰 Cost: $0.00 (free models)`);
   console.log(`   🎯 Topics covered: ${topicsToGenerate.length}\n`);
 
   console.log('📚 Topics Generated:');
@@ -435,11 +364,6 @@ async function generateAllQuestions() {
   console.log('   ✅ Module 1: Alphabet & Phonics - DONE');
   console.log('   ✅ Module 2: Basic Grammar - 50% DONE');
   console.log('   ✅ Module 3: Tenses - 25% DONE (3 of 12 tenses)\n');
-
-  console.log('🚀 Next Steps:');
-  console.log('   1. Test these topics in the app');
-  console.log('   2. Run script again for remaining tenses');
-  console.log('   3. Generate advanced modules\n');
 }
 
 // Run

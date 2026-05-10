@@ -1,0 +1,87 @@
+╔═══════════════════════════════════════════════════════════════╗
+║  PrepGenie - AI English Question Generator (Together.ai)    ║
+╚═══════════════════════════════════════════════════════════════╝
+
+🤖 Using Together.ai (Meta-Llama-3.1-8B-Instruct-Turbo)
+💰 Using existing free credits
+
+
+[1/9] Generating: alphabet-basics
+   Target: 25 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Unable to access non-serverless model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo. Please visit https://api.together.ai/models/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo to create and start a new dedicated endpoint for the model.
+
+[2/9] Generating: phonics-vowels
+   Target: 25 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Unable to access non-serverless model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo. Please visit https://api.together.ai/models/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo to create and start a new dedicated endpoint for the model.
+
+[3/9] Generating: parts-of-speech
+   Target: 30 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Unable to access non-serverless model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo. Please visit https://api.together.ai/models/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo to create and start a new dedicated endpoint for the model.
+
+[4/9] Generating: nouns-detailed
+   Target: 30 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Invalid JSON payload
+
+[5/9] Generating: pronouns-detailed
+   Target: 25 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Failed to parse response: Unexpected token '<', "<html>
+<h"... is not valid JSON
+
+[6/9] Generating: articles
+   Target: 25 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Unable to access non-serverless model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo. Please visit https://api.together.ai/models/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo to create and start a new dedicated endpoint for the model.
+
+[7/9] Generating: present-simple
+   Target: 30 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Unable to access non-serverless model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo. Please visit https://api.together.ai/models/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo to create and start a new dedicated endpoint for the model.
+
+[8/9] Generating: present-continuous
+   Target: 30 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Invalid JSON payload
+
+[9/9] Generating: past-simple
+   Target: 30 questions
+   🔄 Calling Together.ai API...
+   ❌ Failed: Failed to parse response: Unexpected token '<', "<html>
+<h"... is not valid JSON
+
+
+╔═══════════════════════════════════════════════════════════════╗
+║  ✅ GENERATION COMPLETE!                                     ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📊 Summary:
+   ✅ New questions generated: 0
+   ✅ Total in database: 51
+   💰 Estimated cost: $0.0000 (from free credits)
+   🎯 Topics covered: 9
+
+📚 Topics Generated:
+   ✅ Alphabet Basics (25Q)
+   ✅ Phonics - Vowels & Consonants (25Q)
+   ✅ Parts of Speech (30Q)
+   ✅ Nouns in Detail (30Q)
+   ✅ Pronouns Mastery (25Q)
+   ✅ Articles (a, an, the) (25Q)
+   ✅ Present Simple Tense (30Q)
+   ✅ Present Continuous Tense (30Q)
+   ✅ Past Simple Tense (30Q)
+
+🎓 Coverage:
+   ✅ Module 1: Alphabet & Phonics - DONE
+   ✅ Module 2: Basic Grammar - 50% DONE
+   ✅ Module 3: Tenses - 25% DONE (3 of 12 tenses)
+
+🚀 Next Steps:
+   1. Test these topics in the app
+   2. Run script again for remaining tenses
+   3. Generate advanced modules
+

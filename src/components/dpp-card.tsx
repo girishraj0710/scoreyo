@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Flame, BookOpen, Sparkles, CheckCircle2 } from "lucide-react";
 
 interface DPPData {
   dpp: {
@@ -66,7 +67,7 @@ export function DPPCard() {
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <span className="text-3xl">📚</span>
+            <BookOpen className="w-8 h-8" />
             <div>
               <div className="text-xs font-semibold text-indigo-100">
                 Daily Practice Problem
@@ -77,7 +78,7 @@ export function DPPCard() {
 
           {streak > 0 && (
             <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full">
-              <span className="text-xl">🔥</span>
+              <Flame className="w-5 h-5" />
               <span className="text-sm font-bold">{streak}</span>
             </div>
           )}
@@ -111,8 +112,8 @@ export function DPPCard() {
               </svg>
             </button>
 
-            <div className="mt-3 text-xs text-center text-indigo-100">
-              Complete daily to build your streak! 🔥
+            <div className="mt-3 text-xs text-center text-indigo-100 flex items-center justify-center gap-1">
+              Complete daily to build your streak! <Flame className="w-3.5 h-3.5 inline" />
             </div>
           </>
         ) : (
@@ -125,7 +126,9 @@ export function DPPCard() {
             </div>
 
             <div className="text-center">
-              <div className="text-3xl mb-2">✅</div>
+              <div className="flex justify-center mb-2">
+                <CheckCircle2 className="w-12 h-12 text-emerald-500" />
+              </div>
               <div className="text-sm font-medium">Completed!</div>
               <div className="text-xs text-indigo-100 mt-1">
                 Come back tomorrow for a new challenge
@@ -133,8 +136,8 @@ export function DPPCard() {
             </div>
 
             {streak >= 3 && (
-              <div className="text-center text-sm bg-white/20 rounded-lg p-2">
-                🎉 Amazing! {streak}-day streak!
+              <div className="text-center text-sm bg-white/20 rounded-lg p-2 flex items-center justify-center gap-1">
+                <Sparkles className="w-4 h-4" /> Amazing! {streak}-day streak!
               </div>
             )}
           </div>

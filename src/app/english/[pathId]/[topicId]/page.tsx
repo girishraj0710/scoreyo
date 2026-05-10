@@ -5,6 +5,7 @@ import { useUser } from "@/context/user-context";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPathById, getTopicById } from "@/lib/english-content";
+import { getTopicIcon } from "@/lib/english-icons";
 import { ChevronLeft, Play, Clock, BookOpen, Award, Target } from "lucide-react";
 
 export default function EnglishTopicPage() {
@@ -100,9 +101,14 @@ export default function EnglishTopicPage() {
         {/* Topic Header */}
         <div className="mb-8 bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
           <div className="flex items-start gap-6">
-            <div className="w-20 h-20 bg-indigo-50 rounded-2xl flex items-center justify-center text-4xl flex-shrink-0">
-              {topic.icon}
-            </div>
+            {(() => {
+              const TopicIcon = getTopicIcon(topic.id);
+              return (
+                <div className="w-20 h-20 bg-indigo-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <TopicIcon className="w-10 h-10 text-indigo-600" />
+                </div>
+              );
+            })()}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl font-bold text-slate-900">{topic.name}</h1>

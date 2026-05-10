@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useLocale } from "@/context/locale-context";
 import { getExamById, getSubjectById } from "@/lib/exams";
+import { getExamIcon } from "@/lib/professional-icons";
+import { BarChart3, Star, TrendingUp, Target, Zap, CheckCircle2 } from "lucide-react";
 
 export default function ReportsPage() {
   const { t } = useLocale();
@@ -70,7 +72,9 @@ export default function ReportsPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="text-6xl mb-6">📊</div>
+          <div className="flex justify-center mb-6">
+            <BarChart3 className="w-20 h-20 text-indigo-600" />
+          </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">{t("noReportData")}</h2>
           <p className="text-slate-500 mb-6">{t("noReportDataDesc")}</p>
           <a href="/" className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg">
@@ -166,10 +170,10 @@ export default function ReportsPage() {
           ) : (
             <div className="space-y-4">
               {[
-                { band: "excellent", label: t("excellentRange"), color: "bg-emerald-500", textColor: "text-emerald-600", icon: "🌟" },
-                { band: "good", label: t("goodRange"), color: "bg-blue-500", textColor: "text-blue-600", icon: "👍" },
-                { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", icon: "📈" },
-                { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", icon: "💪" },
+                { band: "excellent", label: t("excellentRange"), color: "bg-emerald-500", textColor: "text-emerald-600", IconComponent: Star },
+                { band: "good", label: t("goodRange"), color: "bg-blue-500", textColor: "text-blue-600", IconComponent: TrendingUp },
+                { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", IconComponent: BarChart3 },
+                { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
               ].map((band) => {
                 const item = difficultyBreakdown.find((d: any) => d.performance_band === band.band);
                 const count = item?.count || 0;
@@ -178,7 +182,10 @@ export default function ReportsPage() {
                 return (
                   <div key={band.band}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-sm text-slate-600">{band.icon} {band.label}</span>
+                      <span className="text-sm text-slate-600 flex items-center gap-1.5">
+                        <band.IconComponent className={`w-3.5 h-3.5 ${band.textColor}`} />
+                        {band.label}
+                      </span>
                       <span className={`text-sm font-bold ${band.textColor}`}>{count} ({pct}%)</span>
                     </div>
                     <div className="w-full bg-slate-100 rounded-full h-3">
@@ -227,7 +234,7 @@ export default function ReportsPage() {
         {/* Strongest Topics */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="text-emerald-500">💪</span> {t("strongestTopics")}
+            <Zap className="w-5 h-5 text-emerald-500" /> {t("strongestTopics")}
           </h3>
           {strongTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
@@ -252,7 +259,7 @@ export default function ReportsPage() {
         {/* Weakest Topics */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="text-red-500">🎯</span> {t("weakestTopics")}
+            <Target className="w-5 h-5 text-red-500" /> {t("weakestTopics")}
           </h3>
           {weakTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
@@ -316,10 +323,11 @@ export default function ReportsPage() {
               const exam = getExamById(test.exam_id);
               const acc = test.total_questions > 0 ? Math.round((test.correct_answers / test.total_questions) * 100) : 0;
               const timeUsed = Math.round((test.time_taken_seconds / test.time_limit_seconds) * 100);
+              const ExamIcon = getExamIcon(test.exam_id);
               return (
                 <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
                   <div className="flex items-center gap-3">
-                    <span className="text-xl">{exam?.icon || "📝"}</span>
+                    <ExamIcon className="w-5 h-5" style={{ color: exam?.color || "#6366f1" }} />
                     <div>
                       <div className="text-sm font-medium text-slate-700">{exam?.name || test.exam_id}</div>
                       <div className="text-xs text-slate-400">

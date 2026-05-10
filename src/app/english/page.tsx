@@ -5,19 +5,14 @@ import { useUser } from "@/context/user-context";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { englishPaths, type EnglishPath } from "@/lib/english-content";
+import { getPathIcon } from "@/lib/english-icons";
 import { BookOpen, Target, TrendingUp, Award, Calendar, Zap } from "lucide-react";
 
 export default function EnglishHubPage() {
-  const { user, isLoading } = useUser();
+  const { user, isLoading, setShowLoginModal } = useUser();
   const router = useRouter();
   const [dailyStreak, setDailyStreak] = useState(0);
   const [todayCompleted, setTodayCompleted] = useState(false);
-
-  useEffect(() => {
-    if (!isLoading && !user) {
-      router.push("/");
-    }
-  }, [user, isLoading, router]);
 
   useEffect(() => {
     if (user) {
@@ -38,10 +33,197 @@ export default function EnglishHubPage() {
     }
   };
 
-  if (isLoading || !user) {
+  if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  // Landing page for non-authenticated users
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-6 shadow-lg">
+              <BookOpen className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Master English Language
+              </span>
+            </h1>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+              Comprehensive English learning for competitive exams, IELTS, TOEFL, and professional communication
+            </p>
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+            >
+              Start Learning English
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Learning Paths Preview */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Competitive Exams Path</h3>
+              <p className="text-slate-600 mb-4">Master English for SSC, Banking, Railways, and state exams</p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Grammar fundamentals & advanced concepts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Vocabulary building with exam patterns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Reading comprehension strategies</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Error spotting & sentence correction</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">IELTS/TOEFL Path</h3>
+              <p className="text-slate-600 mb-4">Achieve your target band score for study abroad</p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Academic writing techniques</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Speaking fluency & pronunciation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Listening practice with native speakers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Test-taking strategies & tips</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-16">
+            <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Why Choose Our English Hub?</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <TrendingUp className="w-8 h-8 text-indigo-600" />
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">AI-Powered Learning</h3>
+                <p className="text-sm text-slate-600">Personalized recommendations based on your performance and goals</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Calendar className="w-8 h-8 text-emerald-600" />
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">Daily Practice Streaks</h3>
+                <p className="text-sm text-slate-600">10-minute daily sessions to build habits and maintain learning momentum</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Zap className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">Rich Explanations</h3>
+                <p className="text-sm text-slate-600">Detailed explanations with examples, grammar rules, and common mistakes</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Learning Topics */}
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white mb-16">
+            <h2 className="text-2xl font-bold mb-6 text-center">What You'll Learn</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Grammar: Tenses, Voice, Narration, Articles</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Vocabulary: Synonyms, Antonyms, Idioms</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Reading: Comprehension & Speed Reading</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Writing: Essays, Letters, Reports</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Speaking: Pronunciation & Fluency</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span>Listening: Accent Training & Comprehension</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Ready to Master English?</h2>
+            <p className="text-slate-600 mb-8">Join thousands of students improving their English skills every day</p>
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+            >
+              Get Started - It's Free
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -81,7 +263,12 @@ export default function EnglishHubPage() {
         <div className="mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold mb-2">🎯 Quick Level Assessment</h2>
+              <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+                Quick Level Assessment
+              </h2>
               <p className="text-indigo-100 mb-4">
                 Take a 3-minute test to find your English level and get a personalized learning path
               </p>
@@ -101,7 +288,9 @@ export default function EnglishHubPage() {
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">Choose Your Learning Path</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {englishPaths.map((path) => (
+            {englishPaths.map((path) => {
+              const PathIcon = getPathIcon(path.id);
+              return (
               <Link key={path.id} href={`/english/${path.id}`}>
                 <div
                   className="bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-lg transition-all cursor-pointer group"
@@ -109,10 +298,10 @@ export default function EnglishHubPage() {
                 >
                   <div className="flex items-start gap-4">
                     <div
-                      className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl flex-shrink-0"
+                      className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: `${path.color}15` }}
                     >
-                      {path.icon}
+                      <PathIcon className="w-8 h-8" style={{ color: path.color }} />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
@@ -140,7 +329,8 @@ export default function EnglishHubPage() {
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
 

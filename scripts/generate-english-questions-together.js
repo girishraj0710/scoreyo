@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Generate English Learning Questions Using Together.ai
- * Uses free credits to generate 1000+ questions across all modules
+ * Generate English Learning Questions Using Together.ai DIRECTLY
+ * Uses free $5 credits to generate 1000+ questions across all modules
  */
 
 const fs = require('fs');
@@ -25,14 +25,14 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const TOGETHER_API_KEY = process.env.TOGETHER_API_KEY;
 const db = createClient({
   url: process.env.TURSO_DATABASE_URL,
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
 console.log('╔═══════════════════════════════════════════════════════════════╗');
-console.log('║  PrepGenie - AI English Question Generator (OpenRouter)     ║');
+console.log('║  PrepGenie - AI English Question Generator (Together.ai)    ║');
 console.log('╚═══════════════════════════════════════════════════════════════╝\n');
 
 // Priority topics to generate (Module 1 & 2 - A1 Foundation)
@@ -264,11 +264,11 @@ Include:
   },
 ];
 
-// Function to call OpenRouter API
+// Function to call Together.ai API DIRECTLY
 async function generateQuestionsWithAI(prompt, count) {
   return new Promise((resolve, reject) => {
     const data = JSON.stringify({
-      model: "meta-llama/llama-3.3-70b-instruct:free",
+      model: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
       messages: [
         {
           role: "user",
@@ -285,14 +285,12 @@ Return ONLY a valid JSON array with NO markdown, NO code blocks, NO explanatory 
     });
 
     const options = {
-      hostname: 'openrouter.ai',
-      path: '/api/v1/chat/completions',
+      hostname: 'api.together.xyz',
+      path: '/v1/chat/completions',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://prepgenie.co.in',
-        'X-Title': 'PrepGenie English Question Generator',
+        'Authorization': `Bearer ${TOGETHER_API_KEY}`,
         'Content-Length': data.length
       }
     };
@@ -356,11 +354,11 @@ Return ONLY a valid JSON array with NO markdown, NO code blocks, NO explanatory 
 
 // Main generation function
 async function generateAllQuestions() {
-  console.log('🤖 Using OpenRouter API (Llama 3.3 70B Instruct)');
-  console.log('💰 Cost: $0 (FREE tier)\n');
+  console.log('🤖 Using Together.ai API (Meta-Llama-3.1-70B-Instruct-Turbo)');
+  console.log('💰 Cost: ~$0.01 per 1M tokens (from $5 free credits)\n');
 
   let totalGenerated = 0;
-  let totalCost = 0;
+  let totalTokens = 0;
 
   for (let i = 0; i < topicsToGenerate.length; i++) {
     const topic = topicsToGenerate[i];
@@ -395,8 +393,8 @@ async function generateAllQuestions() {
 
       totalGenerated += questions.length;
 
-      // Gemini 2.0 Flash is FREE via OpenRouter
-      totalCost = 0;
+      // Estimate tokens (rough: 1 question ≈ 200 tokens)
+      totalTokens += questions.length * 200;
 
       // Small delay to avoid rate limits
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -410,6 +408,8 @@ async function generateAllQuestions() {
   const total = await db.execute('SELECT COUNT(*) as count FROM english_questions');
   const totalCount = total.rows[0].count;
 
+  const estimatedCost = (totalTokens / 1000000) * 0.01;
+
   console.log('\n\n╔═══════════════════════════════════════════════════════════════╗');
   console.log('║  ✅ GENERATION COMPLETE!                                     ║');
   console.log('╚═══════════════════════════════════════════════════════════════╝\n');
@@ -417,7 +417,9 @@ async function generateAllQuestions() {
   console.log(`📊 Summary:`);
   console.log(`   ✅ New questions generated: ${totalGenerated}`);
   console.log(`   ✅ Total in database: ${totalCount}`);
-  console.log(`   💰 Estimated cost: $${totalCost.toFixed(4)} (from free credits)`);
+  console.log(`   💰 Estimated tokens used: ${totalTokens.toLocaleString()}`);
+  console.log(`   💰 Estimated cost: $${estimatedCost.toFixed(4)} (from $5 credits)`);
+  console.log(`   💰 Remaining credits: ~$${(5 - estimatedCost).toFixed(2)}`);
   console.log(`   🎯 Topics covered: ${topicsToGenerate.length}\n`);
 
   console.log('📚 Topics Generated:');

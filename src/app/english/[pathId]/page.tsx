@@ -5,6 +5,7 @@ import { useUser } from "@/context/user-context";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPathById, type EnglishTopic } from "@/lib/english-content";
+import { getPathIcon, getTopicIcon } from "@/lib/english-icons";
 import { ChevronLeft, Clock, BookOpen, Award, CheckCircle2, Lock } from "lucide-react";
 
 interface TopicProgress {
@@ -106,12 +107,17 @@ export default function EnglishPathPage() {
         {/* Path Header */}
         <div className="mb-8 bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
           <div className="flex items-start gap-6">
-            <div
-              className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl flex-shrink-0"
-              style={{ backgroundColor: `${path.color}15` }}
-            >
-              {path.icon}
-            </div>
+            {(() => {
+              const PathIcon = getPathIcon(path.id);
+              return (
+                <div
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${path.color}15` }}
+                >
+                  <PathIcon className="w-10 h-10" style={{ color: path.color }} />
+                </div>
+              );
+            })()}
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-slate-900 mb-2">{path.name}</h1>
               <p className="text-slate-600 mb-4">{path.description}</p>
@@ -146,14 +152,15 @@ export default function EnglishPathPage() {
             const topicProgress = getTopicProgress(topic.id);
             const isStarted = topicProgress.completed > 0;
             const isCompleted = topicProgress.mastery >= 90;
+            const TopicIcon = getTopicIcon(topic.id);
 
             return (
               <Link key={topic.id} href={`/english/${pathId}/${topic.id}`}>
                 <div className="bg-white rounded-xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:bg-indigo-100 transition-colors">
-                      {topic.icon}
+                    <div className="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-100 transition-colors">
+                      <TopicIcon className="w-7 h-7 text-indigo-600" />
                     </div>
 
                     {/* Content */}

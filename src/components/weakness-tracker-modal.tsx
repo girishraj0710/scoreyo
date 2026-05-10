@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Calculator, Lightbulb, Clock, AlertCircle } from "lucide-react";
 
 interface WeaknessTrackerModalProps {
   onSelect: (type: 'calculation' | 'concept' | 'time' | 'careless') => void;
@@ -13,31 +14,35 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
   const weaknessTypes = [
     {
       id: 'calculation' as const,
-      icon: '🧮',
+      IconComponent: Calculator,
       title: 'Calculation Error',
       description: 'Made a math mistake or arithmetic error',
-      color: 'bg-red-50 border-red-300 hover:bg-red-100'
+      color: 'bg-red-50 border-red-300 hover:bg-red-100',
+      iconColor: 'text-red-600'
     },
     {
       id: 'concept' as const,
-      icon: '💡',
+      IconComponent: Lightbulb,
       title: 'Concept Unclear',
       description: 'Didn\'t understand the fundamental concept',
-      color: 'bg-purple-50 border-purple-300 hover:bg-purple-100'
+      color: 'bg-purple-50 border-purple-300 hover:bg-purple-100',
+      iconColor: 'text-purple-600'
     },
     {
       id: 'time' as const,
-      icon: '⏱️',
+      IconComponent: Clock,
       title: 'Ran Out of Time',
       description: 'Knew the answer but couldn\'t finish in time',
-      color: 'bg-amber-50 border-amber-300 hover:bg-amber-100'
+      color: 'bg-amber-50 border-amber-300 hover:bg-amber-100',
+      iconColor: 'text-amber-600'
     },
     {
       id: 'careless' as const,
-      icon: '🤦',
+      IconComponent: AlertCircle,
       title: 'Careless Mistake',
       description: 'Misread question or clicked wrong option',
-      color: 'bg-blue-50 border-blue-300 hover:bg-blue-100'
+      color: 'bg-blue-50 border-blue-300 hover:bg-blue-100',
+      iconColor: 'text-blue-600'
     }
   ];
 
@@ -52,7 +57,11 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
       <div className="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300">
         <div className="text-center mb-6">
-          <div className="text-4xl mb-3">🤔</div>
+          <div className="flex justify-center mb-3">
+            <svg className="w-16 h-16 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
           <h3 className="text-xl font-bold text-slate-800 mb-2">
             What went wrong?
           </h3>
@@ -73,7 +82,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
               }`}
             >
               <div className="flex items-start gap-3">
-                <span className="text-2xl shrink-0">{type.icon}</span>
+                <type.IconComponent className={`w-6 h-6 shrink-0 ${type.iconColor}`} />
                 <div className="flex-1">
                   <div className="font-semibold text-slate-800 mb-0.5">{type.title}</div>
                   <div className="text-xs text-slate-600">{type.description}</div>
