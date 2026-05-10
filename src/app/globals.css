@@ -190,13 +190,11 @@ body {
 /* Glow effect for unlocked levels */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3),
-                0 0 25px rgba(6, 182, 212, 0.2);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
   }
   50% {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5),
-                0 0 35px rgba(6, 182, 212, 0.3),
-                0 0 50px rgba(34, 211, 238, 0.2);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3),
+                0 0 25px rgba(6, 182, 212, 0.15);
   }
 }
 
