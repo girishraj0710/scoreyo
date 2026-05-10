@@ -71,7 +71,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel, e
           {/* Back Button */}
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-lg hover:bg-slate-700/80 font-semibold shadow-md border border-slate-600/50 transition-all text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 font-semibold shadow-md transition-all text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Back</span>
