@@ -77,13 +77,20 @@ export function LoginModal() {
     setError("");
     setIsSubmitting(true);
     try {
-      const result = await sendOtp(email.trim());
+      const result = await sendOtp(email.trim(), "login");
       if (result.success) {
         setStep("signin-otp");
         setCountdown(60);
         setTimeout(() => otpRefs.current[0]?.focus(), 100);
       } else {
         setError(result.error || "Failed to send code");
+        // If user should signup instead, switch to signup flow
+        if (result.shouldSignup) {
+          setTimeout(() => {
+            setStep("signup-form");
+            setError("");
+          }, 2000);
+        }
       }
     } finally {
       setIsSubmitting(false);
@@ -100,13 +107,20 @@ export function LoginModal() {
     setError("");
     setIsSubmitting(true);
     try {
-      const result = await sendOtp(email.trim());
+      const result = await sendOtp(email.trim(), "signup");
       if (result.success) {
         setStep("signup-otp");
         setCountdown(60);
         setTimeout(() => otpRefs.current[0]?.focus(), 100);
       } else {
         setError(result.error || "Failed to send code");
+        // If user should login instead, switch to login flow
+        if (result.shouldLogin) {
+          setTimeout(() => {
+            setStep("signin-email");
+            setError("");
+          }, 2000);
+        }
       }
     } finally {
       setIsSubmitting(false);
@@ -208,7 +222,9 @@ export function LoginModal() {
     setError("");
     setIsSubmitting(true);
     try {
-      const result = await sendOtp(email.trim());
+      // Determine action based on current step
+      const action = step === "signin-otp" ? "login" : "signup";
+      const result = await sendOtp(email.trim(), action);
       if (result.success) {
         setCountdown(60);
         setOtp(["", "", "", "", "", ""]);
@@ -509,8 +525,11 @@ export function LoginModal() {
 
             {step === "signup-otp" && (
               <div className="mt-6 p-4 bg-blue-50 rounded-xl">
-                <p className="text-sm text-blue-800">
-                  📝 <strong>Signing up as:</strong> {name}
+                <p className="text-sm text-blue-800 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span><strong>Signing up as:</strong> {name}</span>
                 </p>
                 <p className="text-xs text-blue-600 mt-1">
                   Verify your email to complete registration

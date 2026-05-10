@@ -19,7 +19,7 @@ interface UserContextType {
   isLoading: boolean;
   showLoginModal: boolean;
   setShowLoginModal: (show: boolean) => void;
-  sendOtp: (email: string) => Promise<{ success: boolean; error?: string }>;
+  sendOtp: (email: string, action?: "login" | "signup") => Promise<{ success: boolean; error?: string; shouldLogin?: boolean; shouldSignup?: boolean }>;
   verifyOtp: (email: string, code: string) => Promise<{ success: boolean; error?: string }>;
   completeLogin: (
     email: string,
@@ -75,16 +75,21 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  async function sendOtp(email: string) {
+  async function sendOtp(email: string, action?: "login" | "signup") {
     try {
       const res = await fetch("/api/auth/otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, action }),
       });
       const data = await res.json();
       if (!res.ok) {
-        return { success: false, error: data.error || "Failed to send OTP" };
+        return {
+          success: false,
+          error: data.error || "Failed to send OTP",
+          shouldLogin: data.shouldLogin,
+          shouldSignup: data.shouldSignup
+        };
       }
       return { success: true };
     } catch {

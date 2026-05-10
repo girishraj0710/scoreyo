@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-import { saveOtp, verifyOtp } from "@/lib/db";
+import { saveOtp, verifyOtp, getUserByEmail } from "@/lib/db";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -23,6 +23,25 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(cleanEmail)) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
+    }
+
+    // Check if user already exists
+    const existingUser = await getUserByEmail(cleanEmail);
+
+    // If action is "signup" and user exists, return error
+    if (action === "signup" && existingUser) {
+      return NextResponse.json({
+        error: "An account with this email already exists. Please log in instead.",
+        shouldLogin: true
+      }, { status: 400 });
+    }
+
+    // If action is "login" and user doesn't exist, return error
+    if (action === "login" && !existingUser) {
+      return NextResponse.json({
+        error: "No account found with this email. Please sign up first.",
+        shouldSignup: true
+      }, { status: 400 });
     }
 
     // Generate and save OTP
