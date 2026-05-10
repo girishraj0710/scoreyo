@@ -111,30 +111,6 @@ function LevelSelectionContent() {
 
   return (
     <>
-      {/* Floating Back Button */}
-      <div className="fixed top-4 left-4 z-50">
-        <a
-          href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-xl hover:bg-slate-700/80 font-semibold shadow-lg border border-slate-600/50 transition-all"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span className="hidden sm:inline">Back</span>
-        </a>
-      </div>
-
-      {/* Floating Random Quiz Button */}
-      <div className="fixed top-4 right-4 z-50">
-        <a
-          href={`/?examId=${examId}&subjectId=${subjectId}`}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl hover:from-cyan-600 hover:to-blue-700 font-semibold shadow-lg shadow-cyan-500/50 transition-all"
-        >
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-          </svg>
-          <span className="hidden sm:inline">Random Quiz</span>
-        </a>
-      </div>
-
       {/* Level Map - Full Screen */}
       {levels.length > 0 ? (
         <LevelMapV3
@@ -142,6 +118,8 @@ function LevelSelectionContent() {
             userProgress={userProgress}
             onLevelClick={handleLevelClick}
             currentLevel={progress?.currentLevel}
+            examId={examId || undefined}
+            subjectId={subjectId || undefined}
           />
         ) : (
           <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center">
