@@ -62,10 +62,10 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
   const completedLevels = userProgress.filter((l) => l.is_completed).length;
 
   return (
-    <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50 py-4 px-4">
+    <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 py-4 px-4">
       <div className="max-w-5xl mx-auto w-full pb-8">
         {/* Top Section - Stats */}
-        <div className="mb-2 bg-white rounded-xl p-3 border border-blue-100 shadow-lg shadow-blue-500/10">
+        <div className="mb-2 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 shadow-lg shadow-black/20">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
@@ -75,17 +75,17 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                 <span className="text-2xl font-bold bg-gradient-to-r from-[#635BFF] to-[#00E5E5] bg-clip-text text-transparent">{totalStars}</span>
                 <span className="text-slate-500 text-sm">/90</span>
               </div>
-              <div className="text-xs text-slate-600 font-semibold">Stars Earned</div>
+              <div className="text-xs text-white/90 font-semibold">Stars Earned</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-[#635BFF] mb-2">{completedLevels}/30</div>
-              <div className="text-xs text-slate-600 font-semibold">Levels Completed</div>
+              <div className="text-2xl font-bold text-[#00E5E5] mb-2">{completedLevels}/30</div>
+              <div className="text-xs text-white/90 font-semibold">Levels Completed</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-[#00E5E5] mb-2">
+              <div className="text-2xl font-bold text-amber-400 mb-2">
                 {userProgress.filter((l) => l.stars_earned === 3).length}
               </div>
-              <div className="text-xs text-slate-600 font-semibold">Perfect Scores</div>
+              <div className="text-xs text-white/90 font-semibold">Perfect Scores</div>
             </div>
           </div>
         </div>
@@ -93,24 +93,24 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         {/* Title Section with Legend */}
         <div className="mb-6">
           <div className="text-center mb-1.5">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-[#635BFF] via-[#00E5E5] to-[#635BFF] bg-clip-text text-transparent tracking-wide drop-shadow-sm">
+            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 tracking-wide drop-shadow-[0_0_30px_rgba(0,229,229,0.5)]">
               LEVEL SELECTION
             </h1>
           </div>
 
           {/* Legend - Achievement Info */}
           <div className="flex items-center justify-center gap-2 flex-wrap">
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">🏅</div>
-              <span className="text-xs text-slate-700 font-semibold">Beginner (10)</span>
+              <span className="text-xs text-white/90 font-semibold">Beginner (10)</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">🏆</div>
-              <span className="text-xs text-slate-700 font-semibold">Expert (20)</span>
+              <span className="text-xs text-white/90 font-semibold">Expert (20)</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <div className="text-sm">👑</div>
-              <span className="text-xs text-slate-700 font-semibold">Master (30)</span>
+              <span className="text-xs text-white/90 font-semibold">Master (30)</span>
             </div>
           </div>
         </div>
@@ -132,16 +132,16 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                     relative w-full aspect-square rounded-2xl transition-all duration-300
                     ${isBoss ? 'ring-4 ring-[#00E5E5]/50' : ''}
                     ${state === "locked"
-                      ? 'bg-slate-100 border-4 border-slate-200 cursor-not-allowed'
+                      ? 'bg-slate-800/50 border-4 border-slate-700/50 cursor-not-allowed'
                       : state === "completed"
-                        ? 'bg-gradient-to-br from-[#635BFF] to-[#00E5E5] border-4 border-[#00E5E5] shadow-xl shadow-[#00E5E5]/40 hover:scale-110 cursor-pointer animate-glow'
-                        : 'bg-gradient-to-br from-[#635BFF] to-[#8B5CF6] border-4 border-[#635BFF] shadow-lg shadow-[#635BFF]/30 hover:scale-110 animate-pulse cursor-pointer'
+                        ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-4 border-cyan-400 shadow-xl shadow-cyan-500/50 hover:scale-110 cursor-pointer animate-glow'
+                        : 'bg-gradient-to-br from-indigo-500 to-purple-600 border-4 border-indigo-400 shadow-lg shadow-indigo-500/50 hover:scale-110 animate-pulse cursor-pointer'
                     }
                   `}
                 >
                   {/* Boss Crown Badge */}
                   {isBoss && (
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white z-10">
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white z-10">
                       <Crown className="w-3 h-3 text-amber-900" />
                     </div>
                   )}
@@ -149,7 +149,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   {/* Level Content */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {state === "locked" ? (
-                      <Lock className="w-5 h-5 text-slate-400" />
+                      <Lock className="w-5 h-5 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]" />
                     ) : (
                       <span className="text-xl font-bold text-white drop-shadow-lg">
                         {level.levelNumber}
@@ -167,13 +167,13 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
 
         {/* Page Text Indicator - Above Navigation */}
         <div className="text-center mb-1.5">
-          <span className="text-sm text-slate-600 font-semibold">
+          <span className="text-sm text-white/90 font-semibold">
             Page {currentPage + 1} of {totalPages}
           </span>
         </div>
 
         {/* Bottom Section - Navigation Only */}
-        <div className="bg-white rounded-xl p-2.5 border border-blue-100 mb-4 shadow-lg shadow-blue-500/10">
+        <div className="bg-white/10 backdrop-blur-md rounded-xl p-2.5 border border-white/20 mb-4 shadow-lg shadow-black/20">
           <div className="flex items-center justify-center gap-4">
             {/* Previous Button */}
             <button
@@ -182,8 +182,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
               className={`
                 flex items-center gap-1 px-5 py-2.5 rounded-xl font-bold text-sm transition-all
                 ${currentPage === 0
-                  ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-[#635BFF] to-[#8B5CF6] text-white hover:from-[#5046E5] hover:to-[#7C3AED] shadow-lg shadow-[#635BFF]/30 hover:shadow-xl'
+                  ? 'bg-slate-700/50 text-slate-500 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:from-indigo-700 hover:to-blue-700 shadow-lg shadow-indigo-500/50 hover:shadow-xl'
                 }
               `}
             >
@@ -200,8 +200,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   className={`
                     w-2.5 h-2.5 rounded-full transition-all
                     ${currentPage === index
-                      ? 'w-8 bg-gradient-to-r from-[#635BFF] to-[#00E5E5]'
-                      : 'bg-slate-300 hover:bg-slate-400'
+                      ? 'w-8 bg-gradient-to-r from-cyan-400 to-blue-500'
+                      : 'bg-white/30 hover:bg-white/50'
                     }
                   `}
                 />
@@ -215,8 +215,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
               className={`
                 flex items-center gap-1 px-5 py-2.5 rounded-xl font-bold text-sm transition-all
                 ${currentPage === totalPages - 1
-                  ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-[#00E5E5] to-[#00C4CC] text-white hover:from-[#00D4D4] hover:to-[#00B4B4] shadow-lg shadow-[#00E5E5]/30 hover:shadow-xl'
+                  ? 'bg-slate-700/50 text-slate-500 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-emerald-600 to-cyan-600 text-white hover:from-emerald-700 hover:to-cyan-700 shadow-lg shadow-emerald-500/50 hover:shadow-xl'
                 }
               `}
             >
