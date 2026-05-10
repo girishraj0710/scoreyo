@@ -62,8 +62,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
   const completedLevels = userProgress.filter((l) => l.is_completed).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 py-4 px-4">
-      <div className="max-w-5xl mx-auto w-full">
+    <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 py-4 px-4">
+      <div className="max-w-5xl mx-auto w-full pb-8">
         {/* Top Section - Stats */}
         <div className="mb-2 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-3 border border-indigo-500/30">
           <div className="grid grid-cols-3 gap-4 text-center">

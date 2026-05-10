@@ -110,12 +110,7 @@ function LevelSelectionContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-      <style jsx global>{`
-        footer {
-          display: none !important;
-        }
-      `}</style>
+    <>
       {/* Floating Back Button */}
       <div className="fixed top-4 left-4 z-50">
         <a
@@ -169,8 +164,8 @@ function LevelSelectionContent() {
             </div>
           </div>
         )}
-    </div>
-  );
+      </>
+    );
 }
 
 export default function LevelSelectionPage() {
