@@ -32,21 +32,21 @@ export function AppHeader() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
             P
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             PrepGenie
           </span>
-        </Link>
+        </a>
 
         <div className="flex items-center gap-1">
           {/* Nav Links */}
           <nav className="hidden sm:flex items-center gap-1">
-            <Link href="/" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
+            <a href="/" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
               {t("home")}
-            </Link>
+            </a>
             <Link href="/dashboard" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
               {t("dashboard")}
             </Link>
@@ -122,7 +122,7 @@ export function AppHeader() {
                   </div>
                   {/* Mobile nav links */}
                   <div className="sm:hidden border-b border-slate-100">
-                    <Link href="/" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("home")}</Link>
+                    <a href="/" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">{t("home")}</a>
                     <Link href="/dashboard" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("dashboard")}</Link>
                     <Link href="/review" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("review")}</Link>
                     <Link href="/mock-test" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("mockTests")}</Link>
