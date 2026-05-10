@@ -49,8 +49,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
             key={s}
             className={`w-3 h-3 ${
               state === "completed" && s <= stars
-                ? "fill-white text-white"
-                : "fill-[#1A1A1A]/20 text-[#1A1A1A]/20"
+                ? "fill-yellow-300 text-yellow-400 drop-shadow-[0_0_6px_rgba(253,224,71,0.8)]"
+                : "fill-slate-300 text-slate-400"
             }`}
           />
         ))}
@@ -62,30 +62,30 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
   const completedLevels = userProgress.filter((l) => l.is_completed).length;
 
   return (
-    <div className="bg-[#F5F5F0] py-4 px-4">
+    <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50 py-4 px-4">
       <div className="max-w-5xl mx-auto w-full pb-8">
         {/* Top Section - Stats */}
-        <div className="mb-2 bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
+        <div className="mb-2 bg-white rounded-xl p-3 border border-blue-100 shadow-lg shadow-blue-500/10">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-lg bg-[#4F46E5] flex items-center justify-center shadow-md">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#635BFF] to-[#00E5E5] flex items-center justify-center shadow-lg">
                   <Star className="w-4 h-4 fill-white text-white" />
                 </div>
-                <span className="text-2xl font-bold text-[#4F46E5]">{totalStars}</span>
-                <span className="text-[#1A1A1A]/60 text-sm">/90</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#635BFF] to-[#00E5E5] bg-clip-text text-transparent">{totalStars}</span>
+                <span className="text-slate-500 text-sm">/90</span>
               </div>
-              <div className="text-xs text-[#1A1A1A]/80 font-medium">Stars Earned</div>
+              <div className="text-xs text-slate-600 font-semibold">Stars Earned</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-[#1A1A1A] mb-2">{completedLevels}/30</div>
-              <div className="text-xs text-[#1A1A1A]/80 font-medium">Levels Completed</div>
+              <div className="text-2xl font-bold text-[#635BFF] mb-2">{completedLevels}/30</div>
+              <div className="text-xs text-slate-600 font-semibold">Levels Completed</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-[#4F46E5] mb-2">
+              <div className="text-2xl font-bold text-[#00E5E5] mb-2">
                 {userProgress.filter((l) => l.stars_earned === 3).length}
               </div>
-              <div className="text-xs text-[#1A1A1A]/80 font-medium">Perfect Scores</div>
+              <div className="text-xs text-slate-600 font-semibold">Perfect Scores</div>
             </div>
           </div>
         </div>
@@ -93,24 +93,24 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         {/* Title Section with Legend */}
         <div className="mb-6">
           <div className="text-center mb-1.5">
-            <h1 className="text-2xl font-bold text-[#1A1A1A] tracking-wide">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-[#635BFF] via-[#00E5E5] to-[#635BFF] bg-clip-text text-transparent tracking-wide drop-shadow-sm">
               LEVEL SELECTION
             </h1>
           </div>
 
           {/* Legend - Achievement Info */}
           <div className="flex items-center justify-center gap-2 flex-wrap">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#1A1A1A]/10">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200">
               <div className="text-sm">🏅</div>
-              <span className="text-xs text-[#1A1A1A]/80 font-medium">Beginner (10)</span>
+              <span className="text-xs text-slate-700 font-semibold">Beginner (10)</span>
             </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#1A1A1A]/10">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200">
               <div className="text-sm">🏆</div>
-              <span className="text-xs text-[#1A1A1A]/80 font-medium">Expert (20)</span>
+              <span className="text-xs text-slate-700 font-semibold">Expert (20)</span>
             </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#1A1A1A]/10">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200">
               <div className="text-sm">👑</div>
-              <span className="text-xs text-[#1A1A1A]/80 font-medium">Master (30)</span>
+              <span className="text-xs text-slate-700 font-semibold">Master (30)</span>
             </div>
           </div>
         </div>
@@ -129,29 +129,29 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   onClick={() => state !== "locked" && onLevelClick(level)}
                   disabled={state === "locked"}
                   className={`
-                    relative w-full aspect-square rounded-lg transition-all duration-300
-                    ${isBoss ? 'ring-4 ring-[#4F46E5]/30' : ''}
+                    relative w-full aspect-square rounded-2xl transition-all duration-300
+                    ${isBoss ? 'ring-4 ring-[#00E5E5]/50' : ''}
                     ${state === "locked"
-                      ? 'bg-[#1A1A1A]/5 border-2 border-[#1A1A1A]/10 cursor-not-allowed'
+                      ? 'bg-slate-100 border-4 border-slate-200 cursor-not-allowed'
                       : state === "completed"
-                        ? 'bg-[#4F46E5] border-2 border-[#4F46E5] shadow-lg shadow-[#4F46E5]/20 hover:scale-105 cursor-pointer'
-                        : 'bg-[#4F46E5]/80 border-2 border-[#4F46E5] shadow-md hover:scale-105 hover:bg-[#4F46E5] animate-pulse cursor-pointer'
+                        ? 'bg-gradient-to-br from-[#635BFF] to-[#00E5E5] border-4 border-[#00E5E5] shadow-xl shadow-[#00E5E5]/40 hover:scale-110 cursor-pointer animate-glow'
+                        : 'bg-gradient-to-br from-[#635BFF] to-[#8B5CF6] border-4 border-[#635BFF] shadow-lg shadow-[#635BFF]/30 hover:scale-110 animate-pulse cursor-pointer'
                     }
                   `}
                 >
                   {/* Boss Crown Badge */}
                   {isBoss && (
-                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#4F46E5] rounded-md flex items-center justify-center shadow-md border-2 border-white z-10">
-                      <Crown className="w-2.5 h-2.5 text-white" />
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white z-10">
+                      <Crown className="w-3 h-3 text-amber-900" />
                     </div>
                   )}
 
                   {/* Level Content */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {state === "locked" ? (
-                      <Lock className="w-4 h-4 text-[#1A1A1A]/30" />
+                      <Lock className="w-5 h-5 text-slate-400" />
                     ) : (
-                      <span className="text-lg font-bold text-white">
+                      <span className="text-xl font-bold text-white drop-shadow-lg">
                         {level.levelNumber}
                       </span>
                     )}
@@ -167,23 +167,23 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
 
         {/* Page Text Indicator - Above Navigation */}
         <div className="text-center mb-1.5">
-          <span className="text-sm text-[#1A1A1A]/70 font-medium">
+          <span className="text-sm text-slate-600 font-semibold">
             Page {currentPage + 1} of {totalPages}
           </span>
         </div>
 
         {/* Bottom Section - Navigation Only */}
-        <div className="bg-white rounded-lg p-2.5 border border-[#1A1A1A]/10 mb-4 shadow-sm">
+        <div className="bg-white rounded-xl p-2.5 border border-blue-100 mb-4 shadow-lg shadow-blue-500/10">
           <div className="flex items-center justify-center gap-4">
             {/* Previous Button */}
             <button
               onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
               disabled={currentPage === 0}
               className={`
-                flex items-center gap-1 px-4 py-2 rounded-md font-semibold text-sm transition-all
+                flex items-center gap-1 px-5 py-2.5 rounded-xl font-bold text-sm transition-all
                 ${currentPage === 0
-                  ? 'bg-[#1A1A1A]/5 text-[#1A1A1A]/30 cursor-not-allowed'
-                  : 'bg-[#4F46E5] text-white hover:bg-[#4338CA] shadow-md'
+                  ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-[#635BFF] to-[#8B5CF6] text-white hover:from-[#5046E5] hover:to-[#7C3AED] shadow-lg shadow-[#635BFF]/30 hover:shadow-xl'
                 }
               `}
             >
@@ -198,10 +198,10 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                   key={index}
                   onClick={() => setCurrentPage(index)}
                   className={`
-                    w-2 h-2 rounded-full transition-all
+                    w-2.5 h-2.5 rounded-full transition-all
                     ${currentPage === index
-                      ? 'w-6 bg-[#4F46E5]'
-                      : 'bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/30'
+                      ? 'w-8 bg-gradient-to-r from-[#635BFF] to-[#00E5E5]'
+                      : 'bg-slate-300 hover:bg-slate-400'
                     }
                   `}
                 />
@@ -213,10 +213,10 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
               onClick={() => setCurrentPage(Math.min(totalPages - 1, currentPage + 1))}
               disabled={currentPage === totalPages - 1}
               className={`
-                flex items-center gap-1 px-4 py-2 rounded-md font-semibold text-sm transition-all
+                flex items-center gap-1 px-5 py-2.5 rounded-xl font-bold text-sm transition-all
                 ${currentPage === totalPages - 1
-                  ? 'bg-[#1A1A1A]/5 text-[#1A1A1A]/30 cursor-not-allowed'
-                  : 'bg-[#4F46E5] text-white hover:bg-[#4338CA] shadow-md'
+                  ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-[#00E5E5] to-[#00C4CC] text-white hover:from-[#00D4D4] hover:to-[#00B4B4] shadow-lg shadow-[#00E5E5]/30 hover:shadow-xl'
                 }
               `}
             >
