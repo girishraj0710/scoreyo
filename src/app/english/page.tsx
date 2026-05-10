@@ -324,27 +324,27 @@ export default function EnglishHubPage() {
         {/* Learning Paths */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">Choose Your Learning Path</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {englishPaths.map((path) => {
               const PathIcon = getPathIcon(path.id);
               return (
-              <Link key={path.id} href={`/english/${path.id}`}>
+              <Link key={path.id} href={`/english/${path.id}`} className="h-full">
                 <div
-                  className="bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-lg transition-all cursor-pointer group"
+                  className="bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-lg transition-all cursor-pointer group h-full flex flex-col"
                   style={{ borderColor: `${path.color}20` }}
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-4 flex-1">
                     <div
                       className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: `${path.color}15` }}
                     >
                       <PathIcon className="w-8 h-8" style={{ color: path.color }} />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors min-h-[3.5rem]">
                         {path.name}
                       </h3>
-                      <p className="text-sm text-slate-600 mb-3">
+                      <p className="text-sm text-slate-600 mb-3 min-h-[2.5rem]">
                         {path.description}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-3">
@@ -358,7 +358,7 @@ export default function EnglishHubPage() {
                           {path.estimatedWeeks} weeks
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-slate-500">
+                      <div className="flex items-center gap-2 text-sm text-slate-500 mt-auto">
                         <BookOpen className="w-4 h-4" />
                         <span>{path.topics.length} topics</span>
                       </div>

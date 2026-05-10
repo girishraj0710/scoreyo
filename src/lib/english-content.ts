@@ -621,7 +621,7 @@ export const englishPaths: EnglishPath[] = [
         questionCount: 100,
       },
     ],
-  },,
+  },
   {
     id: "competitive-exam",
     name: "Competitive Exam English",
@@ -718,7 +718,7 @@ export const englishPaths: EnglishPath[] = [
         questionCount: 40,
       },
     ],
-  },,
+  },
   {
     id: "ielts-toefl",
     name: "IELTS & TOEFL Preparation",
@@ -833,7 +833,7 @@ export const englishPaths: EnglishPath[] = [
         questionCount: 240,
       },
     ],
-  },,
+  },
   {
     id: "real-world",
     name: "Real-World English",
