@@ -66,6 +66,29 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel, e
   return (
     <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 py-8 px-4">
       <div className="max-w-5xl mx-auto w-full pb-4">
+        {/* Navigation Buttons Row */}
+        <div className="flex items-center justify-between mb-3">
+          {/* Back Button */}
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-lg hover:bg-slate-700/80 font-semibold shadow-md border border-slate-600/50 transition-all text-sm"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="hidden sm:inline">Back</span>
+          </a>
+
+          {/* Random Quiz Button */}
+          <a
+            href={`/?examId=${examId}&subjectId=${subjectId}`}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 font-semibold shadow-md transition-all text-sm"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            <span className="hidden sm:inline">Random Quiz</span>
+          </a>
+        </div>
+
         {/* Top Section - Stats */}
         <div className="mb-3 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 shadow-lg shadow-black/20">
           <div className="grid grid-cols-3 gap-4 text-center">
@@ -94,31 +117,10 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel, e
 
         {/* Title Section with Legend */}
         <div className="mb-4">
-          <div className="flex items-center justify-center gap-4 mb-2">
-            {/* Back Button */}
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 px-3 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-lg hover:bg-slate-700/80 font-semibold shadow-md border border-slate-600/50 transition-all text-sm"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">Back</span>
-            </a>
-
-            {/* Title */}
+          <div className="text-center mb-2">
             <h1 className="text-3xl font-bold text-[#DAB661] tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               SELECT LEVEL
             </h1>
-
-            {/* Random Quiz Button */}
-            <a
-              href={`/?examId=${examId}&subjectId=${subjectId}`}
-              className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 font-semibold shadow-md transition-all text-sm"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
-              <span className="hidden sm:inline">Random Quiz</span>
-            </a>
           </div>
 
           {/* Legend - Achievement Info */}
