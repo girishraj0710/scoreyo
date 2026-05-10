@@ -72,12 +72,102 @@ export function shouldUnlockNextLevel(accuracy: number, currentLevelType: LevelT
   return accuracy >= 60; // Normal levels need 60%+
 }
 
+// Generate generic 30-level journey for any exam-subject
+function generateGenericLevels(examId: string, subjectId: string): LevelDefinition[] {
+  const levels: LevelDefinition[] = [];
+
+  // Easy Levels (1-10) - 5 questions each
+  for (let i = 1; i <= 9; i++) {
+    levels.push({
+      examId,
+      subjectId,
+      levelNumber: i,
+      levelName: `Level ${i} - Fundamentals`,
+      levelType: 'normal',
+      difficulty: 'easy',
+      questionCount: 5,
+      unlockRequirement: i === 1 ? 'Start here' : `Complete Level ${i - 1}`,
+      description: 'Build your foundation with basic concepts',
+    });
+  }
+
+  // Boss Level 10
+  levels.push({
+    examId,
+    subjectId,
+    levelNumber: 10,
+    levelName: '🏆 BOSS: Foundation Master',
+    levelType: 'boss',
+    difficulty: 'mixed',
+    questionCount: 20,
+    unlockRequirement: 'Complete Level 9 with 60%+',
+    description: 'Test your mastery of foundational concepts',
+  });
+
+  // Medium Levels (11-20) - 10 questions each
+  for (let i = 11; i <= 19; i++) {
+    levels.push({
+      examId,
+      subjectId,
+      levelNumber: i,
+      levelName: `Level ${i} - Intermediate`,
+      levelType: 'normal',
+      difficulty: 'medium',
+      questionCount: 10,
+      unlockRequirement: `Complete Level ${i - 1}`,
+      description: 'Sharpen your skills with moderate challenges',
+    });
+  }
+
+  // Boss Level 20
+  levels.push({
+    examId,
+    subjectId,
+    levelNumber: 20,
+    levelName: '🏆 BOSS: Intermediate Champion',
+    levelType: 'boss',
+    difficulty: 'mixed',
+    questionCount: 20,
+    unlockRequirement: 'Complete Level 19 with 60%+',
+    description: 'Prove your intermediate mastery',
+  });
+
+  // Hard Levels (21-30) - 15 questions each
+  for (let i = 21; i <= 29; i++) {
+    levels.push({
+      examId,
+      subjectId,
+      levelNumber: i,
+      levelName: `Level ${i} - Advanced`,
+      levelType: 'normal',
+      difficulty: 'hard',
+      questionCount: 15,
+      unlockRequirement: `Complete Level ${i - 1}`,
+      description: 'Master the most challenging topics',
+    });
+  }
+
+  // Final Boss Level 30
+  levels.push({
+    examId,
+    subjectId,
+    levelNumber: 30,
+    levelName: '👑 FINAL BOSS: Ultimate Challenge',
+    levelType: 'boss',
+    difficulty: 'mixed',
+    questionCount: 25,
+    unlockRequirement: 'Complete Level 29 with 70%+',
+    description: 'The ultimate test of your knowledge',
+  });
+
+  return levels;
+}
+
 // Generate level definitions for all exams
 export function generateLevelDefinitions(): LevelDefinition[] {
   const allLevels: LevelDefinition[] = [];
 
-  // For now, we'll use JEE Physics as template
-  // TODO: Generate for all exam-subject combinations
+  // Use handcrafted levels for JEE Physics (more detailed)
   allLevels.push(...JEE_PHYSICS_LEVELS);
 
   return allLevels;
@@ -94,7 +184,15 @@ export function getLevelDefinition(examId: string, subjectId: string, levelNumbe
 // Get all levels for an exam-subject
 export function getLevelsForSubject(examId: string, subjectId: string): LevelDefinition[] {
   const allLevels = generateLevelDefinitions();
-  return allLevels.filter(
+  const existingLevels = allLevels.filter(
     (l) => l.examId === examId && l.subjectId === subjectId
-  ).sort((a, b) => a.levelNumber - b.levelNumber);
+  );
+
+  // If handcrafted levels exist, return them
+  if (existingLevels.length > 0) {
+    return existingLevels.sort((a, b) => a.levelNumber - b.levelNumber);
+  }
+
+  // Otherwise, generate generic levels for this exam-subject
+  return generateGenericLevels(examId, subjectId);
 }
