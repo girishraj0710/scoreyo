@@ -44,15 +44,15 @@ export default function EnglishHubPage() {
   // Landing page for non-authenticated users
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
         <div className="max-w-6xl mx-auto px-4 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-6 shadow-lg">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl mb-6 shadow-lg">
               <BookOpen className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 Master English Language
               </span>
             </h1>
@@ -61,7 +61,7 @@ export default function EnglishHubPage() {
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg hover:shadow-xl transition-all"
             >
               Start Learning English
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,32 +74,32 @@ export default function EnglishHubPage() {
           <div className="grid md:grid-cols-3 gap-6 mb-16 items-stretch">
             {/* Foundation Builder - First Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
-                <BookOpen className="w-6 h-6 text-emerald-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+                <BookOpen className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Foundation Builder</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Build strong foundations from A1 to B1 level</p>
               <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Start from scratch - complete beginner friendly</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Essential grammar rules with examples</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Common vocabulary for daily communication</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Pronunciation & conversation practice</span>
@@ -109,32 +109,32 @@ export default function EnglishHubPage() {
 
             {/* Competitive Exams - Second Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
-              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
-                <Target className="w-6 h-6 text-indigo-600" />
+              <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+                <Target className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Competitive Exams</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Master English for SSC, Banking, Railways, state exams</p>
               <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Grammar fundamentals & advanced topics</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Vocabulary building with exam patterns</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Reading comprehension strategies</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Error spotting & sentence correction</span>
@@ -144,32 +144,32 @@ export default function EnglishHubPage() {
 
             {/* IELTS/TOEFL - Third Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
-                <Award className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+                <Award className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">IELTS/TOEFL</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Achieve your target band score for study abroad</p>
               <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Academic writing techniques & templates</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Speaking fluency & pronunciation drills</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Listening practice with native speakers</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Test-taking strategies & time management</span>
@@ -180,34 +180,34 @@ export default function EnglishHubPage() {
 
           {/* Features */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-16">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Why Choose Our English Hub?</h2>
+            <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">Why Choose Our English Hub?</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <TrendingUp className="w-8 h-8 text-indigo-600" />
+                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <TrendingUp className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-2">AI-Powered Learning</h3>
+                <h3 className="font-semibold text-blue-700 mb-2">AI-Powered Learning</h3>
                 <p className="text-sm text-slate-600">Personalized recommendations based on your performance and goals</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Calendar className="w-8 h-8 text-emerald-600" />
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Calendar className="w-8 h-8 text-amber-600" />
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-2">Daily Practice Streaks</h3>
+                <h3 className="font-semibold text-blue-700 mb-2">Daily Practice Streaks</h3>
                 <p className="text-sm text-slate-600">10-minute daily sessions to build habits and maintain learning momentum</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Zap className="w-8 h-8 text-purple-600" />
+                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Zap className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-2">Rich Explanations</h3>
+                <h3 className="font-semibold text-blue-700 mb-2">Rich Explanations</h3>
                 <p className="text-sm text-slate-600">Detailed explanations with examples, grammar rules, and common mistakes</p>
               </div>
             </div>
           </div>
 
           {/* Learning Topics */}
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-white mb-16">
             <h2 className="text-2xl font-bold mb-6 text-center">What You'll Learn</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
@@ -251,11 +251,11 @@ export default function EnglishHubPage() {
 
           {/* CTA */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Ready to Master English?</h2>
+            <h2 className="text-2xl font-bold text-blue-700 mb-4">Ready to Master English?</h2>
             <p className="text-slate-600 mb-8">Join thousands of students improving their English skills every day</p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-600 shadow-lg hover:shadow-xl transition-all"
             >
               Get Started - It's Free
             </button>
@@ -271,7 +271,7 @@ export default function EnglishHubPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -282,11 +282,11 @@ export default function EnglishHubPage() {
             </h1>
             <div className="flex items-center gap-6">
               {/* Daily Streak */}
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-orange-200">
-                <Zap className={`w-5 h-5 ${todayCompleted ? 'text-orange-500' : 'text-slate-400'}`} />
+              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-amber-200">
+                <Zap className={`w-5 h-5 ${todayCompleted ? 'text-amber-500' : 'text-slate-400'}`} />
                 <div>
                   <div className="text-xs text-slate-500">Daily Streak</div>
-                  <div className="text-xl font-bold text-orange-600">{dailyStreak} days</div>
+                  <div className="text-xl font-bold text-amber-600">{dailyStreak} days</div>
                 </div>
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function EnglishHubPage() {
         </div>
 
         {/* Quick Assessment */}
-        <div className="mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+        <div className="mb-8 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-white shadow-lg">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
@@ -306,17 +306,17 @@ export default function EnglishHubPage() {
                 </svg>
                 Quick Level Assessment
               </h2>
-              <p className="text-indigo-100 mb-4">
+              <p className="text-blue-100 mb-4">
                 Take a 3-minute test to find your English level and get a personalized learning path
               </p>
               <Link href="/english/assessment">
-                <button className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-all">
+                <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all">
                   Start Assessment →
                 </button>
               </Link>
             </div>
             <div className="hidden md:block">
-              <Target className="w-24 h-24 text-indigo-200 opacity-50" />
+              <Target className="w-24 h-24 text-blue-300 opacity-50" />
             </div>
           </div>
         </div>
@@ -330,7 +330,7 @@ export default function EnglishHubPage() {
               return (
               <Link key={path.id} href={`/english/${path.id}`} className="h-full">
                 <div
-                  className="bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-lg transition-all cursor-pointer group h-full flex flex-col"
+                  className="bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer group h-full flex flex-col"
                   style={{ borderColor: `${path.color}20` }}
                 >
                   <div className="flex items-start gap-4 flex-1">
@@ -341,20 +341,20 @@ export default function EnglishHubPage() {
                       <PathIcon className="w-8 h-8" style={{ color: path.color }} />
                     </div>
                     <div className="flex-1 flex flex-col">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors min-h-[3.5rem]">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors min-h-[3.5rem]">
                         {path.name}
                       </h3>
                       <p className="text-sm text-slate-600 mb-3 min-h-[2.5rem]">
                         {path.description}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-cyan-100 text-blue-700 text-xs font-medium rounded-full">
                           {getLevelBadge(path)}
                         </span>
-                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-cyan-100 text-blue-700 text-xs font-medium rounded-full">
                           {path.totalQuestions} questions
                         </span>
-                        <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
                           {path.estimatedWeeks} weeks
                         </span>
                       </div>
@@ -376,8 +376,8 @@ export default function EnglishHubPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-6">Why Choose Our English Hub?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <TrendingUp className="w-5 h-5 text-indigo-600" />
+              <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <TrendingUp className="w-5 h-5 text-blue-600" />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-1">AI-Powered Learning</h3>
@@ -387,8 +387,8 @@ export default function EnglishHubPage() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Calendar className="w-5 h-5 text-emerald-600" />
+              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Calendar className="w-5 h-5 text-amber-600" />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-1">Daily Practice</h3>
@@ -398,8 +398,8 @@ export default function EnglishHubPage() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Award className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Award className="w-5 h-5 text-blue-600" />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-1">Rich Explanations</h3>
