@@ -38,6 +38,7 @@ export default function MockTestPage() {
   const [configs, setConfigs] = useState<MockTestConfig[]>([]);
   const [history, setHistory] = useState<any[]>([]);
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
+  const [selectedTests, setSelectedTests] = useState<{ [key: string]: number }>({});
 
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
@@ -821,27 +822,35 @@ export default function MockTestPage() {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                {testConfigs.length === 1 ? (
+                {/* Action Button with Test Selector */}
+                <div className="space-y-3">
+                  {testConfigs.length > 1 && (
+                    <div className="flex items-center justify-between px-3 py-2 bg-slate-50 rounded-lg">
+                      <span className="text-sm text-slate-600">Select Test:</span>
+                      <div className="flex gap-1">
+                        {testConfigs.map((config) => (
+                          <button
+                            key={config.testNumber}
+                            onClick={() => setSelectedTests({ ...selectedTests, [examId]: config.testNumber })}
+                            className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
+                              (selectedTests[examId] || 1) === config.testNumber
+                                ? "bg-indigo-600 text-white"
+                                : "bg-white text-slate-600 hover:bg-slate-100"
+                            }`}
+                          >
+                            {config.testNumber}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   <button
-                    onClick={() => startTest(firstConfig.examId, firstConfig.testNumber, testType === "full")}
+                    onClick={() => startTest(firstConfig.examId, selectedTests[examId] || 1, testType === "full")}
                     className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all"
                   >
-                    Start Test
+                    Start Test {testConfigs.length > 1 ? `#${selectedTests[examId] || 1}` : ""}
                   </button>
-                ) : (
-                  <div className="grid grid-cols-2 gap-2">
-                    {testConfigs.slice(0, 4).map((config) => (
-                      <button
-                        key={config.testNumber}
-                        onClick={() => startTest(config.examId, config.testNumber, testType === "full")}
-                        className="py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg text-sm transition-all"
-                      >
-                        Test #{config.testNumber}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                </div>
               </div>
             );
           })}
