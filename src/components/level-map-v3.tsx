@@ -116,7 +116,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-4 my-auto w-full max-w-xl mx-auto px-2 flex-shrink-0">
+        <div className="grid grid-cols-5 gap-4 mt-auto mb-2 w-full max-w-xl mx-auto px-2 flex-shrink-0">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
@@ -166,7 +166,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         </div>
 
         {/* Page Text Indicator - Above Navigation */}
-        <div className="text-center mb-1.5 flex-shrink-0 mt-auto">
+        <div className="text-center mb-1.5 flex-shrink-0">
           <span className="text-sm text-slate-300 font-medium">
             Page {currentPage + 1} of {totalPages}
           </span>
