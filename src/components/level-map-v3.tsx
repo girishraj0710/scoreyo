@@ -134,8 +134,8 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                     ${state === "locked"
                       ? 'bg-slate-800/50 border-4 border-slate-700/50 cursor-not-allowed'
                       : state === "completed"
-                        ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-4 border-cyan-400 shadow-xl shadow-cyan-500/50 hover:scale-110 cursor-pointer animate-glow'
-                        : 'bg-gradient-to-br from-indigo-500 to-purple-600 border-4 border-indigo-400 shadow-lg shadow-indigo-500/50 hover:scale-110 animate-pulse cursor-pointer'
+                        ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-4 border-cyan-400 hover:scale-110 cursor-pointer animate-glow'
+                        : 'bg-gradient-to-br from-indigo-500 to-purple-600 border-4 border-indigo-400 hover:scale-110 cursor-pointer animate-glow'
                     }
                   `}
                 >
