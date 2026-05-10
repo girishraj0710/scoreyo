@@ -357,6 +357,9 @@ export default function HomePage() {
             <button
               onClick={() => {
                 setSelectedCategory(null);
+                setSelectedExam(null);
+                setSelectedSubject(null);
+                setSelectedTopic(null);
                 setTimeout(() => categoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
               }}
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
