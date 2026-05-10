@@ -426,48 +426,48 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {currentSubjects.map((subject) => (
-              <button
-                key={subject.id}
-                onClick={() => {
-                  setSelectedSubject(selectedSubject === subject.id ? null : subject.id);
-                  setSelectedTopic(null);
-                  setTimeout(() => topicRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-                }}
-                className={`card-hover p-4 rounded-xl border-2 text-center relative ${
-                  selectedSubject === subject.id
-                    ? "border-indigo-500 bg-slate-50 shadow-md"
-                    : "border-slate-200 bg-white hover:border-slate-300"
-                }`}
-              >
-                <div className="flex justify-center mb-1">
-                  <ColorfulSubjectIcon
-                    subjectId={subject.id}
-                    size={36}
-                  />
-                </div>
-                <div className="text-sm font-medium text-slate-700">
-                  {subject.name}
-                </div>
-                <div className="text-xs text-slate-400 mt-1">
-                  {subject.topics.length} topics
-                </div>
+              <div key={subject.id} className="relative">
+                <button
+                  onClick={() => {
+                    setSelectedSubject(selectedSubject === subject.id ? null : subject.id);
+                    setSelectedTopic(null);
+                    setTimeout(() => topicRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                  }}
+                  className={`card-hover p-4 rounded-xl border-2 text-center w-full ${
+                    selectedSubject === subject.id
+                      ? "border-indigo-500 bg-slate-50 shadow-md"
+                      : "border-slate-200 bg-white hover:border-slate-300"
+                  }`}
+                >
+                  <div className="flex justify-center mb-1">
+                    <ColorfulSubjectIcon
+                      subjectId={subject.id}
+                      size={36}
+                    />
+                  </div>
+                  <div className="text-sm font-medium text-slate-700">
+                    {subject.name}
+                  </div>
+                  <div className="text-xs text-slate-400 mt-1">
+                    {subject.topics.length} topics
+                  </div>
+                </button>
 
-                {/* Level Mode Button */}
+                {/* Level Mode Button - Outside parent button */}
                 {selectedSubject === subject.id && (
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
+                    onClick={() => {
                       window.location.href = `/quiz/levels?examId=${selectedExam.id}&subjectId=${subject.id}`;
                     }}
-                    className="mt-3 w-full flex items-center justify-center gap-1 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 shadow-md"
+                    className="mt-2 w-full flex items-center justify-center gap-1 px-3 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 shadow-md transition-all"
                   >
                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
                     </svg>
-                    Level Mode
+                    🎮 Level Mode
                   </button>
                 )}
-              </button>
+              </div>
             ))}
           </div>
         </section>
