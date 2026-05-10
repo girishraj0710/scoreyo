@@ -90,18 +90,36 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
           </div>
         </div>
 
-        {/* Title */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
-            LEVEL SELECTION
-          </h1>
-          <div className="mt-2 text-sm text-slate-400">
-            Page {currentPage + 1} of {totalPages}
+        {/* Title Section with Legend */}
+        <div className="mb-8">
+          <div className="text-center mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 tracking-wider drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+              LEVEL SELECTION
+            </h1>
+            <div className="mt-2 text-sm text-slate-400">
+              Page {currentPage + 1} of {totalPages}
+            </div>
+          </div>
+
+          {/* Legend - Achievement Info */}
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
+              <div className="text-base">🏅</div>
+              <span className="text-xs text-slate-300">Beginner (10)</span>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
+              <div className="text-base">🏆</div>
+              <span className="text-xs text-slate-300">Expert (20)</span>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/30 border border-slate-700/30">
+              <div className="text-base">👑</div>
+              <span className="text-xs text-slate-300">Master (30)</span>
+            </div>
           </div>
         </div>
 
         {/* Level Grid - 5 columns x 3 rows = 15 levels */}
-        <div className="grid grid-cols-5 gap-x-6 gap-y-10 mb-12 max-w-4xl mx-auto">
+        <div className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12 max-w-3xl mx-auto">
           {currentLevels.map((level) => {
             const state = getLevelState(level);
             const userData = getUserLevelData(level.levelNumber);
@@ -159,10 +177,9 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
           })}
         </div>
 
-        {/* Bottom Section - Navigation & Achievements */}
-        <div className="mt-8 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-6 border border-indigo-500/30">
-          {/* Navigation Buttons */}
-          <div className="flex items-center justify-center gap-6 mb-6">
+        {/* Bottom Section - Navigation Only */}
+        <div className="mt-8 bg-gradient-to-r from-indigo-600/20 via-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-4 border border-indigo-500/30">
+          <div className="flex items-center justify-center gap-6">
             {/* Previous Button */}
             <button
               onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
@@ -211,39 +228,6 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
               <span className="hidden sm:inline">NEXT</span>
               <ChevronRight className="w-5 h-5" />
             </button>
-          </div>
-
-          {/* Achievement Milestones */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className={`p-3 rounded-lg text-center transition-all ${
-              completedLevels >= 10
-                ? 'bg-emerald-500/20 border border-emerald-500/30'
-                : 'bg-slate-800/30 border border-slate-700/30'
-            }`}>
-              <div className="text-xl mb-1">🏅</div>
-              <div className="text-xs font-semibold text-white">Beginner</div>
-              <div className="text-xs text-slate-400">10 levels</div>
-            </div>
-
-            <div className={`p-3 rounded-lg text-center transition-all ${
-              completedLevels >= 20
-                ? 'bg-violet-500/20 border border-violet-500/30'
-                : 'bg-slate-800/30 border border-slate-700/30'
-            }`}>
-              <div className="text-xl mb-1">🏆</div>
-              <div className="text-xs font-semibold text-white">Expert</div>
-              <div className="text-xs text-slate-400">20 levels</div>
-            </div>
-
-            <div className={`p-3 rounded-lg text-center transition-all ${
-              completedLevels >= 30
-                ? 'bg-amber-500/20 border border-amber-500/30'
-                : 'bg-slate-800/30 border border-slate-700/30'
-            }`}>
-              <div className="text-xl mb-1">👑</div>
-              <div className="text-xs font-semibold text-white">Master</div>
-              <div className="text-xs text-slate-400">30 levels</div>
-            </div>
           </div>
         </div>
       </div>
