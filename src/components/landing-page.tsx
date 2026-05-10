@@ -277,25 +277,25 @@ export function LandingPage() {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {[
-                  { name: "JEE Main/Advanced", IconComponent: Cpu, color: "bg-blue-50 border-blue-200", iconColor: "text-blue-600" },
-                  { name: "NEET UG/PG", IconComponent: Stethoscope, color: "bg-green-50 border-green-200", iconColor: "text-green-600" },
-                  { name: "UPSC CSE", IconComponent: Landmark, color: "bg-purple-50 border-purple-200", iconColor: "text-purple-600" },
-                  { name: "SSC CGL/CHSL", IconComponent: FileText, color: "bg-orange-50 border-orange-200", iconColor: "text-orange-600" },
-                  { name: "Banking (IBPS/SBI)", IconComponent: Banknote, color: "bg-teal-50 border-teal-200", iconColor: "text-teal-600" },
-                  { name: "CAT/MBA", IconComponent: Briefcase, color: "bg-indigo-50 border-indigo-200", iconColor: "text-indigo-600" },
-                  { name: "GATE", IconComponent: Cog, color: "bg-red-50 border-red-200", iconColor: "text-red-600" },
-                  { name: "Railway Exams", IconComponent: Train, color: "bg-yellow-50 border-yellow-200", iconColor: "text-yellow-600" },
-                  { name: "State PSC", IconComponent: Building, color: "bg-pink-50 border-pink-200", iconColor: "text-pink-600" },
-                  { name: "CLAT", IconComponent: Scale, color: "bg-cyan-50 border-cyan-200", iconColor: "text-cyan-600" },
-                  { name: "NDA/CDS", IconComponent: Target, color: "bg-emerald-50 border-emerald-200", iconColor: "text-emerald-600" },
-                  { name: "Delhi Police", IconComponent: Shield, color: "bg-slate-50 border-slate-200", iconColor: "text-slate-600" },
+                  { name: "JEE Main/Advanced", examId: "jee-main" },
+                  { name: "NEET UG/PG", examId: "neet-ug" },
+                  { name: "UPSC CSE", examId: "upsc-cse" },
+                  { name: "SSC CGL/CHSL", examId: "ssc-cgl" },
+                  { name: "Banking (IBPS/SBI)", examId: "ibps-po" },
+                  { name: "CAT/MBA", examId: "cat" },
+                  { name: "GATE", examId: "gate" },
+                  { name: "Railway Exams", examId: "rrb-ntpc" },
+                  { name: "State PSC", examId: "uppsc" },
+                  { name: "CLAT", examId: "clat" },
+                  { name: "NDA/CDS", examId: "nda" },
+                  { name: "Delhi Police", examId: "delhi-police" },
                 ].map((exam) => (
                   <div
                     key={exam.name}
-                    className={`${exam.color} rounded-lg p-3 border-2 text-center hover:shadow-md transition-all`}
+                    className="bg-white rounded-lg p-3 border-2 border-slate-200 text-center hover:shadow-md hover:border-indigo-300 transition-all"
                   >
                     <div className="flex justify-center mb-1">
-                      <exam.IconComponent className={`w-6 h-6 ${exam.iconColor}`} />
+                      <ColorfulExamIcon examId={exam.examId} size={32} />
                     </div>
                     <div className="font-medium text-xs text-slate-700">{exam.name}</div>
                   </div>
