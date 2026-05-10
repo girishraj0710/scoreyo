@@ -544,7 +544,7 @@ export default function MockTestPage() {
               </span>
             </h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-              Practice with realistic exam simulations for JEE, NEET, UPSC, Banking, SSC, and 15+ other competitive exams
+              Practice with realistic exam simulations for JEE, NEET, UPSC, Banking, SSC, and 55+ other competitive exams
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
@@ -656,8 +656,8 @@ export default function MockTestPage() {
 
           {/* Available Exams */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Available for 20+ Exams</h2>
-            <p className="text-slate-600 mb-8">JEE Main, NEET, UPSC CSE, SSC CGL, IBPS PO, CAT, GATE, and more</p>
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Available for 60+ Exams</h2>
+            <p className="text-slate-600 mb-8">JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
             <button
               onClick={() => setShowLoginModal(true)}
               className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
