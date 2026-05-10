@@ -94,7 +94,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
         <div className="mb-6">
           <div className="text-center mb-1.5">
             <h1 className="text-3xl font-bold text-[#DAB661] tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-              LEVEL SELECTION
+              SELECT LEVEL
             </h1>
           </div>
 
