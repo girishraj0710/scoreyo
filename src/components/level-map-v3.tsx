@@ -183,7 +183,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel }:
                 flex items-center gap-1 px-5 py-2.5 rounded-xl font-bold text-sm transition-all
                 ${currentPage === 0
                   ? 'bg-slate-700/50 text-slate-500 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:from-indigo-700 hover:to-blue-700 shadow-lg shadow-indigo-500/50 hover:shadow-xl'
+                  : 'bg-gradient-to-r from-emerald-600 to-cyan-600 text-white hover:from-emerald-700 hover:to-cyan-700 shadow-lg shadow-emerald-500/50 hover:shadow-xl'
                 }
               `}
             >
