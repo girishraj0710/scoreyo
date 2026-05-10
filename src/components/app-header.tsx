@@ -33,10 +33,10 @@ export function AppHeader() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 mr-4">
-          <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
+          <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
             P
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
             PrepGenie
           </span>
         </a>
@@ -44,22 +44,22 @@ export function AppHeader() {
         <div className="flex items-center gap-1">
           {/* Nav Links */}
           <nav className="hidden sm:flex items-center gap-1">
-            <a href="/" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg whitespace-nowrap">
+            <a href="/" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg whitespace-nowrap">
               {t("home")}
             </a>
-            <Link href="/dashboard" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg whitespace-nowrap">
+            <Link href="/dashboard" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg whitespace-nowrap">
               {t("dashboard")}
             </Link>
-            <Link href="/review" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg whitespace-nowrap">
+            <Link href="/review" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg whitespace-nowrap">
               {t("review")}
             </Link>
-            <Link href="/mock-test" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg whitespace-nowrap">
+            <Link href="/mock-test" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg whitespace-nowrap">
               {t("mockTests")}
             </Link>
-            <Link href="/reports" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg whitespace-nowrap">
+            <Link href="/reports" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg whitespace-nowrap">
               {t("reports")}
             </Link>
-            <Link href="/english" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg whitespace-nowrap">
+            <Link href="/english" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg whitespace-nowrap">
               Learn English
             </Link>
             <Link href="/pricing" className="px-3 py-2 text-sm font-medium text-amber-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg whitespace-nowrap flex items-center gap-1">
@@ -86,7 +86,7 @@ export function AppHeader() {
               </button>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 transition-colors"
+                className="w-24 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 border border-indigo-600 hover:border-indigo-700 transition-colors"
               >
                 Sign up
               </button>

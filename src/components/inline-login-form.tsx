@@ -182,8 +182,8 @@ export function InlineLoginForm() {
           <div className="pt-4 border-t border-slate-200">
             <p className="text-xs text-slate-500 text-center">
               By continuing, you agree to PrepGenie's{" "}
-              <a href="/terms" className="text-indigo-600 hover:underline">Terms</a> & {" "}
-              <a href="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</a>.
+              <a href="/terms" className="text-blue-600 hover:underline">Terms</a> & {" "}
+              <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>.
             </p>
           </div>
         </div>
@@ -212,7 +212,7 @@ export function InlineLoginForm() {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
-                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500"
+                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                 autoFocus
                 required
               />
@@ -223,7 +223,7 @@ export function InlineLoginForm() {
             <button
               type="submit"
               disabled={!email.trim() || isSubmitting}
-              className="w-full py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 text-sm"
+              className="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 text-sm"
             >
               {isSubmitting ? "Sending..." : "Continue"}
             </button>
@@ -246,7 +246,7 @@ export function InlineLoginForm() {
           <p className="text-xs text-slate-600 mb-1">
             We sent a code to
           </p>
-          <p className="text-sm text-indigo-600 font-medium mb-4">{email}</p>
+          <p className="text-sm text-blue-600 font-medium mb-4">{email}</p>
 
           {/* OTP Input Boxes */}
           <div className="flex justify-center gap-1.5 mb-3" onPaste={handleOtpPaste}>
@@ -262,8 +262,8 @@ export function InlineLoginForm() {
                 onKeyDown={(e) => handleOtpKeyDown(idx, e)}
                 className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none transition-all ${
                   digit
-                    ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                    : "border-slate-200 text-slate-800 focus:border-indigo-500"
+                    ? "border-blue-500 bg-blue-50 text-blue-700"
+                    : "border-slate-200 text-slate-800 focus:border-blue-500"
                 }`}
               />
             ))}
@@ -274,7 +274,7 @@ export function InlineLoginForm() {
           )}
 
           {isSubmitting && (
-            <p className="text-indigo-600 text-xs text-center mb-3">Verifying...</p>
+            <p className="text-blue-600 text-xs text-center mb-3">Verifying...</p>
           )}
 
           {/* Resend */}
@@ -287,7 +287,7 @@ export function InlineLoginForm() {
               <button
                 onClick={handleResend}
                 disabled={isSubmitting}
-                className="text-xs text-indigo-600 hover:text-indigo-700 font-medium disabled:opacity-50"
+                className="text-xs text-blue-600 hover:text-blue-700 font-medium disabled:opacity-50"
               >
                 Resend code
               </button>
@@ -300,12 +300,12 @@ export function InlineLoginForm() {
       {step === "name" && (
         <div>
           <div className="text-center mb-4">
-            <div className="w-12 h-12 mx-auto mb-2 bg-emerald-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-12 h-12 mx-auto mb-2 bg-amber-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
-            <p className="text-sm text-emerald-600 font-medium">Email verified!</p>
+            <p className="text-sm text-cyan-600 font-medium">Email verified!</p>
           </div>
 
           <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -322,7 +322,7 @@ export function InlineLoginForm() {
                 value={name}
                 onChange={(e) => { setName(e.target.value); setError(""); }}
                 placeholder="Enter your name"
-                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500"
+                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                 autoFocus
                 required
               />
@@ -333,7 +333,7 @@ export function InlineLoginForm() {
             <button
               type="submit"
               disabled={!name.trim() || isSubmitting}
-              className="w-full py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 text-sm"
+              className="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 text-sm"
             >
               {isSubmitting ? "Creating account..." : "Start learning"}
             </button>

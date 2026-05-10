@@ -45,7 +45,7 @@ export function MistakeMapWidget() {
     return (
       <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
         <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-indigo-600" />
+          <Brain className="w-6 h-6 text-blue-600" />
           Your Mistake Pattern
         </h3>
         <div className="flex items-center justify-center h-48">
@@ -59,7 +59,7 @@ export function MistakeMapWidget() {
     return (
       <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
         <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-indigo-600" />
+          <Brain className="w-6 h-6 text-blue-600" />
           Your Mistake Pattern
         </h3>
         <div className="text-center py-8">
@@ -98,7 +98,7 @@ export function MistakeMapWidget() {
       color: 'bg-purple-500',
       lightColor: 'bg-purple-50',
       textColor: 'text-purple-700',
-      iconColor: 'text-purple-600',
+      iconColor: 'text-cyan-600',
       percentage: data.breakdown.concept,
       count: data.summary.concept
     },
@@ -141,7 +141,7 @@ export function MistakeMapWidget() {
     <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-indigo-600" />
+          <Brain className="w-6 h-6 text-blue-600" />
           Your Mistake Pattern
         </h3>
         <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">
