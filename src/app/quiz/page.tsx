@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { RichExplanation } from "@/components/rich-explanation";
 import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
+import { LevelCompleteModal } from "@/components/level-complete-modal";
+import { calculateStars } from "@/lib/level-definitions";
 
 interface Question {
   question: string;
@@ -158,6 +160,13 @@ function QuizContent() {
   const difficulty = searchParams.get("difficulty") || "mixed";
   const pressureMode = searchParams.get("pressureMode") === "true";
 
+  // Level mode parameters
+  const mode = searchParams.get("mode") || "random"; // "level" or "random"
+  const levelNumber = parseInt(searchParams.get("levelNumber") || "0");
+  const levelName = searchParams.get("levelName") || "";
+  const levelType = searchParams.get("levelType") || "normal";
+  const isLevelMode = mode === "level";
+
   const [quizData, setQuizData] = useState<QuizData | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
@@ -175,6 +184,10 @@ function QuizContent() {
     subjectId: string;
     topic: string;
   } | null>(null);
+
+  // Level completion modal state
+  const [showLevelCompleteModal, setShowLevelCompleteModal] = useState(false);
+  const [levelCompletionData, setLevelCompletionData] = useState<any>(null);
 
   // Timer (adaptive in pressure mode)
   useEffect(() => {
@@ -323,6 +336,33 @@ function QuizContent() {
       const data = await res.json();
       setResults(data);
       setIsSubmitted(true);
+
+      // If in level mode, also complete the level
+      if (isLevelMode) {
+        const levelRes = await fetch("/api/quiz/complete-level", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            examId: quizData.examId,
+            subjectId: quizData.subjectId,
+            levelNumber,
+            levelType,
+            correctAnswers: data.correctAnswers,
+            totalQuestions: data.totalQuestions,
+            timeTakenSeconds: timeElapsed,
+          }),
+        });
+
+        if (levelRes.ok) {
+          const levelData = await levelRes.json();
+          setLevelCompletionData({
+            stars: levelData.stars,
+            accuracy: levelData.accuracy,
+            nextLevelUnlocked: levelData.nextLevelUnlocked,
+          });
+          setShowLevelCompleteModal(true);
+        }
+      }
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -467,6 +507,44 @@ function QuizContent() {
   }
 
   if (!quizData) return null;
+
+  // Level Complete Modal (for level mode)
+  if (showLevelCompleteModal && levelCompletionData && quizData && results) {
+    return (
+      <>
+        <LevelCompleteModal
+          isOpen={showLevelCompleteModal}
+          levelNumber={levelNumber}
+          levelName={levelName}
+          stars={levelCompletionData.stars}
+          accuracy={levelCompletionData.accuracy}
+          correctAnswers={results.correctAnswers}
+          totalQuestions={results.totalQuestions}
+          timeTaken={timeElapsed}
+          isBossLevel={levelType === "boss"}
+          isNewLevel={levelCompletionData.nextLevelUnlocked}
+          onNextLevel={() => {
+            // Go back to level map to start next level
+            window.location.href = `/quiz/levels?examId=${quizData.examId}&subjectId=${quizData.subjectId}`;
+          }}
+          onReplay={() => {
+            // Reload same level
+            window.location.reload();
+          }}
+          onClose={() => {
+            // Show regular results screen
+            setShowLevelCompleteModal(false);
+          }}
+        />
+        {/* Regular results screen shown after closing modal */}
+        {!showLevelCompleteModal && (
+          <div className="max-w-3xl mx-auto px-4 py-8">
+            {/* Results content will be visible after modal closes */}
+          </div>
+        )}
+      </>
+    );
+  }
 
   // Results screen
   if (isSubmitted && results) {
@@ -666,16 +744,26 @@ function QuizContent() {
       {/* Quiz Header */}
       <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <div>
+          <div className="flex items-center gap-2 flex-wrap">
+            {isLevelMode && (
+              <span className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Level {levelNumber}
+              </span>
+            )}
             <span className="text-sm font-medium text-indigo-600">
               {quizData.examName}
             </span>
-            <span className="text-slate-300 mx-2">|</span>
+            <span className="text-slate-300">|</span>
             <span className="text-sm text-slate-500">
               {quizData.subjectName}
             </span>
-            <span className="text-slate-300 mx-2">|</span>
-            <span className="text-sm text-slate-500">{quizData.topic}</span>
+            <span className="text-slate-300">|</span>
+            <span className="text-sm text-slate-500">
+              {isLevelMode ? levelName : quizData.topic}
+            </span>
           </div>
           <div className="flex items-center gap-3">
             {pressureMode && (
