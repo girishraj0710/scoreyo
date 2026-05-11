@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { examCategories, type Exam } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
@@ -8,7 +8,7 @@ import { LandingPage } from "@/components/landing-page";
 import { Zap, Flame } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
 
-export default function HomePage() {
+function HomePageContent() {
   const { user, isLoading } = useUser();
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -753,5 +753,13 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <HomePageContent />
+    </Suspense>
   );
 }
