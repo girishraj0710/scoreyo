@@ -359,6 +359,20 @@ async function initializeDb() {
     CREATE INDEX IF NOT EXISTS idx_user_quiz_levels_user ON user_quiz_levels(user_id, exam_id, subject_id);
     CREATE INDEX IF NOT EXISTS idx_user_english_levels_user ON user_english_levels(user_id, path_id);
     CREATE INDEX IF NOT EXISTS idx_level_definitions_exam ON level_definitions(exam_id, subject_id);
+
+    CREATE TABLE IF NOT EXISTS level_question_cache (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL,
+      exam_id TEXT NOT NULL,
+      subject_id TEXT NOT NULL,
+      level_number INTEGER NOT NULL,
+      questions_json TEXT NOT NULL,
+      is_passed INTEGER DEFAULT 0,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(user_id, exam_id, subject_id, level_number)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_level_question_cache_user ON level_question_cache(user_id, exam_id, subject_id, level_number);
   `);
 
   // Create a default user if none exists
@@ -1288,10 +1302,16 @@ export async function updateEnglishProgress(
 }
 
 export async function getEnglishQuestions(pathId: string, topicId: string, level: string, limit: number = 10) {
-  return queryAll(
+  const rows = await queryAll(
     "SELECT * FROM english_questions WHERE path_id = ? AND topic_id = ? AND level = ? ORDER BY RANDOM() LIMIT ?",
     [pathId, topicId, level, limit]
   );
+
+  // Parse JSON fields
+  return rows.map((row: any) => ({
+    ...row,
+    options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
+  }));
 }
 
 export async function saveEnglishQuestions(
@@ -1559,4 +1579,87 @@ export async function getEnglishLevelProgress(userId: string, pathId: string) {
     completedLevels,
     currentLevel: currentLevel ? currentLevel.level_number : completedLevels + 1,
   };
+}
+
+// ─── Level Question Cache functions (for retry consistency) ──────
+
+export async function getLevelQuestionCache(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  levelNumber: number
+) {
+  const cached = await queryOne(
+    "SELECT * FROM level_question_cache WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
+    [userId, examId, subjectId, levelNumber]
+  );
+
+  if (cached) {
+    return {
+      questions: JSON.parse(cached.questions_json),
+      isPassed: cached.is_passed === 1,
+    };
+  }
+
+  return null;
+}
+
+export async function saveLevelQuestionCache(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  levelNumber: number,
+  questions: any[]
+) {
+  await ensureInitialized();
+
+  // Check if already exists
+  const existing = await queryOne(
+    "SELECT id FROM level_question_cache WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
+    [userId, examId, subjectId, levelNumber]
+  );
+
+  const questionsJson = JSON.stringify(questions);
+
+  if (existing) {
+    // Update existing cache (keep same questions)
+    await execute(
+      "UPDATE level_question_cache SET questions_json = ? WHERE id = ?",
+      [questionsJson, existing.id]
+    );
+  } else {
+    // Create new cache
+    await execute(
+      "INSERT INTO level_question_cache (user_id, exam_id, subject_id, level_number, questions_json, is_passed) VALUES (?, ?, ?, ?, ?, 0)",
+      [userId, examId, subjectId, levelNumber, questionsJson]
+    );
+  }
+}
+
+export async function markLevelPassed(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  levelNumber: number
+) {
+  await ensureInitialized();
+
+  await execute(
+    "UPDATE level_question_cache SET is_passed = 1 WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
+    [userId, examId, subjectId, levelNumber]
+  );
+}
+
+export async function clearLevelQuestionCache(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  levelNumber: number
+) {
+  await ensureInitialized();
+
+  await execute(
+    "DELETE FROM level_question_cache WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
+    [userId, examId, subjectId, levelNumber]
+  );
 }

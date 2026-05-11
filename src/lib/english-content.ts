@@ -37,7 +37,7 @@ export const englishPaths: EnglishPath[] = [
     icon: "🏗️",
     color: "#10B981",
     goal: "foundation",
-    totalQuestions: 4330,
+    totalQuestions: 4330, // Target: 4330+ questions (actively being added)
     estimatedWeeks: 24,
     topics: [
       // MODULE 1: Alphabet & Phonics (A1 Beginner)

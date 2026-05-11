@@ -105,15 +105,15 @@ export default function ReportsPage() {
       {/* Overview Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
-          <div className="text-3xl font-bold text-indigo-600">{stats.totalSessions}</div>
+          <div className="text-3xl font-bold text-violet-600">{stats.totalSessions}</div>
           <div className="text-xs text-slate-500 mt-1">{t("totalQuizzes")}</div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
-          <div className="text-3xl font-bold text-slate-500">{stats.totalQuestions}</div>
+          <div className="text-3xl font-bold text-emerald-600">{stats.totalQuestions}</div>
           <div className="text-xs text-slate-500 mt-1">{t("questionsSolved")}</div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">
-          <div className="text-3xl font-bold text-slate-500">{stats.accuracy}%</div>
+          <div className="text-3xl font-bold text-cyan-600">{stats.accuracy}%</div>
           <div className="text-xs text-slate-500 mt-1">{t("accuracy")}</div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center">

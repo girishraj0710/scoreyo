@@ -215,16 +215,30 @@ function QuizContent() {
     async function loadQuiz() {
       try {
         setIsLoading(true);
-        const res = await fetch("/api/quiz", {
+
+        // Use level-specific API if in level mode
+        const apiEndpoint = isLevelMode ? "/api/quiz/level" : "/api/quiz";
+        const requestBody = isLevelMode
+          ? {
+              examId,
+              subjectId,
+              levelNumber,
+              topic,
+              numberOfQuestions: count,
+              difficulty,
+            }
+          : {
+              examId,
+              subjectId,
+              topic,
+              numberOfQuestions: count,
+              difficulty,
+            };
+
+        const res = await fetch(apiEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            examId,
-            subjectId,
-            topic,
-            numberOfQuestions: count,
-            difficulty,
-          }),
+          body: JSON.stringify(requestBody),
         });
 
         if (!res.ok) {
@@ -245,7 +259,7 @@ function QuizContent() {
       }
     }
     loadQuiz();
-  }, [examId, subjectId, topic, count, difficulty]);
+  }, [examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber]);
 
   const selectAnswer = useCallback(
     (optionIndex: number) => {
@@ -361,6 +375,20 @@ function QuizContent() {
             nextLevelUnlocked: levelData.nextLevelUnlocked,
           });
           setShowLevelCompleteModal(true);
+
+          // If they passed (60%+ for normal, 70%+ for boss), mark level as passed
+          // This clears the question cache so they get new questions next time
+          if (levelData.nextLevelUnlocked) {
+            await fetch("/api/quiz/level", {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                examId: quizData.examId,
+                subjectId: quizData.subjectId,
+                levelNumber,
+              }),
+            });
+          }
         }
       }
     } catch (err: any) {
@@ -467,7 +495,11 @@ function QuizContent() {
             Preparing Your Quiz...
           </h2>
           <p className="text-slate-500">
-            Selecting {count} questions on &quot;{topic}&quot; from our question bank
+            {isLevelMode ? (
+              <>Preparing Level {levelNumber} questions...</>
+            ) : (
+              <>Selecting {count} questions on &quot;{topic}&quot; from our question bank</>
+            )}
           </p>
           <p className="text-sm text-slate-400 mt-2">
             Almost ready...
@@ -707,8 +739,19 @@ function QuizContent() {
                 ))}
               </div>
 
-              <div className="ml-10 mt-3 p-3 bg-slate-50 rounded-lg text-sm text-blue-800">
-                <strong>Explanation:</strong> {r.explanation}
+              <div className="ml-10 mt-3">
+                {typeof r.explanation === 'string' ? (
+                  <div className="p-3 bg-slate-50 rounded-lg text-sm text-blue-800">
+                    <strong>Explanation:</strong> {r.explanation}
+                  </div>
+                ) : (
+                  <RichExplanation
+                    explanation={r.explanation}
+                    correctAnswer={r.correctAnswer}
+                    userAnswer={r.userAnswer ?? -1}
+                    options={r.options}
+                  />
+                )}
               </div>
             </div>
           ))}

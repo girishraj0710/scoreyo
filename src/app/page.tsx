@@ -316,13 +316,13 @@ export default function HomePage() {
         {stats?.stats && stats.stats.totalSessions > 0 && (
           <div className="flex justify-center gap-6 mb-8">
             <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
-              <div className="text-2xl font-bold text-indigo-600">
+              <div className="text-2xl font-bold text-emerald-600">
                 {stats.stats.totalQuestions}
               </div>
               <div className="text-xs text-slate-500">Questions Solved</div>
             </div>
             <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
-              <div className="text-2xl font-bold text-slate-500">
+              <div className="text-2xl font-bold text-cyan-600">
                 {stats.stats.accuracy}%
               </div>
               <div className="text-xs text-slate-500">Accuracy</div>

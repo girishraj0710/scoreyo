@@ -151,24 +151,24 @@ export default function DashboardPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
           <div className="text-sm text-slate-500 mb-1">Total Quizzes</div>
-          <div className="text-3xl font-bold text-slate-800">
+          <div className="text-3xl font-bold text-violet-600">
             {stats.totalSessions}
           </div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
           <div className="text-sm text-slate-500 mb-1">Questions Solved</div>
-          <div className="text-3xl font-bold text-indigo-600">
+          <div className="text-3xl font-bold text-emerald-600">
             {stats.totalQuestions}
           </div>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
           <div className="text-sm text-slate-500 mb-1">Accuracy</div>
-          <div className="text-3xl font-bold text-slate-500">
+          <div className="text-3xl font-bold text-cyan-600">
             {stats.accuracy}%
           </div>
           <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
             <div
-              className="bg-cyan-400 h-2 rounded-full animate-progress"
+              className="bg-cyan-500 h-2 rounded-full animate-progress"
               style={{ width: `${stats.accuracy}%` }}
             />
           </div>

@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       timeTakenSeconds,
     } = body;
 
-    if (!examId || !subjectId || !levelNumber || !correctAnswers === undefined || !totalQuestions) {
+    if (!examId || !subjectId || !levelNumber || correctAnswers === undefined || !totalQuestions) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 

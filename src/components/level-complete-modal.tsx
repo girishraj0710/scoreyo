@@ -168,8 +168,22 @@ export function LevelCompleteModal({
             </div>
           )}
 
+          {/* Failed to Unlock Message */}
+          {!isNewLevel && stars === 0 && (
+            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 text-center">
+              <p className="text-sm text-red-800 mb-1">
+                <strong>Next level locked!</strong>
+              </p>
+              <p className="text-xs text-red-700">
+                {isBossLevel
+                  ? "Score 70%+ on boss levels to unlock the next level"
+                  : "Score 60%+ to unlock the next level"}
+              </p>
+            </div>
+          )}
+
           {/* Improvement Message */}
-          {stars < 3 && (
+          {stars < 3 && stars >= 1 && (
             <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-4 text-center">
               <p className="text-sm text-amber-800">
                 💡 <strong>Tip:</strong> Replay this level to earn 3 stars and improve your mastery!

@@ -92,6 +92,12 @@ export default function EnglishPathPage() {
     }
   };
 
+  // Sort topics by level: beginner → intermediate → advanced
+  const sortedTopics = [...path.topics].sort((a, b) => {
+    const levelOrder = { beginner: 1, intermediate: 2, advanced: 3 };
+    return (levelOrder[a.level as keyof typeof levelOrder] || 0) - (levelOrder[b.level as keyof typeof levelOrder] || 0);
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
 
@@ -131,7 +137,7 @@ export default function EnglishPathPage() {
                 <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-lg">
                   <Award className="w-4 h-4 text-emerald-600" />
                   <span className="text-sm font-medium text-slate-700">
-                    {path.totalQuestions} questions
+                    {path.totalQuestions}+ questions
                   </span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-lg">
@@ -148,7 +154,7 @@ export default function EnglishPathPage() {
         {/* Topics Grid */}
         <div className="space-y-4">
           <h2 className="text-2xl font-bold text-slate-900">Topics</h2>
-          {path.topics.map((topic: EnglishTopic) => {
+          {sortedTopics.map((topic: EnglishTopic) => {
             const topicProgress = getTopicProgress(topic.id);
             const isStarted = topicProgress.completed > 0;
             const isCompleted = topicProgress.mastery >= 90;

@@ -352,7 +352,7 @@ export default function EnglishHubPage() {
                           {getLevelBadge(path)}
                         </span>
                         <span className="px-3 py-1 bg-slate-100 text-indigo-700 text-xs font-medium rounded-full">
-                          {path.totalQuestions} questions
+                          {path.totalQuestions}+ questions
                         </span>
                         <span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
                           {path.estimatedWeeks} weeks
