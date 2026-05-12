@@ -219,10 +219,10 @@ export default function ReportsPage() {
               </div>
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             {/* Y-axis title (rotated) */}
-            <div className="flex items-center">
-              <span className="text-xs text-slate-500 font-medium -rotate-90 whitespace-nowrap">Questions Attempted</span>
+            <div className="flex items-center justify-center w-4">
+              <span className="text-[10px] text-slate-500 font-medium -rotate-90 whitespace-nowrap">Questions</span>
             </div>
             {/* Y-axis labels */}
             <div className="flex flex-col items-end justify-between text-xs text-slate-400 h-48 py-1 pr-2 border-r border-slate-200">
@@ -259,13 +259,13 @@ export default function ReportsPage() {
             </div>
           </div>
           {/* X-axis labels and title */}
-          <div className="ml-20">
+          <div className="ml-16">
             <div className="flex justify-between text-xs text-slate-400 mb-1">
               <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
               <span>{t("last30Days")}</span>
               <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
             </div>
-            <div className="text-center text-xs text-slate-500 font-medium">Date</div>
+            <div className="text-center text-[10px] text-slate-500 font-medium">Date</div>
           </div>
         </div>
       )}
@@ -334,10 +334,10 @@ export default function ReportsPage() {
       {accuracyTrend.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("accuracyTrend")}</h3>
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             {/* Y-axis title (rotated) */}
-            <div className="flex items-center">
-              <span className="text-xs text-slate-500 font-medium -rotate-90 whitespace-nowrap">Accuracy (%)</span>
+            <div className="flex items-center justify-center w-4">
+              <span className="text-[10px] text-slate-500 font-medium -rotate-90 whitespace-nowrap">Accuracy</span>
             </div>
             {/* Y-axis labels */}
             <div className="flex flex-col items-end justify-between text-xs text-slate-400 h-48 py-1 pr-2 border-r border-slate-200">
@@ -372,9 +372,9 @@ export default function ReportsPage() {
             </div>
           </div>
           {/* X-axis label */}
-          <div className="ml-20 mt-2">
+          <div className="ml-16 mt-2">
             <div className="text-center text-xs text-slate-400 mb-1">{t("last20Quizzes")}</div>
-            <div className="text-center text-xs text-slate-500 font-medium">Quiz Sequence (Oldest → Newest)</div>
+            <div className="text-center text-[10px] text-slate-500 font-medium">Quiz Sequence (Oldest → Newest)</div>
           </div>
         </div>
       )}
