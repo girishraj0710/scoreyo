@@ -271,8 +271,8 @@ export async function getAllDynamicMockTests(): Promise<DynamicMockTestConfig[]>
     const templateConfig = await generateDynamicMockTest(examId, 1, false);
 
     if (templateConfig) {
-      // Add first 3 tests to display (can be expanded dynamically)
-      const testsToShow = Math.min(maxTests, 3);
+      // Show up to 10 tests per exam (UI will display them dynamically)
+      const testsToShow = Math.min(maxTests, 10);
       for (let i = 1; i <= testsToShow; i++) {
         allTests.push({
           ...templateConfig,
