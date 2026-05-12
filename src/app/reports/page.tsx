@@ -87,10 +87,6 @@ export default function ReportsPage() {
 
   const { stats, subjectBreakdown, dailyActivity, difficultyBreakdown, timeTrend, accuracyTrend, strongTopics, weakTopics, mockTestHistory } = data;
 
-  // Debug: Log the data to console
-  console.log("Daily Activity Data:", dailyActivity);
-  console.log("Accuracy Trend Data:", accuracyTrend);
-
   // Calculate max for bar charts
   const maxDailyQuestions = Math.max(...dailyActivity.map((d: any) => d.questions), 1);
 
@@ -224,6 +220,10 @@ export default function ReportsPage() {
             </div>
           </div>
           <div className="flex gap-4">
+            {/* Y-axis title (rotated) */}
+            <div className="flex items-center">
+              <span className="text-xs text-slate-500 font-medium -rotate-90 whitespace-nowrap">Questions Attempted</span>
+            </div>
             {/* Y-axis labels */}
             <div className="flex flex-col items-end justify-between text-xs text-slate-400 h-48 py-1 pr-2 border-r border-slate-200">
               <span>{maxDailyQuestions}</span>
@@ -258,10 +258,14 @@ export default function ReportsPage() {
               })}
             </div>
           </div>
-          <div className="flex justify-between mt-2 text-xs text-slate-400 ml-14">
-            <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
-            <span>{t("last30Days")}</span>
-            <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+          {/* X-axis labels and title */}
+          <div className="ml-20">
+            <div className="flex justify-between text-xs text-slate-400 mb-1">
+              <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+              <span>{t("last30Days")}</span>
+              <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+            </div>
+            <div className="text-center text-xs text-slate-500 font-medium">Date</div>
           </div>
         </div>
       )}
@@ -331,6 +335,10 @@ export default function ReportsPage() {
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("accuracyTrend")}</h3>
           <div className="flex gap-4">
+            {/* Y-axis title (rotated) */}
+            <div className="flex items-center">
+              <span className="text-xs text-slate-500 font-medium -rotate-90 whitespace-nowrap">Accuracy (%)</span>
+            </div>
             {/* Y-axis labels */}
             <div className="flex flex-col items-end justify-between text-xs text-slate-400 h-48 py-1 pr-2 border-r border-slate-200">
               <span>100%</span>
@@ -363,7 +371,11 @@ export default function ReportsPage() {
               })}
             </div>
           </div>
-          <div className="text-center mt-2 text-xs text-slate-400 ml-14">{t("last20Quizzes")}</div>
+          {/* X-axis label */}
+          <div className="ml-20 mt-2">
+            <div className="text-center text-xs text-slate-400 mb-1">{t("last20Quizzes")}</div>
+            <div className="text-center text-xs text-slate-500 font-medium">Quiz Sequence (Oldest → Newest)</div>
+          </div>
         </div>
       )}
 
