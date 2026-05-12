@@ -76,6 +76,25 @@ export async function POST(request: NextRequest) {
       // Conversations → daily-conversations (5Q in real-world path)
       'daily-conversations': 'daily-conversations',
       'conversation-skills': 'daily-conversations',
+
+      // ===== IELTS & TOEFL TOPICS =====
+      // IELTS Reading → reading-comprehension (42Q)
+      'ielts-reading': 'reading-comprehension',
+
+      // IELTS Writing → writing-skills (97Q - includes essays, letters, reports)
+      'ielts-writing': 'writing-skills',
+
+      // IELTS Listening → reading-comprehension (closest match, 42Q)
+      'ielts-listening': 'reading-comprehension',
+
+      // IELTS Speaking → conversation topics + idioms
+      'ielts-speaking': 'idioms',  // Use idioms (26Q) for speaking practice
+
+      // TOEFL Integrated Tasks → reading-comprehension (42Q)
+      'toefl-integrated': 'reading-comprehension',
+
+      // Academic Vocabulary → academic-vocabulary (5Q) + essential-vocabulary (5Q)
+      'academic-vocabulary': 'academic-vocabulary',
     };
 
     let mappedTopicId = topicId.toLowerCase().replace(/\s+/g, '-');
