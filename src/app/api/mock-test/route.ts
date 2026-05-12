@@ -141,7 +141,7 @@ export async function POST(request: NextRequest) {
           ...config,
           totalQuestions: config.totalQuestions * 3,
           timeLimitMinutes: Math.round(config.timeLimitMinutes * 2.5),
-          sections: config.sections.map(s => ({
+          sections: config.sections.map((s: any) => ({
             ...s,
             questionCount: s.questionCount * 3,
           })),
