@@ -52,9 +52,11 @@ export async function POST(request: NextRequest) {
 
       // Active/Passive voice → sentence-structure (12Q)
       'active-passive-voice': 'sentence-structure',
+      'active-passive': 'sentence-structure',  // alternate ID
 
       // Direct/Indirect speech → sentence-structure (12Q)
       'direct-indirect-speech': 'sentence-structure',
+      'reported-speech': 'sentence-structure',  // alternate ID
 
       // Vocabulary → essential-vocabulary (5Q)
       'basic-vocabulary': 'essential-vocabulary',
@@ -77,11 +79,14 @@ export async function POST(request: NextRequest) {
     };
 
     let mappedTopicId = topicId.toLowerCase().replace(/\s+/g, '-');
+    console.log(`[English Practice] Original topicId="${topicId}", normalized="${mappedTopicId}"`);
 
     // Use mapping if available
     if (topicMapping[mappedTopicId]) {
-      console.log(`[English Practice] Mapping topic "${mappedTopicId}" to "${topicMapping[mappedTopicId]}"`);
+      console.log(`[English Practice] ✓ Mapping topic "${mappedTopicId}" to "${topicMapping[mappedTopicId]}"`);
       mappedTopicId = topicMapping[mappedTopicId];
+    } else {
+      console.log(`[English Practice] ⚠️ No mapping found for "${mappedTopicId}", using as-is`);
     }
 
     // Try multiple paths: foundation, real-world, ielts-toefl, competitive-exam
@@ -92,25 +97,44 @@ export async function POST(request: NextRequest) {
     for (const tryPath of pathsToTry) {
       if (questions.length > 0) break;
 
+      console.log(`[English Practice] Trying path="${tryPath}", topic="${mappedTopicId}"...`);
+
       // Try with requested level
       questions = await getEnglishQuestions(tryPath, mappedTopicId, level, count * 2);
+      if (questions.length > 0) {
+        console.log(`[English Practice] ✓ Found ${questions.length} questions at level="${level}"`);
+      }
 
       // If no questions found, try other levels
       if (questions.length === 0 && level !== 'intermediate') {
+        console.log(`[English Practice] Trying level="intermediate"...`);
         questions = await getEnglishQuestions(tryPath, mappedTopicId, 'intermediate', count * 2);
+        if (questions.length > 0) {
+          console.log(`[English Practice] ✓ Found ${questions.length} questions at level="intermediate"`);
+        }
       }
 
       if (questions.length === 0 && level !== 'beginner') {
+        console.log(`[English Practice] Trying level="beginner"...`);
         questions = await getEnglishQuestions(tryPath, mappedTopicId, 'beginner', count * 2);
+        if (questions.length > 0) {
+          console.log(`[English Practice] ✓ Found ${questions.length} questions at level="beginner"`);
+        }
       }
 
       if (questions.length === 0 && level !== 'advanced') {
+        console.log(`[English Practice] Trying level="advanced"...`);
         questions = await getEnglishQuestions(tryPath, mappedTopicId, 'advanced', count * 2);
+        if (questions.length > 0) {
+          console.log(`[English Practice] ✓ Found ${questions.length} questions at level="advanced"`);
+        }
       }
 
       if (questions.length > 0) {
-        console.log(`[English Practice] Found ${questions.length} questions in path="${tryPath}", topic="${mappedTopicId}"`);
+        console.log(`[English Practice] Final: Found ${questions.length} questions in path="${tryPath}", topic="${mappedTopicId}"`);
         break;
+      } else {
+        console.log(`[English Practice] ✗ No questions in path="${tryPath}"`);
       }
     }
 
