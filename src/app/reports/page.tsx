@@ -202,10 +202,26 @@ export default function ReportsPage() {
       {/* Daily Activity Chart */}
       {dailyActivity.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("dailyActivity")}</h3>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-slate-800">{t("dailyActivity")}</h3>
+            <div className="flex items-center gap-4 text-xs text-slate-500">
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 rounded-sm bg-emerald-400"></div>
+                <span>≥70% accuracy</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 rounded-sm bg-amber-400"></div>
+                <span>50-69%</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 rounded-sm bg-red-400"></div>
+                <span>&lt;50%</span>
+              </div>
+            </div>
+          </div>
           <div className="flex gap-4">
             {/* Y-axis labels */}
-            <div className="flex flex-col justify-between text-xs text-slate-400 h-48 py-1">
+            <div className="flex flex-col items-end justify-between text-xs text-slate-400 h-48 py-1 pr-2 border-r border-slate-200">
               <span>{maxDailyQuestions}</span>
               <span>{Math.round(maxDailyQuestions * 0.75)}</span>
               <span>{Math.round(maxDailyQuestions * 0.5)}</span>
@@ -227,8 +243,10 @@ export default function ReportsPage() {
                       {/* Bar color */}
                       <div className={`w-full h-full rounded-t-sm ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`} />
                       {/* Tooltip - positioned above the bar */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-20 pointer-events-none shadow-lg">
-                        {new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}: {d.questions}Q, {acc}%
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
+                        <div className="font-semibold">{new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}</div>
+                        <div className="text-slate-300">{d.questions} questions attempted</div>
+                        <div className={`font-semibold ${acc >= 70 ? "text-emerald-300" : acc >= 50 ? "text-amber-300" : "text-red-300"}`}>{acc}% accuracy</div>
                       </div>
                     </div>
                   </div>
@@ -236,7 +254,7 @@ export default function ReportsPage() {
               })}
             </div>
           </div>
-          <div className="flex justify-between mt-2 text-xs text-slate-400 ml-10">
+          <div className="flex justify-between mt-2 text-xs text-slate-400 ml-14">
             <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
             <span>{t("last30Days")}</span>
             <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
@@ -310,7 +328,7 @@ export default function ReportsPage() {
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("accuracyTrend")}</h3>
           <div className="flex gap-4">
             {/* Y-axis labels */}
-            <div className="flex flex-col justify-between text-xs text-slate-400 h-48 py-1">
+            <div className="flex flex-col items-end justify-between text-xs text-slate-400 h-48 py-1 pr-2 border-r border-slate-200">
               <span>100%</span>
               <span>75%</span>
               <span>50%</span>
@@ -330,8 +348,9 @@ export default function ReportsPage() {
                       {/* Bar color */}
                       <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`} />
                       {/* Tooltip - positioned above the bar */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-20 pointer-events-none shadow-lg">
-                        {item.topic}: {item.accuracy}%
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
+                        <div className="font-semibold">{item.topic}</div>
+                        <div className="text-indigo-300">{item.accuracy}% accuracy</div>
                       </div>
                     </div>
                   </div>
@@ -339,7 +358,7 @@ export default function ReportsPage() {
               })}
             </div>
           </div>
-          <div className="text-center mt-2 text-xs text-slate-400 ml-10">{t("last20Quizzes")}</div>
+          <div className="text-center mt-2 text-xs text-slate-400 ml-14">{t("last20Quizzes")}</div>
         </div>
       )}
 
