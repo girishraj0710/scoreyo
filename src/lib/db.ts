@@ -1307,10 +1307,15 @@ export async function getEnglishQuestions(pathId: string, topicId: string, level
     [pathId, topicId, level, limit]
   );
 
-  // Parse JSON fields
+  // Parse JSON fields and convert to camelCase for frontend
   return rows.map((row: any) => ({
-    ...row,
+    id: row.id,
+    question: row.question,
     options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
+    correctAnswer: row.correct_answer, // Convert snake_case to camelCase
+    explanation: row.explanation,
+    difficulty: row.difficulty,
+    level: row.level,
   }));
 }
 
