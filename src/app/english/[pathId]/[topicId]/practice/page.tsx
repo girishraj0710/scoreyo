@@ -61,6 +61,7 @@ export default function EnglishPracticePage() {
         'listening-skills': '/english/special/listening-skills',
         'presentations': '/english/special/presentations',
         'daily-conversations': '/english/special/daily-conversations',
+        'toefl-integrated': '/english/special/toefl-integrated',
       };
 
       if (specialTopicMap[topicId]) {
