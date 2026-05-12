@@ -1,0 +1,591 @@
+[
+  {
+    "id": 394,
+    "question": "Choose the adjective form of \"care\":",
+    "correctAnswer": 1,
+    "correctOption": "careful",
+    "explanation": "\"Careful\" is an adjective formed by adding \"-ful\" to the noun \"care,\" meaning showing care or attention. \"Careless\" (adding \"-less\") means the opposite—not careful. \"Caring\" is a present participle th",
+    "options": [
+      "caring",
+      "careful",
+      "careless",
+      "carer"
+    ]
+  },
+  {
+    "id": 4981,
+    "question": "Complete: \"paid a ___\"\n\nUse: \"complement\" or \"compliment\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 3,
+    "suspectedOption": "compliment",
+    "explanation": "\"Complement\" = complete. \"Compliment\" = praise. Here, \"compliment\" is correct.",
+    "options": [
+      "both",
+      "complement",
+      "neither",
+      "compliment"
+    ],
+    "pattern": "here, \"compliment\" is correct"
+  },
+  {
+    "id": 4986,
+    "question": "Complete: \"over ___\"\n\nUse: \"their\" or \"there\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 1,
+    "suspectedOption": "there",
+    "explanation": "\"Their\" = possession. \"There\" = place/existence. Here, \"there\" is correct.",
+    "options": [
+      "both",
+      "there",
+      "their",
+      "neither"
+    ],
+    "pattern": "here, \"there\" is correct"
+  },
+  {
+    "id": 4989,
+    "question": "Complete: \"___ raining\"\n\nUse: \"its\" or \"it is\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 2,
+    "suspectedOption": "it is",
+    "explanation": "\"Its\" = possession. \"It's\" = it is. Here, \"it is\" is correct.",
+    "options": [
+      "neither",
+      "both",
+      "it is",
+      "its"
+    ],
+    "pattern": "here, \"it is\" is correct"
+  },
+  {
+    "id": 4991,
+    "question": "Complete: \"___ right\"\n\nUse: \"your\" or \"you are\"?",
+    "correctAnswer": 0,
+    "correctOption": "your",
+    "suspectedCorrect": 3,
+    "suspectedOption": "you are",
+    "explanation": "\"Your\" = possession. \"You're\" = you are. Here, \"you are\" is correct.",
+    "options": [
+      "your",
+      "both",
+      "neither",
+      "you are"
+    ],
+    "pattern": "here, \"you are\" is correct"
+  },
+  {
+    "id": 4993,
+    "question": "Complete: \"first this, ___ that\"\n\nUse: \"than\" or \"then\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 2,
+    "suspectedOption": "then",
+    "explanation": "\"Than\" = comparison. \"Then\" = time/sequence. Here, \"then\" is correct.",
+    "options": [
+      "neither",
+      "both",
+      "then",
+      "than"
+    ],
+    "pattern": "here, \"then\" is correct"
+  },
+  {
+    "id": 4995,
+    "question": "Complete: \"To ___?\"\n\nUse: \"who\" or \"whom\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 2,
+    "suspectedOption": "whom",
+    "explanation": "\"Who\" = subject. \"Whom\" = object. Here, \"whom\" is correct.",
+    "options": [
+      "neither",
+      "who",
+      "whom",
+      "both"
+    ],
+    "pattern": "here, \"whom\" is correct"
+  },
+  {
+    "id": 4998,
+    "question": "Complete: \"___ on broomstick\"\n\nUse: \"which\" or \"witch\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 3,
+    "suspectedOption": "witch",
+    "explanation": "\"Which\" = selection. \"Witch\" = magical person. Here, \"witch\" is correct.",
+    "options": [
+      "both",
+      "neither",
+      "which",
+      "witch"
+    ],
+    "pattern": "here, \"witch\" is correct"
+  },
+  {
+    "id": 5000,
+    "question": "Complete: \"___ it rains\"\n\nUse: \"weather\" or \"whether\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 2,
+    "suspectedOption": "whether",
+    "explanation": "\"Weather\" = climate. \"Whether\" = if. Here, \"whether\" is correct.",
+    "options": [
+      "both",
+      "weather",
+      "whether",
+      "neither"
+    ],
+    "pattern": "here, \"whether\" is correct"
+  },
+  {
+    "id": 5002,
+    "question": "Complete: \"I ___ you\"\n\nUse: \"advice\" or \"advise\"?",
+    "correctAnswer": 0,
+    "correctOption": "advice",
+    "suspectedCorrect": 1,
+    "suspectedOption": "advise",
+    "explanation": "\"Advice\" (noun). \"Advise\" (verb). Here, \"advise\" is correct.",
+    "options": [
+      "advice",
+      "advise",
+      "neither",
+      "both"
+    ],
+    "pattern": "here, \"advise\" is correct"
+  },
+  {
+    "id": 5004,
+    "question": "Complete: \"___ daily\"\n\nUse: \"practice\" or \"practise\"?",
+    "correctAnswer": 0,
+    "correctOption": "practice",
+    "suspectedCorrect": 1,
+    "suspectedOption": "practise",
+    "explanation": "In British English: \"practice\" (noun), \"practise\" (verb). US uses \"practice\" for both. Here, \"practise\" is correct.",
+    "options": [
+      "practice",
+      "practise",
+      "neither",
+      "both"
+    ],
+    "pattern": "here, \"practise\" is correct"
+  },
+  {
+    "id": 5008,
+    "question": "Complete: \"company ___\"\n\nUse: \"personal\" or \"personnel\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 3,
+    "suspectedOption": "personnel",
+    "explanation": "\"Personal\" = individual. \"Personnel\" = employees. Here, \"personnel\" is correct.",
+    "options": [
+      "both",
+      "neither",
+      "personal",
+      "personnel"
+    ],
+    "pattern": "here, \"personnel\" is correct"
+  },
+  {
+    "id": 5010,
+    "question": "Complete: \"construction ___\"\n\nUse: \"cite\" or \"site\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 1,
+    "suspectedOption": "site",
+    "explanation": "\"Cite\" = quote/reference. \"Site\" = location. Here, \"site\" is correct.",
+    "options": [
+      "neither",
+      "site",
+      "both",
+      "cite"
+    ],
+    "pattern": "here, \"site\" is correct"
+  },
+  {
+    "id": 5012,
+    "question": "Complete: \"legal ___\"\n\nUse: \"council\" or \"counsel\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 1,
+    "suspectedOption": "counsel",
+    "explanation": "\"Council\" = assembly. \"Counsel\" = advice/lawyer. Here, \"counsel\" is correct.",
+    "options": [
+      "neither",
+      "counsel",
+      "council",
+      "both"
+    ],
+    "pattern": "here, \"counsel\" is correct"
+  },
+  {
+    "id": 5014,
+    "question": "Complete: \"___ categories\"\n\nUse: \"discreet\" or \"discrete\"?",
+    "correctAnswer": 0,
+    "correctOption": "discreet",
+    "suspectedCorrect": 1,
+    "suspectedOption": "discrete",
+    "explanation": "\"Discreet\" = careful/tactful. \"Discrete\" = separate. Here, \"discrete\" is correct.",
+    "options": [
+      "discreet",
+      "discrete",
+      "both",
+      "neither"
+    ],
+    "pattern": "here, \"discrete\" is correct"
+  },
+  {
+    "id": 5016,
+    "question": "Complete: \"___ activity\"\n\nUse: \"elicit\" or \"illicit\"?",
+    "correctAnswer": 0,
+    "correctOption": "elicit",
+    "suspectedCorrect": 2,
+    "suspectedOption": "illicit",
+    "explanation": "\"Elicit\" = draw out. \"Illicit\" = illegal. Here, \"illicit\" is correct.",
+    "options": [
+      "elicit",
+      "neither",
+      "illicit",
+      "both"
+    ],
+    "pattern": "here, \"illicit\" is correct"
+  },
+  {
+    "id": 5023,
+    "question": "Complete: \"___ discussion\"\n\nUse: \"farther\" or \"further\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 1,
+    "suspectedOption": "further",
+    "explanation": "\"Farther\" = physical distance. \"Further\" = abstract degree. Here, \"further\" is correct.",
+    "options": [
+      "neither",
+      "further",
+      "both",
+      "farther"
+    ],
+    "pattern": "here, \"further\" is correct"
+  },
+  {
+    "id": 5025,
+    "question": "Complete: \"___ records\"\n\nUse: \"historic\" or \"historical\"?",
+    "correctAnswer": 0,
+    "correctOption": "historic",
+    "suspectedCorrect": 1,
+    "suspectedOption": "historical",
+    "explanation": "\"Historic\" = important in history. \"Historical\" = relates to history. Here, \"historical\" is correct.",
+    "options": [
+      "historic",
+      "historical",
+      "neither",
+      "both"
+    ],
+    "pattern": "here, \"historical\" is correct"
+  },
+  {
+    "id": 5027,
+    "question": "Complete: \"___ conclusion\"\n\nUse: \"imply\" or \"infer\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 2,
+    "suspectedOption": "infer",
+    "explanation": "\"Imply\" = suggest (speaker). \"Infer\" = deduce (listener). Here, \"infer\" is correct.",
+    "options": [
+      "neither",
+      "imply",
+      "infer",
+      "both"
+    ],
+    "pattern": "here, \"infer\" is correct"
+  },
+  {
+    "id": 5030,
+    "question": "Complete: \"___ tomorrow\"\n\nUse: \"may be\" or \"maybe\"?",
+    "correctAnswer": 0,
+    "correctOption": "may be",
+    "suspectedCorrect": 3,
+    "suspectedOption": "maybe",
+    "explanation": "\"May be\" = might be. \"Maybe\" = perhaps. Here, \"maybe\" is correct.",
+    "options": [
+      "may be",
+      "both",
+      "neither",
+      "maybe"
+    ],
+    "pattern": "here, \"maybe\" is correct"
+  },
+  {
+    "id": 5032,
+    "question": "Complete: \"in the ___\"\n\nUse: \"passed\" or \"past\"?",
+    "correctAnswer": 0,
+    "correctOption": "passed",
+    "suspectedCorrect": 1,
+    "suspectedOption": "past",
+    "explanation": "\"Passed\" = verb (past of pass). \"Past\" = noun/adjective. Here, \"past\" is correct.",
+    "options": [
+      "passed",
+      "past",
+      "neither",
+      "both"
+    ],
+    "pattern": "here, \"past\" is correct"
+  },
+  {
+    "id": 5034,
+    "question": "Complete: \"___ of cake\"\n\nUse: \"peace\" or \"piece\"?",
+    "correctAnswer": 0,
+    "correctOption": "peace",
+    "suspectedCorrect": 3,
+    "suspectedOption": "piece",
+    "explanation": "\"Peace\" = calm/no war. \"Piece\" = part/portion. Here, \"piece\" is correct.",
+    "options": [
+      "peace",
+      "both",
+      "neither",
+      "piece"
+    ],
+    "pattern": "here, \"piece\" is correct"
+  },
+  {
+    "id": 5036,
+    "question": "Complete: \"___ with plan\"\n\nUse: \"precede\" or \"proceed\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 3,
+    "suspectedOption": "proceed",
+    "explanation": "\"Precede\" = come before. \"Proceed\" = continue forward. Here, \"proceed\" is correct.",
+    "options": [
+      "neither",
+      "precede",
+      "both",
+      "proceed"
+    ],
+    "pattern": "here, \"proceed\" is correct"
+  },
+  {
+    "id": 5038,
+    "question": "Complete: \"___ good\"\n\nUse: \"quiet\" or \"quite\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 1,
+    "suspectedOption": "quite",
+    "explanation": "\"Quiet\" = silent. \"Quite\" = rather/very. Here, \"quite\" is correct.",
+    "options": [
+      "both",
+      "quite",
+      "quiet",
+      "neither"
+    ],
+    "pattern": "here, \"quite\" is correct"
+  },
+  {
+    "id": 5040,
+    "question": "Complete: \"sun ___s\"\n\nUse: \"raise\" or \"rise\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 2,
+    "suspectedOption": "rise",
+    "explanation": "\"Raise\" = lift something (transitive). \"Rise\" = go up (intransitive). Here, \"rise\" is correct.",
+    "options": [
+      "both",
+      "raise",
+      "rise",
+      "neither"
+    ],
+    "pattern": "here, \"rise\" is correct"
+  },
+  {
+    "id": 5043,
+    "question": "Complete: \"___ the table\"\n\nUse: \"sit\" or \"set\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 2,
+    "suspectedOption": "set",
+    "explanation": "\"Sit\" = be seated (intransitive). \"Set\" = place something (transitive). Here, \"set\" is correct.",
+    "options": [
+      "both",
+      "sit",
+      "set",
+      "neither"
+    ],
+    "pattern": "here, \"set\" is correct"
+  },
+  {
+    "id": 5045,
+    "question": "Complete: \"___ arrive\"\n\nUse: \"suppose\" or \"supposed to\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 3,
+    "suspectedOption": "supposed to",
+    "explanation": "\"Suppose\" = assume. \"Supposed to\" = expected/required. Here, \"supposed to\" is correct.",
+    "options": [
+      "neither",
+      "both",
+      "suppose",
+      "supposed to"
+    ],
+    "pattern": "here, \"supposed to\" is correct"
+  },
+  {
+    "id": 5047,
+    "question": "Complete: \"___ play\"\n\nUse: \"use\" or \"used to\"?",
+    "correctAnswer": 0,
+    "correctOption": "use",
+    "suspectedCorrect": 3,
+    "suspectedOption": "used to",
+    "explanation": "\"Use\" = employ. \"Used to\" = past habit. Here, \"used to\" is correct.",
+    "options": [
+      "use",
+      "neither",
+      "both",
+      "used to"
+    ],
+    "pattern": "here, \"used to\" is correct"
+  },
+  {
+    "id": 5049,
+    "question": "Complete: \"___ book?\"\n\nUse: \"who's\" or \"whose\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 3,
+    "suspectedOption": "whose",
+    "explanation": "\"Who's\" = who is. \"Whose\" = possession. Here, \"whose\" is correct.",
+    "options": [
+      "both",
+      "neither",
+      "who's",
+      "whose"
+    ],
+    "pattern": "here, \"whose\" is correct"
+  },
+  {
+    "id": 5051,
+    "question": "Complete: \"___ finished\"\n\nUse: \"all ready\" or \"already\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 1,
+    "suspectedOption": "already",
+    "explanation": "\"All ready\" = completely prepared. \"Already\" = by now. Here, \"already\" is correct.",
+    "options": [
+      "neither",
+      "already",
+      "both",
+      "all ready"
+    ],
+    "pattern": "here, \"already\" is correct"
+  },
+  {
+    "id": 5053,
+    "question": "Complete: \"___ different\"\n\nUse: \"all together\" or \"altogether\"?",
+    "correctAnswer": 0,
+    "correctOption": "all together",
+    "suspectedCorrect": 1,
+    "suspectedOption": "altogether",
+    "explanation": "\"All together\" = everyone together. \"Altogether\" = completely. Here, \"altogether\" is correct.",
+    "options": [
+      "all together",
+      "altogether",
+      "both",
+      "neither"
+    ],
+    "pattern": "here, \"altogether\" is correct"
+  },
+  {
+    "id": 5055,
+    "question": "Complete: \"___ can join\"\n\nUse: \"any one\" or \"anyone\"?",
+    "correctAnswer": 0,
+    "correctOption": "any one",
+    "suspectedCorrect": 3,
+    "suspectedOption": "anyone",
+    "explanation": "\"Any one\" = any single item. \"Anyone\" = any person. Here, \"anyone\" is correct.",
+    "options": [
+      "any one",
+      "neither",
+      "both",
+      "anyone"
+    ],
+    "pattern": "here, \"anyone\" is correct"
+  },
+  {
+    "id": 5057,
+    "question": "Complete: \"___ clothes\"\n\nUse: \"every day\" or \"everyday\"?",
+    "correctAnswer": 0,
+    "correctOption": "every day",
+    "suspectedCorrect": 3,
+    "suspectedOption": "everyday",
+    "explanation": "\"Every day\" = each day. \"Everyday\" = ordinary. Here, \"everyday\" is correct.",
+    "options": [
+      "every day",
+      "both",
+      "neither",
+      "everyday"
+    ],
+    "pattern": "here, \"everyday\" is correct"
+  },
+  {
+    "id": 5059,
+    "question": "Complete: \"___ soon\"\n\nUse: \"some time\" or \"sometime\"?",
+    "correctAnswer": 0,
+    "correctOption": "both",
+    "suspectedCorrect": 2,
+    "suspectedOption": "sometime",
+    "explanation": "\"Some time\" = a period. \"Sometime\" = at some point. Here, \"sometime\" is correct.",
+    "options": [
+      "both",
+      "some time",
+      "sometime",
+      "neither"
+    ],
+    "pattern": "here, \"sometime\" is correct"
+  },
+  {
+    "id": 5064,
+    "question": "Complete: \"___ money\"\n\nUse: \"borrow\" or \"lend\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 1,
+    "suspectedOption": "lend",
+    "explanation": "\"Borrow\" = receive temporarily. \"Lend\" = give temporarily. Here, \"lend\" is correct.",
+    "options": [
+      "neither",
+      "lend",
+      "borrow",
+      "both"
+    ],
+    "pattern": "here, \"lend\" is correct"
+  },
+  {
+    "id": 5066,
+    "question": "Complete: \"___ a cake\"\n\nUse: \"do\" or \"make\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 2,
+    "suspectedOption": "make",
+    "explanation": "\"Do\" = perform action. \"Make\" = create/produce. Here, \"make\" is correct.",
+    "options": [
+      "neither",
+      "both",
+      "make",
+      "do"
+    ],
+    "pattern": "here, \"make\" is correct"
+  },
+  {
+    "id": 5069,
+    "question": "Complete: \"___ me\"\n\nUse: \"say\" or \"tell\"?",
+    "correctAnswer": 0,
+    "correctOption": "neither",
+    "suspectedCorrect": 3,
+    "suspectedOption": "tell",
+    "explanation": "\"Say\" = speak words. \"Tell\" = inform someone (+ object). Here, \"tell\" is correct.",
+    "options": [
+      "neither",
+      "both",
+      "say",
+      "tell"
+    ],
+    "pattern": "here, \"tell\" is correct"
+  }
+]
