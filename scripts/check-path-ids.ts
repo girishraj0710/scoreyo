@@ -27,9 +27,20 @@ const client = createClient({
 });
 
 (async () => {
-  const result = await client.execute('SELECT DISTINCT path_id, topic_id FROM english_questions ORDER BY path_id, topic_id LIMIT 20');
-  console.log('Sample path_id and topic_id values:');
+  const result = await client.execute("SELECT DISTINCT topic_id, COUNT(*) as count FROM english_questions WHERE path_id = 'foundation' GROUP BY topic_id ORDER BY topic_id");
+  console.log('Available topics in foundation path:\n');
   result.rows.forEach(row => {
-    console.log(`  path_id: "${row.path_id}", topic_id: "${row.topic_id}"`);
+    console.log(`  - ${row.topic_id} (${row.count}Q)`);
+  });
+
+  // Check if letter-writing exists
+  const letterWriting = await client.execute("SELECT COUNT(*) as count FROM english_questions WHERE path_id = 'foundation' AND topic_id LIKE '%letter%'");
+  console.log(`\nLetter writing topics: ${letterWriting.rows[0].count}`);
+
+  // Check for email or writing topics
+  const writing = await client.execute("SELECT DISTINCT topic_id FROM english_questions WHERE path_id = 'foundation' AND (topic_id LIKE '%writing%' OR topic_id LIKE '%email%')");
+  console.log('\nWriting-related topics:');
+  writing.rows.forEach(row => {
+    console.log(`  - ${row.topic_id}`);
   });
 })();

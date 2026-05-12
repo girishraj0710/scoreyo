@@ -110,7 +110,23 @@ export async function POST(request: NextRequest) {
       try {
         // For English questions, use 'foundation' as path_id and topic as topic_id
         const pathId = 'foundation';
-        const topicId = topic.toLowerCase().replace(/\s+/g, '-');
+
+        // Map frontend topics to database topics
+        const topicMapping: Record<string, string> = {
+          'letter-writing': 'writing-skills',
+          'email-writing': 'writing-skills',
+          'essay-writing': 'writing-skills',
+          'paragraph-writing': 'writing-skills',
+          // Add more mappings as needed
+        };
+
+        let topicId = topic.toLowerCase().replace(/\s+/g, '-');
+
+        // Use mapping if available
+        if (topicMapping[topicId]) {
+          console.log(`[English Quiz] Mapping topic "${topicId}" to "${topicMapping[topicId]}"`);
+          topicId = topicMapping[topicId];
+        }
 
         // Try to get questions from database with requested level
         let levelToQuery = difficulty === 'mixed' ? 'intermediate' : difficulty;
