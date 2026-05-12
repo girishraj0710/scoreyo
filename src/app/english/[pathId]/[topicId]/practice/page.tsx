@@ -46,11 +46,29 @@ export default function EnglishPracticePage() {
 
   useEffect(() => {
     if (user && path && topic) {
-      // Redirect IELTS Speaking to dedicated voice-based practice page
-      if (topicId === 'ielts-speaking') {
-        router.push('/english/foundation/ielts-speaking/practice');
+      // Check if this topic requires special interface (not MCQ quiz)
+      const specialTopicMap: Record<string, string> = {
+        'ielts-speaking': '/english/foundation/ielts-speaking/practice',
+        'ielts-writing': '/english/special/ielts-writing',
+        'ielts-listening': '/english/special/coming-soon?topic=ielts-listening&type=listening',
+        'pronunciation': '/english/special/coming-soon?topic=pronunciation&type=pronunciation',
+        'pronunciation-basics': '/english/special/coming-soon?topic=pronunciation&type=pronunciation',
+        'pronunciation-practice': '/english/special/coming-soon?topic=pronunciation&type=pronunciation',
+        'paragraph-writing': '/english/special/paragraph-writing',
+        'essay-writing': '/english/special/essay-writing',
+        'essay-writing-basics': '/english/special/essay-writing',
+        'letter-writing': '/english/special/letter-writing',
+        'email-writing': '/english/special/email-writing',
+        'listening-skills': '/english/special/coming-soon?topic=listening&type=listening',
+        'presentations': '/english/special/coming-soon?topic=presentations&type=speaking',
+        'daily-conversations': '/english/special/coming-soon?topic=conversations&type=speaking',
+      };
+
+      if (specialTopicMap[topicId]) {
+        router.push(specialTopicMap[topicId]);
         return;
       }
+
       fetchQuestions();
     }
   }, [user, path, topic, topicId, router]);
