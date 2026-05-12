@@ -41,6 +41,7 @@ export default function MockTestPage() {
   const [selectedExam, setSelectedExam] = useState<string | null>(null);
   const [selectedTestNumber, setSelectedTestNumber] = useState<number>(1);
   const [testCapacity, setTestCapacity] = useState<Record<string, number>>({});
+  const [showExamModal, setShowExamModal] = useState(false);
 
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
@@ -793,14 +794,11 @@ export default function MockTestPage() {
                 onClick={() => {
                   setSelectedExam(examId);
                   setSelectedTestNumber(1);
+                  setShowExamModal(true);
                 }}
-                className={`group bg-white rounded-2xl p-6 border-2 transition-all duration-300 cursor-pointer ${
-                  isSelected
-                    ? "border-indigo-500 shadow-xl ring-2 ring-indigo-200"
-                    : "border-slate-200 hover:border-slate-300 hover:shadow-lg"
-                }`}
+                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
-                {/* Header with selection indicator */}
+                {/* Header */}
                 <div className="flex items-start gap-3 mb-4">
                   <div className="w-12 h-12 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <ColorfulExamIcon
@@ -812,15 +810,6 @@ export default function MockTestPage() {
                     <h3 className="font-bold text-lg text-slate-800 mb-1">{firstConfig.examName}</h3>
                     <p className="text-xs text-slate-400 line-clamp-1">{exam?.description || ""}</p>
                   </div>
-                  {isSelected && (
-                    <div className="shrink-0">
-                      <div className="w-6 h-6 rounded-full bg-slate-500 flex items-center justify-center">
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* Stats */}
@@ -840,54 +829,26 @@ export default function MockTestPage() {
                 </div>
 
                 {/* Subjects */}
-                <div className="flex flex-wrap gap-1.5 mb-4 min-h-[52px]">
-                  {firstConfig.sections.map((s) => (
+                <div className="flex flex-wrap gap-1.5 min-h-[52px]">
+                  {firstConfig.sections.slice(0, 3).map((s) => (
                     <span key={s.subjectId} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
                       {s.subjectName} ({s.questionCount})
                     </span>
                   ))}
+                  {firstConfig.sections.length > 3 && (
+                    <span className="text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded-md">
+                      +{firstConfig.sections.length - 3} more
+                    </span>
+                  )}
                 </div>
 
-                {/* Test Selector - Dynamic with actual capacity */}
-                {isSelected && (
-                  <div className="space-y-3 mt-4">
-                    {/* Badge showing available tests */}
-                    {testCapacity[examId] > 3 && (
-                      <div className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-lg border border-emerald-200">
-                        <span className="text-2xl">🚀</span>
-                        <span className="text-sm font-semibold text-emerald-700">
-                          {testCapacity[examId]}+ Tests Available
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Test selector */}
-                    <div className="px-4 py-3 bg-slate-50 rounded-lg border border-slate-200">
-                      <div className="text-xs text-slate-500 font-medium mb-2">Select Test Number:</div>
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        {Array.from({ length: Math.min(testCapacity[examId] || 3, 10) }, (_, i) => i + 1).map((num) => (
-                          <button
-                            key={num}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedTestNumber(num);
-                            }}
-                            className={`w-10 h-10 rounded-lg text-sm font-bold transition-all ${
-                              selectedTestNumber === num
-                                ? "bg-indigo-600 text-white shadow-lg scale-110"
-                                : "bg-white text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-200"
-                            }`}
-                          >
-                            {num}
-                          </button>
-                        ))}
-                      </div>
-                      {testCapacity[examId] > 10 && (
-                        <div className="text-xs text-center text-slate-500 mt-3">
-                          + {testCapacity[examId] - 10} more tests available
-                        </div>
-                      )}
-                    </div>
+                {/* Available tests badge */}
+                {testCapacity[examId] > 3 && (
+                  <div className="mt-4 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-lg border border-emerald-200">
+                    <span className="text-lg">🚀</span>
+                    <span className="text-xs font-semibold text-emerald-700">
+                      {testCapacity[examId]}+ Tests Available
+                    </span>
                   </div>
                 )}
               </div>
@@ -930,38 +891,157 @@ export default function MockTestPage() {
         </div>
       )}
 
-      {/* Floating Start Test Button */}
-      {selectedExam && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-2xl z-50">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 flex items-center justify-center">
-                <ColorfulExamIcon examId={selectedExam} size={32} />
+      {/* Exam Details Modal */}
+      {showExamModal && selectedExam && groupedConfigs[selectedExam] && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowExamModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <ColorfulExamIcon examId={selectedExam} size={40} />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-slate-800">{groupedConfigs[selectedExam][0].examName}</h2>
+                  <p className="text-sm text-slate-500">{getExamById(selectedExam)?.description || ""}</p>
+                </div>
               </div>
+              <button
+                onClick={() => setShowExamModal(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 space-y-6">
+              {/* Test Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-indigo-50 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-indigo-600">{groupedConfigs[selectedExam][0].totalQuestions}</div>
+                  <div className="text-xs text-slate-600 mt-1">Questions</div>
+                </div>
+                <div className="bg-purple-50 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-purple-600">{groupedConfigs[selectedExam][0].timeLimitMinutes}m</div>
+                  <div className="text-xs text-slate-600 mt-1">Duration</div>
+                </div>
+                <div className="bg-pink-50 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-pink-600">{groupedConfigs[selectedExam][0].sections.length}</div>
+                  <div className="text-xs text-slate-600 mt-1">Sections</div>
+                </div>
+              </div>
+
+              {/* Sections Covered */}
               <div>
-                <div className="font-semibold text-slate-800">
-                  {groupedConfigs[selectedExam][0].examName}
+                <h3 className="text-sm font-semibold text-slate-700 mb-3">Topics Covered</h3>
+                <div className="grid grid-cols-2 gap-2">
+                  {groupedConfigs[selectedExam][0].sections.map((s) => (
+                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
+                      <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+                      <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
+                      <span className="text-xs text-slate-400 ml-auto">({s.questionCount}Q)</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="text-xs text-slate-500">
-                  Test {selectedTestNumber} of {testCapacity[selectedExam] || 3}+ · {groupedConfigs[selectedExam][0].totalQuestions} questions · {groupedConfigs[selectedExam][0].timeLimitMinutes} mins
+              </div>
+
+              {/* Available Tests Badge */}
+              {testCapacity[selectedExam] > 3 && (
+                <div className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-xl border border-emerald-200">
+                  <span className="text-2xl">🚀</span>
+                  <span className="text-sm font-bold text-emerald-700">
+                    {testCapacity[selectedExam]}+ Unique Tests Available
+                  </span>
                 </div>
+              )}
+
+              {/* Test Selector */}
+              <div>
+                <h3 className="text-sm font-semibold text-slate-700 mb-3">Select Test Number</h3>
+                <div className="px-4 py-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {Array.from({ length: Math.min(testCapacity[selectedExam] || 3, 10) }, (_, i) => i + 1).map((num) => (
+                      <button
+                        key={num}
+                        onClick={() => setSelectedTestNumber(num)}
+                        className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
+                          selectedTestNumber === num
+                            ? "bg-indigo-600 text-white shadow-lg scale-110"
+                            : "bg-white text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 border-2 border-slate-200 hover:border-indigo-300"
+                        }`}
+                      >
+                        {num}
+                      </button>
+                    ))}
+                  </div>
+                  {testCapacity[selectedExam] > 10 && (
+                    <div className="text-xs text-center text-slate-500 mt-3">
+                      + {testCapacity[selectedExam] - 10} more tests available
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Test Type Toggle */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setTestType("short")}
+                  className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
+                    testType === "short"
+                      ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span>Short Practice</span>
+                  </div>
+                  <div className="text-xs mt-1 opacity-90">{groupedConfigs[selectedExam][0].totalQuestions}Q · {groupedConfigs[selectedExam][0].timeLimitMinutes}mins</div>
+                </button>
+
+                <button
+                  onClick={() => setTestType("full")}
+                  className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
+                    testType === "full"
+                      ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Full-Length</span>
+                  </div>
+                  <div className="text-xs mt-1 opacity-90">{groupedConfigs[selectedExam][0].totalQuestions * 3}Q · {Math.round(groupedConfigs[selectedExam][0].timeLimitMinutes * 2.5)}mins</div>
+                </button>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+
+            {/* Footer Actions */}
+            <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between">
               <button
-                onClick={() => {
-                  setSelectedExam(null);
-                  setSelectedTestNumber(1);
-                }}
-                className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+                onClick={() => setShowExamModal(false)}
+                className="px-6 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
               >
                 Cancel
               </button>
               <button
-                onClick={() => startTest(selectedExam, selectedTestNumber, testType === "full")}
-                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
+                onClick={() => {
+                  setShowExamModal(false);
+                  startTest(selectedExam, selectedTestNumber, testType === "full");
+                }}
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
               >
-                Start Test
+                <span>Start Test {selectedTestNumber}</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </button>
             </div>
           </div>
