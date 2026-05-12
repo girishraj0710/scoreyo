@@ -46,9 +46,14 @@ export default function EnglishPracticePage() {
 
   useEffect(() => {
     if (user && path && topic) {
+      // Redirect IELTS Speaking to dedicated voice-based practice page
+      if (topicId === 'ielts-speaking') {
+        router.push('/english/foundation/ielts-speaking/practice');
+        return;
+      }
       fetchQuestions();
     }
-  }, [user, path, topic]);
+  }, [user, path, topic, topicId, router]);
 
   const fetchQuestions = async () => {
     setQuizState("loading");

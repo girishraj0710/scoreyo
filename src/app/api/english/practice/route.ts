@@ -87,8 +87,8 @@ export async function POST(request: NextRequest) {
       // IELTS Listening → reading-comprehension (closest match, 42Q)
       'ielts-listening': 'reading-comprehension',
 
-      // IELTS Speaking → conversation topics + idioms
-      'ielts-speaking': 'idioms',  // Use idioms (26Q) for speaking practice
+      // IELTS Speaking → redirect to dedicated speaking practice page (voice-based)
+      // No longer mapped to idioms - handled separately
 
       // TOEFL Integrated Tasks → reading-comprehension (42Q)
       'toefl-integrated': 'reading-comprehension',
