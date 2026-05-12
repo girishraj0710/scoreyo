@@ -9,6 +9,34 @@ function ComingSoonContent() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "feature";
   const type = searchParams.get("type") || "practice";
+  const fromPath = searchParams.get("from");
+  const fromTopic = searchParams.get("fromTopic");
+
+  // Construct proper back URL
+  const getBackUrl = () => {
+    // If we have explicit from params, use them
+    if (fromPath && fromTopic) {
+      return `/english/${fromPath}/${fromTopic}`;
+    }
+
+    // Try to infer from topic name
+    const topicToPathMap: Record<string, { path: string; topic: string }> = {
+      'ielts-listening': { path: 'ielts-toefl', topic: 'ielts-listening' },
+      'ielts-writing': { path: 'ielts-toefl', topic: 'ielts-writing' },
+      'pronunciation': { path: 'foundation', topic: 'pronunciation' },
+      'listening': { path: 'foundation', topic: 'listening-skills' },
+      'presentations': { path: 'real-world', topic: 'presentations' },
+      'conversations': { path: 'real-world', topic: 'daily-conversations' },
+    };
+
+    const mapping = topicToPathMap[topic];
+    if (mapping) {
+      return `/english/${mapping.path}/${mapping.topic}`;
+    }
+
+    // Fallback to English hub
+    return '/english';
+  };
 
   const icons = {
     listening: <Headphones className="w-16 h-16 text-blue-600" />,
@@ -201,7 +229,7 @@ function ComingSoonContent() {
         {/* Action Buttons */}
         <div className="flex gap-4 justify-center">
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push(getBackUrl())}
             className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-semibold"
           >
             ← Go Back

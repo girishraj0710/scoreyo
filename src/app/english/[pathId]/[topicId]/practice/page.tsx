@@ -64,7 +64,12 @@ export default function EnglishPracticePage() {
       };
 
       if (specialTopicMap[topicId]) {
-        router.push(specialTopicMap[topicId]);
+        // Add from parameters to coming-soon URLs so back button works correctly
+        let redirectUrl = specialTopicMap[topicId];
+        if (redirectUrl.includes('/coming-soon')) {
+          redirectUrl += `&from=${pathId}&fromTopic=${topicId}`;
+        }
+        router.push(redirectUrl);
         return;
       }
 
