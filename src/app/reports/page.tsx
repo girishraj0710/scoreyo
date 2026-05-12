@@ -87,6 +87,10 @@ export default function ReportsPage() {
 
   const { stats, subjectBreakdown, dailyActivity, difficultyBreakdown, timeTrend, accuracyTrend, strongTopics, weakTopics, mockTestHistory } = data;
 
+  // Debug: Log the data to console
+  console.log("Daily Activity Data:", dailyActivity);
+  console.log("Accuracy Trend Data:", accuracyTrend);
+
   // Calculate max for bar charts
   const maxDailyQuestions = Math.max(...dailyActivity.map((d: any) => d.questions), 1);
 
@@ -338,7 +342,8 @@ export default function ReportsPage() {
             {/* Chart bars */}
             <div className="flex-1 flex items-end gap-2 h-48 relative">
               {accuracyTrend.map((item: any, idx: number) => {
-                const heightPx = Math.max((item.accuracy / 100) * 192, 4); // 192px = h-48, accuracy is 0-100
+                const accuracy = item.accuracy || 0;
+                const heightPx = Math.max((accuracy / 100) * 192, 4); // 192px = h-48, accuracy is 0-100
                 return (
                   <div key={idx} className="flex-1 flex flex-col justify-end group h-full">
                     <div
@@ -349,8 +354,8 @@ export default function ReportsPage() {
                       <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`} />
                       {/* Tooltip - positioned above the bar */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
-                        <div className="font-semibold">{item.topic}</div>
-                        <div className="text-indigo-300">{item.accuracy}% accuracy</div>
+                        <div className="font-semibold">{item.topic || `Quiz #${accuracyTrend.length - idx}`}</div>
+                        <div className="text-indigo-300">{accuracy}% accuracy</div>
                       </div>
                     </div>
                   </div>
