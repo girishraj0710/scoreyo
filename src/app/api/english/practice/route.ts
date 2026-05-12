@@ -95,6 +95,26 @@ export async function POST(request: NextRequest) {
 
       // Academic Vocabulary → academic-vocabulary (5Q) + essential-vocabulary (5Q)
       'academic-vocabulary': 'academic-vocabulary',
+
+      // ===== COMPETITIVE EXAM TOPICS =====
+      // Sentence Improvement → common-mistakes (131Q) - perfect for error detection
+      'sentence-improvement': 'common-mistakes',
+
+      // Comprehension → reading-comprehension (42Q)
+      'comprehension': 'reading-comprehension',
+
+      // Cloze Test → reading-comprehension (42Q) - tests contextual understanding
+      'cloze-test': 'reading-comprehension',
+
+      // ===== REAL-WORLD TOPICS =====
+      // Job Interviews → idioms (26Q) + phrasal-verbs (110Q) for professional communication
+      'job-interviews': 'phrasal-verbs',
+
+      // Presentations → idioms (26Q) for public speaking confidence
+      'presentations': 'idioms',
+
+      // Business English → writing-skills (97Q) + phrasal-verbs (110Q)
+      'business-english': 'phrasal-verbs',
     };
 
     let mappedTopicId = topicId.toLowerCase().replace(/\s+/g, '-');
