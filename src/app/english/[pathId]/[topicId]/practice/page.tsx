@@ -36,6 +36,7 @@ export default function EnglishPracticePage() {
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
   const [error, setError] = useState("");
+  const [warning, setWarning] = useState("");
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -52,6 +53,7 @@ export default function EnglishPracticePage() {
   const fetchQuestions = async () => {
     setQuizState("loading");
     setError("");
+    setWarning("");
 
     try {
       const res = await fetch("/api/english/practice", {
@@ -74,6 +76,11 @@ export default function EnglishPracticePage() {
       if (!data.questions || data.questions.length === 0) {
         setError("No questions available for this topic yet. We're working on adding more content!");
         return;
+      }
+
+      // Check if we got fewer questions than requested
+      if (data.warning) {
+        setWarning(data.warning);
       }
 
       setQuestions(data.questions);
@@ -212,6 +219,16 @@ export default function EnglishPracticePage() {
                   />
                 </div>
               </div>
+
+              {/* Warning Message */}
+              {warning && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5">ℹ️</div>
+                    <p className="text-sm text-yellow-800">{warning}</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Question */}

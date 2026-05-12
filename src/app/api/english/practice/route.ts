@@ -189,13 +189,22 @@ export async function POST(request: NextRequest) {
     // Limit to requested count
     const selectedQuestions = questions.slice(0, count);
 
-    console.log(`[English Practice] Returning ${selectedQuestions.length} questions`);
+    console.log(`[English Practice] Returning ${selectedQuestions.length} questions (requested: ${count})`);
 
-    // Return questions
-    return NextResponse.json({
+    // Add warning if we couldn't fulfill the full request
+    const response: any = {
       questions: selectedQuestions,
       count: selectedQuestions.length,
-    });
+      requested: count,
+    };
+
+    if (selectedQuestions.length < count) {
+      response.warning = `Only ${selectedQuestions.length} questions available for this topic at this level. We're working on adding more content!`;
+      console.log(`[English Practice] ⚠️ Warning: Could only return ${selectedQuestions.length}/${count} questions`);
+    }
+
+    // Return questions
+    return NextResponse.json(response);
   } catch (error) {
     console.error("Error fetching English practice questions:", error);
     return NextResponse.json(
