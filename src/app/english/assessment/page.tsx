@@ -49,10 +49,14 @@ export default function EnglishAssessmentPage() {
       let level: UserLevel = "beginner";
       let path = "foundation";
 
-      if (score === 0 || score === 1) {
+      // Score ranges for 20 questions:
+      // Beginner: 0-7 (0-35%)
+      // Intermediate: 8-14 (40-70%)
+      // Advanced: 15-20 (75-100%)
+      if (score <= 7) {
         level = "beginner";
         path = "foundation";
-      } else if (score === 2) {
+      } else if (score <= 14) {
         level = "intermediate";
         path = "competitive-exam";
       } else {
@@ -131,10 +135,10 @@ export default function EnglishAssessmentPage() {
               </div>
 
               <h1 className="text-3xl font-bold text-slate-900 mb-4">
-                Quick Level Assessment
+                Comprehensive Level Assessment
               </h1>
               <p className="text-lg text-slate-600 mb-6">
-                Take our 3-minute test to discover your English level and get personalized learning recommendations
+                Take our 10-minute test with 20 questions to accurately discover your English level and get personalized learning recommendations
               </p>
 
               <div className="bg-indigo-50 rounded-xl p-6 mb-8">
@@ -142,19 +146,19 @@ export default function EnglishAssessmentPage() {
                 <ul className="space-y-2 text-left">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Only 3 questions - takes less than 3 minutes</span>
+                    <span className="text-slate-700">20 questions covering grammar, vocabulary, tenses, and more</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Tests grammar, vocabulary, and comprehension</span>
+                    <span className="text-slate-700">Progressive difficulty from beginner to advanced</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Get instant results and personalized path recommendation</span>
+                    <span className="text-slate-700">Detailed results with topic-wise performance analysis</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">100% free - no strings attached</span>
+                    <span className="text-slate-700">Takes ~10 minutes - 100% free, no strings attached</span>
                   </li>
                 </ul>
               </div>
@@ -272,7 +276,7 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 mb-6">
               <h3 className="font-semibold text-slate-900 mb-3">💡 What your level means:</h3>
               <div className="text-slate-700">
                 {detectedLevel === "beginner" && (
@@ -290,6 +294,60 @@ export default function EnglishAssessmentPage() {
                     Excellent! You're ready for international-level English. Perfect for IELTS/TOEFL preparation with academic vocabulary, complex grammar structures, and formal writing skills.
                   </p>
                 )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-slate-200 mb-6">
+              <h3 className="font-semibold text-slate-900 mb-4">📊 Your Performance Breakdown:</h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm font-medium text-slate-700">Beginner Questions</span>
+                    <span className="text-sm font-semibold text-slate-900">
+                      {userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "beginner").length} / 7
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div
+                      className="bg-green-500 h-2 rounded-full transition-all"
+                      style={{
+                        width: `${(userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "beginner").length / 7) * 100}%`
+                      }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm font-medium text-slate-700">Intermediate Questions</span>
+                    <span className="text-sm font-semibold text-slate-900">
+                      {userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "intermediate").length} / 7
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div
+                      className="bg-yellow-500 h-2 rounded-full transition-all"
+                      style={{
+                        width: `${(userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "intermediate").length / 7) * 100}%`
+                      }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm font-medium text-slate-700">Advanced Questions</span>
+                    <span className="text-sm font-semibold text-slate-900">
+                      {userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "advanced").length} / 6
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div
+                      className="bg-red-500 h-2 rounded-full transition-all"
+                      style={{
+                        width: `${(userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "advanced").length / 6) * 100}%`
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

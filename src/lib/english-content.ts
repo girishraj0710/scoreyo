@@ -932,8 +932,9 @@ export const englishPaths: EnglishPath[] = [
   },
 ];
 
-// Quick level assessment questions (3 questions to detect user level)
+// Quick level assessment questions (20 questions covering all major topics)
 export const levelAssessmentQuestions = [
+  // BEGINNER QUESTIONS (1-7)
   {
     question: "Choose the correct sentence:",
     options: [
@@ -944,6 +945,93 @@ export const levelAssessmentQuestions = [
     ],
     correctAnswer: 2,
     level: "beginner",
+    topic: "Grammar - Subject-Verb Agreement",
+  },
+  {
+    question: "What is the plural of 'child'?",
+    options: [
+      "childs",
+      "childes",
+      "children",
+      "childrens",
+    ],
+    correctAnswer: 2,
+    level: "beginner",
+    topic: "Nouns - Irregular Plurals",
+  },
+  {
+    question: "Choose the correct article: 'I saw ___ elephant at the zoo.'",
+    options: [
+      "a",
+      "an",
+      "the",
+      "no article",
+    ],
+    correctAnswer: 1,
+    level: "beginner",
+    topic: "Articles",
+  },
+  {
+    question: "Which sentence is in Present Continuous tense?",
+    options: [
+      "I study every day",
+      "I am studying now",
+      "I studied yesterday",
+      "I will study tomorrow",
+    ],
+    correctAnswer: 1,
+    level: "beginner",
+    topic: "Tenses - Present Continuous",
+  },
+  {
+    question: "What is the opposite of 'big'?",
+    options: [
+      "huge",
+      "small",
+      "large",
+      "tall",
+    ],
+    correctAnswer: 1,
+    level: "beginner",
+    topic: "Vocabulary - Antonyms",
+  },
+  {
+    question: "Choose the correct pronoun: '___ is my book.'",
+    options: [
+      "These",
+      "Those",
+      "This",
+      "Them",
+    ],
+    correctAnswer: 2,
+    level: "beginner",
+    topic: "Pronouns - Demonstrative",
+  },
+  {
+    question: "Which word is an adjective?",
+    options: [
+      "quickly",
+      "run",
+      "beautiful",
+      "happiness",
+    ],
+    correctAnswer: 2,
+    level: "beginner",
+    topic: "Parts of Speech - Adjectives",
+  },
+
+  // INTERMEDIATE QUESTIONS (8-14)
+  {
+    question: "Choose the correct form: 'I _____ in Mumbai for 5 years.'",
+    options: [
+      "live",
+      "am living",
+      "have lived",
+      "lived",
+    ],
+    correctAnswer: 2,
+    level: "intermediate",
+    topic: "Tenses - Present Perfect",
   },
   {
     question: "What does 'ubiquitous' mean?",
@@ -955,9 +1043,72 @@ export const levelAssessmentQuestions = [
     ],
     correctAnswer: 1,
     level: "intermediate",
+    topic: "Vocabulary - Advanced Words",
   },
   {
-    question: "Choose the best phrase to complete: 'Despite _____ extensively, the team failed to achieve the desired outcome.'",
+    question: "Convert to passive: 'They are building a new bridge.'",
+    options: [
+      "A new bridge is building by them",
+      "A new bridge is being built by them",
+      "A new bridge was built by them",
+      "A new bridge has been built by them",
+    ],
+    correctAnswer: 1,
+    level: "intermediate",
+    topic: "Grammar - Active/Passive Voice",
+  },
+  {
+    question: "Choose the correct phrasal verb: 'Please _____ the lights when you leave.'",
+    options: [
+      "turn off",
+      "turn on",
+      "turn up",
+      "turn down",
+    ],
+    correctAnswer: 0,
+    level: "intermediate",
+    topic: "Phrasal Verbs",
+  },
+  {
+    question: "Which sentence uses the correct comparative form?",
+    options: [
+      "This book is more better than that one",
+      "This book is better than that one",
+      "This book is more good than that one",
+      "This book is gooder than that one",
+    ],
+    correctAnswer: 1,
+    level: "intermediate",
+    topic: "Grammar - Comparatives",
+  },
+  {
+    question: "What does the idiom 'break the ice' mean?",
+    options: [
+      "To damage something frozen",
+      "To start a conversation in an awkward situation",
+      "To work very hard",
+      "To give up easily",
+    ],
+    correctAnswer: 1,
+    level: "intermediate",
+    topic: "Idioms & Expressions",
+  },
+  {
+    question: "Choose the correct preposition: 'She is good ___ mathematics.'",
+    options: [
+      "in",
+      "at",
+      "on",
+      "with",
+    ],
+    correctAnswer: 1,
+    level: "intermediate",
+    topic: "Prepositions",
+  },
+
+  // ADVANCED QUESTIONS (15-20)
+  {
+    question: "Choose the best phrase: 'Despite _____ extensively, the team failed to achieve the desired outcome.'",
     options: [
       "to prepare",
       "preparing",
@@ -966,6 +1117,67 @@ export const levelAssessmentQuestions = [
     ],
     correctAnswer: 1,
     level: "advanced",
+    topic: "Grammar - Gerunds and Infinitives",
+  },
+  {
+    question: "Identify the error: 'Having finished the report, the meeting was attended by John.'",
+    options: [
+      "No error",
+      "Dangling modifier - 'the meeting' didn't finish the report",
+      "Wrong tense",
+      "Missing article",
+    ],
+    correctAnswer: 1,
+    level: "advanced",
+    topic: "Grammar - Modifiers",
+  },
+  {
+    question: "Which word is closest in meaning to 'meticulous'?",
+    options: [
+      "Careless",
+      "Quick",
+      "Extremely careful and precise",
+      "Confused",
+    ],
+    correctAnswer: 2,
+    level: "advanced",
+    topic: "Vocabulary - Synonyms",
+  },
+  {
+    question: "Convert to reported speech: 'She said, \"I will call you tomorrow.\"'",
+    options: [
+      "She said that she will call me tomorrow",
+      "She said that she would call me the next day",
+      "She said that she will call you tomorrow",
+      "She says that she would call me the next day",
+    ],
+    correctAnswer: 1,
+    level: "advanced",
+    topic: "Grammar - Reported Speech",
+  },
+  {
+    question: "Which sentence demonstrates correct use of subjunctive mood?",
+    options: [
+      "I wish I was rich",
+      "I wish I am rich",
+      "I wish I were rich",
+      "I wish I been rich",
+    ],
+    correctAnswer: 2,
+    level: "advanced",
+    topic: "Grammar - Subjunctive Mood",
+  },
+  {
+    question: "Choose the sentence with correct parallel structure:",
+    options: [
+      "She likes reading, to swim, and hiking",
+      "She likes reading, swimming, and to hike",
+      "She likes reading, swimming, and hiking",
+      "She likes to read, swimming, and hiking",
+    ],
+    correctAnswer: 2,
+    level: "advanced",
+    topic: "Grammar - Parallel Structure",
   },
 ];
 
@@ -991,11 +1203,51 @@ export function getTopicsByGoal(goal: EnglishGoal): EnglishTopic[] {
   return getAllTopics().filter((topic) => topic.category === goal);
 }
 
-// Get user level from assessment score
+// Get user level from assessment score (out of 20 questions)
 export function getUserLevelFromScore(score: number): EnglishLevel {
-  if (score === 0) return "beginner";
-  if (score === 1) return "beginner";
-  if (score === 2) return "intermediate";
-  if (score === 3) return "advanced";
-  return "beginner";
+  // Beginner: 0-7 correct (0-35%)
+  if (score <= 7) return "beginner";
+
+  // Intermediate: 8-14 correct (40-70%)
+  if (score <= 14) return "intermediate";
+
+  // Advanced: 15-20 correct (75-100%)
+  return "advanced";
+}
+
+// Get detailed assessment results
+export function getDetailedAssessmentResults(userAnswers: number[]) {
+  const topicScores: Record<string, { correct: number; total: number }> = {};
+  let beginnerScore = 0;
+  let intermediateScore = 0;
+  let advancedScore = 0;
+
+  levelAssessmentQuestions.forEach((q, idx) => {
+    const isCorrect = userAnswers[idx] === q.correctAnswer;
+
+    // Track by topic
+    if (!topicScores[q.topic]) {
+      topicScores[q.topic] = { correct: 0, total: 0 };
+    }
+    topicScores[q.topic].total++;
+    if (isCorrect) {
+      topicScores[q.topic].correct++;
+    }
+
+    // Track by level
+    if (isCorrect) {
+      if (q.level === "beginner") beginnerScore++;
+      if (q.level === "intermediate") intermediateScore++;
+      if (q.level === "advanced") advancedScore++;
+    }
+  });
+
+  return {
+    topicScores,
+    levelScores: {
+      beginner: { score: beginnerScore, total: 7 },
+      intermediate: { score: intermediateScore, total: 7 },
+      advanced: { score: advancedScore, total: 6 },
+    },
+  };
 }
