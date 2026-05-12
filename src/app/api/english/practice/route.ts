@@ -41,6 +41,9 @@ export async function POST(request: NextRequest) {
       // Adjectives → parts-of-speech (62Q - includes adjectives)
       'adjectives': 'parts-of-speech',
 
+      // Advanced tenses → Mix of multiple tense topics
+      'tenses-advanced': 'present-perfect',
+
       // Tense comparison → present-simple (as starting point)
       'all-tenses-comparison': 'present-simple',
 
