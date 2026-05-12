@@ -218,16 +218,19 @@ export default function ReportsPage() {
                 const heightPx = Math.max((d.questions / maxDailyQuestions) * 192, 4); // 192px = h-48
                 const acc = d.questions > 0 ? Math.round((d.correct / d.questions) * 100) : 0;
                 return (
-                  <div key={idx} className="flex-1 flex flex-col justify-end group relative h-full">
-                    {/* Tooltip - positioned at top of container */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-20 pointer-events-none">
-                      {new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}: {d.questions}Q, {acc}%
-                    </div>
+                  <div key={idx} className="flex-1 flex flex-col justify-end group h-full">
                     <div
-                      className={`w-full rounded-t-sm ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`}
+                      className="w-full rounded-t-sm relative"
                       style={{ height: `${heightPx}px` }}
                       title={`${d.day}: ${d.questions} questions, ${acc}% accuracy`}
-                    />
+                    >
+                      {/* Bar color */}
+                      <div className={`w-full h-full rounded-t-sm ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`} />
+                      {/* Tooltip - positioned above the bar */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-20 pointer-events-none shadow-lg">
+                        {new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}: {d.questions}Q, {acc}%
+                      </div>
+                    </div>
                   </div>
                 );
               })}
@@ -319,15 +322,18 @@ export default function ReportsPage() {
               {accuracyTrend.map((item: any, idx: number) => {
                 const heightPx = Math.max((item.accuracy / 100) * 192, 4); // 192px = h-48, accuracy is 0-100
                 return (
-                  <div key={idx} className="flex-1 flex flex-col justify-end group relative h-full">
-                    {/* Tooltip - positioned at top of container */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-20 pointer-events-none">
-                      {item.topic}: {item.accuracy}%
-                    </div>
+                  <div key={idx} className="flex-1 flex flex-col justify-end group h-full">
                     <div
-                      className={`w-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`}
+                      className="w-full rounded-t-sm relative"
                       style={{ height: `${heightPx}px` }}
-                    />
+                    >
+                      {/* Bar color */}
+                      <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`} />
+                      {/* Tooltip - positioned above the bar */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-20 pointer-events-none shadow-lg">
+                        {item.topic}: {item.accuracy}%
+                      </div>
+                    </div>
                   </div>
                 );
               })}
