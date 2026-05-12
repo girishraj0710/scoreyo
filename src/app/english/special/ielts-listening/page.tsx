@@ -347,7 +347,7 @@ export default function IELTSListeningPage() {
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-3xl font-bold text-gray-900">IELTS Listening Test</h1>
               <button
-                onClick={() => router.back()}
+                onClick={() => router.push("/english/ielts-toefl/ielts-listening")}
                 className="text-gray-600 hover:text-gray-900 font-medium"
               >
                 ← Back
@@ -432,7 +432,7 @@ export default function IELTSListeningPage() {
                 <span className="font-semibold text-blue-900">{formatTime(testTime)}</span>
               </div>
               <button
-                onClick={() => router.back()}
+                onClick={() => router.push("/english/ielts-toefl/ielts-listening")}
                 className="text-gray-600 hover:text-gray-900 font-medium"
               >
                 ← Exit

@@ -236,7 +236,7 @@ export default function PresentationsPage() {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">Presentation Practice</h1>
             <button
-              onClick={() => router.back()}
+              onClick={() => router.push("/english/real-world/presentations")}
               className="text-gray-600 hover:text-gray-900 font-medium"
             >
               ← Back
