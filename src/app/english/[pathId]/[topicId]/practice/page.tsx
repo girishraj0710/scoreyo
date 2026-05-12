@@ -49,18 +49,18 @@ export default function EnglishPracticePage() {
       const specialTopicMap: Record<string, string> = {
         'ielts-speaking': '/english/foundation/ielts-speaking/practice',
         'ielts-writing': '/english/special/ielts-writing',
-        'ielts-listening': '/english/special/coming-soon?topic=ielts-listening&type=listening',
-        'pronunciation': '/english/special/coming-soon?topic=pronunciation&type=pronunciation',
-        'pronunciation-basics': '/english/special/coming-soon?topic=pronunciation&type=pronunciation',
-        'pronunciation-practice': '/english/special/coming-soon?topic=pronunciation&type=pronunciation',
+        'ielts-listening': '/english/special/ielts-listening',
+        'pronunciation': '/english/special/pronunciation-practice',
+        'pronunciation-basics': '/english/special/pronunciation-practice',
+        'pronunciation-practice': '/english/special/pronunciation-practice',
         'paragraph-writing': '/english/special/paragraph-writing',
         'essay-writing': '/english/special/essay-writing',
         'essay-writing-basics': '/english/special/essay-writing',
         'letter-writing': '/english/special/letter-writing',
         'email-writing': '/english/special/email-writing',
-        'listening-skills': '/english/special/coming-soon?topic=listening&type=listening',
-        'presentations': '/english/special/coming-soon?topic=presentations&type=speaking',
-        'daily-conversations': '/english/special/coming-soon?topic=conversations&type=speaking',
+        'listening-skills': '/english/special/listening-skills',
+        'presentations': '/english/special/presentations',
+        'daily-conversations': '/english/special/daily-conversations',
       };
 
       if (specialTopicMap[topicId]) {
