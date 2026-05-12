@@ -262,7 +262,6 @@ export default function ReportsPage() {
           <div className="ml-16">
             <div className="flex justify-between text-xs text-slate-400 mb-1">
               <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
-              <span>{t("last30Days")}</span>
               <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
             </div>
             <div className="text-center text-[10px] text-slate-500 font-medium">Date</div>
