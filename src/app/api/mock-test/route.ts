@@ -14,6 +14,12 @@ import {
   markCachedQuestionsUsed,
 } from "@/lib/db";
 import { getMockTestConfig, getAllMockTestConfigs } from "@/lib/mock-test-config";
+import {
+  generateDynamicMockTest,
+  selectQuestionsForMockTest,
+  calculateMaxTestsAvailable,
+  getAllDynamicMockTests
+} from "@/lib/dynamic-mock-test-generator";
 import { getExamById, getSubjectById } from "@/lib/exams";
 
 function shuffle<T>(array: T[]): T[] {
@@ -35,7 +41,28 @@ export async function GET(request: NextRequest) {
   const action = request.nextUrl.searchParams.get("action");
 
   if (action === "configs") {
-    return NextResponse.json({ configs: getAllMockTestConfigs() });
+    // Return dynamic mock tests with actual capacity
+    const dynamicConfigs = await getAllDynamicMockTests();
+    return NextResponse.json({ configs: dynamicConfigs });
+  }
+
+  if (action === "capacity") {
+    // Return maximum tests available per exam
+    const examIds = [
+      "jee-main", "jee-advanced", "neet-ug", "upsc-cse", "gate",
+      "ssc-cgl", "ssc-chsl", "ibps-po", "sbi-po", "cat"
+    ];
+    const capacity: Record<string, number> = {};
+
+    for (const examId of examIds) {
+      try {
+        capacity[examId] = await calculateMaxTestsAvailable(examId);
+      } catch (error) {
+        capacity[examId] = 3; // Fallback to 3 if calculation fails
+      }
+    }
+
+    return NextResponse.json({ capacity });
   }
 
   if (action === "resume") {
@@ -78,22 +105,43 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { examId, testNumber = 1, isFullLength = false } = body;
 
-    let config = getMockTestConfig(examId, testNumber);
-    if (!config) {
-      return NextResponse.json({ error: "Mock test not available for this exam" }, { status: 400 });
+    // Try dynamic generation first
+    let config: any;
+    let allQuestions: any[] = [];
+    let useDynamic = false;
+
+    try {
+      // Check if exam supports dynamic generation
+      const dynamicConfig = await generateDynamicMockTest(examId, testNumber, isFullLength);
+      if (dynamicConfig) {
+        config = dynamicConfig;
+        allQuestions = await selectQuestionsForMockTest(examId, testNumber, isFullLength);
+        useDynamic = true;
+        console.log(`[MockTest] Using dynamic generation for ${examId} test ${testNumber}`);
+      }
+    } catch (error) {
+      console.log(`[MockTest] Dynamic generation not available for ${examId}, falling back to static`);
     }
 
-    // If full-length requested, multiply questions by 3x and time by 2.5x
-    if (isFullLength) {
-      config = {
-        ...config,
-        totalQuestions: config.totalQuestions * 3,
-        timeLimitMinutes: Math.round(config.timeLimitMinutes * 2.5),
-        sections: config.sections.map(s => ({
-          ...s,
-          questionCount: s.questionCount * 3,
-        })),
-      };
+    // Fallback to static config if dynamic generation fails or is unavailable
+    if (!useDynamic) {
+      config = getMockTestConfig(examId, testNumber);
+      if (!config) {
+        return NextResponse.json({ error: "Mock test not available for this exam" }, { status: 400 });
+      }
+
+      // If full-length requested, multiply questions by 3x and time by 2.5x
+      if (isFullLength) {
+        config = {
+          ...config,
+          totalQuestions: config.totalQuestions * 3,
+          timeLimitMinutes: Math.round(config.timeLimitMinutes * 2.5),
+          sections: config.sections.map(s => ({
+            ...s,
+            questionCount: s.questionCount * 3,
+          })),
+        };
+      }
     }
 
     const exam = getExamById(examId);
@@ -101,8 +149,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Exam not found" }, { status: 400 });
     }
 
-    // Generate questions for each section
-    const allQuestions: any[] = [];
+    // If using dynamic generation and already have questions, skip the old generation logic
+    if (useDynamic && allQuestions.length > 0) {
+      // Questions already fetched by selectQuestionsForMockTest
+    } else {
+      // Use the old generation logic as fallback
 
     for (const section of config.sections) {
       const subject = getSubjectById(examId, section.subjectId);
@@ -163,8 +214,9 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      allQuestions.push(...sectionQuestions.slice(0, needed));
-    }
+        allQuestions.push(...sectionQuestions.slice(0, needed));
+      }
+    } // End of fallback generation
 
     if (allQuestions.length === 0) {
       return NextResponse.json({ error: "Failed to generate questions" }, { status: 500 });

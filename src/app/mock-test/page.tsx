@@ -40,6 +40,7 @@ export default function MockTestPage() {
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
   const [selectedExam, setSelectedExam] = useState<string | null>(null);
   const [selectedTestNumber, setSelectedTestNumber] = useState<number>(1);
+  const [testCapacity, setTestCapacity] = useState<Record<string, number>>({});
 
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
@@ -58,7 +59,7 @@ export default function MockTestPage() {
   const [results, setResults] = useState<any>(null);
   const [currentSection, setCurrentSection] = useState<string>("all");
 
-  // Load configs and history
+  // Load configs, capacity, and history
   useEffect(() => {
     if (!user) {
       setIsLoadingConfigs(false);
@@ -66,13 +67,18 @@ export default function MockTestPage() {
     }
     async function load() {
       try {
-        const [configsRes, historyRes] = await Promise.all([
+        const [configsRes, capacityRes, historyRes] = await Promise.all([
           fetch("/api/mock-test?action=configs"),
+          fetch("/api/mock-test?action=capacity"),
           fetch("/api/mock-test"),
         ]);
         if (configsRes.ok) {
           const data = await configsRes.json();
           setConfigs(data.configs);
+        }
+        if (capacityRes.ok) {
+          const data = await capacityRes.json();
+          setTestCapacity(data.capacity);
         }
         if (historyRes.ok) {
           const data = await historyRes.json();
@@ -842,28 +848,39 @@ export default function MockTestPage() {
                   ))}
                 </div>
 
-                {/* Test Selector (only if multiple tests available) */}
-                {isSelected && testConfigs.length > 1 && (
-                  <div className="flex items-center justify-between px-3 py-2 bg-slate-50 rounded-lg border border-indigo-200">
-                    <span className="text-sm text-indigo-900 font-medium">Test Number:</span>
-                    <div className="flex gap-1">
-                      {testConfigs.map((config) => (
-                        <button
-                          key={config.testNumber}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedTestNumber(config.testNumber);
-                          }}
-                          className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
-                            selectedTestNumber === config.testNumber
-                              ? "bg-indigo-600 text-white shadow-md"
-                              : "bg-white text-slate-600 hover:bg-slate-100"
-                          }`}
-                        >
-                          {config.testNumber}
-                        </button>
-                      ))}
+                {/* Test Selector - Dynamic with actual capacity */}
+                {isSelected && (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-indigo-50 to-violet-50 rounded-lg border border-indigo-200">
+                      <span className="text-sm text-indigo-900 font-medium">
+                        {testCapacity[examId] > 3
+                          ? `${testCapacity[examId]}+ Tests Available 🚀`
+                          : "Select Test:"}
+                      </span>
+                      <div className="flex gap-1">
+                        {Array.from({ length: Math.min(testCapacity[examId] || 3, 10) }, (_, i) => i + 1).map((num) => (
+                          <button
+                            key={num}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedTestNumber(num);
+                            }}
+                            className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
+                              selectedTestNumber === num
+                                ? "bg-indigo-600 text-white shadow-md"
+                                : "bg-white text-slate-600 hover:bg-slate-100"
+                            }`}
+                          >
+                            {num}
+                          </button>
+                        ))}
+                      </div>
                     </div>
+                    {testCapacity[examId] > 10 && (
+                      <div className="text-xs text-center text-slate-500">
+                        + {testCapacity[examId] - 10} more tests available
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -919,7 +936,7 @@ export default function MockTestPage() {
                   {groupedConfigs[selectedExam][0].examName}
                 </div>
                 <div className="text-xs text-slate-500">
-                  Test #{selectedTestNumber} · {groupedConfigs[selectedExam][0].totalQuestions} questions · {groupedConfigs[selectedExam][0].timeLimitMinutes} mins
+                  Test {selectedTestNumber} of {testCapacity[selectedExam] || 3}+ · {groupedConfigs[selectedExam][0].totalQuestions} questions · {groupedConfigs[selectedExam][0].timeLimitMinutes} mins
                 </div>
               </div>
             </div>
