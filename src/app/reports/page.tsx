@@ -213,15 +213,15 @@ export default function ReportsPage() {
               <span>0</span>
             </div>
             {/* Chart bars */}
-            <div className="flex-1 flex items-end gap-1 h-48">
+            <div className="flex-1 flex items-end gap-1 h-48 relative">
               {dailyActivity.map((d: any, idx: number) => {
-                const height = (d.questions / maxDailyQuestions) * 100;
+                const heightPx = Math.max((d.questions / maxDailyQuestions) * 192, 4); // 192px = h-48
                 const acc = d.questions > 0 ? Math.round((d.correct / d.questions) * 100) : 0;
                 return (
-                  <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
+                  <div key={idx} className="flex-1 flex flex-col justify-end group relative h-full">
                     <div
-                      className={`w-full rounded-t-sm min-h-[4px] ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`}
-                      style={{ height: `${Math.max(height, 3)}%` }}
+                      className={`w-full rounded-t-sm ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`}
+                      style={{ height: `${heightPx}px` }}
                       title={`${d.day}: ${d.questions} questions, ${acc}% accuracy`}
                     />
                     {/* Tooltip */}
@@ -315,14 +315,14 @@ export default function ReportsPage() {
               <span>0%</span>
             </div>
             {/* Chart bars */}
-            <div className="flex-1 flex items-end gap-2 h-48">
+            <div className="flex-1 flex items-end gap-2 h-48 relative">
               {accuracyTrend.map((item: any, idx: number) => {
-                const height = item.accuracy || 0;
+                const heightPx = Math.max((item.accuracy / 100) * 192, 4); // 192px = h-48, accuracy is 0-100
                 return (
-                  <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
+                  <div key={idx} className="flex-1 flex flex-col justify-end group relative h-full">
                     <div
-                      className={`w-full rounded-t-sm min-h-[4px] ${height >= 70 ? "bg-indigo-400" : height >= 50 ? "bg-indigo-300" : "bg-indigo-200"}`}
-                      style={{ height: `${Math.max(height, 3)}%` }}
+                      className={`w-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`}
+                      style={{ height: `${heightPx}px` }}
                     />
                     <div className="absolute bottom-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-10">
                       {item.topic}: {item.accuracy}%
