@@ -11,6 +11,7 @@ import {
   getCachedQuestionCount,
   isProUser,
   getTodayQuizCount,
+  getEnglishQuestions,
 } from "@/lib/db";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { v4 as uuidv4 } from "uuid";
@@ -94,9 +95,64 @@ export async function POST(request: NextRequest) {
     let aiCount = 0;
 
     // ── TIER 1: Verified question bank (instant) ─────────
-    let verifiedQuestions = getVerifiedQuestions(examId, subjectId, topic);
+    let verifiedQuestions: QuizQuestion[] = [];
 
-    if (difficulty !== "mixed") {
+    // Check if this is an English quiz (any English-related exam/subject)
+    const isEnglishQuiz =
+      examId === 'foundation' ||
+      subjectId?.toLowerCase().includes('english') ||
+      topic?.toLowerCase().includes('tense') ||
+      topic?.toLowerCase().includes('phrasal') ||
+      topic?.toLowerCase().includes('grammar');
+
+    if (isEnglishQuiz) {
+      // Query English questions from database
+      try {
+        // For English questions, use 'foundation' as path_id and topic as topic_id
+        const pathId = 'foundation';
+        const topicId = topic.toLowerCase().replace(/\s+/g, '-');
+
+        // Try to get questions from database with requested level
+        let levelToQuery = difficulty === 'mixed' ? 'intermediate' : difficulty;
+        let dbQuestions = await getEnglishQuestions(pathId, topicId, levelToQuery, numberOfQuestions * 2);
+
+        // If no questions found with this level, try with other levels
+        if (dbQuestions.length === 0 && difficulty !== 'mixed') {
+          console.log(`[English Quiz] No questions found with level=${levelToQuery}, trying intermediate`);
+          dbQuestions = await getEnglishQuestions(pathId, topicId, 'intermediate', numberOfQuestions * 2);
+        }
+
+        if (dbQuestions.length === 0) {
+          console.log(`[English Quiz] No questions found with intermediate, trying beginner`);
+          dbQuestions = await getEnglishQuestions(pathId, topicId, 'beginner', numberOfQuestions * 2);
+        }
+
+        if (dbQuestions.length === 0) {
+          console.log(`[English Quiz] No questions found with beginner, trying advanced`);
+          dbQuestions = await getEnglishQuestions(pathId, topicId, 'advanced', numberOfQuestions * 2);
+        }
+
+        console.log(`[English Quiz] pathId=${pathId}, topicId=${topicId}, level=${levelToQuery}, found=${dbQuestions.length} questions`);
+
+        verifiedQuestions = dbQuestions.map((q: any) => ({
+          question: q.question,
+          options: q.options,
+          correctAnswer: q.correct_answer,
+          explanation: q.explanation,
+          difficulty: q.difficulty as 'easy' | 'medium' | 'hard',
+          source: 'verified' as const,
+        }));
+      } catch (error) {
+        console.error('Error fetching English questions from DB:', error);
+      }
+    }
+
+    // If no English questions found, fallback to in-memory question bank
+    if (verifiedQuestions.length === 0) {
+      verifiedQuestions = getVerifiedQuestions(examId, subjectId, topic);
+    }
+
+    if (difficulty !== "mixed" && verifiedQuestions.length > 0) {
       const filtered = verifiedQuestions.filter((q) => q.difficulty === difficulty);
       if (filtered.length > 0) verifiedQuestions = filtered;
     }
