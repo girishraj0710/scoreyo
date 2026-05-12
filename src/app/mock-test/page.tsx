@@ -850,14 +850,21 @@ export default function MockTestPage() {
 
                 {/* Test Selector - Dynamic with actual capacity */}
                 {isSelected && (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-indigo-50 to-violet-50 rounded-lg border border-indigo-200">
-                      <span className="text-sm text-indigo-900 font-medium">
-                        {testCapacity[examId] > 3
-                          ? `${testCapacity[examId]}+ Tests Available 🚀`
-                          : "Select Test:"}
-                      </span>
-                      <div className="flex gap-1">
+                  <div className="space-y-3 mt-4">
+                    {/* Badge showing available tests */}
+                    {testCapacity[examId] > 3 && (
+                      <div className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-lg border border-emerald-200">
+                        <span className="text-2xl">🚀</span>
+                        <span className="text-sm font-semibold text-emerald-700">
+                          {testCapacity[examId]}+ Tests Available
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Test selector */}
+                    <div className="px-4 py-3 bg-slate-50 rounded-lg border border-slate-200">
+                      <div className="text-xs text-slate-500 font-medium mb-2">Select Test Number:</div>
+                      <div className="flex flex-wrap gap-2 justify-center">
                         {Array.from({ length: Math.min(testCapacity[examId] || 3, 10) }, (_, i) => i + 1).map((num) => (
                           <button
                             key={num}
@@ -865,22 +872,22 @@ export default function MockTestPage() {
                               e.stopPropagation();
                               setSelectedTestNumber(num);
                             }}
-                            className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
+                            className={`w-10 h-10 rounded-lg text-sm font-bold transition-all ${
                               selectedTestNumber === num
-                                ? "bg-indigo-600 text-white shadow-md"
-                                : "bg-white text-slate-600 hover:bg-slate-100"
+                                ? "bg-indigo-600 text-white shadow-lg scale-110"
+                                : "bg-white text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-200"
                             }`}
                           >
                             {num}
                           </button>
                         ))}
                       </div>
+                      {testCapacity[examId] > 10 && (
+                        <div className="text-xs text-center text-slate-500 mt-3">
+                          + {testCapacity[examId] - 10} more tests available
+                        </div>
+                      )}
                     </div>
-                    {testCapacity[examId] > 10 && (
-                      <div className="text-xs text-center text-slate-500">
-                        + {testCapacity[examId] - 10} more tests available
-                      </div>
-                    )}
                   </div>
                 )}
               </div>
