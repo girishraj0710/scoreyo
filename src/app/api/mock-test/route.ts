@@ -195,27 +195,36 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      // If still not enough, generate via AI
+      // If still not enough, generate via AI (with timeout)
       if (sectionQuestions.length < needed) {
         const remaining = needed - sectionQuestions.length;
         const aiTopic = topics[Math.floor(Math.random() * topics.length)];
         try {
-          const aiQuestions = await generateQuiz(
-            exam.fullName,
-            subject.name,
-            aiTopic,
-            remaining,
-            "mixed"
-          );
-          for (const q of aiQuestions) {
-            sectionQuestions.push({ ...q, subjectId: section.subjectId, subjectName: section.subjectName });
-          }
-          // Save to cache
-          if (aiQuestions.length > 0 && !aiQuestions[0].question.includes("[Service Unavailable]")) {
-            await saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+          const aiQuestions = await Promise.race([
+            generateQuiz(
+              exam.fullName,
+              subject.name,
+              aiTopic,
+              remaining,
+              "mixed"
+            ),
+            new Promise<any[]>((_, reject) =>
+              setTimeout(() => reject(new Error("AI generation timeout")), 20000)
+            ),
+          ]);
+
+          if (aiQuestions && aiQuestions.length > 0) {
+            for (const q of aiQuestions) {
+              sectionQuestions.push({ ...q, subjectId: section.subjectId, subjectName: section.subjectName });
+            }
+            // Save to cache
+            if (!aiQuestions[0].question.includes("[Service Unavailable]")) {
+              await saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+            }
           }
         } catch (err) {
-          console.error(`[MockTest] AI generation failed for ${section.subjectName}:`, err);
+          console.error(`[MockTest] AI generation failed/timeout for ${section.subjectName}:`, err);
+          // Continue with whatever questions we have
         }
       }
 
