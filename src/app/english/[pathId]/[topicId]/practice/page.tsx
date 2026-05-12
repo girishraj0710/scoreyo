@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { getPathById, getTopicById } from "@/lib/english-content";
 import { ChevronLeft, Clock, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 
@@ -171,9 +170,12 @@ export default function EnglishPracticePage() {
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Topic not found</h1>
-          <Link href="/english">
-            <button className="text-indigo-600 hover:underline">← Back to English Hub</button>
-          </Link>
+          <button
+            onClick={() => router.push('/english')}
+            className="text-indigo-600 hover:underline"
+          >
+            ← Back to English Hub
+          </button>
         </div>
       </div>
     );
@@ -197,11 +199,12 @@ export default function EnglishPracticePage() {
                 </div>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">Oops!</h2>
                 <p className="text-slate-600 mb-6">{error}</p>
-                <Link href={`/english/${pathId}/${topicId}`}>
-                  <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                    Go Back
-                  </button>
-                </Link>
+                <button
+                  onClick={() => router.push(`/english/${pathId}/${topicId}`)}
+                  className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                >
+                  Go Back
+                </button>
               </div>
             ) : (
               <div>
@@ -217,12 +220,13 @@ export default function EnglishPracticePage() {
           <div>
             {/* Header */}
             <div className="mb-6">
-              <Link href={`/english/${pathId}/${topicId}`}>
-                <button className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-4 transition-colors">
-                  <ChevronLeft className="w-5 h-5" />
-                  Back to {topic.name}
-                </button>
-              </Link>
+              <button
+                onClick={() => router.push(`/english/${pathId}/${topicId}`)}
+                className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-4 transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+                Back to {topic.name}
+              </button>
 
               {/* Progress Bar */}
               <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4">
@@ -404,11 +408,12 @@ export default function EnglishPracticePage() {
 
             {/* Action Buttons */}
             <div className="flex gap-4">
-              <Link href={`/english/${pathId}/${topicId}`} className="flex-1">
-                <button className="w-full px-6 py-3 border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors">
-                  Back to Topic
-                </button>
-              </Link>
+              <button
+                onClick={() => router.push(`/english/${pathId}/${topicId}`)}
+                className="flex-1 px-6 py-3 border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
+              >
+                Back to Topic
+              </button>
               <button
                 onClick={() => {
                   setQuizState("loading");
