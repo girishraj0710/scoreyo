@@ -62,6 +62,8 @@ export async function POST(request: NextRequest) {
       difficulty = "mixed",
     } = body;
 
+    console.log(`[Quiz API] Request: examId="${examId}", subjectId="${subjectId}", topic="${topic}", difficulty="${difficulty}", count=${numberOfQuestions}`);
+
     // Check quiz limit for free users
     const userId = request.cookies.get("prepgenie-user-id")?.value;
     if (userId && !(await isProUser(userId))) {
@@ -220,7 +222,9 @@ export async function POST(request: NextRequest) {
 
     // If no English questions found, fallback to in-memory question bank
     if (verifiedQuestions.length === 0) {
+      console.log(`[English Quiz] No questions found in database, trying in-memory question bank`);
       verifiedQuestions = getVerifiedQuestions(examId, subjectId, topic);
+      console.log(`[English Quiz] In-memory question bank returned ${verifiedQuestions.length} questions`);
     }
 
     if (difficulty !== "mixed" && verifiedQuestions.length > 0) {
