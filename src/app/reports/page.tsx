@@ -203,26 +203,37 @@ export default function ReportsPage() {
       {dailyActivity.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("dailyActivity")}</h3>
-          <div className="flex items-end gap-1 h-32">
-            {dailyActivity.map((d: any, idx: number) => {
-              const height = (d.questions / maxDailyQuestions) * 100;
-              const acc = d.questions > 0 ? Math.round((d.correct / d.questions) * 100) : 0;
-              return (
-                <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
-                  <div
-                    className={`w-full rounded-t-sm min-h-[4px] ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`}
-                    style={{ height: `${Math.max(height, 4)}%` }}
-                    title={`${d.day}: ${d.questions} questions, ${acc}% accuracy`}
-                  />
-                  {/* Tooltip */}
-                  <div className="absolute bottom-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-10">
-                    {new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}: {d.questions}Q, {acc}%
+          <div className="flex gap-4">
+            {/* Y-axis labels */}
+            <div className="flex flex-col justify-between text-xs text-slate-400 h-48 py-1">
+              <span>{maxDailyQuestions}</span>
+              <span>{Math.round(maxDailyQuestions * 0.75)}</span>
+              <span>{Math.round(maxDailyQuestions * 0.5)}</span>
+              <span>{Math.round(maxDailyQuestions * 0.25)}</span>
+              <span>0</span>
+            </div>
+            {/* Chart bars */}
+            <div className="flex-1 flex items-end gap-1 h-48">
+              {dailyActivity.map((d: any, idx: number) => {
+                const height = (d.questions / maxDailyQuestions) * 100;
+                const acc = d.questions > 0 ? Math.round((d.correct / d.questions) * 100) : 0;
+                return (
+                  <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
+                    <div
+                      className={`w-full rounded-t-sm min-h-[4px] ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`}
+                      style={{ height: `${Math.max(height, 3)}%` }}
+                      title={`${d.day}: ${d.questions} questions, ${acc}% accuracy`}
+                    />
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-10">
+                      {new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}: {d.questions}Q, {acc}%
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-          <div className="flex justify-between mt-2 text-xs text-slate-400">
+          <div className="flex justify-between mt-2 text-xs text-slate-400 ml-10">
             <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
             <span>{t("last30Days")}</span>
             <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
@@ -294,23 +305,34 @@ export default function ReportsPage() {
       {accuracyTrend.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("accuracyTrend")}</h3>
-          <div className="flex items-end gap-2 h-32">
-            {accuracyTrend.map((item: any, idx: number) => {
-              const height = item.accuracy || 0;
-              return (
-                <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
-                  <div
-                    className={`w-full rounded-t-sm min-h-[4px] ${height >= 70 ? "bg-indigo-400" : height >= 50 ? "bg-indigo-300" : "bg-indigo-200"}`}
-                    style={{ height: `${Math.max(height, 4)}%` }}
-                  />
-                  <div className="absolute bottom-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-10">
-                    {item.topic}: {item.accuracy}%
+          <div className="flex gap-4">
+            {/* Y-axis labels */}
+            <div className="flex flex-col justify-between text-xs text-slate-400 h-48 py-1">
+              <span>100%</span>
+              <span>75%</span>
+              <span>50%</span>
+              <span>25%</span>
+              <span>0%</span>
+            </div>
+            {/* Chart bars */}
+            <div className="flex-1 flex items-end gap-2 h-48">
+              {accuracyTrend.map((item: any, idx: number) => {
+                const height = item.accuracy || 0;
+                return (
+                  <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
+                    <div
+                      className={`w-full rounded-t-sm min-h-[4px] ${height >= 70 ? "bg-indigo-400" : height >= 50 ? "bg-indigo-300" : "bg-indigo-200"}`}
+                      style={{ height: `${Math.max(height, 3)}%` }}
+                    />
+                    <div className="absolute bottom-full mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-2 py-1 whitespace-nowrap z-10">
+                      {item.topic}: {item.accuracy}%
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-          <div className="text-center mt-2 text-xs text-slate-400">{t("last20Quizzes")}</div>
+          <div className="text-center mt-2 text-xs text-slate-400 ml-10">{t("last20Quizzes")}</div>
         </div>
       )}
 
