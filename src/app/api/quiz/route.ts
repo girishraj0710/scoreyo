@@ -111,13 +111,57 @@ export async function POST(request: NextRequest) {
         // For English questions, use 'foundation' as path_id and topic as topic_id
         const pathId = 'foundation';
 
-        // Map frontend topics to database topics
+        // Map frontend topics to database topics (comprehensive mapping)
         const topicMapping: Record<string, string> = {
+          // Writing topics → writing-skills (97Q)
           'letter-writing': 'writing-skills',
           'email-writing': 'writing-skills',
           'essay-writing': 'writing-skills',
+          'essay-writing-basics': 'writing-skills',
           'paragraph-writing': 'writing-skills',
-          // Add more mappings as needed
+          'sentence-writing': 'writing-skills',
+
+          // Pronunciation → phonics-vowels (26Q)
+          'pronunciation-basics': 'phonics-vowels',
+          'pronunciation-practice': 'phonics-vowels',
+
+          // Pronouns → parts-of-speech (62Q - includes pronouns)
+          'pronouns-detailed': 'parts-of-speech',
+
+          // Adjectives → parts-of-speech (62Q - includes adjectives)
+          'adjectives': 'parts-of-speech',
+
+          // Tense comparison → present-simple (as starting point)
+          'all-tenses-comparison': 'present-simple',
+
+          // Sentence types → sentence-structure (12Q)
+          'sentence-types': 'sentence-structure',
+
+          // Subject-verb agreement → verbs-basics (5Q)
+          'subject-verb-agreement': 'verbs-basics',
+
+          // Active/Passive voice → sentence-structure (12Q)
+          'active-passive-voice': 'sentence-structure',
+
+          // Direct/Indirect speech → sentence-structure (12Q)
+          'direct-indirect-speech': 'sentence-structure',
+
+          // Vocabulary → essential-vocabulary (5Q) or toefl-vocabulary
+          'basic-vocabulary': 'essential-vocabulary',
+
+          // Idioms → idioms (26Q) + idioms-expressions (9Q)
+          'idioms-proverbs': 'idioms',
+
+          // Reading → reading-comprehension (42Q)
+          'reading-basics': 'reading-comprehension',
+          'short-stories': 'reading-comprehension',
+          'comprehension-passages': 'reading-comprehension',
+
+          // Listening → reading-comprehension (closest available)
+          'listening-comprehension': 'reading-comprehension',
+
+          // Conversations → daily-conversations (5Q in real-world path)
+          'daily-conversations': 'daily-conversations',
         };
 
         let topicId = topic.toLowerCase().replace(/\s+/g, '-');
@@ -128,27 +172,38 @@ export async function POST(request: NextRequest) {
           topicId = topicMapping[topicId];
         }
 
-        // Try to get questions from database with requested level
+        // Try multiple paths: foundation, real-world, ielts-toefl, competitive-exam
+        const pathsToTry = ['foundation', 'real-world', 'ielts-toefl', 'competitive-exam'];
+        let dbQuestions: any[] = [];
         let levelToQuery = difficulty === 'mixed' ? 'intermediate' : difficulty;
-        let dbQuestions = await getEnglishQuestions(pathId, topicId, levelToQuery, numberOfQuestions * 2);
 
-        // If no questions found with this level, try with other levels
-        if (dbQuestions.length === 0 && difficulty !== 'mixed') {
-          console.log(`[English Quiz] No questions found with level=${levelToQuery}, trying intermediate`);
-          dbQuestions = await getEnglishQuestions(pathId, topicId, 'intermediate', numberOfQuestions * 2);
+        // Try each path until we find questions
+        for (const pathId of pathsToTry) {
+          if (dbQuestions.length > 0) break;
+
+          // Try with requested level
+          dbQuestions = await getEnglishQuestions(pathId, topicId, levelToQuery, numberOfQuestions * 2);
+
+          // If no questions found, try other levels
+          if (dbQuestions.length === 0 && difficulty !== 'mixed') {
+            dbQuestions = await getEnglishQuestions(pathId, topicId, 'intermediate', numberOfQuestions * 2);
+          }
+
+          if (dbQuestions.length === 0) {
+            dbQuestions = await getEnglishQuestions(pathId, topicId, 'beginner', numberOfQuestions * 2);
+          }
+
+          if (dbQuestions.length === 0) {
+            dbQuestions = await getEnglishQuestions(pathId, topicId, 'advanced', numberOfQuestions * 2);
+          }
+
+          if (dbQuestions.length > 0) {
+            console.log(`[English Quiz] Found ${dbQuestions.length} questions in path="${pathId}", topic="${topicId}"`);
+            break;
+          }
         }
 
-        if (dbQuestions.length === 0) {
-          console.log(`[English Quiz] No questions found with intermediate, trying beginner`);
-          dbQuestions = await getEnglishQuestions(pathId, topicId, 'beginner', numberOfQuestions * 2);
-        }
-
-        if (dbQuestions.length === 0) {
-          console.log(`[English Quiz] No questions found with beginner, trying advanced`);
-          dbQuestions = await getEnglishQuestions(pathId, topicId, 'advanced', numberOfQuestions * 2);
-        }
-
-        console.log(`[English Quiz] pathId=${pathId}, topicId=${topicId}, level=${levelToQuery}, found=${dbQuestions.length} questions`);
+        console.log(`[English Quiz] Final: topic="${topicId}", level="${levelToQuery}", found=${dbQuestions.length} questions`);
 
         verifiedQuestions = dbQuestions.map((q: any) => ({
           question: q.question,
