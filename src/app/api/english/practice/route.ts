@@ -69,9 +69,11 @@ export async function POST(request: NextRequest) {
 
       // Listening → reading-comprehension (closest available)
       'listening-comprehension': 'reading-comprehension',
+      'listening-skills': 'reading-comprehension',
 
       // Conversations → daily-conversations (5Q in real-world path)
       'daily-conversations': 'daily-conversations',
+      'conversation-skills': 'daily-conversations',
     };
 
     let mappedTopicId = topicId.toLowerCase().replace(/\s+/g, '-');
