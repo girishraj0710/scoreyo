@@ -312,19 +312,22 @@ export async function POST(request: NextRequest) {
 
     const sessionId = uuidv4();
 
-    // ── Background pre-fill cache for next quiz ──────────
-    const currentCacheCount = await getCachedQuestionCount(examId, subjectId, topic);
-    if (currentCacheCount < 20) {
-      backgroundCacheFill(
-        exam.fullName,
-        subject.name,
-        topic,
-        examId,
-        subjectId,
-        difficulty,
-        10
-      );
-    }
+    // ── Aggressive background pre-fill cache ──────────
+    // Don't await - run in background to speed up future quizzes
+    getCachedQuestionCount(examId, subjectId, topic).then(currentCacheCount => {
+      if (currentCacheCount < 50) {
+        // Pre-fill more aggressively (50 questions target instead of 20)
+        backgroundCacheFill(
+          exam.fullName,
+          subject.name,
+          topic,
+          examId,
+          subjectId,
+          difficulty,
+          Math.min(30, 50 - currentCacheCount) // Fill up to 50
+        );
+      }
+    }).catch(err => console.error("[Cache] Pre-fill check failed:", err));
 
     return NextResponse.json({
       sessionId,

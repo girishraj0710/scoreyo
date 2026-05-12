@@ -19,14 +19,12 @@ export interface QuizQuestion {
   source: "ai" | "verified"; // tracks where the question came from
 }
 
-// Free models — all fire at once, fastest valid response wins
+// Free models — prioritized by speed/reliability
+// Only use fastest 3 models to reduce overhead
 const FREE_MODELS = [
-  "openai/gpt-oss-120b:free",
-  "minimax/minimax-m2.5:free",
-  "inclusionai/ling-2.6-1t:free",
-  "google/gemma-3-27b-it:free",
-  "meta-llama/llama-3.3-70b-instruct:free",
-  "nvidia/nemotron-3-super-120b-a12b:free",
+  "google/gemma-3-27b-it:free",           // Fast and reliable
+  "meta-llama/llama-3.3-70b-instruct:free", // High quality
+  "nvidia/nemotron-3-super-120b-a12b:free", // Backup
 ];
 
 function parseQuizResponse(text: string): QuizQuestion[] {
@@ -163,23 +161,29 @@ Where correctAnswer is the 0-based index of the correct option (0 for A, 1 for B
 trapAlerts should explain the 3 WRONG options (skip the correct one).`;
 
   try {
-    // Race all models in parallel — first valid response wins
-    const result = await Promise.any(
-      FREE_MODELS.map(async (modelId) => {
-        const { text } = await generateText({
-          model: openrouter(modelId),
-          prompt,
-          maxOutputTokens: 4096,
-          temperature: 0.5, // Lower temperature for more accurate/deterministic answers
-        });
-        const questions = parseQuizResponse(text);
-        return questions;
-      })
-    );
+    // Race all models in parallel with timeout — first valid response wins
+    const result = await Promise.race([
+      Promise.any(
+        FREE_MODELS.map(async (modelId) => {
+          const { text } = await generateText({
+            model: openrouter(modelId),
+            prompt,
+            maxOutputTokens: 2048, // Reduced from 4096 for faster generation
+            temperature: 0.7, // Slightly higher for faster, more creative responses
+          });
+          const questions = parseQuizResponse(text);
+          return questions;
+        })
+      ),
+      // Add 10-second timeout per attempt
+      new Promise<QuizQuestion[]>((_, reject) =>
+        setTimeout(() => reject(new Error("Generation timeout")), 10000)
+      ),
+    ]);
     return result;
   } catch (error) {
-    // All models failed
-    console.error("[PrepGenie] All models failed:", error);
+    // All models failed or timeout
+    console.error("[PrepGenie] Generation failed/timeout:", error);
     return generateFallbackQuestions(topic, numberOfQuestions);
   }
 }
