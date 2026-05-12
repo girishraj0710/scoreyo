@@ -41,24 +41,29 @@ export async function GET(request: NextRequest) {
   const action = request.nextUrl.searchParams.get("action");
 
   if (action === "configs") {
-    // Return dynamic mock tests with actual capacity
-    const dynamicConfigs = await getAllDynamicMockTests();
-    return NextResponse.json({ configs: dynamicConfigs });
+    // Use static configs (dynamic generation happens per-test when user starts)
+    // This is faster and more reliable than generating all configs upfront
+    const staticConfigs = getAllMockTestConfigs();
+    return NextResponse.json({ configs: staticConfigs });
   }
 
   if (action === "capacity") {
     // Return maximum tests available per exam
-    const examIds = [
-      "jee-main", "jee-advanced", "neet-ug", "upsc-cse", "gate",
-      "ssc-cgl", "ssc-chsl", "ibps-po", "sbi-po", "cat"
-    ];
     const capacity: Record<string, number> = {};
+
+    // Get all unique exam IDs from static configs
+    const staticConfigs = getAllMockTestConfigs();
+    const examIds = [...new Set(staticConfigs.map(c => c.examId))];
 
     for (const examId of examIds) {
       try {
-        capacity[examId] = await calculateMaxTestsAvailable(examId);
+        const maxTests = await calculateMaxTestsAvailable(examId);
+        // If dynamic calculation succeeds and shows more than 3, use it
+        capacity[examId] = maxTests > 3 ? maxTests : 3;
       } catch (error) {
-        capacity[examId] = 3; // Fallback to 3 if calculation fails
+        // Fallback: count static configs for this exam
+        const staticTestCount = staticConfigs.filter(c => c.examId === examId).length;
+        capacity[examId] = staticTestCount || 3;
       }
     }
 
