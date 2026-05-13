@@ -5,6 +5,7 @@ import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
 import { LevelProgressWidget } from "@/components/level-progress-widget";
+import { StudyStreakCalendar } from "@/components/study-streak-calendar";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
@@ -299,6 +300,9 @@ export default function DashboardPage() {
             </div>
           )}
         </div>
+
+        {/* Study Streak Calendar */}
+        <StudyStreakCalendar />
 
         {/* Recent Sessions */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2">
