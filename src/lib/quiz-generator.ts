@@ -19,9 +19,12 @@ export interface QuizQuestion {
   source: "ai" | "verified"; // tracks where the question came from
 }
 
-// Use most reliable free model
-// Gemini Flash is fast but experimental, switch to proven model
-const RELIABLE_MODEL = "google/gemini-flash-1.5"; // Most reliable, widely available
+// Use proven working models with :free suffix (required by OpenRouter)
+const PRIMARY_MODEL = "meta-llama/llama-3.3-70b-instruct:free";
+const FALLBACK_MODELS = [
+  "google/gemma-2-9b-it:free",
+  "microsoft/phi-3-medium-128k-instruct:free",
+];
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
@@ -138,35 +141,41 @@ REQUIREMENTS:
 - trapAlerts explains the 3 WRONG options only
 - Return valid JSON array with ${numberOfQuestions} questions`;
 
-  try {
-    // Use single fastest model with timeout
-    const result = await Promise.race([
-      (async () => {
-        const { text } = await generateText({
-          model: openrouter(RELIABLE_MODEL),
-          prompt,
-          maxOutputTokens: 2000,
-          temperature: 0.7,
-        });
-        return parseQuizResponse(text);
-      })(),
-      // Add 25-second timeout
-      new Promise<QuizQuestion[]>((_, reject) =>
-        setTimeout(() => reject(new Error("Generation timeout")), 25000)
-      ),
-    ]);
+  // Try primary model first, then fallbacks
+  for (const modelId of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
+    try {
+      console.log(`[Quiz Generator] Trying model: ${modelId}`);
 
-    // Ensure we got valid questions
-    if (!result || result.length === 0) {
-      console.error("[PrepGenie] No questions generated, using fallback");
-      return generateFallbackQuestions(topic, numberOfQuestions);
+      const result = await Promise.race([
+        (async () => {
+          const { text } = await generateText({
+            model: openrouter(modelId),
+            prompt,
+            maxOutputTokens: 2000,
+            temperature: 0.7,
+          });
+          return parseQuizResponse(text);
+        })(),
+        // 20-second timeout per model
+        new Promise<QuizQuestion[]>((_, reject) =>
+          setTimeout(() => reject(new Error("Model timeout")), 20000)
+        ),
+      ]);
+
+      // If we got valid questions, return immediately
+      if (result && result.length > 0) {
+        console.log(`[Quiz Generator] ✓ Success with ${modelId}: ${result.length} questions`);
+        return result;
+      }
+    } catch (error) {
+      console.error(`[Quiz Generator] ✗ ${modelId} failed:`, error);
+      // Continue to next model
     }
-
-    return result;
-  } catch (error) {
-    console.error("[PrepGenie] Generation failed/timeout:", error);
-    return generateFallbackQuestions(topic, numberOfQuestions);
   }
+
+  // All models failed
+  console.error("[Quiz Generator] All models failed, returning fallback");
+  return generateFallbackQuestions(topic, numberOfQuestions);
 }
 
 function generateFallbackQuestions(

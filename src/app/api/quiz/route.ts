@@ -289,13 +289,19 @@ export async function POST(request: NextRequest) {
         console.log(`[Quiz API] AI returned ${aiQuestions?.length || 0} questions`);
 
         if (aiQuestions && aiQuestions.length > 0) {
-          // Accept all questions, even fallback ones (better than showing nothing)
-          finalQuestions = [...finalQuestions, ...aiQuestions];
-          aiCount = aiQuestions.length;
+          // Check if these are fallback questions
+          const isFallback = aiQuestions[0].question.includes("[Service Unavailable]");
 
-          // Only cache non-fallback questions
-          if (!aiQuestions[0].question.includes("[Service Unavailable]")) {
+          if (!isFallback) {
+            // Real AI questions - add them
+            finalQuestions = [...finalQuestions, ...aiQuestions];
+            aiCount = aiQuestions.length;
+
+            // Cache for future use
             saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+            console.log(`[Quiz API] ✓ Added ${aiCount} AI-generated questions`);
+          } else {
+            console.log(`[Quiz API] ✗ AI returned fallback questions, skipping`);
           }
         }
       } catch (error) {
@@ -314,6 +320,18 @@ export async function POST(request: NextRequest) {
         // If we have some questions, continue with partial set
         console.log(`[Quiz API] Continuing with ${finalQuestions.length} questions (${remaining} failed to generate)`);
       }
+    }
+
+    // Check if we have any questions at all
+    if (finalQuestions.length === 0) {
+      console.error("[Quiz API] No questions available from any source");
+      return NextResponse.json(
+        {
+          error: "No questions available for this topic yet. Please try a different topic or check back later.",
+          noQuestions: true,
+        },
+        { status: 404 }
+      );
     }
 
     // Shuffle the final mix
