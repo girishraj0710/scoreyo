@@ -270,8 +270,9 @@ export async function POST(request: NextRequest) {
 
     // ── TIER 3: Fresh AI generation (slow, ~8-9 sec) ────
     if (remaining > 0) {
+      console.log(`[Quiz API] Need ${remaining} more questions, calling AI generation...`);
       try {
-        // Add timeout for AI generation (25 seconds max)
+        // Add timeout for AI generation (30 seconds max - increased for reliability)
         const aiQuestions = await Promise.race([
           generateQuiz(
             exam.fullName,
@@ -281,16 +282,21 @@ export async function POST(request: NextRequest) {
             difficulty as any
           ),
           new Promise<QuizQuestion[]>((_, reject) =>
-            setTimeout(() => reject(new Error("AI generation timeout")), 25000)
+            setTimeout(() => reject(new Error("AI generation timeout")), 30000)
           ),
         ]);
 
-        if (aiQuestions && aiQuestions.length > 0 && !aiQuestions[0].question.includes("[Service Unavailable]")) {
+        console.log(`[Quiz API] AI returned ${aiQuestions?.length || 0} questions`);
+
+        if (aiQuestions && aiQuestions.length > 0) {
+          // Accept all questions, even fallback ones (better than showing nothing)
           finalQuestions = [...finalQuestions, ...aiQuestions];
           aiCount = aiQuestions.length;
 
-          // Save AI questions to cache for next time (don't await)
-          saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+          // Only cache non-fallback questions
+          if (!aiQuestions[0].question.includes("[Service Unavailable]")) {
+            saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+          }
         }
       } catch (error) {
         console.error("[Quiz API] AI generation failed:", error);

@@ -19,9 +19,9 @@ export interface QuizQuestion {
   source: "ai" | "verified"; // tracks where the question came from
 }
 
-// Use single fastest model for maximum speed
-// Parallel racing actually slows things down due to overhead
-const FASTEST_MODEL = "google/gemini-2.0-flash-exp:free"; // Fastest response time
+// Use most reliable free model
+// Gemini Flash is fast but experimental, switch to proven model
+const RELIABLE_MODEL = "google/gemini-flash-1.5"; // Most reliable, widely available
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
@@ -143,10 +143,10 @@ REQUIREMENTS:
     const result = await Promise.race([
       (async () => {
         const { text } = await generateText({
-          model: openrouter(FASTEST_MODEL),
+          model: openrouter(RELIABLE_MODEL),
           prompt,
-          maxOutputTokens: 2000, // Increased slightly for better quality
-          temperature: 0.7, // Balanced for quality and speed
+          maxOutputTokens: 2000,
+          temperature: 0.7,
         });
         return parseQuizResponse(text);
       })(),
