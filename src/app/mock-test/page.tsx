@@ -60,9 +60,9 @@ export default function MockTestPage() {
   const [results, setResults] = useState<any>(null);
   const [currentSection, setCurrentSection] = useState<string>("all");
 
-  // Add global click listener to detect header clicks when in test
+  // Add global click listener to detect header clicks when in test or loading
   useEffect(() => {
-    if (pageState !== "test") return;
+    if (pageState !== "test" && pageState !== "loading") return;
 
     const handleGlobalClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -73,7 +73,11 @@ export default function MockTestPage() {
         e.preventDefault();
         e.stopPropagation();
 
-        if (confirm("Exit test? Your progress will be lost.")) {
+        const message = pageState === "loading"
+          ? "Cancel test generation and go back?"
+          : "Exit test? Your progress will be lost.";
+
+        if (confirm(message)) {
           setPageState("select");
           setQuestions([]);
           setAnswers([]);
@@ -299,7 +303,17 @@ export default function MockTestPage() {
             </svg>
           </div>
           <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("preparingMockTest")}</h2>
-          <p className="text-slate-500">{t("preparingMockTestDesc")}</p>
+          <p className="text-slate-500 mb-6">{t("preparingMockTestDesc")}</p>
+          <button
+            onClick={() => {
+              setPageState("select");
+              setQuestions([]);
+              setAnswers([]);
+            }}
+            className="px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg border border-slate-200 transition-colors"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     );
