@@ -88,14 +88,14 @@ const defaultExamPattern = {
 };
 
 /**
- * Check how many questions are available for a given subject
+ * Check how many questions are available for a given exam and subject
  * Uses getCachedQuestions to sample the available questions
  */
-export async function getAvailableQuestionCount(subjectId: string): Promise<number> {
+export async function getAvailableQuestionCount(examId: string, subjectId: string): Promise<number> {
   try {
     // Try to get a large sample to estimate total count
-    // getCachedQuestions returns all available questions for the given criteria
-    const sampleQuestions = await getCachedQuestions('all', subjectId, 'all', 'mixed', 1000);
+    // Use actual examId to find questions in database
+    const sampleQuestions = await getCachedQuestions(examId, subjectId, '', 'mixed', 1000);
     return sampleQuestions.length;
   } catch (error) {
     console.error(`Error counting questions for ${subjectId}:`, error);
@@ -118,7 +118,7 @@ export async function calculateMaxTestsAvailable(examId: string): Promise<number
   // Check question availability for each subject
   const subjectCounts = await Promise.all(
     subjects.map(async (subject) => {
-      const count = await getAvailableQuestionCount(subject.subjectId);
+      const count = await getAvailableQuestionCount(examId, subject.subjectId);
       const questionsNeeded = Math.ceil(defaultExamPattern.questionsPerTest / subjects.length * subject.weight);
       return Math.floor(count / questionsNeeded);
     })
@@ -166,7 +166,7 @@ export async function generateDynamicMockTest(
 
   // Verify each section has enough questions
   for (const section of sections) {
-    const availableCount = await getAvailableQuestionCount(section.subjectId);
+    const availableCount = await getAvailableQuestionCount(examId, section.subjectId);
     if (availableCount < section.questionCount) {
       console.warn(
         `Subject ${section.subjectId} only has ${availableCount} questions but needs ${section.questionCount}`
@@ -305,8 +305,9 @@ export async function selectQuestionsForMockTest(
   // Select questions for each section
   for (const section of config.sections) {
     try {
-      // Get questions from cache
-      const cached = await getCachedQuestions('all', section.subjectId, 'all', 'mixed', section.questionCount * 20);
+      // Get questions from cache using actual examId
+      // Pass empty string for topic to match all topics in this subject
+      const cached = await getCachedQuestions(examId, section.subjectId, '', 'mixed', section.questionCount * 20);
 
       if (cached.length > 0) {
         // Use deterministic selection based on testNumber
