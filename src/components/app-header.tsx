@@ -7,7 +7,6 @@ import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
-import { Trophy } from "lucide-react";
 
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
@@ -61,8 +60,7 @@ export function AppHeader() {
             <Link href="/reports" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
               {t("reports")}
             </Link>
-            <Link href="/achievements" className="px-3 py-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg whitespace-nowrap flex items-center gap-1">
-              <Trophy className="w-4 h-4" />
+            <Link href="/achievements" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
               Badges
             </Link>
             <Link href="/english" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
@@ -138,8 +136,7 @@ export function AppHeader() {
                     <Link href="/review" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("review")}</Link>
                     <Link href="/mock-test" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("mockTests")}</Link>
                     <Link href="/reports" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("reports")}</Link>
-                    <Link href="/achievements" className="block px-4 py-2 text-sm text-indigo-600 hover:bg-indigo-50 font-medium flex items-center gap-2" onClick={() => setShowMenu(false)}>
-                      <Trophy className="w-4 h-4" />
+                    <Link href="/achievements" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>
                       Badges
                     </Link>
                     <Link href="/pricing" className="block px-4 py-2 text-sm text-amber-600 hover:bg-amber-50 font-medium" onClick={() => setShowMenu(false)}>{t("pricing")}</Link>
