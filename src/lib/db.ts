@@ -741,14 +741,33 @@ export async function getCachedQuestions(
 
   if (difficulty === "mixed") {
     rows = await queryAll(
-      "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
-      [examId, subjectId, topic, limit]
+      "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) ORDER BY used_count ASC, RANDOM() LIMIT ?",
+      [examId, subjectId, topic, `%${topic}%`, limit]
     );
   } else {
     rows = await queryAll(
-      "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? AND difficulty = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
-      [examId, subjectId, topic, difficulty, limit]
+      "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
+      [examId, subjectId, topic, `%${topic}%`, difficulty, limit]
     );
+  }
+
+  // If still no results, try fuzzy match on keywords
+  if (rows.length === 0) {
+    const keywords = topic.toLowerCase().split(/[&\s]+/).filter(w => w.length > 3);
+    for (const keyword of keywords) {
+      if (rows.length >= limit) break;
+
+      const fuzzyRows = await queryAll(
+        difficulty === "mixed"
+          ? "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? ORDER BY used_count ASC, RANDOM() LIMIT ?"
+          : "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
+        difficulty === "mixed"
+          ? [examId, subjectId, `%${keyword}%`, limit - rows.length]
+          : [examId, subjectId, `%${keyword}%`, difficulty, limit - rows.length]
+      );
+
+      rows = [...rows, ...fuzzyRows];
+    }
   }
 
   return rows.map((row: any) => ({
