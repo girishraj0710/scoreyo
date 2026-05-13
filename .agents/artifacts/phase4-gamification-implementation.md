@@ -1,6 +1,7 @@
 # Phase 4: Polish & Features Implementation
 **Date**: May 13, 2026  
-**Status**: ✅ Complete (5 of 5 features implemented)
+**Status**: ✅ Complete (4 of 5 features implemented)  
+**Update**: Daily Challenges merged with DPP (removed duplicate)
 
 ---
 
@@ -138,10 +139,13 @@ Join me: https://prepgenie.co.in
 
 ---
 
-### 5. ✅ Daily Challenges
-**Files Created**:
-- `src/components/daily-challenge-widget.tsx` (180 lines)
-- `src/app/api/daily-challenge/route.ts` (110 lines)
+### 5. ~~Daily Challenges~~ → **MERGED WITH DPP**
+**Decision**: Removed separate daily challenges to avoid confusion with DPP
+**Reason**: Both were "daily" features - DPP already provides daily practice goals
+
+**Original Implementation** (now removed):
+- ~~`src/components/daily-challenge-widget.tsx`~~ (deleted)
+- ~~`src/app/api/daily-challenge/route.ts`~~ (deleted)
 
 **Database Tables Added** (in `src/lib/db.ts`):
 ```sql
@@ -189,27 +193,26 @@ CREATE TABLE daily_challenge_progress (
 - Call-to-action button
 - Green gradient when completed, amber when active
 
-**Dashboard Integration**:
-- Added to `/dashboard` page
-- Appears in top-right grid position (next to level progress)
-- Automatically creates daily challenge if none exists
+**What Happened to This Feature**:
+- ❌ **REMOVED** - Merged with existing DPP feature
+- Reason: DPP already serves as the daily practice/challenge
+- Simpler UX with one daily feature instead of two
+- Database tables kept for future use if needed
 
 ---
 
-## 📁 Files Created (13 new files)
+## 📁 Files Created (10 new files)
 
-### Components (3)
+### Components (2)
 1. `src/components/level-progress-widget.tsx` - Dashboard level card
-2. `src/components/daily-challenge-widget.tsx` - Daily challenge card
-3. `src/components/sound-toggle.tsx` - Sound on/off button
+2. `src/components/sound-toggle.tsx` - Sound on/off button
 
 ### Pages (2)
 1. `src/app/achievements/page.tsx` - Full achievements showcase
 2. `src/app/api/achievements/route.ts` - Badge data API
 
-### APIs (2)
+### APIs (1)
 1. `src/app/api/level-progress/route.ts` - Level stats API
-2. `src/app/api/daily-challenge/route.ts` - Challenge data API
 
 ### Libraries (2)
 1. `src/lib/achievements.ts` - Badge system logic
@@ -251,9 +254,10 @@ CREATE TABLE daily_challenge_progress (
 
 ### Dashboard Updates (`src/app/dashboard/page.tsx`)
 - ✅ Level Progress Widget (top-left)
-- ✅ Daily Challenge Widget (top-right)
+- ✅ DPP Widget (top-right) - **THE daily feature**
 - ✅ 2x2 grid layout for featured cards
-- ✅ Existing widgets (exam breakdown, DPP, mistake map, weak topics) preserved
+- ✅ Existing widgets (exam breakdown, mistake map, weak topics) preserved
+- ❌ Daily Challenge Widget removed (merged with DPP)
 
 ### CSS Animations Added (`src/app/globals.css`)
 - ✅ `animate-badge-pop` - Badge unlock animation (scale + rotate)
@@ -312,12 +316,7 @@ sounds.levelUp();
 const hour = new Date().getHours();
 if (hour < 8) await updateBadgeStats(userId, { earlyDPPs: 1 });
 
-// Update daily challenge progress
-const today = new Date().toISOString().split('T')[0];
-const challenge = await getTodayChallenge();
-if (challenge && challenge.challenge_type === 'dpp') {
-  await updateChallengeProgress(userId, challenge.id, 1);
-}
+// Badge for DPP streak/completion can be added here
 ```
 
 **After Mock Test** (`/api/mock-test` route):
@@ -384,11 +383,12 @@ if (passed) {
 ## 📊 Testing Checklist
 
 ### Dashboard
-- [ ] Visit `/dashboard` - see level progress widget
-- [ ] Visit `/dashboard` - see daily challenge widget
+- [ ] Visit `/dashboard` - see level progress widget (top-left)
+- [ ] Visit `/dashboard` - see DPP widget (top-right) 
 - [ ] Widgets show shimmer while loading
 - [ ] Empty state shows "Start Level 1" button
 - [ ] With data, shows stats and recent badges
+- [ ] No duplicate "daily" widgets
 
 ### Achievements Page
 - [ ] Visit `/achievements` - see all badges
@@ -399,12 +399,11 @@ if (passed) {
 - [ ] Share button copies text to clipboard
 - [ ] Rarity badges have correct colors (common/rare/epic/legendary)
 
-### Daily Challenges
-- [ ] Challenge auto-creates on first load
-- [ ] Progress bar updates after quiz
-- [ ] Challenge completes when target reached
-- [ ] Resets at midnight (next day shows new challenge)
-- [ ] Reward points display correctly
+### Daily Feature (DPP)
+- [ ] DPP card shows prominently on dashboard
+- [ ] DPP streak tracking works
+- [ ] Early bird badge (complete before 8 AM) can be earned
+- [ ] No confusion with duplicate daily features
 
 ### Sound Effects
 - [ ] Toggle in header works
@@ -490,14 +489,16 @@ if (passed) {
 
 **Estimated Time**: 2-3 hours  
 **Actual Time**: ~2.5 hours  
-**Features**: 5 of 5 implemented (100%)  
-**Files Created**: 13 new files  
-**Database Tables**: 4 new tables  
-**Lines of Code**: ~1,700 lines
+**Features**: 4 of 5 implemented (80%) - Daily Challenges merged with DPP  
+**Files Created**: 10 new files (3 removed)  
+**Database Tables**: 4 new tables (kept for future use)  
+**Lines of Code**: ~1,400 lines
 
 **Status**: 🟢 **READY FOR TESTING**
 
-All Phase 4 features are implemented and ready to integrate with the quiz/level completion flows. The gamification system is modular and can be easily extended with more badges, challenges, and rewards.
+All Phase 4 features are implemented and ready to integrate with the quiz/level completion flows. The gamification system is modular and can be easily extended with more badges and rewards.
+
+**Key Decision**: Merged Daily Challenges with existing DPP to avoid confusing users with two "daily" features. DPP is now THE primary daily engagement feature.
 
 ---
 
