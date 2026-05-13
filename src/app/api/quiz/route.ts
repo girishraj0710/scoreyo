@@ -12,6 +12,7 @@ import {
   isProUser,
   getTodayQuizCount,
   getEnglishQuestions,
+  getExamQuestions,
 } from "@/lib/db";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { v4 as uuidv4 } from "uuid";
@@ -96,18 +97,32 @@ export async function POST(request: NextRequest) {
     let cachedCount = 0;
     let aiCount = 0;
 
-    // ── TIER 1: Verified question bank (instant) ─────────
+    // ── TIER 1: Database questions (instant, highest priority) ─────────
     let verifiedQuestions: QuizQuestion[] = [];
 
-    // Check if this is an English quiz (any English-related exam/subject)
-    const isEnglishQuiz =
-      examId === 'foundation' ||
-      subjectId?.toLowerCase().includes('english') ||
-      topic?.toLowerCase().includes('tense') ||
-      topic?.toLowerCase().includes('phrasal') ||
-      topic?.toLowerCase().includes('grammar');
+    // Try database first for ALL competitive exams
+    try {
+      const dbQuestions = await getExamQuestions(examId, subjectId, topic, difficulty, numberOfQuestions * 2);
+      if (dbQuestions.length > 0) {
+        verifiedQuestions = dbQuestions;
+        console.log(`[Quiz API] Found ${dbQuestions.length} questions in database for ${examId}/${topic}`);
+      }
+    } catch (error) {
+      console.log(`[Quiz API] No database questions found for ${examId}/${topic}`);
+    }
 
-    if (isEnglishQuiz) {
+    // If no DB questions and it's not an English quiz, try in-memory question bank
+    if (verifiedQuestions.length === 0) {
+
+      // Check if this is an English quiz (any English-related exam/subject)
+      const isEnglishQuiz =
+        examId === 'foundation' ||
+        subjectId?.toLowerCase().includes('english') ||
+        topic?.toLowerCase().includes('tense') ||
+        topic?.toLowerCase().includes('phrasal') ||
+        topic?.toLowerCase().includes('grammar');
+
+      if (isEnglishQuiz) {
       // Query English questions from database
       try {
         // For English questions, use 'foundation' as path_id and topic as topic_id
@@ -207,24 +222,25 @@ export async function POST(request: NextRequest) {
 
         console.log(`[English Quiz] Final: topic="${topicId}", level="${levelToQuery}", found=${dbQuestions.length} questions`);
 
-        verifiedQuestions = dbQuestions.map((q: any) => ({
-          question: q.question,
-          options: q.options,
-          correctAnswer: q.correct_answer,
-          explanation: q.explanation,
-          difficulty: q.difficulty as 'easy' | 'medium' | 'hard',
-          source: 'verified' as const,
-        }));
-      } catch (error) {
-        console.error('Error fetching English questions from DB:', error);
+          verifiedQuestions = dbQuestions.map((q: any) => ({
+            question: q.question,
+            options: q.options,
+            correctAnswer: q.correct_answer,
+            explanation: q.explanation,
+            difficulty: q.difficulty as 'easy' | 'medium' | 'hard',
+            source: 'verified' as const,
+          }));
+        } catch (error) {
+          console.error('Error fetching English questions from DB:', error);
+        }
       }
-    }
 
-    // If no English questions found, fallback to in-memory question bank
-    if (verifiedQuestions.length === 0) {
-      console.log(`[English Quiz] No questions found in database, trying in-memory question bank`);
-      verifiedQuestions = getVerifiedQuestions(examId, subjectId, topic);
-      console.log(`[English Quiz] In-memory question bank returned ${verifiedQuestions.length} questions`);
+      // If still no questions, try in-memory question bank as last resort
+      if (verifiedQuestions.length === 0) {
+        console.log(`[Quiz API] Trying in-memory question bank...`);
+        verifiedQuestions = getVerifiedQuestions(examId, subjectId, topic);
+        console.log(`[Quiz API] In-memory bank returned ${verifiedQuestions.length} questions`);
+      }
     }
 
     if (difficulty !== "mixed" && verifiedQuestions.length > 0) {

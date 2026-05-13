@@ -229,6 +229,22 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_english_daily_user ON english_daily_practice(user_id, date DESC);
 
+    CREATE TABLE IF NOT EXISTS exam_questions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      exam_id TEXT NOT NULL,
+      subject_id TEXT NOT NULL,
+      topic TEXT NOT NULL,
+      question TEXT NOT NULL,
+      options TEXT NOT NULL,
+      correct_answer INTEGER NOT NULL,
+      explanation TEXT NOT NULL,
+      difficulty TEXT DEFAULT 'medium',
+      source TEXT DEFAULT 'verified',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_exam_questions_lookup ON exam_questions(exam_id, subject_id, topic, difficulty);
+
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
@@ -1299,6 +1315,37 @@ export async function updateEnglishProgress(
       [userId, pathId, topicId, level, questionsCompleted, correctAnswers, timeTakenSeconds, mastery]
     );
   }
+}
+
+export async function getExamQuestions(
+  examId: string,
+  subjectId: string,
+  topic: string,
+  difficulty: string = "mixed",
+  limit: number = 10
+) {
+  let rows: any[];
+
+  if (difficulty === "mixed") {
+    rows = await queryAll(
+      "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? ORDER BY RANDOM() LIMIT ?",
+      [examId, subjectId, topic, limit]
+    );
+  } else {
+    rows = await queryAll(
+      "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? AND difficulty = ? ORDER BY RANDOM() LIMIT ?",
+      [examId, subjectId, topic, difficulty, limit]
+    );
+  }
+
+  return rows.map((row: any) => ({
+    question: row.question,
+    options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
+    correctAnswer: row.correct_answer,
+    explanation: row.explanation,
+    difficulty: row.difficulty,
+    source: 'verified' as const,
+  }));
 }
 
 export async function getEnglishQuestions(pathId: string, topicId: string, level: string, limit: number = 10) {
