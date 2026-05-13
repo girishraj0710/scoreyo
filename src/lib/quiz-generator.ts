@@ -25,6 +25,8 @@ const FASTEST_MODEL = "google/gemini-2.0-flash-exp:free"; // Fastest response ti
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
+  console.log("[Quiz Generator] Raw AI response length:", text.length);
+
   // Remove markdown code blocks if present
   if (cleanText.startsWith("```")) {
     cleanText = cleanText.replace(/^```(?:json)?\n?/, "").replace(/\n?```$/, "");
@@ -36,7 +38,9 @@ function parseQuizResponse(text: string): QuizQuestion[] {
     cleanText = cleanText.substring(jsonStart, jsonEnd + 1);
   }
 
+  console.log("[Quiz Generator] Cleaned text for parsing:", cleanText.substring(0, 200));
   const questions: QuizQuestion[] = JSON.parse(cleanText);
+  console.log("[Quiz Generator] Parsed questions count:", questions.length);
 
   if (!Array.isArray(questions) || questions.length === 0) {
     throw new Error("Invalid response format");
@@ -45,17 +49,23 @@ function parseQuizResponse(text: string): QuizQuestion[] {
   return questions.map((q, idx) => {
     // Validate required fields
     if (!q || typeof q !== 'object') {
+      console.error(`[Quiz Generator] Question ${idx + 1} is invalid:`, q);
       throw new Error(`Question ${idx + 1} is invalid`);
     }
     if (!q.question || typeof q.question !== 'string') {
+      console.error(`[Quiz Generator] Question ${idx + 1} missing question text:`, q);
       throw new Error(`Question ${idx + 1} missing question text`);
     }
     if (!Array.isArray(q.options) || q.options.length < 4) {
-      throw new Error(`Question ${idx + 1} has invalid options`);
+      console.error(`[Quiz Generator] Question ${idx + 1} has invalid options:`, q.options);
+      throw new Error(`Question ${idx + 1} has invalid options (need 4, got ${q.options?.length || 0})`);
     }
     if (typeof q.correctAnswer !== 'number' || q.correctAnswer < 0 || q.correctAnswer > 3) {
+      console.error(`[Quiz Generator] Question ${idx + 1} has invalid correctAnswer:`, q.correctAnswer);
       throw new Error(`Question ${idx + 1} has invalid correctAnswer`);
     }
+
+    console.log(`[Quiz Generator] Question ${idx + 1} validated successfully`);
 
     // Ensure trapAlerts has exactly 3 items (one for each wrong option)
     let explanation = q.explanation;
@@ -98,25 +108,35 @@ export async function generateQuiz(
       ? "Mix of easy (1-2), medium (2-3), and hard (1-2) questions"
       : `All questions should be ${difficulty} difficulty`;
 
-  // Simplified prompt for faster generation
-  const prompt = `Generate ${numberOfQuestions} MCQ questions for ${examName} - ${subjectName} - ${topic} (${difficultyInstruction}).
+  // Optimized prompt - concise but clear
+  const prompt = `Create ${numberOfQuestions} multiple choice questions for ${examName} exam.
+Subject: ${subjectName}
+Topic: ${topic}
+Difficulty: ${difficultyInstruction}
 
-Rules: 4 options each, 1 correct, ${examName} exam standard, test concepts not memorization.
+CRITICAL: Return ONLY a valid JSON array. No text before or after. Start with [ and end with ]
 
-Return ONLY valid JSON array (no markdown):
-[{
-  "question": "text",
-  "options": ["A", "B", "C", "D"],
+Format for each question:
+{
+  "question": "Question text here",
+  "options": ["Option A text", "Option B text", "Option C text", "Option D text"],
   "correctAnswer": 0,
   "explanation": {
-    "logic": "Why correct (2-3 sentences)",
-    "formula": "if numerical, else null",
-    "calculation": "if numerical, else null",
-    "trapAlerts": ["Why wrong option 1", "Why wrong option 2", "Why wrong option 3"],
-    "commonMistakes": ["Mistake 1", "Mistake 2"]
+    "logic": "Brief explanation why answer is correct",
+    "formula": null,
+    "calculation": null,
+    "trapAlerts": ["Why option 0 wrong", "Why option 1 wrong", "Why option 2 wrong"],
+    "commonMistakes": ["Common error 1", "Common error 2"]
   },
-  "difficulty": "easy|medium|hard"
-}]`;
+  "difficulty": "easy"
+}
+
+REQUIREMENTS:
+- Exactly 4 options per question
+- correctAnswer must be 0, 1, 2, or 3 (index of correct option)
+- Questions at ${examName} exam difficulty level
+- trapAlerts explains the 3 WRONG options only
+- Return valid JSON array with ${numberOfQuestions} questions`;
 
   try {
     // Use single fastest model with timeout
@@ -125,16 +145,23 @@ Return ONLY valid JSON array (no markdown):
         const { text } = await generateText({
           model: openrouter(FASTEST_MODEL),
           prompt,
-          maxOutputTokens: 1500, // Reduced for speed
-          temperature: 0.8, // Higher for faster generation
+          maxOutputTokens: 2000, // Increased slightly for better quality
+          temperature: 0.7, // Balanced for quality and speed
         });
         return parseQuizResponse(text);
       })(),
-      // Add 20-second timeout
+      // Add 25-second timeout
       new Promise<QuizQuestion[]>((_, reject) =>
-        setTimeout(() => reject(new Error("Generation timeout")), 20000)
+        setTimeout(() => reject(new Error("Generation timeout")), 25000)
       ),
     ]);
+
+    // Ensure we got valid questions
+    if (!result || result.length === 0) {
+      console.error("[PrepGenie] No questions generated, using fallback");
+      return generateFallbackQuestions(topic, numberOfQuestions);
+    }
+
     return result;
   } catch (error) {
     console.error("[PrepGenie] Generation failed/timeout:", error);
