@@ -42,7 +42,21 @@ function parseQuizResponse(text: string): QuizQuestion[] {
     throw new Error("Invalid response format");
   }
 
-  return questions.map((q) => {
+  return questions.map((q, idx) => {
+    // Validate required fields
+    if (!q || typeof q !== 'object') {
+      throw new Error(`Question ${idx + 1} is invalid`);
+    }
+    if (!q.question || typeof q.question !== 'string') {
+      throw new Error(`Question ${idx + 1} missing question text`);
+    }
+    if (!Array.isArray(q.options) || q.options.length < 4) {
+      throw new Error(`Question ${idx + 1} has invalid options`);
+    }
+    if (typeof q.correctAnswer !== 'number' || q.correctAnswer < 0 || q.correctAnswer > 3) {
+      throw new Error(`Question ${idx + 1} has invalid correctAnswer`);
+    }
+
     // Ensure trapAlerts has exactly 3 items (one for each wrong option)
     let explanation = q.explanation;
     if (typeof explanation === 'object' && explanation.trapAlerts) {
@@ -65,7 +79,7 @@ function parseQuizResponse(text: string): QuizQuestion[] {
       question: q.question,
       options: q.options.slice(0, 4),
       correctAnswer: Math.min(Math.max(0, q.correctAnswer), 3),
-      explanation,
+      explanation: explanation || "Explanation not available",
       difficulty: q.difficulty || "medium",
       source: "ai" as const,
     };

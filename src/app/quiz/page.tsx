@@ -771,6 +771,27 @@ function QuizContent() {
   const isCurrentAnswered = answers[currentQuestion] !== null;
   const isLastQuestion = currentQuestion === quizData.questions.length - 1;
 
+  // Safety check: if question is undefined, show error
+  if (!question) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 max-w-md text-center">
+          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-3xl text-red-600">⚠️</span>
+          </div>
+          <h2 className="text-xl font-bold text-slate-900 mb-2">Question Loading Error</h2>
+          <p className="text-slate-600 mb-6">Unable to load question data. Please try starting a new quiz.</p>
+          <button
+            onClick={() => window.location.href = '/quiz/levels'}
+            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+            Start New Quiz
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Report Modal */}
@@ -863,15 +884,15 @@ function QuizContent() {
           <div className="flex items-center gap-2">
             <span
               className={`text-xs font-medium px-2 py-1 rounded-full ${
-                question.difficulty === "easy"
+                (question?.difficulty || "medium") === "easy"
                   ? "bg-emerald-100 text-emerald-700"
-                  : question.difficulty === "hard"
+                  : (question?.difficulty || "medium") === "hard"
                     ? "bg-red-100 text-red-700"
                     : "bg-amber-100 text-amber-700"
               }`}
             >
-              {question.difficulty.charAt(0).toUpperCase() +
-                question.difficulty.slice(1)}
+              {((question?.difficulty || "medium").charAt(0).toUpperCase() +
+                (question?.difficulty || "medium").slice(1))}
             </span>
             <SourceBadge source={question.source} />
           </div>
