@@ -60,6 +60,34 @@ export default function MockTestPage() {
   const [results, setResults] = useState<any>(null);
   const [currentSection, setCurrentSection] = useState<string>("all");
 
+  // Add global click listener to detect header clicks when in test
+  useEffect(() => {
+    if (pageState !== "test") return;
+
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      // Check if click is on Mock Test link in header
+      const isMockTestLink = target.closest('a[href="/mock-test"]') || target.closest('a[href^="/mock-test"]');
+
+      if (isMockTestLink) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (confirm("Exit test? Your progress will be lost.")) {
+          setPageState("select");
+          setQuestions([]);
+          setAnswers([]);
+          setCurrentQuestion(0);
+          setTimeRemaining(0);
+          window.scrollTo(0, 0);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleGlobalClick, true);
+    return () => document.removeEventListener('click', handleGlobalClick, true);
+  }, [pageState]);
+
   // Load configs, capacity, and history
   useEffect(() => {
     if (!user) {
@@ -394,6 +422,25 @@ export default function MockTestPage() {
 
     return (
       <div className="max-w-4xl mx-auto px-4 py-4">
+        {/* Back Button */}
+        <button
+          onClick={() => {
+            if (confirm("Are you sure you want to exit? Your progress will be lost.")) {
+              setPageState("select");
+              setQuestions([]);
+              setAnswers([]);
+              setCurrentQuestion(0);
+              setTimeRemaining(0);
+            }
+          }}
+          className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-4 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          <span className="text-sm font-medium">Exit Test</span>
+        </button>
+
         {/* Sticky header */}
         <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4 sticky top-16 z-40">
           <div className="flex items-center justify-between mb-2">
