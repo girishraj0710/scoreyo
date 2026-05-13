@@ -271,7 +271,7 @@ export async function POST(request: NextRequest) {
     // ── TIER 3: Fresh AI generation (slow, ~8-9 sec) ────
     if (remaining > 0) {
       try {
-        // Add timeout for AI generation (45 seconds max)
+        // Add timeout for AI generation (25 seconds max)
         const aiQuestions = await Promise.race([
           generateQuiz(
             exam.fullName,
@@ -281,7 +281,7 @@ export async function POST(request: NextRequest) {
             difficulty as any
           ),
           new Promise<QuizQuestion[]>((_, reject) =>
-            setTimeout(() => reject(new Error("AI generation timeout")), 45000)
+            setTimeout(() => reject(new Error("AI generation timeout")), 25000)
           ),
         ]);
 
@@ -317,20 +317,20 @@ export async function POST(request: NextRequest) {
 
     // ── Aggressive background pre-fill cache ──────────
     // Don't await - run in background to speed up future quizzes
-    getCachedQuestionCount(examId, subjectId, topic).then(currentCacheCount => {
-      if (currentCacheCount < 50) {
-        // Pre-fill more aggressively (50 questions target instead of 20)
-        backgroundCacheFill(
-          exam.fullName,
-          subject.name,
-          topic,
-          examId,
-          subjectId,
-          difficulty,
-          Math.min(30, 50 - currentCacheCount) // Fill up to 50
-        );
-      }
-    }).catch(err => console.error("[Cache] Pre-fill check failed:", err));
+    const cacheCountForMeta = await getCachedQuestionCount(examId, subjectId, topic);
+
+    if (cacheCountForMeta < 50) {
+      // Pre-fill more aggressively (50 questions target instead of 20)
+      backgroundCacheFill(
+        exam.fullName,
+        subject.name,
+        topic,
+        examId,
+        subjectId,
+        difficulty,
+        Math.min(30, 50 - cacheCountForMeta) // Fill up to 50
+      );
+    }
 
     return NextResponse.json({
       sessionId,
@@ -345,7 +345,7 @@ export async function POST(request: NextRequest) {
         cachedCount,
         aiCount,
         totalInBank: verifiedQuestions.length,
-        totalInCache: currentCacheCount,
+        totalInCache: cacheCountForMeta,
       },
     });
   } catch (error) {

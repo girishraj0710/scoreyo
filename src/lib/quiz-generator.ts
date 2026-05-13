@@ -19,13 +19,9 @@ export interface QuizQuestion {
   source: "ai" | "verified"; // tracks where the question came from
 }
 
-// Free models — prioritized by speed/reliability
-// Only use fastest 3 models to reduce overhead
-const FREE_MODELS = [
-  "google/gemma-3-27b-it:free",           // Fast and reliable
-  "meta-llama/llama-3.3-70b-instruct:free", // High quality
-  "nvidia/nemotron-3-super-120b-a12b:free", // Backup
-];
+// Use single fastest model for maximum speed
+// Parallel racing actually slows things down due to overhead
+const FASTEST_MODEL = "google/gemini-2.0-flash-exp:free"; // Fastest response time
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
@@ -88,101 +84,45 @@ export async function generateQuiz(
       ? "Mix of easy (1-2), medium (2-3), and hard (1-2) questions"
       : `All questions should be ${difficulty} difficulty`;
 
-  // Enhanced prompt with rich explanation structure
-  const prompt = `You are an expert exam question creator for Indian competitive exams with decades of teaching experience. Generate exactly ${numberOfQuestions} multiple choice questions for:
+  // Simplified prompt for faster generation
+  const prompt = `Generate ${numberOfQuestions} MCQ questions for ${examName} - ${subjectName} - ${topic} (${difficultyInstruction}).
 
-Exam: ${examName}
-Subject: ${subjectName}
-Topic: ${topic}
-Difficulty: ${difficultyInstruction}
+Rules: 4 options each, 1 correct, ${examName} exam standard, test concepts not memorization.
 
-IMPORTANT RULES:
-1. Questions MUST be at the standard expected in the actual ${examName} exam
-2. Each question must have EXACTLY 4 options (A, B, C, D)
-3. Only ONE option should be correct
-4. Questions should test conceptual understanding, not just rote memorization
-5. Include numerical problems where relevant
-6. Make the incorrect options plausible (common mistakes students make)
-
-CRITICAL - SELF-VERIFICATION STEPS (you MUST follow these):
-7. For EVERY question, after writing it, SOLVE it yourself step-by-step to verify the answer is correct
-8. For numerical questions, SHOW your calculation to prove the answer
-9. Double-check that the correctAnswer index (0-3) actually points to the right option in the options array
-10. Make sure no two options are the same
-11. Do NOT include any question where you are less than 95% confident about the answer
-
-EXPLANATION STRUCTURE (CRITICAL - This is what students need most):
-Your explanation MUST be a JSON object with these fields:
-{
-  "logic": "2-3 sentence explanation of the CORE CONCEPT. Focus on WHY this answer is right, not just stating it.",
-  "formula": "Formula used (ONLY if numerical question, otherwise null)",
-  "calculation": "Step-by-step calculation with numbers (ONLY if numerical, otherwise null)",
-  "trapAlerts": [
-    "Why option A is wrong and why students pick it",
-    "Why option B is wrong and why students pick it",
-    "Why option C is wrong and why students pick it"
-  ],
-  "commonMistakes": [
-    "Common mistake #1 students make on this concept",
-    "Common mistake #2 students make on this concept"
-  ]
-}
-
-TRAP ALERTS GUIDANCE:
-- For each WRONG option, explain: (1) WHY it's incorrect, and (2) what MISTAKE leads students to pick it
-- Example: "Students pick this when they forget that velocity is a vector and use speed instead"
-- Example: "This is the result if you use the formula for area instead of volume"
-- Be specific about the conceptual error, calculation mistake, or misconception
-
-COMMON MISTAKES GUIDANCE:
-- List 2-3 typical errors students make when solving this type of problem
-- Example: "Forgetting to convert units before calculation"
-- Example: "Confusing correlation with causation"
-- Example: "Not accounting for significant figures in final answer"
-
-Respond ONLY with a valid JSON array. No markdown, no code blocks, no extra text. The response must start with [ and end with ].
-
-Each object in the array must have these exact fields:
-{
-  "question": "The question text",
-  "options": ["Option A", "Option B", "Option C", "Option D"],
+Return ONLY valid JSON array (no markdown):
+[{
+  "question": "text",
+  "options": ["A", "B", "C", "D"],
   "correctAnswer": 0,
   "explanation": {
-    "logic": "Core concept explanation",
-    "formula": "Formula if numerical, else null",
-    "calculation": "Step-by-step if numerical, else null",
-    "trapAlerts": ["Why option 0 wrong", "Why option 1 wrong", "Why option 2 wrong"],
+    "logic": "Why correct (2-3 sentences)",
+    "formula": "if numerical, else null",
+    "calculation": "if numerical, else null",
+    "trapAlerts": ["Why wrong option 1", "Why wrong option 2", "Why wrong option 3"],
     "commonMistakes": ["Mistake 1", "Mistake 2"]
   },
   "difficulty": "easy|medium|hard"
-}
-
-Where correctAnswer is the 0-based index of the correct option (0 for A, 1 for B, 2 for C, 3 for D).
-trapAlerts should explain the 3 WRONG options (skip the correct one).`;
+}]`;
 
   try {
-    // Race all models in parallel with timeout — first valid response wins
+    // Use single fastest model with timeout
     const result = await Promise.race([
-      Promise.any(
-        FREE_MODELS.map(async (modelId) => {
-          const { text } = await generateText({
-            model: openrouter(modelId),
-            prompt,
-            maxOutputTokens: 2048, // Reduced from 4096 for faster generation
-            temperature: 0.7, // Slightly higher for faster, more creative responses
-          });
-          const questions = parseQuizResponse(text);
-          return questions;
-        })
-      ),
-      // Add 30-second timeout per attempt
+      (async () => {
+        const { text } = await generateText({
+          model: openrouter(FASTEST_MODEL),
+          prompt,
+          maxOutputTokens: 1500, // Reduced for speed
+          temperature: 0.8, // Higher for faster generation
+        });
+        return parseQuizResponse(text);
+      })(),
+      // Add 20-second timeout
       new Promise<QuizQuestion[]>((_, reject) =>
-        setTimeout(() => reject(new Error("Generation timeout")), 30000)
+        setTimeout(() => reject(new Error("Generation timeout")), 20000)
       ),
     ]);
     return result;
   } catch (error) {
-    // All models failed or timeout
     console.error("[PrepGenie] Generation failed/timeout:", error);
     return generateFallbackQuestions(topic, numberOfQuestions);
   }
