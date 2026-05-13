@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     // Get all quiz sessions to calculate streak
     const sessions = await queryAll(
       `SELECT
-        DATE(created_at) as date
+        DATE(created_at, 'localtime') as date
       FROM quiz_sessions
       WHERE user_id = ?
       ORDER BY created_at DESC
