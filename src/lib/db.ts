@@ -389,6 +389,60 @@ async function initializeDb() {
     );
 
     CREATE INDEX IF NOT EXISTS idx_level_question_cache_user ON level_question_cache(user_id, exam_id, subject_id, level_number);
+
+    CREATE TABLE IF NOT EXISTS user_badges (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL,
+      badge_id TEXT NOT NULL,
+      unlocked_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(user_id, badge_id),
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_user_badges_user ON user_badges(user_id);
+
+    CREATE TABLE IF NOT EXISTS badge_stats (
+      user_id TEXT PRIMARY KEY,
+      levels_completed INTEGER DEFAULT 0,
+      high_accuracy_quizzes INTEGER DEFAULT 0,
+      very_high_accuracy_quizzes INTEGER DEFAULT 0,
+      perfect_quizzes INTEGER DEFAULT 0,
+      fast_quizzes INTEGER DEFAULT 0,
+      topic_masteries_90 INTEGER DEFAULT 0,
+      subject_masteries_80 INTEGER DEFAULT 0,
+      early_dpps INTEGER DEFAULT 0,
+      late_quizzes INTEGER DEFAULT 0,
+      weekend_sessions INTEGER DEFAULT 0,
+      last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+
+    CREATE TABLE IF NOT EXISTS daily_challenges (
+      id TEXT PRIMARY KEY,
+      date TEXT NOT NULL UNIQUE,
+      challenge_type TEXT NOT NULL,
+      title TEXT NOT NULL,
+      description TEXT NOT NULL,
+      requirement TEXT NOT NULL,
+      target_value INTEGER NOT NULL,
+      reward_points INTEGER DEFAULT 10,
+      badge_reward TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS daily_challenge_progress (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL,
+      challenge_id TEXT NOT NULL,
+      current_value INTEGER DEFAULT 0,
+      completed BOOLEAN DEFAULT 0,
+      completed_at DATETIME,
+      UNIQUE(user_id, challenge_id),
+      FOREIGN KEY (user_id) REFERENCES users(id),
+      FOREIGN KEY (challenge_id) REFERENCES daily_challenges(id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_daily_challenge_progress_user ON daily_challenge_progress(user_id, challenge_id);
   `);
 
   // Create a default user if none exists
@@ -1749,4 +1803,241 @@ export async function clearLevelQuestionCache(
     "DELETE FROM level_question_cache WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
     [userId, examId, subjectId, levelNumber]
   );
+}
+
+// ─── Badge & Achievement Functions ──────────────────────────────────
+
+export async function getUserBadges(userId: string) {
+  await ensureInitialized();
+  return await queryAll(
+    "SELECT badge_id, unlocked_at FROM user_badges WHERE user_id = ? ORDER BY unlocked_at DESC",
+    [userId]
+  );
+}
+
+export async function unlockBadge(userId: string, badgeId: string) {
+  await ensureInitialized();
+
+  // Check if already unlocked
+  const existing = await queryOne(
+    "SELECT id FROM user_badges WHERE user_id = ? AND badge_id = ?",
+    [userId, badgeId]
+  );
+
+  if (!existing) {
+    await execute(
+      "INSERT INTO user_badges (user_id, badge_id) VALUES (?, ?)",
+      [userId, badgeId]
+    );
+    return true; // newly unlocked
+  }
+
+  return false; // already had it
+}
+
+export async function getBadgeStats(userId: string) {
+  await ensureInitialized();
+
+  let stats = await queryOne(
+    "SELECT * FROM badge_stats WHERE user_id = ?",
+    [userId]
+  );
+
+  if (!stats) {
+    // Initialize badge stats
+    await execute(
+      "INSERT INTO badge_stats (user_id) VALUES (?)",
+      [userId]
+    );
+    stats = {
+      user_id: userId,
+      levels_completed: 0,
+      high_accuracy_quizzes: 0,
+      very_high_accuracy_quizzes: 0,
+      perfect_quizzes: 0,
+      fast_quizzes: 0,
+      topic_masteries_90: 0,
+      subject_masteries_80: 0,
+      early_dpps: 0,
+      late_quizzes: 0,
+      weekend_sessions: 0,
+    };
+  }
+
+  // Get additional stats from other tables
+  const userStats = await getUserStats(userId);
+  const mockTests = await queryOne(
+    "SELECT COUNT(*) as count FROM mock_tests WHERE user_id = ? AND status = 'completed'",
+    [userId]
+  );
+
+  return {
+    ...stats,
+    totalQuizzes: userStats?.totalSessions || 0,
+    totalQuestions: userStats?.totalQuestions || 0,
+    streak: userStats?.streak || 0,
+    mockTestsCompleted: mockTests?.count || 0,
+  };
+}
+
+export async function updateBadgeStats(
+  userId: string,
+  updates: {
+    levelsCompleted?: number;
+    highAccuracyQuizzes?: number;
+    veryHighAccuracyQuizzes?: number;
+    perfectQuizzes?: number;
+    fastQuizzes?: number;
+    topicMasteries90?: number;
+    subjectMasteries80?: number;
+    earlyDPPs?: number;
+    lateQuizzes?: number;
+    weekendSessions?: number;
+  }
+) {
+  await ensureInitialized();
+
+  // Ensure badge_stats row exists
+  const existing = await queryOne(
+    "SELECT user_id FROM badge_stats WHERE user_id = ?",
+    [userId]
+  );
+
+  if (!existing) {
+    await execute(
+      "INSERT INTO badge_stats (user_id) VALUES (?)",
+      [userId]
+    );
+  }
+
+  // Build update query dynamically
+  const fields: string[] = [];
+  const values: any[] = [];
+
+  if (updates.levelsCompleted !== undefined) {
+    fields.push("levels_completed = levels_completed + ?");
+    values.push(updates.levelsCompleted);
+  }
+  if (updates.highAccuracyQuizzes !== undefined) {
+    fields.push("high_accuracy_quizzes = high_accuracy_quizzes + ?");
+    values.push(updates.highAccuracyQuizzes);
+  }
+  if (updates.veryHighAccuracyQuizzes !== undefined) {
+    fields.push("very_high_accuracy_quizzes = very_high_accuracy_quizzes + ?");
+    values.push(updates.veryHighAccuracyQuizzes);
+  }
+  if (updates.perfectQuizzes !== undefined) {
+    fields.push("perfect_quizzes = perfect_quizzes + ?");
+    values.push(updates.perfectQuizzes);
+  }
+  if (updates.fastQuizzes !== undefined) {
+    fields.push("fast_quizzes = fast_quizzes + ?");
+    values.push(updates.fastQuizzes);
+  }
+  if (updates.topicMasteries90 !== undefined) {
+    fields.push("topic_masteries_90 = topic_masteries_90 + ?");
+    values.push(updates.topicMasteries90);
+  }
+  if (updates.subjectMasteries80 !== undefined) {
+    fields.push("subject_masteries_80 = subject_masteries_80 + ?");
+    values.push(updates.subjectMasteries80);
+  }
+  if (updates.earlyDPPs !== undefined) {
+    fields.push("early_dpps = early_dpps + ?");
+    values.push(updates.earlyDPPs);
+  }
+  if (updates.lateQuizzes !== undefined) {
+    fields.push("late_quizzes = late_quizzes + ?");
+    values.push(updates.lateQuizzes);
+  }
+  if (updates.weekendSessions !== undefined) {
+    fields.push("weekend_sessions = weekend_sessions + ?");
+    values.push(updates.weekendSessions);
+  }
+
+  if (fields.length > 0) {
+    fields.push("last_updated = CURRENT_TIMESTAMP");
+    values.push(userId);
+
+    await execute(
+      `UPDATE badge_stats SET ${fields.join(", ")} WHERE user_id = ?`,
+      values
+    );
+  }
+}
+
+// ─── Daily Challenge Functions ────────────────────────────────────
+
+export async function getTodayChallenge() {
+  await ensureInitialized();
+  const today = new Date().toISOString().split("T")[0];
+
+  return await queryOne(
+    "SELECT * FROM daily_challenges WHERE date = ?",
+    [today]
+  );
+}
+
+export async function getUserChallengeProgress(userId: string, challengeId: string) {
+  await ensureInitialized();
+
+  return await queryOne(
+    "SELECT * FROM daily_challenge_progress WHERE user_id = ? AND challenge_id = ?",
+    [userId, challengeId]
+  );
+}
+
+export async function updateChallengeProgress(
+  userId: string,
+  challengeId: string,
+  increment: number
+) {
+  await ensureInitialized();
+
+  const existing = await getUserChallengeProgress(userId, challengeId);
+  const challenge = await queryOne(
+    "SELECT * FROM daily_challenges WHERE id = ?",
+    [challengeId]
+  );
+
+  if (!challenge) return;
+
+  if (existing) {
+    const newValue = existing.current_value + increment;
+    const completed = newValue >= challenge.target_value;
+
+    await execute(
+      "UPDATE daily_challenge_progress SET current_value = ?, completed = ?, completed_at = ? WHERE user_id = ? AND challenge_id = ?",
+      [newValue, completed ? 1 : 0, completed ? new Date().toISOString() : null, userId, challengeId]
+    );
+  } else {
+    const completed = increment >= challenge.target_value;
+
+    await execute(
+      "INSERT INTO daily_challenge_progress (user_id, challenge_id, current_value, completed, completed_at) VALUES (?, ?, ?, ?, ?)",
+      [userId, challengeId, increment, completed ? 1 : 0, completed ? new Date().toISOString() : null]
+    );
+  }
+}
+
+export async function createDailyChallenge(
+  date: string,
+  type: string,
+  title: string,
+  description: string,
+  requirement: string,
+  targetValue: number,
+  rewardPoints: number = 10,
+  badgeReward?: string
+) {
+  await ensureInitialized();
+  const { randomUUID } = await import('crypto');
+  const id = randomUUID();
+
+  await execute(
+    "INSERT INTO daily_challenges (id, date, challenge_type, title, description, requirement, target_value, reward_points, badge_reward) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [id, date, type, title, description, requirement, targetValue, rewardPoints, badgeReward || null]
+  );
+
+  return id;
 }

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
+import { LevelProgressWidget } from "@/components/level-progress-widget";
+import { DailyChallengeWidget } from "@/components/daily-challenge-widget";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
@@ -185,6 +187,12 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Level Progress Widget */}
+        <LevelProgressWidget />
+
+        {/* Daily Challenge Widget */}
+        <DailyChallengeWidget />
+
         {/* Exam-wise Breakdown */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">
