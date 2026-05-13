@@ -209,7 +209,7 @@ export async function POST(request: NextRequest) {
               "mixed"
             ),
             new Promise<any[]>((_, reject) =>
-              setTimeout(() => reject(new Error("AI generation timeout")), 20000)
+              setTimeout(() => reject(new Error("AI generation timeout")), 45000)
             ),
           ]);
 

@@ -271,7 +271,7 @@ export async function POST(request: NextRequest) {
     // ── TIER 3: Fresh AI generation (slow, ~8-9 sec) ────
     if (remaining > 0) {
       try {
-        // Add timeout for AI generation (15 seconds max)
+        // Add timeout for AI generation (45 seconds max)
         const aiQuestions = await Promise.race([
           generateQuiz(
             exam.fullName,
@@ -281,7 +281,7 @@ export async function POST(request: NextRequest) {
             difficulty as any
           ),
           new Promise<QuizQuestion[]>((_, reject) =>
-            setTimeout(() => reject(new Error("AI generation timeout")), 15000)
+            setTimeout(() => reject(new Error("AI generation timeout")), 45000)
           ),
         ]);
 
@@ -294,16 +294,19 @@ export async function POST(request: NextRequest) {
         }
       } catch (error) {
         console.error("[Quiz API] AI generation failed:", error);
-        // If AI fails but we have some questions already, continue
+        // If AI fails but we have some questions already, continue with what we have
         if (finalQuestions.length === 0) {
+          // Last resort: return a helpful error
           return NextResponse.json(
             {
-              error: "Quiz generation taking too long. Please try again or select a different topic.",
+              error: "Unable to generate questions at the moment. Please try again in a few seconds.",
               timeout: true,
             },
-            { status: 504 }
+            { status: 500 }
           );
         }
+        // If we have some questions, continue with partial set
+        console.log(`[Quiz API] Continuing with ${finalQuestions.length} questions (${remaining} failed to generate)`);
       }
     }
 

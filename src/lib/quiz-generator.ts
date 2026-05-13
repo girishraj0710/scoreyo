@@ -175,9 +175,9 @@ trapAlerts should explain the 3 WRONG options (skip the correct one).`;
           return questions;
         })
       ),
-      // Add 10-second timeout per attempt
+      // Add 30-second timeout per attempt
       new Promise<QuizQuestion[]>((_, reject) =>
-        setTimeout(() => reject(new Error("Generation timeout")), 10000)
+        setTimeout(() => reject(new Error("Generation timeout")), 30000)
       ),
     ]);
     return result;
