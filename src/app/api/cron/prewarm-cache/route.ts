@@ -22,23 +22,31 @@ export const maxDuration = 60;
 const CRON_SECRET = process.env.CRON_SECRET || "your-secret-token-here";
 // Hard caps keep one invocation bounded.
 //
-// Tuning notes (learned the hard way after the first production run):
-//   - BATCH=4 hammered the one healthy free OpenRouter model with 4
-//     concurrent generateQuiz calls (each racing 4 models = 16
-//     simultaneous requests). The free tier concurrency-throttles and
-//     every cell fell through to the [Service Unavailable] fallback.
-//     BATCH=2 keeps concurrency manageable while still running 2 cells
-//     in parallel — measured: 8 cells in ~12-15s end to end.
-//   - QUESTIONS_PER_TOPIC=10 made each model emit ~2000 output tokens,
-//     which inflated latency past the 12s per-model timeout. Dropping
-//     to 5 matches the value scripts/test-openrouter.mjs uses (the
-//     one config we know works against the live OpenRouter catalog)
-//     and roughly halves per-call latency. We still chip the long
-//     tail effectively: 8 cells × 5 qs × 6 runs/day = ~240 new
-//     questions/day cached.
+// Tuning notes (learned the hard way across three production runs):
+//
+//   Run 1 (BATCH=4, QUESTIONS=10): 0/8 warmed. 16 concurrent OpenRouter
+//   requests per batch saturated the free tier and every race timed out.
+//
+//   Run 2 (BATCH=2, QUESTIONS=5): 1/8 warmed. Still 10 concurrent
+//   requests per batch, plus orphan losing-race requests from the
+//   previous batch still in flight when the next one fired.
+//
+//   Run 3 (same + round-robin exams): 2/8 warmed. Confirmed it's
+//   concurrency, not prompt quality — short topics like "Indian History"
+//   and "Thermodynamics" failed alongside verbose ones.
+//
+// So this iteration goes fully serial (BATCH=1). With ~5 concurrent
+// model requests per cell (only inside the race, no cross-cell overlap),
+// OpenRouter free tier behaves. Trade-off: a single all-timeout run can
+// take up to 8 × 12s = 96s which exceeds the 60s maxDuration ceiling.
+// We guard against that with TIME_BUDGET_MS — if elapsed time crosses
+// the budget, we stop processing further cells and return whatever was
+// warmed. Partial success is fine: the next scheduled run picks up the
+// rest, and the response JSON tells us exactly where we stopped.
 const MAX_TOPICS = 8;
-const BATCH = 2;
+const BATCH = 1;
 const QUESTIONS_PER_TOPIC = 5;
+const TIME_BUDGET_MS = 50_000; // stop launching new cells after this; 10s margin under maxDuration=60
 // Topics already at this floor are skipped — keeps the prewarmer
 // focused on the long tail instead of repeatedly topping up the same
 // hot topics every run.
@@ -243,7 +251,15 @@ export async function GET(request: NextRequest) {
       }
     }
 
+    let stoppedEarly = false;
     for (let i = 0; i < targets.length; i += BATCH) {
+      // Hard guard against the 60s maxDuration. If we're already past
+      // TIME_BUDGET_MS, abort the loop and return what we have. The
+      // remaining cells will get picked up by the next scheduled run.
+      if (Date.now() - startedAt > TIME_BUDGET_MS) {
+        stoppedEarly = true;
+        break;
+      }
       const slice = targets.slice(i, i + BATCH);
       await Promise.all(slice.map(warmOne));
     }
@@ -252,9 +268,11 @@ export async function GET(request: NextRequest) {
       success: true,
       durationMs: Date.now() - startedAt,
       coldCellsRemaining: cells.length - warmed.length - failed.length,
-      processed: targets.length,
+      planned: targets.length,
+      processed: warmed.length + failed.length,
       warmed: warmed.length,
       failed: failed.length,
+      stoppedEarly,
       totalQuestionsAdded: warmed.reduce((s, w) => s + w.added, 0),
       details: { warmed, failed },
     });
