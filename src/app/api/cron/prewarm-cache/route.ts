@@ -111,10 +111,42 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Coldest first so any single run makes the biggest dent in the long
-    // tail. Ties broken by exam id for deterministic ordering.
-    cells.sort((a, b) => a.current - b.current || a.examId.localeCompare(b.examId));
-    const targets = cells.slice(0, MAX_TOPICS);
+    // Round-robin selection across exams. Naive "coldest first" sort would
+    // pull every target from the same exam (the one with the most zero-count
+    // cells — e.g. AFCAT with 1801 unseeded topics), which means a single
+    // exam's quirks (niche terminology, verbose topic names, model
+    // unfamiliarity) can lock the whole prewarmer to zero progress until that
+    // exam is fully warmed. Round-robin guarantees every run touches a
+    // diverse spread of exams, so a single bad exam can't monopolize.
+    //
+    // Within each exam, still prefer the coldest cell first.
+    const byExam = new Map<string, Cell[]>();
+    for (const c of cells) {
+      const list = byExam.get(c.examId) || [];
+      list.push(c);
+      byExam.set(c.examId, list);
+    }
+    for (const list of byExam.values()) {
+      list.sort((a, b) => a.current - b.current);
+    }
+    const examIds = [...byExam.keys()].sort(); // deterministic order
+    const targets: Cell[] = [];
+    let rrIndex = 0;
+    while (targets.length < MAX_TOPICS && byExam.size > 0) {
+      const examId = examIds[rrIndex % examIds.length];
+      const list = byExam.get(examId);
+      if (list && list.length > 0) {
+        targets.push(list.shift()!);
+        if (list.length === 0) {
+          byExam.delete(examId);
+          examIds.splice(examIds.indexOf(examId), 1);
+          if (examIds.length === 0) break;
+          rrIndex %= examIds.length;
+          continue;
+        }
+      }
+      rrIndex = (rrIndex + 1) % examIds.length;
+    }
 
     if (targets.length === 0) {
       return NextResponse.json({
@@ -130,12 +162,24 @@ export async function GET(request: NextRequest) {
     const warmed: Array<{ examId: string; topic: string; added: number }> = [];
     const failed: Array<{ examId: string; topic: string; reason: string }> = [];
 
+    // Strip verbose parenthetical clutter from topic names before sending
+    // them to the LLM. The catalog often stores things like
+    //   "Defense (Indian Air Force - History, Aircraft, Ranks, Organization; Indian Armed Forces)"
+    // The parenthetical adds prompt noise and confused the smaller free
+    // models in the first run. We still use the ORIGINAL `cell.topic` for
+    // DB queries and inserts so cached rows stay keyed to the catalog
+    // value the rest of the app expects.
+    function promptTopic(t: string): string {
+      const stripped = t.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim();
+      return stripped || t;
+    }
+
     async function warmOne(cell: Cell) {
       try {
         const questions = await generateQuiz(
           cell.examFullName,
           cell.subjectName,
-          cell.topic,
+          promptTopic(cell.topic),
           QUESTIONS_PER_TOPIC,
           "mixed"
         );
