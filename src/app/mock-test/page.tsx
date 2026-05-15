@@ -855,7 +855,10 @@ export default function MockTestPage() {
                 onClick={() => {
                   setSelectedExam(examId);
                   setSelectedTestNumber(1);
-                  setTestType("short"); // always default modal to Short Practice
+                  // Inherit testType from the page-level Short/Full tab —
+                  // do not reset here. The modal toggle and top tab share
+                  // the same `testType` state, so opening the modal will
+                  // naturally reflect the user's current top-level choice.
                   setShowExamModal(true);
                 }}
                 className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
