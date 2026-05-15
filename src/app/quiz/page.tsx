@@ -280,6 +280,10 @@ function QuizContent() {
             setError("LIMIT_REACHED" as any);
             return;
           }
+          if (errData.aiBusy) {
+            setError("AI_BUSY" as any);
+            return;
+          }
           throw new Error(errData.error || "Failed to generate quiz");
         }
         const data = await res.json();
@@ -519,6 +523,51 @@ function QuizContent() {
               className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200"
             >
               Go Home
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // AI service degraded — free-tier model upstream is slow or rate-limited.
+  // Topic isn't cached yet, so we can't return verified/cached fallback either.
+  if (error && (error as any) === "AI_BUSY") {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+        <div className="bg-white rounded-2xl p-12 shadow-lg border border-indigo-200">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-100 flex items-center justify-center">
+            <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-semibold text-slate-800 mb-2">
+            AI is warming up
+          </h2>
+          <p className="text-slate-600 mb-2">
+            Our question generator is a bit slow for <span className="font-medium">{topic}</span> right now,
+            and this topic isn&apos;t cached yet.
+          </p>
+          <p className="text-slate-500 text-sm mb-6">
+            Try again in a few seconds, or pick a different topic — popular ones are usually instant.
+          </p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <button
+              onClick={() => {
+                setError(null);
+                setIsLoading(true);
+                // Re-trigger the load effect by updating a dummy state via reload
+                window.location.reload();
+              }}
+              className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg"
+            >
+              Retry
+            </button>
+            <a
+              href={examId && subjectId ? `/?examId=${examId}&subjectId=${subjectId}` : "/"}
+              className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200"
+            >
+              Pick another topic
             </a>
           </div>
         </div>

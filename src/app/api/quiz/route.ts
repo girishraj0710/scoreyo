@@ -289,12 +289,13 @@ export async function POST(request: NextRequest) {
       remaining = numberOfQuestions - finalQuestions.length;
     }
 
-    // ── TIER 3: Fresh AI generation (slow, ~8-9 sec) ────
+    // ── TIER 3: Fresh AI generation ──────────────────────
+    // generateQuiz races models in parallel with a 12s per-model cap, so the
+    // worst case here is ~13s. Outer guard kept at 14s as a hard ceiling.
+    let aiTimedOut = false;
     if (remaining > 0) {
       console.log(`[Quiz API] Need ${remaining} more questions, calling AI generation...`);
       try {
-        // Outer cap slightly above per-model timeout (18s) — generateQuiz
-        // already races models in parallel and falls back internally.
         const aiQuestions = await Promise.race([
           generateQuiz(
             exam.fullName,
@@ -304,49 +305,64 @@ export async function POST(request: NextRequest) {
             difficulty as any
           ),
           new Promise<QuizQuestion[]>((_, reject) =>
-            setTimeout(() => reject(new Error("AI generation timeout")), 22000)
+            setTimeout(() => reject(new Error("AI generation timeout")), 14000)
           ),
         ]);
 
         console.log(`[Quiz API] AI returned ${aiQuestions?.length || 0} questions`);
 
         if (aiQuestions && aiQuestions.length > 0) {
-          // Check if these are fallback questions
           const isFallback = aiQuestions[0].question.includes("[Service Unavailable]");
 
           if (!isFallback) {
-            // Real AI questions - add them
             finalQuestions = [...finalQuestions, ...aiQuestions];
             aiCount = aiQuestions.length;
-
-            // Cache for future use
             saveCachedQuestions(examId, subjectId, topic, aiQuestions);
             console.log(`[Quiz API] ✓ Added ${aiCount} AI-generated questions`);
           } else {
-            console.log(`[Quiz API] ✗ AI returned fallback questions, skipping`);
+            aiTimedOut = true;
+            console.log(`[Quiz API] ✗ AI returned fallback questions`);
           }
+        } else {
+          aiTimedOut = true;
         }
       } catch (error) {
+        aiTimedOut = true;
         console.error("[Quiz API] AI generation failed:", error);
-        // If AI fails but we have some questions already, continue with what we have
         if (finalQuestions.length === 0) {
-          // Last resort: return a helpful error
+          // No verified or cached questions and AI couldn't generate — likely
+          // an upstream model service issue. Return 503 so the UI can show
+          // a meaningful "service warming up" message and offer retry.
           return NextResponse.json(
             {
-              error: "Unable to generate questions at the moment. Please try again in a few seconds.",
-              timeout: true,
+              error:
+                "Our AI question generator is currently slow. This topic isn't cached yet — please retry in a few seconds, or pick a different topic.",
+              aiBusy: true,
+              topic,
+              retryable: true,
             },
-            { status: 500 }
+            { status: 503 }
           );
         }
-        // If we have some questions, continue with partial set
-        console.log(`[Quiz API] Continuing with ${finalQuestions.length} questions (${remaining} failed to generate)`);
+        console.log(`[Quiz API] Continuing with ${finalQuestions.length} questions (partial set)`);
       }
     }
 
-    // Check if we have any questions at all
+    // No questions from any source — distinguish AI failure from missing content.
     if (finalQuestions.length === 0) {
       console.error("[Quiz API] No questions available from any source");
+      if (aiTimedOut) {
+        return NextResponse.json(
+          {
+            error:
+              "Our AI question generator is currently slow. This topic isn't cached yet — please retry in a few seconds, or pick a different topic.",
+            aiBusy: true,
+            topic,
+            retryable: true,
+          },
+          { status: 503 }
+        );
+      }
       return NextResponse.json(
         {
           error: "No questions available for this topic yet. Please try a different topic or check back later.",

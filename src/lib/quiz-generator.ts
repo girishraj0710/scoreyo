@@ -33,8 +33,10 @@ const RACE_MODELS = [
 ];
 
 // Per-model hard timeout. The race resolves as soon as ANY model returns
-// a valid parse, so this only bounds worst-case latency.
-const PER_MODEL_TIMEOUT_MS = 15000;
+// a valid parse, so this only bounds worst-case latency. Kept tight so a
+// degraded upstream doesn't make the user wait — the API route falls back
+// to a clear "service warming up" response when all models miss this window.
+const PER_MODEL_TIMEOUT_MS = 12000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
@@ -121,11 +123,13 @@ export async function generateQuiz(
       ? "mix easy/medium/hard"
       : `all ${difficulty}`;
 
-  // Tight prompt — fewer tokens => faster TTFT and lower latency
+  // Ultra-tight prompt — minimizes output tokens so generation completes fast.
+  // The parser server-side fills trapAlerts/commonMistakes defaults if absent,
+  // so we only require the essentials from the model.
   const prompt = `Generate ${numberOfQuestions} MCQs for ${examName} > ${subjectName} > ${topic} (${difficultyInstruction}).
-Return ONLY a JSON array, no prose. Each element:
-{"question":"...","options":["A","B","C","D"],"correctAnswer":0,"explanation":{"logic":"why correct","trapAlerts":["why opt0 wrong","why opt1 wrong","why opt2 wrong"],"commonMistakes":["err1","err2"]},"difficulty":"easy|medium|hard"}
-Rules: exactly 4 options; correctAnswer is 0-3; trapAlerts covers the 3 WRONG options only; output strictly valid JSON starting with [ and ending with ].`;
+Return ONLY a JSON array. Each element:
+{"question":"...","options":["A","B","C","D"],"correctAnswer":0,"explanation":"1-2 sentence why correct","difficulty":"easy|medium|hard"}
+Rules: exactly 4 options; correctAnswer is 0-3; valid JSON starting with [ ending with ].`;
 
   const startedAt = Date.now();
 
@@ -137,10 +141,12 @@ Rules: exactly 4 options; correctAnswer is 0-3; trapAlerts covers the 3 WRONG op
       const modelStart = Date.now();
       const result = await Promise.race([
         (async () => {
+          // Output budget: ~80 tokens/question with slim prompt + 100 buffer.
+          // Smaller cap allows the model to stop sooner and reduces total latency.
           const { text } = await generateText({
             model: openrouter(modelId),
             prompt,
-            maxOutputTokens: 2000,
+            maxOutputTokens: Math.min(1500, numberOfQuestions * 100 + 100),
             temperature: 0.7,
           });
           const parsed = parseQuizResponse(text);
