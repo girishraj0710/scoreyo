@@ -1,6 +1,5 @@
 // PrepGenie - AI Quiz Generator using OpenRouter (FREE)
-// Races all free models in parallel — fastest response wins
-// Includes self-verification prompt for higher accuracy
+// Races all free models in parallel — fastest valid response wins
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
 
@@ -19,12 +18,23 @@ export interface QuizQuestion {
   source: "ai" | "verified"; // tracks where the question came from
 }
 
-// Use proven working models with :free suffix (required by OpenRouter)
-const PRIMARY_MODEL = "meta-llama/llama-3.3-70b-instruct:free";
-const FALLBACK_MODELS = [
-  "google/gemma-2-9b-it:free",
-  "microsoft/phi-3-medium-128k-instruct:free",
+// Free-tier OpenRouter models raced in parallel. Order is informational only —
+// all are launched at the same time and the first valid parse wins.
+//
+// IMPORTANT: OpenRouter's free model catalog changes frequently. Models can
+// be removed (404 "No endpoints found") or upstream-rate-limited (429). The
+// list below was verified live via `scripts/test-openrouter.mjs`. Re-run that
+// script if generation starts failing again.
+const RACE_MODELS = [
+  "openai/gpt-oss-20b:free",       // ~3s, reliable JSON output
+  "openai/gpt-oss-120b:free",      // ~3-4s, more capable
+  "z-ai/glm-4.5-air:free",         // ~6s, JSON-friendly
+  "meta-llama/llama-3.3-70b-instruct:free", // fallback when not rate-limited
 ];
+
+// Per-model hard timeout. The race resolves as soon as ANY model returns
+// a valid parse, so this only bounds worst-case latency.
+const PER_MODEL_TIMEOUT_MS = 15000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
@@ -108,44 +118,23 @@ export async function generateQuiz(
 ): Promise<QuizQuestion[]> {
   const difficultyInstruction =
     difficulty === "mixed"
-      ? "Mix of easy (1-2), medium (2-3), and hard (1-2) questions"
-      : `All questions should be ${difficulty} difficulty`;
+      ? "mix easy/medium/hard"
+      : `all ${difficulty}`;
 
-  // Optimized prompt - concise but clear
-  const prompt = `Create ${numberOfQuestions} multiple choice questions for ${examName} exam.
-Subject: ${subjectName}
-Topic: ${topic}
-Difficulty: ${difficultyInstruction}
+  // Tight prompt — fewer tokens => faster TTFT and lower latency
+  const prompt = `Generate ${numberOfQuestions} MCQs for ${examName} > ${subjectName} > ${topic} (${difficultyInstruction}).
+Return ONLY a JSON array, no prose. Each element:
+{"question":"...","options":["A","B","C","D"],"correctAnswer":0,"explanation":{"logic":"why correct","trapAlerts":["why opt0 wrong","why opt1 wrong","why opt2 wrong"],"commonMistakes":["err1","err2"]},"difficulty":"easy|medium|hard"}
+Rules: exactly 4 options; correctAnswer is 0-3; trapAlerts covers the 3 WRONG options only; output strictly valid JSON starting with [ and ending with ].`;
 
-CRITICAL: Return ONLY a valid JSON array. No text before or after. Start with [ and end with ]
+  const startedAt = Date.now();
 
-Format for each question:
-{
-  "question": "Question text here",
-  "options": ["Option A text", "Option B text", "Option C text", "Option D text"],
-  "correctAnswer": 0,
-  "explanation": {
-    "logic": "Brief explanation why answer is correct",
-    "formula": null,
-    "calculation": null,
-    "trapAlerts": ["Why option 0 wrong", "Why option 1 wrong", "Why option 2 wrong"],
-    "commonMistakes": ["Common error 1", "Common error 2"]
-  },
-  "difficulty": "easy"
-}
-
-REQUIREMENTS:
-- Exactly 4 options per question
-- correctAnswer must be 0, 1, 2, or 3 (index of correct option)
-- Questions at ${examName} exam difficulty level
-- trapAlerts explains the 3 WRONG options only
-- Return valid JSON array with ${numberOfQuestions} questions`;
-
-  // Try primary model first, then fallbacks
-  for (const modelId of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
-    try {
-      console.log(`[Quiz Generator] Trying model: ${modelId}`);
-
+  // Launch one request per model in parallel. The first that produces a valid
+  // parsed result wins — slower models are abandoned (their fetches keep
+  // running in the background but their results are ignored).
+  const attempts = RACE_MODELS.map((modelId) =>
+    (async () => {
+      const modelStart = Date.now();
       const result = await Promise.race([
         (async () => {
           const { text } = await generateText({
@@ -154,28 +143,42 @@ REQUIREMENTS:
             maxOutputTokens: 2000,
             temperature: 0.7,
           });
-          return parseQuizResponse(text);
+          const parsed = parseQuizResponse(text);
+          if (!parsed || parsed.length === 0) {
+            throw new Error(`${modelId} returned empty result`);
+          }
+          return parsed;
         })(),
-        // 20-second timeout per model
         new Promise<QuizQuestion[]>((_, reject) =>
-          setTimeout(() => reject(new Error("Model timeout")), 20000)
+          setTimeout(
+            () => reject(new Error(`${modelId} timed out after ${PER_MODEL_TIMEOUT_MS}ms`)),
+            PER_MODEL_TIMEOUT_MS
+          )
         ),
       ]);
+      console.log(
+        `[Quiz Generator] ✓ ${modelId} won race in ${Date.now() - modelStart}ms (${result.length} qs)`
+      );
+      return result;
+    })().catch((err) => {
+      console.warn(`[Quiz Generator] ✗ ${modelId}:`, err?.message || err);
+      throw err;
+    })
+  );
 
-      // If we got valid questions, return immediately
-      if (result && result.length > 0) {
-        console.log(`[Quiz Generator] ✓ Success with ${modelId}: ${result.length} questions`);
-        return result;
-      }
-    } catch (error) {
-      console.error(`[Quiz Generator] ✗ ${modelId} failed:`, error);
-      // Continue to next model
-    }
+  try {
+    // Promise.any resolves with the first fulfilled promise (ignoring rejections)
+    const winner = await Promise.any(attempts);
+    console.log(
+      `[Quiz Generator] Race complete in ${Date.now() - startedAt}ms`
+    );
+    return winner;
+  } catch {
+    console.error(
+      `[Quiz Generator] All ${RACE_MODELS.length} models failed in ${Date.now() - startedAt}ms — returning fallback`
+    );
+    return generateFallbackQuestions(topic, numberOfQuestions);
   }
-
-  // All models failed
-  console.error("[Quiz Generator] All models failed, returning fallback");
-  return generateFallbackQuestions(topic, numberOfQuestions);
 }
 
 function generateFallbackQuestions(

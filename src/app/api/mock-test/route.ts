@@ -200,6 +200,8 @@ export async function POST(request: NextRequest) {
         const remaining = needed - sectionQuestions.length;
         const aiTopic = topics[Math.floor(Math.random() * topics.length)];
         try {
+          // Outer cap slightly above per-model timeout (18s). generateQuiz
+          // races models in parallel and already falls back internally.
           const aiQuestions = await Promise.race([
             generateQuiz(
               exam.fullName,
@@ -209,7 +211,7 @@ export async function POST(request: NextRequest) {
               "mixed"
             ),
             new Promise<any[]>((_, reject) =>
-              setTimeout(() => reject(new Error("AI generation timeout")), 45000)
+              setTimeout(() => reject(new Error("AI generation timeout")), 22000)
             ),
           ]);
 

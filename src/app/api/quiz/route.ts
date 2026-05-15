@@ -293,7 +293,8 @@ export async function POST(request: NextRequest) {
     if (remaining > 0) {
       console.log(`[Quiz API] Need ${remaining} more questions, calling AI generation...`);
       try {
-        // Add timeout for AI generation (30 seconds max - increased for reliability)
+        // Outer cap slightly above per-model timeout (18s) — generateQuiz
+        // already races models in parallel and falls back internally.
         const aiQuestions = await Promise.race([
           generateQuiz(
             exam.fullName,
@@ -303,7 +304,7 @@ export async function POST(request: NextRequest) {
             difficulty as any
           ),
           new Promise<QuizQuestion[]>((_, reject) =>
-            setTimeout(() => reject(new Error("AI generation timeout")), 30000)
+            setTimeout(() => reject(new Error("AI generation timeout")), 22000)
           ),
         ]);
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { RichExplanation } from "@/components/rich-explanation";
 import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
 import { LevelCompleteModal } from "@/components/level-complete-modal";
@@ -154,6 +154,7 @@ function ReportModal({
 
 function QuizContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const examId = searchParams.get("examId") || "";
   const subjectId = searchParams.get("subjectId") || "";
   const topic = searchParams.get("topic") || "";
@@ -850,6 +851,26 @@ function QuizContent() {
   const isCurrentAnswered = answers[currentQuestion] !== null;
   const isLastQuestion = currentQuestion === quizData.questions.length - 1;
 
+  // Context-aware back navigation
+  const backHref = isSprintMode
+    ? "/sprint"
+    : isLevelMode
+    ? `/quiz/levels?examId=${quizData.examId}&subjectId=${quizData.subjectId}`
+    : quizData.examId && quizData.subjectId
+    ? `/?examId=${quizData.examId}&subjectId=${quizData.subjectId}`
+    : "/";
+
+  function handleBack() {
+    if (
+      !isSubmitted &&
+      answers.some((a) => a !== null) &&
+      !window.confirm("Leave this quiz? Your progress will be lost.")
+    ) {
+      return;
+    }
+    router.push(backHref);
+  }
+
   // Safety check: if question is undefined, show error
   if (!question) {
     return (
@@ -883,6 +904,18 @@ function QuizContent() {
           onClose={() => setReportQuestion(null)}
         />
       )}
+
+      {/* Back Button */}
+      <button
+        onClick={handleBack}
+        className="inline-flex items-center gap-1.5 mb-3 px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 rounded-lg shadow-sm transition-colors"
+        aria-label="Back"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        {isSprintMode ? "Back to Sprints" : isLevelMode ? "Back to Levels" : "Back to Topics"}
+      </button>
 
       {/* Quiz Header */}
       <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-6">
