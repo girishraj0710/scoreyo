@@ -39,14 +39,22 @@ const CRON_SECRET = process.env.CRON_SECRET || "your-secret-token-here";
 // model requests per cell (only inside the race, no cross-cell overlap),
 // OpenRouter free tier behaves. Trade-off: a single all-timeout run can
 // take up to 8 × 12s = 96s which exceeds the 60s maxDuration ceiling.
-// We guard against that with TIME_BUDGET_MS — if elapsed time crosses
-// the budget, we stop processing further cells and return whatever was
-// warmed. Partial success is fine: the next scheduled run picks up the
-// rest, and the response JSON tells us exactly where we stopped.
+// Two guards prevent a 504:
+//   - TIME_BUDGET_MS: refuse to launch new cells once elapsed crosses
+//     this. Returns partial results; the next scheduled run continues.
+//   - CELL_TIMEOUT_MS: wraps each warmOne in a hard outer timeout so a
+//     single misbehaving cell can never blow the entire run past
+//     maxDuration. Previously a cell starting at t=48s with the
+//     internal 12s model timeout + DB overhead could land at t=63s
+//     and trip Vercel's hard 60s kill.
+//   - Budget MUST be < maxDuration - CELL_TIMEOUT - startup_overhead.
+//     With 60s ceiling, 18s cell timeout, ~5s overhead → budget ≤ 37s.
+//     We use 30s for additional safety margin.
 const MAX_TOPICS = 8;
 const BATCH = 1;
 const QUESTIONS_PER_TOPIC = 5;
-const TIME_BUDGET_MS = 50_000; // stop launching new cells after this; 10s margin under maxDuration=60
+const TIME_BUDGET_MS = 30_000;
+const CELL_TIMEOUT_MS = 18_000;
 // Topics already at this floor are skipped — keeps the prewarmer
 // focused on the long tail instead of repeatedly topping up the same
 // hot topics every run.
@@ -261,7 +269,29 @@ export async function GET(request: NextRequest) {
         break;
       }
       const slice = targets.slice(i, i + BATCH);
-      await Promise.all(slice.map(warmOne));
+      // Outer per-cell timeout. The inner generateQuiz already races models
+      // with a 12s PER_MODEL_TIMEOUT_MS, but the Promise.race losers keep
+      // running and DB queries add 2-4s on top. Wrapping the whole warmOne
+      // in CELL_TIMEOUT_MS guarantees no single cell can push us past
+      // maxDuration. If a cell times out at this outer layer we record it
+      // as failed and move on — the next scheduled run retries it.
+      await Promise.all(
+        slice.map((cell) =>
+          Promise.race([
+            warmOne(cell),
+            new Promise<void>((resolve) =>
+              setTimeout(() => {
+                failed.push({
+                  examId: cell.examId,
+                  topic: cell.topic,
+                  reason: `outer timeout ${CELL_TIMEOUT_MS}ms`,
+                });
+                resolve();
+              }, CELL_TIMEOUT_MS)
+            ),
+          ])
+        )
+      );
     }
 
     return NextResponse.json({
