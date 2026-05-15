@@ -220,47 +220,41 @@ export async function POST(request: NextRequest) {
             }
           }
 
-          // Tier 3: AI (parallel race in generateQuiz, ~3-12s)
+          // Tier 3 (AI) has been REMOVED from the request path. Inline AI
+          // generation made mock tests slow and flaky: 3–5 sections each
+          // racing a 14s AI call meant p95 latency in the tens of seconds
+          // and frequent timeouts during model rate-limits.
+          //
+          // New behavior: if the section is short, ship what we have and
+          // schedule an `after()` prewarm so the next mock test for the
+          // same exam is fully cache-served. The first user on a cold
+          // exam may get a slightly shorter section; every subsequent
+          // user gets an instant, fully-populated test.
           if (sectionQuestions.length < needed) {
-            const remaining = needed - sectionQuestions.length;
-            const aiTopic = topics[Math.floor(Math.random() * topics.length)];
-            try {
-              const aiQuestions = await Promise.race([
-                generateQuiz(exam.fullName, subject.name, aiTopic, remaining, "mixed"),
-                new Promise<any[]>((_, reject) =>
-                  setTimeout(() => reject(new Error("AI generation timeout")), 14000)
-                ),
-              ]);
-
-              if (aiQuestions && aiQuestions.length > 0) {
-                const isFallback = aiQuestions[0].question.includes("[Service Unavailable]");
-                if (!isFallback) {
-                  for (const q of aiQuestions) {
-                    sectionQuestions.push({
-                      ...q,
-                      subjectId: section.subjectId,
-                      subjectName: section.subjectName,
-                    });
-                  }
-                  // Persist to cache so future mock tests are faster. Wrapped
-                  // in `after()` so the DB write survives the response — a
-                  // bare fire-and-forget call is killed when Vercel freezes
-                  // the function after we return.
-                  after(async () => {
-                    try {
-                      await saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
-                    } catch (err) {
-                      console.error("[MockTest] post-response cache save failed:", err);
-                    }
-                  });
+            const shortBy = needed - sectionQuestions.length;
+            const prewarmTopic = topics[Math.floor(Math.random() * topics.length)];
+            console.log(
+              `[MockTest] section "${section.subjectName}" short by ${shortBy} — scheduling background prewarm`
+            );
+            after(async () => {
+              try {
+                const ai = await generateQuiz(
+                  exam.fullName,
+                  subject.name,
+                  prewarmTopic,
+                  Math.max(shortBy, 10), // overshoot a bit to actually warm the cache
+                  "mixed"
+                );
+                if (ai.length > 0 && !ai[0].question.includes("[Service Unavailable]")) {
+                  await saveCachedQuestions(examId, section.subjectId, prewarmTopic, ai);
+                  console.log(
+                    `[MockTest] post-response prewarm cached ${ai.length} qs for ${examId}/${section.subjectName}`
+                  );
                 }
+              } catch (err) {
+                console.error("[MockTest] post-response prewarm failed:", err);
               }
-            } catch (err) {
-              console.error(
-                `[MockTest] AI generation failed for ${section.subjectName}:`,
-                err
-              );
-            }
+            });
           }
 
           return sectionQuestions.slice(0, needed);
@@ -270,8 +264,27 @@ export async function POST(request: NextRequest) {
       for (const qs of sectionResults) allQuestions.push(...qs);
     } // End of fallback generation
 
-    if (allQuestions.length === 0) {
-      return NextResponse.json({ error: "Failed to generate questions" }, { status: 500 });
+    // Since AI is no longer in the request path, the response is bounded by
+    // what cache + verified bank can deliver. If that's drastically short of
+    // the configured total, return 503 with `aiBusy` so the UI can show a
+    // "preparing" state and retry — the after() prewarm scheduled above will
+    // have warmed the cache by then. Threshold = 50% of configured total.
+    const minAcceptable = Math.ceil(config.totalQuestions * 0.5);
+    if (allQuestions.length < minAcceptable) {
+      console.warn(
+        `[MockTest] not enough questions for ${examId} test ${testNumber}: have ${allQuestions.length}, need >= ${minAcceptable} (configured ${config.totalQuestions}) — returning 503, prewarm scheduled`
+      );
+      return NextResponse.json(
+        {
+          error:
+            "We're preparing fresh questions for this mock test. Please retry in a minute — subsequent tests will load instantly.",
+          aiBusy: true,
+          retryable: true,
+          have: allQuestions.length,
+          need: config.totalQuestions,
+        },
+        { status: 503 }
+      );
     }
 
     const testId = uuidv4();
