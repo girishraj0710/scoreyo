@@ -4,7 +4,7 @@
  * Replaces static mock-test-config.ts with intelligent question selection
  */
 
-import { getCachedQuestions } from './db';
+import { getCachedQuestions, getExamQuestions } from './db';
 
 export interface DynamicMockTestConfig {
   examId: string;
@@ -88,15 +88,27 @@ const defaultExamPattern = {
 };
 
 /**
- * Check how many questions are available for a given exam and subject
- * Uses getCachedQuestions to sample the available questions
+ * Check how many UNIQUE questions are available for a given exam and subject
+ * across the verified pool (`exam_questions`) and the AI cache
+ * (`cached_questions`). Used by `calculateMaxTestsAvailable` to size the
+ * mock-test capacity displayed in the UI.
+ *
+ * Dedupe by lowercased trimmed question text so a question that lives in both
+ * tables only counts once. Otherwise capacity gets inflated and the UI
+ * advertises tests it can't actually deliver.
  */
 export async function getAvailableQuestionCount(examId: string, subjectId: string): Promise<number> {
   try {
-    // Try to get a large sample to estimate total count
-    // Use actual examId to find questions in database
-    const sampleQuestions = await getCachedQuestions(examId, subjectId, '', 'mixed', 1000);
-    return sampleQuestions.length;
+    const [verified, cached] = await Promise.all([
+      getExamQuestions(examId, subjectId, '', 'mixed', 1000),
+      getCachedQuestions(examId, subjectId, '', 'mixed', 1000),
+    ]);
+    const seen = new Set<string>();
+    for (const q of [...verified, ...cached]) {
+      const k = ((q as any).question || '').toLowerCase().trim();
+      if (k) seen.add(k);
+    }
+    return seen.size;
   } catch (error) {
     console.error(`Error counting questions for ${subjectId}:`, error);
     return 0;
@@ -310,33 +322,61 @@ export async function selectQuestionsForMockTest(
 
   const allQuestions: any[] = [];
 
-  // Select questions for each section
+  // Select questions for each section. Pool order:
+  //   1) exam_questions (verified bank — seeded from in-memory + promoted
+  //      from cached_questions; this is the highest-quality source).
+  //   2) cached_questions (AI-generated, accumulated from prior traffic).
+  // We merge both pools then dedupe by question text so a question that lives
+  // in both tables only contributes once. Selection within the merged pool is
+  // deterministic by testNumber so Test 1 / Test 2 / Test 3 stay distinct.
   for (const section of config.sections) {
     try {
-      // Get questions from cache using actual examId
-      // Pass empty string for topic to match all topics in this subject
-      const cached = await getCachedQuestions(examId, section.subjectId, '', 'mixed', section.questionCount * 20);
+      const want = section.questionCount * 20; // oversample so dedupe still leaves headroom
+      const [verified, cached] = await Promise.all([
+        getExamQuestions(examId, section.subjectId, '', 'mixed', want),
+        getCachedQuestions(examId, section.subjectId, '', 'mixed', want),
+      ]);
 
-      if (cached.length > 0) {
-        // Use deterministic selection based on testNumber
-        const offset = ((testNumber - 1) * section.questionCount) % cached.length;
+      // Normalise both into the same shape, verified first.
+      const normalised = [
+        ...verified.map((q: any) => ({
+          question: q.question,
+          options: Array.isArray(q.options) ? q.options : JSON.parse(q.options),
+          correctAnswer: q.correctAnswer ?? q.correct_answer,
+          explanation: q.explanation || '',
+          difficulty: q.difficulty || 'medium',
+        })),
+        ...cached.map((q: any) => ({
+          question: q.question,
+          options: Array.isArray(q.options) ? q.options : JSON.parse(q.options),
+          correctAnswer: q.correctAnswer ?? q.correct_answer,
+          explanation: q.explanation || '',
+          difficulty: q.difficulty || 'medium',
+        })),
+      ];
+
+      // Dedupe by lowercased trimmed question text. First occurrence wins, so
+      // verified rows take precedence over cached rows with the same text.
+      const seenText = new Set<string>();
+      const pool: typeof normalised = [];
+      for (const q of normalised) {
+        const k = (q.question || '').toLowerCase().trim();
+        if (!k || seenText.has(k)) continue;
+        seenText.add(k);
+        pool.push(q);
+      }
+
+      if (pool.length > 0) {
+        const offset = ((testNumber - 1) * section.questionCount) % pool.length;
         const selectedQuestions = [];
-
-        for (let i = 0; i < section.questionCount && i < cached.length; i++) {
-          const index = (offset + i) % cached.length;
-          const q = cached[index];
-
+        for (let i = 0; i < section.questionCount && i < pool.length; i++) {
+          const q = pool[(offset + i) % pool.length];
           selectedQuestions.push({
-            question: q.question,
-            options: Array.isArray(q.options) ? q.options : JSON.parse(q.options),
-            correctAnswer: q.correctAnswer ?? q.correct_answer,
-            explanation: q.explanation || '',
-            difficulty: q.difficulty || 'medium',
+            ...q,
             subjectId: section.subjectId,
             subjectName: section.subjectName,
           });
         }
-
         allQuestions.push(...selectedQuestions);
       }
     } catch (error) {

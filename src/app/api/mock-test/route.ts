@@ -12,6 +12,7 @@ import {
   getCachedQuestions,
   saveCachedQuestions,
   markCachedQuestionsUsed,
+  getExamQuestions,
 } from "@/lib/db";
 import { getMockTestConfig, getAllMockTestConfigs } from "@/lib/mock-test-config";
 import {
@@ -181,40 +182,55 @@ export async function POST(request: NextRequest) {
           const needed = section.questionCount;
           let sectionQuestions: any[] = [];
           const topics = subject.topics;
-          const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
-          // Tier 1: cache
-          const cached = await getCachedQuestions(
-            examId,
-            section.subjectId,
-            randomTopic,
-            "mixed",
-            needed
-          );
-          if (cached.length > 0) {
-            const cacheIds = cached.map((q: any) => q._cacheId).filter(Boolean);
-            if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
-            sectionQuestions = cached.map((q: any) => {
-              const { _cacheId, ...rest } = q;
-              return {
-                ...rest,
-                subjectId: section.subjectId,
-                subjectName: section.subjectName,
-              };
+          // Tier 1: verified DB pool (exam_questions) + AI cache pool
+          // (cached_questions), queried in parallel and merged. Both use
+          // empty-topic mode so we sample broadly across the subject. The
+          // verified rows take precedence because we push them first into
+          // the dedupe set — duplicate question text in cached_questions
+          // is dropped in favour of the verified copy.
+          const [verifiedPool, cachedPool] = await Promise.all([
+            getExamQuestions(examId, section.subjectId, "", "mixed", needed * 4),
+            getCachedQuestions(examId, section.subjectId, "", "mixed", needed * 4),
+          ]);
+
+          const cacheIds = cachedPool
+            .map((q: any) => q._cacheId)
+            .filter(Boolean);
+          if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
+
+          const seen = new Set<string>();
+          const merged: any[] = [];
+          for (const q of [...verifiedPool, ...cachedPool]) {
+            const { _cacheId, ...rest } = q as any;
+            const k = (rest.question || "").toLowerCase().trim();
+            if (!k || seen.has(k)) continue;
+            seen.add(k);
+            merged.push({
+              ...rest,
+              subjectId: section.subjectId,
+              subjectName: section.subjectName,
             });
+            if (merged.length >= needed) break;
           }
+          sectionQuestions = merged;
 
-          // Tier 2: in-memory verified bank, sampled across topics
+          // Tier 2: in-memory verified bank, sampled across topics (only
+          // reached if Tier 1 came up short — usually only for exams that
+          // haven't been seeded into exam_questions yet).
           if (sectionQuestions.length < needed) {
             for (const t of shuffle(topics).slice(0, 5)) {
               const verified = getVerifiedQuestions(examId, section.subjectId, t);
               for (const q of shuffle(verified)) {
-                if (sectionQuestions.length >= needed) break;
+                const k = (q.question || "").toLowerCase().trim();
+                if (!k || seen.has(k)) continue;
+                seen.add(k);
                 sectionQuestions.push({
                   ...q,
                   subjectId: section.subjectId,
                   subjectName: section.subjectName,
                 });
+                if (sectionQuestions.length >= needed) break;
               }
               if (sectionQuestions.length >= needed) break;
             }

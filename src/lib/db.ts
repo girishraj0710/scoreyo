@@ -1415,7 +1415,22 @@ export async function getExamQuestions(
 ) {
   let rows: any[];
 
-  if (difficulty === "mixed") {
+  // Empty topic = sample across all topics in the subject. Used by mock-test
+  // generation so we can pull a broad mix of questions for a section without
+  // pinning to one topic. Mirrors the same convention in `getCachedQuestions`.
+  if (!topic || topic.trim() === "") {
+    if (difficulty === "mixed") {
+      rows = await queryAll(
+        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? ORDER BY RANDOM() LIMIT ?",
+        [examId, subjectId, limit]
+      );
+    } else {
+      rows = await queryAll(
+        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND difficulty = ? ORDER BY RANDOM() LIMIT ?",
+        [examId, subjectId, difficulty, limit]
+      );
+    }
+  } else if (difficulty === "mixed") {
     rows = await queryAll(
       "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? ORDER BY RANDOM() LIMIT ?",
       [examId, subjectId, topic, limit]
