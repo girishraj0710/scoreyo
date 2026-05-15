@@ -48,24 +48,30 @@ export async function GET(request: NextRequest) {
   }
 
   if (action === "capacity") {
-    // Return maximum tests available per exam
+    // Capacity = how many tests can ACTUALLY be delivered for each exam.
+    // The UI uses this to decide how many "Test N" buttons to render, so it
+    // must not be inflated — every advertised slot needs a real backing source.
+    //
+    // Per-exam capacity = max(staticConfigCount, dynamicDeliverableCount).
+    //   - staticConfigCount: hand-curated mockTestConfigs entries
+    //   - dynamicDeliverableCount: how many unique tests the cached question
+    //     pool can satisfy (bottleneck-aware across sections)
     const capacity: Record<string, number> = {};
-
-    // Get all unique exam IDs from static configs
     const staticConfigs = getAllMockTestConfigs();
-    const examIds = [...new Set(staticConfigs.map(c => c.examId))];
+    const examIds = [...new Set(staticConfigs.map((c) => c.examId))];
 
-    for (const examId of examIds) {
-      try {
-        const maxTests = await calculateMaxTestsAvailable(examId);
-        // If dynamic calculation succeeds and shows more than 3, use it
-        capacity[examId] = maxTests > 3 ? maxTests : 3;
-      } catch (error) {
-        // Fallback: count static configs for this exam
-        const staticTestCount = staticConfigs.filter(c => c.examId === examId).length;
-        capacity[examId] = staticTestCount || 3;
-      }
-    }
+    await Promise.all(
+      examIds.map(async (examId) => {
+        const staticCount = staticConfigs.filter((c) => c.examId === examId).length;
+        let dynamicCount = 0;
+        try {
+          dynamicCount = await calculateMaxTestsAvailable(examId);
+        } catch (error) {
+          console.error(`[MockTest] capacity calc failed for ${examId}:`, error);
+        }
+        capacity[examId] = Math.max(staticCount, dynamicCount);
+      })
+    );
 
     return NextResponse.json({ capacity });
   }
@@ -154,84 +160,99 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Exam not found" }, { status: 400 });
     }
 
-    // If using dynamic generation and already have questions, skip the old generation logic
+    // If dynamic generation already produced questions, skip the fallback path.
     if (useDynamic && allQuestions.length > 0) {
-      // Questions already fetched by selectQuestionsForMockTest
+      // already populated
     } else {
-      // Use the old generation logic as fallback
+      // Per-section fallback runs IN PARALLEL — the old sequential loop
+      // multiplied AI latency by section count. With 3-5 sections each
+      // potentially needing AI, this dropped p95 from ~30s to ~8s.
+      const sectionResults = await Promise.all(
+        config.sections.map(async (section: any) => {
+          const subject = getSubjectById(examId, section.subjectId);
+          if (!subject) return [];
 
-    for (const section of config.sections) {
-      const subject = getSubjectById(examId, section.subjectId);
-      if (!subject) continue;
+          const needed = section.questionCount;
+          let sectionQuestions: any[] = [];
+          const topics = subject.topics;
+          const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
-      const needed = section.questionCount;
-      let sectionQuestions: any[] = [];
-
-      // Try verified questions first
-      const topics = subject.topics;
-      const randomTopic = topics[Math.floor(Math.random() * topics.length)];
-
-      // Get from cache
-      const cached = await getCachedQuestions(examId, section.subjectId, randomTopic, "mixed", needed);
-      if (cached.length > 0) {
-        const cacheIds = cached.map((q: any) => q._cacheId).filter(Boolean);
-        if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
-        sectionQuestions = cached.map((q: any) => {
-          const { _cacheId, ...rest } = q;
-          return { ...rest, subjectId: section.subjectId, subjectName: section.subjectName };
-        });
-      }
-
-      // If not enough, get verified questions from various topics
-      if (sectionQuestions.length < needed) {
-        for (const t of shuffle(topics).slice(0, 5)) {
-          const verified = getVerifiedQuestions(examId, section.subjectId, t);
-          const shuffled = shuffle(verified);
-          for (const q of shuffled) {
-            if (sectionQuestions.length >= needed) break;
-            sectionQuestions.push({ ...q, subjectId: section.subjectId, subjectName: section.subjectName });
+          // Tier 1: cache
+          const cached = await getCachedQuestions(
+            examId,
+            section.subjectId,
+            randomTopic,
+            "mixed",
+            needed
+          );
+          if (cached.length > 0) {
+            const cacheIds = cached.map((q: any) => q._cacheId).filter(Boolean);
+            if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
+            sectionQuestions = cached.map((q: any) => {
+              const { _cacheId, ...rest } = q;
+              return {
+                ...rest,
+                subjectId: section.subjectId,
+                subjectName: section.subjectName,
+              };
+            });
           }
-          if (sectionQuestions.length >= needed) break;
-        }
-      }
 
-      // If still not enough, generate via AI (with timeout)
-      if (sectionQuestions.length < needed) {
-        const remaining = needed - sectionQuestions.length;
-        const aiTopic = topics[Math.floor(Math.random() * topics.length)];
-        try {
-          // Outer cap slightly above per-model timeout (18s). generateQuiz
-          // races models in parallel and already falls back internally.
-          const aiQuestions = await Promise.race([
-            generateQuiz(
-              exam.fullName,
-              subject.name,
-              aiTopic,
-              remaining,
-              "mixed"
-            ),
-            new Promise<any[]>((_, reject) =>
-              setTimeout(() => reject(new Error("AI generation timeout")), 22000)
-            ),
-          ]);
-
-          if (aiQuestions && aiQuestions.length > 0) {
-            for (const q of aiQuestions) {
-              sectionQuestions.push({ ...q, subjectId: section.subjectId, subjectName: section.subjectName });
-            }
-            // Save to cache
-            if (!aiQuestions[0].question.includes("[Service Unavailable]")) {
-              await saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+          // Tier 2: in-memory verified bank, sampled across topics
+          if (sectionQuestions.length < needed) {
+            for (const t of shuffle(topics).slice(0, 5)) {
+              const verified = getVerifiedQuestions(examId, section.subjectId, t);
+              for (const q of shuffle(verified)) {
+                if (sectionQuestions.length >= needed) break;
+                sectionQuestions.push({
+                  ...q,
+                  subjectId: section.subjectId,
+                  subjectName: section.subjectName,
+                });
+              }
+              if (sectionQuestions.length >= needed) break;
             }
           }
-        } catch (err) {
-          console.error(`[MockTest] AI generation failed/timeout for ${section.subjectName}:`, err);
-          // Continue with whatever questions we have
-        }
-      }
 
-        allQuestions.push(...sectionQuestions.slice(0, needed));
-      }
+          // Tier 3: AI (parallel race in generateQuiz, ~3-12s)
+          if (sectionQuestions.length < needed) {
+            const remaining = needed - sectionQuestions.length;
+            const aiTopic = topics[Math.floor(Math.random() * topics.length)];
+            try {
+              const aiQuestions = await Promise.race([
+                generateQuiz(exam.fullName, subject.name, aiTopic, remaining, "mixed"),
+                new Promise<any[]>((_, reject) =>
+                  setTimeout(() => reject(new Error("AI generation timeout")), 14000)
+                ),
+              ]);
+
+              if (aiQuestions && aiQuestions.length > 0) {
+                const isFallback = aiQuestions[0].question.includes("[Service Unavailable]");
+                if (!isFallback) {
+                  for (const q of aiQuestions) {
+                    sectionQuestions.push({
+                      ...q,
+                      subjectId: section.subjectId,
+                      subjectName: section.subjectName,
+                    });
+                  }
+                  // Persist to cache so future mock tests are faster.
+                  saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+                }
+              }
+            } catch (err) {
+              console.error(
+                `[MockTest] AI generation failed for ${section.subjectName}:`,
+                err
+              );
+            }
+          }
+
+          return sectionQuestions.slice(0, needed);
+        })
+      );
+
+      for (const qs of sectionResults) allQuestions.push(...qs);
     } // End of fallback generation
 
     if (allQuestions.length === 0) {

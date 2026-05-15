@@ -104,29 +104,37 @@ export async function getAvailableQuestionCount(examId: string, subjectId: strin
 }
 
 /**
- * Calculate maximum number of unique tests available for an exam
- * based on available question pool
+ * Calculate maximum number of unique tests deliverable for an exam from the
+ * cached question pool. Returns 0 if there isn't enough material — DO NOT
+ * inflate this number; the UI uses it to decide how many test buttons to
+ * render, and lying here causes "no test available" errors on click.
+ *
+ * The API route combines this with the count of hand-curated static configs
+ * to compute the final per-exam capacity.
  */
 export async function calculateMaxTestsAvailable(examId: string): Promise<number> {
   const subjects = examSubjectMapping[examId];
 
-  if (!subjects) {
-    // Unknown exam, return conservative estimate
-    return 10;
-  }
+  // Unknown exam — no dynamic capacity. Caller falls back to static configs.
+  if (!subjects) return 0;
 
-  // Check question availability for each subject
+  // Bottleneck-aware: each test must satisfy every section, so the available
+  // count is the minimum across subjects of (cached_questions / per-section need).
   const subjectCounts = await Promise.all(
     subjects.map(async (subject) => {
       const count = await getAvailableQuestionCount(examId, subject.subjectId);
-      const questionsNeeded = Math.ceil(defaultExamPattern.questionsPerTest / subjects.length * subject.weight);
+      const questionsNeeded = Math.max(
+        1,
+        Math.ceil((defaultExamPattern.questionsPerTest / subjects.length) * subject.weight)
+      );
       return Math.floor(count / questionsNeeded);
     })
   );
 
-  // Maximum tests = minimum across all subjects (bottleneck subject)
-  const maxTests = Math.min(...subjectCounts, 999); // Cap at 999 tests
-  return maxTests > 0 ? maxTests : 10; // Minimum 10 tests
+  if (subjectCounts.length === 0) return 0;
+  const maxTests = Math.min(...subjectCounts);
+  // Hard cap to a sensible UI count regardless of how big the cache grows.
+  return Math.max(0, Math.min(maxTests, 20));
 }
 
 /**
