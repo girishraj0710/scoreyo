@@ -1430,16 +1430,40 @@ export async function getExamQuestions(
         [examId, subjectId, difficulty, limit]
       );
     }
-  } else if (difficulty === "mixed") {
-    rows = await queryAll(
-      "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? ORDER BY RANDOM() LIMIT ?",
-      [examId, subjectId, topic, limit]
-    );
   } else {
-    rows = await queryAll(
-      "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ? AND difficulty = ? ORDER BY RANDOM() LIMIT ?",
-      [examId, subjectId, topic, difficulty, limit]
-    );
+    // Topic-specific query with fuzzy matching. Mirrors getCachedQuestions
+    // so a quiz request like topic="Plant Physiology" still hits verified
+    // rows tagged "plant physiology basics" etc. Without this the verified
+    // pool effectively only serves exact-string matches, which is rare given
+    // how topic names diverge between the UI and the seeded data.
+    if (difficulty === "mixed") {
+      rows = await queryAll(
+        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) ORDER BY RANDOM() LIMIT ?",
+        [examId, subjectId, topic, `%${topic}%`, limit]
+      );
+    } else {
+      rows = await queryAll(
+        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? ORDER BY RANDOM() LIMIT ?",
+        [examId, subjectId, topic, `%${topic}%`, difficulty, limit]
+      );
+    }
+
+    // Fallback: keyword-level fuzzy match on the topic name.
+    if (rows.length === 0 && topic.length > 0) {
+      const keywords = topic.toLowerCase().split(/[&\s]+/).filter((w) => w.length > 3);
+      for (const keyword of keywords) {
+        if (rows.length >= limit) break;
+        const fuzzyRows = await queryAll(
+          difficulty === "mixed"
+            ? "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? ORDER BY RANDOM() LIMIT ?"
+            : "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? ORDER BY RANDOM() LIMIT ?",
+          difficulty === "mixed"
+            ? [examId, subjectId, `%${keyword}%`, limit - rows.length]
+            : [examId, subjectId, `%${keyword}%`, difficulty, limit - rows.length]
+        );
+        rows = [...rows, ...fuzzyRows];
+      }
+    }
   }
 
   return rows.map((row: any) => ({

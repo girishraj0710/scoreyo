@@ -1,0 +1,36 @@
+name: Prewarm Question Cache
+
+on:
+  # Every 4 hours. Each invocation warms up to MAX_TOPICS cold cells
+  # (see /api/cron/prewarm-cache). Over a day this chips ~48 topics off
+  # the long tail without ever blocking a user request on AI generation.
+  schedule:
+    - cron: "0 */4 * * *"
+
+  # Manual trigger for ad-hoc warming (e.g. after adding new exams).
+  workflow_dispatch:
+
+jobs:
+  prewarm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call prewarm-cache endpoint
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          API_URL: "https://prepgenie.co.in/api/cron/prewarm-cache"
+        run: |
+          curl -X GET "${API_URL}?secret=${CRON_SECRET}" \
+            -H "Content-Type: application/json" \
+            --fail-with-body \
+            --show-error \
+            --max-time 90 \
+            --silent
+
+          echo "✅ Prewarm run complete"
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Prewarm failed"
+          echo "Check API logs at: https://vercel.com/girishraj0710/prepgenie/logs"

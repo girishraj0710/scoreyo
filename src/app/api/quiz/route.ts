@@ -116,21 +116,34 @@ export async function POST(request: NextRequest) {
     let cachedCount = 0;
     let aiCount = 0;
 
-    // ── TIER 1: Database questions (instant, highest priority) ─────────
+    // ── TIER 1+2: Verified pool + AI cache, queried IN PARALLEL ───────
+    // exam_questions is the seeded verified bank (highest quality), and
+    // cached_questions is the AI-generated cache. Previously we did these
+    // sequentially (one roundtrip after the other) which added ~100–200ms
+    // per cold request. Now they fire in parallel and we merge with
+    // verified-first dedupe: when the same question text exists in both,
+    // the verified copy wins and the cached one is dropped. `cachedPool`
+    // is captured here so the original Tier 2 block can consume it without
+    // a second roundtrip.
     let verifiedQuestions: QuizQuestion[] = [];
-
-    // Try database first for ALL competitive exams
+    let cachedPool: any[] = [];
     try {
-      const dbQuestions = await getExamQuestions(examId, subjectId, topic, difficulty, numberOfQuestions * 2);
-      if (dbQuestions.length > 0) {
-        verifiedQuestions = dbQuestions;
-        console.log(`[Quiz API] Found ${dbQuestions.length} questions in database for ${examId}/${topic}`);
-      }
+      const [verified, cached] = await Promise.all([
+        getExamQuestions(examId, subjectId, topic, difficulty, numberOfQuestions * 2),
+        getCachedQuestions(examId, subjectId, topic, difficulty, numberOfQuestions * 2),
+      ]);
+      verifiedQuestions = verified as QuizQuestion[];
+      cachedPool = cached;
+      console.log(
+        `[Quiz API] pools: verified=${verified.length}, cached=${cached.length} (${examId}/${topic})`
+      );
     } catch (error) {
-      console.log(`[Quiz API] No database questions found for ${examId}/${topic}`);
+      console.error("[Quiz API] Pool query failed:", error);
     }
 
-    // If no DB questions and it's not an English quiz, try in-memory question bank
+    // If no verified DB questions, try the alternate paths (English bank
+    // and in-memory bank) — same as before. The cached pool above is
+    // unaffected; it still serves Tier 2 below.
     if (verifiedQuestions.length === 0) {
 
       // Check if this is an English quiz (any English-related exam/subject)
@@ -274,13 +287,14 @@ export async function POST(request: NextRequest) {
 
     let remaining = numberOfQuestions - finalQuestions.length;
 
-    // ── TIER 2: Cached AI questions (instant) ────────────
-    if (remaining > 0) {
-      const cached = await getCachedQuestions(examId, subjectId, topic, difficulty, remaining);
-
-      // Filter out questions that match any verified question text (avoid duplicates)
+    // ── TIER 2: Cached AI questions (already prefetched above) ────────
+    // Consumes `cachedPool` from the parallel verified+cached fetch instead
+    // of issuing a second roundtrip. Verified-first dedupe is enforced by
+    // skipping any cached row whose question text matches a verified row
+    // already selected for this quiz.
+    if (remaining > 0 && cachedPool.length > 0) {
       const verifiedTexts = new Set(verifiedToUse.map((q) => q.question.toLowerCase().trim()));
-      const uniqueCached = cached.filter(
+      const uniqueCached = cachedPool.filter(
         (q: any) => !verifiedTexts.has(q.question?.toLowerCase().trim())
       );
 

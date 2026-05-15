@@ -1,0 +1,36 @@
+name: Promote Cached Questions → Verified Pool
+
+on:
+  # Weekly, Sunday 04:00 IST (22:30 UTC Saturday). Runs after the prewarm
+  # cron has had a few cycles to add fresh AI-generated rows to
+  # cached_questions; this job promotes them into exam_questions.
+  schedule:
+    - cron: "30 22 * * 6"
+
+  # Manual trigger for one-off runs / after large prewarm bursts.
+  workflow_dispatch:
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call promote-questions endpoint
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          API_URL: "https://prepgenie.co.in/api/cron/promote-questions"
+        run: |
+          curl -X GET "${API_URL}?secret=${CRON_SECRET}" \
+            -H "Content-Type: application/json" \
+            --fail-with-body \
+            --show-error \
+            --max-time 90 \
+            --silent
+
+          echo "✅ Promotion run complete"
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Promotion failed"
+          echo "Check API logs at: https://vercel.com/girishraj0710/prepgenie/logs"
