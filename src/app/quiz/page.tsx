@@ -607,6 +607,8 @@ function QuizContent() {
           <p className="text-slate-500">
             {isLevelMode ? (
               <>Preparing Level {levelNumber} questions...</>
+            ) : isSprintMode ? (
+              <>Loading sprint challenge questions...</>
             ) : (
               <>Selecting {count} questions on &quot;{topic}&quot; from our question bank</>
             )}
