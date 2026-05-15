@@ -1046,42 +1046,59 @@ export default function MockTestPage() {
                 </div>
               </div>
 
-              {/* Test Type Toggle */}
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setTestType("short")}
-                  className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
-                    testType === "short"
-                      ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  <div className="flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <span>Short Practice</span>
-                  </div>
-                  <div className="text-xs mt-1 opacity-90">{groupedConfigs[selectedExam][0].totalQuestions}Q · {groupedConfigs[selectedExam][0].timeLimitMinutes}mins</div>
-                </button>
+              {/* Test Type Toggle.
+                  Preview subtitles MUST use the base (untransformed) static
+                  config from `configs`, NOT `groupedConfigs` — the latter is
+                  derived from `displayConfigs` which is already multiplied by
+                  3x/2.5x when testType === "full". Reading from it would
+                  re-multiply on every toggle (the original bug: clicking Full
+                  showed 225Q/313m, then Short showed 75Q/125m). */}
+              {(() => {
+                const baseConfig = configs.find(
+                  (c) => c.examId === selectedExam && c.testNumber === 1
+                ) || groupedConfigs[selectedExam][0];
+                const shortQ = baseConfig.totalQuestions;
+                const shortMin = baseConfig.timeLimitMinutes;
+                const fullQ = shortQ * 3;
+                const fullMin = Math.round(shortMin * 2.5);
+                return (
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setTestType("short")}
+                      className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
+                        testType === "short"
+                          ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span>Short Practice</span>
+                      </div>
+                      <div className="text-xs mt-1 opacity-90">{shortQ}Q · {shortMin}mins</div>
+                    </button>
 
-                <button
-                  onClick={() => setTestType("full")}
-                  className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
-                    testType === "full"
-                      ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  <div className="flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <span>Full-Length</span>
+                    <button
+                      onClick={() => setTestType("full")}
+                      className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
+                        testType === "full"
+                          ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Full-Length</span>
+                      </div>
+                      <div className="text-xs mt-1 opacity-90">{fullQ}Q · {fullMin}mins</div>
+                    </button>
                   </div>
-                  <div className="text-xs mt-1 opacity-90">{groupedConfigs[selectedExam][0].totalQuestions * 3}Q · {Math.round(groupedConfigs[selectedExam][0].timeLimitMinutes * 2.5)}mins</div>
-                </button>
-              </div>
+                );
+              })()}
             </div>
 
             {/* Footer Actions */}
