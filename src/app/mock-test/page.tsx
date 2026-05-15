@@ -855,6 +855,7 @@ export default function MockTestPage() {
                 onClick={() => {
                   setSelectedExam(examId);
                   setSelectedTestNumber(1);
+                  setTestType("short"); // always default modal to Short Practice
                   setShowExamModal(true);
                 }}
                 className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
