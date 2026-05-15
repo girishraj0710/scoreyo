@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { generateQuiz, type QuizQuestion } from "@/lib/quiz-generator";
 import { getVerifiedQuestions } from "@/lib/question-bank";
 import {
@@ -22,6 +22,12 @@ import { checkBadges } from "@/lib/achievements";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { v4 as uuidv4 } from "uuid";
 
+// Vercel serverless freezes the function when the response is returned, which
+// kills any in-flight `saveCachedQuestions` / background-prefill promises and
+// prevents the cache from ever warming. Setting maxDuration gives `after()`
+// callbacks room to finish their AI calls + DB writes after we respond.
+export const maxDuration = 60;
+
 const FREE_QUIZ_LIMIT = 3;
 
 // Shuffle an array (Fisher-Yates)
@@ -34,8 +40,11 @@ function shuffle<T>(array: T[]): T[] {
   return arr;
 }
 
-// Background pre-fill: generate questions and save to cache (fire-and-forget)
-function backgroundCacheFill(
+// Background pre-fill: generate questions and save to cache.
+// MUST be invoked from inside an `after()` callback so the work survives the
+// response. Without `after()` Vercel freezes the function and the AI fetch +
+// DB write are killed mid-flight — that's why the cache never warmed in prod.
+async function backgroundCacheFill(
   examFullName: string,
   subjectName: string,
   topic: string,
@@ -44,16 +53,21 @@ function backgroundCacheFill(
   difficulty: string,
   count: number = 10
 ) {
-  // Don't await — this runs in the background
-  generateQuiz(examFullName, subjectName, topic, count, difficulty as any)
-    .then(async (questions) => {
-      if (questions.length > 0 && !questions[0].question.includes("[Service Unavailable]")) {
-        await saveCachedQuestions(examId, subjectId, topic, questions);
-      }
-    })
-    .catch((err) => {
-      console.error("[Cache] Background fill failed:", err);
-    });
+  try {
+    const questions = await generateQuiz(
+      examFullName,
+      subjectName,
+      topic,
+      count,
+      difficulty as any
+    );
+    if (questions.length > 0 && !questions[0].question.includes("[Service Unavailable]")) {
+      await saveCachedQuestions(examId, subjectId, topic, questions);
+      console.log(`[Cache] Background fill saved ${questions.length} qs for ${examId}/${topic}`);
+    }
+  } catch (err) {
+    console.error("[Cache] Background fill failed:", err);
+  }
 }
 
 // POST - Generate a new quiz (3-tier: verified → cached → AI)
@@ -317,7 +331,16 @@ export async function POST(request: NextRequest) {
           if (!isFallback) {
             finalQuestions = [...finalQuestions, ...aiQuestions];
             aiCount = aiQuestions.length;
-            saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+            // Persist to cache AFTER the response — `after()` keeps the
+            // serverless function alive long enough for the DB write to
+            // complete (previously this was killed when we returned).
+            after(async () => {
+              try {
+                await saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+              } catch (err) {
+                console.error("[Quiz API] post-response cache save failed:", err);
+              }
+            });
             console.log(`[Quiz API] ✓ Added ${aiCount} AI-generated questions`);
           } else {
             aiTimedOut = true;
@@ -382,15 +405,22 @@ export async function POST(request: NextRequest) {
     const cacheCountForMeta = await getCachedQuestionCount(examId, subjectId, topic);
 
     if (cacheCountForMeta < 50) {
-      // Pre-fill more aggressively (50 questions target instead of 20)
-      backgroundCacheFill(
-        exam.fullName,
-        subject.name,
-        topic,
-        examId,
-        subjectId,
-        difficulty,
-        Math.min(30, 50 - cacheCountForMeta) // Fill up to 50
+      // Pre-fill more aggressively (50 questions target instead of 20).
+      // Wrapped in `after()` so the AI generation + DB write actually runs
+      // to completion on Vercel — without this the serverless function is
+      // frozen when we return the response and the prefill is silently
+      // killed mid-flight, which is why the cache never warmed.
+      const fillCount = Math.min(30, 50 - cacheCountForMeta);
+      after(() =>
+        backgroundCacheFill(
+          exam.fullName,
+          subject.name,
+          topic,
+          examId,
+          subjectId,
+          difficulty,
+          fillCount
+        )
       );
     }
 

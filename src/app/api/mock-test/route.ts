@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import { generateQuiz } from "@/lib/quiz-generator";
 import { getVerifiedQuestions } from "@/lib/question-bank";
@@ -21,6 +21,12 @@ import {
   getAllDynamicMockTests
 } from "@/lib/dynamic-mock-test-generator";
 import { getExamById, getSubjectById } from "@/lib/exams";
+
+// Mock-test generation can chain several AI calls (one per section) plus
+// post-response cache writes. Without an extended maxDuration Vercel kills the
+// serverless function at the platform default (10s on hobby) — well before
+// `after()` callbacks finish persisting AI questions to the cache.
+export const maxDuration = 60;
 
 function shuffle<T>(array: T[]): T[] {
   const arr = [...array];
@@ -236,8 +242,17 @@ export async function POST(request: NextRequest) {
                       subjectName: section.subjectName,
                     });
                   }
-                  // Persist to cache so future mock tests are faster.
-                  saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+                  // Persist to cache so future mock tests are faster. Wrapped
+                  // in `after()` so the DB write survives the response — a
+                  // bare fire-and-forget call is killed when Vercel freezes
+                  // the function after we return.
+                  after(async () => {
+                    try {
+                      await saveCachedQuestions(examId, section.subjectId, aiTopic, aiQuestions);
+                    } catch (err) {
+                      console.error("[MockTest] post-response cache save failed:", err);
+                    }
+                  });
                 }
               }
             } catch (err) {

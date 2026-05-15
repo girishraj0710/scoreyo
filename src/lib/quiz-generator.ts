@@ -141,12 +141,18 @@ Rules: exactly 4 options; correctAnswer is 0-3; valid JSON starting with [ endin
       const modelStart = Date.now();
       const result = await Promise.race([
         (async () => {
-          // Output budget: ~80 tokens/question with slim prompt + 100 buffer.
-          // Smaller cap allows the model to stop sooner and reduces total latency.
+          // Output budget. A single MCQ in our JSON shape (question +
+          // 4 options + short explanation + difficulty) realistically lands
+          // around 140–180 tokens. The prior 100/q + 100 buffer caused
+          // mid-array truncation on ~25–30% of races, which then failed
+          // JSON.parse and the model "lost" the race even though it
+          // responded fastest. 180/q + 200 buffer eliminates truncation
+          // without materially slowing the response (the model stops at
+          // the closing `]` anyway). Hard ceiling raised to 2500.
           const { text } = await generateText({
             model: openrouter(modelId),
             prompt,
-            maxOutputTokens: Math.min(1500, numberOfQuestions * 100 + 100),
+            maxOutputTokens: Math.min(2500, numberOfQuestions * 180 + 200),
             temperature: 0.7,
           });
           const parsed = parseQuizResponse(text);
