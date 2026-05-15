@@ -41,6 +41,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# internal agent artifacts (scratch notes, datasets, logs)
+.agents/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

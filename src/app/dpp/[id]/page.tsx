@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { ChevronLeft, Clock, CheckCircle2, XCircle, Flame } from "lucide-react";
+import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
 
 interface Question {
   question: string;
@@ -46,6 +47,7 @@ export default function DPPPage() {
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
   const [error, setError] = useState("");
+  const [newBadges, setNewBadges] = useState<any[]>([]);
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -123,7 +125,7 @@ export default function DPPPage() {
     ).length;
 
     try {
-      await fetch("/api/dpp", {
+      const res = await fetch("/api/dpp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -132,6 +134,13 @@ export default function DPPPage() {
           totalQuestions: data.dpp.questions.length,
         }),
       });
+
+      const result = await res.json();
+
+      // Show badge unlock modal if new badges earned
+      if (result.newBadges && result.newBadges.length > 0) {
+        setNewBadges(result.newBadges);
+      }
 
       // Update completion data
       setData({
@@ -198,6 +207,14 @@ export default function DPPPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      {/* Badge Unlock Modal */}
+      {newBadges.length > 0 && (
+        <BadgeUnlockModal
+          badges={newBadges}
+          onClose={() => setNewBadges([])}
+        />
+      )}
+
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Practice State */}
         {state === "practice" && currentQuestion && (

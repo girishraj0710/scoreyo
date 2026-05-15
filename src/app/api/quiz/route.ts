@@ -13,7 +13,12 @@ import {
   getTodayQuizCount,
   getEnglishQuestions,
   getExamQuestions,
+  updateBadgeStats,
+  getBadgeStats,
+  unlockBadge,
+  getUserBadges,
 } from "@/lib/db";
+import { checkBadges } from "@/lib/achievements";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { v4 as uuidv4 } from "uuid";
 
@@ -457,12 +462,65 @@ export async function PUT(request: NextRequest) {
       correct
     );
 
+    // ── Badge Tracking ──────────────────────────────────────
+    const accuracy = Math.round((correct / questions.length) * 100);
+    const timeInSeconds = timeTaken || 0;
+
+    // Update badge stats based on performance
+    const badgeUpdates: any = {};
+
+    // Accuracy badges
+    if (accuracy >= 90) badgeUpdates.highAccuracyQuizzes = 1;
+    if (accuracy >= 95) badgeUpdates.veryHighAccuracyQuizzes = 1;
+    if (accuracy === 100) badgeUpdates.perfectQuizzes = 1;
+
+    // Speed badges (< 3 minutes for 5 questions = fast)
+    if (timeInSeconds > 0 && timeInSeconds < 180) {
+      badgeUpdates.fastQuizzes = 1;
+    }
+
+    // Time-based badges
+    const hour = new Date().getHours();
+    if (hour >= 23 || hour < 6) badgeUpdates.lateQuizzes = 1; // Night Owl (after 11 PM or before 6 AM)
+
+    // Weekend badges
+    const dayOfWeek = new Date().getDay();
+    if (dayOfWeek === 0 || dayOfWeek === 6) badgeUpdates.weekendSessions = 1;
+
+    // Update badge stats if any achievements earned this quiz
+    if (Object.keys(badgeUpdates).length > 0) {
+      await updateBadgeStats(userId, badgeUpdates);
+    }
+
+    // Check for newly earned badges
+    const stats = await getBadgeStats(userId);
+    const earnedBadges = checkBadges(stats);
+    const userBadges = await getUserBadges(userId);
+    const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
+
+    const newBadges = [];
+    for (const badge of earnedBadges) {
+      if (!userBadgeIds.has(badge.id)) {
+        const unlocked = await unlockBadge(userId, badge.id);
+        if (unlocked) {
+          newBadges.push({
+            id: badge.id,
+            name: badge.name,
+            description: badge.description,
+            icon: badge.icon,
+            rarity: badge.rarity,
+          });
+        }
+      }
+    }
+
     return NextResponse.json({
       sessionId,
       totalQuestions: questions.length,
       correctAnswers: correct,
-      accuracy: Math.round((correct / questions.length) * 100),
+      accuracy,
       timeTaken,
+      newBadges, // Return newly unlocked badges
       results: attempts.map((a: any, i: number) => ({
         question: a.questionText,
         options: a.options,

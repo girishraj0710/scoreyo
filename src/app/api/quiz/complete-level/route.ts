@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { completeQuizLevel } from "@/lib/db";
+import { completeQuizLevel, updateBadgeStats, getBadgeStats, unlockBadge, getUserBadges } from "@/lib/db";
 import { calculateStars } from "@/lib/level-definitions";
+import { checkBadges } from "@/lib/achievements";
 
 // POST /api/quiz/complete-level
 export async function POST(req: NextRequest) {
@@ -41,6 +42,31 @@ export async function POST(req: NextRequest) {
       stars
     );
 
+    // ── Badge Tracking ──────────────────────────────────────
+    await updateBadgeStats(userId, { levelsCompleted: 1 });
+
+    // Check for newly earned badges
+    const stats = await getBadgeStats(userId);
+    const earnedBadges = checkBadges(stats);
+    const userBadges = await getUserBadges(userId);
+    const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
+
+    const newBadges = [];
+    for (const badge of earnedBadges) {
+      if (!userBadgeIds.has(badge.id)) {
+        const unlocked = await unlockBadge(userId, badge.id);
+        if (unlocked) {
+          newBadges.push({
+            id: badge.id,
+            name: badge.name,
+            description: badge.description,
+            icon: badge.icon,
+            rarity: badge.rarity,
+          });
+        }
+      }
+    }
+
     // Check if next level should be unlocked
     const shouldUnlock = levelType === 'boss' ? accuracy >= 70 : accuracy >= 60;
 
@@ -49,6 +75,7 @@ export async function POST(req: NextRequest) {
       stars,
       accuracy,
       nextLevelUnlocked: shouldUnlock,
+      newBadges,
     });
   } catch (error) {
     console.error("Error completing level:", error);

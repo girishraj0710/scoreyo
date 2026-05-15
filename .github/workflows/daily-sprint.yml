@@ -1,0 +1,33 @@
+name: Create Daily Sprint
+
+on:
+  # Run every day at 9:00 AM IST (3:30 AM UTC)
+  schedule:
+    - cron: '30 3 * * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+jobs:
+  create-sprint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Sprint Creation API
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          API_URL: "https://prepgenie.co.in/api/cron/create-sprint"
+        run: |
+          curl -X GET "${API_URL}?secret=${CRON_SECRET}" \
+            -H "Content-Type: application/json" \
+            --fail-with-body \
+            --show-error \
+            --silent
+
+          echo "✅ Daily sprint created successfully"
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Failed to create daily sprint"
+          echo "Check API logs at: https://vercel.com/girishraj0710/prepgenie/logs"

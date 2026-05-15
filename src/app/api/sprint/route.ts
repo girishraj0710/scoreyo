@@ -17,64 +17,71 @@ export async function GET() {
 
     const now = new Date();
 
-    // Check for active sprint
-    const activeSprint = await db.execute({
+    // Check for active sprints (all exams)
+    const activeSprints = await db.execute({
       sql: `SELECT * FROM daily_sprints
             WHERE status = 'active' AND end_time > ?
-            ORDER BY start_time DESC LIMIT 1`,
+            ORDER BY exam_id, start_time DESC`,
       args: [now.toISOString()]
     });
 
-    if (activeSprint.rows.length === 0) {
+    if (activeSprints.rows.length === 0) {
       return NextResponse.json({ noActiveSprint: true });
     }
 
-    const sprint = activeSprint.rows[0];
+    // Get data for all sprints
+    const sprintsData = await Promise.all(
+      activeSprints.rows.map(async (sprint: any) => {
+        // Get leaderboard for this sprint
+        const leaderboard = await db.execute({
+          sql: `SELECT sp.user_id, u.name, sp.score, sp.total_questions, sp.time_taken_seconds, sp.completed_at
+                FROM sprint_participations sp
+                JOIN users u ON sp.user_id = u.id
+                WHERE sp.sprint_id = ?
+                ORDER BY sp.score DESC, sp.time_taken_seconds ASC
+                LIMIT 50`,
+          args: [sprint.id]
+        });
 
-    // Get leaderboard
-    const leaderboard = await db.execute({
-      sql: `SELECT sp.user_id, u.name, sp.score, sp.total_questions, sp.time_taken_seconds, sp.completed_at
-            FROM sprint_participations sp
-            JOIN users u ON sp.user_id = u.id
-            WHERE sp.sprint_id = ?
-            ORDER BY sp.score DESC, sp.time_taken_seconds ASC
-            LIMIT 50`,
-      args: [sprint.id]
-    });
+        // Check if user participated in this sprint
+        const userParticipation = await db.execute({
+          sql: `SELECT * FROM sprint_participations WHERE sprint_id = ? AND user_id = ?`,
+          args: [sprint.id, userId]
+        });
 
-    // Check if user participated
-    const userParticipation = await db.execute({
-      sql: `SELECT * FROM sprint_participations WHERE sprint_id = ? AND user_id = ?`,
-      args: [sprint.id, userId]
-    });
+        const totalParticipants = leaderboard.rows.length;
+        const userRank = leaderboard.rows.findIndex((r: any) => r.user_id === userId) + 1;
+        const isTop10Percent = userRank > 0 && userRank <= Math.ceil(totalParticipants * 0.1);
 
-    const totalParticipants = leaderboard.rows.length;
-    const userRank = leaderboard.rows.findIndex(r => r.user_id === userId) + 1;
-    const isTop10Percent = userRank > 0 && userRank <= Math.ceil(totalParticipants * 0.1);
+        return {
+          sprint: {
+            id: sprint.id,
+            topic: sprint.topic,
+            examId: sprint.exam_id,
+            subjectId: sprint.subject_id,
+            startTime: sprint.start_time,
+            endTime: sprint.end_time,
+            questions: JSON.parse(sprint.questions as string),
+          },
+          participated: userParticipation.rows.length > 0,
+          participation: userParticipation.rows.length > 0 ? userParticipation.rows[0] : null,
+          leaderboard: leaderboard.rows.map((row: any, index: number) => ({
+            rank: index + 1,
+            userId: row.user_id,
+            name: row.name,
+            score: row.score,
+            total: row.total_questions,
+            time: row.time_taken_seconds,
+            isTop10: index < Math.ceil(totalParticipants * 0.1),
+          })),
+          userRank: userRank || null,
+          isTop10Percent,
+          totalParticipants,
+        };
+      })
+    );
 
-    return NextResponse.json({
-      sprint: {
-        id: sprint.id,
-        topic: sprint.topic,
-        startTime: sprint.start_time,
-        endTime: sprint.end_time,
-        questions: JSON.parse(sprint.questions as string),
-      },
-      participated: userParticipation.rows.length > 0,
-      participation: userParticipation.rows[0] || null,
-      leaderboard: leaderboard.rows.map((r, i) => ({
-        rank: i + 1,
-        userId: r.user_id,
-        name: r.name,
-        score: r.score,
-        total: r.total_questions,
-        time: r.time_taken_seconds,
-        isTop10: i < Math.ceil(totalParticipants * 0.1)
-      })),
-      userRank,
-      isTop10Percent,
-      totalParticipants
-    });
+    return NextResponse.json({ sprints: sprintsData });
 
   } catch (error) {
     console.error("[Sprint API] Error:", error);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
@@ -12,8 +12,29 @@ export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
   const { t } = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const isActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
+
+  const navLinkClass = (href: string) =>
+    `relative px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
+      isActive(href)
+        ? "text-indigo-600 bg-indigo-50"
+        : "text-slate-600 hover:text-indigo-600 hover:bg-slate-50"
+    }`;
+
+  const mobileNavLinkClass = (href: string) =>
+    `block px-4 py-2 text-sm transition-colors ${
+      isActive(href)
+        ? "text-indigo-600 bg-indigo-50 font-semibold border-l-2 border-indigo-600"
+        : "text-slate-600 hover:bg-slate-50"
+    }`;
 
   // Close menu on any click outside the menu container
   useEffect(() => {
@@ -45,28 +66,31 @@ export function AppHeader() {
         <div className="flex items-center gap-1">
           {/* Nav Links */}
           <nav className="hidden sm:flex items-center gap-1">
-            <a href="/" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            <Link href="/" className={navLinkClass("/")}>
               {t("home")}
-            </a>
-            <Link href="/dashboard" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            </Link>
+            <Link href="/dashboard" className={navLinkClass("/dashboard")}>
               {t("dashboard")}
             </Link>
-            <Link href="/review" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            <Link href="/review" className={navLinkClass("/review")}>
               {t("review")}
             </Link>
-            <Link href="/mock-test" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            <Link href="/mock-test" className={navLinkClass("/mock-test")}>
               {t("mockTests")}
             </Link>
-            <Link href="/reports" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            <Link href="/reports" className={navLinkClass("/reports")}>
               {t("reports")}
             </Link>
-            <Link href="/achievements" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            <Link href="/achievements" className={navLinkClass("/achievements")}>
               Badges
             </Link>
-            <Link href="/english" className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg whitespace-nowrap">
+            <Link href="/sprint" className={navLinkClass("/sprint")}>
+              Sprint
+            </Link>
+            <Link href="/english" className={navLinkClass("/english")}>
               Learn English
             </Link>
-            <Link href="/pricing" className="px-3 py-2 text-sm font-medium text-amber-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg whitespace-nowrap flex items-center gap-1">
+            <Link href="/pricing" className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50" : "text-amber-600 hover:text-amber-700 hover:bg-amber-50"}`}>
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
@@ -131,15 +155,17 @@ export function AppHeader() {
                   </div>
                   {/* Mobile nav links */}
                   <div className="sm:hidden border-b border-slate-100">
-                    <a href="/" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">{t("home")}</a>
-                    <Link href="/dashboard" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("dashboard")}</Link>
-                    <Link href="/review" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("review")}</Link>
-                    <Link href="/mock-test" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("mockTests")}</Link>
-                    <Link href="/reports" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>{t("reports")}</Link>
-                    <Link href="/achievements" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50" onClick={() => setShowMenu(false)}>
-                      Badges
+                    <Link href="/" className={mobileNavLinkClass("/")} onClick={() => setShowMenu(false)}>{t("home")}</Link>
+                    <Link href="/dashboard" className={mobileNavLinkClass("/dashboard")} onClick={() => setShowMenu(false)}>{t("dashboard")}</Link>
+                    <Link href="/review" className={mobileNavLinkClass("/review")} onClick={() => setShowMenu(false)}>{t("review")}</Link>
+                    <Link href="/mock-test" className={mobileNavLinkClass("/mock-test")} onClick={() => setShowMenu(false)}>{t("mockTests")}</Link>
+                    <Link href="/reports" className={mobileNavLinkClass("/reports")} onClick={() => setShowMenu(false)}>{t("reports")}</Link>
+                    <Link href="/achievements" className={mobileNavLinkClass("/achievements")} onClick={() => setShowMenu(false)}>Badges</Link>
+                    <Link href="/sprint" className={mobileNavLinkClass("/sprint")} onClick={() => setShowMenu(false)}>Sprint</Link>
+                    <Link href="/english" className={mobileNavLinkClass("/english")} onClick={() => setShowMenu(false)}>
+                      Learn English
                     </Link>
-                    <Link href="/pricing" className="block px-4 py-2 text-sm text-amber-600 hover:bg-amber-50 font-medium" onClick={() => setShowMenu(false)}>{t("pricing")}</Link>
+                    <Link href="/pricing" className={`block px-4 py-2 text-sm font-medium transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50 border-l-2 border-amber-600" : "text-amber-600 hover:bg-amber-50"}`} onClick={() => setShowMenu(false)}>{t("pricing")}</Link>
                   </div>
                   <button
                     onClick={() => {

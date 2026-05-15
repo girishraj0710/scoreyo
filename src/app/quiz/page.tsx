@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { RichExplanation } from "@/components/rich-explanation";
 import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
 import { LevelCompleteModal } from "@/components/level-complete-modal";
+import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
 import { calculateStars } from "@/lib/level-definitions";
 
 interface Question {
@@ -161,11 +162,13 @@ function QuizContent() {
   const pressureMode = searchParams.get("pressureMode") === "true";
 
   // Level mode parameters
-  const mode = searchParams.get("mode") || "random"; // "level" or "random"
+  const mode = searchParams.get("mode") || "random"; // "level", "sprint", or "random"
   const levelNumber = parseInt(searchParams.get("levelNumber") || "0");
   const levelName = searchParams.get("levelName") || "";
   const levelType = searchParams.get("levelType") || "normal";
   const isLevelMode = mode === "level";
+  const isSprintMode = mode === "sprint";
+  const sprintId = searchParams.get("sprintId");
 
   const [quizData, setQuizData] = useState<QuizData | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -188,6 +191,10 @@ function QuizContent() {
   // Level completion modal state
   const [showLevelCompleteModal, setShowLevelCompleteModal] = useState(false);
   const [levelCompletionData, setLevelCompletionData] = useState<any>(null);
+  const [newBadges, setNewBadges] = useState<any[]>([]);
+
+  // Sprint mode state
+  const [sprintData, setSprintData] = useState<any>(null);
 
   // Timer (adaptive in pressure mode)
   useEffect(() => {
@@ -215,6 +222,31 @@ function QuizContent() {
     async function loadQuiz() {
       try {
         setIsLoading(true);
+
+        // Sprint mode: Load from sprint data
+        if (isSprintMode && sprintId) {
+          const sprintRes = await fetch("/api/sprint");
+          const sprintData = await sprintRes.json();
+
+          // Find the specific sprint by ID
+          const sprint = sprintData.sprints?.find((s: any) => s.sprint.id === sprintId);
+
+          if (sprint) {
+            setSprintData(sprint);
+            setQuizData({
+              sessionId: sprint.sprint.id,
+              examId: sprint.sprint.examId,
+              subjectId: sprint.sprint.subjectId,
+              topic: sprint.sprint.topic,
+              examName: "Sprint Challenge",
+              subjectName: sprint.sprint.topic,
+              questions: sprint.sprint.questions,
+            });
+            setAnswers(new Array(sprint.sprint.questions.length).fill(null));
+            setIsLoading(false);
+            return;
+          }
+        }
 
         // Use level-specific API if in level mode
         const apiEndpoint = isLevelMode ? "/api/quiz/level" : "/api/quiz";
@@ -259,7 +291,7 @@ function QuizContent() {
       }
     }
     loadQuiz();
-  }, [examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber]);
+  }, [examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber, isSprintMode, sprintId]);
 
   const selectAnswer = useCallback(
     (optionIndex: number) => {
@@ -351,6 +383,11 @@ function QuizContent() {
       setResults(data);
       setIsSubmitted(true);
 
+      // Show badge unlock modal if new badges earned
+      if (data.newBadges && data.newBadges.length > 0) {
+        setNewBadges(data.newBadges);
+      }
+
       // If in level mode, also complete the level
       if (isLevelMode) {
         const levelRes = await fetch("/api/quiz/complete-level", {
@@ -376,6 +413,11 @@ function QuizContent() {
           });
           setShowLevelCompleteModal(true);
 
+          // Show badge unlock modal if new badges earned from level completion
+          if (levelData.newBadges && levelData.newBadges.length > 0) {
+            setNewBadges(levelData.newBadges);
+          }
+
           // If they passed (60%+ for normal, 70%+ for boss), mark level as passed
           // This clears the question cache so they get new questions next time
           if (levelData.nextLevelUnlocked) {
@@ -389,6 +431,24 @@ function QuizContent() {
               }),
             });
           }
+        }
+      }
+
+      // If in sprint mode, submit to sprint API
+      if (isSprintMode && sprintId) {
+        try {
+          await fetch("/api/sprint", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              sprintId,
+              score: data.correctAnswers,
+              totalQuestions: data.totalQuestions,
+              timeTaken: timeElapsed,
+            }),
+          });
+        } catch (err) {
+          console.error("Failed to submit sprint:", err);
         }
       }
     } catch (err: any) {
@@ -604,6 +664,14 @@ function QuizContent() {
 
     return (
       <div className="max-w-3xl mx-auto px-4 py-8">
+        {/* Badge Unlock Modal */}
+        {newBadges.length > 0 && (
+          <BadgeUnlockModal
+            badges={newBadges}
+            onClose={() => setNewBadges([])}
+          />
+        )}
+
         {/* Report Modal */}
         {reportQuestion && (
           <ReportModal
@@ -650,18 +718,29 @@ function QuizContent() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button
-              onClick={() => window.location.reload()}
-              className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium"
-            >
-              Retry Same Topic
-            </button>
-            <a
-              href="/"
-              className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium"
-            >
-              New Quiz
-            </a>
+            {isSprintMode ? (
+              <a
+                href="/sprint"
+                className="px-6 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg hover:from-yellow-600 hover:to-orange-600 font-medium"
+              >
+                View Leaderboard
+              </a>
+            ) : (
+              <>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium"
+                >
+                  Retry Same Topic
+                </button>
+                <a
+                  href="/"
+                  className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium"
+                >
+                  New Quiz
+                </a>
+              </>
+            )}
             <a
               href="/dashboard"
               className="px-6 py-2 bg-emerald-100 text-emerald-700 rounded-lg hover:bg-emerald-200 font-medium"

@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import { createClient } from "@libsql/client";
 import { generateQuiz } from "@/lib/quiz-generator";
 import { v4 as uuidv4 } from "uuid";
+import { updateBadgeStats, getBadgeStats, unlockBadge, getUserBadges } from "@/lib/db";
+import { checkBadges } from "@/lib/achievements";
 
 const db = createClient({
   url: process.env.TURSO_DATABASE_URL!,
@@ -95,6 +97,41 @@ export async function POST(request: Request) {
       args: [userId, dppId, score, totalQuestions]
     });
 
+    // ── Badge Tracking ──────────────────────────────────────
+    const hour = new Date().getHours();
+    const badgeUpdates: any = {};
+
+    // Early bird badge (before 8 AM)
+    if (hour < 8) {
+      badgeUpdates.earlyDPPs = 1;
+    }
+
+    if (Object.keys(badgeUpdates).length > 0) {
+      await updateBadgeStats(userId, badgeUpdates);
+    }
+
+    // Check for newly earned badges
+    const stats = await getBadgeStats(userId);
+    const earnedBadges = checkBadges(stats);
+    const userBadges = await getUserBadges(userId);
+    const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
+
+    const newBadges = [];
+    for (const badge of earnedBadges) {
+      if (!userBadgeIds.has(badge.id)) {
+        const unlocked = await unlockBadge(userId, badge.id);
+        if (unlocked) {
+          newBadges.push({
+            id: badge.id,
+            name: badge.name,
+            description: badge.description,
+            icon: badge.icon,
+            rarity: badge.rarity,
+          });
+        }
+      }
+    }
+
     // Calculate new streak
     const streak = await getUserDPPStreak(userId);
 
@@ -102,7 +139,8 @@ export async function POST(request: Request) {
       success: true,
       streak,
       score,
-      percentage: Math.round((score / totalQuestions) * 100)
+      percentage: Math.round((score / totalQuestions) * 100),
+      newBadges,
     });
 
   } catch (error) {
