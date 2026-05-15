@@ -4306,6 +4306,42 @@ export function getVerifiedQuestions(
   return questionBank.get(key) || [];
 }
 
+/**
+ * Enumerates every verified bank entry as a flat array of rows ready for
+ * insertion into the `exam_questions` Turso table. Used by the seed script
+ * (`scripts/seed-exam-questions.ts`) to copy the in-memory bank into the
+ * persistent verified-questions store so it survives across requests and
+ * deployments. Not used by the runtime hot path.
+ */
+export function getAllVerifiedEntriesForSeed(): Array<{
+  examId: string;
+  subjectId: string;
+  topic: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+  difficulty: "easy" | "medium" | "hard";
+}> {
+  const rows: ReturnType<typeof getAllVerifiedEntriesForSeed> = [];
+  for (const [key, questions] of questionBank.entries()) {
+    const [examId, subjectId, topic] = key.split("|");
+    for (const q of questions) {
+      rows.push({
+        examId,
+        subjectId,
+        topic,
+        question: q.question,
+        options: q.options,
+        correctAnswer: q.correctAnswer,
+        explanation: typeof q.explanation === "string" ? q.explanation : JSON.stringify(q.explanation),
+        difficulty: q.difficulty,
+      });
+    }
+  }
+  return rows;
+}
+
 export function getQuestionBankStats() {
   let totalQuestions = 0;
   let topicsCovered = 0;
