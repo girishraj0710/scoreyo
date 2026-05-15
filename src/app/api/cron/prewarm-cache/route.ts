@@ -271,25 +271,35 @@ export async function GET(request: NextRequest) {
       const slice = targets.slice(i, i + BATCH);
       // Outer per-cell timeout. The inner generateQuiz already races models
       // with a 12s PER_MODEL_TIMEOUT_MS, but the Promise.race losers keep
-      // running and DB queries add 2-4s on top. Wrapping the whole warmOne
-      // in CELL_TIMEOUT_MS guarantees no single cell can push us past
-      // maxDuration. If a cell times out at this outer layer we record it
-      // as failed and move on — the next scheduled run retries it.
+      // running and DB queries add 2-4s on top. We wrap each warmOne with
+      // a hard CELL_TIMEOUT_MS so no single cell can push us past
+      // maxDuration. The `settled` flag ensures we only record ONE result
+      // per cell — either the natural warmOne outcome (success or its own
+      // logged failure) OR an outer-timeout failure, never both. Without
+      // this, run 5 showed each failed cell appearing twice in failed[].
       await Promise.all(
-        slice.map((cell) =>
-          Promise.race([
-            warmOne(cell),
-            new Promise<void>((resolve) =>
-              setTimeout(() => {
+        slice.map(
+          (cell) =>
+            new Promise<void>((resolve) => {
+              let settled = false;
+              const tid = setTimeout(() => {
+                if (settled) return;
+                settled = true;
                 failed.push({
                   examId: cell.examId,
                   topic: cell.topic,
                   reason: `outer timeout ${CELL_TIMEOUT_MS}ms`,
                 });
                 resolve();
-              }, CELL_TIMEOUT_MS)
-            ),
-          ])
+              }, CELL_TIMEOUT_MS);
+
+              warmOne(cell).finally(() => {
+                if (settled) return; // outer timeout already won; warmOne's result is discarded
+                settled = true;
+                clearTimeout(tid);
+                resolve();
+              });
+            })
         )
       );
     }
