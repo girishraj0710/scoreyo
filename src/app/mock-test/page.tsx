@@ -35,6 +35,10 @@ export default function MockTestPage() {
 
   const [pageState, setPageState] = useState<PageState>("select");
   const [testType, setTestType] = useState<TestType>("short");
+  // Modal-local Short/Full selection. Initialized from the page-level
+  // `testType` when the modal opens, but toggling inside the modal does
+  // NOT propagate back to the page tab.
+  const [modalTestType, setModalTestType] = useState<TestType>("short");
   const [configs, setConfigs] = useState<MockTestConfig[]>([]);
   const [history, setHistory] = useState<any[]>([]);
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
@@ -855,10 +859,10 @@ export default function MockTestPage() {
                 onClick={() => {
                   setSelectedExam(examId);
                   setSelectedTestNumber(1);
-                  // Inherit testType from the page-level Short/Full tab —
-                  // do not reset here. The modal toggle and top tab share
-                  // the same `testType` state, so opening the modal will
-                  // naturally reflect the user's current top-level choice.
+                  // Seed the modal's local Short/Full from the page-level
+                  // tab on open. Subsequent toggles inside the modal stay
+                  // local and do not bleed back into the page tab.
+                  setModalTestType(testType);
                   setShowExamModal(true);
                 }}
                 className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
@@ -981,20 +985,34 @@ export default function MockTestPage() {
               </button>
             </div>
 
-            {/* Content */}
+            {/* Content. All test-stat and section displays derive from the
+                BASE (untransformed) config and the modal-local `modalTestType`
+                — never from `groupedConfigs`, which depends on the page tab. */}
+            {(() => {
+              const baseConfigForStats = configs.find(
+                (c) => c.examId === selectedExam && c.testNumber === 1
+              ) || groupedConfigs[selectedExam][0];
+              const isFull = modalTestType === "full";
+              const statsQuestions = isFull
+                ? baseConfigForStats.totalQuestions * 3
+                : baseConfigForStats.totalQuestions;
+              const statsDuration = isFull
+                ? Math.round(baseConfigForStats.timeLimitMinutes * 2.5)
+                : baseConfigForStats.timeLimitMinutes;
+              return (
             <div className="p-6 space-y-6">
               {/* Test Stats */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-indigo-50 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-indigo-600">{groupedConfigs[selectedExam][0].totalQuestions}</div>
+                  <div className="text-2xl font-bold text-indigo-600">{statsQuestions}</div>
                   <div className="text-xs text-slate-600 mt-1">Questions</div>
                 </div>
                 <div className="bg-purple-50 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-purple-600">{groupedConfigs[selectedExam][0].timeLimitMinutes}m</div>
+                  <div className="text-2xl font-bold text-purple-600">{statsDuration}m</div>
                   <div className="text-xs text-slate-600 mt-1">Duration</div>
                 </div>
                 <div className="bg-pink-50 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-pink-600">{groupedConfigs[selectedExam][0].sections.length}</div>
+                  <div className="text-2xl font-bold text-pink-600">{baseConfigForStats.sections.length}</div>
                   <div className="text-xs text-slate-600 mt-1">Sections</div>
                 </div>
               </div>
@@ -1003,13 +1021,16 @@ export default function MockTestPage() {
               <div>
                 <h3 className="text-sm font-semibold text-slate-700 mb-3">Topics Covered</h3>
                 <div className="grid grid-cols-2 gap-2">
-                  {groupedConfigs[selectedExam][0].sections.map((s) => (
+                  {baseConfigForStats.sections.map((s) => {
+                    const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
+                    return (
                     <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
                       <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
                       <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
-                      <span className="text-xs text-slate-400 ml-auto">({s.questionCount}Q)</span>
+                      <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
@@ -1068,9 +1089,9 @@ export default function MockTestPage() {
                 return (
                   <div className="flex gap-3">
                     <button
-                      onClick={() => setTestType("short")}
+                      onClick={() => setModalTestType("short")}
                       className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
-                        testType === "short"
+                        modalTestType === "short"
                           ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
@@ -1085,9 +1106,9 @@ export default function MockTestPage() {
                     </button>
 
                     <button
-                      onClick={() => setTestType("full")}
+                      onClick={() => setModalTestType("full")}
                       className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
-                        testType === "full"
+                        modalTestType === "full"
                           ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
@@ -1104,6 +1125,8 @@ export default function MockTestPage() {
                 );
               })()}
             </div>
+              );
+            })()}
 
             {/* Footer Actions */}
             <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between">
@@ -1116,7 +1139,7 @@ export default function MockTestPage() {
               <button
                 onClick={() => {
                   setShowExamModal(false);
-                  startTest(selectedExam, selectedTestNumber, testType === "full");
+                  startTest(selectedExam, selectedTestNumber, modalTestType === "full");
                 }}
                 className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
               >
