@@ -26,10 +26,11 @@ export interface QuizQuestion {
 // list below was verified live via `scripts/test-openrouter.mjs`. Re-run that
 // script if generation starts failing again.
 const RACE_MODELS = [
-  "openai/gpt-oss-20b:free",       // ~3s, reliable JSON output
-  "openai/gpt-oss-120b:free",      // ~3-4s, more capable
-  "z-ai/glm-4.5-air:free",         // ~6s, JSON-friendly
-  "meta-llama/llama-3.3-70b-instruct:free", // fallback when not rate-limited
+  "openai/gpt-oss-20b:free",       // ~3s, reliable JSON output (occasionally emits LaTeX escapes that fail parse)
+  "openai/gpt-oss-120b:free",      // ~2s, currently the most reliable winner (verified 2026-05-15)
+  "deepseek/deepseek-v4-flash:free", // ~2s, healthy fallback when gpt-oss-120b is rate-limited (verified 2026-05-15)
+  "z-ai/glm-4.5-air:free",         // ~6s, JSON-friendly but often truncates at higher question counts
+  "meta-llama/llama-3.3-70b-instruct:free", // fallback when not rate-limited (currently 429 most of the time)
 ];
 
 // Per-model hard timeout. The race resolves as soon as ANY model returns

@@ -20,12 +20,25 @@ import { getAllExams } from "@/lib/exams";
 export const maxDuration = 60;
 
 const CRON_SECRET = process.env.CRON_SECRET || "your-secret-token-here";
-// Hard caps keep one invocation bounded. With BATCH=4 and ~10s per
-// generateQuiz race, two batches of 4 (8 topics) fits comfortably inside
-// the 60s function ceiling with margin for the upfront catalog scan.
+// Hard caps keep one invocation bounded.
+//
+// Tuning notes (learned the hard way after the first production run):
+//   - BATCH=4 hammered the one healthy free OpenRouter model with 4
+//     concurrent generateQuiz calls (each racing 4 models = 16
+//     simultaneous requests). The free tier concurrency-throttles and
+//     every cell fell through to the [Service Unavailable] fallback.
+//     BATCH=2 keeps concurrency manageable while still running 2 cells
+//     in parallel — measured: 8 cells in ~12-15s end to end.
+//   - QUESTIONS_PER_TOPIC=10 made each model emit ~2000 output tokens,
+//     which inflated latency past the 12s per-model timeout. Dropping
+//     to 5 matches the value scripts/test-openrouter.mjs uses (the
+//     one config we know works against the live OpenRouter catalog)
+//     and roughly halves per-call latency. We still chip the long
+//     tail effectively: 8 cells × 5 qs × 6 runs/day = ~240 new
+//     questions/day cached.
 const MAX_TOPICS = 8;
-const BATCH = 4;
-const QUESTIONS_PER_TOPIC = 10;
+const BATCH = 2;
+const QUESTIONS_PER_TOPIC = 5;
 // Topics already at this floor are skipped — keeps the prewarmer
 // focused on the long tail instead of repeatedly topping up the same
 // hot topics every run.
