@@ -87,7 +87,7 @@ async function fixSourceLabels() {
   });
 
   // Verify
-  const stillCached = after.rows.find((r: any) => r.source === "cached")?.count || 0;
+  const stillCached = Number(after.rows.find((r: any) => r.source === "cached")?.count || 0);
   if (stillCached > 0) {
     console.log(`\n⚠️  Warning: Still ${stillCached} questions marked as "cached"`);
   } else {
@@ -95,7 +95,7 @@ async function fixSourceLabels() {
   }
 
   // Summary
-  const verifiedCount = after.rows.find((r: any) => r.source === "verified")?.count || 0;
+  const verifiedCount = Number(after.rows.find((r: any) => r.source === "verified")?.count || 0);
   const total = after.rows.reduce((sum: number, r: any) => sum + Number(r.count), 0);
 
   console.log("\n" + "=".repeat(80));
@@ -103,7 +103,7 @@ async function fixSourceLabels() {
   console.log("=".repeat(80));
   console.log(`   Total Questions:       ${total}`);
   console.log(`   Verified:              ${verifiedCount} (${((verifiedCount / total) * 100).toFixed(1)}%)`);
-  console.log(`   Validated AI:          ${after.rows.find((r: any) => r.source === "validated-ai")?.count || 0}`);
+  console.log(`   Validated AI:          ${Number(after.rows.find((r: any) => r.source === "validated-ai")?.count || 0)}`);
   console.log(`   Cached (remaining):    ${stillCached}`);
   console.log("=".repeat(80));
 
