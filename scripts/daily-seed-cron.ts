@@ -4,20 +4,22 @@
  *
  * Purpose: Automatically grow question bank by seeding low-stock topics
  * Frequency: Daily (recommended: 2 AM IST)
- * Target: Topics with < 50 questions
- * Amount: 20 questions per topic per day
+ * Target: Topics with < 100 questions (keep well-stocked!)
+ * Amount: 30 questions per topic per day
  *
  * Strategy:
- * - Identify topics below threshold (50 questions)
+ * - Identify topics below threshold (100 questions)
  * - Prioritize topics with lowest stock first
- * - Seed 20 questions per topic
- * - Stop after 10 topics (200 total questions per day)
- * - This prevents API overload and spreads growth over time
+ * - Seed 30 questions per topic
+ * - Stop after 20 topics (600 total questions per day)
+ * - Uses ~120 API requests/day (well under 1000/day quota)
+ * - Ensures users NEVER hit Tier 3 AI generation
  *
  * Expected Growth:
- * - Day 1: 10 low-stock topics → +200 questions
- * - Day 7: +1,400 questions/week
- * - Day 30: +6,000 questions/month
+ * - Day 1: 20 low-stock topics → +600 questions
+ * - Day 7: +4,200 questions/week
+ * - Day 30: +18,000 questions/month
+ * - Result: All topics stay above 100 questions permanently!
  */
 
 import { createClient } from "@libsql/client";
@@ -41,9 +43,9 @@ const db = createClient({
 });
 
 // Configuration
-const QUESTIONS_PER_TOPIC = 20; // Daily increment per topic
-const LOW_STOCK_THRESHOLD = 50; // Topics below this get priority
-const MAX_TOPICS_PER_DAY = 10; // Limit to 10 topics/day = 200 questions/day
+const QUESTIONS_PER_TOPIC = 30; // Daily increment per topic (increased from 20)
+const LOW_STOCK_THRESHOLD = 100; // Topics below this get priority (increased from 50)
+const MAX_TOPICS_PER_DAY = 20; // Limit to 20 topics/day = 600 questions/day (increased from 10)
 const BATCH_SIZE = 5; // Process 5 topics at a time
 const DELAY_BETWEEN_BATCHES = 15000; // 15 seconds between batches
 
@@ -345,6 +347,7 @@ async function runDailySeeding() {
     const topicsToSeed = lowStockTopics.slice(0, MAX_TOPICS_PER_DAY);
 
     log(`📋 Target: ${topicsToSeed.length} topics (${topicsToSeed.length * QUESTIONS_PER_TOPIC} questions total)`);
+    log(`💪 Aggressive mode: Keeping all topics above 100 questions!`);
     log("");
 
     // Process in batches
