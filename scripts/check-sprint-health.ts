@@ -68,7 +68,7 @@ async function checkSprintHealth() {
   }
 
   // 2. Check participation (if any sprint_id exists in quiz_sessions)
-  let participationCount = { rows: [{ users: 0 }] };
+  let participationCount: any = { rows: [{ users: 0 }] };
   try {
     participationCount = await db.execute({
       sql: `
