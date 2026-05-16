@@ -223,7 +223,7 @@ Output ONLY a valid JSON array (no markdown, no extra text):
         "X-Title": "PrepGenie Comprehensive Seeder",
       },
       body: JSON.stringify({
-        model: "google/gemini-flash-1.5",
+        model: "google/gemini-flash-latest",
         messages: [
           {
             role: "system",
