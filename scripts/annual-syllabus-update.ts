@@ -3,7 +3,8 @@
  * Annual Syllabus Update Script
  *
  * Purpose: Mark old questions as outdated when syllabus changes
- * Frequency: Once a year (January 1st via cron)
+ * Frequency: Once a year (June 1st via cron)
+ * Timing: June aligns with Indian academic year (starts April, new syllabi by May)
  * Safe: Non-destructive, only marks questions, doesn't delete
  *
  * How it works:
@@ -155,7 +156,7 @@ async function runAnnualUpdate() {
     log(`Questions marked outdated: ${totalQuestionsMarkedOutdated}`);
     log(`Questions marked current: ${totalQuestionsMarkedCurrent}`);
     log(`Duration: ${duration} minutes`);
-    log(`Next run: January 1st next year`);
+    log(`Next run: June 1st next year`);
     log("═".repeat(80));
     log("");
 

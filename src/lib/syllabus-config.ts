@@ -229,25 +229,27 @@ export function getExamsNeedingUpdate(): SyllabusConfig[] {
 }
 
 /**
- * ANNUAL UPDATE CHECKLIST (Run every January)
+ * ANNUAL UPDATE CHECKLIST (Run every May/June)
  *
- * 1. Check official notifications:
- *    - NTA (JEE, NEET): Usually Jan-Feb
- *    - State CETs: Feb-March
- *    - GATE: August (for next year)
+ * Timing: June 1st aligns with Indian academic year (starts April, new syllabi announced by May)
+ *
+ * 1. Check official notifications (April-May):
+ *    - NTA (JEE, NEET): Usually March-April (for next academic year)
+ *    - State CETs: April-May (following state board updates)
+ *    - GATE: August (for next year's exam)
  *    - UPSC: Rarely changes
  *    - Banking/SSC: Check official sites
  *
- * 2. Update this file:
+ * 2. Update this file (May):
  *    - Increment currentSyllabusYear if syllabus changed
  *    - Update lastUpdated date
  *    - Add changes description
  *    - Update officialNotice URL
  *
- * 3. Run migration:
+ * 3. Run migration (one-time, already done):
  *    - npx tsx scripts/migrate-add-syllabus-year.ts
  *
- * 4. Run annual update:
+ * 4. Wait for annual cron (June 1st) or run manually:
  *    - npx tsx scripts/annual-syllabus-update.ts
  *
  * 5. Verify:

@@ -93,7 +93,7 @@ INSERT INTO exam_questions (
 
 ### 5. **Annual Update Script** (`scripts/annual-syllabus-update.ts`)
 
-Runs **once a year** (January 1st):
+Runs **once a year** (June 1st):
 
 **What it does:**
 1. Reads `CURRENT_SYLLABUS` config
@@ -112,14 +112,14 @@ JEE Main syllabus changed from 2024 → 2025
 
 ### 6. **Annual Cron Job** (`vercel.json`)
 
-Scheduled for **January 1st at 3 AM IST** (once a year):
+Scheduled for **June 1st at 3 AM IST** (once a year):
 
 ```json
 {
   "crons": [
     {
       "path": "/api/cron/annual-syllabus-update",
-      "schedule": "0 3 1 1 *"  // Jan 1st, 3 AM UTC
+      "schedule": "0 3 1 1 *"  // June 1st, 3 AM UTC
     }
   ]
 }
@@ -131,7 +131,7 @@ Scheduled for **January 1st at 3 AM IST** (once a year):
 
 ## 📅 Annual Maintenance Workflow
 
-### **Every January (After New Syllabi Announced)**
+### **Every May-June (After New Syllabi Announced)**
 
 #### Step 1: Check Official Notifications (Dec-Jan)
 - **JEE/NEET**: NTA website (usually Jan-Feb)
@@ -140,7 +140,7 @@ Scheduled for **January 1st at 3 AM IST** (once a year):
 - **UPSC**: Rarely changes
 - **Banking/SSC**: Check official sites
 
-#### Step 2: Update Syllabus Config (January)
+#### Step 2: Update Syllabus Config (May-June)
 
 Edit `src/lib/syllabus-config.ts`:
 
@@ -163,7 +163,7 @@ npx tsx scripts/migrate-add-syllabus-year.ts
 
 This added the columns. **No need to run again.**
 
-#### Step 4: Run Annual Update (Automatic on Jan 1st)
+#### Step 4: Run Annual Update (Automatic on June 1st)
 
 **Vercel cron runs automatically**, or manually trigger:
 
@@ -247,13 +247,13 @@ GROUP BY q.exam_id, q.syllabus_year, q.is_current_syllabus;
 
 **What happens:**
 
-1. **January 1, 2027** - Annual cron runs:
+1. **May-June 1, 2027** - Annual cron runs:
    ```
    JEE Main 2024 syllabus: 18,000 questions → marked outdated
    JEE Main 2027 syllabus: 200 questions → marked current
    ```
 
-2. **January-March 2027** - Daily cron seeds:
+2. **May-June-March 2027** - Daily cron seeds:
    ```
    Day 1: +80 JEE Main 2027 questions (total: 280)
    Day 30: +2,400 questions (total: 2,600)
@@ -269,7 +269,7 @@ GROUP BY q.exam_id, q.syllabus_year, q.is_current_syllabus;
 
 **What happens:**
 
-1. **January 1, 2027** - Annual cron runs:
+1. **May-June 1, 2027** - Annual cron runs:
    ```
    NEET syllabus year unchanged: 2024 → 2024
    No questions marked outdated
@@ -298,7 +298,7 @@ GROUP BY q.exam_id, q.syllabus_year, q.is_current_syllabus;
    npx tsx scripts/comprehensive-seed-generator.ts
    ```
 
-3. **No annual update needed** until next January
+3. **No annual update needed** until next May-June
 
 ---
 
@@ -402,7 +402,7 @@ sqlite3 data/prepgenie.db "SELECT exam_id, syllabus_year, is_current_syllabus, C
 - [ ] Check official notifications (Dec-Jan)
 - [ ] Update `syllabus-config.ts` (Jan)
 - [ ] Commit and push changes
-- [ ] Annual cron runs automatically (Jan 1st)
+- [ ] Annual cron runs automatically (June 1st)
 - [ ] Verify quiz behavior (test a few)
 - [ ] Monitor user feedback
 - [ ] Seed more questions if needed
@@ -423,7 +423,7 @@ sqlite3 data/prepgenie.db "SELECT exam_id, syllabus_year, is_current_syllabus, C
 - ✅ Logs and monitoring
 
 **Next manual action:**
-- **January 2027:** Update syllabus config if any exam changes
+- **May-June 2027:** Update syllabus config if any exam changes
 
 **This is production-ready and will run autonomously!** 🎯
 

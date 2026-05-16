@@ -4,10 +4,11 @@ import { runAnnualUpdate } from "../../../../../scripts/annual-syllabus-update";
 /**
  * Annual Syllabus Update Cron Endpoint
  *
- * Called by Vercel Cron: Once a year on January 1st at 3 AM IST
+ * Called by Vercel Cron: Once a year on June 1st at 3 AM IST
  * URL: /api/cron/annual-syllabus-update
  *
  * Purpose: Mark old syllabus questions as outdated when new syllabi are announced
+ * Timing: June 1st aligns with Indian academic year (starts April, new syllabi by May)
  * Security: Only callable by Vercel cron (verifies Authorization header)
  */
 export async function GET(request: NextRequest) {

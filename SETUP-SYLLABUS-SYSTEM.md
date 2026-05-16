@@ -10,7 +10,7 @@
 - ✅ Quiz generator updated (prioritizes current syllabus)
 - ✅ All seeding scripts updated (auto-tag questions)
 - ✅ Annual update script created
-- ✅ Annual cron scheduled (Jan 1st each year)
+- ✅ Annual cron scheduled (June 1st each year)
 - ✅ Code pushed to GitHub
 - ✅ Vercel deployment in progress
 
@@ -107,7 +107,7 @@ Generate a quiz and verify it works:
 - New questions auto-tagged with current syllabus year (2024)
 - Example: `syllabus_year = 2024, is_current_syllabus = 1`
 
-### January 1st Next Year (Automatic):
+### June 1st Next Year (Automatic):
 - Annual cron runs at 3 AM IST
 - Checks syllabus config
 - If any exam's syllabus changed:
@@ -117,7 +117,7 @@ Generate a quiz and verify it works:
 
 ### When Syllabus Changes (Manual, 5 min/year):
 
-**Example: JEE Main syllabus changes in Jan 2027**
+**Example: JEE Main syllabus changes in April 2027 (announced by NTA)**
 
 1. **Edit** `src/lib/syllabus-config.ts`:
    ```typescript
@@ -137,7 +137,7 @@ Generate a quiz and verify it works:
    git push origin main
    ```
 
-3. **Wait for annual cron** (Jan 1st), or manually trigger:
+3. **Wait for annual cron** (June 1st), or manually trigger:
    ```bash
    npx tsx scripts/annual-syllabus-update.ts
    ```
@@ -178,7 +178,7 @@ console.table(result.rows);
 ### Logs:
 
 ```bash
-# Annual update log (after Jan 1st each year)
+# Annual update log (after June 1st each year)
 cat annual-syllabus-update.log
 
 # Daily seeding log
@@ -206,7 +206,7 @@ tail -f daily-seed-cron.log
 
 **Check:**
 1. Vercel Dashboard → Crons → History
-2. Should show run on Jan 1st each year
+2. Should show run on June 1st each year
 3. Check logs for errors
 4. Verify CRON_SECRET is set
 
@@ -219,7 +219,7 @@ tail -f daily-seed-cron.log
 ```
 src/lib/syllabus-config.ts              ← UPDATE ANNUALLY when syllabus changes
 scripts/migrate-add-syllabus-year.ts    ← Run ONCE (now)
-scripts/annual-syllabus-update.ts       ← Runs AUTOMATICALLY (Jan 1st)
+scripts/annual-syllabus-update.ts       ← Runs AUTOMATICALLY (June 1st)
 src/lib/db.ts                           ← Quiz logic (auto-updated)
 vercel.json                             ← Cron schedule (already set)
 SYLLABUS-CURRENCY-SYSTEM.md             ← Full documentation
@@ -240,11 +240,11 @@ npx tsx -e "import {db} from './src/lib/db'; /* query here */"
 
 ### Annual Checklist:
 
-**Every January:**
-- [ ] Check official exam notifications
-- [ ] Update `syllabus-config.ts` if any changes
+**Every May-June:**
+- [ ] Check official exam notifications (April-May)
+- [ ] Update `syllabus-config.ts` if any changes (May)
 - [ ] Commit and push
-- [ ] Wait for annual cron (Jan 1st) or run manually
+- [ ] Wait for annual cron (June 1st) or run manually
 - [ ] Verify quiz behavior
 - [ ] Check logs
 
@@ -256,7 +256,7 @@ npx tsx -e "import {db} from './src/lib/db'; /* query here */"
 
 ✅ **Automatic syllabus tracking** - Questions tagged with year  
 ✅ **Current syllabus priority** - Quiz picks latest first  
-✅ **Annual updates** - Runs automatically Jan 1st  
+✅ **Annual updates** - Runs automatically June 1st  
 ✅ **Graceful fallback** - Still works if new syllabus is low  
 ✅ **Non-destructive** - Old questions kept as backup  
 ✅ **5 min/year maintenance** - Just update one config file
@@ -267,7 +267,7 @@ npx tsx -e "import {db} from './src/lib/db'; /* query here */"
 3. Done! System runs autonomously from now on 🚀
 
 **Next annual action:**
-- **January 2027**: Check if any exam syllabus changed, update config
+- **May-June 2027**: Check if any exam syllabus changed (after April announcements), update config
 
 **This ensures PrepGenie always stays current with exam patterns!** 🎯
 
