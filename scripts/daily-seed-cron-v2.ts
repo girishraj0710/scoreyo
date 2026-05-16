@@ -18,15 +18,18 @@ import { readFileSync, appendFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { examCategories } from "../src/lib/exams";
 
-// Load environment
-const envFile = readFileSync(join(process.cwd(), ".env.local"), "utf-8");
-envFile.split("\n").forEach((line) => {
-  const match = line.match(/^([^=]+)=(.*)$/);
-  if (match) {
-    const [, key, value] = match;
-    process.env[key.trim()] = value.trim().replace(/^["']|["']$/g, '');
-  }
-});
+// Load environment (only for local development)
+const envPath = join(process.cwd(), ".env.local");
+if (require("fs").existsSync(envPath)) {
+  const envFile = readFileSync(envPath, "utf-8");
+  envFile.split("\n").forEach((line) => {
+    const match = line.match(/^([^=]+)=(.*)$/);
+    if (match) {
+      const [, key, value] = match;
+      process.env[key.trim()] = value.trim().replace(/^["']|["']$/g, '');
+    }
+  });
+}
 
 const db = createClient({
   url: process.env.TURSO_DATABASE_URL!,
