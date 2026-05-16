@@ -9,6 +9,7 @@ import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
 import { calculateStars } from "@/lib/level-definitions";
 
 interface Question {
+  id?: string;
   question: string;
   options: string[];
   correctAnswer: number;
@@ -881,6 +882,7 @@ function QuizContent() {
                     correctAnswer={r.correctAnswer}
                     userAnswer={r.userAnswer ?? -1}
                     options={r.options}
+                    questionId={r.id}
                   />
                 )}
               </div>
@@ -1133,6 +1135,7 @@ function QuizContent() {
             correctAnswer={question.correctAnswer}
             userAnswer={answers[currentQuestion] ?? -1}
             options={question.options}
+            questionId={question.id}
           />
         )}
       </div>

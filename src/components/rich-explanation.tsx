@@ -1,6 +1,7 @@
 "use client";
 
 import { AIClarificationChat } from "./ai-clarification-chat";
+import ReportQuestionButton from "./ReportQuestionButton";
 
 interface RichExplanationProps {
   explanation: string | {
@@ -13,9 +14,10 @@ interface RichExplanationProps {
   correctAnswer: number;
   userAnswer: number;
   options: string[];
+  questionId?: string;
 }
 
-export function RichExplanation({ explanation, correctAnswer, userAnswer, options }: RichExplanationProps) {
+export function RichExplanation({ explanation, correctAnswer, userAnswer, options, questionId }: RichExplanationProps) {
   // Handle legacy string explanations
   if (typeof explanation === 'string') {
     return (
@@ -143,6 +145,13 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
           correctAnswer={options[correctAnswer]}
           userAnswer={options[userAnswer]}
         />
+      )}
+
+      {/* Report Question Button */}
+      {questionId && (
+        <div className="flex justify-center pt-2">
+          <ReportQuestionButton questionId={questionId} />
+        </div>
       )}
     </div>
   );
