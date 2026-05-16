@@ -818,3 +818,107 @@
  GET / 200 in 22ms (next.js: 873µs, application-code: 21ms)
  GET / 200 in 15ms (next.js: 675µs, application-code: 15ms)
  GET / 200 in 8ms (next.js: 834µs, application-code: 7ms)
+ GET /sprint 200 in 39ms (next.js: 22ms, application-code: 17ms)
+ GET /api/sprint 200 in 1165ms (next.js: 24ms, application-code: 1141ms)
+ GET /api/sprint 200 in 576ms (next.js: 2ms, application-code: 574ms)
+ GET / 200 in 70ms (next.js: 1355µs, application-code: 68ms)
+ GET /api/auth 200 in 279ms (next.js: 18ms, application-code: 261ms)
+ GET /api/subscription 200 in 554ms (next.js: 35ms, application-code: 519ms)
+ GET /api/stats 200 in 808ms (next.js: 15ms, application-code: 793ms)
+ GET /dashboard 200 in 38ms (next.js: 20ms, application-code: 18ms)
+ GET /api/stats 200 in 603ms (next.js: 1871µs, application-code: 601ms)
+ GET /api/weakness 200 in 232ms (next.js: 112ms, application-code: 120ms)
+ GET /api/streak-calendar 200 in 233ms (next.js: 134ms, application-code: 100ms)
+ GET /api/streak-calendar 200 in 93ms (next.js: 3ms, application-code: 90ms)
+ GET /api/weakness 200 in 94ms (next.js: 1028µs, application-code: 93ms)
+ GET /api/dpp 200 in 397ms (next.js: 93ms, application-code: 303ms)
+ GET /api/level-progress 200 in 482ms (next.js: 25ms, application-code: 458ms)
+ GET /api/stats 200 in 645ms (next.js: 1833µs, application-code: 643ms)
+ GET /api/dpp 200 in 253ms (next.js: 3ms, application-code: 251ms)
+ GET /api/level-progress 200 in 482ms (next.js: 2ms, application-code: 480ms)
+ GET /review 200 in 33ms (next.js: 17ms, application-code: 16ms)
+ GET /api/review 200 in 574ms (next.js: 16ms, application-code: 558ms)
+ GET /api/review 200 in 237ms (next.js: 3ms, application-code: 235ms)
+ GET /quiz?examId=neet-ug&subjectId=neet-biology&topic=Human%20Reproduction&count=5&difficulty=mixed 200 in 44ms (next.js: 10ms, application-code: 35ms)
+[Quiz API] Request: examId="neet-ug", subjectId="neet-biology", topic="Human Reproduction", difficulty="mixed", count=5
+ GET /api/auth 200 in 229ms (next.js: 1048µs, application-code: 228ms)
+[Quiz API] pools: verified=10, cached=10 (neet-ug/Human Reproduction)
+ POST /api/quiz 200 in 380ms (next.js: 26ms, application-code: 354ms)
+ GET /?examId=neet-ug&subjectId=neet-biology 200 in 28ms (next.js: 3ms, application-code: 25ms)
+ GET /api/subscription 200 in 312ms (next.js: 6ms, application-code: 306ms)
+ GET /api/stats 200 in 591ms (next.js: 2ms, application-code: 588ms)
+ GET /api/subscription 200 in 350ms (next.js: 2ms, application-code: 348ms)
+ GET /api/stats 200 in 527ms (next.js: 1908µs, application-code: 525ms)
+ GET /review 200 in 30ms (next.js: 2ms, application-code: 28ms)
+ GET /api/review 200 in 323ms (next.js: 2ms, application-code: 321ms)
+ GET /api/review 200 in 262ms (next.js: 3ms, application-code: 259ms)
+ GET /mock-test 200 in 40ms (next.js: 24ms, application-code: 16ms)
+ GET /api/mock-test?action=configs 200 in 31ms (next.js: 29ms, application-code: 2ms)
+ GET /api/mock-test?action=configs 200 in 3ms (next.js: 1143µs, application-code: 1439µs)
+ GET /api/mock-test 200 in 352ms (next.js: 35ms, application-code: 317ms)
+ GET /api/mock-test 200 in 97ms (next.js: 2ms, application-code: 95ms)
+ GET /api/mock-test?action=capacity 200 in 7.5s (next.js: 32ms, application-code: 7.5s)
+ GET /api/mock-test?action=capacity 200 in 7.0s (next.js: 2ms, application-code: 7.0s)
+ GET /reports 200 in 47ms (next.js: 25ms, application-code: 22ms)
+ GET /api/reports 200 in 1564ms (next.js: 23ms, application-code: 1541ms)
+ GET /api/reports 200 in 1025ms (next.js: 3ms, application-code: 1022ms)
+ GET /achievements 200 in 213ms (next.js: 204ms, application-code: 8ms)
+ GET /api/achievements 200 in 1022ms (next.js: 62ms, application-code: 959ms)
+ GET /api/achievements 200 in 594ms (next.js: 3ms, application-code: 590ms)
+🌱 Starting daily seeding cron job...
+════════════════════════════════════════════════════════════════════════════════
+🌱 DAILY AUTO-SEEDING CRON JOB
+════════════════════════════════════════════════════════════════════════════════
+Started: 16/5/2026, 10:24:33 pm
+
+🔍 Scanning for low-stock topics...
+   Found 2229 topics below threshold (50 questions)
+📋 Target: 10 topics (200 questions total)
+
+📦 Batch 1/2 (5 topics)
+   🌱 Seeding: JEE Main → Physics → Current Electricity
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Magnetism
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Electromagnetic Induction
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Semiconductors
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Units & Measurements
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   ⏸️  Pausing 15s before next batch...
+
+📦 Batch 2/2 (5 topics)
+   🌱 Seeding: JEE Main → Physics → Kinematics
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Laws of Motion
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Work Energy Power
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Rotational Motion
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+   🌱 Seeding: JEE Main → Physics → Gravitation
+   🤖 Generating 20 questions...
+   ❌ Error: API error 400: {"error":{"message":"google/gemini-flash-latest is not a valid model ID","code":400},"user_id":"user_3D5Q9zkjXlrHusZfVzr9oTvGOiX"}
+
+════════════════════════════════════════════════════════════════════════════════
+✅ DAILY SEEDING COMPLETE
+════════════════════════════════════════════════════════════════════════════════
+Topics Seeded: 0/10
+Questions Added: ~0
+Duration: 3.7 minutes
+Next Run: Tomorrow at scheduled time
+════════════════════════════════════════════════════════════════════════════════
+ POST /api/cron/daily-seed 200 in 3.7min (next.js: 82ms, application-code: 3.7min)
+ GET /achievements 200 in 69ms (next.js: 41ms, application-code: 28ms)
+ GET /achievements 200 in 20ms (next.js: 942µs, application-code: 19ms)
+ GET /achievements 200 in 11ms (next.js: 1129µs, application-code: 10ms)

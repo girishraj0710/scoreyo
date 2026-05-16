@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { runDailySeeding } from "../../../../../scripts/daily-seed-cron";
+import { runDailySeeding } from "../../../../../scripts/daily-seed-cron-v2";
 
 /**
  * Daily Auto-Seeding Cron Endpoint

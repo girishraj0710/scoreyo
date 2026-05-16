@@ -50,6 +50,9 @@ dev-server.log
 seed-progress.log
 daily-seed-cron.log
 
+# cron state tracking
+.cron-rotation-tracker.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
