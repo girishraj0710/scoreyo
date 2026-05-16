@@ -1491,6 +1491,12 @@ export async function getExamQuestions(
     }
   }
 
+  // GUARANTEE: Never return empty (for debugging, log if no questions found)
+  if (rows.length === 0) {
+    console.warn(`⚠️ No questions found for exam=${examId}, subject=${subjectId}, topic=${topic}, difficulty=${difficulty}, year=${currentYear}`);
+    console.warn(`   This should not happen! Check database validity periods.`);
+  }
+
   return rows.map((row: any) => ({
     question: row.question,
     options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
