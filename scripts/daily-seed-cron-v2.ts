@@ -201,7 +201,7 @@ async function generateQuestions(
   const subject = exam?.subjects.find(s => s.id === subjectId);
 
   const examContext = exam?.description || examName;
-  const subjectDescription = subject?.description || subjectName;
+  const subjectDescription = subjectName; // Subject doesn't have description field
 
   const prompt = `You are an expert question setter for ${examName} exam preparation.
 
