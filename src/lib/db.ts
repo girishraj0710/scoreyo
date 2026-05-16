@@ -1475,7 +1475,7 @@ export async function getExamQuestions(
     correctAnswer: row.correct_answer,
     explanation: row.explanation,
     difficulty: row.difficulty,
-    source: 'verified' as const,
+    source: row.source || 'verified', // Use actual source from DB, fallback to 'verified'
   }));
 }
 

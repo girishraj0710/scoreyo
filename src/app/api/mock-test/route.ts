@@ -21,6 +21,11 @@ import {
   calculateMaxTestsAvailable,
   getAllDynamicMockTests
 } from "@/lib/dynamic-mock-test-generator";
+import {
+  getAllAvailableMockTests,
+  getDynamicMockTestConfigs,
+  calculateDetailedAvailability
+} from "@/lib/dynamic-mock-test-config";
 import { getExamById, getSubjectById } from "@/lib/exams";
 
 // Mock-test generation can chain several AI calls (one per section) plus
@@ -55,32 +60,30 @@ export async function GET(request: NextRequest) {
   }
 
   if (action === "capacity") {
-    // Capacity = how many tests can ACTUALLY be delivered for each exam.
-    // The UI uses this to decide how many "Test N" buttons to render, so it
-    // must not be inflated — every advertised slot needs a real backing source.
+    // DYNAMIC CAPACITY: Calculate based on actual question availability
+    // Updates automatically as questions are added (daily seeding)
     //
-    // Per-exam capacity = max(staticConfigCount, dynamicDeliverableCount).
-    //   - staticConfigCount: hand-curated mockTestConfigs entries
-    //   - dynamicDeliverableCount: how many unique tests the cached question
-    //     pool can satisfy (bottleneck-aware across sections)
+    // Logic: For each exam, check available questions per subject
+    // and calculate max tests that can be generated without repetition
+    const allAvailable = await getAllAvailableMockTests();
+
     const capacity: Record<string, number> = {};
-    const staticConfigs = getAllMockTestConfigs();
-    const examIds = [...new Set(staticConfigs.map((c) => c.examId))];
+    for (const exam of allAvailable) {
+      capacity[exam.examId] = exam.availableTests;
+    }
 
-    await Promise.all(
-      examIds.map(async (examId) => {
-        const staticCount = staticConfigs.filter((c) => c.examId === examId).length;
-        let dynamicCount = 0;
-        try {
-          dynamicCount = await calculateMaxTestsAvailable(examId);
-        } catch (error) {
-          console.error(`[MockTest] capacity calc failed for ${examId}:`, error);
-        }
-        capacity[examId] = Math.max(staticCount, dynamicCount);
-      })
-    );
+    // Also include exam names for UI display
+    const examDetails = allAvailable.map(e => ({
+      examId: e.examId,
+      examName: e.examName,
+      availableTests: e.availableTests,
+      totalQuestions: e.totalQuestions,
+    }));
 
-    return NextResponse.json({ capacity });
+    return NextResponse.json({
+      capacity,
+      exams: examDetails
+    });
   }
 
   if (action === "resume") {

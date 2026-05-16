@@ -472,6 +472,7 @@ function QuizContent() {
 
   // Source badge component
   const SourceBadge = ({ source }: { source?: string }) => {
+    // Verified: PYQ/NCERT/Manual review (green badge)
     if (source === "verified") {
       return (
         <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
@@ -486,6 +487,9 @@ function QuizContent() {
         </span>
       );
     }
+
+    // Expert Curated: AI-generated with quality standards (blue badge)
+    // Includes: expert-curated, validated-ai, ai, or any other source
     return (
       <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
         <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">

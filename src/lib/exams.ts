@@ -137,6 +137,364 @@ export const examCategories: ExamCategory[] = [
         ],
       },
       {
+        id: "kcet",
+        name: "Karnataka CET",
+        fullName: "Karnataka Common Entrance Test",
+        category: "engineering",
+        icon: "🎯",
+        color: "#FF6B6B",
+        description: "For admission to Karnataka Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "kcet-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Fluid Mechanics", "Rotational Motion"
+            ],
+          },
+          {
+            id: "kcet-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Carboxylic Acids"
+            ],
+          },
+          {
+            id: "kcet-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Probability", "Mathematical Reasoning"
+            ],
+          },
+        ],
+      },
+      {
+        id: "comedk",
+        name: "COMEDK UGET",
+        fullName: "Consortium of Medical Engineering and Dental Colleges of Karnataka",
+        category: "engineering",
+        icon: "🏛️",
+        color: "#4ECDC4",
+        description: "For admission to private Engineering colleges in Karnataka",
+        subjects: [
+          {
+            id: "comedk-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Units & Measurements", "Kinematics",
+              "Laws of Motion", "Work Energy Power", "Rotational Motion",
+              "Gravitation", "Fluid Mechanics", "Ray Optics"
+            ],
+          },
+          {
+            id: "comedk-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Aromatic Compounds"
+            ],
+          },
+          {
+            id: "comedk-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Circles", "Probability"
+            ],
+          },
+        ],
+      },
+      {
+        id: "mht-cet",
+        name: "MHT CET",
+        fullName: "Maharashtra Common Entrance Test",
+        category: "engineering",
+        icon: "🎯",
+        color: "#FF9800",
+        description: "For admission to Maharashtra Engineering & Pharmacy colleges",
+        subjects: [
+          {
+            id: "mht-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Rotational Motion", "Gravitation",
+              "Surface Tension", "Kinetic Theory of Gases", "Wave Motion"
+            ],
+          },
+          {
+            id: "mht-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Alcohols & Phenols", "Biomolecules"
+            ],
+          },
+          {
+            id: "mht-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Linear Programming", "Mathematical Logic"
+            ],
+          },
+        ],
+      },
+      {
+        id: "ts-eamcet",
+        name: "TS EAMCET",
+        fullName: "Telangana State Engineering Agriculture & Medical Common Entrance Test",
+        category: "engineering",
+        icon: "🎯",
+        color: "#E91E63",
+        description: "For admission to Telangana Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "ts-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Fluid Mechanics", "Communication Systems"
+            ],
+          },
+          {
+            id: "ts-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Environmental Chemistry"
+            ],
+          },
+          {
+            id: "ts-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Probability", "Quadratic Equations"
+            ],
+          },
+        ],
+      },
+      {
+        id: "ap-eamcet",
+        name: "AP EAMCET",
+        fullName: "Andhra Pradesh Engineering Agriculture & Medical Common Entrance Test",
+        category: "engineering",
+        icon: "🎯",
+        color: "#9C27B0",
+        description: "For admission to Andhra Pradesh Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "ap-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Fluid Mechanics", "Atoms & Nuclei"
+            ],
+          },
+          {
+            id: "ap-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Chemistry in Everyday Life"
+            ],
+          },
+          {
+            id: "ap-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Circles", "Probability"
+            ],
+          },
+        ],
+      },
+      {
+        id: "wbjee",
+        name: "WBJEE",
+        fullName: "West Bengal Joint Entrance Examination",
+        category: "engineering",
+        icon: "🎯",
+        color: "#00BCD4",
+        description: "For admission to West Bengal Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "wbjee-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Simple Harmonic Motion", "Physical World"
+            ],
+          },
+          {
+            id: "wbjee-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Haloalkanes"
+            ],
+          },
+          {
+            id: "wbjee-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Application of Derivatives", "Definite Integrals"
+            ],
+          },
+        ],
+      },
+      {
+        id: "keam",
+        name: "KEAM",
+        fullName: "Kerala Engineering Architecture Medical Entrance Examination",
+        category: "engineering",
+        icon: "🎯",
+        color: "#4CAF50",
+        description: "For admission to Kerala Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "keam-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Fluid Mechanics", "Thermal Physics"
+            ],
+          },
+          {
+            id: "keam-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Solid State"
+            ],
+          },
+          {
+            id: "keam-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Probability Distributions", "Inverse Trigonometry"
+            ],
+          },
+        ],
+      },
+      {
         id: "gate",
         name: "GATE",
         fullName: "Graduate Aptitude Test in Engineering",
