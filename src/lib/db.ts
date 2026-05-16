@@ -616,12 +616,15 @@ export async function createQuizSession(
   topic: string,
   totalQuestions: number,
   correctAnswers: number,
-  timeTaken: number
+  timeTaken: number,
+  sourceStats?: { verified?: number; cached?: number; ai?: number },
+  sprintId?: string
 ) {
+  const sourceStatsJson = sourceStats ? JSON.stringify(sourceStats) : null;
   return execute(
-    `INSERT INTO quiz_sessions (id, user_id, exam_id, subject_id, topic, total_questions, correct_answers, time_taken_seconds)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-    [sessionId, userId, examId, subjectId, topic, totalQuestions, correctAnswers, timeTaken]
+    `INSERT INTO quiz_sessions (id, user_id, exam_id, subject_id, topic, total_questions, correct_answers, time_taken_seconds, source_stats, sprint_id)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [sessionId, userId, examId, subjectId, topic, totalQuestions, correctAnswers, timeTaken, sourceStatsJson, sprintId || null]
   );
 }
 

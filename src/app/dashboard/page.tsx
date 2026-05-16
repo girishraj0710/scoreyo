@@ -6,6 +6,7 @@ import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
 import { LevelProgressWidget } from "@/components/level-progress-widget";
 import { StudyStreakCalendar } from "@/components/study-streak-calendar";
+import CachePerformanceWidget from "@/components/CachePerformanceWidget";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
@@ -192,6 +193,9 @@ export default function DashboardPage() {
 
         {/* Daily Practice Problem - THE daily feature */}
         <DPPCard />
+
+        {/* Cache Performance Analytics */}
+        <CachePerformanceWidget />
 
         {/* Exam-wise Breakdown */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">

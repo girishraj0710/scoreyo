@@ -499,6 +499,20 @@ export async function PUT(request: NextRequest) {
       };
     });
 
+    // Calculate source stats for analytics
+    const sourceStats = {
+      verified: questions.filter((q: any) => q.source === 'verified').length,
+      ai: questions.filter((q: any) => q.source === 'ai').length,
+    };
+    // If cached distinction exists, count it separately
+    const cached = questions.filter((q: any) => q.source === 'cached').length;
+    if (cached > 0) {
+      sourceStats.ai += cached; // Group cached with AI for now
+    }
+
+    // Extract sprint_id if this is a sprint quiz
+    const sprintId = body.sprintId || null;
+
     // Save to database
     await createQuizSession(
       sessionId,
@@ -508,7 +522,9 @@ export async function PUT(request: NextRequest) {
       topic,
       questions.length,
       correct,
-      timeTaken || 0
+      timeTaken || 0,
+      sourceStats,
+      sprintId
     );
 
     await saveQuestionAttempts(attempts);
