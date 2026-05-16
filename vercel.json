@@ -3,6 +3,10 @@
     {
       "path": "/api/cron/daily-seed",
       "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/annual-syllabus-update",
+      "schedule": "0 3 1 1 *"
     }
   ]
 }

@@ -26,6 +26,7 @@ import { createClient } from "@libsql/client";
 import { readFileSync, appendFileSync } from "fs";
 import { join } from "path";
 import { examCategories } from "../src/lib/exams";
+import { getCurrentSyllabusYear } from "../src/lib/syllabus-config";
 
 // Load environment (only for local development)
 const envPath = join(process.cwd(), ".env.local");
@@ -237,13 +238,15 @@ async function seedTopic(
 
     log(`   ✅ Generated ${questions.length} questions, inserting into database...`);
 
-    // Insert questions
+    // Insert questions with current syllabus year
+    const syllabusYear = getCurrentSyllabusYear(examId);
+
     let inserted = 0;
     for (const q of questions) {
       try {
         await dbExecuteWithRetry({
-          sql: `INSERT INTO exam_questions (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          sql: `INSERT INTO exam_questions (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source, syllabus_year, is_current_syllabus)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           args: [
             examId,
             subjectId,
@@ -254,6 +257,8 @@ async function seedTopic(
             q.explanation,
             q.difficulty,
             "expert-curated", // Daily seeded questions are expert-curated
+            syllabusYear,
+            1, // New questions are always current syllabus
           ],
         });
         inserted++;

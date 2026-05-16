@@ -19,6 +19,7 @@ import { createClient } from "@libsql/client";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { examCategories } from "../src/lib/exams";
+import { getCurrentSyllabusYear } from "../src/lib/syllabus-config";
 
 // Load environment
 const envFile = readFileSync(join(process.cwd(), ".env.local"), "utf-8");
@@ -369,11 +370,13 @@ async function insertQuestions(
         continue;
       }
 
-      // Insert with retry
+      // Get current syllabus year and insert with retry
+      const syllabusYear = getCurrentSyllabusYear(topicInfo.examId);
+
       await dbExecuteWithRetry({
         sql: `INSERT INTO exam_questions
-              (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+              (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source, syllabus_year, is_current_syllabus)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         args: [
           topicInfo.examId,
           topicInfo.subjectId,
@@ -384,6 +387,8 @@ async function insertQuestions(
           q.explanation,
           q.difficulty,
           'expert-curated',
+          syllabusYear,
+          1, // New questions are always current syllabus
         ],
       });
 
