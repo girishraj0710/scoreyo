@@ -41,9 +41,8 @@ export async function GET(request: NextRequest) {
     const result = await runDailySeeding();
 
     return NextResponse.json({
-      success: true,
-      message: "Daily seeding completed successfully",
       ...result,
+      message: "Daily seeding completed successfully",
       timestamp: new Date().toISOString(),
     });
   } catch (error: any) {
