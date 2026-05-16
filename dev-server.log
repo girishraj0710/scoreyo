@@ -922,3 +922,4 @@ Next Run: Tomorrow at scheduled time
  GET /achievements 200 in 69ms (next.js: 41ms, application-code: 28ms)
  GET /achievements 200 in 20ms (next.js: 942µs, application-code: 19ms)
  GET /achievements 200 in 11ms (next.js: 1129µs, application-code: 10ms)
+ GET /achievements 200 in 71ms (next.js: 53ms, application-code: 18ms)

@@ -47,10 +47,10 @@ const CONFIG = {
   LAUNCH_PREP: {
     QUESTIONS_PER_TOPIC: 50,      // Max questions per topic
     LOW_STOCK_THRESHOLD: 200,     // Keep topics above 200
-    MAX_TOPICS_PER_DAY: 40,       // Max topics per day
-    BATCH_SIZE: 8,                // Larger batches
-    DELAY_BETWEEN_BATCHES: 10000, // 10 seconds (faster)
-    ROTATION_COOLDOWN_DAYS: 7,    // Don't re-seed same topic for 7 days
+    MAX_TOPICS_PER_DAY: 80,       // Max topics per day (USE FULL QUOTA - no users yet!)
+    BATCH_SIZE: 10,               // Larger batches
+    DELAY_BETWEEN_BATCHES: 8000,  // 8 seconds (faster)
+    ROTATION_COOLDOWN_DAYS: 5,    // Don't re-seed same topic for 5 days (faster rotation)
   },
   MAINTENANCE: {
     QUESTIONS_PER_TOPIC: 30,
