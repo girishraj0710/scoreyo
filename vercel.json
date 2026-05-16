@@ -5,6 +5,10 @@
       "schedule": "0 2 * * *"
     },
     {
+      "path": "/api/cron/syllabus-reminder",
+      "schedule": "0 3 15 5 *"
+    },
+    {
       "path": "/api/cron/annual-syllabus-update",
       "schedule": "0 3 1 6 *"
     }
