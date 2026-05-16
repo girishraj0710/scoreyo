@@ -1418,43 +1418,39 @@ export async function getExamQuestions(
 ) {
   let rows: any[];
 
-  // SYLLABUS CURRENCY: Prioritize current syllabus questions
+  // VALIDITY PERIOD SYSTEM: Get questions valid for current year
   // Strategy:
-  // 1. Try current syllabus first (is_current_syllabus = 1)
-  // 2. If not enough, fall back to all questions (including old syllabus)
-  // This ensures users always get latest syllabus questions when available,
-  // but still get questions if current syllabus bank is low.
+  // Questions valid in current year if: valid_from <= current_year AND (valid_until IS NULL OR valid_until >= current_year)
+  // Examples:
+  //   Question: valid_from=2024, valid_until=NULL → Valid in 2024, 2025, 2026, 2027... (current syllabus)
+  //   Question: valid_from=2024, valid_until=2026 → Valid in 2024-2026, expired in 2027+ (old syllabus)
+  //   Question: valid_from=2027, valid_until=NULL → Valid from 2027 onwards (new syllabus)
+  //
+  // This automatically handles:
+  // - User in 2027 with JEE 2024 syllabus (still valid) → Gets 2024 questions ✅
+  // - User in 2027 after JEE 2027 syllabus announced → Gets 2027 questions ✅
+  // - No manual "mark as outdated" needed - just set valid_until when syllabus changes
+
+  const currentYear = new Date().getFullYear();
+
+  // Build validity condition for SQL queries
+  const validityCondition = "valid_from <= ? AND (valid_until IS NULL OR valid_until >= ?)";
+  const validityArgs = [currentYear, currentYear];
 
   // Empty topic = sample across all topics in the subject. Used by mock-test
   // generation so we can pull a broad mix of questions for a section without
   // pinning to one topic. Mirrors the same convention in `getCachedQuestions`.
   if (!topic || topic.trim() === "") {
-    // Try current syllabus first
     if (difficulty === "mixed") {
       rows = await queryAll(
-        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND is_current_syllabus = 1 ORDER BY RANDOM() LIMIT ?",
-        [examId, subjectId, limit]
+        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
+        [examId, subjectId, ...validityArgs, limit]
       );
     } else {
       rows = await queryAll(
-        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND difficulty = ? AND is_current_syllabus = 1 ORDER BY RANDOM() LIMIT ?",
-        [examId, subjectId, difficulty, limit]
+        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND difficulty = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
+        [examId, subjectId, difficulty, ...validityArgs, limit]
       );
-    }
-
-    // Fallback: if not enough current syllabus questions, get any questions
-    if (rows.length < limit) {
-      const remaining = limit - rows.length;
-      const fallbackRows = difficulty === "mixed"
-        ? await queryAll(
-            "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND is_current_syllabus = 0 ORDER BY RANDOM() LIMIT ?",
-            [examId, subjectId, remaining]
-          )
-        : await queryAll(
-            "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND difficulty = ? AND is_current_syllabus = 0 ORDER BY RANDOM() LIMIT ?",
-            [examId, subjectId, difficulty, remaining]
-          );
-      rows = [...rows, ...fallbackRows];
     }
   } else {
     // Topic-specific query with fuzzy matching. Mirrors getCachedQuestions
@@ -1463,64 +1459,34 @@ export async function getExamQuestions(
     // pool effectively only serves exact-string matches, which is rare given
     // how topic names diverge between the UI and the seeded data.
 
-    // Try current syllabus first
     if (difficulty === "mixed") {
       rows = await queryAll(
-        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND is_current_syllabus = 1 ORDER BY RANDOM() LIMIT ?",
-        [examId, subjectId, topic, `%${topic}%`, limit]
+        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
+        [examId, subjectId, topic, `%${topic}%`, ...validityArgs, limit]
       );
     } else {
       rows = await queryAll(
-        "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? AND is_current_syllabus = 1 ORDER BY RANDOM() LIMIT ?",
-        [examId, subjectId, topic, `%${topic}%`, difficulty, limit]
+        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
+        [examId, subjectId, topic, `%${topic}%`, difficulty, ...validityArgs, limit]
       );
     }
 
-    // Fallback 1: if not enough current syllabus, try old syllabus with exact/fuzzy match
-    if (rows.length < limit) {
-      const remaining = limit - rows.length;
-      const fallbackRows = difficulty === "mixed"
-        ? await queryAll(
-            "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND is_current_syllabus = 0 ORDER BY RANDOM() LIMIT ?",
-            [examId, subjectId, topic, `%${topic}%`, remaining]
-          )
-        : await queryAll(
-            "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? AND is_current_syllabus = 0 ORDER BY RANDOM() LIMIT ?",
-            [examId, subjectId, topic, `%${topic}%`, difficulty, remaining]
-          );
-      rows = [...rows, ...fallbackRows];
-    }
-
-    // Fallback 2: keyword-level fuzzy match on the topic name.
+    // Fallback: keyword-level fuzzy match on the topic name.
     if (rows.length < limit && topic.length > 0) {
       const keywords = topic.toLowerCase().split(/[&\s]+/).filter((w) => w.length > 3);
       for (const keyword of keywords) {
         if (rows.length >= limit) break;
         const remaining = limit - rows.length;
 
-        // Try current syllabus first
-        const currentRows = await queryAll(
+        const keywordRows = await queryAll(
           difficulty === "mixed"
-            ? "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND is_current_syllabus = 1 ORDER BY RANDOM() LIMIT ?"
-            : "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? AND is_current_syllabus = 1 ORDER BY RANDOM() LIMIT ?",
+            ? `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`
+            : `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
           difficulty === "mixed"
-            ? [examId, subjectId, `%${keyword}%`, remaining]
-            : [examId, subjectId, `%${keyword}%`, difficulty, remaining]
+            ? [examId, subjectId, `%${keyword}%`, ...validityArgs, remaining]
+            : [examId, subjectId, `%${keyword}%`, difficulty, ...validityArgs, remaining]
         );
-        rows = [...rows, ...currentRows];
-
-        // If still not enough, try old syllabus
-        if (rows.length < limit) {
-          const oldRows = await queryAll(
-            difficulty === "mixed"
-              ? "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND is_current_syllabus = 0 ORDER BY RANDOM() LIMIT ?"
-              : "SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? AND is_current_syllabus = 0 ORDER BY RANDOM() LIMIT ?",
-            difficulty === "mixed"
-              ? [examId, subjectId, `%${keyword}%`, limit - rows.length]
-              : [examId, subjectId, `%${keyword}%`, difficulty, limit - rows.length]
-          );
-          rows = [...rows, ...oldRows];
-        }
+        rows = [...rows, ...keywordRows];
       }
     }
   }

@@ -2,17 +2,23 @@
 /**
  * Annual Syllabus Update Script
  *
- * Purpose: Mark old questions as outdated when syllabus changes
+ * Purpose: Set expiry date (valid_until) on old questions when syllabus changes
  * Frequency: Once a year (June 1st via cron)
  * Timing: June aligns with Indian academic year (starts April, new syllabi by May)
- * Safe: Non-destructive, only marks questions, doesn't delete
+ * Safe: Non-destructive, only sets valid_until, doesn't delete
  *
- * How it works:
+ * How it works (Validity Period System):
  * 1. Reads current syllabus config from syllabus-config.ts
- * 2. Compares with questions in database
- * 3. Marks old questions as is_current_syllabus = 0
- * 4. Keeps old questions as backup (still usable if needed)
- * 5. New questions will be tagged with current year automatically
+ * 2. For each exam, checks if syllabus changed
+ * 3. If changed: Sets valid_until on old questions (makes them expire)
+ * 4. New questions already have valid_from = new year, valid_until = NULL
+ * 5. Quiz generator automatically uses questions valid for current year
+ *
+ * Example:
+ *   JEE 2024 syllabus used 2024-2026 (valid_from=2024, valid_until=NULL)
+ *   June 2027: JEE 2027 syllabus announced
+ *   Update: Set valid_until=2026 on old questions
+ *   Result: Quiz in 2027 only gets questions with valid_from<=2027 AND (valid_until=NULL OR valid_until>=2027)
  */
 
 import { createClient } from "@libsql/client";
@@ -65,48 +71,39 @@ async function runAnnualUpdate() {
     let totalQuestionsMarkedOutdated = 0;
     let totalQuestionsMarkedCurrent = 0;
 
-    // Process each exam
+    // Process each exam (Validity Period System)
+    const currentYear = new Date().getFullYear();
+
     for (const syllabusConfig of CURRENT_SYLLABUS) {
       const { examId, examName, currentSyllabusYear } = syllabusConfig;
 
       log(`📚 Processing: ${examName} (${examId})`);
       log(`   Current syllabus year: ${currentSyllabusYear}`);
 
-      // Mark old questions as outdated
+      // Check if there are questions with old valid_from (syllabus changed)
+      // Old questions: valid_from < currentSyllabusYear AND valid_until IS NULL (still showing as valid)
+      // Action: Set valid_until = currentYear - 1 (expire them)
       const outdatedResult = await db.execute({
         sql: `UPDATE exam_questions
-              SET is_current_syllabus = 0
+              SET valid_until = ?
               WHERE exam_id = ?
-                AND syllabus_year != ?
-                AND is_current_syllabus = 1`,
-        args: [examId, currentSyllabusYear],
+                AND valid_from < ?
+                AND valid_until IS NULL`,
+        args: [currentYear - 1, examId, currentSyllabusYear],
       });
 
       const outdated = outdatedResult.rowsAffected || 0;
 
-      // Mark current year questions as current
-      const currentResult = await db.execute({
-        sql: `UPDATE exam_questions
-              SET is_current_syllabus = 1
-              WHERE exam_id = ?
-                AND syllabus_year = ?
-                AND is_current_syllabus = 0`,
-        args: [examId, currentSyllabusYear],
-      });
-
-      const current = currentResult.rowsAffected || 0;
+      // No need to "mark as current" - questions with valid_from = currentSyllabusYear and valid_until = NULL are already current
+      // They will automatically be picked up by quiz generator (valid_from <= currentYear AND (valid_until IS NULL OR valid_until >= currentYear))
 
       totalQuestionsMarkedOutdated += outdated;
-      totalQuestionsMarkedCurrent += current;
 
       if (outdated > 0) {
-        log(`   ⚠️  Marked ${outdated} questions as outdated (old syllabus)`);
-      }
-      if (current > 0) {
-        log(`   ✅ Marked ${current} questions as current syllabus`);
-      }
-      if (outdated === 0 && current === 0) {
-        log(`   ✓  No changes needed (all questions up to date)`);
+        log(`   ⚠️  Expired ${outdated} old questions (set valid_until=${currentYear - 1})`);
+        log(`   ℹ️  These questions were valid until ${currentYear - 1}, now expired in ${currentYear}`);
+      } else {
+        log(`   ✓  No old questions to expire (syllabus unchanged or already expired)`);
       }
 
       log("");
@@ -119,29 +116,31 @@ async function runAnnualUpdate() {
     log("═".repeat(80));
     log("");
 
-    // Get stats by exam
+    // Get stats by exam (Validity Period System)
     const stats = await db.execute(`
       SELECT
         exam_id,
-        syllabus_year,
-        is_current_syllabus,
+        valid_from,
+        valid_until,
         COUNT(*) as count
       FROM exam_questions
-      GROUP BY exam_id, syllabus_year, is_current_syllabus
-      ORDER BY exam_id, is_current_syllabus DESC, syllabus_year DESC
+      GROUP BY exam_id, valid_from, valid_until
+      ORDER BY exam_id, valid_from DESC
     `);
 
-    log("Question Distribution by Syllabus:");
+    log("Question Validity Distribution:");
     log("─".repeat(80));
-    log("Exam ID              | Year | Status      | Questions");
+    log("Exam ID              | Valid From | Valid Until | Status      | Questions");
     log("─".repeat(80));
 
     for (const row of stats.rows) {
       const examId = String(row.exam_id).padEnd(20);
-      const year = String(row.syllabus_year).padEnd(4);
-      const status = row.is_current_syllabus ? "✅ Current" : "⚠️  Outdated";
+      const validFrom = String(row.valid_from || "N/A").padEnd(10);
+      const validUntil = row.valid_until ? String(row.valid_until).padEnd(11) : "CURRENT    ";
+      const validUntilNum = row.valid_until ? Number(row.valid_until) : null;
+      const status = !validUntilNum ? "✅ Current" : (validUntilNum >= currentYear ? "✅ Valid  " : "⚠️  Expired");
       const count = String(row.count).padStart(9);
-      log(`${examId} | ${year} | ${status} | ${count}`);
+      log(`${examId} | ${validFrom} | ${validUntil} | ${status} | ${count}`);
     }
 
     log("─".repeat(80));

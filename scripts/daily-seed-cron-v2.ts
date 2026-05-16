@@ -329,14 +329,14 @@ async function seedTopic(
 
     log(`   ✅ Generated ${questions.length} questions, inserting into database...`);
 
-    // Get current syllabus year for this exam
-    const syllabusYear = getCurrentSyllabusYear(examId);
+    // Get current syllabus year (valid_from) for this exam
+    const validFrom = getCurrentSyllabusYear(examId);
 
     let inserted = 0;
     for (const q of questions) {
       try {
         await dbExecuteWithRetry({
-          sql: `INSERT INTO exam_questions (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source, syllabus_year, is_current_syllabus)
+          sql: `INSERT INTO exam_questions (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source, valid_from, valid_until)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           args: [
             examId,
@@ -348,8 +348,8 @@ async function seedTopic(
             q.explanation,
             q.difficulty,
             "expert-curated",
-            syllabusYear,
-            1, // New questions are always current syllabus
+            validFrom,
+            null, // NULL = valid indefinitely (until syllabus changes)
           ],
         });
         inserted++;
