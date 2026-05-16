@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse, after } from "next/server";
 import { generateQuiz, type QuizQuestion } from "@/lib/quiz-generator";
 import { getVerifiedQuestions } from "@/lib/question-bank";
+import { mapTopicToDatabase } from "@/lib/topic-mapping";
 import {
   createQuizSession,
   saveQuestionAttempts,
@@ -51,19 +52,21 @@ async function backgroundCacheFill(
   examId: string,
   subjectId: string,
   difficulty: string,
-  count: number = 10
+  count: number = 10,
+  saveAsTopic?: string  // Optional: save with different topic name (for mapping)
 ) {
   try {
     const questions = await generateQuiz(
       examFullName,
       subjectName,
-      topic,
+      topic,  // Use original topic for AI prompt
       count,
       difficulty as any
     );
     if (questions.length > 0 && !questions[0].question.includes("[Service Unavailable]")) {
-      await saveCachedQuestions(examId, subjectId, topic, questions);
-      console.log(`[Cache] Background fill saved ${questions.length} qs for ${examId}/${topic}`);
+      const topicToSave = saveAsTopic || topic;  // Use mapped topic if provided
+      await saveCachedQuestions(examId, subjectId, topicToSave, questions);
+      console.log(`[Cache] Background fill saved ${questions.length} qs for ${examId}/${topicToSave}`);
     }
   } catch (err) {
     console.error("[Cache] Background fill failed:", err);
@@ -83,6 +86,12 @@ export async function POST(request: NextRequest) {
     } = body;
 
     console.log(`[Quiz API] Request: examId="${examId}", subjectId="${subjectId}", topic="${topic}", difficulty="${difficulty}", count=${numberOfQuestions}`);
+
+    // Map topic to database format (fixes 88.7% empty topic issue)
+    const mappedTopic = mapTopicToDatabase(examId, subjectId, topic);
+    if (mappedTopic !== topic) {
+      console.log(`[Quiz API] Topic mapped: "${topic}" → "${mappedTopic}"`);
+    }
 
     // Check quiz limit for free users
     const userId = request.cookies.get("prepgenie-user-id")?.value;
@@ -129,13 +138,13 @@ export async function POST(request: NextRequest) {
     let cachedPool: any[] = [];
     try {
       const [verified, cached] = await Promise.all([
-        getExamQuestions(examId, subjectId, topic, difficulty, numberOfQuestions * 2),
-        getCachedQuestions(examId, subjectId, topic, difficulty, numberOfQuestions * 2),
+        getExamQuestions(examId, subjectId, mappedTopic, difficulty, numberOfQuestions * 2),
+        getCachedQuestions(examId, subjectId, mappedTopic, difficulty, numberOfQuestions * 2),
       ]);
       verifiedQuestions = verified as QuizQuestion[];
       cachedPool = cached;
       console.log(
-        `[Quiz API] pools: verified=${verified.length}, cached=${cached.length} (${examId}/${topic})`
+        `[Quiz API] pools: verified=${verified.length}, cached=${cached.length} (${examId}/${mappedTopic})`
       );
     } catch (error) {
       console.error("[Quiz API] Pool query failed:", error);
@@ -348,9 +357,10 @@ export async function POST(request: NextRequest) {
             // Persist to cache AFTER the response — `after()` keeps the
             // serverless function alive long enough for the DB write to
             // complete (previously this was killed when we returned).
+            // Save with mappedTopic so future queries can find it in Tier 2
             after(async () => {
               try {
-                await saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+                await saveCachedQuestions(examId, subjectId, mappedTopic, aiQuestions);
               } catch (err) {
                 console.error("[Quiz API] post-response cache save failed:", err);
               }
@@ -429,11 +439,12 @@ export async function POST(request: NextRequest) {
         backgroundCacheFill(
           exam.fullName,
           subject.name,
-          topic,
+          topic,  // Use original topic for AI prompt context
           examId,
           subjectId,
           difficulty,
-          fillCount
+          fillCount,
+          mappedTopic  // Save with mapped topic for future retrieval
         )
       );
     }

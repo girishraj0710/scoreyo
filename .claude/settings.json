@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vercel *)",
+      "Bash(curl -s *)",
+      "Bash(curl -X GET *)",
+      "Bash(turso *)",
+      "Bash(node --version)",
+      "Bash(npm outdated *)",
+      "Bash(npm list *)",
+      "Bash(bun outdated *)",
+      "Bash(bun pm *)",
+      "Bash(gh repo *)",
+      "Bash(gh workflow *)",
+      "Bash(gh release *)",
+      "Bash(sqlite3 *)"
+    ]
+  }
+}
