@@ -1064,8 +1064,27 @@ export default function MockTestPage() {
                     ))}
                   </div>
                   {testCapacity[selectedExam] > 10 && (
-                    <div className="text-xs text-center text-slate-500 mt-3">
-                      + {testCapacity[selectedExam] - 10} more tests available
+                    <div className="mt-4 pt-4 border-t border-slate-200">
+                      <div className="flex items-center gap-3 justify-center">
+                        <label htmlFor="test-number-input" className="text-sm text-slate-600 font-medium">
+                          Or enter test number:
+                        </label>
+                        <input
+                          id="test-number-input"
+                          type="number"
+                          min={1}
+                          max={testCapacity[selectedExam]}
+                          value={selectedTestNumber}
+                          onChange={(e) => {
+                            const num = parseInt(e.target.value);
+                            if (num >= 1 && num <= (testCapacity[selectedExam] || 3)) {
+                              setSelectedTestNumber(num);
+                            }
+                          }}
+                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none"
+                        />
+                        <span className="text-sm text-slate-500">of {testCapacity[selectedExam]}</span>
+                      </div>
                     </div>
                   )}
                 </div>

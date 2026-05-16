@@ -219,7 +219,7 @@ function HomePageContent() {
           </span>
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-6">
-          Practice with expert-curated questions from NCERT, previous year papers &amp; standard textbooks for JEE, NEET, UPSC, SSC,
+          Practice with AI-powered, expert-curated questions from NCERT, previous year papers &amp; standard textbooks for JEE, NEET, UPSC, SSC,
           Banking, CAT &amp; 20+ Indian competitive exams. Track your progress and
           master every topic.
         </p>
