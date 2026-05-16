@@ -129,7 +129,7 @@ export async function GET(request: NextRequest) {
             r.correctAnswer,
             r.explanation,
             r.difficulty,
-            "cached",
+            "validated-ai",
           ],
         })),
         "write"
