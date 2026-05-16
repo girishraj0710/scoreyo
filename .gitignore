@@ -44,6 +44,12 @@ yarn-error.log*
 # internal agent artifacts (scratch notes, datasets, logs)
 .agents/
 
+# log files
+*.log
+dev-server.log
+seed-progress.log
+daily-seed-cron.log
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
