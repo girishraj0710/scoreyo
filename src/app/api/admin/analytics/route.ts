@@ -251,7 +251,7 @@ export async function GET(req: NextRequest) {
         proUsers: Number(proUsers.rows[0]?.count || 0),
         revenue30Days: {
           count: Number(revenue30Days.rows[0]?.count || 0),
-          total: Number(revenue30Days.rows[0]?.total || 0),
+          total: Number(revenue30Days.rows[0]?.total || 0) / 100, // Convert paise to rupees
         },
       },
     });
