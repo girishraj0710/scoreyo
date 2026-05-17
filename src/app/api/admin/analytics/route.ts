@@ -164,24 +164,8 @@ export async function GET(req: NextRequest) {
     });
 
     // 4. Question accuracy (questions with low accuracy = potential issues)
-    const lowAccuracyQuestions = await db.execute({
-      sql: `SELECT
-              eq.id,
-              eq.question,
-              eq.exam_id,
-              eq.topic,
-              COUNT(CASE WHEN qa.is_correct = 1 THEN 1 END) as correct_count,
-              COUNT(*) as total_attempts,
-              CAST(COUNT(CASE WHEN qa.is_correct = 1 THEN 1 END) AS REAL) / COUNT(*) * 100 as accuracy
-            FROM exam_questions eq
-            LEFT JOIN question_attempts qa ON eq.id = qa.question_id
-            WHERE qa.id IS NOT NULL
-            GROUP BY eq.id
-            HAVING COUNT(*) >= 10 AND accuracy < 30
-            ORDER BY total_attempts DESC
-            LIMIT 10`,
-      args: [],
-    });
+    // Note: question_attempts doesn't have question_id, so we'll skip this for now
+    const lowAccuracyQuestions = { rows: [] };
 
     // 5. Pro subscription stats
     const proUsers = await db.execute({
