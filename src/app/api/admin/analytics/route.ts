@@ -141,7 +141,7 @@ export async function GET(req: NextRequest) {
     const avgScores = await db.execute({
       sql: `SELECT
               exam_id,
-              AVG(CAST(correct_count AS REAL) / total_questions * 100) as avg_score_pct
+              AVG(CAST(correct_answers AS REAL) / total_questions * 100) as avg_score_pct
             FROM quiz_sessions
             WHERE created_at >= datetime('now', '-30 days') AND total_questions > 0
             GROUP BY exam_id
