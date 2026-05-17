@@ -167,6 +167,19 @@ export function AppHeader() {
                     </Link>
                     <Link href="/pricing" className={`block px-4 py-2 text-sm font-medium transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50 border-l-2 border-amber-600" : "text-amber-600 hover:bg-amber-50"}`} onClick={() => setShowMenu(false)}>{t("pricing")}</Link>
                   </div>
+                  {/* Admin Link (if admin email) */}
+                  {(user.email === "girish.raj0710@gmail.com" || user.email === "grgowda07.1992@gmail.com") && (
+                    <Link
+                      href="/admin/questions"
+                      className="block px-4 py-2 text-sm text-purple-600 hover:bg-purple-50 font-medium flex items-center gap-2 border-b border-slate-100"
+                      onClick={() => setShowMenu(false)}
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Admin Dashboard
+                    </Link>
+                  )}
                   <button
                     onClick={() => {
                       setShowMenu(false);
