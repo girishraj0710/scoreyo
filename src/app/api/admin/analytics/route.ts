@@ -79,7 +79,7 @@ export async function GET(req: NextRequest) {
       args: [],
     });
 
-    // 2. Usage Pattern Metrics
+    // 2. Usage Pattern Metrics (using quiz_sessions table)
     const totalUsers = await db.execute({
       sql: "SELECT COUNT(*) as count FROM users",
       args: [],
@@ -87,41 +87,41 @@ export async function GET(req: NextRequest) {
 
     const activeUsers7Days = await db.execute({
       sql: `SELECT COUNT(DISTINCT user_id) as count
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-7 days')`,
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-7 days')`,
       args: [],
     });
 
     const activeUsers30Days = await db.execute({
       sql: `SELECT COUNT(DISTINCT user_id) as count
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-30 days')`,
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-30 days')`,
       args: [],
     });
 
     const totalQuizzes = await db.execute({
-      sql: "SELECT COUNT(*) as count FROM quiz_results",
+      sql: "SELECT COUNT(*) as count FROM quiz_sessions",
       args: [],
     });
 
     const quizzesLast7Days = await db.execute({
       sql: `SELECT COUNT(*) as count
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-7 days')`,
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-7 days')`,
       args: [],
     });
 
     const quizzesLast30Days = await db.execute({
       sql: `SELECT COUNT(*) as count
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-30 days')`,
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-30 days')`,
       args: [],
     });
 
     const popularExams = await db.execute({
       sql: `SELECT exam_id, COUNT(*) as attempts
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-30 days')
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-30 days')
             GROUP BY exam_id
             ORDER BY attempts DESC
             LIMIT 10`,
@@ -130,8 +130,8 @@ export async function GET(req: NextRequest) {
 
     const popularSubjects = await db.execute({
       sql: `SELECT subject_id, COUNT(*) as attempts
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-30 days')
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-30 days')
             GROUP BY subject_id
             ORDER BY attempts DESC
             LIMIT 10`,
@@ -141,9 +141,9 @@ export async function GET(req: NextRequest) {
     const avgScores = await db.execute({
       sql: `SELECT
               exam_id,
-              AVG(CAST(score AS REAL) / total_questions * 100) as avg_score_pct
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-30 days')
+              AVG(CAST(correct_count AS REAL) / total_questions * 100) as avg_score_pct
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-30 days') AND total_questions > 0
             GROUP BY exam_id
             ORDER BY avg_score_pct DESC
             LIMIT 10`,
@@ -153,12 +153,12 @@ export async function GET(req: NextRequest) {
     // 3. Daily activity (last 14 days)
     const dailyActivity = await db.execute({
       sql: `SELECT
-              DATE(completed_at) as date,
+              DATE(created_at) as date,
               COUNT(*) as quizzes,
               COUNT(DISTINCT user_id) as users
-            FROM quiz_results
-            WHERE completed_at >= datetime('now', '-14 days')
-            GROUP BY DATE(completed_at)
+            FROM quiz_sessions
+            WHERE created_at >= datetime('now', '-14 days')
+            GROUP BY DATE(created_at)
             ORDER BY date DESC`,
       args: [],
     });
