@@ -300,6 +300,13 @@ export default function SprintPage() {
                   </div>
                 </div>
               </div>
+              <button
+                onClick={() => setSelectedSprintId(null)}
+                className="shrink-0 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-full px-3 py-1.5 transition-colors"
+                aria-label="Close leaderboard"
+              >
+                Close
+              </button>
             </div>
 
             {selectedSprint.leaderboard.length === 0 ? (
@@ -398,7 +405,11 @@ export default function SprintPage() {
             return (
               <div
                 key={sprintData.sprint.id}
-                onClick={() => setSelectedSprintId(sprintData.sprint.id)}
+                onClick={() =>
+                  setSelectedSprintId((current) =>
+                    current === sprintData.sprint.id ? null : sprintData.sprint.id
+                  )
+                }
                 className={`group relative overflow-hidden bg-white rounded-2xl border p-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${sprintCategory.glow} ${
                   isSelected
                     ? "border-indigo-400 shadow-xl ring-2 ring-indigo-100"
