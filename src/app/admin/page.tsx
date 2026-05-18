@@ -779,7 +779,7 @@ export default function AdminDashboardPage() {
                           ? 'bg-yellow-100 text-yellow-700'
                           : 'bg-red-100 text-red-700'
                       }`}>
-                        {item.difficulty.substring(0, 1).toUpperCase()}
+                        {item.difficulty}
                       </span>
                     </td>
                     <td className="px-2 py-2 text-xs text-right font-semibold text-gray-900">
