@@ -64,6 +64,7 @@ export default function AdminDashboardPage() {
   const router = useRouter();
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedExamFilter, setSelectedExamFilter] = useState<string>("all");
 
   // Helper to get exam display name
   const getExamName = (examId: string): string => {
@@ -111,6 +112,23 @@ export default function AdminDashboardPage() {
       if (b.count === 0) return -1;
       return b.count - a.count;
     });
+  };
+
+  // Get filtered topic breakdown
+  const getFilteredTopicBreakdown = () => {
+    if (!analytics) return [];
+    if (selectedExamFilter === "all") return analytics.topicBreakdown;
+    return analytics.topicBreakdown.filter(item => item.examId === selectedExamFilter);
+  };
+
+  // Get unique exams from topic breakdown for filter
+  const getUniqueExamsInBreakdown = () => {
+    if (!analytics) return [];
+    const uniqueExamIds = [...new Set(analytics.topicBreakdown.map(item => item.examId))];
+    return uniqueExamIds.map(examId => ({
+      id: examId,
+      name: getExamName(examId),
+    })).sort((a, b) => a.name.localeCompare(b.name));
   };
 
   useEffect(() => {
@@ -670,8 +688,8 @@ export default function AdminDashboardPage() {
 
         {/* Detailed Topic-Level Breakdown */}
         <div className="mt-8 bg-white rounded-xl shadow-md p-6">
-          <div className="flex items-center justify-between mb-6">
-            <div>
+          <div className="flex items-start justify-between mb-6 gap-4">
+            <div className="flex-1">
               <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
                 <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -682,60 +700,74 @@ export default function AdminDashboardPage() {
                 Detailed view of questions by exam, subject, topic, source, and difficulty
               </p>
             </div>
-            <div className="text-sm text-gray-500">
-              {analytics.topicBreakdown.length} entries
+            <div className="flex flex-col items-end gap-2">
+              <select
+                value={selectedExamFilter}
+                onChange={(e) => setSelectedExamFilter(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              >
+                <option value="all">All Exams ({analytics.topicBreakdown.length} entries)</option>
+                {getUniqueExamsInBreakdown().map((exam) => (
+                  <option key={exam.id} value={exam.id}>
+                    {exam.name}
+                  </option>
+                ))}
+              </select>
+              <span className="text-xs text-gray-500">
+                Showing {getFilteredTopicBreakdown().length} entries
+              </span>
             </div>
           </div>
 
-          <div className="overflow-auto max-h-[600px] border border-gray-200 rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
+          <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg">
+            <table className="w-full divide-y divide-gray-200">
               <thead className="bg-gray-50 sticky top-0 z-10">
                 <tr>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50">
+                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
                     Exam
                   </th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50">
+                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[12%]">
                     Subject
                   </th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50">
+                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[30%]">
                     Topic
                   </th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50">
+                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
                     Source
                   </th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50">
+                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[13%]">
                     Difficulty
                   </th>
-                  <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50">
-                    Questions
+                  <th scope="col" className="px-3 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
+                    Count
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {analytics.topicBreakdown.map((item, idx) => (
+                {getFilteredTopicBreakdown().map((item, idx) => (
                   <tr key={idx} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-3 py-2 text-xs font-medium text-gray-900 truncate" title={getExamName(item.examId)}>
                       {getExamName(item.examId)}
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
+                    <td className="px-3 py-2 text-xs text-gray-600 truncate" title={getSubjectName(item.examId, item.subjectId)}>
                       {getSubjectName(item.examId, item.subjectId)}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-600 max-w-xs truncate" title={item.topic}>
+                    <td className="px-3 py-2 text-xs text-gray-600 truncate" title={item.topic}>
                       {item.topic}
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap text-sm">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    <td className="px-3 py-2 text-xs">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium truncate inline-block max-w-full ${
                         item.source.includes('pyq') || item.source.includes('verified')
                           ? 'bg-green-100 text-green-700'
                           : item.source.includes('ai')
                           ? 'bg-blue-100 text-blue-700'
                           : 'bg-gray-100 text-gray-700'
-                      }`}>
-                        {item.source}
+                      }`} title={item.source}>
+                        {item.source.length > 15 ? item.source.substring(0, 15) + '...' : item.source}
                       </span>
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap text-sm">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium capitalize ${
+                    <td className="px-3 py-2 text-xs">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize ${
                         item.difficulty === 'easy'
                           ? 'bg-green-100 text-green-700'
                           : item.difficulty === 'medium'
@@ -745,7 +777,7 @@ export default function AdminDashboardPage() {
                         {item.difficulty}
                       </span>
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap text-sm text-right font-semibold text-gray-900">
+                    <td className="px-3 py-2 text-xs text-right font-semibold text-gray-900">
                       {item.count}
                     </td>
                   </tr>
@@ -754,7 +786,7 @@ export default function AdminDashboardPage() {
             </table>
           </div>
 
-          {analytics.topicBreakdown.length === 0 && (
+          {getFilteredTopicBreakdown().length === 0 && (
             <div className="text-center py-12">
               <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
