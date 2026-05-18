@@ -181,18 +181,18 @@ export default function AdminDashboardPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
             }
-            color="purple"
+            color="indigo"
           />
           <StatCard
             title="Pro Users"
             value={analytics.subscriptions.proUsers}
             subtitle={`₹${analytics.subscriptions.revenue30Days.total} (30d)`}
             icon={
-              <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              <svg className="w-12 h-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
             }
-            color="amber"
+            color="yellow"
           />
         </div>
 
@@ -440,60 +440,151 @@ export default function AdminDashboardPage() {
           </div>
         )}
 
-        {/* Daily Activity Chart */}
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            Daily Activity (Last 14 Days)
-          </h2>
-          <div className="space-y-2">
-            {analytics.dailyActivity.map((item) => (
-              <div key={item.date} className="flex items-center gap-4">
-                <span className="text-sm text-gray-600 w-24">{item.date}</span>
-                <div className="flex-1 flex gap-2">
-                  <div className="flex-1">
+        {/* Daily Activity & Top Exams */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Daily Activity Chart */}
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Daily Activity Trend (Last 14 Days)
+            </h2>
+
+            {/* Legend */}
+            <div className="flex items-center gap-6 mb-4 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-blue-500 rounded"></div>
+                <span className="text-gray-700">Quizzes</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-green-500 rounded"></div>
+                <span className="text-gray-700">Active Users</span>
+              </div>
+            </div>
+
+            {/* Chart */}
+            <div className="space-y-3 max-h-[500px] overflow-y-auto">
+              {[...analytics.dailyActivity]
+                .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+                .map((item) => (
+                <div key={item.date} className="flex items-center gap-4">
+                  <span className="text-xs text-gray-600 w-20 text-right whitespace-nowrap flex-shrink-0">
+                    {item.date}
+                  </span>
+                  <div className="flex-1 space-y-2">
+                    {/* Quizzes Bar */}
                     <div className="flex items-center gap-2">
-                      <div
-                        className="bg-blue-500 h-6 rounded"
-                        style={{
-                          width: `${
-                            (item.quizzes /
-                              Math.max(
-                                ...analytics.dailyActivity.map((d) => d.quizzes)
-                              )) *
-                            100
-                          }%`,
-                        }}
-                      />
-                      <span className="text-sm text-gray-700">
-                        {item.quizzes} quizzes
+                      <div className="flex-1 bg-gray-100 rounded-full h-5">
+                        <div
+                          className="bg-blue-500 h-5 rounded-full transition-all"
+                          style={{
+                            width: `${Math.max(
+                              5,
+                              (item.quizzes /
+                                Math.max(
+                                  ...analytics.dailyActivity.map((d) => d.quizzes)
+                                )) *
+                              100
+                            )}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-700 font-medium whitespace-nowrap w-16">
+                        {item.quizzes} quiz
                       </span>
                     </div>
-                  </div>
-                  <div className="flex-1">
+                    {/* Users Bar */}
                     <div className="flex items-center gap-2">
-                      <div
-                        className="bg-green-500 h-6 rounded"
-                        style={{
-                          width: `${
-                            (item.users /
-                              Math.max(
-                                ...analytics.dailyActivity.map((d) => d.users)
-                              )) *
-                            100
-                          }%`,
-                        }}
-                      />
-                      <span className="text-sm text-gray-700">
-                        {item.users} users
+                      <div className="flex-1 bg-gray-100 rounded-full h-5">
+                        <div
+                          className="bg-green-500 h-5 rounded-full transition-all"
+                          style={{
+                            width: `${Math.max(
+                              5,
+                              (item.users /
+                                Math.max(
+                                  ...analytics.dailyActivity.map((d) => d.users)
+                                )) *
+                              100
+                            )}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-700 font-medium whitespace-nowrap w-16">
+                        {item.users} user
                       </span>
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Top Exams by Questions */}
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+              Question Bank Coverage
+            </h2>
+            <p className="text-sm text-gray-600 mb-4">
+              Top exams by question count
+            </p>
+            <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+              {analytics.questionMetrics.byExam.map((item, idx) => (
+                <div key={item.examId} className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm flex-shrink-0">
+                    {idx + 1}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="text-sm font-medium text-gray-900 truncate">
+                        {item.examId}
+                      </span>
+                      <span className="text-sm font-bold text-indigo-600 whitespace-nowrap">
+                        {item.count.toLocaleString()}
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-100 rounded-full h-2">
+                      <div
+                        className="bg-indigo-500 h-2 rounded-full transition-all"
+                        style={{
+                          width: `${Math.max(
+                            5,
+                            (item.count /
+                              Math.max(
+                                ...analytics.questionMetrics.byExam.map((e) => e.count)
+                              )) *
+                            100
+                          )}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Summary Stats */}
+            <div className="mt-6 pt-6 border-t grid grid-cols-2 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-gray-900">
+                  {analytics.questionMetrics.byExam.length}
+                </p>
+                <p className="text-xs text-gray-600 mt-1">Total Exams</p>
               </div>
-            ))}
+              <div className="text-center">
+                <p className="text-2xl font-bold text-indigo-600">
+                  {Math.round(
+                    analytics.questionMetrics.total /
+                    analytics.questionMetrics.byExam.length
+                  )}
+                </p>
+                <p className="text-xs text-gray-600 mt-1">Avg per Exam</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -148,8 +148,10 @@ async function main() {
   });
 
   const TARGET_PER_TOPIC = 15;
-  const QUESTIONS_PER_BATCH = 15;
+  const QUESTIONS_PER_BATCH = 20; // Increased from 15 (expect ~40% rejection)
   const MODEL = "llama3.2"; // or "llama3.2:3b", "mistral", etc.
+  const PARALLEL_TOPICS = 3; // Process 3 topics in parallel
+  const DELAY_BETWEEN_BATCHES = 1000; // Reduced from 5000ms to 1000ms
 
   console.log("=".repeat(80));
   console.log("🔄 CONTINUOUS FREE SEEDER (Ollama)");
@@ -216,98 +218,106 @@ async function main() {
       break;
     }
 
-    // Process next 50 topics
-    const batch = candidates.slice(0, 50);
-    console.log(`Processing next ${batch.length} topics...`);
+    // Process next 100 topics in parallel batches of 3
+    const batch = candidates.slice(0, 100);
+    console.log(`Processing next ${batch.length} topics in parallel (${PARALLEL_TOPICS} at a time)...`);
 
-    for (let i = 0; i < batch.length; i++) {
-      const t = batch[i];
-      const needed = TARGET_PER_TOPIC - t.currentCount;
-      const toGenerate = Math.min(QUESTIONS_PER_BATCH, needed);
+    // Process in parallel batches
+    for (let i = 0; i < batch.length; i += PARALLEL_TOPICS) {
+      const parallelBatch = batch.slice(i, i + PARALLEL_TOPICS);
 
-      console.log(`\n[${i + 1}/${batch.length}] ${t.category} → ${t.examName}`);
-      console.log(`   ${t.subjectName} → ${t.topic}`);
-      console.log(`   Current: ${t.currentCount}/${TARGET_PER_TOPIC} | Generating: ${toGenerate}`);
+      // Generate questions for all topics in parallel
+      const results = await Promise.all(
+        parallelBatch.map(async (t) => {
+          const needed = TARGET_PER_TOPIC - t.currentCount;
+          const toGenerate = Math.min(QUESTIONS_PER_BATCH, needed);
 
-      let generated: GeneratedQuestion[] = [];
-      try {
-        generated = await generateForTopic(MODEL, t.examName, t.subjectName, t.topic, toGenerate);
-      } catch (e: any) {
-        console.log(`      ⚠️  Generation failed: ${e.message}`);
-        continue;
-      }
+          console.log(`\n[${i + parallelBatch.indexOf(t) + 1}/${batch.length}] ${t.category} → ${t.examName}`);
+          console.log(`   ${t.subjectName} → ${t.topic}`);
+          console.log(`   Current: ${t.currentCount}/${TARGET_PER_TOPIC} | Generating: ${toGenerate}`);
 
-      if (generated.length === 0) {
-        console.log("      ⚠️  No valid questions parsed");
-        continue;
-      }
-
-      console.log(`      ✅ Generated ${generated.length} questions`);
-
-      const validFrom = getCurrentSyllabusYear(t.examId);
-      let inserted = 0;
-      for (const q of generated) {
-        try {
-          // Validation 1: Explanation length check (min 100 chars)
-          if (q.explanation.length < 100) {
-            console.log(`      ⚠️  Explanation too short (${q.explanation.length} chars), skipping`);
-            continue;
+          try {
+            const generated = await generateForTopic(MODEL, t.examName, t.subjectName, t.topic, toGenerate);
+            return { t, generated };
+          } catch (e: any) {
+            console.log(`      ⚠️  Generation failed: ${e.message}`);
+            return { t, generated: [] };
           }
+        })
+      );
 
-          // Validation 2: Check for exact duplicates
-          const exactDupe = await db.execute({
-            sql: "SELECT id FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND LOWER(TRIM(question)) = LOWER(TRIM(?))",
-            args: [t.examId, t.subjectId, q.question],
-          });
-          if (exactDupe.rows.length > 0) {
-            console.log(`      ⚠️  Exact duplicate found, skipping`);
-            continue;
+      // Insert all generated questions
+      for (const { t, generated } of results) {
+        if (generated.length === 0) {
+          console.log(`      ⚠️  No valid questions for ${t.topic}`);
+          continue;
+        }
+
+        console.log(`      ✅ Generated ${generated.length} questions for ${t.topic}`);
+
+        const validFrom = getCurrentSyllabusYear(t.examId);
+        let inserted = 0;
+        for (const q of generated) {
+          try {
+            // Validation 1: Explanation length check (min 100 chars)
+            if (q.explanation.length < 100) continue;
+
+            // Validation 2: Check for exact duplicates
+            const exactDupe = await db.execute({
+              sql: "SELECT id FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND LOWER(TRIM(question)) = LOWER(TRIM(?))",
+              args: [t.examId, t.subjectId, q.question],
+            });
+            if (exactDupe.rows.length > 0) continue;
+
+            // Validation 3: Check for similar duplicates (first 80 chars)
+            const similarDupe = await db.execute({
+              sql: "SELECT id FROM exam_questions WHERE exam_id = ? AND topic = ? AND LOWER(SUBSTR(question, 1, 80)) = LOWER(SUBSTR(?, 1, 80))",
+              args: [t.examId, t.topic, q.question],
+            });
+            if (similarDupe.rows.length > 0) continue;
+
+            await db.execute({
+              sql: `INSERT INTO exam_questions
+                (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source, valid_from, valid_until)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+              args: [
+                t.examId,
+                t.subjectId,
+                t.topic,
+                q.question,
+                JSON.stringify(q.options),
+                q.correctAnswer,
+                q.explanation,
+                q.difficulty,
+                "ollama-local-free",
+                validFrom,
+                null,
+              ],
+            });
+            inserted++;
+          } catch {
+            // Skip malformed/duplicate rows
           }
+        }
 
-          // Validation 3: Check for similar duplicates (first 80 chars)
-          const similarDupe = await db.execute({
-            sql: "SELECT id FROM exam_questions WHERE exam_id = ? AND topic = ? AND LOWER(SUBSTR(question, 1, 80)) = LOWER(SUBSTR(?, 1, 80))",
-            args: [t.examId, t.topic, q.question],
-          });
-          if (similarDupe.rows.length > 0) {
-            console.log(`      ⚠️  Similar duplicate found, skipping`);
-            continue;
-          }
-
-          await db.execute({
-            sql: `INSERT INTO exam_questions
-              (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source, valid_from, valid_until)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            args: [
-              t.examId,
-              t.subjectId,
-              t.topic,
-              q.question,
-              JSON.stringify(q.options),
-              q.correctAnswer,
-              q.explanation,
-              q.difficulty,
-              "ollama-local-free",
-              validFrom,
-              null,
-            ],
-          });
-          inserted++;
-        } catch {
-          // Skip malformed/duplicate rows
+        totalInserted += inserted;
+        if (inserted > 0) {
+          console.log(`      💾 Inserted ${inserted} questions | Total session: ${totalInserted}`);
         }
       }
 
-      totalInserted += inserted;
-      console.log(`      💾 Inserted ${inserted} questions | Total session: ${totalInserted}`);
+      // Small delay between parallel batches
+      if (i + PARALLEL_TOPICS < batch.length) {
+        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES));
+      }
     }
 
     console.log(`\n✅ Loop #${loopCount} complete. ${batch.length} topics processed.`);
     console.log(`Total inserted this session: ${totalInserted}`);
     console.log(`Remaining topics: ${candidates.length - batch.length}`);
-    console.log("\nStarting next loop in 5 seconds...");
+    console.log("\nStarting next loop in 2 seconds...");
 
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
   }
 
   console.log("\n" + "=".repeat(80));

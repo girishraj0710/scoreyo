@@ -57,8 +57,7 @@ export async function GET(req: NextRequest) {
       sql: `SELECT exam_id, COUNT(*) as count
             FROM exam_questions
             GROUP BY exam_id
-            ORDER BY count DESC
-            LIMIT 20`,
+            ORDER BY count DESC`,
       args: [],
     });
 
