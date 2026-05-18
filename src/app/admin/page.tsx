@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { getExamById } from "@/lib/exams";
 
 interface Analytics {
   questionMetrics: {
@@ -55,6 +56,12 @@ export default function AdminDashboardPage() {
   const router = useRouter();
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Helper to get exam display name
+  const getExamName = (examId: string): string => {
+    const exam = getExamById(examId);
+    return exam?.name || examId;
+  };
 
   useEffect(() => {
     fetchAnalytics();
@@ -358,8 +365,8 @@ export default function AdminDashboardPage() {
                   <span className="w-6 text-sm font-bold text-gray-400">
                     #{idx + 1}
                   </span>
-                  <span className="flex-1 text-sm text-gray-700 truncate">
-                    {item.examId}
+                  <span className="flex-1 text-sm text-gray-700 truncate" title={item.examId}>
+                    {getExamName(item.examId)}
                   </span>
                   <span className="text-sm font-semibold text-blue-600">
                     {item.attempts} attempts
@@ -380,8 +387,8 @@ export default function AdminDashboardPage() {
             <div className="space-y-2">
               {analytics.usageMetrics.avgScores.map((item) => (
                 <div key={item.examId} className="flex items-center gap-3">
-                  <span className="flex-1 text-sm text-gray-700 truncate">
-                    {item.examId}
+                  <span className="flex-1 text-sm text-gray-700 truncate" title={item.examId}>
+                    {getExamName(item.examId)}
                   </span>
                   <div className="flex items-center gap-2">
                     <div className="w-20 bg-gray-200 rounded-full h-4">
@@ -422,7 +429,7 @@ export default function AdminDashboardPage() {
                     <div className="flex-1">
                       <p className="text-sm text-gray-900 mb-1">{item.question}</p>
                       <p className="text-xs text-gray-600">
-                        {item.examId} • {item.topic}
+                        {getExamName(item.examId)} • {item.topic}
                       </p>
                     </div>
                     <div className="text-right">
@@ -540,8 +547,8 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="text-sm font-medium text-gray-900 truncate">
-                        {item.examId}
+                      <span className="text-sm font-medium text-gray-900 truncate" title={item.examId}>
+                        {getExamName(item.examId)}
                       </span>
                       <span className="text-sm font-bold text-indigo-600 whitespace-nowrap">
                         {item.count.toLocaleString()}
