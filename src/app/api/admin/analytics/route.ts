@@ -184,7 +184,8 @@ export async function GET(req: NextRequest) {
     });
 
     // 6. Detailed topic-level breakdown (sorted by count ASC - least to most)
-    const topicBreakdown = await db.execute({
+    // First, get all existing questions grouped
+    const existingQuestions = await db.execute({
       sql: `SELECT
               exam_id,
               subject_id,
@@ -193,10 +194,72 @@ export async function GET(req: NextRequest) {
               difficulty,
               COUNT(*) as count
             FROM exam_questions
-            GROUP BY exam_id, subject_id, topic, source, difficulty
-            ORDER BY count ASC, exam_id, subject_id, topic`,
+            GROUP BY exam_id, subject_id, topic, source, difficulty`,
       args: [],
     });
+
+    // Build a map of existing questions
+    const questionMap = new Map<string, any[]>();
+    for (const row of existingQuestions.rows) {
+      const key = `${row.exam_id}|||${row.subject_id}|||${row.topic}`;
+      if (!questionMap.has(key)) {
+        questionMap.set(key, []);
+      }
+      questionMap.get(key)!.push({
+        source: row.source,
+        difficulty: row.difficulty,
+        count: Number(row.count),
+      });
+    }
+
+    // Now generate ALL possible combinations from exam definitions
+    const { examCategories } = await import("@/lib/exams");
+    const allTopicCombinations: any[] = [];
+
+    for (const category of examCategories) {
+      for (const exam of category.exams) {
+        for (const subject of exam.subjects) {
+          for (const topic of subject.topics) {
+            const key = `${exam.id}|||${subject.id}|||${topic}`;
+            const existingData = questionMap.get(key);
+
+            if (existingData && existingData.length > 0) {
+              // Topic has questions - add each source/difficulty combo
+              for (const item of existingData) {
+                allTopicCombinations.push({
+                  exam_id: exam.id,
+                  subject_id: subject.id,
+                  topic: topic,
+                  source: item.source,
+                  difficulty: item.difficulty,
+                  count: item.count,
+                });
+              }
+            } else {
+              // Topic has NO questions - add with 0 count
+              allTopicCombinations.push({
+                exam_id: exam.id,
+                subject_id: subject.id,
+                topic: topic,
+                source: "-",
+                difficulty: "-",
+                count: 0,
+              });
+            }
+          }
+        }
+      }
+    }
+
+    // Sort by count ASC (0s first), then by exam/subject/topic
+    const topicBreakdown = {
+      rows: allTopicCombinations.sort((a, b) => {
+        if (a.count !== b.count) return a.count - b.count;
+        if (a.exam_id !== b.exam_id) return a.exam_id.localeCompare(b.exam_id);
+        if (a.subject_id !== b.subject_id) return a.subject_id.localeCompare(b.subject_id);
+        return a.topic.localeCompare(b.topic);
+      }),
+    };
 
     return NextResponse.json({
       questionMetrics: {
