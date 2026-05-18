@@ -700,22 +700,19 @@ export default function AdminDashboardPage() {
                 Detailed view of questions by exam, subject, topic, source, and difficulty
               </p>
             </div>
-            <div className="flex flex-col items-end gap-2">
+            <div>
               <select
                 value={selectedExamFilter}
                 onChange={(e) => setSelectedExamFilter(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
-                <option value="all">All Exams ({analytics.topicBreakdown.length} entries)</option>
+                <option value="all">All Exams</option>
                 {getUniqueExamsInBreakdown().map((exam) => (
                   <option key={exam.id} value={exam.id}>
                     {exam.name}
                   </option>
                 ))}
               </select>
-              <span className="text-xs text-gray-500">
-                Showing {getFilteredTopicBreakdown().length} entries
-              </span>
             </div>
           </div>
 
@@ -786,12 +783,19 @@ export default function AdminDashboardPage() {
             </table>
           </div>
 
-          {getFilteredTopicBreakdown().length === 0 && (
+          {getFilteredTopicBreakdown().length === 0 ? (
             <div className="text-center py-12">
               <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <p className="mt-2 text-sm text-gray-500">No topic data available</p>
+            </div>
+          ) : (
+            <div className="mt-3 text-right text-xs text-gray-500">
+              Showing {getFilteredTopicBreakdown().length} {getFilteredTopicBreakdown().length === 1 ? 'entry' : 'entries'}
+              {selectedExamFilter !== "all" && (
+                <span className="ml-1">for {getExamName(selectedExamFilter)}</span>
+              )}
             </div>
           )}
         </div>
