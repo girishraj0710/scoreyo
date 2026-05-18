@@ -389,6 +389,7 @@ export default function SprintPage() {
                 ))}
               </div>
             )}
+            </div>
           </div>
         ) : null}
 
