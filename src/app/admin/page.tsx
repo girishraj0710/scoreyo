@@ -71,6 +71,14 @@ export default function AdminDashboardPage() {
     return exam?.name || examId;
   };
 
+  // Helper to get subject display name
+  const getSubjectName = (examId: string, subjectId: string): string => {
+    const exam = getExamById(examId);
+    if (!exam) return subjectId;
+    const subject = exam.subjects.find(s => s.id === subjectId);
+    return subject?.name || subjectId;
+  };
+
   // Calculate total available exams from config
   const getTotalAvailableExams = (): number => {
     return examCategories.reduce((total, category) => total + category.exams.length, 0);
@@ -710,7 +718,7 @@ export default function AdminDashboardPage() {
                       {getExamName(item.examId)}
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
-                      {item.subjectId}
+                      {getSubjectName(item.examId, item.subjectId)}
                     </td>
                     <td className="px-4 py-3 text-sm text-gray-600 max-w-xs truncate" title={item.topic}>
                       {item.topic}

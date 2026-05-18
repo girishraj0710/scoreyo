@@ -183,7 +183,7 @@ export async function GET(req: NextRequest) {
       args: [],
     });
 
-    // 6. Detailed topic-level breakdown
+    // 6. Detailed topic-level breakdown (sorted by count ASC - least to most)
     const topicBreakdown = await db.execute({
       sql: `SELECT
               exam_id,
@@ -194,7 +194,7 @@ export async function GET(req: NextRequest) {
               COUNT(*) as count
             FROM exam_questions
             GROUP BY exam_id, subject_id, topic, source, difficulty
-            ORDER BY exam_id, subject_id, topic, count DESC`,
+            ORDER BY count ASC, exam_id, subject_id, topic`,
       args: [],
     });
 
