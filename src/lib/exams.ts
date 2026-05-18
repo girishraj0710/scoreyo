@@ -495,6 +495,370 @@ export const examCategories: ExamCategory[] = [
         ],
       },
       {
+        id: "upsee",
+        name: "UPSEE",
+        fullName: "Uttar Pradesh State Entrance Examination",
+        category: "engineering",
+        icon: "🎯",
+        color: "#673AB7",
+        description: "For admission to UP Engineering & Architecture colleges",
+        subjects: [
+          {
+            id: "upsee-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Fluid Mechanics", "Rotational Dynamics",
+              "Properties of Matter", "Communication Systems"
+            ],
+          },
+          {
+            id: "upsee-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Environmental Chemistry"
+            ],
+          },
+          {
+            id: "upsee-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Quadratic Equations", "Mathematical Reasoning"
+            ],
+          },
+        ],
+      },
+      {
+        id: "bcece",
+        name: "BCECE",
+        fullName: "Bihar Combined Entrance Competitive Examination",
+        category: "engineering",
+        icon: "🎯",
+        color: "#F44336",
+        description: "For admission to Bihar Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "bcece-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Kinetic Theory", "Dual Nature of Matter",
+              "Atoms & Nuclei", "Communication Systems"
+            ],
+          },
+          {
+            id: "bcece-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Chemistry in Everyday Life"
+            ],
+          },
+          {
+            id: "bcece-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Inverse Trigonometry", "Application of Integrals"
+            ],
+          },
+        ],
+      },
+      {
+        id: "ojee",
+        name: "OJEE",
+        fullName: "Odisha Joint Entrance Examination",
+        category: "engineering",
+        icon: "🎯",
+        color: "#2196F3",
+        description: "For admission to Odisha Engineering & Pharmacy colleges",
+        subjects: [
+          {
+            id: "ojee-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Properties of Matter", "Heat & Thermodynamics",
+              "Electromagnetic Waves", "Atomic Physics"
+            ],
+          },
+          {
+            id: "ojee-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Haloalkanes & Haloarenes"
+            ],
+          },
+          {
+            id: "ojee-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Mathematical Induction", "Definite Integrals"
+            ],
+          },
+        ],
+      },
+      {
+        id: "tnea",
+        name: "TNEA",
+        fullName: "Tamil Nadu Engineering Admissions",
+        category: "engineering",
+        icon: "🎯",
+        color: "#FF5722",
+        description: "For admission to Tamil Nadu Engineering colleges",
+        subjects: [
+          {
+            id: "tnea-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Oscillations", "Atomic Physics",
+              "Nuclear Physics", "Communication Systems"
+            ],
+          },
+          {
+            id: "tnea-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Solid State"
+            ],
+          },
+          {
+            id: "tnea-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Two Dimensional Analytical Geometry", "Discrete Mathematics"
+            ],
+          },
+        ],
+      },
+      {
+        id: "gujcet",
+        name: "GUJCET",
+        fullName: "Gujarat Common Entrance Test",
+        category: "engineering",
+        icon: "🎯",
+        color: "#795548",
+        description: "For admission to Gujarat Engineering & Pharmacy colleges",
+        subjects: [
+          {
+            id: "gujcet-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Rotational Motion", "Properties of Matter",
+              "Thermal Physics", "Electronics"
+            ],
+          },
+          {
+            id: "gujcet-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Environmental Chemistry"
+            ],
+          },
+          {
+            id: "gujcet-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Circle", "Probability Distribution"
+            ],
+          },
+        ],
+      },
+      {
+        id: "reap",
+        name: "REAP",
+        fullName: "Rajasthan Engineering Admission Process",
+        category: "engineering",
+        icon: "🎯",
+        color: "#E91E63",
+        description: "For admission to Rajasthan Engineering colleges",
+        subjects: [
+          {
+            id: "reap-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Kinetic Theory of Gases", "Electromagnetic Waves",
+              "Atoms & Nuclei", "Electronic Devices"
+            ],
+          },
+          {
+            id: "reap-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Chemistry in Everyday Life"
+            ],
+          },
+          {
+            id: "reap-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Inverse Trigonometric Functions", "Continuity & Differentiability"
+            ],
+          },
+        ],
+      },
+      {
+        id: "jcece",
+        name: "JCECE",
+        fullName: "Jharkhand Combined Entrance Competitive Examination",
+        category: "engineering",
+        icon: "🎯",
+        color: "#00BCD4",
+        description: "For admission to Jharkhand Engineering & Medical colleges",
+        subjects: [
+          {
+            id: "jcece-physics",
+            name: "Physics",
+            icon: "⚡",
+            topics: [
+              "Mechanics", "Thermodynamics", "Waves & Oscillations",
+              "Optics", "Electrostatics", "Current Electricity",
+              "Magnetism", "Electromagnetic Induction", "Modern Physics",
+              "Semiconductors", "Ray Optics", "Wave Optics",
+              "Gravitation", "Properties of Bulk Matter", "Kinetic Theory",
+              "Thermal Physics", "Dual Nature of Matter"
+            ],
+          },
+          {
+            id: "jcece-chemistry",
+            name: "Chemistry",
+            icon: "🧪",
+            topics: [
+              "Atomic Structure", "Chemical Bonding", "States of Matter",
+              "Thermodynamics", "Equilibrium", "Redox Reactions",
+              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
+              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
+              "Periodic Table", "Coordination Compounds", "d-Block Elements",
+              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
+              "Amines", "Biomolecules", "Environmental Chemistry"
+            ],
+          },
+          {
+            id: "jcece-maths",
+            name: "Mathematics",
+            icon: "📐",
+            topics: [
+              "Algebra", "Trigonometry", "Calculus",
+              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
+              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
+              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
+              "Limits & Continuity", "Differentiation", "Integration",
+              "Differential Equations", "Straight Lines", "Conic Sections",
+              "Application of Derivatives", "Integrals"
+            ],
+          },
+        ],
+      },
+      {
         id: "gate",
         name: "GATE",
         fullName: "Graduate Aptitude Test in Engineering",
