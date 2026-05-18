@@ -279,11 +279,11 @@ export default function SprintPage() {
             </div>
           </div>
         ) : selectedSprint && selectedSprint.sprint ? (
-          <div className="relative overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 rounded-2xl shadow-xl shadow-indigo-500/20 p-6 mb-8">
+          <div className="relative overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 rounded-2xl shadow-xl shadow-indigo-500/20 p-4 mb-8">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="relative">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/20">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/20">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center shadow-lg">
                   <Icon icon={getCategory(selectedSprint.sprint.examId).icon} className="w-9 h-9" />
@@ -315,12 +315,12 @@ export default function SprintPage() {
             </div>
 
             {selectedSprint.leaderboard.length === 0 ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <Trophy className="w-10 h-10 text-white" />
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
+                  <Trophy className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Be the First Champion!</h4>
-                <p className="text-indigo-100 text-sm mb-6 max-w-sm mx-auto">
+                <p className="text-indigo-100 text-sm mb-4 max-w-sm mx-auto">
                   No one has attempted this sprint yet. Start now and claim the #1 spot on the leaderboard!
                 </p>
                 <button
@@ -328,17 +328,17 @@ export default function SprintPage() {
                     e.stopPropagation();
                     joinSprint(selectedSprint.sprint.id);
                   }}
-                  className="px-6 py-2.5 bg-white text-indigo-600 hover:bg-white/90 font-medium rounded-lg transition-colors shadow-lg"
+                  className="px-6 py-2 bg-white text-indigo-600 hover:bg-white/90 font-medium rounded-lg transition-colors shadow-lg"
                 >
                   Start Sprint Challenge
                 </button>
               </div>
             ) : (
-              <div className="space-y-2 max-h-96 overflow-y-auto">
+              <div className="space-y-2 max-h-80 overflow-y-auto">
                 {selectedSprint.leaderboard.map((entry) => (
                   <div
                     key={entry.userId}
-                    className={`flex items-center justify-between p-4 rounded-lg border transition-colors backdrop-blur-sm ${
+                    className={`flex items-center justify-between p-3 rounded-lg border transition-colors backdrop-blur-sm ${
                       entry.isTop10
                         ? "bg-yellow-50/90 border-yellow-200/70 shadow-sm"
                         : "bg-white/90 border-white/30 hover:bg-white/95 shadow-sm"
