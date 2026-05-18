@@ -98,16 +98,18 @@ export default function SprintPage() {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <div className="h-8 w-64 bg-slate-200 rounded shimmer mb-2"></div>
-          <div className="h-4 w-96 bg-slate-200 rounded shimmer"></div>
-        </div>
-        <div className="bg-white rounded-xl p-6 mb-6 shimmer h-48"></div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="bg-white rounded-xl p-6 h-64 shimmer" />
-          ))}
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="mb-8">
+            <div className="h-8 w-64 bg-slate-200/70 rounded shimmer mb-2"></div>
+            <div className="h-4 w-96 bg-slate-200/70 rounded shimmer"></div>
+          </div>
+          <div className="bg-slate-100/70 rounded-xl p-6 mb-6 shimmer h-48"></div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-white/70 backdrop-blur-sm rounded-xl p-6 h-64 shimmer" />
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -250,8 +252,9 @@ export default function SprintPage() {
         </div>
 
         {/* Leaderboard Section */}
+        <div className="mb-8">
         {!selectedSprint ? (
-          <div className="relative overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 rounded-2xl shadow-xl shadow-indigo-500/20 p-8 text-center mb-8">
+          <div key="placeholder" className="relative overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 rounded-2xl shadow-xl shadow-indigo-500/20 p-8 text-center transition-all duration-300">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="relative">
@@ -279,7 +282,7 @@ export default function SprintPage() {
             </div>
           </div>
         ) : selectedSprint && selectedSprint.sprint ? (
-          <div className="relative overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 rounded-2xl shadow-xl shadow-indigo-500/20 p-4 mb-8">
+          <div key={selectedSprint.sprint.id} className="relative overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 rounded-2xl shadow-xl shadow-indigo-500/20 p-4 transition-all duration-300">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="relative">
@@ -392,6 +395,7 @@ export default function SprintPage() {
             </div>
           </div>
         ) : null}
+        </div>
 
         {/* Grouped Sprint Cards */}
         {Object.entries(groupedSprints).map(([examId, categorysprints]) => {
