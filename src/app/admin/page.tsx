@@ -68,6 +68,35 @@ export default function AdminDashboardPage() {
     return examCategories.reduce((total, category) => total + category.exams.length, 0);
   };
 
+  // Get all exams with their question counts (including 0 for new exams)
+  const getAllExamsWithCounts = () => {
+    if (!analytics) return [];
+
+    // Get all exams from config
+    const allExams = examCategories.flatMap(cat => cat.exams);
+
+    // Create a map of exam counts from database
+    const countsMap = new Map(
+      analytics.questionMetrics.byExam.map(item => [item.examId, item.count])
+    );
+
+    // Merge: all exams with their counts (0 if not in DB)
+    const merged = allExams.map(exam => ({
+      examId: exam.id,
+      examName: exam.name,
+      count: countsMap.get(exam.id) || 0,
+      isNew: !countsMap.has(exam.id), // Flag new exams without questions
+    }));
+
+    // Sort: exams with questions first (by count desc), then new exams alphabetically
+    return merged.sort((a, b) => {
+      if (a.count === 0 && b.count === 0) return a.examName.localeCompare(b.examName);
+      if (a.count === 0) return 1;
+      if (b.count === 0) return -1;
+      return b.count - a.count;
+    });
+  };
+
   useEffect(() => {
     fetchAnalytics();
   }, []);
@@ -553,51 +582,60 @@ export default function AdminDashboardPage() {
               Exams with questions in the database
             </p>
             <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
-              {analytics.questionMetrics.byExam.map((item, idx) => (
-                <div key={item.examId} className="flex items-center gap-3">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm flex-shrink-0">
-                    {idx + 1}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="text-sm font-medium text-gray-900 truncate" title={item.examId}>
-                        {getExamName(item.examId)}
-                      </span>
-                      <span className="text-sm font-bold text-indigo-600 whitespace-nowrap">
-                        {item.count.toLocaleString()}
-                      </span>
+              {getAllExamsWithCounts().map((item, idx) => {
+                const maxCount = Math.max(...getAllExamsWithCounts().map(e => e.count), 1);
+                return (
+                  <div key={item.examId} className="flex items-center gap-3">
+                    <div className={`flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm flex-shrink-0 ${
+                      item.isNew
+                        ? 'bg-amber-100 text-amber-700'
+                        : 'bg-indigo-100 text-indigo-700'
+                    }`}>
+                      {idx + 1}
                     </div>
-                    <div className="w-full bg-gray-100 rounded-full h-2">
-                      <div
-                        className="bg-indigo-500 h-2 rounded-full transition-all"
-                        style={{
-                          width: `${Math.max(
-                            5,
-                            (item.count /
-                              Math.max(
-                                ...analytics.questionMetrics.byExam.map((e) => e.count)
-                              )) *
-                            100
-                          )}%`,
-                        }}
-                      />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-sm font-medium text-gray-900 truncate flex items-center gap-2" title={item.examId}>
+                          {item.examName}
+                          {item.isNew && (
+                            <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">
+                              NEW
+                            </span>
+                          )}
+                        </span>
+                        <span className={`text-sm font-bold whitespace-nowrap ${
+                          item.count === 0 ? 'text-gray-400' : 'text-indigo-600'
+                        }`}>
+                          {item.count === 0 ? '0 (needs seeding)' : item.count.toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-100 rounded-full h-2">
+                        <div
+                          className={`h-2 rounded-full transition-all ${
+                            item.count === 0 ? 'bg-gray-300' : 'bg-indigo-500'
+                          }`}
+                          style={{
+                            width: item.count === 0 ? '2%' : `${Math.max(5, (item.count / maxCount) * 100)}%`,
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Summary Stats */}
             <div className="mt-6 pt-6 border-t grid grid-cols-3 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-bold text-gray-900">
-                  {getTotalAvailableExams()}
+                  {getAllExamsWithCounts().length}
                 </p>
                 <p className="text-xs text-gray-600 mt-1">Total Exams</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-green-600">
-                  {analytics.questionMetrics.byExam.length}
+                  {getAllExamsWithCounts().filter(e => e.count > 0).length}
                 </p>
                 <p className="text-xs text-gray-600 mt-1">With Questions</p>
               </div>
@@ -605,7 +643,7 @@ export default function AdminDashboardPage() {
                 <p className="text-2xl font-bold text-indigo-600">
                   {Math.round(
                     analytics.questionMetrics.total /
-                    analytics.questionMetrics.byExam.length
+                    getAllExamsWithCounts().filter(e => e.count > 0).length
                   )}
                 </p>
                 <p className="text-xs text-gray-600 mt-1">Avg per Exam</p>
