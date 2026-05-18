@@ -65,7 +65,7 @@ export async function GET(req: NextRequest) {
       sql: `SELECT
               status,
               COUNT(*) as count
-            FROM question_reports
+            FROM reported_questions
             GROUP BY status`,
       args: [],
     });
@@ -73,7 +73,7 @@ export async function GET(req: NextRequest) {
     const recentReports = await db.execute({
       sql: `SELECT
               COUNT(*) as count
-            FROM question_reports
+            FROM reported_questions
             WHERE created_at >= datetime('now', '-7 days')`,
       args: [],
     });

@@ -94,11 +94,27 @@ async function initializeDb() {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
+    CREATE TABLE IF NOT EXISTS question_reports (
+      id TEXT PRIMARY KEY,
+      question_id INTEGER NOT NULL,
+      user_id TEXT NOT NULL,
+      reason TEXT NOT NULL,
+      details TEXT,
+      status TEXT DEFAULT 'pending',
+      admin_notes TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      resolved_at DATETIME,
+      FOREIGN KEY (question_id) REFERENCES exam_questions(id),
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+
     CREATE INDEX IF NOT EXISTS idx_quiz_sessions_user ON quiz_sessions(user_id);
     CREATE INDEX IF NOT EXISTS idx_quiz_sessions_exam ON quiz_sessions(exam_id);
     CREATE INDEX IF NOT EXISTS idx_question_attempts_session ON question_attempts(session_id);
     CREATE INDEX IF NOT EXISTS idx_topic_mastery_user ON topic_mastery(user_id, exam_id);
     CREATE INDEX IF NOT EXISTS idx_reported_questions ON reported_questions(status);
+    CREATE INDEX IF NOT EXISTS idx_question_reports_status ON question_reports(status);
+    CREATE INDEX IF NOT EXISTS idx_question_reports_question ON question_reports(question_id);
 
     CREATE TABLE IF NOT EXISTS weakness_profiles (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
