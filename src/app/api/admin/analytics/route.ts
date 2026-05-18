@@ -183,6 +183,21 @@ export async function GET(req: NextRequest) {
       args: [],
     });
 
+    // 6. Detailed topic-level breakdown
+    const topicBreakdown = await db.execute({
+      sql: `SELECT
+              exam_id,
+              subject_id,
+              topic,
+              source,
+              difficulty,
+              COUNT(*) as count
+            FROM exam_questions
+            GROUP BY exam_id, subject_id, topic, source, difficulty
+            ORDER BY exam_id, subject_id, topic, count DESC`,
+      args: [],
+    });
+
     return NextResponse.json({
       questionMetrics: {
         total: Number(totalQuestions.rows[0]?.count || 0),
@@ -253,6 +268,14 @@ export async function GET(req: NextRequest) {
           total: Number(revenue30Days.rows[0]?.total || 0) / 100, // Convert paise to rupees
         },
       },
+      topicBreakdown: topicBreakdown.rows.map((r: any) => ({
+        examId: r.exam_id,
+        subjectId: r.subject_id,
+        topic: r.topic,
+        source: r.source,
+        difficulty: r.difficulty,
+        count: Number(r.count),
+      })),
     });
   } catch (error) {
     console.error("Error fetching analytics:", error);

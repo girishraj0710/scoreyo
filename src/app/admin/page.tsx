@@ -50,6 +50,14 @@ interface Analytics {
       total: number;
     };
   };
+  topicBreakdown: Array<{
+    examId: string;
+    subjectId: string;
+    topic: string;
+    source: string;
+    difficulty: string;
+    count: number;
+  }>;
 }
 
 export default function AdminDashboardPage() {
@@ -650,6 +658,102 @@ export default function AdminDashboardPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Detailed Topic-Level Breakdown */}
+        <div className="mt-8 bg-white rounded-xl shadow-md p-6">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Topic-Level Question Breakdown
+              </h2>
+              <p className="text-sm text-gray-600 mt-1">
+                Detailed view of questions by exam, subject, topic, source, and difficulty
+              </p>
+            </div>
+            <div className="text-sm text-gray-500">
+              {analytics.topicBreakdown.length} entries
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Exam
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Subject
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Topic
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Source
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Difficulty
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Questions
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {analytics.topicBreakdown.map((item, idx) => (
+                  <tr key={idx} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {getExamName(item.examId)}
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
+                      {item.subjectId}
+                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-600 max-w-xs truncate" title={item.topic}>
+                      {item.topic}
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        item.source.includes('pyq') || item.source.includes('verified')
+                          ? 'bg-green-100 text-green-700'
+                          : item.source.includes('ai')
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'bg-gray-100 text-gray-700'
+                      }`}>
+                        {item.source}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium capitalize ${
+                        item.difficulty === 'easy'
+                          ? 'bg-green-100 text-green-700'
+                          : item.difficulty === 'medium'
+                          ? 'bg-yellow-100 text-yellow-700'
+                          : 'bg-red-100 text-red-700'
+                      }`}>
+                        {item.difficulty}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-right font-semibold text-gray-900">
+                      {item.count}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {analytics.topicBreakdown.length === 0 && (
+            <div className="text-center py-12">
+              <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <p className="mt-2 text-sm text-gray-500">No topic data available</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
