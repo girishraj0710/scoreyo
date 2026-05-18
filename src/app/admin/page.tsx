@@ -717,25 +717,25 @@ export default function AdminDashboardPage() {
           </div>
 
           <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg">
-            <table className="w-full divide-y divide-gray-200">
+            <table className="w-full table-fixed divide-y divide-gray-200">
               <thead className="bg-gray-50 sticky top-0 z-10">
                 <tr>
-                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
+                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[12%]">
                     Exam
                   </th>
-                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[12%]">
+                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[10%]">
                     Subject
                   </th>
-                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[30%]">
+                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[32%]">
                     Topic
                   </th>
-                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
+                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[16%]">
                     Source
                   </th>
-                  <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[13%]">
+                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[14%]">
                     Difficulty
                   </th>
-                  <th scope="col" className="px-3 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
+                  <th scope="col" className="px-2 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[16%]">
                     Count
                   </th>
                 </tr>
@@ -743,38 +743,46 @@ export default function AdminDashboardPage() {
               <tbody className="bg-white divide-y divide-gray-200">
                 {getFilteredTopicBreakdown().map((item, idx) => (
                   <tr key={idx} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-3 py-2 text-xs font-medium text-gray-900 truncate" title={getExamName(item.examId)}>
-                      {getExamName(item.examId)}
+                    <td className="px-2 py-2 text-xs font-medium text-gray-900 overflow-hidden">
+                      <div className="truncate" title={getExamName(item.examId)}>
+                        {getExamName(item.examId)}
+                      </div>
                     </td>
-                    <td className="px-3 py-2 text-xs text-gray-600 truncate" title={getSubjectName(item.examId, item.subjectId)}>
-                      {getSubjectName(item.examId, item.subjectId)}
+                    <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
+                      <div className="truncate" title={getSubjectName(item.examId, item.subjectId)}>
+                        {getSubjectName(item.examId, item.subjectId)}
+                      </div>
                     </td>
-                    <td className="px-3 py-2 text-xs text-gray-600 truncate" title={item.topic}>
-                      {item.topic}
+                    <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
+                      <div className="truncate" title={item.topic}>
+                        {item.topic}
+                      </div>
                     </td>
-                    <td className="px-3 py-2 text-xs">
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium truncate inline-block max-w-full ${
-                        item.source.includes('pyq') || item.source.includes('verified')
-                          ? 'bg-green-100 text-green-700'
-                          : item.source.includes('ai')
-                          ? 'bg-blue-100 text-blue-700'
-                          : 'bg-gray-100 text-gray-700'
-                      }`} title={item.source}>
-                        {item.source.length > 15 ? item.source.substring(0, 15) + '...' : item.source}
-                      </span>
+                    <td className="px-2 py-2 text-xs overflow-hidden">
+                      <div className="truncate" title={item.source}>
+                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium inline-block ${
+                          item.source.includes('pyq') || item.source.includes('verified')
+                            ? 'bg-green-100 text-green-700'
+                            : item.source.includes('ai')
+                            ? 'bg-blue-100 text-blue-700'
+                            : 'bg-gray-100 text-gray-700'
+                        }`}>
+                          {item.source}
+                        </span>
+                      </div>
                     </td>
-                    <td className="px-3 py-2 text-xs">
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize ${
+                    <td className="px-2 py-2 text-xs">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize inline-block ${
                         item.difficulty === 'easy'
                           ? 'bg-green-100 text-green-700'
                           : item.difficulty === 'medium'
                           ? 'bg-yellow-100 text-yellow-700'
                           : 'bg-red-100 text-red-700'
                       }`}>
-                        {item.difficulty}
+                        {item.difficulty.substring(0, 1).toUpperCase()}
                       </span>
                     </td>
-                    <td className="px-3 py-2 text-xs text-right font-semibold text-gray-900">
+                    <td className="px-2 py-2 text-xs text-right font-semibold text-gray-900">
                       {item.count}
                     </td>
                   </tr>
