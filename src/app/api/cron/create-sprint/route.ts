@@ -23,6 +23,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const force = request.nextUrl.searchParams.get("force") === "true";
+
     const db = createClient({
       url: process.env.TURSO_DATABASE_URL!,
       authToken: process.env.TURSO_AUTH_TOKEN!,
@@ -36,12 +38,21 @@ export async function GET(request: NextRequest) {
       args: [today],
     });
 
-    if (existing.rows.length > 0) {
+    if (existing.rows.length > 0 && !force) {
       return NextResponse.json({
         message: "Sprints already exist for today",
         count: existing.rows.length,
         sprints: existing.rows.map((r: any) => ({ id: r.id, examId: r.exam_id })),
       });
+    }
+
+    // If force=true, delete existing sprints for today
+    if (force && existing.rows.length > 0) {
+      await db.execute({
+        sql: "DELETE FROM daily_sprints WHERE date = ?",
+        args: [today],
+      });
+      console.log(`🗑️  Deleted ${existing.rows.length} existing sprints for ${today}`);
     }
 
     // Delete old sprints (older than 7 days)
