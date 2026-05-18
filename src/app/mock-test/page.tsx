@@ -4,8 +4,9 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
-import { FileText } from "lucide-react";
+import { FileText, Sparkles } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
+import { CustomMockTestBuilder } from "@/components/custom-mock-test-builder";
 
 interface MockTestConfig {
   examId: string;
@@ -46,6 +47,7 @@ export default function MockTestPage() {
   const [selectedTestNumber, setSelectedTestNumber] = useState<number>(1);
   const [testCapacity, setTestCapacity] = useState<Record<string, number>>({});
   const [showExamModal, setShowExamModal] = useState(false);
+  const [showCustomBuilder, setShowCustomBuilder] = useState(false);
 
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
@@ -228,6 +230,50 @@ export default function MockTestPage() {
           return;
         }
         alert(data.error || "Failed to start test");
+        setPageState("select");
+        return;
+      }
+
+      setTestId(data.testId);
+      setExamName(data.examName);
+      setQuestions(data.questions);
+      setAnswers(new Array(data.questions.length).fill(null));
+      setTimeLimitSeconds(data.timeLimitSeconds);
+      setTimeRemaining(data.timeLimitSeconds);
+      setCurrentQuestion(0);
+      setPageState("test");
+    } catch {
+      alert("Something went wrong. Please try again.");
+      setPageState("select");
+    }
+  }
+
+  async function startCustomTest(config: {
+    examId: string;
+    examName: string;
+    sections: any[];
+    timeLimitMinutes: number;
+    totalQuestions: number;
+  }) {
+    setShowCustomBuilder(false);
+    setPageState("loading");
+    try {
+      const res = await fetch("/api/mock-test", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "create-custom",
+          customConfig: config,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        if (data.proRequired) {
+          setPageState("pro-required");
+          return;
+        }
+        alert(data.error || "Failed to start custom test");
         setPageState("select");
         return;
       }
@@ -760,40 +806,53 @@ export default function MockTestPage() {
       </div>
 
       {/* Test Type Tabs */}
-      <div className="flex justify-center gap-3 mb-8">
-        <button
-          onClick={() => setTestType("short")}
-          className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-            testType === "short"
-              ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
-              : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            <span>Short Practice Tests</span>
-          </div>
-          <div className="text-xs mt-1 opacity-90">20-30 questions · 40-60 mins</div>
-        </button>
+      <div className="flex flex-col items-center gap-4 mb-8">
+        <div className="flex justify-center gap-3">
+          <button
+            onClick={() => setTestType("short")}
+            className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+              testType === "short"
+                ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>Short Practice Tests</span>
+            </div>
+            <div className="text-xs mt-1 opacity-90">20-30 questions · 40-60 mins</div>
+          </button>
 
+          <button
+            onClick={() => setTestType("full")}
+            className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+              testType === "full"
+                ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>Full-Length Mock Tests</span>
+              </div>
+              <div className="text-xs mt-1 opacity-90">60-90 questions · 100-150 mins</div>
+          </button>
+        </div>
+
+        {/* Custom Test Builder Button */}
         <button
-          onClick={() => setTestType("full")}
-          className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-            testType === "full"
-              ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
-              : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
-          }`}
+          onClick={() => setShowCustomBuilder(true)}
+          className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg hover:from-purple-700 hover:to-pink-700 transition-all flex items-center gap-2"
         >
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            <span>Full-Length Mock Tests</span>
-          </div>
-          <div className="text-xs mt-1 opacity-90">60-90 questions · 100-150 mins</div>
+          <Sparkles className="w-5 h-5" />
+          <span>Create Custom Test</span>
+          <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">NEW</span>
         </button>
+        <p className="text-xs text-slate-500 -mt-2">Build your own personalized mock test</p>
       </div>
 
       {/* Search Bar */}
@@ -1170,6 +1229,14 @@ export default function MockTestPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Custom Mock Test Builder */}
+      {showCustomBuilder && (
+        <CustomMockTestBuilder
+          onClose={() => setShowCustomBuilder(false)}
+          onCreateTest={startCustomTest}
+        />
       )}
     </div>
   );

@@ -124,7 +124,104 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { examId, testNumber = 1, isFullLength = false } = body;
+    const { examId, testNumber = 1, isFullLength = false, action, customConfig } = body;
+
+    // Handle custom mock test creation
+    if (action === "create-custom" && customConfig) {
+      const { examId, examName, sections, timeLimitMinutes, totalQuestions } = customConfig;
+      const exam = getExamById(examId);
+      if (!exam) {
+        return NextResponse.json({ error: "Exam not found" }, { status: 400 });
+      }
+
+      // Generate questions for custom test
+      const allQuestions: any[] = [];
+      const seen = new Set<string>();
+
+      for (const section of sections) {
+        const subject = getSubjectById(examId, section.subjectId);
+        if (!subject) continue;
+
+        const needed = section.questionCount;
+        const topics = section.selectedTopics.length > 0 ? section.selectedTopics : subject.topics;
+
+        // Get questions from DB and cache
+        const [verifiedPool, cachedPool] = await Promise.all([
+          getExamQuestions(examId, section.subjectId, "", "mixed", needed * 3),
+          getCachedQuestions(examId, section.subjectId, "", "mixed", needed * 3),
+        ]);
+
+        // Filter by selected topics if specified
+        const filteredVerified = section.selectedTopics.length > 0
+          ? verifiedPool.filter((q: any) => section.selectedTopics.includes(q.topic))
+          : verifiedPool;
+
+        const filteredCached = section.selectedTopics.length > 0
+          ? cachedPool.filter((q: any) => section.selectedTopics.includes(q.topic))
+          : cachedPool;
+
+        // Mark cache as used
+        const cacheIds = filteredCached.map((q: any) => q._cacheId).filter(Boolean);
+        if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
+
+        // Merge and deduplicate
+        for (const q of [...filteredVerified, filteredCached]) {
+          const { _cacheId, ...rest } = q as any;
+          const k = (rest.question || "").toLowerCase().trim();
+          if (!k || seen.has(k)) continue;
+          seen.add(k);
+          allQuestions.push({
+            ...rest,
+            subjectId: section.subjectId,
+            subjectName: section.subjectName,
+          });
+          if (allQuestions.filter((aq) => aq.subjectId === section.subjectId).length >= needed) break;
+        }
+
+        // Fill gap with in-memory verified bank if needed
+        const sectionCount = allQuestions.filter((aq) => aq.subjectId === section.subjectId).length;
+        if (sectionCount < needed) {
+          for (const t of shuffle(topics as string[]).slice(0, 5)) {
+            const verified = getVerifiedQuestions(examId, section.subjectId, t as string);
+            for (const q of shuffle(verified)) {
+              const k = (q.question || "").toLowerCase().trim();
+              if (!k || seen.has(k)) continue;
+              seen.add(k);
+              allQuestions.push({
+                ...q,
+                subjectId: section.subjectId,
+                subjectName: section.subjectName,
+              });
+              if (allQuestions.filter((aq) => aq.subjectId === section.subjectId).length >= needed) break;
+            }
+            if (allQuestions.filter((aq) => aq.subjectId === section.subjectId).length >= needed) break;
+          }
+        }
+      }
+
+      // Create mock test record
+      const testId = uuidv4();
+      const questionsJson = JSON.stringify({
+        examName,
+        sections,
+        isCustom: true,
+      });
+      await createMockTest(
+        testId,
+        userId,
+        examId,
+        allQuestions.length,
+        timeLimitMinutes * 60,
+        questionsJson
+      );
+
+      return NextResponse.json({
+        testId,
+        examName,
+        questions: shuffle(allQuestions),
+        timeLimitSeconds: timeLimitMinutes * 60,
+      });
+    }
 
     // Try dynamic generation first
     let config: any;
