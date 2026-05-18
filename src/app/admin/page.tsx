@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { getExamById } from "@/lib/exams";
+import { getExamById, examCategories } from "@/lib/exams";
 
 interface Analytics {
   questionMetrics: {
@@ -61,6 +61,11 @@ export default function AdminDashboardPage() {
   const getExamName = (examId: string): string => {
     const exam = getExamById(examId);
     return exam?.name || examId;
+  };
+
+  // Calculate total available exams from config
+  const getTotalAvailableExams = (): number => {
+    return examCategories.reduce((total, category) => total + category.exams.length, 0);
   };
 
   useEffect(() => {
@@ -530,14 +535,22 @@ export default function AdminDashboardPage() {
 
           {/* Top Exams by Questions */}
           <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
               Question Bank Coverage
             </h2>
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-3 mb-4">
+              <p className="text-sm text-green-800 font-medium">
+                ✨ 7 new state CETs added: UPSEE, BCECE, OJEE, TNEA, GUJCET, REAP, JCECE
+              </p>
+              <p className="text-xs text-green-700 mt-1">
+                Run question seeders to populate these exams with questions
+              </p>
+            </div>
             <p className="text-sm text-gray-600 mb-4">
-              Top exams by question count
+              Exams with questions in the database
             </p>
             <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
               {analytics.questionMetrics.byExam.map((item, idx) => (
@@ -575,12 +588,18 @@ export default function AdminDashboardPage() {
             </div>
 
             {/* Summary Stats */}
-            <div className="mt-6 pt-6 border-t grid grid-cols-2 gap-4">
+            <div className="mt-6 pt-6 border-t grid grid-cols-3 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-bold text-gray-900">
-                  {analytics.questionMetrics.byExam.length}
+                  {getTotalAvailableExams()}
                 </p>
                 <p className="text-xs text-gray-600 mt-1">Total Exams</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  {analytics.questionMetrics.byExam.length}
+                </p>
+                <p className="text-xs text-gray-600 mt-1">With Questions</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-indigo-600">
