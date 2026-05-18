@@ -637,7 +637,7 @@ export default function AdminDashboardPage() {
                 <p className="text-2xl font-bold text-green-600">
                   {getAllExamsWithCounts().filter(e => e.count > 0).length}
                 </p>
-                <p className="text-xs text-gray-600 mt-1">With Questions</p>
+                <p className="text-xs text-gray-600 mt-1">Exams with Questions</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-indigo-600">
@@ -646,7 +646,7 @@ export default function AdminDashboardPage() {
                     getAllExamsWithCounts().filter(e => e.count > 0).length
                   )}
                 </p>
-                <p className="text-xs text-gray-600 mt-1">Avg per Exam</p>
+                <p className="text-xs text-gray-600 mt-1">Avg Questions per Exam</p>
               </div>
             </div>
           </div>
