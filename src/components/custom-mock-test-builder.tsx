@@ -154,16 +154,16 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   >
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl"
+                        className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center text-2xl"
                         style={{ backgroundColor: `${exam.color}20`, color: exam.color }}
                       >
                         {exam.icon}
                       </div>
-                      <div className="flex-1">
-                        <div className="font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                      <div className="flex-1 min-w-0">
+                        <div className="font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 truncate">
                           {exam.name}
                         </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400 truncate">
+                        <div className="text-sm text-gray-500 dark:text-gray-400 truncate" title={exam.description}>
                           {exam.description}
                         </div>
                       </div>
@@ -185,22 +185,22 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
               {/* Exam Info */}
               {exam && (
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 p-4 rounded-xl border border-indigo-200 dark:border-gray-600">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3 min-w-0 flex-1">
                       <div
-                        className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl"
+                        className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center text-2xl"
                         style={{ backgroundColor: `${exam.color}30`, color: exam.color }}
                       >
                         {exam.icon}
                       </div>
-                      <div>
-                        <div className="font-bold text-gray-900 dark:text-white">{exam.name}</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300">{exam.fullName}</div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-gray-900 dark:text-white truncate">{exam.name}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-300 truncate" title={exam.fullName}>{exam.fullName}</div>
                       </div>
                     </div>
                     <button
                       onClick={() => setStep(1)}
-                      className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline"
+                      className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline whitespace-nowrap flex-shrink-0"
                     >
                       Change Exam
                     </button>
