@@ -539,7 +539,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {/* Chart */}
-            <div className="space-y-3 max-h-[500px] overflow-y-auto">
+            <div className="space-y-3 max-h-[350px] overflow-y-auto">
               {[...analytics.dailyActivity]
                 .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
                 .map((item) => (
@@ -615,7 +615,7 @@ export default function AdminDashboardPage() {
             <p className="text-sm text-gray-600 mb-4">
               Exams with questions in the database
             </p>
-            <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+            <div className="space-y-3 max-h-[350px] overflow-y-auto pr-2">
               {getAllExamsWithCounts().map((item, idx) => {
                 const maxCount = Math.max(...getAllExamsWithCounts().map(e => e.count), 1);
                 return (
