@@ -51,13 +51,21 @@ interface Analytics {
     };
   };
   topicBreakdown: Array<{
-    examId: string;
-    subjectId: string;
+    // Legacy format fields (when modelType = "legacy")
+    examId?: string;
+    subjectId?: string;
     topic: string;
-    source: string;
-    difficulty: string;
-    count: number;
+    source?: string;
+    difficulty?: string;
+    count?: number;
+    // Dimensional format fields (when modelType = "dimensional")
+    scope?: string;
+    exam_count?: number;
+    question_count?: number;
+    sources?: string;
+    difficulties?: string;
   }>;
+  modelType?: "legacy" | "dimensional";
 }
 
 export default function AdminDashboardPage() {
@@ -117,6 +125,13 @@ export default function AdminDashboardPage() {
   // Get filtered topic breakdown
   const getFilteredTopicBreakdown = () => {
     if (!analytics) return [];
+
+    // Dimensional model doesn't support per-exam filtering
+    if (analytics.modelType === "dimensional") {
+      return analytics.topicBreakdown;
+    }
+
+    // Legacy model: filter by exam
     if (selectedExamFilter === "all") return analytics.topicBreakdown;
     return analytics.topicBreakdown.filter(item => item.examId === selectedExamFilter);
   };
@@ -124,7 +139,14 @@ export default function AdminDashboardPage() {
   // Get unique exams from topic breakdown for filter
   const getUniqueExamsInBreakdown = () => {
     if (!analytics) return [];
-    const uniqueExamIds = [...new Set(analytics.topicBreakdown.map(item => item.examId))];
+
+    // Dimensional model: no exam filtering needed
+    if (analytics.modelType === "dimensional") {
+      return [];
+    }
+
+    // Legacy model: extract unique exams
+    const uniqueExamIds = [...new Set(analytics.topicBreakdown.map(item => item.examId!))];
     return uniqueExamIds.map(examId => ({
       id: examId,
       name: getExamName(examId),
@@ -695,96 +717,177 @@ export default function AdminDashboardPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
                 Topic-Level Question Breakdown
+                {analytics?.modelType && (
+                  <span className={`ml-3 px-2 py-1 rounded text-xs font-medium ${
+                    analytics.modelType === "dimensional"
+                      ? "bg-green-100 text-green-700"
+                      : "bg-gray-100 text-gray-700"
+                  }`}>
+                    {analytics.modelType === "dimensional" ? "📊 Dimensional Model" : "📦 Legacy Model"}
+                  </span>
+                )}
               </h2>
               <p className="text-sm text-gray-600 mt-1">
-                Detailed view of questions by exam, subject, topic, source, and difficulty
+                {analytics?.modelType === "dimensional"
+                  ? "Showing shared topics across all exams with question pools"
+                  : "Detailed view of questions by exam, subject, topic, source, and difficulty"}
               </p>
             </div>
-            <div>
-              <select
-                value={selectedExamFilter}
-                onChange={(e) => setSelectedExamFilter(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-              >
-                <option value="all">All Exams</option>
-                {getUniqueExamsInBreakdown().map((exam) => (
-                  <option key={exam.id} value={exam.id}>
-                    {exam.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {analytics?.modelType !== "dimensional" && (
+              <div>
+                <select
+                  value={selectedExamFilter}
+                  onChange={(e) => setSelectedExamFilter(e.target.value)}
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                >
+                  <option value="all">All Exams</option>
+                  {getUniqueExamsInBreakdown().map((exam) => (
+                    <option key={exam.id} value={exam.id}>
+                      {exam.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
 
           <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg">
             <table className="w-full table-fixed divide-y divide-gray-200">
               <thead className="bg-gray-50 sticky top-0 z-10">
                 <tr>
-                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[12%]">
-                    Exam
-                  </th>
-                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[10%]">
-                    Subject
-                  </th>
-                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[32%]">
-                    Topic
-                  </th>
-                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[16%]">
-                    Source
-                  </th>
-                  <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[14%]">
-                    Difficulty
-                  </th>
-                  <th scope="col" className="px-2 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[16%]">
-                    Count
-                  </th>
+                  {analytics?.modelType === "dimensional" ? (
+                    // Dimensional model headers
+                    <>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[35%]">
+                        Topic
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[15%]">
+                        Scope
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[10%]">
+                        Exams
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[18%]">
+                        Sources
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[12%]">
+                        Difficulties
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[10%]">
+                        Questions
+                      </th>
+                    </>
+                  ) : (
+                    // Legacy model headers
+                    <>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[12%]">
+                        Exam
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[10%]">
+                        Subject
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[32%]">
+                        Topic
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[16%]">
+                        Source
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[14%]">
+                        Difficulty
+                      </th>
+                      <th scope="col" className="px-2 py-2 text-right text-xs font-medium text-gray-500 uppercase bg-gray-50 w-[16%]">
+                        Count
+                      </th>
+                    </>
+                  )}
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {getFilteredTopicBreakdown().map((item, idx) => (
                   <tr key={idx} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-2 py-2 text-xs font-medium text-gray-900 overflow-hidden">
-                      <div className="truncate" title={getExamName(item.examId)}>
-                        {getExamName(item.examId)}
-                      </div>
-                    </td>
-                    <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
-                      <div className="truncate" title={getSubjectName(item.examId, item.subjectId)}>
-                        {getSubjectName(item.examId, item.subjectId)}
-                      </div>
-                    </td>
-                    <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
-                      <div className="truncate" title={item.topic}>
-                        {item.topic}
-                      </div>
-                    </td>
-                    <td className="px-2 py-2 text-xs overflow-hidden">
-                      <div className="truncate" title={item.source}>
-                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium inline-block ${
-                          item.source.includes('pyq') || item.source.includes('verified')
-                            ? 'bg-green-100 text-green-700'
-                            : item.source.includes('ai')
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'bg-gray-100 text-gray-700'
-                        }`}>
-                          {item.source}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="px-2 py-2 text-xs">
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize inline-block ${
-                        item.difficulty === 'easy'
-                          ? 'bg-green-100 text-green-700'
-                          : item.difficulty === 'medium'
-                          ? 'bg-yellow-100 text-yellow-700'
-                          : 'bg-red-100 text-red-700'
-                      }`}>
-                        {item.difficulty}
-                      </span>
-                    </td>
-                    <td className="px-2 py-2 text-xs text-right font-semibold text-gray-900">
-                      {item.count}
-                    </td>
+                    {analytics?.modelType === "dimensional" ? (
+                      // Dimensional model row
+                      <>
+                        <td className="px-2 py-2 text-xs font-medium text-gray-900 overflow-hidden">
+                          <div className="truncate" title={item.topic}>
+                            {item.topic}
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs overflow-hidden">
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize ${
+                            item.scope === 'universal'
+                              ? 'bg-green-100 text-green-700'
+                              : item.scope === 'state-specific'
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-blue-100 text-blue-700'
+                          }`}>
+                            {item.scope}
+                          </span>
+                        </td>
+                        <td className="px-2 py-2 text-xs text-right font-semibold text-indigo-600">
+                          {item.exam_count}
+                        </td>
+                        <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
+                          <div className="truncate text-[10px]" title={item.sources}>
+                            {item.sources}
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
+                          <div className="truncate text-[10px]" title={item.difficulties}>
+                            {item.difficulties}
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs text-right font-semibold text-gray-900">
+                          {item.question_count?.toLocaleString()}
+                        </td>
+                      </>
+                    ) : (
+                      // Legacy model row
+                      <>
+                        <td className="px-2 py-2 text-xs font-medium text-gray-900 overflow-hidden">
+                          <div className="truncate" title={getExamName(item.examId!)}>
+                            {getExamName(item.examId!)}
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
+                          <div className="truncate" title={getSubjectName(item.examId!, item.subjectId!)}>
+                            {getSubjectName(item.examId!, item.subjectId!)}
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs text-gray-600 overflow-hidden">
+                          <div className="truncate" title={item.topic}>
+                            {item.topic}
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs overflow-hidden">
+                          <div className="truncate" title={item.source}>
+                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium inline-block ${
+                              item.source?.includes('pyq') || item.source?.includes('verified')
+                                ? 'bg-green-100 text-green-700'
+                                : item.source?.includes('ai')
+                                ? 'bg-blue-100 text-blue-700'
+                                : 'bg-gray-100 text-gray-700'
+                            }`}>
+                              {item.source}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="px-2 py-2 text-xs">
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize inline-block ${
+                            item.difficulty === 'easy'
+                              ? 'bg-green-100 text-green-700'
+                              : item.difficulty === 'medium'
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-red-100 text-red-700'
+                          }`}>
+                            {item.difficulty}
+                          </span>
+                        </td>
+                        <td className="px-2 py-2 text-xs text-right font-semibold text-gray-900">
+                          {item.count}
+                        </td>
+                      </>
+                    )}
                   </tr>
                 ))}
               </tbody>
