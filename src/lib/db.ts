@@ -473,7 +473,7 @@ async function initializeDb() {
 }
 
 // Helper: get a single row
-async function queryOne(sql: string, args: any[] = []): Promise<any | undefined> {
+export async function queryOne(sql: string, args: any[] = []): Promise<any | undefined> {
   await ensureInitialized();
   const result = await getClient().execute({ sql, args });
   if (result.rows.length === 0) return undefined;
@@ -487,7 +487,7 @@ async function queryOne(sql: string, args: any[] = []): Promise<any | undefined>
 }
 
 // Helper: get multiple rows
-async function queryAll(sql: string, args: any[] = []): Promise<any[]> {
+export async function queryAll(sql: string, args: any[] = []): Promise<any[]> {
   await ensureInitialized();
   const result = await getClient().execute({ sql, args });
   return result.rows.map((row) => {
