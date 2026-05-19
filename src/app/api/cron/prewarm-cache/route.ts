@@ -93,8 +93,11 @@ export async function GET(request: NextRequest) {
       return m;
     }
 
+    // FEATURE FLAG: Use dimensional model or legacy table
+    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
+
     const [examCounts, cachedCounts] = await Promise.all([
-      loadCounts("exam_questions"),
+      loadCounts(useDimensional ? "fact_exam_questions" : "exam_questions"),
       loadCounts("cached_questions"),
     ]);
 

@@ -93,7 +93,7 @@ export async function GET(req: NextRequest) {
               eq.correct_answer,
               eq.explanation
             FROM question_reports qr
-            LEFT JOIN exam_questions eq ON qr.question_id = eq.id
+            LEFT JOIN fact_exam_questions eq ON qr.question_id = eq.id
             WHERE qr.status = ?
             ORDER BY qr.created_at DESC
             LIMIT 50`,

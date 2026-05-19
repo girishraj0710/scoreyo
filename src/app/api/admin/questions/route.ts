@@ -63,7 +63,7 @@ export async function GET(req: NextRequest) {
               u.name as reporter_name,
               u.email as reporter_email
             FROM question_reports qr
-            LEFT JOIN exam_questions eq ON qr.question_id = eq.id
+            LEFT JOIN fact_exam_questions eq ON qr.question_id = eq.id
             LEFT JOIN users u ON qr.user_id = u.id
             WHERE qr.status = ?
             ORDER BY qr.created_at DESC
@@ -208,7 +208,7 @@ export async function PUT(req: NextRequest) {
     args.push(questionId);
 
     await db.execute({
-      sql: `UPDATE exam_questions SET ${updates.join(", ")} WHERE id = ?`,
+      sql: `UPDATE fact_exam_questions SET ${updates.join(", ")} WHERE id = ?`,
       args,
     });
 

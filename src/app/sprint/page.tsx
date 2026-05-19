@@ -117,17 +117,19 @@ export default function SprintPage() {
 
   if (noActiveSprint) {
     return (
-      <div className="min-h-screen bg-slate-900">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-4xl mx-auto px-4 py-12">
-          <div className="bg-slate-800 rounded-xl border border-slate-700 p-12 text-center">
-            <Trophy className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-white mb-2">No Active Sprints</h2>
-            <p className="text-slate-400 mb-6">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-xl p-12 text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Trophy className="w-8 h-8 text-slate-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">No Active Sprints</h2>
+            <p className="text-slate-600 mb-6">
               Check back soon for the next competitive sprint challenge!
             </p>
             <button
               onClick={() => router.push("/dashboard")}
-              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors"
+              className="px-6 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl transition-colors"
             >
               Back to Dashboard
             </button>

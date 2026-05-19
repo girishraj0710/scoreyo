@@ -32,34 +32,68 @@ export async function GET(req: NextRequest) {
     }
 
     // 1. Question Quality Metrics
-    const totalQuestions = await db.execute({
-      sql: "SELECT COUNT(*) as count FROM exam_questions",
-      args: [],
-    });
+    // FEATURE FLAG: Use dimensional model or legacy table
+    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
 
-    const questionsBySource = await db.execute({
-      sql: `SELECT source, COUNT(*) as count
-            FROM exam_questions
-            GROUP BY source
-            ORDER BY count DESC
-            LIMIT 10`,
-      args: [],
-    });
+    const totalQuestions = useDimensional
+      ? await db.execute({
+          sql: "SELECT COUNT(*) as count FROM fact_exam_questions",
+          args: [],
+        })
+      : await db.execute({
+          sql: "SELECT COUNT(*) as count FROM exam_questions",
+          args: [],
+        });
 
-    const questionsByDifficulty = await db.execute({
-      sql: `SELECT difficulty, COUNT(*) as count
-            FROM exam_questions
-            GROUP BY difficulty`,
-      args: [],
-    });
+    const questionsBySource = useDimensional
+      ? await db.execute({
+          sql: `SELECT source, COUNT(*) as count
+                FROM fact_exam_questions
+                GROUP BY source
+                ORDER BY count DESC
+                LIMIT 10`,
+          args: [],
+        })
+      : await db.execute({
+          sql: `SELECT source, COUNT(*) as count
+                FROM exam_questions
+                GROUP BY source
+                ORDER BY count DESC
+                LIMIT 10`,
+          args: [],
+        });
 
-    const questionsByExam = await db.execute({
-      sql: `SELECT exam_id, COUNT(*) as count
-            FROM exam_questions
-            GROUP BY exam_id
-            ORDER BY count DESC`,
-      args: [],
-    });
+    const questionsByDifficulty = useDimensional
+      ? await db.execute({
+          sql: `SELECT difficulty, COUNT(*) as count
+                FROM fact_exam_questions
+                GROUP BY difficulty`,
+          args: [],
+        })
+      : await db.execute({
+          sql: `SELECT difficulty, COUNT(*) as count
+                FROM exam_questions
+                GROUP BY difficulty`,
+          args: [],
+        });
+
+    const questionsByExam = useDimensional
+      ? await db.execute({
+          sql: `SELECT e.exam_code as exam_id, e.exam_name, COUNT(DISTINCT q.id) as count
+                FROM dim_exams e
+                JOIN bridge_exam_subject_topic b ON e.id = b.exam_id
+                JOIN fact_exam_questions q ON b.topic_id = q.topic_id
+                GROUP BY e.id
+                ORDER BY count DESC`,
+          args: [],
+        })
+      : await db.execute({
+          sql: `SELECT exam_id, COUNT(*) as count
+                FROM exam_questions
+                GROUP BY exam_id
+                ORDER BY count DESC`,
+          args: [],
+        });
 
     const reportStats = await db.execute({
       sql: `SELECT
@@ -184,82 +218,115 @@ export async function GET(req: NextRequest) {
     });
 
     // 6. Detailed topic-level breakdown (sorted by count ASC - least to most)
-    // First, get all existing questions grouped
-    const existingQuestions = await db.execute({
-      sql: `SELECT
-              exam_id,
-              subject_id,
-              topic,
-              source,
-              difficulty,
-              COUNT(*) as count
-            FROM exam_questions
-            GROUP BY exam_id, subject_id, topic, source, difficulty`,
-      args: [],
-    });
+    let topicBreakdown;
 
-    // Build a map of existing questions
-    const questionMap = new Map<string, any[]>();
-    for (const row of existingQuestions.rows) {
-      const key = `${row.exam_id}|||${row.subject_id}|||${row.topic}`;
-      if (!questionMap.has(key)) {
-        questionMap.set(key, []);
-      }
-      questionMap.get(key)!.push({
-        source: row.source,
-        difficulty: row.difficulty,
-        count: Number(row.count),
+    if (useDimensional) {
+      // NEW: Show shared topics across exams with dimensional model
+      const dimensionalTopics = await db.execute({
+        sql: `SELECT
+                t.topic_name as topic,
+                t.scope,
+                COUNT(DISTINCT q.id) as question_count,
+                COUNT(DISTINCT b.exam_id) as exam_count,
+                GROUP_CONCAT(DISTINCT q.source) as sources,
+                GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
+              FROM dim_topics t
+              LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
+              LEFT JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+              GROUP BY t.id
+              ORDER BY question_count ASC, t.topic_name`,
+        args: [],
       });
-    }
 
-    // Now generate ALL possible combinations from exam definitions
-    const { examCategories } = await import("@/lib/exams");
-    const allTopicCombinations: any[] = [];
+      topicBreakdown = {
+        rows: dimensionalTopics.rows.map((r: any) => ({
+          topic: r.topic,
+          scope: r.scope,
+          exam_count: Number(r.exam_count),
+          question_count: Number(r.question_count),
+          sources: r.sources,
+          difficulties: r.difficulties,
+        })),
+      };
+    } else {
+      // OLD: Legacy topic breakdown by exam-subject-topic
+      // First, get all existing questions grouped
+      const existingQuestions = await db.execute({
+        sql: `SELECT
+                exam_id,
+                subject_id,
+                topic,
+                source,
+                difficulty,
+                COUNT(*) as count
+              FROM exam_questions
+              GROUP BY exam_id, subject_id, topic, source, difficulty`,
+        args: [],
+      });
 
-    for (const category of examCategories) {
-      for (const exam of category.exams) {
-        for (const subject of exam.subjects) {
-          for (const topic of subject.topics) {
-            const key = `${exam.id}|||${subject.id}|||${topic}`;
-            const existingData = questionMap.get(key);
+      // Build a map of existing questions
+      const questionMap = new Map<string, any[]>();
+      for (const row of existingQuestions.rows) {
+        const key = `${row.exam_id}|||${row.subject_id}|||${row.topic}`;
+        if (!questionMap.has(key)) {
+          questionMap.set(key, []);
+        }
+        questionMap.get(key)!.push({
+          source: row.source,
+          difficulty: row.difficulty,
+          count: Number(row.count),
+        });
+      }
 
-            if (existingData && existingData.length > 0) {
-              // Topic has questions - add each source/difficulty combo
-              for (const item of existingData) {
+      // Now generate ALL possible combinations from exam definitions
+      const { examCategories } = await import("@/lib/exams");
+      const allTopicCombinations: any[] = [];
+
+      for (const category of examCategories) {
+        for (const exam of category.exams) {
+          for (const subject of exam.subjects) {
+            for (const topic of subject.topics) {
+              const key = `${exam.id}|||${subject.id}|||${topic}`;
+              const existingData = questionMap.get(key);
+
+              if (existingData && existingData.length > 0) {
+                // Topic has questions - add each source/difficulty combo
+                for (const item of existingData) {
+                  allTopicCombinations.push({
+                    exam_id: exam.id,
+                    subject_id: subject.id,
+                    topic: topic,
+                    source: item.source,
+                    difficulty: item.difficulty,
+                    count: item.count,
+                  });
+                }
+              } else {
+                // Topic has NO questions - add with 0 count
                 allTopicCombinations.push({
                   exam_id: exam.id,
                   subject_id: subject.id,
                   topic: topic,
-                  source: item.source,
-                  difficulty: item.difficulty,
-                  count: item.count,
+                  source: "-",
+                  difficulty: "-",
+                  count: 0,
                 });
               }
-            } else {
-              // Topic has NO questions - add with 0 count
-              allTopicCombinations.push({
-                exam_id: exam.id,
-                subject_id: subject.id,
-                topic: topic,
-                source: "-",
-                difficulty: "-",
-                count: 0,
-              });
             }
           }
         }
       }
-    }
 
-    // Sort by count ASC (0s first), then by exam/subject/topic
-    const topicBreakdown = {
-      rows: allTopicCombinations.sort((a, b) => {
-        if (a.count !== b.count) return a.count - b.count;
-        if (a.exam_id !== b.exam_id) return a.exam_id.localeCompare(b.exam_id);
-        if (a.subject_id !== b.subject_id) return a.subject_id.localeCompare(b.subject_id);
-        return a.topic.localeCompare(b.topic);
-      }),
-    };
+      // Sort by count ASC (0s first), then by exam/subject/topic
+      topicBreakdown = {
+        rows: allTopicCombinations.sort((a, b) => {
+          if (a.count !== b.count) return a.count - b.count;
+          if (a.exam_id !== b.exam_id) return a.exam_id.localeCompare(b.exam_id);
+          if (a.subject_id !== b.subject_id) return a.subject_id.localeCompare(b.subject_id);
+          return a.topic.localeCompare(b.topic);
+        }),
+      };
+    }
 
     return NextResponse.json({
       questionMetrics: {
@@ -331,14 +398,17 @@ export async function GET(req: NextRequest) {
           total: Number(revenue30Days.rows[0]?.total || 0) / 100, // Convert paise to rupees
         },
       },
-      topicBreakdown: topicBreakdown.rows.map((r: any) => ({
-        examId: r.exam_id,
-        subjectId: r.subject_id,
-        topic: r.topic,
-        source: r.source,
-        difficulty: r.difficulty,
-        count: Number(r.count),
-      })),
+      topicBreakdown: useDimensional
+        ? topicBreakdown.rows
+        : topicBreakdown.rows.map((r: any) => ({
+            examId: r.exam_id,
+            subjectId: r.subject_id,
+            topic: r.topic,
+            source: r.source,
+            difficulty: r.difficulty,
+            count: Number(r.count),
+          })),
+      modelType: useDimensional ? 'dimensional' : 'legacy',
     });
   } catch (error) {
     console.error("Error fetching analytics:", error);

@@ -261,6 +261,80 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_exam_questions_lookup ON exam_questions(exam_id, subject_id, topic, difficulty);
 
+    -- DIMENSIONAL MODEL TABLES (Phase 5)
+    -- These tables enable topic sharing across exams for larger question pools
+
+    CREATE TABLE IF NOT EXISTS dim_exams (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      exam_code TEXT NOT NULL UNIQUE,
+      exam_name TEXT NOT NULL,
+      category TEXT,
+      conducting_body TEXT,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS dim_subjects (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      subject_code TEXT NOT NULL UNIQUE,
+      subject_name TEXT NOT NULL,
+      category TEXT,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS dim_topics (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      topic_name TEXT NOT NULL UNIQUE,
+      category TEXT NOT NULL,
+      scope TEXT NOT NULL CHECK(scope IN ('universal', 'state-specific', 'exam-specific')),
+      parent_topic_id INTEGER,
+      description TEXT,
+      keywords TEXT,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (parent_topic_id) REFERENCES dim_topics(id)
+    );
+
+    CREATE TABLE IF NOT EXISTS bridge_exam_subject_topic (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      exam_id INTEGER NOT NULL,
+      subject_id INTEGER NOT NULL,
+      topic_id INTEGER NOT NULL,
+      is_mandatory BOOLEAN DEFAULT TRUE,
+      weightage INTEGER DEFAULT 5,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (exam_id) REFERENCES dim_exams(id),
+      FOREIGN KEY (subject_id) REFERENCES dim_subjects(id),
+      FOREIGN KEY (topic_id) REFERENCES dim_topics(id),
+      UNIQUE(exam_id, subject_id, topic_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS fact_exam_questions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      topic_id INTEGER NOT NULL,
+      question TEXT NOT NULL,
+      options TEXT NOT NULL,
+      correct_answer INTEGER NOT NULL,
+      explanation TEXT,
+      difficulty TEXT CHECK(difficulty IN ('easy', 'medium', 'hard')),
+      source TEXT,
+      valid_from INTEGER,
+      valid_until INTEGER,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (topic_id) REFERENCES dim_topics(id)
+    );
+
+    -- Indexes for dimensional model
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_question
+      ON fact_exam_questions(topic_id, substr(question, 1, 100));
+    CREATE INDEX IF NOT EXISTS idx_fact_topic ON fact_exam_questions(topic_id);
+    CREATE INDEX IF NOT EXISTS idx_fact_difficulty ON fact_exam_questions(difficulty);
+    CREATE INDEX IF NOT EXISTS idx_bridge_exam ON bridge_exam_subject_topic(exam_id);
+    CREATE INDEX IF NOT EXISTS idx_bridge_subject ON bridge_exam_subject_topic(subject_id);
+    CREATE INDEX IF NOT EXISTS idx_bridge_topic ON bridge_exam_subject_topic(topic_id);
+    CREATE INDEX IF NOT EXISTS idx_dim_exams_code ON dim_exams(exam_code);
+    CREATE INDEX IF NOT EXISTS idx_dim_subjects_code ON dim_subjects(subject_code);
+    CREATE INDEX IF NOT EXISTS idx_dim_topics_name ON dim_topics(topic_name);
+
     CREATE TABLE IF NOT EXISTS cached_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
@@ -1432,6 +1506,17 @@ export async function getExamQuestions(
   difficulty: string = "mixed",
   limit: number = 10
 ) {
+  // FEATURE FLAG: Use dimensional model queries (Phase 5)
+  // Set USE_DIMENSIONAL_MODEL=true in .env.local to enable new queries
+  // Default: false (use old exam_questions table)
+  const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
+
+  if (useDimensional) {
+    // NEW: Use dimensional model (fact_exam_questions + bridge)
+    return getExamQuestionsDimensional(examId, subjectId, topic, difficulty, limit);
+  }
+
+  // OLD: Use legacy exam_questions table (current production behavior)
   let rows: any[];
 
   // VALIDITY PERIOD SYSTEM: Get questions valid for current year
@@ -1520,6 +1605,174 @@ export async function getExamQuestions(
     explanation: row.explanation,
     difficulty: row.difficulty,
     source: row.source || 'verified', // Use actual source from DB, fallback to 'verified'
+  }));
+}
+
+/**
+ * DIMENSIONAL MODEL QUERIES (Phase 5)
+ * Uses fact_exam_questions + bridge tables for shared topic pools
+ */
+async function getExamQuestionsDimensional(
+  examId: string,
+  subjectId: string,
+  topic: string,
+  difficulty: string = "mixed",
+  limit: number = 10
+) {
+  let rows: any[];
+
+  const currentYear = new Date().getFullYear();
+  const validityCondition = "valid_from <= ? AND (valid_until IS NULL OR valid_until >= ?)";
+  const validityArgs = [currentYear, currentYear];
+
+  // Step 1: Get dimension IDs for exam and subject
+  const examDim = await queryOne(
+    `SELECT id FROM dim_exams WHERE exam_code = ?`,
+    [examId]
+  );
+
+  const subjectDim = await queryOne(
+    `SELECT id FROM dim_subjects WHERE subject_code = ?`,
+    [subjectId]
+  );
+
+  if (!examDim || !subjectDim) {
+    console.warn(`⚠️ Exam or subject not found in dimensional model: exam=${examId}, subject=${subjectId}`);
+    return [];
+  }
+
+  const examDimId = examDim.id;
+  const subjectDimId = subjectDim.id;
+
+  // Step 2: Query based on topic
+  if (!topic || topic.trim() === "") {
+    // Empty topic = sample across ALL topics for this exam-subject
+    if (difficulty === "mixed") {
+      rows = await queryAll(
+        `SELECT q.*
+         FROM fact_exam_questions q
+         JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+         WHERE b.exam_id = ?
+           AND b.subject_id = ?
+           AND q.${validityCondition}
+         ORDER BY RANDOM()
+         LIMIT ?`,
+        [examDimId, subjectDimId, ...validityArgs, limit]
+      );
+    } else {
+      rows = await queryAll(
+        `SELECT q.*
+         FROM fact_exam_questions q
+         JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+         WHERE b.exam_id = ?
+           AND b.subject_id = ?
+           AND q.difficulty = ?
+           AND q.${validityCondition}
+         ORDER BY RANDOM()
+         LIMIT ?`,
+        [examDimId, subjectDimId, difficulty, ...validityArgs, limit]
+      );
+    }
+  } else {
+    // Topic-specific query with fuzzy matching on normalized topics
+
+    // Find matching topic IDs for this exam-subject combo
+    const topicIds = await queryAll(
+      `SELECT DISTINCT t.id
+       FROM dim_topics t
+       JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+       WHERE b.exam_id = ?
+         AND b.subject_id = ?
+         AND (t.topic_name = ? OR t.topic_name LIKE ?)`,
+      [examDimId, subjectDimId, topic, `%${topic}%`]
+    );
+
+    if (topicIds.length > 0) {
+      const topicIdList = topicIds.map((t: any) => t.id).join(',');
+
+      if (difficulty === "mixed") {
+        rows = await queryAll(
+          `SELECT q.*
+           FROM fact_exam_questions q
+           WHERE q.topic_id IN (${topicIdList})
+             AND q.${validityCondition}
+           ORDER BY RANDOM()
+           LIMIT ?`,
+          [...validityArgs, limit]
+        );
+      } else {
+        rows = await queryAll(
+          `SELECT q.*
+           FROM fact_exam_questions q
+           WHERE q.topic_id IN (${topicIdList})
+             AND q.difficulty = ?
+             AND q.${validityCondition}
+           ORDER BY RANDOM()
+           LIMIT ?`,
+          [difficulty, ...validityArgs, limit]
+        );
+      }
+    } else {
+      rows = [];
+    }
+
+    // Fallback: keyword-level fuzzy match on topic name
+    if (rows.length < limit && topic.length > 0) {
+      const keywords = topic.toLowerCase().split(/[&\s]+/).filter((w: string) => w.length > 3);
+
+      for (const keyword of keywords) {
+        if (rows.length >= limit) break;
+        const remaining = limit - rows.length;
+
+        // Find topics matching this keyword
+        const keywordTopicIds = await queryAll(
+          `SELECT DISTINCT t.id
+           FROM dim_topics t
+           JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+           WHERE b.exam_id = ?
+             AND b.subject_id = ?
+             AND t.topic_name LIKE ?`,
+          [examDimId, subjectDimId, `%${keyword}%`]
+        );
+
+        if (keywordTopicIds.length > 0) {
+          const keywordIdList = keywordTopicIds.map((t: any) => t.id).join(',');
+
+          const keywordRows = await queryAll(
+            difficulty === "mixed"
+              ? `SELECT q.* FROM fact_exam_questions q
+                 WHERE q.topic_id IN (${keywordIdList})
+                   AND q.${validityCondition}
+                 ORDER BY RANDOM() LIMIT ?`
+              : `SELECT q.* FROM fact_exam_questions q
+                 WHERE q.topic_id IN (${keywordIdList})
+                   AND q.difficulty = ?
+                   AND q.${validityCondition}
+                 ORDER BY RANDOM() LIMIT ?`,
+            difficulty === "mixed"
+              ? [...validityArgs, remaining]
+              : [difficulty, ...validityArgs, remaining]
+          );
+
+          rows = [...rows, ...keywordRows];
+        }
+      }
+    }
+  }
+
+  // Log if no questions found
+  if (rows.length === 0) {
+    console.warn(`⚠️ No questions found (dimensional): exam=${examId}, subject=${subjectId}, topic=${topic}, difficulty=${difficulty}, year=${currentYear}`);
+  }
+
+  // Map to same format as original function
+  return rows.map((row: any) => ({
+    question: row.question,
+    options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
+    correctAnswer: row.correct_answer,
+    explanation: row.explanation,
+    difficulty: row.difficulty,
+    source: row.source || 'dimensional',
   }));
 }
 
