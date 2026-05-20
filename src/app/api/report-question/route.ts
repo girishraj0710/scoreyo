@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { questionId, reason, details } = body;
+    const { questionId, reason, details, examId, subjectId } = body;
 
     if (!questionId || !reason) {
       return NextResponse.json(
@@ -50,18 +50,29 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid reason" }, { status: 400 });
     }
 
-    // Insert report
+    // Insert report with exam/subject context (if provided)
     const reportId = `report_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+    // Try to add columns if they don't exist (graceful migration)
+    try {
+      await db.execute("ALTER TABLE question_reports ADD COLUMN exam_id TEXT");
+    } catch {}
+    try {
+      await db.execute("ALTER TABLE question_reports ADD COLUMN subject_id TEXT");
+    } catch {}
+
     await db.execute({
       sql: `INSERT INTO question_reports
-            (id, question_id, user_id, reason, details, status, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            (id, question_id, user_id, reason, details, exam_id, subject_id, status, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       args: [
         reportId,
         questionId,
         userId,
         reason,
         details || null,
+        examId || null,
+        subjectId || null,
         "pending",
         new Date().toISOString(),
       ],
@@ -102,9 +113,9 @@ export async function GET(req: NextRequest) {
 
     let sql: string;
     if (useDimensional) {
-      // Dimensional model: Use DISTINCT to avoid duplicates from bridge table fan-out
-      // A topic can be mapped to multiple exams, so we pick the first exam arbitrarily
-      sql = `SELECT DISTINCT
+      // Dimensional model: Use stored exam_id/subject_id from report (captured at submission time)
+      // This ensures we show the correct context the user was in when they reported the issue
+      sql = `SELECT
               qr.id,
               qr.question_id,
               qr.user_id,
@@ -112,11 +123,10 @@ export async function GET(req: NextRequest) {
               qr.details,
               qr.status,
               qr.created_at,
+              qr.exam_id,
+              qr.subject_id,
               feq.question,
               dt.topic_name as topic,
-              (SELECT de2.exam_id FROM bridge_exam_subject_topic best2
-               JOIN dim_exams de2 ON best2.exam_id = de2.id
-               WHERE best2.topic_id = dt.id LIMIT 1) as exam_id,
               feq.correct_answer,
               feq.explanation
             FROM question_reports qr

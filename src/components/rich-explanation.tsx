@@ -15,9 +15,11 @@ interface RichExplanationProps {
   userAnswer: number;
   options: string[];
   questionId?: string;
+  examId?: string;
+  subjectId?: string;
 }
 
-export function RichExplanation({ explanation, correctAnswer, userAnswer, options, questionId }: RichExplanationProps) {
+export function RichExplanation({ explanation, correctAnswer, userAnswer, options, questionId, examId, subjectId }: RichExplanationProps) {
   // Handle legacy string explanations
   if (typeof explanation === 'string') {
     return (
@@ -150,7 +152,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
       {/* Report Question Button */}
       {questionId && (
         <div className="flex justify-center pt-2">
-          <ReportQuestionButton questionId={questionId} />
+          <ReportQuestionButton questionId={questionId} examId={examId} subjectId={subjectId} />
         </div>
       )}
     </div>

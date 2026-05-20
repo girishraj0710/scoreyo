@@ -5,11 +5,15 @@ import { AlertCircle, Check, X } from "lucide-react";
 
 interface ReportQuestionButtonProps {
   questionId: string;
+  examId?: string;
+  subjectId?: string;
   compact?: boolean;
 }
 
 export default function ReportQuestionButton({
   questionId,
+  examId,
+  subjectId,
   compact = false,
 }: ReportQuestionButtonProps) {
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +38,7 @@ export default function ReportQuestionButton({
       const response = await fetch("/api/report-question", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ questionId, reason, details }),
+        body: JSON.stringify({ questionId, reason, details, examId, subjectId }),
       });
 
       if (response.ok) {

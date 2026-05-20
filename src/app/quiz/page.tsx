@@ -887,6 +887,8 @@ function QuizContent() {
                     userAnswer={r.userAnswer ?? -1}
                     options={r.options}
                     questionId={r.id}
+                    examId={examId}
+                    subjectId={subjectId}
                   />
                 )}
               </div>
@@ -1140,6 +1142,8 @@ function QuizContent() {
             userAnswer={answers[currentQuestion] ?? -1}
             options={question.options}
             questionId={question.id}
+            examId={examId}
+            subjectId={subjectId}
           />
         )}
       </div>

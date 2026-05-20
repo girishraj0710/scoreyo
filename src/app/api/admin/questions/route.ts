@@ -44,8 +44,8 @@ export async function GET(req: NextRequest) {
 
     let sql: string;
     if (useDimensional) {
-      // Dimensional model: Use DISTINCT to avoid duplicates from bridge table fan-out
-      sql = `SELECT DISTINCT
+      // Dimensional model: Use stored exam_id/subject_id from report (captured at submission time)
+      sql = `SELECT
               qr.id as report_id,
               qr.question_id,
               qr.user_id,
@@ -55,17 +55,13 @@ export async function GET(req: NextRequest) {
               qr.admin_notes,
               qr.created_at,
               qr.resolved_at,
+              qr.exam_id,
+              qr.subject_id,
               feq.question,
               feq.options,
               feq.correct_answer,
               feq.explanation,
               dt.topic_name as topic,
-              (SELECT ds2.subject_id FROM bridge_exam_subject_topic best2
-               JOIN dim_subjects ds2 ON best2.subject_id = ds2.id
-               WHERE best2.topic_id = dt.id LIMIT 1) as subject_id,
-              (SELECT de2.exam_id FROM bridge_exam_subject_topic best2
-               JOIN dim_exams de2 ON best2.exam_id = de2.id
-               WHERE best2.topic_id = dt.id LIMIT 1) as exam_id,
               feq.difficulty,
               feq.source,
               u.name as reporter_name,
