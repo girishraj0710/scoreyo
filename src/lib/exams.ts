@@ -47,13 +47,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Units & Measurements", "Kinematics",
-              "Laws of Motion", "Work Energy Power", "Rotational Motion",
-              "Gravitation", "Fluid Mechanics", "Ray Optics",
-              "Wave Optics", "Dual Nature of Radiation"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -61,13 +64,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -75,13 +81,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Probability", "Mathematical Reasoning"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -100,14 +108,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics (Kinematics - 2D & 3D motion, Relative velocity; Laws of Motion - Advanced problems, Friction; Work Energy Power - Conservative forces; Rotational Dynamics - Moment of inertia, Angular momentum; Gravitation - Orbital motion, Escape velocity)",
-              "Thermal Physics (Thermodynamics - Laws, Carnot engine, Entropy; Kinetic Theory - Maxwell distribution, Mean free path; Heat Transfer - Conduction, Convection, Radiation)",
-              "Electromagnetism (Electrostatics - Gauss law, Capacitors; Current Electricity - Complex circuits, Kirchhoff; Magnetism - Magnetic materials, Hysteresis; Electromagnetic Induction - Faraday, Lenz, Self & Mutual inductance; AC Circuits - LCR, Resonance)",
-              "Optics (Wave Optics - Interference, Diffraction, Polarization; Ray Optics - Lenses, Mirrors, Prisms, Optical instruments)",
-              "Modern Physics (Photoelectric effect, Compton effect, Matter waves, Bohr model, X-rays, Radioactivity, Nuclear reactions)",
-              "Waves (SHM, Wave motion, Superposition, Standing waves, Doppler effect)",
-              "Fluid Mechanics (Pressure, Buoyancy, Bernoulli's theorem, Viscosity)",
-              "Error Analysis & Experiments", "Dimensional Analysis"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -115,9 +125,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Physical Chemistry (Atomic Structure - Quantum numbers, Orbitals; Chemical Bonding - MOT, VSEPR, Hybridization; Gaseous State - Real gases; Solid State - Crystal lattices, Defects; Thermodynamics - Laws, Hess law, Entropy, Gibbs energy; Equilibrium - Chemical & Ionic equilibrium; Electrochemistry - Nernst equation, Electrolysis; Chemical Kinetics - Order, Rate laws, Activation energy; Surface Chemistry - Adsorption, Catalysis, Colloids; Solutions - Colligative properties, Raoult's law)",
-              "Inorganic Chemistry (Periodic Table - Trends, Exceptions; Hydrogen & its compounds; s-Block - Alkali & Alkaline earth metals; p-Block - Group 13-18 elements; d-Block - Transition metals, Coordination compounds - Nomenclature, Isomerism, Bonding, CFT; f-Block - Lanthanides, Actinides; Metallurgy - Extraction principles; Qualitative Analysis - Salt analysis)",
-              "Organic Chemistry (Basic concepts - GOC, Resonance, Hyperconjugation, Inductive effect; Nomenclature & Isomerism - Structural, Stereoisomerism; Reaction Mechanisms - SN1, SN2, E1, E2, Electrophilic & Nucleophilic; Hydrocarbons - Alkanes, Alkenes, Alkynes, Aromatic; Oxygen containing - Alcohols, Phenols, Ethers, Aldehydes, Ketones, Carboxylic acids; Nitrogen containing - Amines, Diazonium salts; Biomolecules - Carbohydrates, Amino acids, Proteins, Nucleic acids; Polymers - Addition, Condensation; Practical Organic - Purification, Detection of elements)"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -125,13 +142,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra (Complex Numbers - De Moivre, Roots of unity; Quadratic Equations - Relations between roots; Sequences & Series - AP, GP, HP, AGP; Permutations & Combinations; Binomial Theorem - Properties, Applications; Matrices - Operations, Determinants, Inverse, System of equations; Probability - Conditional, Bayes, Binomial, Mean & Variance)",
-              "Trigonometry (Ratios, Identities, Equations, Inverse functions, Heights & Distances, Properties of triangles)",
-              "Coordinate Geometry (Straight Lines - Angle, Distance, Area; Circles - Tangent, Normal, Chord, Family; Parabola, Ellipse, Hyperbola - Standard forms, Properties, Tangent, Normal)",
-              "Calculus (Limits - L'Hospital rule; Continuity & Differentiability; Derivatives - Chain rule, Implicit, Parametric; Applications - Tangent, Normal, Maxima-Minima, Rate of change; Indefinite Integration - Methods, Partial fractions; Definite Integration - Properties, Leibnitz rule; Applications - Area, Volume; Differential Equations - Formation, Solution of first order)",
-              "Vectors & 3D Geometry (Vectors - Operations, Scalar & Vector products, Triple products; 3D - Direction cosines, Equation of line & plane, Distance, Angle)",
-              "Functions (Types, Composition, Inverse, Domain & Range)",
-              "Mathematical Reasoning & Induction"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -150,11 +169,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Fluid Mechanics", "Rotational Motion"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -162,13 +186,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Carboxylic Acids"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -176,13 +203,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Probability", "Mathematical Reasoning"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -201,12 +230,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Units & Measurements", "Kinematics",
-              "Laws of Motion", "Work Energy Power", "Rotational Motion",
-              "Gravitation", "Fluid Mechanics", "Ray Optics"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -214,13 +247,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Aromatic Compounds"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -228,13 +264,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Circles", "Probability"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -253,11 +291,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Rotational Motion", "Gravitation",
-              "Surface Tension", "Kinetic Theory of Gases", "Wave Motion"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -265,13 +308,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Alcohols & Phenols", "Biomolecules"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -279,13 +325,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Linear Programming", "Mathematical Logic"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -304,11 +352,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Fluid Mechanics", "Communication Systems"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -316,13 +369,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Environmental Chemistry"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -330,13 +386,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Probability", "Quadratic Equations"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -355,11 +413,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Fluid Mechanics", "Atoms & Nuclei"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -367,13 +430,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Chemistry in Everyday Life"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -381,13 +447,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Circles", "Probability"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -406,11 +474,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Simple Harmonic Motion", "Physical World"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -418,13 +491,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Haloalkanes"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -432,13 +508,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Application of Derivatives", "Definite Integrals"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -457,11 +535,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Fluid Mechanics", "Thermal Physics"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -469,13 +552,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Solid State"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -483,13 +569,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Probability Distributions", "Inverse Trigonometry"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -508,12 +596,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Fluid Mechanics", "Rotational Dynamics",
-              "Properties of Matter", "Communication Systems"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -521,13 +613,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Environmental Chemistry"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -535,13 +630,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Quadratic Equations", "Mathematical Reasoning"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -560,12 +657,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Kinetic Theory", "Dual Nature of Matter",
-              "Atoms & Nuclei", "Communication Systems"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -573,13 +674,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Chemistry in Everyday Life"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -587,13 +691,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Inverse Trigonometry", "Application of Integrals"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -612,12 +718,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Properties of Matter", "Heat & Thermodynamics",
-              "Electromagnetic Waves", "Atomic Physics"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -625,13 +735,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Haloalkanes & Haloarenes"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -639,13 +752,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Mathematical Induction", "Definite Integrals"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -664,12 +779,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Oscillations", "Atomic Physics",
-              "Nuclear Physics", "Communication Systems"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -677,13 +796,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Solid State"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -691,13 +813,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Two Dimensional Analytical Geometry", "Discrete Mathematics"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -716,12 +840,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Rotational Motion", "Properties of Matter",
-              "Thermal Physics", "Electronics"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -729,13 +857,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Environmental Chemistry"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -743,13 +874,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Circle", "Probability Distribution"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -768,12 +901,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Kinetic Theory of Gases", "Electromagnetic Waves",
-              "Atoms & Nuclei", "Electronic Devices"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -781,13 +918,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Chemistry in Everyday Life"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -795,13 +935,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Inverse Trigonometric Functions", "Continuity & Differentiability"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -820,12 +962,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics", "Thermodynamics", "Waves & Oscillations",
-              "Optics", "Electrostatics", "Current Electricity",
-              "Magnetism", "Electromagnetic Induction", "Modern Physics",
-              "Semiconductors", "Ray Optics", "Wave Optics",
-              "Gravitation", "Properties of Bulk Matter", "Kinetic Theory",
-              "Thermal Physics", "Dual Nature of Matter"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -833,13 +979,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Atomic Structure", "Chemical Bonding", "States of Matter",
-              "Thermodynamics", "Equilibrium", "Redox Reactions",
-              "Organic Chemistry Basics", "Hydrocarbons", "Polymers",
-              "Electrochemistry", "Chemical Kinetics", "Surface Chemistry",
-              "Periodic Table", "Coordination Compounds", "d-Block Elements",
-              "p-Block Elements", "s-Block Elements", "Aldehydes & Ketones",
-              "Amines", "Biomolecules", "Environmental Chemistry"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -847,13 +996,15 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics",
             icon: "📐",
             topics: [
-              "Algebra", "Trigonometry", "Calculus",
-              "Coordinate Geometry", "Vectors & 3D Geometry", "Statistics & Probability",
-              "Sets & Relations", "Complex Numbers", "Matrices & Determinants",
-              "Permutations & Combinations", "Binomial Theorem", "Sequences & Series",
-              "Limits & Continuity", "Differentiation", "Integration",
-              "Differential Equations", "Straight Lines", "Conic Sections",
-              "Application of Derivatives", "Integrals"
+              "Sets Relations Functions", "Complex Numbers", "Quadratic Equations",
+              "Matrices & Determinants", "Permutations & Combinations",
+              "Binomial Theorem", "Sequences & Series", "Mathematical Induction",
+              "Trigonometry", "Inverse Trigonometric Functions",
+              "Limits Continuity", "Differentiation", "Applications of Derivatives",
+              "Integration", "Applications of Integrals", "Differential Equations",
+              "Straight Lines", "Conic Sections", "Circles",
+              "Vectors", "Three Dimensional Geometry",
+              "Statistics", "Probability", "Mathematical Reasoning"
             ],
           },
         ],
@@ -873,16 +1024,16 @@ export const examCategories: ExamCategory[] = [
             icon: "💻",
             topics: [
               "Data Structures (Arrays, Stacks, Queues, Trees, Graphs, Hashing)",
-              "Algorithms (Sorting, Searching, Greedy, Dynamic Programming, Graph algorithms)",
-              "Operating Systems (Process, Threads, CPU Scheduling, Deadlock, Memory Management)",
-              "Database Management Systems (ER Model, SQL, Normalization, Transactions, Indexing)",
-              "Computer Networks (OSI & TCP/IP, Routing, Network Security, Application Layer)",
-              "Theory of Computation (Automata, Regular Languages, Context-Free Grammars, Turing Machines)",
-              "Compiler Design (Lexical Analysis, Parsing, Code Generation, Optimization)",
-              "Digital Logic (Boolean Algebra, K-maps, Combinational & Sequential Circuits)",
-              "Computer Organization & Architecture (Pipelining, Memory Hierarchy, Cache, I/O)",
-              "Discrete Mathematics (Set Theory, Relations, Functions, Graph Theory, Combinatorics)",
-              "Programming & Data Structures in C", "Software Engineering (SDLC, Testing, UML)"
+              "Algorithms (Sorting, Searching, Divide & Conquer, Greedy, Dynamic Programming, Graph algorithms)",
+              "Programming in C (Basics, Pointers, Recursion, Structures)",
+              "Operating Systems (Process, Threads, CPU Scheduling, Deadlock, Memory Management, Virtual Memory)",
+              "Database Management Systems (ER Model, Relational Model, SQL, Normalization, Transactions, Indexing)",
+              "Computer Networks (OSI & TCP/IP, Application Layer, Routing, Network Security)",
+              "Theory of Computation (Regular Languages, Finite Automata, Context-Free Languages, Pushdown Automata, Turing Machines, Computability)",
+              "Compiler Design (Lexical Analysis, Parsing, Semantic Analysis, Code Generation, Optimization)",
+              "Digital Logic (Boolean Algebra, K-maps, Combinational Circuits, Sequential Circuits)",
+              "Computer Organization & Architecture (Instruction Set, CPU Organization, Pipelining, Memory Hierarchy, Cache, I/O)",
+              "Discrete Mathematics (Set Theory, Relations, Functions, Combinatorics)"
             ],
           },
           {
@@ -890,12 +1041,10 @@ export const examCategories: ExamCategory[] = [
             name: "General Aptitude",
             icon: "🧠",
             topics: [
-              "Verbal Ability (Grammar, Sentence Completion, Antonyms, Synonyms)",
-              "Reading Comprehension", "Critical Reasoning",
-              "Numerical Ability (Percentages, Ratios, Speed-Time-Distance, Profit-Loss)",
-              "Data Interpretation (Tables, Graphs, Charts)",
-              "Analytical Aptitude", "Spatial Aptitude (Visualization, Shape matching)",
-              "Logical Reasoning (Syllogisms, Puzzles, Venn diagrams)"
+              "Verbal Ability (Grammar, Sentence Completion, Sentence Correction, Word Analogies, Synonyms, Antonyms)",
+              "Reading Comprehension (Passage Analysis, Inference, Main Idea)",
+              "Numerical Ability (Arithmetic - Percentages, Ratios, Proportions, Speed-Time-Distance, Profit-Loss)",
+              "Data Interpretation (Tables, Graphs, Charts, Data Analysis)"
             ],
           },
           {
@@ -903,14 +1052,33 @@ export const examCategories: ExamCategory[] = [
             name: "Engineering Mathematics",
             icon: "📊",
             topics: [
-              "Linear Algebra (Matrices, Determinants, Eigenvalues, Vector spaces)",
-              "Calculus (Limits, Continuity, Differentiation, Integration, Multivariable calculus)",
-              "Probability & Statistics (Random variables, Distributions, Mean, Variance, Hypothesis testing)",
-              "Differential Equations (First & Second order, Linear equations)",
-              "Complex Analysis (Complex numbers, Analytic functions, Cauchy theorem)",
-              "Numerical Methods (Root finding, Interpolation, Integration, Differential equations)",
-              "Graph Theory (Connectivity, Spanning trees, Shortest paths)",
-              "Transform Theory (Fourier, Laplace, Z-transforms)"
+              "Linear Algebra - Matrices",
+              "Linear Algebra - Determinants",
+              "Linear Algebra - System of Linear Equations",
+              "Linear Algebra - Eigenvalues & Eigenvectors",
+              "Linear Algebra - Vector Spaces",
+              "Calculus - Limits & Continuity",
+              "Calculus - Differentiation",
+              "Calculus - Integration",
+              "Calculus - Multivariable Calculus",
+              "Differential Equations - Ordinary Differential Equations",
+              "Complex Analysis - Complex Numbers",
+              "Complex Analysis - Functions of Complex Variables",
+              "Probability & Statistics - Probability Theory",
+              "Probability & Statistics - Distributions",
+              "Probability & Statistics - Descriptive Statistics & Hypothesis Testing",
+              "Numerical Methods - Root Finding",
+              "Numerical Methods - Interpolation & Approximation",
+              "Numerical Methods - Numerical Integration",
+              "Numerical Methods - Numerical Solutions of ODEs",
+              "Transform Theory - Fourier Series",
+              "Transform Theory - Fourier Transform",
+              "Transform Theory - Laplace Transform",
+              "Transform Theory - Z-Transform",
+              "Graph Theory (Connectivity, Spanning Trees, Shortest Paths)",
+              "Combinatorics (Permutations, Combinations, Counting)",
+              "Set Theory & Algebra (Sets, Relations, Groups, Rings)",
+              "Mathematical Logic (Propositional Logic, Predicate Logic)"
             ],
           },
         ],
@@ -938,18 +1106,16 @@ export const examCategories: ExamCategory[] = [
             name: "Physics",
             icon: "⚡",
             topics: [
-              "Mechanics (Kinematics, Laws of Motion, Work Energy Power, Rotational Motion)",
-              "Thermodynamics (Laws, Heat Transfer, Kinetic Theory of Gases)",
-              "Electrostatics (Coulomb's Law, Electric Field, Potential, Capacitance)",
-              "Current Electricity (Ohm's Law, Kirchhoff's Laws, Circuits, Meters)",
-              "Magnetism & Magnetic Effects of Current (Biot-Savart, Ampere's Law)",
-              "Electromagnetic Induction (Faraday's Law, Lenz's Law, AC circuits)",
-              "Optics (Ray Optics - Reflection, Refraction, Lenses; Wave Optics - Interference, Diffraction)",
-              "Modern Physics (Photoelectric Effect, Bohr's Model, Radioactivity, Nuclear Physics)",
-              "Waves & Oscillations (SHM, Wave motion, Sound waves)",
-              "Gravitation (Universal law, Planetary motion, Satellites)",
-              "Properties of Matter (Elasticity, Viscosity, Surface Tension)",
-              "Semiconductors & Communication (Diodes, Transistors, Logic gates)"
+              "Units & Measurements", "Kinematics", "Laws of Motion",
+              "Work Energy Power", "Rotational Motion", "Gravitation",
+              "Properties of Solids & Liquids", "Fluid Mechanics",
+              "Thermodynamics", "Kinetic Theory of Gases",
+              "Oscillations", "Waves", "Ray Optics", "Wave Optics",
+              "Electrostatics", "Current Electricity",
+              "Magnetic Effects of Current", "Magnetism & Matter",
+              "Electromagnetic Induction", "Alternating Current",
+              "Electromagnetic Waves", "Dual Nature of Radiation",
+              "Atoms & Nuclei", "Electronic Devices", "Communication Systems"
             ],
           },
           {
@@ -957,12 +1123,16 @@ export const examCategories: ExamCategory[] = [
             name: "Chemistry",
             icon: "🧪",
             topics: [
-              "Physical Chemistry (Atomic Structure, Chemical Bonding, Thermodynamics, Equilibrium, Electrochemistry, Chemical Kinetics, Surface Chemistry, Solutions, Solid State)",
-              "Inorganic Chemistry (Periodic Table, Hydrogen, s-Block Elements, p-Block Elements, d & f-Block Elements, Coordination Compounds, Environmental Chemistry)",
-              "Organic Chemistry (Basic concepts, Hydrocarbons - Alkanes, Alkenes, Alkynes, Aromatic; Haloalkanes & Haloarenes, Alcohols Phenols Ethers, Aldehydes Ketones Carboxylic acids, Amines, Biomolecules - Carbohydrates Proteins Nucleic acids, Polymers, Chemistry in Everyday Life)",
-              "Redox Reactions & Stoichiometry", "States of Matter (Gas, Liquid, Solid)",
-              "Purification & Characterisation of Organic Compounds",
-              "Some Basic Principles of Organic Chemistry (Nomenclature, Isomerism, Electronic effects)"
+              "Basic Concepts of Chemistry", "Atomic Structure", "Chemical Bonding",
+              "States of Matter", "Thermodynamics", "Chemical Equilibrium",
+              "Ionic Equilibrium", "Redox Reactions", "Electrochemistry",
+              "Chemical Kinetics", "Surface Chemistry", "Solutions", "Solid State",
+              "Periodic Table & Periodicity", "Hydrogen", "s-Block Elements",
+              "p-Block Elements", "d-Block & f-Block Elements", "Coordination Compounds",
+              "Environmental Chemistry", "General Principles of Metallurgy",
+              "Organic Chemistry Basics", "Hydrocarbons", "Haloalkanes & Haloarenes",
+              "Alcohols Phenols & Ethers", "Aldehydes Ketones & Carboxylic Acids",
+              "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"
             ],
           },
           {
@@ -970,18 +1140,23 @@ export const examCategories: ExamCategory[] = [
             name: "Biology (Botany & Zoology)",
             icon: "🧬",
             topics: [
-              "Diversity in Living World (Classification, Taxonomy, Plant Kingdom, Animal Kingdom)",
-              "Cell: Structure & Function (Cell theory, Biomolecules, Cell organelles, Cell division)",
-              "Plant Physiology (Transport, Mineral Nutrition, Photosynthesis, Respiration, Plant Growth)",
-              "Human Physiology (Digestion, Breathing, Circulation, Excretion, Locomotion, Neural control, Chemical coordination)",
-              "Reproduction (Reproduction in organisms, Sexual reproduction in plants & animals, Human reproduction, Reproductive health)",
-              "Genetics & Evolution (Heredity, Molecular basis of inheritance, Principles of inheritance, Evolution)",
-              "Biotechnology (Principles, Applications in health & agriculture, GMO)",
-              "Ecology & Environment (Organisms & populations, Ecosystem, Biodiversity, Environmental issues)",
-              "Structural Organisation (Morphology of flowering plants, Anatomy, Animal tissues)",
-              "Body Fluids & Circulation", "Excretory products & elimination",
-              "Locomotion & Movement", "Neural control & coordination",
-              "Chemical coordination & integration", "Immune System"
+              "Living World", "Biological Classification", "Plant Kingdom",
+              "Morphology of Flowering Plants", "Anatomy of Flowering Plants",
+              "Structural Organization in Animals", "Cell Structure & Function",
+              "Biomolecules", "Cell Division", "Transport in Plants",
+              "Mineral Nutrition", "Photosynthesis", "Respiration in Plants",
+              "Plant Growth & Development", "Reproduction in Flowering Plants",
+              "Sexual Reproduction in Flowering Plants", "Molecular Basis of Inheritance",
+              "Principles of Inheritance & Variation", "Biotechnology Principles & Processes",
+              "Biotechnology & Applications", "Animal Kingdom",
+              "Digestion & Absorption", "Breathing & Exchange of Gases",
+              "Body Fluids & Circulation", "Excretory Products & Elimination",
+              "Locomotion & Movement", "Neural Control & Coordination",
+              "Chemical Coordination & Integration", "Human Reproduction",
+              "Reproductive Health", "Evolution", "Human Health & Diseases",
+              "Strategies for Enhancement in Food Production", "Microbes in Human Welfare",
+              "Organisms & Populations", "Ecosystem", "Biodiversity & Conservation",
+              "Environmental Issues", "Immune System", "Genetics"
             ],
           },
         ],
@@ -1054,16 +1229,16 @@ export const examCategories: ExamCategory[] = [
             name: "Indian Polity & Governance",
             icon: "📜",
             topics: [
-              "Constitution of India (Historical background, Preamble, Salient features)",
-              "Fundamental Rights, Duties & Directive Principles",
-              "Union Government (President, Prime Minister, Council of Ministers, Parliament - Lok Sabha & Rajya Sabha)",
-              "State Government (Governor, Chief Minister, State Legislature)",
-              "Judiciary (Supreme Court, High Courts, Subordinate courts, Judicial review)",
-              "Federalism & Centre-State Relations", "Local Governance (Panchayati Raj, Municipalities)",
-              "Constitutional Bodies (Election Commission, CAG, UPSC, Finance Commission)",
-              "Statutory Bodies (NHRC, CIC, Lokpal)", "Emergency Provisions",
-              "Amendment Process", "Schedules of Constitution",
-              "Constitutional Developments & Landmark Judgements"
+              "Constitution - Preamble", "Constitution - Fundamental Rights",
+              "Constitution - Directive Principles", "Constitution - Fundamental Duties",
+              "Constitution - Union Government", "Constitution - State Government",
+              "Parliament - Structure & Functions", "State Legislature",
+              "Judiciary - Supreme Court", "Judiciary - High Courts",
+              "Constitutional Bodies", "Local Government - Panchayati Raj",
+              "Local Government - Municipalities", "Federalism & Centre-State Relations",
+              "Election Commission & Electoral Process", "CAG & Accountability",
+              "Public Services & Civil Services", "Emergency Provisions",
+              "Amendments & Constitutional Reforms", "Governance & Accountability"
             ],
           },
           {
@@ -1071,14 +1246,15 @@ export const examCategories: ExamCategory[] = [
             name: "Indian History & Culture",
             icon: "📚",
             topics: [
-              "Ancient India (Indus Valley, Vedic period, Mauryas, Guptas, South Indian kingdoms)",
-              "Medieval India (Delhi Sultanate, Mughal Empire, Vijayanagara, Bhakti & Sufi movements)",
-              "Modern India (British expansion, 1857 Revolt, Social reform movements, Indian National Movement)",
-              "Freedom Struggle (Gandhi, Extremists, Revolutionary movements, Quit India)",
-              "Post-Independence India (Integration, Reorganization, Five Year Plans)",
-              "World History (Industrial revolution, World Wars, Cold War, Decolonization)",
-              "Art & Culture (Architecture, Sculptures, Paintings, Music, Dance, Literature)",
-              "UNESCO World Heritage Sites in India"
+              "Ancient India - Indus Valley", "Ancient India - Vedic Period",
+              "Ancient India - Mauryan Empire", "Ancient India - Post-Mauryan Period",
+              "Medieval India - Delhi Sultanate", "Medieval India - Mughal Empire",
+              "Medieval India - Regional Kingdoms", "Cultural Heritage - Art & Architecture",
+              "Social Movements - Bhakti & Sufi", "British Expansion in India",
+              "Economic Impact of British Rule", "Social & Religious Reform Movements",
+              "1857 Revolt", "Indian National Movement - Moderate Phase",
+              "Indian National Movement - Extremist Phase", "Gandhi Era & Mass Movements",
+              "Revolutionary Movements", "Post-Independence History"
             ],
           },
           {
@@ -1086,15 +1262,14 @@ export const examCategories: ExamCategory[] = [
             name: "Geography",
             icon: "🌍",
             topics: [
-              "Physical Geography (Earth, Landforms, Climate, Vegetation, Soils)",
-              "Indian Geography (Physical features - Himalayas, Rivers, Plateaus, Coasts)",
-              "Indian Climate (Monsoon, Seasons, Climate zones)",
-              "Natural Resources (Minerals, Energy resources, Water, Forests)",
-              "Agriculture in India (Cropping patterns, Green revolution, Issues)",
-              "Industries & Infrastructure (Types, Location, Transport, Energy)",
-              "World Geography (Continents, Oceans, Major geographical phenomena)",
-              "Climatology & Oceanography", "Environmental Geography",
-              "Disaster Management (Types, Mitigation, National Disaster Management Authority)"
+              "Physical Geography - Earth Structure", "Physical Geography - Landforms",
+              "Physical Geography - Climate", "Physical Geography - Oceanography",
+              "Physical Geography - Biogeography", "Indian Geography - Physical Features",
+              "Indian Geography - Drainage Systems", "Indian Geography - Climate & Monsoon",
+              "Indian Geography - Natural Vegetation", "Indian Geography - Soils",
+              "Resources - Minerals", "Resources - Energy", "Resources - Water Resources",
+              "Agriculture in India", "Industries in India", "Transport & Communication",
+              "World Geography - Regional Studies", "Map Skills & Practical Geography"
             ],
           },
           {
@@ -1102,16 +1277,15 @@ export const examCategories: ExamCategory[] = [
             name: "Indian Economy",
             icon: "💰",
             topics: [
-              "Indian Economy Basics (Sectors, Economic indicators, National income)",
-              "Economic Planning (Five Year Plans, NITI Aayog)", "Indian Budget (Components, Budget process)",
-              "Banking & Finance (RBI, Commercial banks, Payment systems, Financial inclusion)",
-              "Fiscal Policy & Monetary Policy", "Taxation (Direct & Indirect, GST)",
-              "Agriculture Economics (Land reforms, Pricing, MSP, Food security)",
-              "Industrial Policy (Public sector, Privatization, FDI, SEZs)",
-              "International Trade (Balance of Payments, WTO, Trade agreements)",
-              "Poverty & Unemployment (Measurement, Government schemes)",
-              "Economic Reforms (1991 reforms, Liberalization, Privatization, Globalization)",
-              "GDP, GNP, Inflation, Fiscal deficit"
+              "Economic Concepts - National Income", "Economic Concepts - GDP & GNP",
+              "Economic Concepts - Inflation", "Indian Economy - Planning",
+              "Indian Economy - Five Year Plans", "Indian Economy - Sectors",
+              "Agriculture & Allied Sectors", "Industry & Services",
+              "Banking System", "RBI & Monetary Policy", "Fiscal Policy & Budget",
+              "Taxation System", "External Sector - Trade", "External Sector - BOP",
+              "Infrastructure Development", "Poverty & Unemployment",
+              "Social Sector Initiatives", "Economic Reforms",
+              "Financial Markets", "Sustainable Development"
             ],
           },
           {
@@ -1119,16 +1293,15 @@ export const examCategories: ExamCategory[] = [
             name: "Science & Technology",
             icon: "🔬",
             topics: [
-              "General Science (Physics, Chemistry, Biology basics)",
-              "Space Technology (ISRO missions, Satellites, Space exploration)",
-              "Defence Technology (Missiles, Aircraft, Naval systems)",
-              "Biotechnology & Genetic Engineering", "Nuclear Technology (Nuclear power, NPT)",
-              "Information Technology (AI, Machine Learning, Blockchain, Cyber security)",
-              "Health & Medicine (Diseases, Vaccines, Healthcare initiatives)",
-              "Agriculture Technology (GM crops, Precision farming)",
-              "Environment & Ecology (Climate change, Biodiversity, Pollution, Conservation)",
-              "Nanotechnology", "Renewable Energy (Solar, Wind, Bio-energy)",
-              "Scientific Research & Developments"
+              "Physics - Mechanics", "Physics - Heat & Thermodynamics",
+              "Physics - Optics", "Physics - Electricity & Magnetism",
+              "Chemistry - Matter & States", "Chemistry - Acids Bases Salts",
+              "Chemistry - Metals & Non-metals", "Biology - Cell & Genetics",
+              "Biology - Human Body Systems", "Biology - Diseases & Immunity",
+              "Space Technology - ISRO Missions", "Space Technology - Satellites",
+              "Defence Technology", "Biotechnology & Genetic Engineering",
+              "Nuclear Technology", "Information Technology",
+              "Nanotechnology", "Renewable Energy", "Environmental Science"
             ],
           },
           {
@@ -1136,15 +1309,14 @@ export const examCategories: ExamCategory[] = [
             name: "Current Affairs & General Studies",
             icon: "📰",
             topics: [
-              "National Affairs (Government schemes, Policy changes, Political developments)",
-              "International Relations (India's foreign policy, Bilateral relations, International organizations - UN, WTO, IMF)",
-              "Economy Current Affairs (Budget highlights, Economic survey, Major economic events)",
-              "Science & Technology Updates", "Environmental Issues & Summits",
-              "Social Issues (Education, Health, Gender, Poverty)", "Internal Security (Terrorism, Naxalism, Border management)",
-              "Awards & Honours (Nobel, Padma, International awards)",
-              "Sports Events (Olympics, Commonwealth, Asian Games)",
-              "Books & Authors", "Important Days & Events",
-              "Government Schemes & Programs"
+              "National Affairs - Government Policies", "National Affairs - Schemes",
+              "National Affairs - Social Issues", "International Relations - Foreign Policy",
+              "International Relations - International Organizations",
+              "International Relations - Bilateral Relations",
+              "Economy - Budget & Economic Survey", "Economy - Economic Events",
+              "Science & Tech Updates", "Environment & Climate Change",
+              "Defense & Security", "Sports & Awards", "Art & Culture Events",
+              "Supreme Court Judgments", "Summits & Conferences", "Important Personalities"
             ],
           },
           {
@@ -1152,9 +1324,11 @@ export const examCategories: ExamCategory[] = [
             name: "Ethics, Integrity & Aptitude",
             icon: "⚖️",
             topics: [
-              "Ethics & Human Values", "Attitude, Aptitude & Civil Service Values",
-              "Emotional Intelligence", "Integrity & Probity in Public Life",
-              "Ethics in Governance", "Case Studies on Ethics"
+              "Ethics - Basic Concepts", "Ethics - Moral Philosophy",
+              "Ethics - Public Service Values", "Ethics - Probity in Governance",
+              "Case Studies - Ethical Dilemmas", "Case Studies - Public Administration",
+              "Attitude & Aptitude", "Emotional Intelligence",
+              "Integrity & Honesty", "Ethics in International Relations"
             ],
           },
         ],
@@ -1478,15 +1652,16 @@ export const examCategories: ExamCategory[] = [
             name: "Quantitative Aptitude",
             icon: "🔢",
             topics: [
-              "Number System (HCF, LCM, Divisibility, Remainders)", "Percentage and Its Applications",
-              "Ratio and Proportion", "Profit, Loss and Discount",
-              "Simple Interest and Compound Interest", "Time and Work (Pipes & Cisterns)",
-              "Time, Speed and Distance (Trains, Boats & Streams)", "Average and Weighted Average",
-              "Algebra (Linear equations, Quadratic equations)", "Geometry (Lines, Angles, Triangles, Circles)",
-              "Trigonometry (Heights & Distances, Identities)", "Mensuration (Area, Perimeter, Volume)",
-              "Data Interpretation (Tables, Bar, Line, Pie Charts)",
-              "Statistics (Mean, Median, Mode, Frequency Distribution)",
-              "Permutation and Combination", "Probability"
+              "Number System", "HCF & LCM", "Simplification & Approximation",
+              "Percentages", "Ratio & Proportion", "Average",
+              "Profit Loss & Discount", "Simple & Compound Interest",
+              "Time & Work", "Time Speed & Distance", "Mixtures & Alligations",
+              "Pipes & Cisterns", "Algebra - Linear Equations",
+              "Algebra - Quadratic Equations", "Mensuration - 2D", "Mensuration - 3D",
+              "Geometry - Lines & Angles", "Geometry - Triangles", "Geometry - Circles",
+              "Trigonometry - Basics", "Trigonometry - Heights & Distances",
+              "Data Interpretation - Tables & Graphs", "Statistics - Mean Median Mode",
+              "Probability"
             ],
           },
           {
@@ -1494,15 +1669,12 @@ export const examCategories: ExamCategory[] = [
             name: "General Intelligence & Reasoning",
             icon: "🧩",
             topics: [
-              "Analogies (Verbal & Non-verbal)", "Classification (Odd One Out)",
-              "Series (Number, Letter, Mixed)", "Coding-Decoding (Letter, Number, Substitution)",
-              "Blood Relations", "Direction Sense and Distance",
-              "Ranking and Order", "Venn Diagram", "Syllogism",
-              "Statement and Conclusion", "Statement and Assumption",
-              "Matrix (Missing Character)", "Word Formation",
-              "Mirror Image and Water Image", "Paper Folding and Cutting",
-              "Embedded Figures", "Figure Completion", "Cube and Dice",
-              "Counting Figures"
+              "Analogies", "Similarities & Differences", "Coding-Decoding",
+              "Series - Number Series", "Series - Letter Series", "Classification",
+              "Direction Sense", "Blood Relations", "Ranking & Arrangement",
+              "Syllogism", "Venn Diagrams", "Puzzles & Seating Arrangement",
+              "Statement & Conclusions", "Statement & Assumptions",
+              "Cubes & Dice", "Mirror & Water Images"
             ],
           },
           {
@@ -1510,13 +1682,13 @@ export const examCategories: ExamCategory[] = [
             name: "English Language & Comprehension",
             icon: "📝",
             topics: [
-              "Reading Comprehension (Multiple passages)", "Error Spotting (Grammatical errors)",
-              "Fill in the Blanks (Grammar & Vocabulary)", "Synonyms and Antonyms",
-              "Idioms and Phrases", "One Word Substitution",
-              "Sentence Improvement", "Active and Passive Voice",
-              "Direct and Indirect Speech", "Cloze Test",
-              "Sentence Rearrangement", "Spelling Correction",
-              "Para Jumbles", "Phrase Replacement"
+              "Grammar - Parts of Speech", "Grammar - Tenses", "Grammar - Voice",
+              "Grammar - Narration", "Grammar - Subject-Verb Agreement",
+              "Grammar - Articles & Determiners", "Grammar - Prepositions",
+              "Grammar - Conjunctions", "Reading Comprehension",
+              "Vocabulary - Synonyms", "Vocabulary - Antonyms",
+              "Vocabulary - One Word Substitution", "Idioms & Phrases",
+              "Error Spotting", "Sentence Improvement"
             ],
           },
           {
@@ -1524,13 +1696,13 @@ export const examCategories: ExamCategory[] = [
             name: "General Awareness",
             icon: "🌐",
             topics: [
-              "Indian History (Ancient, Medieval, Modern)", "Indian Geography (Physical, Economic)",
-              "Indian Polity & Constitution", "Indian Economy & Budget",
-              "General Science (Physics, Chemistry, Biology)", "Current Affairs (National & International)",
-              "Static GK (Books, Authors, Awards, Sports)", "Science & Technology",
-              "Environment & Ecology", "Art & Culture",
-              "International Organizations", "Computer Fundamentals",
-              "Indian National Movement", "Important Days & Events"
+              "Current Affairs - National", "Current Affairs - International",
+              "History - Ancient India", "History - Medieval India", "History - Modern India",
+              "Geography - Physical", "Geography - India", "Geography - World",
+              "Polity - Constitution", "Polity - Government",
+              "Economy - Indian Economy", "Economy - Banking & Finance",
+              "Science - Physics", "Science - Chemistry", "Science - Biology",
+              "Books & Authors", "Sports & Awards", "Important Days & Events"
             ],
           },
           {
@@ -1662,7 +1834,7 @@ export const examCategories: ExamCategory[] = [
               "Awards & Honours (National & International)", "International Events & Organizations (UN, WHO, WTO)",
               "Books & Authors (Recent publications)", "Sports Events & Achievements",
               "Government Policies & Schemes", "Science & Technology Developments",
-              "Art & Culture", "Environmental Issues"
+              "Art & Culture", "Environmental Issues", "Business & Finance (GDP, Inflation, Trade Agreements)"
             ],
           },
           {
@@ -1675,6 +1847,8 @@ export const examCategories: ExamCategory[] = [
               "Criminal Law Basics (IPC provisions, Crimes, Punishment)",
               "Contract Law Basics (Agreement, Consideration, Breach)",
               "Tort Law Basics (Negligence, Nuisance, Defamation)",
+              "Family Law Basics (Marriage, Divorce, Succession, Guardianship)",
+              "Property Law & Easements (Ownership, Transfer, Rights)",
               "Legal Logical Reasoning (Applying principles to factual situations)",
               "Case-based Reasoning", "Legal Fact Scenarios"
             ],
@@ -1720,12 +1894,14 @@ export const examCategories: ExamCategory[] = [
         subjects: [
           {
             id: "ailet-english",
-            name: "English Language",
+            name: "English Language & Comprehension",
             icon: "📝",
             topics: [
-              "Reading Comprehension", "Grammar (Parts of speech, Tenses, Voice)",
-              "Vocabulary (Synonyms, Antonyms)", "Sentence Correction",
-              "Verbal Ability", "Idioms & Phrases"
+              "Reading Comprehension (Passages from contemporary & classical fiction, Non-fiction)",
+              "Grammar (Parts of speech, Tenses, Voice, Subject-verb agreement)",
+              "Vocabulary (Synonyms, Antonyms, Contextual meaning)", "Inference from passages",
+              "Critical Reasoning based on passages", "Sentence Correction & Improvement",
+              "Fill in the Blanks", "Para Jumbles", "Fact vs Opinion"
             ],
           },
           {
@@ -1733,29 +1909,57 @@ export const examCategories: ExamCategory[] = [
             name: "General Knowledge & Current Affairs",
             icon: "🌐",
             topics: [
-              "Current Affairs (National & International, last 12 months)",
-              "Indian History, Geography & Polity", "Legal Affairs (Landmark judgments, New laws)",
-              "National & International Events", "Awards & Honors", "Sports"
+              "Current Affairs (National & International events, last 12-18 months)",
+              "Static GK (Important events in history, Geography, Economics, Polity)",
+              "Legal Current Affairs (Landmark judgments, New laws, Legal reforms)",
+              "Awards & Honours (National & International)", "International Events & Organizations (UN, WHO, WTO)",
+              "Books & Authors (Recent publications)", "Sports Events & Achievements",
+              "Government Policies & Schemes", "Science & Technology Developments",
+              "Art & Culture", "Environmental Issues", "Business & Finance (GDP, Inflation, Trade Agreements)"
             ],
           },
           {
-            id: "ailet-reasoning",
-            name: "Logical & Legal Reasoning",
+            id: "ailet-logical",
+            name: "Logical Reasoning",
             icon: "🧩",
             topics: [
-              "Logical Reasoning (Syllogisms, Analogies, Series)",
-              "Analytical Reasoning (Puzzles, Arrangements)", "Critical Thinking",
-              "Legal Reasoning (Legal principles, Case-based reasoning)"
+              "Syllogism (Categorical, Venn diagrams)", "Analogies (Word, Number, Letter)",
+              "Logical Sequences & Series", "Blood Relations (Family trees)",
+              "Direction Sense & Distance", "Coding-Decoding",
+              "Assumptions, Conclusions & Inferences", "Cause & Effect",
+              "Statement & Arguments", "Critical Reasoning",
+              "Seating Arrangement (Linear, Circular)", "Puzzles & Games",
+              "Calendar & Clock problems", "Binary Logic"
+            ],
+          },
+          {
+            id: "ailet-legal",
+            name: "Legal Reasoning",
+            icon: "📜",
+            topics: [
+              "Legal Principles & their Application", "Legal Maxims (Latin maxims)",
+              "Constitutional Law Basics (Fundamental Rights, DPSPs, Judiciary)",
+              "Criminal Law Basics (IPC provisions, Crimes, Punishment)",
+              "Contract Law Basics (Agreement, Consideration, Breach)",
+              "Tort Law Basics (Negligence, Nuisance, Defamation)",
+              "Family Law Basics (Marriage, Divorce, Succession, Guardianship)",
+              "Property Law & Easements (Ownership, Transfer, Rights)",
+              "Legal Logical Reasoning (Applying principles to factual situations)",
+              "Case-based Reasoning", "Legal Fact Scenarios"
             ],
           },
           {
             id: "ailet-maths",
-            name: "Elementary Mathematics",
+            name: "Quantitative Techniques",
             icon: "🔢",
             topics: [
-              "Arithmetic (Percentage, Profit & Loss, Ratio, Average)",
-              "Algebra (Linear equations)", "Geometry (Basic mensuration)",
-              "Data Interpretation (Tables, Charts)"
+              "Number System (HCF, LCM, Divisibility, Factors)", "Percentage & Applications",
+              "Ratio, Proportion & Variation", "Average (Simple, Weighted)",
+              "Profit, Loss & Discount", "Simple Interest & Compound Interest",
+              "Time, Speed & Distance (Trains, Boats)", "Time & Work",
+              "Data Interpretation (Tables, Bar, Line, Pie charts)", "Algebra (Linear equations)",
+              "Geometry (Triangles, Circles, Quadrilaterals)", "Mensuration (Area, Volume)",
+              "Probability (Basic)", "Permutation & Combination"
             ],
           },
         ],
@@ -1783,13 +1987,14 @@ export const examCategories: ExamCategory[] = [
             name: "Quantitative Aptitude (QA)",
             icon: "🔢",
             topics: [
-              "Number System (Properties, HCF, LCM, Remainders, Divisibility, Base system)",
-              "Algebra (Linear & Quadratic equations, Inequalities, Functions, Polynomials, Progressions - AP, GP, HP)",
-              "Geometry (Triangles, Circles, Quadrilaterals, Coordinate geometry, Mensuration 2D & 3D)",
-              "Arithmetic (Percentages, Profit & Loss, Ratio & Proportion, Mixtures & Alligations, Time-Speed-Distance, Time & Work, Averages, Simple & Compound Interest)",
-              "Modern Mathematics (Permutation & Combination, Probability, Set Theory, Venn diagrams)",
-              "Trigonometry (Ratios, Identities, Heights & Distances)", "Logarithms",
-              "Mensuration (Area, Volume, Surface area)", "Special Numbers (Surds, Indices)"
+              "Number System", "LCM & HCF", "Percentages", "Profit Loss & Discount",
+              "Simple & Compound Interest", "Ratio & Proportion", "Mixtures & Alligations",
+              "Time Speed & Distance", "Time & Work", "Averages",
+              "Algebra - Linear Equations", "Algebra - Quadratic Equations",
+              "Algebra - Inequalities", "Geometry - Lines & Angles",
+              "Geometry - Triangles", "Geometry - Circles", "Geometry - Quadrilaterals",
+              "Mensuration - 2D", "Mensuration - 3D", "Trigonometry", "Logarithms",
+              "Permutations & Combinations", "Probability", "Set Theory"
             ],
           },
           {
@@ -1797,14 +2002,11 @@ export const examCategories: ExamCategory[] = [
             name: "Verbal Ability & Reading Comprehension (VARC)",
             icon: "📝",
             topics: [
-              "Reading Comprehension (Long passages from diverse topics - Economics, Philosophy, Science, Literature)",
-              "Para Jumbles (Arranging 4-5 sentences in logical order)",
-              "Para Summary (Choosing best summary for a given paragraph)",
-              "Odd One Out (Identifying sentence that doesn't fit)",
-              "Sentence Completion & Fill in the Blanks",
-              "Critical Reasoning (Inference, Assumption, Strengthen/Weaken arguments)",
-              "Vocabulary in Context (Understanding word meaning from passage)",
-              "Paragraph Completion", "Fact-Inference-Judgement"
+              "Reading Comprehension - Passages", "Reading Comprehension - Critical Reasoning",
+              "Para Jumbles", "Para Summary", "Para Completion",
+              "Sentence Correction", "Sentence Rearrangement", "Fill in the Blanks",
+              "Vocabulary - Synonyms & Antonyms", "Idioms & Phrases",
+              "Error Spotting", "Fact Inference Judgment", "Odd Sentence Out"
             ],
           },
           {
@@ -1812,13 +2014,13 @@ export const examCategories: ExamCategory[] = [
             name: "Data Interpretation & Logical Reasoning (DILR)",
             icon: "📊",
             topics: [
-              "Data Interpretation (Tables - Complex multi-row/column, Bar Graphs - Stacked/Grouped, Line Graphs - Multiple lines, Pie Charts, Caselets - Paragraph based data)",
-              "Data Sufficiency", "Data Comparison & Calculation",
-              "Logical Reasoning (Seating Arrangement - Linear/Circular/Complex, Puzzles - Grid/Floor/Team based, Binary Logic - Truth/Lies)",
-              "Games & Tournaments", "Blood Relations (Complex)",
-              "Network Diagrams & Routes", "Venn Diagrams (3-4 sets)",
-              "Scheduling Problems", "Coding-Decoding patterns",
-              "Syllogisms", "Set-based Reasoning"
+              "Data Interpretation - Tables", "Data Interpretation - Bar Graphs",
+              "Data Interpretation - Line Graphs", "Data Interpretation - Pie Charts",
+              "Data Interpretation - Caselets", "Data Interpretation - Mixed Graphs",
+              "Data Sufficiency", "Logical Reasoning - Seating Arrangement",
+              "Logical Reasoning - Puzzles", "Logical Reasoning - Blood Relations",
+              "Logical Reasoning - Binary Logic", "Logical Reasoning - Games & Tournaments",
+              "Logical Reasoning - Networks", "Logical Reasoning - Cubes"
             ],
           },
         ],
@@ -2743,36 +2945,76 @@ export const examCategories: ExamCategory[] = [
             name: "Child Development & Pedagogy",
             icon: "👶",
             topics: [
-              "Child Development (Principles, Stages)", "Learning Theories (Piaget, Vygotsky)",
-              "Individual Differences", "Assessment & Evaluation", "Inclusive Education",
-              "Motivation & Learning", "Intelligence Theories"
+              "Child Development (Principles, Stages - Infancy to adolescence, Factors affecting development)",
+              "Learning Theories (Behaviorism, Cognitivism, Constructivism)",
+              "Piaget's Theory (Stages of cognitive development)", "Vygotsky's Theory (Zone of proximal development, Scaffolding)",
+              "Intelligence & Theories (Gardner's Multiple Intelligence, Emotional Intelligence)",
+              "Inclusive Education (Children with special needs - Learning disabilities, ADHD, Giftedness; Inclusive classroom)",
+              "Assessment & Evaluation (Types, CCE, Formative & Summative)",
+              "Motivation & Learning (Intrinsic & Extrinsic motivation)", "Gender Issues in Education",
+              "Individual Differences", "Socialization & Concept of Society"
             ],
           },
           {
-            id: "htet-lang1",
-            name: "Language I (Hindi)",
-            icon: "📝",
-            topics: [
-              "Apathit Gadyansh (Comprehension)", "Vyakaran (Grammar)", "Language Pedagogy",
-              "Vocabulary", "Rachana (Writing Skills)"
-            ],
-          },
-          {
-            id: "htet-lang2",
-            name: "Language II (English)",
+            id: "htet-hindi",
+            name: "Hindi Bhasha & Shikshan Vidhi",
             icon: "📖",
             topics: [
-              "Reading Comprehension", "Grammar", "Language Pedagogy",
-              "Vocabulary", "Writing Skills"
+              "Apathit Gadyansh (Unseen prose comprehension)", "Apathit Padyansh (Unseen poetry)",
+              "Vyakaran (Grammar - Sangya, Sarvanam, Visheshan, Kriya, Kaal, Vakya, Sandhi, Samas)",
+              "Bhasha Shikshan Vidhi (Language teaching pedagogy, Teaching methods, Assessment)"
             ],
           },
           {
-            id: "htet-env",
-            name: "Environmental Studies & Pedagogy",
+            id: "htet-english",
+            name: "English Language & Pedagogy",
+            icon: "📝",
+            topics: [
+              "Reading Comprehension (Unseen passages - Prose & Poetry, Inference, Vocabulary)",
+              "Grammar (Parts of speech, Tenses, Articles, Prepositions, Voice, Modals, Sentence structure)",
+              "Vocabulary (Synonyms, Antonyms, Phrasal verbs, Idioms)",
+              "Language Pedagogy (Principles of language learning, Teaching methods, Listening-Speaking-Reading-Writing skills, Language assessment, Remedial teaching, Role of grammar)",
+              "Comprehension strategies", "Teaching-Learning materials"
+            ],
+          },
+          {
+            id: "htet-maths",
+            name: "Mathematics & Pedagogy",
+            icon: "🔢",
+            topics: [
+              "Number System (Natural, Whole, Integers, Rational numbers, Operations)",
+              "Geometry (Shapes, Lines, Angles, Triangles, Quadrilaterals, Circles, Symmetry)",
+              "Algebra (Introduction to variables, Simple equations)",
+              "Data Handling (Collection, Organization, Bar graphs, Pictographs, Pie charts)",
+              "Measurement (Length, Weight, Capacity, Time, Money, Area, Perimeter)",
+              "Fractions & Decimals", "Ratio & Proportion", "Percentage",
+              "Mathematics Pedagogy (Nature of mathematics, Teaching-learning methods, Curriculum, Remedial teaching, Evaluation, NCF 2005 guidelines)"
+            ],
+          },
+          {
+            id: "htet-science",
+            name: "Science & Pedagogy (Environmental Studies)",
+            icon: "🔬",
+            topics: [
+              "Food & Nutrition (Sources, Nutrients, Balanced diet, Food preservation, Diseases)",
+              "Materials (Types, Properties, States of matter, Mixtures & Separation)",
+              "Living World (Plants, Animals, Human body systems, Microorganisms)",
+              "Moving Things (Motion, Force, Work & Energy, Simple machines)",
+              "Natural Phenomena (Light, Sound, Rain, Thunder, Lightning)",
+              "Natural Resources (Air, Water, Soil, Forests, Conservation)",
+              "Environmental Studies Pedagogy (EVS concepts, Integrated approach, Teaching methods, Activities, Assessment, NCF 2005)"
+            ],
+          },
+          {
+            id: "htet-social",
+            name: "Social Studies & Pedagogy",
             icon: "🌍",
             topics: [
-              "Family & Friends", "Food & Nutrition", "Shelter", "Water",
-              "Travel & Transport", "Things We Make & Do", "EVS Pedagogy"
+              "History (Ancient, Medieval, Modern India, Freedom struggle)",
+              "Geography (Earth, Solar system, Maps, Natural resources, Climate, India & World geography)",
+              "Civics (Indian Constitution, Government, Democracy, Rights & Duties)",
+              "Economics (Basic concepts, Money, Banking)",
+              "Social Studies Pedagogy (Teaching methods, Projects, Inquiry-based learning, Assessment)"
             ],
           },
         ],
@@ -2791,8 +3033,36 @@ export const examCategories: ExamCategory[] = [
             name: "Child Development & Pedagogy",
             icon: "👶",
             topics: [
-              "Child Development (Stages, Principles)", "Learning Theories",
-              "Individual Differences", "Assessment & Evaluation", "Inclusive Education"
+              "Child Development (Principles, Stages - Infancy to adolescence, Factors affecting development)",
+              "Learning Theories (Behaviorism, Cognitivism, Constructivism)",
+              "Piaget's Theory (Stages of cognitive development)", "Vygotsky's Theory (Zone of proximal development, Scaffolding)",
+              "Intelligence & Theories (Gardner's Multiple Intelligence, Emotional Intelligence)",
+              "Inclusive Education (Children with special needs - Learning disabilities, ADHD, Giftedness; Inclusive classroom)",
+              "Assessment & Evaluation (Types, CCE, Formative & Summative)",
+              "Motivation & Learning (Intrinsic & Extrinsic motivation)", "Gender Issues in Education",
+              "Individual Differences", "Socialization & Concept of Society"
+            ],
+          },
+          {
+            id: "rtet-hindi",
+            name: "Hindi Bhasha & Shikshan Vidhi",
+            icon: "📖",
+            topics: [
+              "Apathit Gadyansh (Unseen prose comprehension)", "Apathit Padyansh (Unseen poetry)",
+              "Vyakaran (Grammar - Sangya, Sarvanam, Visheshan, Kriya, Kaal, Vakya, Sandhi, Samas)",
+              "Bhasha Shikshan Vidhi (Language teaching pedagogy, Teaching methods, Assessment)"
+            ],
+          },
+          {
+            id: "rtet-english",
+            name: "English Language & Pedagogy",
+            icon: "📝",
+            topics: [
+              "Reading Comprehension (Unseen passages - Prose & Poetry, Inference, Vocabulary)",
+              "Grammar (Parts of speech, Tenses, Articles, Prepositions, Voice, Modals, Sentence structure)",
+              "Vocabulary (Synonyms, Antonyms, Phrasal verbs, Idioms)",
+              "Language Pedagogy (Principles of language learning, Teaching methods, Listening-Speaking-Reading-Writing skills, Language assessment, Remedial teaching, Role of grammar)",
+              "Comprehension strategies", "Teaching-Learning materials"
             ],
           },
           {
@@ -2800,26 +3070,40 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics & Pedagogy",
             icon: "🔢",
             topics: [
-              "Number System", "Algebra (Basic)", "Geometry",
-              "Mensuration", "Data Handling", "Mathematics Pedagogy"
+              "Number System (Natural, Whole, Integers, Rational numbers, Operations)",
+              "Geometry (Shapes, Lines, Angles, Triangles, Quadrilaterals, Circles, Symmetry)",
+              "Algebra (Introduction to variables, Simple equations)",
+              "Data Handling (Collection, Organization, Bar graphs, Pictographs, Pie charts)",
+              "Measurement (Length, Weight, Capacity, Time, Money, Area, Perimeter)",
+              "Fractions & Decimals", "Ratio & Proportion", "Percentage",
+              "Mathematics Pedagogy (Nature of mathematics, Teaching-learning methods, Curriculum, Remedial teaching, Evaluation, NCF 2005 guidelines)"
             ],
           },
           {
             id: "rtet-science",
-            name: "Science & Pedagogy",
+            name: "Science & Pedagogy (Environmental Studies)",
             icon: "🔬",
             topics: [
-              "Physics (Motion, Force, Energy)", "Chemistry (Matter, Elements)", "Biology (Living organisms)",
-              "Environmental Science", "Science Pedagogy"
+              "Food & Nutrition (Sources, Nutrients, Balanced diet, Food preservation, Diseases)",
+              "Materials (Types, Properties, States of matter, Mixtures & Separation)",
+              "Living World (Plants, Animals, Human body systems, Microorganisms)",
+              "Moving Things (Motion, Force, Work & Energy, Simple machines)",
+              "Natural Phenomena (Light, Sound, Rain, Thunder, Lightning)",
+              "Natural Resources (Air, Water, Soil, Forests, Conservation)",
+              "Environmental Studies Pedagogy (EVS concepts, Integrated approach, Teaching methods, Activities, Assessment, NCF 2005)"
             ],
           },
           {
             id: "rtet-social",
             name: "Social Studies & Pedagogy",
-            icon: "🌐",
+            icon: "🌍",
             topics: [
-              "History (Indian & World)", "Geography", "Polity & Civics", "Economics (Basic)",
-              "Rajasthan-specific Topics (History, Culture, Geography)", "Social Studies Pedagogy"
+              "History (Ancient, Medieval, Modern India, Freedom struggle, Rajasthan History)",
+              "Geography (Earth, Solar system, Maps, Natural resources, Climate, India & World geography, Rajasthan Geography)",
+              "Civics (Indian Constitution, Government, Democracy, Rights & Duties)",
+              "Economics (Basic concepts, Money, Banking)",
+              "Rajasthan Culture & Heritage (Folk arts, Traditions, Famous personalities)",
+              "Social Studies Pedagogy (Teaching methods, Projects, Inquiry-based learning, Assessment)"
             ],
           },
         ],
@@ -2838,26 +3122,36 @@ export const examCategories: ExamCategory[] = [
             name: "Child Development & Pedagogy",
             icon: "👶",
             topics: [
-              "Child Development (Principles, Stages)", "Learning Theories (Piaget, Vygotsky)",
-              "Individual Differences", "Assessment & Evaluation", "Inclusive Education"
+              "Child Development (Principles, Stages - Infancy to adolescence, Factors affecting development)",
+              "Learning Theories (Behaviorism, Cognitivism, Constructivism)",
+              "Piaget's Theory (Stages of cognitive development)", "Vygotsky's Theory (Zone of proximal development, Scaffolding)",
+              "Intelligence & Theories (Gardner's Multiple Intelligence, Emotional Intelligence)",
+              "Inclusive Education (Children with special needs - Learning disabilities, ADHD, Giftedness; Inclusive classroom)",
+              "Assessment & Evaluation (Types, CCE, Formative & Summative)",
+              "Motivation & Learning (Intrinsic & Extrinsic motivation)", "Gender Issues in Education",
+              "Individual Differences", "Socialization & Concept of Society"
             ],
           },
           {
             id: "uptet-hindi",
-            name: "Hindi Bhasha & Pedagogy",
-            icon: "📝",
+            name: "Hindi Bhasha & Shikshan Vidhi",
+            icon: "📖",
             topics: [
-              "Apathit Gadyansh (Unseen passages)", "Vyakaran (Grammar)", "Bhasha Shikshan Vidhi",
-              "Shabdavali (Vocabulary)", "Rachana (Composition)"
+              "Apathit Gadyansh (Unseen prose comprehension)", "Apathit Padyansh (Unseen poetry)",
+              "Vyakaran (Grammar - Sangya, Sarvanam, Visheshan, Kriya, Kaal, Vakya, Sandhi, Samas)",
+              "Bhasha Shikshan Vidhi (Language teaching pedagogy, Teaching methods, Assessment)"
             ],
           },
           {
             id: "uptet-english",
             name: "English Language & Pedagogy",
-            icon: "📖",
+            icon: "📝",
             topics: [
-              "Reading Comprehension", "Grammar (Tenses, Articles, Prepositions)", "Language Pedagogy",
-              "Vocabulary (Synonyms, Antonyms)", "Writing Skills"
+              "Reading Comprehension (Unseen passages - Prose & Poetry, Inference, Vocabulary)",
+              "Grammar (Parts of speech, Tenses, Articles, Prepositions, Voice, Modals, Sentence structure)",
+              "Vocabulary (Synonyms, Antonyms, Phrasal verbs, Idioms)",
+              "Language Pedagogy (Principles of language learning, Teaching methods, Listening-Speaking-Reading-Writing skills, Language assessment, Remedial teaching, Role of grammar)",
+              "Comprehension strategies", "Teaching-Learning materials"
             ],
           },
           {
@@ -2865,17 +3159,39 @@ export const examCategories: ExamCategory[] = [
             name: "Mathematics & Pedagogy",
             icon: "🔢",
             topics: [
-              "Number System", "Algebra (Basic)", "Geometry (Shapes, Angles)",
-              "Mensuration", "Data Handling", "Mathematics Pedagogy"
+              "Number System (Natural, Whole, Integers, Rational numbers, Operations)",
+              "Geometry (Shapes, Lines, Angles, Triangles, Quadrilaterals, Circles, Symmetry)",
+              "Algebra (Introduction to variables, Simple equations)",
+              "Data Handling (Collection, Organization, Bar graphs, Pictographs, Pie charts)",
+              "Measurement (Length, Weight, Capacity, Time, Money, Area, Perimeter)",
+              "Fractions & Decimals", "Ratio & Proportion", "Percentage",
+              "Mathematics Pedagogy (Nature of mathematics, Teaching-learning methods, Curriculum, Remedial teaching, Evaluation, NCF 2005 guidelines)"
             ],
           },
           {
-            id: "uptet-env",
-            name: "Environmental Studies & Pedagogy",
+            id: "uptet-science",
+            name: "Science & Pedagogy (Environmental Studies)",
+            icon: "🔬",
+            topics: [
+              "Food & Nutrition (Sources, Nutrients, Balanced diet, Food preservation, Diseases)",
+              "Materials (Types, Properties, States of matter, Mixtures & Separation)",
+              "Living World (Plants, Animals, Human body systems, Microorganisms)",
+              "Moving Things (Motion, Force, Work & Energy, Simple machines)",
+              "Natural Phenomena (Light, Sound, Rain, Thunder, Lightning)",
+              "Natural Resources (Air, Water, Soil, Forests, Conservation)",
+              "Environmental Studies Pedagogy (EVS concepts, Integrated approach, Teaching methods, Activities, Assessment, NCF 2005)"
+            ],
+          },
+          {
+            id: "uptet-social",
+            name: "Social Studies & Pedagogy",
             icon: "🌍",
             topics: [
-              "Family & Friends", "Food & Nutrition", "Shelter", "Water & Sanitation",
-              "Travel & Communication", "Things We Make & Do", "EVS Pedagogy"
+              "History (Ancient, Medieval, Modern India, Freedom struggle)",
+              "Geography (Earth, Solar system, Maps, Natural resources, Climate, India & World geography)",
+              "Civics (Indian Constitution, Government, Democracy, Rights & Duties)",
+              "Economics (Basic concepts, Money, Banking)",
+              "Social Studies Pedagogy (Teaching methods, Projects, Inquiry-based learning, Assessment)"
             ],
           },
         ],
@@ -3118,47 +3434,125 @@ export const examCategories: ExamCategory[] = [
         description: "Entry level exam for CA course",
         subjects: [
           {
-            id: "ca-accounts",
-            name: "Principles & Practice of Accounting",
+            id: "ca-paper1-accounting",
+            name: "Paper 1: Principles & Practice of Accounting",
             icon: "📊",
             topics: [
-              "Accounting Principles & Concepts", "Double Entry System", "Journal Entries",
-              "Ledger & Trial Balance", "Final Accounts (Trading, P&L, Balance Sheet)",
-              "Bank Reconciliation Statement", "Bills of Exchange & Promissory Notes",
-              "Consignment Accounts", "Joint Venture Accounts", "Depreciation",
+              "Accounting Principles & Concepts (GAAP, Conventions, Accounting Standards)",
+              "Double Entry System & Accounting Equation",
+              "Journal Entries & Subsidiary Books",
+              "Ledger & Trial Balance",
+              "Bank Reconciliation Statement",
+              "Bills of Exchange & Promissory Notes",
+              "Rectification of Errors",
+              "Capital & Revenue Transactions",
+              "Depreciation Accounting (Methods, Journal Entries)",
+              "Goods & Services Tax (GST) - Basics, Input Tax Credit, Returns",
+              "Accounts from Incomplete Records (Single Entry System)",
+              "Partnership Accounts (Admission, Retirement, Death of Partner, Dissolution)",
+              "Company Accounts (Share Capital, Issue of Shares, Forfeiture, Debentures)",
+              "Final Accounts (Trading Account, Profit & Loss Account, Balance Sheet)",
+              "Consignment Accounts",
+              "Joint Venture Accounts",
+              "Branch Accounts",
               "Accounting for Special Transactions"
             ],
           },
           {
-            id: "ca-law",
-            name: "Business Laws & Business Correspondence",
+            id: "ca-paper2-law-correspondence",
+            name: "Paper 2: Business Laws & Business Correspondence",
             icon: "⚖️",
             topics: [
-              "Indian Contract Act 1872 (Offer, Acceptance, Consideration, Breach)",
-              "Sale of Goods Act 1930", "Partnership Act 1932",
-              "Business Communication principles", "Letter Writing (Business letters, Applications)",
-              "Elements of Company Law"
+              "Indian Contract Act 1872 - Nature of Contract (Offer, Acceptance, Consideration)",
+              "Indian Contract Act 1872 - Performance & Discharge (Breach of Contract, Remedies)",
+              "Indian Contract Act 1872 - Special Contracts (Indemnity, Guarantee, Bailment, Pledge, Agency)",
+              "Sale of Goods Act 1930 (Contract of Sale, Conditions & Warranties, Transfer of Property, Unpaid Seller)",
+              "Partnership Act 1932 (Nature, Types, Rights & Duties, Dissolution)",
+              "Limited Liability Partnership (LLP) Act 2008 (Formation, Registration, Benefits)",
+              "Companies Act 2013 - Basics (Incorporation, Types of Companies, MOA, AOA)",
+              "Business Communication - Principles & Process",
+              "Letter Writing (Business Letters, Applications, Complaint, Inquiry)",
+              "Report Writing (Business Reports, Meeting Minutes)",
+              "Précis Writing",
+              "Drafting of Agenda & Minutes of Meetings"
             ],
           },
           {
-            id: "ca-maths",
-            name: "Business Mathematics & Statistics",
+            id: "ca-paper3a-maths",
+            name: "Paper 3A: Business Mathematics",
             icon: "🔢",
             topics: [
-              "Ratio, Proportion & Variation", "Indices & Logarithms", "Equations (Linear, Quadratic)",
-              "Algebra (Sets, Functions)", "Matrices & Determinants", "Basic Calculus",
-              "Statistics (Measures of Central Tendency, Dispersion)", "Probability",
-              "Correlation & Regression", "Index Numbers", "Time Series", "Permutation & Combination"
+              "Ratio, Proportion & Variation",
+              "Indices & Logarithms",
+              "Equations (Linear, Quadratic, Cubic)",
+              "Matrices & Determinants",
+              "Arithmetic & Geometric Progression",
+              "Permutation & Combination",
+              "Sets, Relations & Functions"
             ],
           },
           {
-            id: "ca-economics",
-            name: "Business Economics & Business & Commercial Knowledge",
+            id: "ca-paper3b-logical",
+            name: "Paper 3B: Logical Reasoning",
+            icon: "🧠",
+            topics: [
+              "Number Series & Pattern Recognition",
+              "Coding-Decoding",
+              "Odd Man Out",
+              "Direction Sense & Distance",
+              "Blood Relations",
+              "Syllogism & Logical Deduction",
+              "Seating Arrangement (Linear, Circular)",
+              "Analytical Reasoning & Puzzles (Statements, Conclusions)"
+            ],
+          },
+          {
+            id: "ca-paper3c-statistics",
+            name: "Paper 3C: Statistics",
+            icon: "📊",
+            topics: [
+              "Statistical Description of Data (Collection, Organization, Presentation)",
+              "Measures of Central Tendency (Mean, Median, Mode)",
+              "Measures of Dispersion (Range, Variance, Standard Deviation, Coefficient of Variation)",
+              "Correlation & Regression Analysis",
+              "Probability Theory (Basic Concepts, Theorems, Conditional Probability)",
+              "Probability Distributions (Binomial, Poisson, Normal)",
+              "Index Numbers (Price Index, Quantity Index, Cost of Living Index)",
+              "Time Series Analysis (Trend, Seasonal Variations)",
+              "Sampling Theory (Types of Sampling, Sampling Distributions)",
+              "Statistical Graphs & Diagrams (Bar, Pie, Histogram, Frequency Polygon)"
+            ],
+          },
+          {
+            id: "ca-paper4a-economics",
+            name: "Paper 4A: Business Economics",
             icon: "💰",
             topics: [
-              "Microeconomics (Demand, Supply, Elasticity, Consumer Behavior)", "Macroeconomics (National Income, Money, Banking)",
-              "Business Environment", "Production & Costs", "Market Structure (Perfect competition, Monopoly)",
-              "Business & Commercial Knowledge (Current business affairs, Indian economy basics)"
+              "Introduction to Microeconomics (Scope, Methods, Basic Problems)",
+              "Theory of Demand & Supply (Laws, Determinants)",
+              "Elasticity of Demand & Supply (Price, Income, Cross Elasticity)",
+              "Consumer Equilibrium Theory (Utility Analysis, Indifference Curve)",
+              "Theory of Production & Cost (Production Function, Isoquants, Cost Curves)",
+              "Price Determination in Different Markets (Perfect Competition, Monopoly, Monopolistic Competition, Oligopoly)",
+              "National Income Accounting (Concepts, Methods of Measurement)",
+              "Money & Banking (Functions of Money, Commercial Banks, Central Bank, Monetary Policy)",
+              "Fiscal Policy (Public Revenue, Public Expenditure, Budget, Taxation)",
+              "Business Cycles (Phases, Causes, Effects)"
+            ],
+          },
+          {
+            id: "ca-paper4b-bck",
+            name: "Paper 4B: Business & Commercial Knowledge",
+            icon: "🌐",
+            topics: [
+              "Business Environment (Economic, Social, Political, Technological, Legal)",
+              "Indian Economy - Overview (Structure, Planning, Five-Year Plans, Economic Sectors)",
+              "Economic Reforms in India (Liberalization, Privatization, Globalization)",
+              "Indian Financial System (Banking System, NBFC, Capital Market, SEBI)",
+              "Stock Exchange & Capital Market (BSE, NSE, Primary & Secondary Market)",
+              "Current Business Affairs (Last 6 months - Major business events, deals, IPOs)",
+              "Corporate Governance & CSR (Principles, Importance, CSR Activities)",
+              "Digital India & Fintech (UPI, Digital Payments, Blockchain, Cryptocurrency basics)"
             ],
           },
         ],

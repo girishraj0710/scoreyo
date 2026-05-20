@@ -39,9 +39,46 @@ export async function GET(req: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "20");
     const offset = (page - 1) * limit;
 
-    // Fetch reported questions with details
-    const reports = await db.execute({
-      sql: `SELECT
+    // FEATURE FLAG: Support both legacy and dimensional models
+    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
+
+    let sql: string;
+    if (useDimensional) {
+      // Dimensional model: JOIN through bridge and dim tables
+      sql = `SELECT
+              qr.id as report_id,
+              qr.question_id,
+              qr.user_id,
+              qr.reason,
+              qr.details,
+              qr.status,
+              qr.admin_notes,
+              qr.created_at,
+              qr.resolved_at,
+              feq.question,
+              feq.options,
+              feq.correct_answer,
+              feq.explanation,
+              dt.topic_name as topic,
+              ds.subject_id,
+              de.exam_id,
+              feq.difficulty,
+              feq.source,
+              u.name as reporter_name,
+              u.email as reporter_email
+            FROM question_reports qr
+            LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
+            LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+            LEFT JOIN bridge_exam_subject_topic best ON dt.id = best.topic_id
+            LEFT JOIN dim_exams de ON best.exam_id = de.id
+            LEFT JOIN dim_subjects ds ON best.subject_id = ds.id
+            LEFT JOIN users u ON qr.user_id = u.id
+            WHERE qr.status = ?
+            ORDER BY qr.created_at DESC
+            LIMIT ? OFFSET ?`;
+    } else {
+      // Legacy model: Direct query
+      sql = `SELECT
               qr.id as report_id,
               qr.question_id,
               qr.user_id,
@@ -63,11 +100,16 @@ export async function GET(req: NextRequest) {
               u.name as reporter_name,
               u.email as reporter_email
             FROM question_reports qr
-            LEFT JOIN fact_exam_questions eq ON qr.question_id = eq.id
+            LEFT JOIN exam_questions eq ON qr.question_id = eq.id
             LEFT JOIN users u ON qr.user_id = u.id
             WHERE qr.status = ?
             ORDER BY qr.created_at DESC
-            LIMIT ? OFFSET ?`,
+            LIMIT ? OFFSET ?`;
+    }
+
+    // Fetch reported questions with details
+    const reports = await db.execute({
+      sql,
       args: [status, limit, offset],
     });
 

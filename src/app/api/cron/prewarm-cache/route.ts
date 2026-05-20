@@ -79,26 +79,54 @@ export async function GET(request: NextRequest) {
     const keyOf = (e: string, s: string, t: string) =>
       `${e}|${s}|${t.toLowerCase().trim()}`;
 
-    async function loadCounts(table: string): Promise<CountMap> {
-      const m: CountMap = new Map();
-      const r = await db.execute(
-        `SELECT exam_id, subject_id, topic, COUNT(*) AS n FROM ${table} GROUP BY exam_id, subject_id, topic`
-      );
-      for (const row of r.rows) {
-        m.set(
-          keyOf(String(row.exam_id), String(row.subject_id), String(row.topic)),
-          Number(row.n)
-        );
-      }
-      return m;
-    }
-
     // FEATURE FLAG: Use dimensional model or legacy table
     const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
 
+    async function loadCounts(table: string, isDimensional: boolean): Promise<CountMap> {
+      const m: CountMap = new Map();
+
+      if (isDimensional && table === "fact_exam_questions") {
+        // Dimensional model: JOIN through bridge and dimension tables
+        const r = await db.execute(`
+          SELECT
+            de.exam_id,
+            ds.subject_id,
+            dt.topic_name as topic,
+            COUNT(*) AS n
+          FROM fact_exam_questions feq
+          JOIN dim_topics dt ON feq.topic_id = dt.id
+          JOIN bridge_exam_subject_topic best ON dt.id = best.topic_id
+          JOIN dim_exams de ON best.exam_id = de.id
+          JOIN dim_subjects ds ON best.subject_id = ds.id
+          GROUP BY de.exam_id, ds.subject_id, dt.topic_name
+        `);
+
+        for (const row of r.rows) {
+          m.set(
+            keyOf(String(row.exam_id), String(row.subject_id), String(row.topic)),
+            Number(row.n)
+          );
+        }
+      } else {
+        // Legacy model: direct query (works for both exam_questions and cached_questions)
+        const r = await db.execute(
+          `SELECT exam_id, subject_id, topic, COUNT(*) AS n FROM ${table} GROUP BY exam_id, subject_id, topic`
+        );
+
+        for (const row of r.rows) {
+          m.set(
+            keyOf(String(row.exam_id), String(row.subject_id), String(row.topic)),
+            Number(row.n)
+          );
+        }
+      }
+
+      return m;
+    }
+
     const [examCounts, cachedCounts] = await Promise.all([
-      loadCounts(useDimensional ? "fact_exam_questions" : "exam_questions"),
-      loadCounts("cached_questions"),
+      loadCounts(useDimensional ? "fact_exam_questions" : "exam_questions", useDimensional),
+      loadCounts("cached_questions", false), // cached_questions always uses legacy schema
     ]);
 
     // 2) Walk the catalog and score every cell by total existing coverage.

@@ -78,8 +78,36 @@ export async function GET(req: NextRequest) {
     const status = searchParams.get("status") || "pending";
 
     // Fetch reports with question details
-    const reports = await db.execute({
-      sql: `SELECT
+    // FEATURE FLAG: Support both legacy and dimensional models
+    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
+
+    let sql: string;
+    if (useDimensional) {
+      // Dimensional model: JOIN through bridge and dim tables
+      sql = `SELECT
+              qr.id,
+              qr.question_id,
+              qr.user_id,
+              qr.reason,
+              qr.details,
+              qr.status,
+              qr.created_at,
+              feq.question,
+              dt.topic_name as topic,
+              de.exam_id,
+              feq.correct_answer,
+              feq.explanation
+            FROM question_reports qr
+            LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
+            LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+            LEFT JOIN bridge_exam_subject_topic best ON dt.id = best.topic_id
+            LEFT JOIN dim_exams de ON best.exam_id = de.id
+            WHERE qr.status = ?
+            ORDER BY qr.created_at DESC
+            LIMIT 50`;
+    } else {
+      // Legacy model: Direct query
+      sql = `SELECT
               qr.id,
               qr.question_id,
               qr.user_id,
@@ -93,10 +121,14 @@ export async function GET(req: NextRequest) {
               eq.correct_answer,
               eq.explanation
             FROM question_reports qr
-            LEFT JOIN fact_exam_questions eq ON qr.question_id = eq.id
+            LEFT JOIN exam_questions eq ON qr.question_id = eq.id
             WHERE qr.status = ?
             ORDER BY qr.created_at DESC
-            LIMIT 50`,
+            LIMIT 50`;
+    }
+
+    const reports = await db.execute({
+      sql,
       args: [status],
     });
 
