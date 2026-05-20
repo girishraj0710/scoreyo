@@ -6,6 +6,21 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN!,
 });
 
+// Admin email whitelist
+const ADMIN_EMAILS = ["girish.raj0710@gmail.com", "grgowda07.1992@gmail.com", "admin@prepgenie.co.in"];
+
+async function isAdmin(userId: string): Promise<boolean> {
+  try {
+    const user = await db.execute({
+      sql: "SELECT email FROM users WHERE id = ?",
+      args: [userId],
+    });
+    return user.rows.length > 0 && ADMIN_EMAILS.includes(user.rows[0].email as string);
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const userId = req.cookies.get("prepgenie-user-id")?.value;
@@ -66,12 +81,16 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET: Fetch reports (admin only - simple check for now)
+// GET: Fetch reports (admin only)
 export async function GET(req: NextRequest) {
   try {
     const userId = req.cookies.get("prepgenie-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (!(await isAdmin(userId))) {
+      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
     }
 
     const { searchParams } = new URL(req.url);
@@ -83,8 +102,9 @@ export async function GET(req: NextRequest) {
 
     let sql: string;
     if (useDimensional) {
-      // Dimensional model: JOIN through bridge and dim tables
-      sql = `SELECT
+      // Dimensional model: Use DISTINCT to avoid duplicates from bridge table fan-out
+      // A topic can be mapped to multiple exams, so we pick the first exam arbitrarily
+      sql = `SELECT DISTINCT
               qr.id,
               qr.question_id,
               qr.user_id,
@@ -94,14 +114,14 @@ export async function GET(req: NextRequest) {
               qr.created_at,
               feq.question,
               dt.topic_name as topic,
-              de.exam_id,
+              (SELECT de2.exam_id FROM bridge_exam_subject_topic best2
+               JOIN dim_exams de2 ON best2.exam_id = de2.id
+               WHERE best2.topic_id = dt.id LIMIT 1) as exam_id,
               feq.correct_answer,
               feq.explanation
             FROM question_reports qr
             LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
             LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-            LEFT JOIN bridge_exam_subject_topic best ON dt.id = best.topic_id
-            LEFT JOIN dim_exams de ON best.exam_id = de.id
             WHERE qr.status = ?
             ORDER BY qr.created_at DESC
             LIMIT 50`;
@@ -159,12 +179,16 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// PATCH: Update report status (admin action)
+// PATCH: Update report status (admin only)
 export async function PATCH(req: NextRequest) {
   try {
     const userId = req.cookies.get("prepgenie-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (!(await isAdmin(userId))) {
+      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
     }
 
     const body = await req.json();

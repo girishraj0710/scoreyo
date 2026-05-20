@@ -1599,6 +1599,7 @@ export async function getExamQuestions(
   }
 
   return rows.map((row: any) => ({
+    id: row.id,
     question: row.question,
     options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
     correctAnswer: row.correct_answer,
@@ -1765,8 +1766,9 @@ async function getExamQuestionsDimensional(
     console.warn(`⚠️ No questions found (dimensional): exam=${examId}, subject=${subjectId}, topic=${topic}, difficulty=${difficulty}, year=${currentYear}`);
   }
 
-  // Map to same format as original function
+  // Map to same format as original function (include id for report functionality)
   return rows.map((row: any) => ({
+    id: row.id,
     question: row.question,
     options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
     correctAnswer: row.correct_answer,

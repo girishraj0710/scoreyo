@@ -44,8 +44,8 @@ export async function GET(req: NextRequest) {
 
     let sql: string;
     if (useDimensional) {
-      // Dimensional model: JOIN through bridge and dim tables
-      sql = `SELECT
+      // Dimensional model: Use DISTINCT to avoid duplicates from bridge table fan-out
+      sql = `SELECT DISTINCT
               qr.id as report_id,
               qr.question_id,
               qr.user_id,
@@ -60,8 +60,12 @@ export async function GET(req: NextRequest) {
               feq.correct_answer,
               feq.explanation,
               dt.topic_name as topic,
-              ds.subject_id,
-              de.exam_id,
+              (SELECT ds2.subject_id FROM bridge_exam_subject_topic best2
+               JOIN dim_subjects ds2 ON best2.subject_id = ds2.id
+               WHERE best2.topic_id = dt.id LIMIT 1) as subject_id,
+              (SELECT de2.exam_id FROM bridge_exam_subject_topic best2
+               JOIN dim_exams de2 ON best2.exam_id = de2.id
+               WHERE best2.topic_id = dt.id LIMIT 1) as exam_id,
               feq.difficulty,
               feq.source,
               u.name as reporter_name,
@@ -69,9 +73,6 @@ export async function GET(req: NextRequest) {
             FROM question_reports qr
             LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
             LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-            LEFT JOIN bridge_exam_subject_topic best ON dt.id = best.topic_id
-            LEFT JOIN dim_exams de ON best.exam_id = de.id
-            LEFT JOIN dim_subjects ds ON best.subject_id = ds.id
             LEFT JOIN users u ON qr.user_id = u.id
             WHERE qr.status = ?
             ORDER BY qr.created_at DESC
@@ -249,8 +250,12 @@ export async function PUT(req: NextRequest) {
 
     args.push(questionId);
 
+    // FEATURE FLAG: Update correct table based on dimensional model setting
+    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
+    const tableName = useDimensional ? 'fact_exam_questions' : 'exam_questions';
+
     await db.execute({
-      sql: `UPDATE fact_exam_questions SET ${updates.join(", ")} WHERE id = ?`,
+      sql: `UPDATE ${tableName} SET ${updates.join(", ")} WHERE id = ?`,
       args,
     });
 
