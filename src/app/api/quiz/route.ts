@@ -6,10 +6,7 @@ import {
   createQuizSession,
   saveQuestionAttempts,
   updateTopicMastery,
-  getCachedQuestions,
   saveCachedQuestions,
-  markCachedQuestionsUsed,
-  getCachedQuestionCount,
   isProUser,
   getTodayQuizCount,
   getEnglishQuestions,
@@ -125,29 +122,24 @@ export async function POST(request: NextRequest) {
     let cachedCount = 0;
     let aiCount = 0;
 
-    // ── TIER 1+2: Verified pool + AI cache, queried IN PARALLEL ───────
-    // exam_questions is the seeded verified bank (highest quality), and
-    // cached_questions is the AI-generated cache. Previously we did these
-    // sequentially (one roundtrip after the other) which added ~100–200ms
-    // per cold request. Now they fire in parallel and we merge with
-    // verified-first dedupe: when the same question text exists in both,
-    // the verified copy wins and the cached one is dropped. `cachedPool`
-    // is captured here so the original Tier 2 block can consume it without
-    // a second roundtrip.
+    // ── TIER 1: Database questions (verified + cached, prioritized by source) ─
+    // fact_exam_questions now contains both verified and ai-cached questions.
+    // The query automatically prioritizes: verified sources > ai-cached > others
+    // This replaces the old dual-query (verified + cached in parallel) approach.
     let verifiedQuestions: QuizQuestion[] = [];
-    let cachedPool: any[] = [];
     try {
-      const [verified, cached] = await Promise.all([
-        getExamQuestions(examId, subjectId, mappedTopic, difficulty, numberOfQuestions * 2),
-        getCachedQuestions(examId, subjectId, mappedTopic, difficulty, numberOfQuestions * 2),
-      ]);
-      verifiedQuestions = verified as QuizQuestion[];
-      cachedPool = cached;
+      verifiedQuestions = await getExamQuestions(
+        examId,
+        subjectId,
+        mappedTopic,
+        difficulty,
+        numberOfQuestions * 2  // Request more for variety
+      ) as QuizQuestion[];
       console.log(
-        `[Quiz API] pools: verified=${verified.length}, cached=${cached.length} (${examId}/${mappedTopic})`
+        `[Quiz API] Found ${verifiedQuestions.length} questions (prioritized by source) for ${examId}/${mappedTopic}`
       );
     } catch (error) {
-      console.error("[Quiz API] Pool query failed:", error);
+      console.error("[Quiz API] Database query failed:", error);
     }
 
     // If no verified DB questions, try the alternate paths (English bank
@@ -296,37 +288,7 @@ export async function POST(request: NextRequest) {
 
     let remaining = numberOfQuestions - finalQuestions.length;
 
-    // ── TIER 2: Cached AI questions (already prefetched above) ────────
-    // Consumes `cachedPool` from the parallel verified+cached fetch instead
-    // of issuing a second roundtrip. Verified-first dedupe is enforced by
-    // skipping any cached row whose question text matches a verified row
-    // already selected for this quiz.
-    if (remaining > 0 && cachedPool.length > 0) {
-      const verifiedTexts = new Set(verifiedToUse.map((q) => q.question.toLowerCase().trim()));
-      const uniqueCached = cachedPool.filter(
-        (q: any) => !verifiedTexts.has(q.question?.toLowerCase().trim())
-      );
-
-      const cachedToUse = uniqueCached.slice(0, remaining);
-      const cacheIds = cachedToUse.map((q: any) => q._cacheId).filter(Boolean);
-
-      // Mark them as used (so least-used questions get priority next time)
-      if (cacheIds.length > 0) {
-        await markCachedQuestionsUsed(cacheIds);
-      }
-
-      // Clean up _cacheId before sending to client
-      const cleanCached: QuizQuestion[] = cachedToUse.map((q: any) => {
-        const { _cacheId, ...rest } = q;
-        return { ...rest, source: "ai" as const };
-      });
-
-      finalQuestions = [...finalQuestions, ...cleanCached];
-      cachedCount = cleanCached.length;
-      remaining = numberOfQuestions - finalQuestions.length;
-    }
-
-    // ── TIER 3: Fresh AI generation ──────────────────────
+    // ── TIER 2: Fresh AI generation (only if database doesn't have enough) ─
     // generateQuiz races models in parallel with a 12s per-model cap, so the
     // worst case here is ~13s. Outer guard kept at 14s as a hard ceiling.
     let aiTimedOut = false;

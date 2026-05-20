@@ -1646,6 +1646,21 @@ async function getExamQuestionsDimensional(
   const subjectDimId = subjectDim.id;
 
   // Step 2: Query based on topic
+  // Priority: verified sources first, then ai-cached, then others
+  // Within same source: higher quality_score, lower used_count (rotation)
+  const priorityOrder = `
+    CASE
+      WHEN q.source LIKE 'verified%' THEN 1
+      WHEN q.source = 'expert-curated' THEN 1
+      WHEN q.source LIKE 'ncert%' THEN 2
+      WHEN q.source = 'ai-cached' THEN 3
+      ELSE 4
+    END,
+    COALESCE(q.quality_score, 100) DESC,
+    COALESCE(q.used_count, 0) ASC,
+    RANDOM()
+  `;
+
   if (!topic || topic.trim() === "") {
     // Empty topic = sample across ALL topics for this exam-subject
     if (difficulty === "mixed") {
@@ -1656,7 +1671,7 @@ async function getExamQuestionsDimensional(
          WHERE b.exam_id = ?
            AND b.subject_id = ?
            AND q.${validityCondition}
-         ORDER BY RANDOM()
+         ORDER BY ${priorityOrder}
          LIMIT ?`,
         [examDimId, subjectDimId, ...validityArgs, limit]
       );
@@ -1669,7 +1684,7 @@ async function getExamQuestionsDimensional(
            AND b.subject_id = ?
            AND q.difficulty = ?
            AND q.${validityCondition}
-         ORDER BY RANDOM()
+         ORDER BY ${priorityOrder}
          LIMIT ?`,
         [examDimId, subjectDimId, difficulty, ...validityArgs, limit]
       );
@@ -1697,7 +1712,7 @@ async function getExamQuestionsDimensional(
            FROM fact_exam_questions q
            WHERE q.topic_id IN (${topicIdList})
              AND q.${validityCondition}
-           ORDER BY RANDOM()
+           ORDER BY ${priorityOrder}
            LIMIT ?`,
           [...validityArgs, limit]
         );
@@ -1708,6 +1723,7 @@ async function getExamQuestionsDimensional(
            WHERE q.topic_id IN (${topicIdList})
              AND q.difficulty = ?
              AND q.${validityCondition}
+           ORDER BY ${priorityOrder}
            ORDER BY RANDOM()
            LIMIT ?`,
           [difficulty, ...validityArgs, limit]
@@ -1744,12 +1760,12 @@ async function getExamQuestionsDimensional(
               ? `SELECT q.* FROM fact_exam_questions q
                  WHERE q.topic_id IN (${keywordIdList})
                    AND q.${validityCondition}
-                 ORDER BY RANDOM() LIMIT ?`
+                 ORDER BY ${priorityOrder} LIMIT ?`
               : `SELECT q.* FROM fact_exam_questions q
                  WHERE q.topic_id IN (${keywordIdList})
                    AND q.difficulty = ?
                    AND q.${validityCondition}
-                 ORDER BY RANDOM() LIMIT ?`,
+                 ORDER BY ${priorityOrder} LIMIT ?`,
             difficulty === "mixed"
               ? [...validityArgs, remaining]
               : [difficulty, ...validityArgs, remaining]
