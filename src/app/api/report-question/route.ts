@@ -148,6 +148,7 @@ export async function GET(req: NextRequest) {
               eq.question,
               eq.topic,
               eq.exam_id,
+              eq.subject_id,
               eq.correct_answer,
               eq.explanation
             FROM question_reports qr
@@ -175,6 +176,7 @@ export async function GET(req: NextRequest) {
           text: r.question,
           topic: r.topic,
           examId: r.exam_id,
+          subjectId: r.subject_id,
           correctAnswer: r.correct_answer,
           explanation: r.explanation,
         },

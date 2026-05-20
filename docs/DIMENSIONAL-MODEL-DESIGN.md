@@ -25,22 +25,22 @@ Current structure duplicates topics across exams:
 ┌─────────────────┐     │      ┌──────────────────────┐
 │   dim_exams     │     │      │  fact_exam_questions │
 ├─────────────────┤     │      ├──────────────────────┤
-│ id (PK)         │     ├─────►│ id (PK)              │
-│ exam_code       │     │      │ exam_id (FK)         │
-│ exam_name       │     │      │ subject_id (FK)      │
-│ category        │     │      │ topic_id (FK)        │
-└─────────────────┘     │      │ question             │
-        ▲               │      │ options              │
-        │               │      │ correct_answer       │
-        │               │      │ explanation          │
-┌──────────────────────┐│      │ difficulty           │
-│bridge_exam_subj_topic││      │ source               │
-├──────────────────────┤│      │ valid_from           │
-│ id (PK)              ││      │ valid_until          │
-│ exam_id (FK)         ││      └──────────────────────┘
-│ subject_id (FK)      ││
-│ topic_id (FK)        │┘
-│ is_mandatory         │
+│ id (PK)         │     │      │ id (PK)              │
+│ exam_code       │     │      │ topic_id (FK) ───────┤
+│ exam_name       │     │      │ question             │
+│ category        │     │      │ options              │
+└─────────────────┘     │      │ correct_answer       │
+        ▲               │      │ explanation          │
+        │               │      │ difficulty           │
+        │               │      │ source               │
+┌──────────────────────┐│      │ valid_from           │
+│bridge_exam_subj_topic││      │ valid_until          │
+├──────────────────────┤│      └──────────────────────┘
+│ id (PK)              ││           │
+│ exam_id (FK)         ││           │
+│ subject_id (FK)      ││           │
+│ topic_id (FK)        │┘           │
+│ is_mandatory         │◄───────────┘
 │ weightage            │
 └──────────────────────┘
         │
@@ -53,6 +53,25 @@ Current structure duplicates topics across exams:
 │ subject_name    │
 │ category        │
 └─────────────────┘
+```
+
+## Implementation Note
+
+**Key Design Decision**: `fact_exam_questions` only stores `topic_id`, not `exam_id` or `subject_id`.
+
+**Why?** Topics are inherently shared across exams. Instead of denormalizing exam/subject into each question row, we use the `bridge_exam_subject_topic` table to map which exams/subjects use which topics. This gives us:
+
+1. **True topic sharing**: A single question for "Thermodynamics" can be used by JEE Main, JEE Advanced, NEET, and all State CETs without duplication
+2. **Flexible mappings**: Topics can be added/removed from exams without touching question data
+3. **Cleaner queries**: JOINing through the bridge table is explicit and predictable
+
+**Query Pattern**:
+```sql
+-- To get questions for an exam+subject+topic:
+SELECT q.*
+FROM fact_exam_questions q
+JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+WHERE b.exam_id = ? AND b.subject_id = ? AND b.topic_id = ?
 ```
 
 ## Table Definitions

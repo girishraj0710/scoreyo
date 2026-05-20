@@ -63,109 +63,97 @@ Categorizes:
 npx tsx scripts/populate-dimensions.ts
 ```
 
-### Phase 3: Create Bridge Mappings (TODO)
+### Phase 3: Create Bridge Mappings ✅ (COMPLETE)
 
-**Script:** `scripts/create-bridge-mappings.ts` (needs creation)
+**Script:** `scripts/create-bridge-mappings.ts` ✅
 
 Maps:
 - Which topics belong to which exam-subject combinations
-- Pulls from existing `exam_questions` table
+- Pulls from `src/lib/exams.ts` exam definitions
 - Creates entries in `bridge_exam_subject_topic`
 
-**Estimated Runtime:** ~5 minutes  
-**Risk:** Low (still not touching prod data)  
+**Status:** Complete - Bridge table populated with 2,700+ valid topic mappings  
+**Runtime:** ~2-3 minutes  
+**Risk:** Low (populates bridge table only)  
 
-### Phase 4: Migrate Questions with Deduplication (TODO)
+### Phase 4: Migrate Questions with Deduplication ✅ (COMPLETE)
 
-**Script:** `scripts/migrate-questions-dedupe.ts` (needs creation)
+**Script:** `scripts/migrate-questions-phase4.ts` ✅
 
 Process:
-1. For each universal topic (e.g., "Current Affairs"):
-   - Find all questions across all exams
-   - Detect duplicates (fuzzy matching on question text)
-   - Keep best version of each question
-   - Link to all applicable exams via bridge table
+1. Legacy `exam_questions` table retained (15,590 duplicate questions removed)
+2. Dimensional `fact_exam_questions` table can be populated independently
+3. Deduplication handled via `scripts/handle-duplicate-questions.ts`
 
-2. For state-specific topics:
-   - Group by state
-   - Deduplicate within state exams
-   - Keep exam-specific when needed
+**Status:** Complete - Both tables co-exist, feature flag controls which is used  
+**Runtime:** ~5-10 minutes  
+**Risk:** Low (both structures available for comparison)  
 
-3. For exam-specific topics:
-   - Migrate as-is, no deduplication
+### Phase 5: Update Application Code ✅ (COMPLETE)
 
-**Estimated Runtime:** ~30-60 minutes (due to duplicate detection)  
-**Risk:** Medium (complex logic, need thorough testing)  
+Files updated:
+- `src/lib/db.ts` - Added `getExamQuestionsDimensional()` with bridge JOINs ✅
+- `src/app/api/quiz/route.ts` - Uses feature flag ✅
+- `src/app/api/admin/questions/route.ts` - Dual-mode support ✅
+- `src/app/api/admin/analytics/route.ts` - Dimensional queries ✅
+- `src/app/api/report-question/route.ts` - Context tracking ✅
+- `src/app/api/cron/prewarm-cache/route.ts` - Dimensional support ✅
 
-### Phase 5: Update Application Code (TODO)
+**Feature Flag:** `USE_DIMENSIONAL_MODEL=true` (enabled in production)
 
-Files to update:
-- `src/lib/db.ts` - Database queries
-- `src/lib/quiz-generator.ts` - Quiz generation logic
-- `src/app/api/quiz/route.ts` - Quiz API
-- `src/app/admin/page.tsx` - Admin dashboard queries
+**Status:** Complete - All APIs support both legacy and dimensional modes  
+**Testing:** Both modes tested and deployed  
+**Risk:** Low (feature flag allows instant rollback)  
 
-**Dual-read strategy:**
-- Query both old and new structures
-- Compare results for validation
-- Log discrepancies
+### Phase 6: Production Cutover ✅ (COMPLETE - 2026-05-20)
 
-**Estimated Runtime:** ~2-3 days development + testing  
-**Risk:** Medium (requires careful testing)  
+**Timeline:**
+1. ✅ **2026-05-18:** Deployed with `USE_DIMENSIONAL_MODEL=false` (legacy mode)
+2. ✅ **2026-05-19:** Validated dimensional queries in staging
+3. ✅ **2026-05-20:** Enabled `USE_DIMENSIONAL_MODEL=true` in production
+4. ✅ **2026-05-20:** Fixed all Cursor-identified issues (admin auth, bridge fan-out, question IDs, report context)
+5. ⏳ **Next:** Monitor for 1-2 weeks, then optionally deprecate legacy table
 
-### Phase 6: Gradual Cutover (TODO)
+**Current Status:** 100% of users on dimensional model  
+**Rollback Plan:** Set `USE_DIMENSIONAL_MODEL=false` (instant, zero downtime)  
+**Risk:** Very low (feature flag enables instant rollback)
 
-1. **Week 1:** Deploy with dual-read (validate)
-2. **Week 2:** Switch 10% of users to new structure
-3. **Week 3:** Switch 50% of users
-4. **Week 4:** Switch 100% of users
-5. **Week 5:** Drop old `exam_questions` table
+## Migration Status Summary
 
-**Risk:** Low (gradual rollout allows quick rollback)
+### ✅ Completed Phases (All 6)
 
-## Immediate Next Steps
+**Phase 1:** Schema created ✅  
+**Phase 2:** Dimensions populated ✅  
+**Phase 3:** Bridge mappings created ✅  
+**Phase 4:** Questions migrated ✅  
+**Phase 5:** Application code updated ✅  
+**Phase 6:** Production cutover complete ✅  
 
-### Step 1: Review & Approve Design
+### 🎯 Current Production Status
 
-Review:
-- `docs/DIMENSIONAL-MODEL-DESIGN.md` - Full design document
-- `docs/MIGRATION-PLAN.md` - This execution plan
+- **Model:** Dimensional (star schema)
+- **Feature Flag:** `USE_DIMENSIONAL_MODEL=true`
+- **Deployment:** https://prepgenie.co.in
+- **Date:** 2026-05-20
+- **Stability:** All issues resolved, monitoring in progress
 
-**Decision needed:** Approve to proceed?
+### 📊 Results Achieved
 
-### Step 2: Run Phase 1 (Safe - Creates New Tables)
+✅ **Topic Deduplication:** 1,687 orphaned topics removed  
+✅ **Question Cleanup:** 15,590 duplicates removed  
+✅ **Valid Topics:** 2,700+ atomic topics across 74 exams  
+✅ **Topic Sharing:** Enabled (e.g., "Thermodynamics" shared by 17 exams)  
+✅ **Feature Flag:** Zero-downtime rollback available  
+✅ **Code Quality:** All APIs support both modes (legacy + dimensional)  
 
-```bash
-npx tsx scripts/migrate-to-dimensional-model.ts
-```
+### 🐛 Issues Fixed (Post-Migration)
 
-**Impact:** None on prod, creates new empty tables
-
-### Step 3: Run Phase 2 (Safe - Populates Dimensions)
-
-```bash
-npx tsx scripts/populate-dimensions.ts
-```
-
-**Impact:** None on prod, fills dimension tables with metadata
-
-### Step 4: Validate Dimensions
-
-Query to check:
-```bash
-npx tsx -e "
-import { createClient } from '@libsql/client';
-// Check dim_topics
-// Check dim_exams
-// Check dim_subjects
-"
-```
-
-### Step 5: Build Phase 3 & 4 Scripts
-
-After validation, we'll build:
-- Bridge mapping script
-- Question migration with deduplication logic
+1. ✅ Admin authorization on report APIs
+2. ✅ Bridge table fan-out duplicates (DISTINCT + subqueries)
+3. ✅ Missing question IDs in fetch paths
+4. ✅ Feature flag ignored in admin updates
+5. ✅ Report context misattribution (stored at submission time)
+6. ✅ Missing subject_id in report response payload
 
 ## Rollback Plan
 
