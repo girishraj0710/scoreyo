@@ -18,24 +18,20 @@ export interface QuizQuestion {
   source: "ai" | "verified" | "ai-cached" | "ai-validated" | "expert-curated" | "ncert-derived"; // tracks where the question came from
 }
 
-// Paid-tier OpenRouter models - using VERIFIED working models only.
-// Based on actual OpenRouter availability as of 2026-05-21.
+// Using ONLY gpt-4o-mini to minimize costs.
+// No racing - just one reliable, ultra-cheap model.
 //
-// Cost per 1M tokens (input/output):
-// - anthropic claude-3.5-haiku: $1/$5 (reliable, good reasoning)
-// - google gemini-pro-1.5: $1.25/$5 (fast, reliable)
-// - openai gpt-4o-mini: $0.15/$0.60 (cheapest reliable option)
+// Cost per 1M tokens (input/output): $0.15/$0.60
+// Cost per 10-question batch (~1500 input + 2000 output tokens): ~$0.00175
+// Cost per 5000 questions: ~$0.80-1.00
 //
-// Strategy: Use proven working models. Average cost per
-// 10-question batch (~1500 input + 2000 output tokens) ≈ $0.0015
+// This is 6-8x cheaper than Claude Haiku while still maintaining good quality.
 const RACE_MODELS = [
-  "openai/gpt-4o-mini",                // $0.15/$0.60 - cheapest reliable
-  "anthropic/claude-3.5-haiku",        // $1/$5 - backup
-  "google/gemini-pro-1.5",             // $1.25/$5 - fallback
+  "openai/gpt-4o-mini",                // $0.15/$0.60 - ONLY model used
 ];
 
-// Per-model hard timeout
-const PER_MODEL_TIMEOUT_MS = 15000;
+// Single model timeout - no racing needed
+const PER_MODEL_TIMEOUT_MS = 20000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
