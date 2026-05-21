@@ -19,23 +19,23 @@ export interface QuizQuestion {
 }
 
 // Paid-tier OpenRouter models - using cheapest reliable options.
-// Racing 2-3 cheap models gives us speed + reliability without high cost.
+// Racing cheap models gives us speed + reliability without high cost.
 //
 // Cost per 1M tokens (input/output):
-// - deepseek-chat: $0.14/$0.28 (cheapest, good quality)
-// - gemini-flash-1.5: $0.075/$0.30 (ultra-cheap input, great for prompts)
-// - gemini-flash-1.5-8b: $0.0375/$0.15 (even cheaper, slightly less capable)
+// - deepseek-v3: $0.27/$1.10 (high quality, good reasoning)
+// - gemini-2.0-flash-exp: $0/$0 (experimental, free but reliable)
+// - qwen-2.5-72b: $0.40/$0.40 (fallback)
 //
-// Strategy: Use ultra-cheap models, race them for speed. Average cost per
-// 10-question batch (~1500 input + 2000 output tokens) ≈ $0.0001-0.0002
+// Strategy: Use cheap/free models, race them for speed. Average cost per
+// 10-question batch (~1500 input + 2000 output tokens) ≈ $0.0005
 const RACE_MODELS = [
-  "google/gemini-flash-1.5-8b",    // $0.0375/$0.15 per 1M - cheapest option
-  "google/gemini-flash-1.5",       // $0.075/$0.30 per 1M - backup
-  "deepseek/deepseek-chat",        // $0.14/$0.28 per 1M - fallback
+  "google/gemini-2.0-flash-exp:free",  // Free experimental, very fast
+  "deepseek/deepseek-v3",              // $0.27/$1.10 per 1M - great quality
+  "qwen/qwen-2.5-72b-instruct",        // $0.40/$0.40 per 1M - fallback
 ];
 
-// Per-model hard timeout. Paid models are faster and more reliable.
-const PER_MODEL_TIMEOUT_MS = 8000;
+// Per-model hard timeout. These models respond quickly.
+const PER_MODEL_TIMEOUT_MS = 10000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
