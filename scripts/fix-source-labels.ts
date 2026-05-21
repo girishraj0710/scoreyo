@@ -42,7 +42,7 @@ async function fixSourceLabels() {
 
   console.log("\n📊 Current State:");
   before.rows.forEach((r: any) => {
-    console.log(`   ${(r.source || "null").padEnd(20)} ${r.count}`);
+    console.log(`   ${String(r.source || "null").padEnd(20)} ${r.count}`);
   });
 
   const cachedCount = before.rows.find((r: any) => r.source === "cached")?.count || 0;
@@ -83,7 +83,7 @@ async function fixSourceLabels() {
 
   console.log("\n📊 New State:");
   after.rows.forEach((r: any) => {
-    console.log(`   ${(r.source || "null").padEnd(20)} ${r.count}`);
+    console.log(`   ${String(r.source || "null").padEnd(20)} ${r.count}`);
   });
 
   // Verify

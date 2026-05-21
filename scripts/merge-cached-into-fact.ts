@@ -164,10 +164,10 @@ async function mergeCachedIntoFact() {
     ORDER BY count DESC
   `);
 
-  console.log(`\n📊 fact_exam_questions now has ${Number(finalCount.rows[0].count).toLocaleString()} questions:`);
+  console.log(`\n📊 fact_exam_questions now has ${Number(finalCount.rows[0]?.count || 0).toLocaleString()} questions:`);
   for (const row of bySource.rows) {
-    const source = row.source || 'NULL';
-    const count = Number(row.count).toLocaleString();
+    const source = String(row.source || 'NULL');
+    const count = Number(row.count || 0).toLocaleString();
     const isNew = source === 'ai-cached' ? ' 🆕' : '';
     console.log(`   ${source.padEnd(45)} ${count}${isNew}`);
   }

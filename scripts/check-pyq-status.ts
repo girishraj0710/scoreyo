@@ -36,7 +36,7 @@ async function main() {
   if (byExam.rows.length > 0) {
     console.log("\nBy Exam & Year:");
     byExam.rows.forEach((r: any) => {
-      console.log(`  ${r.source.padEnd(30)} ${r.count} questions`);
+      console.log(`  ${String(r.source).padEnd(30)} ${r.count} questions`);
     });
   } else {
     console.log("\n⚠️  No PYQs imported yet");

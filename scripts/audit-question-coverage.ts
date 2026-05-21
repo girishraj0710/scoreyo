@@ -229,12 +229,12 @@ async function auditCoverage() {
 
   console.log(`\nQuestions by Source:`);
   bySource.rows.forEach((row: any) => {
-    console.log(`  ${(row.source || 'null').padEnd(15)} ${row.count}`);
+    console.log(`  ${String(row.source || 'null').padEnd(15)} ${row.count}`);
   });
 
   console.log(`\nTop 10 Exams by Question Count:`);
   byExam.rows.forEach((row: any) => {
-    console.log(`  ${row.exam_id.padEnd(20)} ${row.count}`);
+    console.log(`  ${String(row.exam_id).padEnd(20)} ${row.count}`);
   });
 
   // Recommendations
