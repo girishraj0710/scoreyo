@@ -236,20 +236,21 @@ export async function GET(req: NextRequest) {
 
       if (examFilter) {
         // Filter topics by exam using bridge table
+        // Note: fact_exam_questions doesn't have exam_id, questions are linked via topic_id
         dimensionalQuery = `SELECT
                 t.topic_name as topic,
                 t.scope,
                 COUNT(DISTINCT q.id) as question_count,
-                COUNT(DISTINCT b.exam_id) as exam_count,
+                1 as exam_count,
                 GROUP_CONCAT(DISTINCT q.source) as sources,
                 GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
               FROM dim_topics t
               INNER JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
-              LEFT JOIN fact_exam_questions q ON t.id = q.topic_id AND q.exam_id = (SELECT id FROM dim_exams WHERE exam_code = ?)
+              LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
               WHERE b.exam_id = (SELECT id FROM dim_exams WHERE exam_code = ?)
               GROUP BY t.id
               ORDER BY question_count ASC, t.topic_name`;
-        dimensionalArgs = [examFilter, examFilter];
+        dimensionalArgs = [examFilter];
       } else {
         // Show all topics across all exams
         dimensionalQuery = `SELECT
