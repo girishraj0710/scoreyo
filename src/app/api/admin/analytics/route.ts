@@ -21,6 +21,10 @@ async function isAdmin(userId: string): Promise<boolean> {
 }
 
 export async function GET(req: NextRequest) {
+  // Get optional exam filter from query params (declare outside try-catch for error handling)
+  const { searchParams } = new URL(req.url);
+  const examFilter = searchParams.get("examId") || null;
+
   try {
     const userId = req.cookies.get("prepgenie-user-id")?.value;
     if (!userId) {
@@ -30,10 +34,6 @@ export async function GET(req: NextRequest) {
     if (!(await isAdmin(userId))) {
       return NextResponse.json({ error: "Admin access required" }, { status: 403 });
     }
-
-    // Get optional exam filter from query params
-    const { searchParams } = new URL(req.url);
-    const examFilter = searchParams.get("examId") || null;
 
     if (examFilter) {
       console.log("[Admin Analytics] Filtering by exam:", examFilter);
