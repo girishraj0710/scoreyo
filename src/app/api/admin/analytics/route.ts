@@ -267,26 +267,33 @@ export async function GET(req: NextRequest) {
         dimensionalArgs = [];
       }
 
-      const dimensionalTopics = await db.execute({
-        sql: dimensionalQuery,
-        args: dimensionalArgs,
-      });
+      try {
+        const dimensionalTopics = await db.execute({
+          sql: dimensionalQuery,
+          args: dimensionalArgs,
+        });
 
-      console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.rows.length} topics`);
-      if (examFilter && dimensionalTopics.rows.length === 0) {
-        console.warn(`[Admin Analytics] No topics found for exam: ${examFilter}. Check if exam_code exists in dim_exams table.`);
+        console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.rows.length} topics`);
+        if (examFilter && dimensionalTopics.rows.length === 0) {
+          console.warn(`[Admin Analytics] No topics found for exam: ${examFilter}. Check if exam_code exists in dim_exams table.`);
+        }
+
+        topicBreakdown = {
+          rows: dimensionalTopics.rows.map((r: any) => ({
+            topic: r.topic,
+            scope: r.scope,
+            exam_count: Number(r.exam_count),
+            question_count: Number(r.question_count),
+            sources: r.sources,
+            difficulties: r.difficulties,
+          })),
+        };
+      } catch (sqlError) {
+        console.error("[Admin Analytics] SQL error in dimensional query:", sqlError);
+        console.error("[Admin Analytics] Query:", dimensionalQuery);
+        console.error("[Admin Analytics] Args:", dimensionalArgs);
+        throw sqlError;
       }
-
-      topicBreakdown = {
-        rows: dimensionalTopics.rows.map((r: any) => ({
-          topic: r.topic,
-          scope: r.scope,
-          exam_count: Number(r.exam_count),
-          question_count: Number(r.question_count),
-          sources: r.sources,
-          difficulties: r.difficulties,
-        })),
-      };
     } else {
       // OLD: Legacy topic breakdown by exam-subject-topic
       // First, get all existing questions grouped
@@ -451,8 +458,13 @@ export async function GET(req: NextRequest) {
     });
   } catch (error) {
     console.error("Error fetching analytics:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to fetch analytics" },
+      {
+        error: "Failed to fetch analytics",
+        details: errorMessage,
+        examFilter: examFilter || "none"
+      },
       { status: 500 }
     );
   }
