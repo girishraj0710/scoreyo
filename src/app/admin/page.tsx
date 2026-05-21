@@ -123,26 +123,14 @@ export default function AdminDashboardPage() {
     });
   };
 
-  // Get filtered topic breakdown
+  // Get filtered topic breakdown (only client-side search, exam filter is handled by API)
   const getFilteredTopicBreakdown = () => {
     if (!analytics) return [];
 
     let filtered = [...analytics.topicBreakdown]; // Create a copy to avoid mutation
 
-    // Filter by exam
-    if (selectedExamFilter !== "all") {
-      if (analytics.modelType === "dimensional") {
-        // For dimensional model: Can't filter by individual exam since topics are shared
-        // The dimensional model shows topics across all exams, so we keep all results
-        // Note: If you need per-exam filtering, you'd need to modify the API to join bridge table
-        filtered = filtered; // No filtering for dimensional
-      } else {
-        // Legacy model: direct examId filter
-        filtered = filtered.filter(item => {
-          return item.examId === selectedExamFilter;
-        });
-      }
-    }
+    // Note: Exam filtering is now handled server-side by the API
+    // This function only handles client-side search filtering
 
     // Apply search query filter (works for both models)
     if (topicSearchQuery.trim()) {
@@ -185,12 +173,17 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     fetchAnalytics();
-  }, []);
+  }, [selectedExamFilter]); // Re-fetch when exam filter changes
 
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/admin/analytics");
+      // Build URL with optional exam filter
+      const url = selectedExamFilter !== "all"
+        ? `/api/admin/analytics?examId=${encodeURIComponent(selectedExamFilter)}`
+        : "/api/admin/analytics";
+
+      const res = await fetch(url);
       if (!res.ok) {
         if (res.status === 403) {
           alert("Admin access required");
@@ -800,36 +793,26 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              {/* Exam Filter Dropdown (Only for Legacy Model) */}
-              {analytics?.modelType !== "dimensional" && (
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-gray-700 whitespace-nowrap">
-                    Filter by Exam:
-                  </label>
-                  <select
-                    value={selectedExamFilter}
-                    onChange={(e) => {
-                      console.log("Selected exam filter:", e.target.value);
-                      setSelectedExamFilter(e.target.value);
-                    }}
-                    className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white min-w-[200px]"
-                  >
-                    <option value="all">All Exams ({getUniqueExamsInBreakdown().length})</option>
-                    {getUniqueExamsInBreakdown().map((exam) => (
-                      <option key={exam.id} value={exam.id}>
-                        {exam.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              {/* Info message for dimensional model */}
-              {analytics?.modelType === "dimensional" && (
-                <div className="px-3 py-2 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-700">
-                  ℹ️ Dimensional model shows shared topics across all exams. Use search to filter.
-                </div>
-              )}
+              {/* Exam Filter Dropdown (Always Visible for Both Models) */}
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-gray-700 whitespace-nowrap">
+                  Filter by Exam:
+                </label>
+                <select
+                  value={selectedExamFilter}
+                  onChange={(e) => {
+                    setSelectedExamFilter(e.target.value);
+                  }}
+                  className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white min-w-[200px]"
+                >
+                  <option value="all">All Exams ({getUniqueExamsInBreakdown().length})</option>
+                  {getUniqueExamsInBreakdown().map((exam) => (
+                    <option key={exam.id} value={exam.id}>
+                      {exam.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
               {/* Active Filters Count */}
               {(selectedExamFilter !== "all" || topicSearchQuery) && (

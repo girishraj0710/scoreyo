@@ -31,6 +31,10 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Admin access required" }, { status: 403 });
     }
 
+    // Get optional exam filter from query params
+    const { searchParams } = new URL(req.url);
+    const examFilter = searchParams.get("examId") || null;
+
     // 1. Question Quality Metrics
     // FEATURE FLAG: Use dimensional model or legacy table
     const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
@@ -222,8 +226,29 @@ export async function GET(req: NextRequest) {
 
     if (useDimensional) {
       // NEW: Show shared topics across exams with dimensional model
-      const dimensionalTopics = await db.execute({
-        sql: `SELECT
+      // Support optional exam filtering via bridge table
+      let dimensionalQuery;
+      let dimensionalArgs: any[];
+
+      if (examFilter) {
+        // Filter topics by exam using bridge table
+        dimensionalQuery = `SELECT
+                t.topic_name as topic,
+                t.scope,
+                COUNT(DISTINCT q.id) as question_count,
+                COUNT(DISTINCT b.exam_id) as exam_count,
+                GROUP_CONCAT(DISTINCT q.source) as sources,
+                GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
+              FROM dim_topics t
+              INNER JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+              LEFT JOIN fact_exam_questions q ON t.id = q.topic_id AND q.exam_id = (SELECT id FROM dim_exams WHERE exam_code = ?)
+              WHERE b.exam_id = (SELECT id FROM dim_exams WHERE exam_code = ?)
+              GROUP BY t.id
+              ORDER BY question_count ASC, t.topic_name`;
+        dimensionalArgs = [examFilter, examFilter];
+      } else {
+        // Show all topics across all exams
+        dimensionalQuery = `SELECT
                 t.topic_name as topic,
                 t.scope,
                 COUNT(DISTINCT q.id) as question_count,
@@ -234,8 +259,13 @@ export async function GET(req: NextRequest) {
               LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
               LEFT JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
               GROUP BY t.id
-              ORDER BY question_count ASC, t.topic_name`,
-        args: [],
+              ORDER BY question_count ASC, t.topic_name`;
+        dimensionalArgs = [];
+      }
+
+      const dimensionalTopics = await db.execute({
+        sql: dimensionalQuery,
+        args: dimensionalArgs,
       });
 
       topicBreakdown = {
