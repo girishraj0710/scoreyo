@@ -1,0 +1,580 @@
+[
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider the function 𝑓: (0, ∞) → (−∞, ∞) given by 𝑓(𝑥) = √𝑥 loge(𝑥) − 𝑥 + 1 . Then which one of the following statements is TRUE ?",
+    "options": [
+      "The derivative of the function 𝑓 is decreasing in the interval (0, 1)",
+      "The function 𝑓 has a local maximum at some point 𝑎 ∈ (0, ∞)",
+      "The function 𝑓 has a local minimum at some point 𝑏 ∈ (0, ∞)",
+      "The function 𝑓 has NEITHER a point of local maximum NOR a point of local minimum in the interval (0, ∞)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑃 be the point on the parabola 𝑦 = 𝑥2 such that the slope of the tangent to the parabola at the point 𝑃 is 4 . Let 𝑄 be the point in the first quadrant lying on the circle 𝑥2 + 𝑦2 = 2 such that the slope of the tangent to the circle at the point 𝑄 is −1 . Let 𝑅 be the point in the first quadrant lying on the ellipse 𝑥2 + 4𝑦2 = 8 such that the slope of the tangent to the ellipse at the point 𝑅 is − 1 2 . Then the radius of the circle passing through the points 𝑃, 𝑄 and 𝑅 is",
+    "options": [
+      "√10",
+      "√5",
+      "√5 2",
+      "2√5 JEE (Advanced) 2026 Paper 1 2/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Which one of the following matrices can be obtained by performing elementary row transformations on the 3 × 3 identity matrix ?",
+    "options": [
+      "[ 1 1 1 1 1 1 1 1 1 ]",
+      "[ 1 1 1 2 3 4 1 2 1 ]",
+      "[ 1 1 1 2 3 4 2 5 8 ]",
+      "[ 1 1 1 −1 1 2 0 2 3 ]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Considering only the principal values of the inverse trigonometric functions, the value of cot−1(cot(−11)) + 10 sin (2 cos−1 ( 1 √2)) + 10 sin(2 tan−1(2)) is",
+    "options": [
+      "3𝜋 + 7",
+      "7",
+      "4𝜋 + 7",
+      "3𝜋 − 5 JEE (Advanced) 2026 Paper 1 3/10 SECTION 2 (Maximum Marks: 16) • This section contains FOUR (04) questions. • Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four option(s) is(are) correct answer(s). • For each question, choose the option(s) corresponding to (all) the correct answer(s). • Answer to each question will be evaluated according to the following marking scheme: Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen; Partial Marks : +3 If all the four options are correct but ONLY three options are chosen; Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of which are correct; Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a correct option; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases. • For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct answers, then choosing ONLY (A), (B) and (D) will get +4 marks; choosing ONLY (A) and (B) will get +2 marks; choosing ONLY (A) and (D) will get +2 marks; choosing ONLY (B) and (D) will get +2 marks; choosing ONLY (A) will get +1 mark; choosing ONLY (B) will get +1 mark; choosing ONLY (D) will get +1 mark; choosing no option (i.e. the question is unanswered) will get 0 marks; and choosing any other combination of options will get −1 marks."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Suppose that Box I contains 6 red balls and 9 green balls, and Box II contains 8 red balls and 12 green balls. All the balls of Box I and Box II are mixed together and a ball is chosen at random from them. Let 𝐸1 be the event that the ball chosen belonged to Box I and let 𝐸2 be the event that the ball chosen belonged to Box II. Let 𝐹1 be the event that the ball chosen is red and let 𝐹2 be the event that the ball chosen is green. Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "The events 𝐸1 and 𝐹1 are independent",
+      "The events 𝐸2 and 𝐹2 are dependent",
+      "The conditional probability 𝑃(𝐹1 | 𝐸1) is equal to the conditional probability 𝑃(𝐹1 | 𝐸2)",
+      "The conditional probability 𝑃(𝐹1 | 𝐸1) is greater than the conditional probability 𝑃(𝐹2 | 𝐸2) JEE (Advanced) 2026 Paper 1 4/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑃 be the plane such that it contains the straight line 𝑥−1 2 = 𝑦−3 3 = 𝑧+2 1 and is perpendicular to the plane 𝑥 + 2𝑦 + 3𝑧 = 4 . Let 𝑃1 be the plane which passes through the point (4, 2, 2) and is parallel to 𝑃 . Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "The equation of the plane 𝑃 is 7𝑥 − 5𝑦 + 𝑧 = −10",
+      "The distance between the planes 𝑃 and 𝑃1 is 30",
+      "The distance of the plane 𝑃 from the origin is 2√3",
+      "The acute angle between the plane 𝑃 and the plane 2𝑥 + 2𝑦 + 𝑧 = 3 is cos−1 ( 1 3√3)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let ℝ denote the set of all real numbers. Let 𝑓 ∶ ℝ → ℝ be an arbitrary function and let 𝑔 ∶ ℝ → ℝ be the function defined by 𝑔(𝑥) = 𝑥𝑓(𝑥) , for all 𝑥 ∈ ℝ . Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "The function 𝑔 is always continuous at 𝑥 = 0",
+      "If 𝑓 is continuous at 𝑥 = 0 , then 𝑔 is differentiable at 𝑥 = 0",
+      "If 𝑔 is differentiable at 𝑥 = 0 , then 𝑓 is continuous at 𝑥 = 0",
+      "If 𝑔 is differentiable at 𝑥 = 0 , then lim 𝑥→0 𝑓(𝑥) exists JEE (Advanced) 2026 Paper 1 5/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider the matrix 𝑀 = [2 −1 1 0] . Let 𝑝 , 𝑞 , 𝑟 , 𝑠 , 𝑎 , 𝑏 , 𝑐 and 𝑑 be integers such that 𝑀26 = [𝑝 𝑞 𝑟 𝑠] and ∑ 𝑀𝑘 = 26 𝑘=1 [𝑎 𝑏 𝑐 𝑑] . Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "There exists a 2 × 2 invertible matrix 𝑁 with real entries such that 𝑀𝑁 = 𝑁 [1 1 0 1]",
+      "The value of 𝑎 is 378",
+      "For any two given integers 𝑚 and 𝑛, there exist unique integers 𝑥 and 𝑦 such that 𝑝𝑥 + 𝑞𝑦 = 𝑚 and 𝑟𝑥 + 𝑠𝑦 = 𝑛",
+      "For each positive real number 𝑡, the system of linear equations (𝑎 + 𝑡)𝑥 + 𝑏𝑦 = 1 𝑐𝑥 + (𝑑 + 𝑡)𝑦 = −1 has a unique solution JEE (Advanced) 2026 Paper 1 6/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Match each entry in List-I to the correct entry in List-II and choose the correct option. List-I List-II (P) If 𝛼 and 𝛽 are the distinct roots of the equation 𝑥2 + 𝑥 + 1 = 0, then the quadratic equation with roots 1 (𝛼+1)2026 and 1 (𝛽+1)2026 is (1) 𝑥2 + 𝑥 + 1 = 0 (Q) If 𝛼 and 𝛽 are the distinct roots of the equation 𝑥2 + 𝑥 + 1 = 0, then the quadratic equation with roots 1 (𝛼+1)2027 and 1 (𝛽+1)2027 is (2) 𝑥2 − 𝑥 + 1 = 0 (R) If 𝛾 and 𝛿 are the distinct roots of the equation 𝑥2 − 𝑥 + 1 = 0, then the value of 1 (𝛾−1)2026 + 1 (𝛿−1)2026 is (3) 𝑥2 + 𝑥 − 1 = 0 (S) If 𝑝 and 𝑟 are the distinct roots of the equation 𝑥2 + 𝑥 − 1 = 0, then the value of 1 (𝑝+1)3 + 1 (𝑟+1)3 is (4) −1 (5) −4",
+    "options": [
+      "(P) → (1), (Q) → (2), (R) → (5), (S) → (4)",
+      "(P) → (3), (Q) → (1), (R) → (4), (S) → (5)",
+      "(P) → (1), (Q) → (2), (R) → (4), (S) → (5)",
+      "(P) → (2), (Q) → (3), (R) → (5), (S) → (4) SECTION 4 (Maximum Marks: 16) • This section contains FOUR (04) Matching List Sets. • Each set has ONE Multiple Choice Question. • Each set has TWO lists: List-I and List-II. • List-I has Four entries (P), (Q), (R) and (S) and List-II has Five entries (1), (2), (3), (4) and (5). • FOUR options are given in each Multiple Choice Question based on List-I and List-II and ONLY ONE of these four options satisfies the condition asked in the Multiple Choice Question. • Answer to each question will be evaluated according to the following marking scheme: Full Marks : +4 ONLY if the option corresponding to the correct combination is chosen; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases. JEE (Advanced) 2026 Paper 1 8/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Match each entry in List-I to the correct entry in List-II and choose the correct option. List-I List-II (P) The number of elements in the set {𝑥 ∈ [−𝜋, 𝜋] ∶ sin6 𝑥 + cos4 𝑥 = 1} (1) is 1 (Q) The number of elements in the set {𝑥 ∈ [− 𝜋 2 , 𝜋 2] ∶ sin2 𝑥 + cos6 𝑥 = 1} (2) is 2 (R) The number of elements in the set {𝑥 ∈ [−𝜋, 𝜋] ∶ cos2 (𝑥 2) − sin2 𝑥 = 1 2} (3) is 3 (S) The number of elements in the set {𝑥 ∈ [−2𝜋, 2𝜋] ∶ 6 sin2 (𝑥 2) − cos 3𝑥 = 3} (4) is 4 (5) is 5",
+    "options": [
+      "(P) → (2), (Q) → (5), (R) → (3), (S) → (4)",
+      "(P) → (5), (Q) → (3), (R) → (2), (S) → (4)",
+      "(P) → (5), (Q) → (4), (R) → (1), (S) → (3)",
+      "(P) → (4), (Q) → (3), (R) → (2), (S) → (5) JEE (Advanced) 2026 Paper 1 9/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "For real numbers 𝛼, 𝛽, 𝛾, 𝛿 and 𝜇 , consider the matrix 𝑀 = [ 𝛼 1 √2 − 1 √2 1 √3 𝛽 1 √3 𝛾 𝛿 𝜇 ] . Suppose that 𝑀𝑀𝑇 = 𝐼 , where 𝑀𝑇 is the transpose of the matrix 𝑀, and 𝐼 is the 3 × 3 identity matrix. Let 𝑢⃗ = 𝛼 𝑖̂ + 1 √3 𝑗̂ + 𝛾 𝑘̂ , 𝑣 = 1 √2 𝑖̂ + 𝛽𝑗̂ + 𝛿𝑘̂ and 𝑤 ⃗⃗ = − 1 √2 𝑖̂ + 1 √3 𝑗̂ + 𝜇𝑘̂ . Match each entry in List-I to the correct entry in List-II and choose the correct option. List-I List-II (P) The value of 𝛾2 + 𝛿2 is (1) 0 (Q) If 𝑥𝑢⃗ + 𝑦𝑣 + 𝑧𝑤 ⃗⃗ = 𝑗̂ for some real numbers 𝑥, 𝑦 and 𝑧, then the value of 𝑥 is (2) 1 (R) The value of |𝑢⃗ ⋅ (𝑣 × 𝑤 ⃗⃗ )| is (3) 1 √2 (S) The value of |𝑢⃗ × (𝑣 × 𝑤 ⃗⃗ )| is (4) 1 √3 (5) 5 6",
+    "options": [
+      "(P) → (5), (Q) → (4), (R) → (2), (S) → (1)",
+      "(P) → (4), (Q) → (5), (R) → (1), (S) → (2)",
+      "(P) → (5), (Q) → (3), (R) → (2), (S) → (1)",
+      "(P) → (5), (Q) → (4), (R) → (1), (S) → (2) JEE (Advanced) 2026 Paper 1 10/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Match each entry in List-I to the correct entry in List-II and choose the correct option. List-I List-II (P) The circle with centre (1, 2) and touching the straight line 3𝑥 + 4𝑦 = 1, passes through (1) the point (1, 1) (Q) The common tangent to the circle 𝑥2 + 𝑦2 = 2 and the parabola 𝑦2 = 8𝑥 with positive slope, passes through (2) the point (7, 9) (R) Let 𝑀 be the end point of the latus rectum of the ellipse 3𝑥2 + 4𝑦2 = 48 such that 𝑀 lies in the first quadrant. Then the normal to the ellipse drawn at 𝑀 passes through (3) the point (3, 2) (S) Let 𝐻 be the hyperbola whose centre is at the origin, one of the foci is at (5, 0), and one directrix is 5𝑥 + 16 = 0 . Then 𝐻 passes through (4) the point (2, 5) (5) the point (8, 3√3 )",
+    "options": [
+      "(P) → (3), (Q) → (4), (R) → (1), (S) → (2)",
+      "(P) → (3), (Q) → (2), (R) → (1), (S) → (5)",
+      "(P) → (3), (Q) → (2), (R) → (4), (S) → (5)",
+      "(P) → (4), (Q) → (1), (R) → (2), (S) → (3) END OF THE QUESTION PAPER JEE (Advanced) 2026 Paper 1 1/14 SECTION 1 (Maximum Marks:12)  This section contains Four (04) questions.  Each question has FOUR options (A), (B), (C) and (D). ONLY ONE of these four options is the correct answer.  For each question, choose the option corresponding to the correct answer.  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +3 If ONLY the correct option is chosen; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider a large disk of radius 𝑅 and two smaller disks, each of radius 𝑟 = 𝑅/50, lying on its circumference, as shown in the figure. The smaller disks are initially in contact with each other, with an angular separation Δ𝜃 between their centers. They are made to roll without slipping in opposite directions, with constant angular velocities 𝜔 and 2𝜔 while the large disk is held stationary. The time 𝜏 at which the smaller disks are again in contact is: [Use sin(Δ𝜃) = Δ𝜃 and ignore gravity.]",
+    "options": [
+      "𝜏 = 51 × (2𝜋 − 4 51) /𝜔",
+      "𝜏 = 51 × (2𝜋 − 2 51) /3𝜔",
+      "𝜏 = 51 × (2𝜋 − 4 51) /3𝜔",
+      "𝜏 = 51 × (2𝜋 − 2 51) /𝜔 JEE (Advanced) 2026 Paper 1 2/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider a circuit consisting of a capacitor of capacitance 𝐶 and a coil with 𝑁 turns per unit length, cross sectional area 𝑆 and length 𝑑, where 𝑑2 ≫ 𝑆. There is another coil of length 𝑑/2, cross sectional area 𝑆/2 and 2𝑁 turns per unit length completely inside the larger coil, as shown in the figure. The ends of this smaller coil are connected with each other by an insulated conducting wire. The self-inductance of the larger coil is 𝐿. Neglecting edge effects and all the Ohmic resistances, the resonant frequency of the circuit is:",
+    "options": [
+      "4 √15 𝐿𝐶",
+      "6 √5 𝐿𝐶",
+      "2 √3 𝐿𝐶",
+      "√ 2 3 𝐿𝐶"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A solid cylinder of radius 𝑅 rolls without slipping with a center of mass speed 𝑣0 = √𝑔𝑅 3 on a horizontal surface with a vertical edge, as shown in the figure. Here, 𝑔 is the acceleration due to the gravity. At the moment when the cylinder loses contact with the surface due to rotation around the corner, the speed of its center of mass is:",
+    "options": [
+      "0",
+      "√5𝑔𝑅 7",
+      "√𝑔𝑅 15",
+      "√3𝑔𝑅 7 JEE (Advanced) 2026 Paper 1 3/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider a hydrogen atom with 𝑣𝑘, 𝑟𝑘, and 𝐾𝑘 denoting the velocity, orbital radius and kinetic energy of the electron in the 𝑘th orbit, respectively. The electron undergoes a transition from the 𝑛th orbit, emitting radiation corresponding to the Lyman series. Considering ℎ to be the Planck’s constant and 𝜖0 the permittivity of the free space, the correct statement(s) is/are:",
+    "options": [
+      "Magnitude of change in kinetic energy of electron can be expressed as ℎ 4𝜋 |𝑛𝑣𝑛 𝑟𝑛 − 𝑣1 𝑟1 |.",
+      "Magnitude of change in de Broglie wavelength of the electron can be expressed as 𝑒2 4𝜖0 | 1 𝐾𝑛 − 1 𝐾1 |.",
+      "Frequency of the radiation emitted can be expressed as 𝑒2 8𝜋𝜖0ℎ ( 1 𝑟1 − 1 𝑟𝑛 ).",
+      "Magnitude of change in total energy of the electron can be expressed as ℎ 2𝜋 |𝑣1 𝑟1 − 𝑛𝑣𝑛 𝑟𝑛 |. JEE (Advanced) 2026 Paper 1 5/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A particle is thrown with a speed 𝑣 from a point 𝑂 at an angle 𝜃 with the horizontal plane such that it passes through the point 𝑃 at a height of 1 m and horizontal distance of 5 m from 𝑂, as shown in the figure. If acceleration due to gravity is 𝑔 ms−2, then the correct statement(s) is/are:",
+    "options": [
+      "If 𝜃 = 45o, then 𝑣 = 5√𝑔 2 ms−1.",
+      "If 𝜃 = 45o, the particle reaches its maximum height before it reaches 𝑃.",
+      "If 𝜃 = 30o, the particle reaches its maximum height after reaching 𝑃.",
+      "If 𝜃 = tan−1 (1 5), then 𝑣 = 125√𝑔 ms−1."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A quasi-static cycle of a monoatomic ideal gas contains an isothermal process (𝒂𝒃), followed by an isochoric process (𝒃𝒄) and an adiabatic process (𝒄𝒂) as shown in the figure. The volumes of the gas are 𝑉1 and 𝑉2 at 𝒂 and 𝒃, respectively. If the cycle has heat input 𝑄in and output 𝑄out, then the efficiency of the cycle is defined as 𝜂 = 𝑄in−𝑄out 𝑄in . The correct statement(s) is/are: [Given: ln 2 ≈ 0.7]",
+    "options": [
+      "If 𝑉2/𝑉1 = 8, the heat released in the process 𝒃𝒄 is smaller than the heat absorbed in the process 𝒂𝒃.",
+      "For a given value of 𝑉2/𝑉1, 𝜂 does not depend on the temperature of the isothermal process.",
+      "If 𝑉2/𝑉1 = 8, then the temperature of the gas at 𝒂 is 4 times the temperature of the gas at 𝒄.",
+      "If 𝑉2/𝑉1 = 8, then the pressure of the gas at 𝒂 is 4 times the pressure of the gas at 𝒃. JEE (Advanced) 2026 Paper 1 6/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The electric field associated with an electromagnetic wave travelling in vacuum is given by 𝐸0 sin(3𝑦 + 4𝑧 + 𝜔𝑡)𝑖̂ , where 𝜔 is the angular frequency. All quantities are in SI units. The correct statement(s) about this wave is/are: [Given: speed of light in vacuum 𝑐 = 3 × 108 ms−1.]",
+    "options": [
+      "The wave is travelling in − 1 5 (3𝑗̂ + 4𝑘̂ ) direction.",
+      "The magnitude of the wave vector is 0.5 m−1.",
+      "The value of 𝜔 is 1.5 × 109 rad s−1.",
+      "The magnetic field associated with this wave is given by 𝐸0 𝑐 sin(3𝑦 + 4𝑧 + 𝜔𝑡)(4𝑗̂ − 3𝑘̂ ). JEE (Advanced) 2026 Paper 1 7/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I shows four configurations made of straight and semi-circular narrow tubes containing air. A sound wave of wavelength 𝜆 = 0.29 m enters these structures at the point 𝑆 and a sound detector is placed at 𝐷. Between the points 𝑆 and 𝐷, the sound travels only through the tubes. List-II contains the possible smallest values of 𝑙 (refer to the figures) for which the detector 𝐷 records maximum amplitude. Ignore effects of sharp corners. [Given cos(15°) = 0.97] Choose the option that best describes the match between the entries in List-I to those in List-II. List-I List-II (P) (1) 1.32 m (Q) (2) 1.19 m (R) (3) 0.51 m (S) (4) 0.29 m (5) 0.13 m",
+    "options": [
+      "P→4, Q→3, R→5, S→1",
+      "P→4, Q→3, R→1, S→5",
+      "P→3, Q→4, R→1, S→2",
+      "P→3, Q→4, R→5, S→2 JEE (Advanced) 2026 Paper 1 12/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "In the List-I, four optical effects are mentioned. The physical phenomena of light which are essential to describe these optical effects are given in List-II. Choose the option which describes the correct match between the entries in List-I to those in List-II. List-I List-II (P) Colorful sky in north polar region (Aurora Borealis) (1) Dispersion and reflection (Q) Partially polarized sun light (2) Total internal reflection (R) Rainbow (3) Diffraction (S) Dark and bright fringes (4) Scattering of light by molecules in the atmosphere (5) Emission of radiation from oxygen and nitrogen atoms excited by charged particles",
+    "options": [
+      "P→5, Q→4, R→1, S→3",
+      "P→4, Q→2, R→1, S→3",
+      "P→4, Q→1, R→2, S→3",
+      "P→5, Q→4, R→1, S→2 JEE (Advanced) 2026 Paper 1 13/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I contains four conducting loops lying in the 𝑋𝑌 plane, as shown in the figures. The loops are rotating about 𝑍 axis passing through the point 𝑂 with time period 𝑇 in clockwise direction. The region 𝑥 > 0 contains a uniform magnetic field 𝐵 in the +𝑧 direction. List-II contains the qualitative variation of the induced current 𝑖(𝑡) for each of these loops. Choose the option which describes the correct match between the entries in List-I to those in List-II. List-I List-II (P) (1) (Q) (2) (R) (3) (S) (4) (5)",
+    "options": [
+      "P → 5, Q → 4, R → 1, S → 3",
+      "P → 3, Q → 2, R → 5, S → 4",
+      "P → 3, Q → 2, R → 1, S → 4",
+      "P → 5, Q → 1, R → 2, S → 3 JEE (Advanced) 2026 Paper 1 14/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I shows four planar structures made of uniform solid rods each of mass 𝑚 and length 𝑙. In the List-II the possible moment of inertia of these structures about an axis 𝑂𝐶𝑂′, which lies in the plane of the structures, are given. Choose the option that describes the correct match between the entries in List-I to those in List-II. List-I List-II (P) (1) 5 4 𝑚𝑙2 (Q) (2) 1 6 𝑚𝑙2 (R) (3) 1 12 𝑚𝑙2 (S) (4) 2 3 𝑚𝑙2 (5) 1 3 𝑚𝑙2",
+    "options": [
+      "P→ 5, Q→ 1, R→ 4, S→ 2",
+      "P→ 1, Q→ 3, R→ 4, S→ 2",
+      "P→ 5, Q→ 3, R→ 2, S→ 1",
+      "P→ 5, Q→ 4, R→ 2, S→ 1 END OF THE QUESTION PAPER JEE (Advanced) 2026 Paper 1 1/10 SECTION 1 (Maximum Marks: 12)  This section contains FOUR (04) questions.  Each question has FOUR options (A), (B), (C) and (D). ONLY ONE of these four options is the correct answer.  For each question, choose the option corresponding to the correct answer.  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +3 If ONLY the correct option is chosen; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "An ideal gas (0.5 mol), initially at 2 bar pressure, is compressed at a constant temperature of 600 K in two steps: first, against a constant external pressure of P bar (2 < P < 8), and then against constant external pressure of 8 bar. At each step, the compression is stopped only when the pressure of the gas becomes equal to the external pressure. The total work done on the gas in these steps is W. Considering all possible values of P (2 < P < 8) and taking the gas constant as R (in J K−1 mol−1), the minimum value of |W| (in J) is",
+    "options": [
+      "207R",
+      "600R",
+      "630R",
+      "900R"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The correct order of dipole moments for the given species is",
+    "options": [
+      "BF3 = NH4+ < NF3 < NH3",
+      "BF3 < NH4+ < NF3 < NH3",
+      "NH4+ < BF3 < NH3 < NF3",
+      "BF3 < NH4+ < NH3 < NF3"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Considering LiBH4 reduces an ester group to the corresponding alcohol and does not reduce a carboxylic acid group, the correct statement about the major products P, Q, R and S is",
+    "options": [
+      "P & Q are identical, and R & S are diastereomers.",
+      "P & Q are diastereomers, and R & S are identical.",
+      "P & Q are diastereomers, and R & S are diastereomers.",
+      "P & Q are identical, and R & S are identical. JEE (Advanced) 2026 Paper 1 3/10 SECTION 2 (Maximum Marks: 16)  This section contains FOUR (04) questions.  Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four option(s) is(are) correct answer(s).  For each question, choose the option(s) corresponding to (all) the correct answer(s).  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen; Partial Marks : +3 If all the four options are correct but ONLY three options are chosen; Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of which are correct; Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a correct option; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases.  For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct answers, then choosing ONLY (A), (B) and (D) will get +4 marks; choosing ONLY (A) and (B) will get +2 marks; choosing ONLY (A) and (D) will get +2 marks; choosing ONLY (B) and (D) will get +2 marks; choosing ONLY (A) will get +1 mark; choosing ONLY (B) will get +1 mark; choosing ONLY (D) will get +1 mark; choosing no option (i.e. the question is unanswered) will get 0 marks; and choosing any other combination of options will get −1 marks."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The 2s and the 2p orbital energies of hydrogen atom are E2s(H) and E2p(H), respectively. The 2s and the 2p orbital energies of lithium atom are E2s(Li) and E2p(Li), respectively. The correct option(s) about the orbital energies is(are)",
+    "options": [
+      "E2s(Li) < E2p(Li)",
+      "E2s(H) = E2p(H)",
+      "E2p(H) < E2s(Li)",
+      "E2s(H) > E2s(Li) JEE (Advanced) 2026 Paper 1 4/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Correct statement(s) about the compounds X, Y and Z is(are)",
+    "options": [
+      "X is used for sterilizing drinking water.",
+      "Y has a planar structure.",
+      "Z is used in the enrichment of 235U.",
+      "Y is a stronger Lewis base than ammonia."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Reaction of PtF6 with oxygen (O2) gas results in the formation of an ionic compound, X+Y–. Correct statement(s) is(are)",
+    "options": [
+      "The bond order of X+ is 1.5.",
+      "Valence d-orbitals of the metal ion in X+Y– has 5 electrons.",
+      "PtF6 acts as an oxidant in this reaction.",
+      "PtF6 acts as a fluorinating agent in this reaction. JEE (Advanced) 2026 Paper 1 5/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "In the following reaction sequence, Q, R, S and T are the major products. The correct statement(s) about Q, R, S and T is(are)",
+    "options": [
+      "S on warming with ammoniacal AgNO3 results in the formation of silver mirror.",
+      "Q on treatment with Cl2(excess)/UV gives gammaxane.",
+      "T is a heterocyclic compound.",
+      "R on acid catalyzed intramolecular cyclization followed by treatment with Zn-Hg/HCl gives 9,10-dihydroxyanthracene. JEE (Advanced) 2026 Paper 1 6/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I contains various physical/chemical processes, and List-II contains combinations of changes in enthalpy (ΔH) and entropy (ΔS). Match each entry in List-I to the appropriate entry in List-II, and choose the correct option. List-I List-II (P) Physisorption (1) ΔH > 0 and ΔS > 0 (Q) Diamond ⟶ Graphite (2) ΔH < 0 and ΔS < 0 (R) Denaturation of protein (3) ΔH < 0 and ΔS = 0 (S) Propene ⟶ Cyclopropane (4) ΔH > 0 and ΔS < 0 (5) ΔH < 0 and ΔS > 0",
+    "options": [
+      "P → 2; Q → 3; R → 5; S → 4",
+      "P → 4; Q → 3; R → 5; S → 1",
+      "P → 2; Q → 5; R → 1; S → 4",
+      "P → 2; Q → 5; R → 1; S → 3 SECTION 4 (Maximum Marks: 16)  This section contains FOUR (04) Matching List Sets.  Each set has ONE Multiple Choice Question.  Each set has TWO lists: List-I and List-II.  List-I has Four entries (P), (Q), (R) and (S) and List-II has Five entries (1), (2), (3), (4) and (5).  FOUR options are given in each Multiple Choice Question based on List-I and List-II and ONLY ONE of these four options satisfies the condition asked in the Multiple Choice Question.  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +4 ONLY if the option corresponding to the correct combination is chosen; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases. JEE (Advanced) 2026 Paper 1 8/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider the following species: SOCl2, XeOF4, ClF3, ClF5, XeF5+, SO32–, XeF3+, SF4 List-I contains different molecular shapes and List-II contains total number of species with the same molecular shapes from the given species. Match each entry in List-I with the appropriate entry in List-II and choose the correct option. List-I List-II (P) See-saw (1) one (Q) T-Shaped (2) two (R) Trigonal Planar (3) three (S) Square Pyramidal (4) four (5) zero",
+    "options": [
+      "P  1; Q  2; R  5; S  3",
+      "P  5; Q  4; R  2; S  3",
+      "P  3; Q  2; R  1; S  4",
+      "P  1; Q  3; R  5; S  4 JEE (Advanced) 2026 Paper 1 9/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The List-II contains products obtained from the reaction of compounds in List-I with O3/Zn-H2O followed by cyclization (via more stable enolate) in the presence of aqueous NaOH. Match each entry in List-I with appropriate entry in List-II and choose the correct option. List-I List-II (P) (1) (Q) (2) (R) (3) (S) (4) (5)",
+    "options": [
+      "P ⟶ 2; Q ⟶ 4; R ⟶ 1; S ⟶ 3",
+      "P ⟶ 3; Q ⟶ 4; R ⟶ 5; S ⟶ 2",
+      "P ⟶ 2; Q ⟶ 1; R ⟶ 5; S ⟶ 3",
+      "P ⟶ 3; Q ⟶ 5; R ⟶ 4; S ⟶ 2 JEE (Advanced) 2026 Paper 1 10/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Match the major products obtained in the reactions given in List-I with the corresponding structures in List-II and choose the correct option. List-I List-II (P) (1) (Q) (2) (R) (3) (S) (4) (5)",
+    "options": [
+      "P → 2; Q ⟶ 1; R → 5; S ⟶ 4",
+      "P → 1; Q ⟶ 2; R → 4; S ⟶ 5",
+      "P → 1; Q ⟶ 2; R → 3; S ⟶ 4",
+      "P → 2; Q ⟶ 1; R → 3; S ⟶ 5 END OF THE QUESTION PAPER"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2026,
+    "difficulty": "medium",
+    "marks": 4
+  }
+]

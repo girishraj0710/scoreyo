@@ -1,0 +1,36 @@
+[
+  {
+    "examId": "jee-main",
+    "subjectId": "physics",
+    "topic": "Mechanics",
+    "question": "A ball is thrown vertically upward with velocity 20 m/s. Find maximum height (g=10 m/s²)",
+    "options": [
+      "10 m",
+      "15 m",
+      "20 m",
+      "25 m"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Using v² = u² - 2gh. At max height v=0. So 0 = 400 - 2(10)h. Therefore h = 20m",
+    "year": 2024,
+    "difficulty": "easy",
+    "marks": 4
+  },
+  {
+    "examId": "neet-ug",
+    "subjectId": "biology",
+    "topic": "Cell Biology",
+    "question": "Mitochondria is called powerhouse because it produces",
+    "options": [
+      "ATP",
+      "ADP",
+      "Glucose",
+      "Oxygen"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Mitochondria produces ATP (Adenosine Triphosphate) through cellular respiration, which is the energy currency of cells",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  }
+]

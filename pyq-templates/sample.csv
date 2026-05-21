@@ -1,0 +1,4 @@
+exam_id,subject_id,topic,question,option_a,option_b,option_c,option_d,correct_answer,explanation,year,difficulty
+jee-main,physics,Mechanics,"A ball is thrown vertically upward with velocity 20 m/s. Find maximum height (g=10 m/s²)",10 m,15 m,20 m,25 m,2,"Using v² = u² - 2gh. At max height v=0. So 0 = 400 - 2(10)h. Therefore h = 20m",2024,easy
+jee-main,chemistry,Periodic Table,"Which element has highest electronegativity?",Oxygen,Fluorine,Nitrogen,Chlorine,1,"Fluorine has highest electronegativity (4.0 on Pauling scale) among all elements",2024,easy
+neet-ug,biology,Cell Biology,"Mitochondria is called powerhouse because it produces",ATP,ADP,Glucose,Oxygen,0,"Mitochondria produces ATP (Adenosine Triphosphate) through cellular respiration, which is the energy currency of cells",2024,medium

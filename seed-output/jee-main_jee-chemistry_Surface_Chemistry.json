@@ -1,0 +1,516 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-chemistry",
+    "examName": "JEE Main",
+    "subjectName": "Chemistry",
+    "topic": "Surface Chemistry",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following statements regarding the physical adsorption of a gas on a solid surface is NOT correct?",
+      "options": [
+        "It is a reversible process.",
+        "It involves weak van der Waals forces.",
+        "It increases with an increase in temperature.",
+        "It results in a decrease in the entropy of the system."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Physical adsorption (physisorption) is an exothermic process. According to Le Chatelier's principle, an increase in temperature favors the endothermic direction, leading to the desorption of the gas molecules. Therefore, physisorption decreases with an increase in temperature. Options A, B, and D are characteristic properties of physisorption.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The coagulation value of different electrolytes for a negative sol is given below: (i) NaCl = 52, (ii) BaCl2 = 0.69, (iii) AlCl3 = 0.09. The correct order of their coagulating power is:",
+      "options": [
+        "NaCl > BaCl2 > AlCl3",
+        "AlCl3 > BaCl2 > NaCl",
+        "NaCl = BaCl2 = AlCl3",
+        "BaCl2 > NaCl > AlCl3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "According to the Hardy-Schulze rule, the coagulating power of an electrolyte is inversely proportional to its coagulation value (the minimum concentration required to cause coagulation). Since 0.09 < 0.69 < 52, the coagulating power follows the order Al3+ > Ba2+ > Na+. Thus, AlCl3 has the highest coagulating power.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the formation of micelles in soap solutions?",
+      "options": [
+        "Micelle formation is an endothermic process.",
+        "The critical micelle concentration (CMC) is independent of temperature.",
+        "Micelles are formed only above the Kraft temperature.",
+        "The hydrocarbon chains of the soap molecules point outwards towards the water in the micelle."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Micelle formation is a spontaneous process that occurs only above a specific temperature called the Kraft temperature and above a specific concentration called the Critical Micelle Concentration (CMC). Micelle formation is exothermic (driven by entropy gain). The hydrophobic hydrocarbon tails point inwards, while the hydrophilic polar heads point outwards towards the aqueous phase.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the context of heterogeneous catalysis, consider the following statements: (I) The catalyst provides an alternative pathway with a lower activation energy. (II) Adsorption of reactants on the solid surface is an exothermic process. (III) Catalysts change the equilibrium constant of the reaction. (IV) The catalyst is consumed in the process. Which of the above are correct?",
+      "options": [
+        "I and II",
+        "II and III",
+        "I, II, and IV",
+        "I and III"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Heterogeneous catalysis involves the adsorption of reactants on the catalyst surface, which is exothermic (I and II). Catalysts do NOT change the equilibrium constant (equilibrium constant depends only on temperature) and they are not consumed in the reaction (they provide a surface for the reaction to occur and are regenerated). Thus, only I and II are correct.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is incorrect regarding the process of physical adsorption (physisorption)?",
+      "options": [
+        "It involves weak van der Waals forces between adsorbate and adsorbent.",
+        "It is a specific process and occurs only when specific sites are available.",
+        "It is reversible in nature.",
+        "It is characterized by low enthalpy of adsorption (20–40 kJ/mol)."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Physisorption is non-specific in nature because van der Waals forces are universal and do not depend on the specific chemical nature of the adsorbent. Chemisorption, on the other hand, is highly specific as it involves the formation of chemical bonds. All other options correctly describe the characteristics of physisorption: it is reversible, exothermic, and involves low energy changes.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "For the Freundlich adsorption isotherm, represented by x/m = kP^(1/n), which of the following plots is linear with a slope equal to 1/n?",
+      "options": [
+        "x/m vs P",
+        "log(x/m) vs P",
+        "log(x/m) vs log(P)",
+        "x/m vs log(P)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Taking the logarithm of the Freundlich equation: log(x/m) = log(k) + (1/n)log(P). This is in the form of a straight-line equation y = mx + c, where y = log(x/m), x = log(P), the slope m = 1/n, and the intercept c = log(k). Plotting log(x/m) against log(P) yields a straight line with a slope of 1/n.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the context of colloidal systems, which of the following statements is correct regarding the coagulation of a lyophobic sol?",
+      "options": [
+        "Addition of small amounts of electrolytes stabilizes the sol.",
+        "Hardy-Schulze rule states that the coagulating power of an ion depends solely on its size.",
+        "The coagulating power of an electrolyte for a negatively charged sol follows the order: Al^3+ > Ba^2+ > Na^+.",
+        "Lyophilic sols are intrinsically less stable than lyophobic sols and require coagulating agents."
+      ],
+      "correctAnswer": 2,
+      "explanation": "According to the Hardy-Schulze rule, the coagulating power of an electrolyte is directly proportional to the valency of the active ion (the ion with charge opposite to that of the colloidal particle). For a negatively charged sol, the coagulating power increases as the positive charge on the cation increases. Thus, Al^3+ (trivalent) has the highest coagulating power, followed by Ba^2+ (divalent) and Na^+ (monovalent).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A sample of activated charcoal adsorbs 20 mL of CH4 gas at 273 K and 1 atm pressure. If the adsorption follows the Langmuir isotherm where the fraction of surface coverage (θ) is 0.2 at this pressure, calculate the volume of gas required to form a complete monolayer (Vm) in mL.",
+      "options": [
+        "50 mL",
+        "100 mL",
+        "4 mL",
+        "25 mL"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The fraction of surface coverage is defined as θ = (Volume adsorbed at pressure P) / (Volume adsorbed at monolayer coverage). Given θ = 0.2 and volume adsorbed (V) = 20 mL, we use the formula θ = V / Vm. Therefore, Vm = V / θ = 20 / 0.2 = 100 mL. This represents the total capacity of the adsorbent to form a complete monolayer.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding enzyme catalysis and surface phenomena: (I) Enzymes are highly specific biological catalysts. (II) The catalytic activity of an enzyme is independent of pH and temperature. (III) Micelles are formed only above a particular concentration called Critical Micelle Concentration (CMC). (IV) Bredig's Arc method is used for the preparation of metal sols. Which of the above statements are correct?",
+      "options": [
+        "(I), (II), and (III)",
+        "(I), (III), and (IV)",
+        "(II), (III), and (IV)",
+        "(I), (II), and (IV)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Statement (II) is incorrect because enzyme activity is highly sensitive to pH and temperature, peaking at optimum values. Statement (I) is correct as enzymes catalyze specific reactions. Statement (III) is correct as CMC is the characteristic concentration for micelle formation. Statement (IV) is correct as Bredig's Arc method involves electrical disintegration of metals to form sols. Thus, I, III, and IV are correct.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the phenomenon of physical adsorption?",
+      "options": [
+        "Physical adsorption is highly specific and depends on the nature of the adsorbent.",
+        "The enthalpy of physical adsorption is low, typically in the range of 20–40 kJ/mol.",
+        "It involves the formation of a unimolecular layer of the adsorbate on the adsorbent surface.",
+        "It is an irreversible process that requires a high activation energy."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Physical adsorption (physisorption) is characterized by weak van der Waals forces, making it non-specific and reversible. Because the forces are weak, the enthalpy of adsorption is low (20–40 kJ/mol). Unlike chemisorption, which forms a unimolecular layer and often requires activation energy, physisorption is multi-molecular and spontaneous at low temperatures.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to the Freundlich adsorption isotherm, if a plot of log(x/m) versus log P is a straight line with a slope equal to 1/n, which of the following is true?",
+      "options": [
+        "The value of 1/n ranges between 0.1 and 0.5 for most gases.",
+        "At low pressure, the value of 1/n is approximately 1.",
+        "At high pressure, the value of 1/n is approximately 1.",
+        "The intercept of the plot on the y-axis is equal to n."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Freundlich isotherm equation is x/m = kP^(1/n). Taking logs, log(x/m) = log k + (1/n)log P. At low pressure, the adsorption is directly proportional to pressure (x/m ∝ P), which implies 1/n = 1. As pressure increases, 1/n decreases until it reaches 0 at high pressure (saturation).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A colloidal solution is prepared by adding a small amount of dilute AgNO3 solution to an excess of dilute KI solution. The charge on the resulting colloidal particles and the phenomenon responsible for the stability of the colloid are, respectively:",
+      "options": [
+        "Positive charge; Brownian motion",
+        "Negative charge; Electrophoresis",
+        "Negative charge; Mutual repulsion due to similar electrical charge",
+        "Positive charge; Tyndall effect"
+      ],
+      "correctAnswer": 2,
+      "explanation": "When AgNO3 is added to excess KI, AgI particles adsorb I⁻ ions from the dispersion medium (common ion effect), forming [AgI]I⁻, which is a negatively charged sol. Colloidal stability is primarily due to the electrostatic repulsion between these similarly charged particles, preventing them from coalescing.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the amount of impurity (in mg) required to coagulate 1 liter of a gold sol if the coagulation value of an electrolyte for gold sol is 0.030 mmol/L and the molar mass of the electrolyte is 150 g/mol.",
+      "options": [
+        "4.5 mg",
+        "45 mg",
+        "0.45 mg",
+        "450 mg"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Coagulation value is the minimum concentration (mmol/L) required. For 1 liter, the moles required = 0.030 mmol = 0.030 × 10⁻³ moles. Mass in grams = moles × molar mass = (0.030 × 10⁻³) × 150 = 4.5 × 10⁻³ g. Converting to mg: 4.5 × 10⁻³ g × 1000 mg/g = 4.5 mg.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Considering the Hardy-Schulze law and the concept of 'Gold Number', which of the following sets correctly identifies a strong coagulating agent for a negatively charged sol and the protector with the highest protective power?",
+      "options": [
+        "AlCl3; Gelatin",
+        "Na3PO4; Starch",
+        "BaCl2; Gum Arabic",
+        "KCl; Egg Albumin"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Hardy-Schulze law states that the coagulating power of an ion increases with its valency. For a negatively charged sol, a cation is the coagulating agent; Al³⁺ (from AlCl3) is the strongest among common choices. Gold number is inversely proportional to protective power; lower gold number means higher protective power. Gelatin has a very low gold number (0.005–0.01), making it the most effective protector.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the Freundlich adsorption isotherm, represented by x/m = kP^(1/n)?",
+      "options": [
+        "As pressure increases, the value of 1/n approaches 1 at very high pressure.",
+        "The value of 1/n varies between 0 and 1, where 0 indicates that adsorption is independent of pressure.",
+        "A plot of log(x/m) versus log P yields a curve with a slope of 1/n and an intercept of P.",
+        "The Freundlich isotherm is superior to the Langmuir isotherm as it works perfectly at all pressure ranges."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Freundlich adsorption isotherm is an empirical relationship. The exponent 1/n can have values between 0 and 1. When 1/n = 0, x/m = k, meaning adsorption is independent of pressure. When 1/n = 1, x/m = kP, meaning adsorption is directly proportional to pressure. The plot of log(x/m) vs log P is a straight line with slope 1/n and intercept log k.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A colloidal solution of gold is prepared by the reduction of HAuCl4 with formaldehyde. Which of the following statements about this system is INCORRECT?",
+      "options": [
+        "The colloidal particles possess a definite electric charge.",
+        "The gold sol is a lyophobic colloid.",
+        "The Tyndall effect is not observed in this system.",
+        "Coagulation can be brought about by adding an electrolyte."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Gold sol is a typical lyophobic colloid. Lyophobic sols are sensitive to electrolytes and show the Tyndall effect due to scattering of light by colloidal particles. The particles carry a common electric charge, which provides stability. Since it is a colloid, the Tyndall effect is a fundamental property exhibited by it, making the statement that it is 'not observed' incorrect.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the amount of AlCl3 (in grams) required to coagulate 1 liter of a negatively charged As2S3 sol if the coagulation value of AlCl3 for this sol is 0.096 mmol/L.",
+      "options": [
+        "0.0128 g",
+        "0.0256 g",
+        "0.0640 g",
+        "0.0096 g"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Coagulation value is the minimum concentration of an electrolyte in mmol/L required to cause coagulation. For 1 liter, the amount required is 0.096 mmol. Molar mass of AlCl3 = 27 + 3(35.5) = 133.5 g/mol. Mass = (Moles) × (Molar Mass) = (0.096 × 10^-3 mol) × 133.5 g/mol = 0.012816 g. Thus, 0.0128 g is the correct value.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following is true regarding the Hardy-Schulze rule for the coagulation of a positively charged ferric hydroxide sol?",
+      "options": [
+        "Coagulating power follows the order: PO4^3- > SO4^2- > Cl^-",
+        "Coagulating power follows the order: Al^3+ > Ba^2+ > Na^+",
+        "Coagulation is primarily caused by the cation of the added electrolyte.",
+        "The valency of the counter-ion has no impact on the coagulation process."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Hardy-Schulze rule states that the ion carrying a charge opposite to that of the colloidal particles is effective in causing coagulation. For a positively charged Fe(OH)3 sol, negative ions (anions) are the coagulating agents. Greater valency of the flocculating ion leads to higher coagulating power. Therefore, PO4^3- (valency 3) > SO4^2- (valency 2) > Cl^- (valency 1).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding catalysis and surface phenomena: (I) Enzymes are highly specific biological catalysts. (II) Shape-selective catalysis depends on the pore structure of the catalyst. (III) In autocatalysis, one of the products of the reaction acts as a catalyst. (IV) The adsorption of gases on solids is always an exothermic process. Which of these are correct?",
+      "options": [
+        "Only (I) and (II)",
+        "Only (II), (III) and (IV)",
+        "Only (I), (III) and (IV)",
+        "All (I), (II), (III) and (IV)"
+      ],
+      "correctAnswer": 3,
+      "explanation": "All statements are correct. (I) Enzymes are protein-based biological catalysts with lock-and-key specificity. (II) Zeolites are classic examples of shape-selective catalysts. (III) In the oxidation of oxalic acid by KMnO4, Mn^2+ acts as an autocatalyst. (IV) Adsorption involves a decrease in surface energy (ΔH < 0 and ΔS < 0), making it an exothermic process. This integration covers enzyme catalysis, industrial catalysis, and thermodynamic principles of adsorption.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is incorrect regarding the process of physical adsorption (physisorption)?",
+      "options": [
+        "It is characterized by low heat of adsorption (20–40 kJ/mol).",
+        "It is highly specific in nature and occurs only between specific adsorbents and adsorbates.",
+        "It is a reversible process and decreases with an increase in temperature.",
+        "It results in the formation of multimolecular layers on the adsorbent surface."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Physisorption (Physical Adsorption) is non-specific in nature because it involves weak van der Waals forces. It does not require specific chemical bonding between the adsorbent and adsorbate. Conversely, chemisorption is highly specific. Physisorption is reversible, exothermic, and forms multimolecular layers, whereas chemisorption is irreversible and forms unimolecular layers.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A colloidal solution of gold is prepared by the reduction of gold chloride with formaldehyde. Which of the following statements regarding the stability of this sol is correct?",
+      "options": [
+        "It is a lyophilic colloid and is inherently stable.",
+        "It is a lyophobic colloid and can be coagulated by the addition of small amounts of electrolytes.",
+        "It is a lyophobic colloid and is stabilized by the addition of hydrophilic polymers.",
+        "It is a lyophilic colloid and is unaffected by the addition of electrolytes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Metal sols like gold are lyophobic (solvent-repelling) colloids. They are unstable and easily coagulated by the addition of electrolytes because the potential-determining ions that stabilize the sol are neutralized. While they can be protected by lyophilic colloids (Gold Number concept), they are fundamentally lyophobic and sensitive to electrolytes.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the amount of gas adsorbed per gram of adsorbent (x/m) if the constant k = 0.5, the pressure P = 4 atm, and the value of 1/n = 0.5.",
+      "options": [
+        "1.0 g/g",
+        "2.0 g/g",
+        "0.5 g/g",
+        "4.0 g/g"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using the Freundlich adsorption isotherm: x/m = kP^(1/n). Given: k = 0.5, P = 4, and 1/n = 0.5. Substituting the values: x/m = 0.5 * (4)^0.5. Since (4)^0.5 = 2, x/m = 0.5 * 2 = 1.0 g/g. This calculation demonstrates the application of the power-law relation in surface chemistry.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Regarding the Hardy-Schulze rule for the coagulation of a negatively charged arsenic sulphide (As2S3) sol, which of the following electrolytes would be most effective?",
+      "options": [
+        "NaCl",
+        "BaCl2",
+        "AlCl3",
+        "Na3PO4"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Hardy-Schulze rule states that the coagulating power of an ion increases with the increase in the magnitude of the charge on the ion used for coagulation. For a negatively charged sol, the effective coagulant is the cation. The charge of the cations are: Na+ (+1), Ba2+ (+2), and Al3+ (+3). Since Al3+ has the highest positive charge, it is the most effective coagulating agent for the negatively charged As2S3 sol.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the phenomenon of physical adsorption?",
+      "options": [
+        "It is highly specific in nature and involves the formation of chemical bonds.",
+        "It involves low heat of adsorption, typically in the range of 20–40 kJ/mol.",
+        "It increases with an increase in temperature due to increase in activation energy.",
+        "It is a unimolecular layer process."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Physical adsorption (physisorption) is characterized by weak van der Waals forces between the adsorbate and adsorbent. Because these forces are weak, the enthalpy of adsorption is low (20–40 kJ/mol). Unlike chemisorption, it is not specific, is reversible, and typically decreases with an increase in temperature (exothermic process). It also leads to multimolecular layer formation, not unimolecular.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A colloidal solution is prepared by adding a small amount of ferric chloride to freshly precipitated ferric hydroxide. The resulting sol particles will carry which charge and why?",
+      "options": [
+        "Negative charge due to preferential adsorption of Cl- ions.",
+        "Negative charge due to preferential adsorption of OH- ions.",
+        "Positive charge due to preferential adsorption of Fe^3+ ions.",
+        "Positive charge due to preferential adsorption of Cl- ions."
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is a classic example of peptization. When a small amount of electrolyte (FeCl3) is added to a fresh precipitate of Fe(OH)3, the precipitate preferentially adsorbs the common ion present in the electrolyte. Here, Fe^3+ ions are common to both, leading to the formation of a positively charged colloidal sol of [Fe(OH)3]Fe^3+.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the amount of acetic acid adsorbed per gram of charcoal if the equilibrium concentration of acetic acid solution changes from 0.5 M to 0.4 M when 2 grams of charcoal are added to 100 mL of the solution.",
+      "options": [
+        "0.05 moles/g",
+        "0.1 moles/g",
+        "0.005 moles/g",
+        "0.025 moles/g"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Initial moles = 0.5 M * 0.1 L = 0.05 mol. Final moles = 0.4 M * 0.1 L = 0.04 mol. Adsorbed moles = 0.05 - 0.04 = 0.01 mol. Amount adsorbed per gram = (Total moles adsorbed) / (Mass of charcoal) = 0.01 mol / 2 g = 0.005 mol/g.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding the Hardy-Schulze Rule and coagulation: \nI. The coagulating power of an electrolyte depends on the valency of the ion carrying a charge opposite to that of the colloidal particles.\nII. For a negatively charged sol, the coagulating power order is Al^3+ > Ba^2+ > Na^+.\nIII. The rule is applicable to both lyophilic and lyophobic sols.\n\nWhich of the above statements are correct?",
+      "options": [
+        "I and II only",
+        "II and III only",
+        "I and III only",
+        "I, II, and III"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Hardy-Schulze rule states that the ion carrying a charge opposite to the sol particle is effective in coagulation, and its power increases with valency. Thus, I and II are correct. However, Statement III is false because lyophilic sols are intrinsically stable due to solvation and their charge; they do not follow Hardy-Schulze rules in the same way lyophobic sols do (they require different mechanisms for coagulation).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the nature of adsorption?",
+      "options": [
+        "Physisorption is highly specific and involves chemical bond formation.",
+        "Chemisorption is reversible and involves low enthalpy of adsorption (20-40 kJ/mol).",
+        "Physisorption decreases with an increase in temperature.",
+        "Chemisorption increases with an increase in surface area of the adsorbent but is independent of the nature of the gas."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Physisorption (physical adsorption) is a spontaneous exothermic process (ΔH < 0, ΔS < 0). According to Le Chatelier’s principle, increasing the temperature favors the reverse process (desorption), thus decreasing the extent of adsorption. Chemisorption is highly specific, involves chemical bonds (high enthalpy), and is generally irreversible. Both types of adsorption increase with an increase in the surface area of the adsorbent.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The coagulation value in millimoles per litre of the electrolytes used for the coagulation of As2S3 sol are: (i) NaCl = 52, (ii) BaCl2 = 0.69, (iii) MgSO4 = 0.22. The correct order of their coagulating power is:",
+      "options": [
+        "NaCl > BaCl2 > MgSO4",
+        "MgSO4 > BaCl2 > NaCl",
+        "BaCl2 > MgSO4 > NaCl",
+        "NaCl > MgSO4 > BaCl2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hardy-Schulze Law states that the coagulating power of an electrolyte is inversely proportional to its coagulation value. A smaller coagulation value indicates higher coagulating power. Comparing the values: 0.22 (MgSO4) < 0.69 (BaCl2) < 52 (NaCl). Thus, the power order is MgSO4 > BaCl2 > NaCl. This aligns with the valency of the effective cation (Mg²⁺ vs Ba²⁺ vs Na⁺) in coagulating negatively charged As2S3 sol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following is NOT a characteristic feature of a lyophilic colloid?",
+      "options": [
+        "These are reversible sols.",
+        "They are highly stable and do not easily coagulate.",
+        "They have low surface tension compared to the dispersion medium.",
+        "The particles are easily detected under an ultramicroscope."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Lyophilic (solvent-loving) colloids are inherently stable due to strong forces of interaction between the dispersed phase and the dispersion medium. They are reversible, have surface tension lower than the medium, and show high viscosity. However, because the particles are of molecular size and show extensive solvation, they do not scatter light as strongly as lyophobic particles and are not easily detected under an ultramicroscope.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Given the Langmuir adsorption model, if a gas is adsorbed on a solid surface at a constant temperature, and the fraction of the surface covered by the gas is θ, then the rate of adsorption is proportional to:",
+      "options": [
+        "P(1 - θ)",
+        "Pθ",
+        "P / (1 + bP)",
+        "kP"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In the Langmuir model, the rate of adsorption is proportional to the pressure (P) of the gas and the number of vacant sites available on the surface. If θ is the fraction of total sites covered, then (1 - θ) is the fraction of vacant sites. Therefore, Rate of adsorption ∝ P(1 - θ). The rate of desorption is proportional to θ. At equilibrium, these rates are equal, leading to the derivation of the Langmuir Isotherm.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding the characteristics of physisorption?",
+      "options": [
+        "It arises due to van der Waals forces.",
+        "It is highly specific in nature.",
+        "It is reversible in nature.",
+        "It involves low heat of adsorption."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Physisorption is characterized by weak van der Waals forces, making it non-specific—any gas adsorbs on any solid to some degree. Conversely, chemisorption is highly specific because it involves the formation of chemical bonds. Physisorption is reversible (can be removed by decreasing pressure/increasing temp) and has low enthalpy of adsorption (20–40 kJ/mol).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The coagulation value of different electrolytes for a negative sol is given below: (i) NaCl = 52, (ii) BaCl2 = 0.69, (iii) AlCl3 = 0.09. The correct order of their coagulating power is:",
+      "options": [
+        "Al3+ > Ba2+ > Na+",
+        "Na+ > Ba2+ > Al3+",
+        "Al3+ < Ba2+ < Na+",
+        "Ba2+ > Al3+ > Na+"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the Hardy-Schulze rule, the coagulating power of an ion is directly proportional to its valency. Furthermore, coagulating power is inversely proportional to the coagulation value (the minimum concentration required to cause coagulation). With values 52, 0.69, and 0.09, the power follows the order of ion valency: Al3+ (3) > Ba2+ (2) > Na+ (1).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If 0.2 g of a finely divided adsorbent is used to adsorb 100 mL of 0.5 M acetic acid solution to reduce the concentration to 0.4 M, what is the amount of acetic acid adsorbed per gram of adsorbent?",
+      "options": [
+        "0.3 g",
+        "0.6 g",
+        "3.0 g",
+        "0.15 g"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Change in concentration = 0.5 - 0.4 = 0.1 M. Moles adsorbed = (0.1 mol/L) * 0.1 L = 0.01 moles. Molar mass of CH3COOH = 60 g/mol. Mass adsorbed = 0.01 * 60 = 0.6 g. Amount adsorbed per gram (x/m) = 0.6 g / 0.2 g = 3.0 g/g.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following phenomena is responsible for the stability of lyophobic colloids and the Tyndall effect observed in colloidal solutions?",
+      "options": [
+        "Presence of charge on colloidal particles and scattering of light by particles.",
+        "Brownian motion and hydration of particles.",
+        "High viscosity of the dispersion medium.",
+        "Small size of particles making them invisible to the naked eye."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Lyophobic colloids are stable primarily due to the presence of an electric charge on the particles, which causes repulsion and prevents aggregation. The Tyndall effect is the scattering of a beam of light by colloidal particles, which occurs because the particle size is comparable to the wavelength of visible light. Brownian motion contributes to stability by counteracting gravity, but the charge is the primary stabilizing agent for lyophobic sols.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements regarding physical adsorption (physisorption) is INCORRECT?",
+      "options": [
+        "It involves weak van der Waals forces between adsorbate and adsorbent.",
+        "It is highly specific in nature.",
+        "It is a reversible process.",
+        "It is characterized by low enthalpy of adsorption (typically 20-40 kJ/mol)."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Physisorption is non-specific, meaning any gas can be adsorbed on any solid to some extent depending on the nature of the gas. Chemisorption, on the other hand, is highly specific as it involves the formation of chemical bonds. Because physisorption involves weak van der Waals forces, it is easily reversible (can be desorbed by decreasing pressure or increasing temperature) and releases a low amount of energy compared to chemisorption.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following phenomena is responsible for the stability of lyophobic sols?",
+      "options": [
+        "Hydration of the dispersed phase particles.",
+        "Presence of a protective colloid layer.",
+        "Presence of an electric charge on the colloidal particles.",
+        "High affinity between the dispersed phase and the dispersion medium."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Lyophobic (solvent-hating) sols are inherently unstable and prone to coagulation. They are stabilized primarily by the presence of an electric charge on the colloidal particles. Since all particles in a given sol carry the same type of charge, they repel each other, preventing aggregation. Lyophilic (solvent-loving) sols are stabilized by both charge and the solvation (hydration) layer formed around the particles.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding catalysis and surface area: (i) ZSM-5 is a shape-selective catalyst used in petrochemical industries. (ii) Enzymes are highly specific biological catalysts. (iii) The rate of heterogeneous catalysis increases with a decrease in the surface area of the catalyst. Which of the above statements are correct?",
+      "options": [
+        "(i) and (ii) only",
+        "(ii) and (iii) only",
+        "(i) and (iii) only",
+        "(i), (ii), and (iii)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Statement (i) is correct; ZSM-5 is a zeolite catalyst that selectively converts alcohols into gasoline. Statement (ii) is correct; enzymes are highly specific biological catalysts that function via the lock-and-key mechanism. Statement (iii) is incorrect because heterogeneous catalysis is a surface-dependent phenomenon; therefore, increasing the surface area (e.g., using finely divided catalysts) increases the rate of reaction, not decreasing it.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements regarding the physical adsorption of a gas on a solid surface is incorrect?",
+      "options": [
+        "It is governed by van der Waals forces and is reversible in nature.",
+        "It involves the formation of a multimolecular layer on the adsorbent surface.",
+        "It is highly specific and occurs only when specific chemical bonds are formed.",
+        "The enthalpy of adsorption is generally low, ranging between 20-40 kJ/mol."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Physical adsorption (physisorption) is non-specific because van der Waals forces are universal and do not require specific chemical bonding. In contrast, chemisorption is highly specific as it involves the formation of chemical bonds. Physisorption is characterized by low enthalpy of adsorption, reversibility, and the ability to form multimolecular layers, whereas chemisorption is irreversible and forms a unimolecular layer.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A colloidal solution of gold is prepared by the reduction of gold chloride with formaldehyde. Which of the following statements correctly describes this colloid?",
+      "options": [
+        "It is a lyophilic colloid and is stable.",
+        "It is a lyophobic colloid and can be coagulated by the addition of electrolytes.",
+        "The particles carry a positive charge due to preferential adsorption of H+ ions.",
+        "It is a multimolecular colloid that cannot be coagulated."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Metal sols, such as gold sol, are classic examples of lyophobic colloids. Lyophobic colloids (solvent-hating) are inherently unstable and require stabilizing agents; they are easily coagulated by the addition of small amounts of electrolytes because their stability depends primarily on the electrical charge on the particles. Gold sols typically carry a negative charge due to the adsorption of AuCl4- ions.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the amount of impurity (in mg) required to coagulate 100 mL of a negatively charged As2S3 sol, given that the coagulation value of NaCl for this sol is 50 millimoles per liter.",
+      "options": [
+        "292.5 mg",
+        "146.25 mg",
+        "585.0 mg",
+        "73.1 mg"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The coagulation value is the minimum concentration of electrolyte in mmol/L required to cause coagulation. For 1000 mL, we need 50 mmol. For 100 mL, we need (50/1000) * 100 = 5 mmol of NaCl. The molar mass of NaCl is 58.5 g/mol, so 5 mmol = 5 * 10^-3 mol * 58.5 g/mol = 0.2925 g = 292.5 mg. Therefore, 292.5 mg of NaCl is required.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding enzyme catalysis and the Langmuir-Hinshelwood mechanism: 1. Enzymes increase the activation energy of the reaction. 2. In heterogeneous catalysis, the reaction rate is proportional to the surface area available. 3. The Michaelis-Menten constant (Km) represents the substrate concentration at which the reaction rate is half of Vmax. Which of the above statements are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2, and 3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Statement 1 is incorrect: Enzymes act as catalysts by lowering the activation energy, not increasing it. Statement 2 is correct: Heterogeneous catalysis involves adsorption on the surface; thus, larger surface area leads to more active sites. Statement 3 is correct: By definition, Km is the substrate concentration at which the reaction velocity is half of its maximum value (Vmax/2), which is fundamental to enzyme kinetics.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-chemistry",
+    "examName": "JEE Main",
+    "subjectName": "Chemistry",
+    "topic": "Coordination Compounds",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following coordination compounds exhibits linkage isomerism?",
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)5(H2O)]Cl3",
+        "[Pt(NH3)2Cl2]",
+        "[Cr(en)3]Cl3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Linkage isomerism occurs in complexes containing ambidentate ligands, which can coordinate through different donor atoms. The nitrite ion (NO2⁻) is an ambidentate ligand that can bind through N (nitro) or O (nitrito). [Co(NH3)5(NO2)]Cl2 can exist as [Co(NH3)5(NO2)]Cl2 and [Co(NH3)5(ONO)]Cl2. [Pt(NH3)2Cl2] shows geometrical isomerism, [Cr(en)3]Cl3 shows optical isomerism, and [Co(NH3)5(H2O)]Cl3 shows hydrate isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to Crystal Field Theory (CFT), what is the Crystal Field Stabilization Energy (CFSE) for a high-spin d6 octahedral complex in terms of Δo?",
+      "options": [
+        "-0.4 Δo",
+        "-0.6 Δo",
+        "-2.4 Δo",
+        "0.0 Δo"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In an octahedral field, the d-orbitals split into t2g (lower energy, -0.4 Δo) and eg (higher energy, +0.6 Δo). For a high-spin d6 complex, the electronic configuration is (t2g)4 (eg)2. The CFSE is calculated as: (4 * -0.4 Δo) + (2 * +0.6 Δo) = -1.6 Δo + 1.2 Δo = -0.4 Δo. Pairing energy is not considered in the simplified CFSE calculation unless specifically asked for total energy stabilization.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A metal complex with the formula [M(en)2Cl2]Cl is dissolved in water. If 0.1 mol of this complex is reacted with excess AgNO3, 0.1 mol of AgCl precipitate is obtained. Which of the following is true regarding the complex?",
+      "options": [
+        "The complex has coordination number 5.",
+        "The oxidation state of the metal M is +2.",
+        "1 mol of the complex yields 1 mol of ions in aqueous solution.",
+        "The complex exhibits geometrical isomerism."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Since 0.1 mol of complex yields 0.1 mol of AgCl, there is 1 ionizable Cl⁻ outside the coordination sphere. The formula is [M(en)2Cl2]Cl. The coordination number is 6 (2*2 from en + 2 from Cl). It is an octahedral complex of the type [MA2B2]X, which exhibits cis-trans (geometrical) isomerism. The oxidation state of M is +3 (x + 0 + 2(-1) = +1 => x = +3). It yields 2 ions in solution: [M(en)2Cl2]+ and Cl⁻.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the magnetic moment (spin-only) for the complex [Fe(CN)6]3-.",
+      "options": [
+        "1.73 BM",
+        "2.83 BM",
+        "3.87 BM",
+        "5.92 BM"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Fe in [Fe(CN)6]3- is in +3 oxidation state (3d5). CN⁻ is a strong field ligand, causing pairing of electrons. The configuration becomes (t2g)5 (eg)0. There is 1 unpaired electron (n=1). The spin-only magnetic moment is given by √[n(n+2)] BM. For n=1, μ = √[1(1+2)] = √3 ≈ 1.73 BM.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "For the complex [Ni(H2O)6]2+, consider the following statements: (I) It is paramagnetic. (II) It is an outer orbital complex. (III) It has a square planar geometry. (IV) It is diamagnetic. Which statements are correct?",
+      "options": [
+        "I and II only",
+        "I and III only",
+        "II and IV only",
+        "I, II, and III only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ni2+ is 3d8. H2O is a weak field ligand, so no pairing occurs in the 3d orbitals. The hybridization is sp3d2, making it an outer orbital complex. It has two unpaired electrons in the 3d orbitals, making it paramagnetic. Square planar complexes (dsp2) are formed by strong field ligands with Ni2+. Therefore, only I and II are correct.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "According to IUPAC nomenclature, the correct name for the coordination compound [Co(NH3)5(CO3)]Cl is:",
+      "options": [
+        "Pentaamminocarbonatocobalt(III) chloride",
+        "Pentaamminocarbonatocobalt(II) chloride",
+        "Carbonatopentaamminocobalt(III) chloride",
+        "Pentaamminocarbonatocobalt(I) chloride"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In IUPAC nomenclature for coordination compounds, ligands are named in alphabetical order: 'ammine' (a) before 'carbonato' (c). The oxidation state of Cobalt is calculated as: x + 5(0) + 1(-2) + 1(-1) = 0, so x = +3. Thus, it is cobalt(III). The correct order is ligand names followed by the metal name with its oxidation state in Roman numerals, and finally the counter ion.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following complexes exhibits optical isomerism?",
+      "options": [
+        "[Co(NH3)4Cl2]+",
+        "[Co(en)2Cl2]+",
+        "[Co(NH3)5Cl]2+",
+        "[Co(NH3)3Cl3]"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Optical isomerism is exhibited by complexes that lack a plane of symmetry (chiral molecules). The cis-isomer of [Co(en)2Cl2]+ is optically active because it lacks a plane of symmetry. Trans-[Co(en)2Cl2]+, [Co(NH3)4Cl2]+, and [Co(NH3)3Cl3] (fac and mer isomers) possess planes of symmetry, making them achiral and optically inactive.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "For a complex [Co(H2O)6]2+, the spin-only magnetic moment is 3.87 BM. What is the crystal field stabilization energy (CFSE) in terms of Δo (ignoring pairing energy)?",
+      "options": [
+        "-0.4 Δo",
+        "-0.8 Δo",
+        "-1.2 Δo",
+        "-1.8 Δo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The spin-only magnetic moment 3.87 BM corresponds to 3 unpaired electrons (n=3). Co2+ is a d7 system. In an octahedral field, d7 electronic configuration is t2g5 eg2. The CFSE is calculated as: CFSE = (-0.4 × number of electrons in t2g) + (0.6 × number of electrons in eg) Δo. So, CFSE = (-0.4 × 5) + (0.6 × 2) = -2.0 + 1.2 = -0.8 Δo.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding the Valence Bond Theory (VBT) applied to [Ni(CN)4]2-?",
+      "options": [
+        "The complex is diamagnetic.",
+        "The hybridization of Ni is dsp2.",
+        "The geometry of the complex is tetrahedral.",
+        "Ni is in the +2 oxidation state."
+      ],
+      "correctAnswer": 2,
+      "explanation": "In [Ni(CN)4]2-, Nickle is in a +2 oxidation state (d8 configuration). CN- is a strong field ligand, causing pairing of electrons in the 3d orbitals. This creates one empty d-orbital, allowing dsp2 hybridization, which results in a square planar geometry, not tetrahedral. The presence of all paired electrons makes it diamagnetic.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the complex [Fe(H2O)5(NO)]SO4. If the oxidation state of Fe is +1 due to the presence of NO+, what would be the magnetic moment (spin-only) for this complex and its related crystal field behavior?",
+      "options": [
+        "1.73 BM, strong field ligand effect",
+        "3.87 BM, weak field ligand effect",
+        "5.92 BM, high spin complex",
+        "0 BM, spin-paired complex"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In Brown Ring complex [Fe(H2O)5(NO)]2+, Fe is in +1 state (d7). NO acts as NO+, so the configuration becomes d6. In the presence of strong field ligands, the d6 configuration undergoes pairing in the t2g level (t2g6 eg0), resulting in 0 unpaired electrons for Fe(II) usually, but here the specific interaction of NO+ forces a low-spin state. However, standard calculation for d7 Fe(I) with NO+ leads to 3 unpaired electrons or 1 unpaired depending on field strength; for this specific classic brown ring complex, it results in 3 unpaired electrons (3.87 BM). Re-evaluating: Fe+ in d7, NO+ is strong field, leads to 3.87 BM.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "According to IUPAC nomenclature, the correct name for the coordination compound [Co(NH3)5(CO3)]Cl is:",
+      "options": [
+        "Pentaamminocarbonatocobalt(III) chloride",
+        "Pentaamminocarbonatocobalt(II) chloride",
+        "Carbonatopentaamminocobalt(III) chloride",
+        "Pentaamminocarbonato-O-cobalt(III) chloride"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In IUPAC nomenclature, ligands are named in alphabetical order. 'Amine' (NH3) comes before 'carbonato' (CO3). The oxidation state of Co is calculated as x + 5(0) + 1(-2) + 1(-1) = 0, so x = +3. The complex is cationic, so the metal name remains Cobalt. Therefore, Pentaamminocarbonatocobalt(III) chloride is the correct name.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following complexes is expected to be diamagnetic and square planar?",
+      "options": [
+        "[NiCl4]2-",
+        "[Ni(CN)4]2-",
+        "[Co(NH3)6]3+",
+        "[Fe(H2O)6]2+"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In [Ni(CN)4]2-, Ni is in +2 oxidation state (3d8). CN- is a strong field ligand, causing pairing of electrons in the 3d orbitals, resulting in dsp2 hybridization, which corresponds to a square planar geometry and diamagnetic nature. [NiCl4]2- is tetrahedral (sp3) and paramagnetic due to weak field ligands. [Co(NH3)6]3+ is octahedral (d2sp3).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A metal complex [M(en)2Cl2]Cl undergoes ionization in water to give 2 moles of ions per mole of complex. If the crystal field splitting energy (Δo) for this complex is 24,000 cm^-1, the pairing energy (P) required for the d-electronic configuration is approximately:",
+      "options": [
+        "24,000 cm^-1",
+        "Greater than 24,000 cm^-1",
+        "Less than 24,000 cm^-1",
+        "Cannot be determined from the given data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For a coordination complex to be stable and follow specific magnetism, if it is a low-spin complex, Δo must be greater than P (pairing energy). Given the complex [M(en)2Cl2]Cl, 'en' (ethylenediamine) is a strong field ligand. For strong field ligands, Δo > P is the condition for electron pairing. Without this condition, the complex would not exhibit the low-spin behavior typically associated with en-complexes.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Calculate the spin-only magnetic moment (in BM) of the complex [Fe(H2O)6]3+.",
+      "options": [
+        "1.73 BM",
+        "3.87 BM",
+        "4.90 BM",
+        "5.92 BM"
+      ],
+      "correctAnswer": 3,
+      "explanation": "In [Fe(H2O)6]3+, Fe is in +3 state (3d5). H2O is a weak field ligand, so electrons do not pair. The configuration is t2g3 eg2, giving 5 unpaired electrons (n=5). The spin-only magnetic moment is calculated using the formula μ = sqrt(n(n+2)) = sqrt(5(7)) = sqrt(35) ≈ 5.92 BM.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding Valence Bond Theory (VBT) and Crystal Field Theory (CFT)?",
+      "options": [
+        "VBT provides information about the geometry and magnetic properties but fails to explain the colors of complexes.",
+        "CFT assumes the interaction between metal-ligand to be purely electrostatic.",
+        "In CFT, the splitting of d-orbitals in an octahedral field is such that the eg set is lower in energy than the t2g set.",
+        "VBT does not distinguish between strong and weak field ligands explicitly."
+      ],
+      "correctAnswer": 2,
+      "explanation": "In an octahedral crystal field, the incoming ligands approach along the axes (x, y, z). The dx2-y2 and dz2 orbitals (eg set) point directly at the ligands and experience greater repulsion, making them higher in energy than the dxy, dyz, and dxz orbitals (t2g set). Therefore, the statement that eg is lower in energy than t2g is incorrect.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following coordination compounds exhibits linkage isomerism?",
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)5(H2O)]Cl3",
+        "[Pt(NH3)2Cl2]",
+        "[Cr(en)3]Cl3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Linkage isomerism occurs in complexes containing ambidentate ligands, which can coordinate through different donor atoms. The nitrite ion (NO2⁻) is an ambidentate ligand that can bind through N (nitro) or O (nitrito). In [Co(NH3)5(NO2)]Cl2, the NO2 group can coordinate via the Nitrogen atom (nitro) or the Oxygen atom (nitrito), thus fulfilling the requirement for linkage isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to Valence Bond Theory (VBT), the hybridization and magnetic behavior of the complex [Fe(CN)6]4- are respectively:",
+      "options": [
+        "sp3d2, paramagnetic",
+        "sp3d2, diamagnetic",
+        "d2sp3, diamagnetic",
+        "d2sp3, paramagnetic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In [Fe(CN)6]4-, Fe is in +2 oxidation state ([Ar] 3d6). CN- is a strong field ligand, causing pairing of d-electrons. This results in an inner orbital complex using two 3d orbitals for hybridization (d2sp3). Since all electrons are paired in the 3d subshell, the complex is diamagnetic. This is a classic example of a low-spin octahedral complex.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the Crystal Field Stabilization Energy (CFSE) for a d6 high-spin octahedral complex in terms of Δo.",
+      "options": [
+        "-0.4 Δo",
+        "-0.6 Δo",
+        "-2.4 Δo",
+        "-1.8 Δo"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For an octahedral field, the d-orbitals split into t2g (lower energy, -0.4Δo) and eg (higher energy, +0.6Δo). In a high-spin d6 configuration, electrons fill as: t2g^4 eg^2. CFSE = (number of electrons in t2g × -0.4Δo) + (number of electrons in eg × +0.6Δo). Thus, CFSE = (4 × -0.4Δo) + (2 × +0.6Δo) = -1.6Δo + 1.2Δo = -0.4Δo.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements regarding the stability of coordination compounds is incorrect?",
+      "options": [
+        "The stability of a complex in solution refers to the degree of association between the metal ion and the ligands.",
+        "The chelate effect leads to increased stability of complexes with polydentate ligands compared to unidentate ligands.",
+        "The overall stability constant (βn) is the reciprocal of the cumulative dissociation constant.",
+        "The stability of a complex decreases with an increase in the oxidation state of the central metal ion."
+      ],
+      "correctAnswer": 3,
+      "explanation": "The stability of a complex generally increases with an increase in the charge density of the metal ion (i.e., its oxidation state), as this leads to stronger electrostatic attraction between the metal cation and the ligands. Therefore, the statement that stability decreases with an increase in oxidation state is factually incorrect. The other statements correctly describe thermodynamic stability and the chelate effect.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Considering the crystal field splitting energy (Δo) and the pairing energy (P), which of the following scenarios results in a low-spin configuration for an octahedral d5 metal complex?",
+      "options": [
+        "Δo < P and weak field ligands",
+        "Δo > P and strong field ligands",
+        "Δo < P and strong field ligands",
+        "Δo > P and weak field ligands"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For a d5 system, if Δo > P (splitting energy is greater than pairing energy), electrons prefer to pair up in the lower energy t2g orbitals rather than jumping to the higher energy eg orbitals, resulting in a low-spin complex (t2g^5). This is facilitated by strong field ligands which maximize Δo. If Δo < P, electrons prefer to occupy eg orbitals first, resulting in a high-spin complex (t2g^3 eg^2).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following coordination compounds exhibits linkage isomerism?",
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)5(H2O)]Cl3",
+        "[Co(NH3)5(Cl)]SO4",
+        "[Co(en)2(NH3)Cl]Cl2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Linkage isomerism occurs in complexes containing ambidentate ligands, which can coordinate through two different donor atoms. In [Co(NH3)5(NO2)]Cl2, the NO2 group is an ambidentate ligand that can bind through the nitrogen atom (-NO2, nitro) or the oxygen atom (-ONO, nitrito). The other options involve different types of isomerism such as hydrate, ionization, or geometrical isomerism, but not linkage isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to Crystal Field Theory (CFT), the crystal field splitting energy (Δo) for octahedral complexes is influenced by the nature of the ligand. Which of the following represents the correct order of ligands in the spectrochemical series?",
+      "options": [
+        "I- < Br- < F- < CN-",
+        "I- < F- < Br- < CN-",
+        "CN- < I- < Br- < F-",
+        "Br- < I- < F- < CN-"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The spectrochemical series is an empirical arrangement of ligands in order of increasing crystal field splitting (Δo). The order based on the donor ability and field strength is I- < Br- < SCN- < Cl- < F- < OH- < H2O < NCS- < EDTA4- < NH3 < en < CN- < CO. Thus, I- is a weak field ligand and CN- is a strong field ligand.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the spin-only magnetic moment of [Fe(H2O)6]2+ complex. (Atomic number of Fe = 26)",
+      "options": [
+        "1.73 BM",
+        "2.84 BM",
+        "4.90 BM",
+        "5.92 BM"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Fe2+ has a d6 electronic configuration. H2O is a weak field ligand, so pairing does not occur. The configuration is t2g4 eg2, resulting in 4 unpaired electrons (n=4). The spin-only magnetic moment is calculated using the formula μ = √[n(n+2)] BM. μ = √[4(4+2)] = √24 ≈ 4.899 BM, which rounds to 4.90 BM.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "For the complex ion [Ni(CN)4]2-, identify the hybridization, geometry, and magnetic property.",
+      "options": [
+        "sp3, tetrahedral, paramagnetic",
+        "dsp2, square planar, diamagnetic",
+        "sp3d2, octahedral, paramagnetic",
+        "dsp2, square planar, paramagnetic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ni2+ is 3d8. CN- is a strong field ligand, causing the two unpaired electrons in the 3d orbitals to pair up. This leaves one 3d orbital vacant, which undergoes dsp2 hybridization. The resulting square planar structure involves all paired electrons, making the complex diamagnetic. This is a classic example of coordination geometry dictated by the field strength of the ligand.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements regarding Werner's Theory of Coordination Compounds is incorrect?",
+      "options": [
+        "Primary valencies are non-ionizable and are satisfied by negative ions.",
+        "Secondary valencies are non-ionizable and are satisfied by ligands.",
+        "The secondary valency corresponds to the coordination number of the metal ion.",
+        "Ions satisfying primary valency are directed towards fixed positions in space giving a definite geometry."
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to Werner's Theory: 1) Primary valencies are ionizable and are satisfied by negative ions (representing oxidation state). 2) Secondary valencies are non-ionizable and are satisfied by neutral molecules or negative ions (representing coordination number). 3) Only secondary valencies are spatially directed, giving the coordination compound a definite geometry. Statement 0 is incorrect because primary valencies are ionizable, not non-ionizable.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following coordination compounds exhibits linkage isomerism?",
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)5(H2O)]Cl3",
+        "[Pt(NH3)2Cl2]",
+        "[Cr(NH3)6][Co(CN)6]"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Linkage isomerism occurs in complexes containing ambidentate ligands, which can coordinate through two different donor atoms. In [Co(NH3)5(NO2)]Cl2, the NO2 group can coordinate through the nitrogen atom (nitro) or the oxygen atom (nitrito). The other options involve ionization isomerism, geometric isomerism, or coordination isomerism, but not linkage isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to Valence Bond Theory (VBT), the hybridization and magnetic behavior of the complex [Fe(CN)6]4- are, respectively:",
+      "options": [
+        "sp3d2, paramagnetic",
+        "sp3d2, diamagnetic",
+        "d2sp3, diamagnetic",
+        "d2sp3, paramagnetic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In [Fe(CN)6]4-, the oxidation state of Fe is +2 (3d6 configuration). CN- is a strong field ligand, causing pairing of d-electrons. This results in an inner orbital complex using two 3d, one 4s, and three 4p orbitals (d2sp3 hybridization). Since all electrons are paired, the complex is diamagnetic.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the Crystal Field Stabilization Energy (CFSE) for a d6 high-spin octahedral complex in terms of Δo.",
+      "options": [
+        "-0.4 Δo",
+        "-0.6 Δo",
+        "-2.4 Δo",
+        "0 Δo"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a d6 high-spin octahedral complex, the electron configuration is t2g4 eg2. The CFSE formula is (-0.4 x number of electrons in t2g) + (0.6 x number of electrons in eg) Δo. Substituting the values: (-0.4 x 4) + (0.6 x 2) = -1.6 + 1.2 = -0.4 Δo.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding the stability of coordination compounds: (I) Higher charge density on the central metal ion increases stability. (II) Chelate effect significantly increases the stability of complexes. (III) The stability constant (log K) is inversely proportional to the thermodynamic stability. Which of these is/are correct?",
+      "options": [
+        "I and II only",
+        "II and III only",
+        "I, II, and III",
+        "I only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Statement (I) is correct as a higher charge density leads to stronger metal-ligand electrostatic attraction. Statement (II) is correct because the chelate effect (entropy increase) makes chelated complexes more stable. Statement (III) is incorrect because the stability constant (log K) is directly proportional to the thermodynamic stability—a higher log K value indicates a more stable complex.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A complex of the type [M(AB)3]^n+ (where AB is an unsymmetrical bidentate ligand) is expected to show:",
+      "options": [
+        "Only geometric isomerism",
+        "Only optical isomerism",
+        "Both geometric and optical isomerism",
+        "Neither geometric nor optical isomerism"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For [M(AB)3], the complex can exist as fac- and mer- isomers (geometric). Furthermore, because the ligand AB is unsymmetrical and the complex lacks a plane of symmetry in most configurations, it will exhibit optical isomerism (enantiomeric pairs). This level of stereochemical complexity is a classic advanced topic in coordination geometry.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following coordination compounds exhibits linkage isomerism?",
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)5(H2O)]Cl3",
+        "[Cr(NH3)6][Co(CN)6]",
+        "[Pt(NH3)2Cl2]"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Linkage isomerism occurs in coordination compounds containing ambidentate ligands, which can coordinate through two different donor atoms. In [Co(NH3)5(NO2)]Cl2, the NO2- ligand is ambidentate, capable of bonding through either the Nitrogen atom (nitro) or the Oxygen atom (nitrito). The other options involve ionization, coordination, or geometrical isomerism, but not linkage isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to Valence Bond Theory (VBT), the hybridization and magnetic nature of the complex [Fe(CN)6]4- are respectively:",
+      "options": [
+        "sp3d2, paramagnetic",
+        "d2sp3, diamagnetic",
+        "sp3d2, diamagnetic",
+        "dsp2, paramagnetic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In [Fe(CN)6]4-, the central metal ion is Fe2+ (3d6). CN- is a strong field ligand, causing the pairing of 3d electrons. This results in the configuration t2g6, eg0, leaving no unpaired electrons (diamagnetic). The inner d-orbitals become available for hybridization, leading to d2sp3 hybridization, which corresponds to an octahedral geometry.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the Crystal Field Stabilization Energy (CFSE) for a d6 high-spin octahedral complex in terms of Δo (ignoring pairing energy):",
+      "options": [
+        "-0.4 Δo",
+        "-0.6 Δo",
+        "-1.2 Δo",
+        "-1.8 Δo"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a high-spin d6 octahedral complex, the electrons fill as (t2g)4 (eg)2. The energy of t2g orbitals is -0.4 Δo and eg is +0.6 Δo. CFSE = (number of electrons in t2g × -0.4 Δo) + (number of electrons in eg × +0.6 Δo). CFSE = (4 × -0.4 Δo) + (2 × +0.6 Δo) = -1.6 Δo + 1.2 Δo = -0.4 Δo.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements regarding the stability of coordination compounds is INCORRECT?",
+      "options": [
+        "The chelate effect significantly increases the stability of complexes with polydentate ligands.",
+        "Higher oxidation state of the central metal ion generally leads to higher stability of the complex.",
+        "The stability constant (K) represents the equilibrium constant for the formation of the complex from its constituent ions.",
+        "A complex with a lower overall stability constant (log β) is more thermodynamically stable than one with a higher log β."
+      ],
+      "correctAnswer": 3,
+      "explanation": "The stability of a coordination complex in solution is measured by its formation constant (beta). A higher value of the stability constant (log β) indicates a greater thermodynamic stability of the complex. Therefore, the statement claiming a lower log β corresponds to higher stability is incorrect.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following coordination compounds exhibits linkage isomerism?",
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)5(H2O)]Cl3",
+        "[Pt(NH3)2Cl2]",
+        "[Cr(en)3]Cl3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Linkage isomerism occurs in complexes containing ambidentate ligands, which can coordinate through different donor atoms. The nitrite ion (NO2⁻) is an ambidentate ligand that can bind through N (nitro) or O (nitrito). In [Co(NH3)5(NO2)]Cl2, the NO2 group can coordinate via N to form [Co(NH3)5(NO2)]2+ or via O to form [Co(NH3)5(ONO)]2+. Options B, C, and D exhibit hydrate, geometrical, and optical isomerism respectively, but not linkage isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "According to the Crystal Field Theory (CFT), what is the Crystal Field Stabilization Energy (CFSE) for a d6 high-spin octahedral complex?",
+      "options": [
+        "-0.4 Δo",
+        "-0.6 Δo",
+        "-1.8 Δo",
+        "-2.4 Δo"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In an octahedral field, d-orbitals split into t2g (lower energy, -0.4 Δo) and eg (higher energy, +0.6 Δo). For a high-spin d6 complex, electrons fill orbitals according to Hund's rule: t2g^4 eg^2. The CFSE is calculated as: (4 × -0.4 Δo) + (2 × +0.6 Δo) = -1.6 Δo + 1.2 Δo = -0.4 Δo. Pairing energy is not considered in the CFSE value itself.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The spin-only magnetic moment of [MnBr4]2− is 5.9 BM. Predict the geometry of the complex and the hybridization of the central metal ion.",
+      "options": [
+        "Square planar, dsp2",
+        "Tetrahedral, sp3",
+        "Tetrahedral, dsp2",
+        "Square planar, sp3d2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A magnetic moment of 5.9 BM corresponds to 5 unpaired electrons (formula μ = √n(n+2)). Mn in [MnBr4]2− is in the +2 oxidation state (3d5). Since Br− is a weak field ligand, it does not cause pairing, resulting in high-spin tetrahedral geometry with sp3 hybridization. Square planar complexes usually involve strong field ligands and dsp2 hybridization, which would lead to fewer unpaired electrons.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the complex [Co(NH3)5SO4]Br. Which of the following statements is correct regarding this coordination compound?",
+      "options": [
+        "It exhibits ionization isomerism with [Co(NH3)5Br]SO4.",
+        "It exhibits hydrate isomerism.",
+        "The oxidation state of Cobalt is +2.",
+        "The complex is paramagnetic with 3 unpaired electrons."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ionization isomers occur when a counter ion in a coordination compound is itself a potential ligand and can displace a ligand which then becomes the counter ion. Here, Br- (counter ion) and SO4^2- (ligand) can exchange places to form [Co(NH3)5Br]SO4. Co is in the +3 state, and NH3 is a strong ligand forcing low-spin, making it diamagnetic. Hydrate isomerism requires H2O molecules.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A metal complex with the formula [M(en)2Cl2]Cl (where en = ethylenediamine) has two geometrical isomers. Which statement accurately describes these isomers?",
+      "options": [
+        "The trans-isomer is optically active.",
+        "The cis-isomer is optically inactive.",
+        "The trans-isomer is optically inactive and the cis-isomer is optically active.",
+        "Both cis and trans isomers are optically active."
+      ],
+      "correctAnswer": 2,
+      "explanation": "In [M(en)2Cl2]+, the trans-isomer has a plane of symmetry and is thus achiral (optically inactive). The cis-isomer lacks a plane of symmetry and contains a chiral center, making it optically active (exists as d and l pairs). This is a classic example used in JEE to test the relationship between geometrical and optical isomerism in octahedral complexes.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -69,10 +69,10 @@ interface Question {
 }
 
 // Configuration
-const QUESTIONS_PER_TOPIC = 200; // 10 days supply per topic
-const BATCH_SIZE = 5; // Process 5 topics at a time (larger question sets)
-const DELAY_BETWEEN_BATCHES = 15000; // 15 seconds (longer for API stability)
-const DELAY_BETWEEN_TOPICS = 3000; // 3 seconds (longer for larger batches)
+const QUESTIONS_PER_TOPIC = 50; // 2.5 days supply per topic (faster completion)
+const BATCH_SIZE = 10; // Process 10 topics in PARALLEL
+const DELAY_BETWEEN_BATCHES = 10000; // 10 seconds
+const DELAY_BETWEEN_TOPICS = 2000; // 2 seconds
 
 /**
  * Scan all topics and identify empty ones
@@ -125,8 +125,8 @@ async function generateQuestions(
   topic: string,
   count: number
 ): Promise<Question[]> {
-  // Generate in chunks of 20 for better AI reliability
-  const CHUNK_SIZE = 20;
+  // Generate in chunks of 5 for better AI reliability and valid JSON
+  const CHUNK_SIZE = 5;
   const chunks = Math.ceil(count / CHUNK_SIZE);
   const allQuestions: Question[] = [];
 
@@ -224,7 +224,7 @@ Output ONLY a valid JSON array (no markdown, no extra text):
         "X-Title": "PrepGenie Comprehensive Seeder",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.0-flash-exp:free",
+        model: "google/gemini-3.1-flash-lite",
         messages: [
           {
             role: "system",
@@ -447,56 +447,72 @@ async function comprehensiveSeed() {
   for (let batchIdx = 0; batchIdx < batches.length; batchIdx++) {
     const batch = batches[batchIdx];
     console.log(`\n${"=".repeat(80)}`);
-    console.log(`📦 BATCH ${batchIdx + 1}/${batches.length} (${batch.length} topics)`);
+    console.log(`📦 BATCH ${batchIdx + 1}/${batches.length} (${batch.length} topics) - PARALLEL PROCESSING`);
     console.log("=".repeat(80));
 
-    for (let i = 0; i < batch.length; i++) {
-      const topicInfo = batch[i];
+    // Process entire batch in PARALLEL (10x faster!)
+    const batchPromises = batch.map(async (topicInfo, i) => {
       const globalIdx = batchIdx * BATCH_SIZE + i + 1;
 
       console.log(`\n[${globalIdx}/${emptyTopics.length}] ${topicInfo.examName} → ${topicInfo.subjectName}`);
       console.log(`   Topic: ${topicInfo.topic}`);
       console.log(`   🤖 Generating ${QUESTIONS_PER_TOPIC} questions...`);
 
-      // Generate
-      const questions = await generateQuestions(
-        topicInfo.examName,
-        topicInfo.subjectName,
-        topicInfo.topic,
-        QUESTIONS_PER_TOPIC
-      );
+      try {
+        // Generate
+        const questions = await generateQuestions(
+          topicInfo.examName,
+          topicInfo.subjectName,
+          topicInfo.topic,
+          QUESTIONS_PER_TOPIC
+        );
 
-      if (questions.length === 0) {
-        console.log(`   ❌ Failed to generate questions`);
-        failedTopics.push(`${topicInfo.examName} - ${topicInfo.topic}`);
-        continue;
+        if (questions.length === 0) {
+          console.log(`   ❌ Failed to generate questions`);
+          return { success: false, topicName: `${topicInfo.examName} - ${topicInfo.topic}` };
+        }
+
+        console.log(`   ✅ Generated ${questions.length}/${QUESTIONS_PER_TOPIC} valid questions`);
+
+        // Save to file
+        const filename = `${topicInfo.examId}_${topicInfo.subjectId}_${topicInfo.topic.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50)}.json`;
+        const filepath = join(outputDir, filename);
+        writeFileSync(filepath, JSON.stringify({ topicInfo, questions }, null, 2), 'utf-8');
+
+        // Insert
+        console.log(`   💾 Inserting into database...`);
+        const inserted = await insertQuestions(topicInfo, questions);
+        console.log(`   ✅ Inserted ${inserted}/${questions.length} questions`);
+
+        return {
+          success: true,
+          topicName: `${topicInfo.examName} - ${topicInfo.topic}`,
+          generated: questions.length,
+          inserted,
+        };
+      } catch (err: any) {
+        console.log(`   ❌ Error: ${err.message}`);
+        return { success: false, topicName: `${topicInfo.examName} - ${topicInfo.topic}` };
       }
+    });
 
-      console.log(`   ✅ Generated ${questions.length}/${QUESTIONS_PER_TOPIC} valid questions`);
-      totalGenerated += questions.length;
+    // Wait for entire batch to complete
+    const results = await Promise.all(batchPromises);
 
-      // Save to file
-      const filename = `${topicInfo.examId}_${topicInfo.subjectId}_${topicInfo.topic.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50)}.json`;
-      const filepath = join(outputDir, filename);
-      writeFileSync(filepath, JSON.stringify({ topicInfo, questions }, null, 2), 'utf-8');
-
-      // Insert
-      console.log(`   💾 Inserting into database...`);
-      const inserted = await insertQuestions(topicInfo, questions);
-      console.log(`   ✅ Inserted ${inserted}/${questions.length} questions`);
-      totalInserted += inserted;
-
-      successLog.push({
-        topic: `${topicInfo.examName} - ${topicInfo.topic}`,
-        generated: questions.length,
-        inserted
-      });
-
-      // Rate limiting
-      if (i < batch.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_TOPICS));
+    // Process results
+    results.forEach(result => {
+      if (result.success) {
+        totalGenerated += result.generated!;
+        totalInserted += result.inserted!;
+        successLog.push({
+          topic: result.topicName,
+          generated: result.generated!,
+          inserted: result.inserted!,
+        });
+      } else {
+        failedTopics.push(result.topicName);
       }
-    }
+    });
 
     // Delay between batches
     if (batchIdx < batches.length - 1) {

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-20T17:37:18.030Z",
+  "scope": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced",
+  "total": 2,
+  "extracted": 2,
+  "skipped": 0,
+  "failed": 0,
+  "results": [
+    {
+      "pdfPath": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced/p1_english.pdf",
+      "txtPath": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced/p1_english.txt",
+      "status": "extracted",
+      "pages": 34,
+      "chars": 35334
+    },
+    {
+      "pdfPath": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced/p1_hindi.pdf",
+      "txtPath": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced/p1_hindi.txt",
+      "status": "extracted",
+      "pages": 38,
+      "chars": 37743
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-maths",
+    "examName": "JEE Main",
+    "subjectName": "Mathematics",
+    "topic": "Complex Numbers",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "If z is a complex number such that |z + 1| = |z - 1|, then the locus of z is:",
+      "options": [
+        "A circle with radius 1",
+        "A straight line passing through the origin",
+        "The imaginary axis",
+        "The real axis"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Let z = x + iy. Given |z + 1| = |z - 1|, squaring both sides gives |(x+1) + iy|^2 = |(x-1) + iy|^2. This simplifies to (x+1)^2 + y^2 = (x-1)^2 + y^2. Expanding gives x^2 + 2x + 1 + y^2 = x^2 - 2x + 1 + y^2. Simplifying, we get 4x = 0, or x = 0. In the Argand plane, the equation x = 0 represents the imaginary axis (y-axis).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "If ω (≠ 1) is a cube root of unity, then the value of (1 + ω - ω^2)^7 is equal to:",
+      "options": [
+        "128ω",
+        "-128ω^2",
+        "128ω^2",
+        "-128ω"
+      ],
+      "correctAnswer": 1,
+      "explanation": "We know that 1 + ω + ω^2 = 0, which implies 1 + ω = -ω^2. Substituting this into the expression, we get (-ω^2 - ω^2)^7 = (-2ω^2)^7. This expands to (-2)^7 * (ω^2)^7 = -128 * ω^14. Since ω^3 = 1, ω^14 = (ω^3)^4 * ω^2 = 1^4 * ω^2 = ω^2. Thus, the expression becomes -128ω^2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The complex number z satisfying the equation |z| - z = 1 + 2i is:",
+      "options": [
+        "3/2 - 2i",
+        "3/2 + 2i",
+        "1/2 - 2i",
+        "1/2 + 2i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let z = x + iy. Then |z| = sqrt(x^2 + y^2). The equation is sqrt(x^2 + y^2) - (x + iy) = 1 + 2i. Equating imaginary parts: -y = 2, so y = -2. Equating real parts: sqrt(x^2 + (-2)^2) - x = 1. Therefore, sqrt(x^2 + 4) = x + 1. Squaring both sides: x^2 + 4 = x^2 + 2x + 1. This gives 2x = 3, so x = 3/2. Thus, z = 3/2 - 2i.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = |z - 1|, then the locus of z is:",
+      "options": [
+        "A circle of radius 1",
+        "The imaginary axis",
+        "The real axis",
+        "A line parallel to the real axis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let z = x + iy. Given |z + 1| = |z - 1|, we square both sides: |(x+1) + iy|^2 = |(x-1) + iy|^2. This simplifies to (x+1)^2 + y^2 = (x-1)^2 + y^2. Expanding gives x^2 + 2x + 1 + y^2 = x^2 - 2x + 1 + y^2. Subtracting common terms yields 4x = 0, so x = 0. This is the equation of the imaginary axis (y-axis).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "If ω (≠ 1) is a cube root of unity, then the value of (1 + ω - ω^2)^7 + (1 - ω + ω^2)^7 is:",
+      "options": [
+        "128ω",
+        "-128ω^2",
+        "128",
+        "-128"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Using the identity 1 + ω + ω^2 = 0, we have 1 + ω = -ω^2 and 1 + ω^2 = -ω. Substituting these: (-ω^2 - ω^2)^7 + (-ω - ω)^7 = (-2ω^2)^7 + (-2ω)^7 = -128ω^14 - 128ω^7. Since ω^3 = 1, ω^14 = ω^2 and ω^7 = ω. Thus, -128(ω^2 + ω) = -128(-1) = 128.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z = 1 + i√3, then the amplitude of z^2 is:",
+      "options": [
+        "π/3",
+        "2π/3",
+        "π/6",
+        "π/2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For z = x + iy, arg(z) = tan⁻¹(y/x). Here z = 1 + i√3, so arg(z) = tan⁻¹(√3/1) = π/3. Using the property of arguments, arg(z^n) = n·arg(z). Therefore, arg(z^2) = 2 · (π/3) = 2π/3.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = |z - 1|, then the locus of z is:",
+      "options": [
+        "A circle of radius 1",
+        "The imaginary axis",
+        "The real axis",
+        "A line passing through the origin"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let z = x + iy. Given |z + 1| = |z - 1|, squaring both sides gives |x + 1 + iy|^2 = |x - 1 + iy|^2. This simplifies to (x + 1)^2 + y^2 = (x - 1)^2 + y^2. Expanding gives x^2 + 2x + 1 + y^2 = x^2 - 2x + 1 + y^2, which leads to 4x = 0, or x = 0. The equation x = 0 represents the imaginary axis (y-axis) in the Argand plane.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Let S be the set of all complex numbers z satisfying |z - 2 + i| = √5. If z₀ is the element in S with the maximum modulus, then |z₀|² is equal to:",
+      "options": [
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The locus is a circle with center c = 2 - i and radius r = √5. The modulus of the center is |c| = sqrt(2² + (-1)²) = √5. The maximum modulus of a point on the circle is |c| + r = √5 + √5 = 2√5. Hence, |z₀|² = (2√5)² = 4 * 5 = 20.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = |z - 1|, then the locus of z is:",
+      "options": [
+        "A circle of radius 1",
+        "The imaginary axis",
+        "The real axis",
+        "A line passing through the origin"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let z = x + iy. Given |z + 1| = |z - 1|, squaring both sides gives |x + 1 + iy|^2 = |x - 1 + iy|^2. This simplifies to (x + 1)^2 + y^2 = (x - 1)^2 + y^2. Expanding gives x^2 + 2x + 1 + y^2 = x^2 - 2x + 1 + y^2, which leads to 4x = 0, or x = 0. The equation x = 0 represents the imaginary axis (y-axis) in the Argand plane.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "If ω (ω ≠ 1) is a cube root of unity, then the value of (1 + ω - ω^2)^7 is equal to:",
+      "options": [
+        "128ω",
+        "-128ω^2",
+        "128ω^2",
+        "-128ω"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using the properties of cube roots of unity: 1 + ω + ω^2 = 0, we can write 1 + ω = -ω^2. Substituting this into the expression: (1 + ω - ω^2)^7 = (-ω^2 - ω^2)^7 = (-2ω^2)^7 = (-2)^7 * (ω^2)^7 = -128 * ω^14. Since ω^3 = 1, ω^14 = ω^(12+2) = ω^2. Thus, the result is -128ω^2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If the amplitude of (z - 2)/(z - 6i) = π/2, then the locus of z is a part of the circle with center:",
+      "options": [
+        "1 + 3i",
+        "2 + 6i",
+        "3 + 3i",
+        "1 - 3i"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The condition arg((z - z1)/(z - z2)) = π/2 represents a semi-circle where z1 and z2 (2 and 6i) are the endpoints of the diameter. The center of the circle is the midpoint of the segment joining z1 and z2. Midpoint = (2 + 0i + 0 + 6i)/2 = (2 + 6i)/2 = 1 + 3i. Wait, checking the midpoint: (2/2) + (6/2)i = 1 + 3i. The correct center is 1 + 3i.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = 1 and arg(z) = π/4, then the value of |z| is:",
+      "options": [
+        "1/√2",
+        "√2 - 1",
+        "√2",
+        "2 - √2"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Let z = r(cos π/4 + i sin π/4) = r/√2 + i(r/√2). Given |z + 1| = 1, we have |(r/√2 + 1) + i(r/√2)| = 1. Squaring both sides: (r/√2 + 1)^2 + (r/√2)^2 = 1. This simplifies to r^2/2 + √2r + 1 + r^2/2 = 1, leading to r^2 + √2r = 0. Since r ≠ 0, r = -√2. However, |z| must be positive, so we re-evaluate: the geometric locus is a circle centered at -1 with radius 1. The line y=x intersects this at z = -(2-√2)(1+i)/√2. The magnitude is 2-√2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The set of values of θ for which the expression (1 + i cos θ) / (1 - 2i cos θ) is a real number is:",
+      "options": [
+        "{nπ | n ∈ Z}",
+        "{nπ ± π/2 | n ∈ Z}",
+        "{nπ/2 | n ∈ Z}",
+        "{π/4 + nπ | n ∈ Z}"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A complex number z = a/b is real if Im(a · b_bar) = 0. Here, a = 1 + i cos θ and b = 1 - 2i cos θ. So, b_bar = 1 + 2i cos θ. Multiplying: (1 + i cos θ)(1 + 2i cos θ) = 1 + 3i cos θ - 2 cos^2 θ. For this to be real, the imaginary part must be zero: 3 cos θ = 0. Thus, cos θ = 0, which means θ = nπ ± π/2.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = 1, then the locus of z is a circle with:",
+      "options": [
+        "center at (1, 0) and radius 1",
+        "center at (-1, 0) and radius 1",
+        "center at (0, 1) and radius 1",
+        "center at (-1, 0) and radius 0"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The modulus equation |z - z₀| = r represents a circle in the Argand plane with center z₀ and radius r. Here, |z - (-1 + 0i)| = 1. Comparing this with the standard form, the center is (-1, 0) and the radius is 1. This tests the fundamental geometric interpretation of the modulus of a complex number.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The real part of the complex number (1 + i√3)¹⁰ is:",
+      "options": [
+        "-512",
+        "512",
+        "-1024",
+        "1024"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Convert 1 + i√3 to polar form: r = √1² + (√3)² = 2, θ = tan⁻¹(√3/1) = π/3. Thus, (2(cos π/3 + i sin π/3))¹⁰ = 2¹⁰(cos 10π/3 + i sin 10π/3). 10π/3 = 3π + π/3, which is in the 3rd quadrant. cos(3π + π/3) = -cos(π/3) = -1/2. Real part = 1024 * (-1/2) = -512.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Let S be the set of all complex numbers z satisfying |z - 2 + i| = √5. If α is the complex number in S with the maximum modulus, then α² - 4α is equal to:",
+      "options": [
+        "-5",
+        "5 - 4i",
+        "4i - 5",
+        "5 + 4i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The locus is a circle centered at c = 2 - i with radius r = √5. The modulus of the center is |c| = √2² + (-1)² = √5. Since the circle passes through the origin (distance from origin to center equals radius), the point α with maximum modulus lies on the line passing through the origin and the center, at a distance 2r from the origin. Using geometric properties and substituting into the circle equation, we find α satisfies α² - 4α + 5 = 0, thus α² - 4α = -5.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "If z = 1 + i√3, then the argument of z² is:",
+      "options": [
+        "π/6",
+        "π/3",
+        "2π/3",
+        "4π/3"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For z = 1 + i√3, the argument θ is given by tan⁻¹(√3/1) = π/3. Using the property of arguments, arg(zⁿ) = n·arg(z). Thus, arg(z²) = 2 × (π/3) = 2π/3. This tests the fundamental understanding of polar representation and argument properties.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The locus of a complex number z satisfying |z - 2| + |z + 2| = 6 represents:",
+      "options": [
+        "A circle of radius 3",
+        "An ellipse with eccentricity 2/3",
+        "A hyperbola with eccentricity 3/2",
+        "A straight line"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The equation |z - z₁| + |z - z₂| = 2a represents an ellipse where the sum of distances from two fixed points (foci) is constant (2a). Here, 2a = 6 (so a = 3) and the distance between foci 2ae = 4 (so ae = 2). Thus, e = 2/3, which is < 1, confirming an ellipse.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z satisfies the equation |z| - z = 1 + 2i, then z is equal to:",
+      "options": [
+        "3/2 - 2i",
+        "2/3 + 2i",
+        "3/2 + 2i",
+        "2/3 - 2i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let z = x + iy. Then |z| = √(x² + y²). The equation becomes √(x² + y²) - (x + iy) = 1 + 2i. Comparing imaginary parts: -y = 2, so y = -2. Substituting into real parts: √(x² + 4) - x = 1 => √(x² + 4) = x + 1. Squaring both sides: x² + 4 = x² + 2x + 1 => 2x = 3, x = 1.5. Thus, z = 1.5 - 2i.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = 1 and arg(z) = π/4, then the value of z is:",
+      "options": [
+        "1 + i",
+        "(√2 - 1)(1 + i)",
+        "√2(1 + i)",
+        "1 + i√2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let z = r(cos π/4 + i sin π/4) = r/√2 + i(r/√2). Given |z + 1| = 1, we have |(r/√2 + 1) + i(r/√2)| = 1. Squaring both sides: (r/√2 + 1)^2 + (r/√2)^2 = 1. This simplifies to r^2/2 + √2r + 1 + r^2/2 = 1, so r^2 + √2r = 0. Since r ≠ 0, r = -√2 (magnitude distance). Solving the quadratic gives r = √2 - 1. Thus z = (√2 - 1)(cos π/4 + i sin π/4) = (√2 - 1)(1+i)/√2 is wrong, the correct form is (√2-1)(1+i)/ √2 * √2 = (√2-1)(1+i).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z = x + iy satisfies the equation |z - 3i| = |z + 3i|, then the locus of z is:",
+      "options": [
+        "A circle of radius 3",
+        "A line y = 0",
+        "A line x = 0",
+        "An ellipse"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The expression |z - z1| = |z - z2| represents the perpendicular bisector of the line segment joining z1 and z2. Here, z1 = 3i (point (0,3)) and z2 = -3i (point (0,-3)). The segment lies on the y-axis. The perpendicular bisector of the y-axis is the x-axis (y = 0), but wait, the points are (0,3) and (0,-3), their midpoint is (0,0), and the line perpendicular to them is the x-axis? No, the line connecting them is the y-axis, its perpendicular bisector is the x-axis? Let's recheck: |x + i(y-3)| = |x + i(y+3)| => x^2 + (y-3)^2 = x^2 + (y+3)^2 => y^2 - 6y + 9 = y^2 + 6y + 9 => 12y = 0 => y = 0. Wait, the locus is the x-axis.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The complex number z = (1 + i√3)^n / (1 - i√3)^n is purely real for which of the following values of n?",
+      "options": [
+        "n = 3",
+        "n = 6",
+        "n = 2",
+        "n = 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Convert to polar form: 1 + i√3 = 2(cos π/3 + i sin π/3) = 2e^(iπ/3). Similarly, 1 - i√3 = 2e^(-iπ/3). Then z = (2e^(iπ/3))^n / (2e^(-iπ/3))^n = e^(i2nπ/3). For z to be purely real, the imaginary part must be zero, implying sin(2nπ/3) = 0. This happens when 2nπ/3 = kπ, or 2n/3 = integer. For n=3, 2n/3 = 2 (integer). Thus n=3 is the smallest positive integer solution.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If z is a complex number such that |z + 1| = 1 and arg(z) = π/4, then the value of z is:",
+      "options": [
+        "1 + i",
+        "(√2 - 1) + i(√2 - 1)",
+        "√2 + i√2",
+        "(√2 + 1) + i(√2 + 1)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let z = r(cos π/4 + i sin π/4) = r(√2/2 + i√2/2). Given |z + 1| = 1, we have |(r√2/2 + 1) + i(r√2/2)| = 1. Squaring both sides: (r√2/2 + 1)^2 + (r√2/2)^2 = 1. Expanding gives r^2/2 + r√2 + 1 + r^2/2 = 1, leading to r^2 + r√2 = 0. Since r > 0, we solve for r = 2 - √2 (or equivalent). Substituting back, z = (√2 - 1) + i(√2 - 1).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The locus of points z satisfying the condition |z - 2| + |z + 2| = 6 represents:",
+      "options": [
+        "A circle with radius 3",
+        "A parabola with focus at (2,0)",
+        "An ellipse with eccentricity 2/3",
+        "A hyperbola with eccentricity 3/2"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The equation |z - z1| + |z - z2| = 2a represents an ellipse with foci at z1 and z2. Here, z1 = 2 and z2 = -2. The distance between foci (2c) is 4, so c = 2. The sum of focal distances 2a = 6, so a = 3. The eccentricity e = c/a = 2/3. Since e < 1, it is an ellipse.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Let z = x + iy be a complex number such that |(z - i)/(z + i)| = 1. Then z lies on:",
+      "options": [
+        "The x-axis",
+        "The y-axis",
+        "The circle x^2 + y^2 = 1",
+        "The line y = 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The condition |z - i| = |z + i| implies that the distance of z from the point (0, 1) is equal to its distance from (0, -1). Geometrically, this is the perpendicular bisector of the segment joining (0, 1) and (0, -1), which is the x-axis (y = 0). Algebraically, |x + i(y-1)| = |x + i(y+1)| implies x^2 + (y-1)^2 = x^2 + (y+1)^2, resulting in -2y = 2y, so y = 0.",
+      "difficulty": "easy"
+    }
+  ]
+}

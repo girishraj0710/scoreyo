@@ -1,0 +1,827 @@
+{
+  "afcat::afcat-ekt::Mechanical Engineering (Thermodynamics, Mechanics, Manufacturing, Strength of Materials)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T11:53:39.295Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Current Affairs (National & International, last 12 months, Defense news)": {
+    "attempts": 1,
+    "insertedTotal": 20,
+    "lastAttemptAt": "2026-05-17T12:08:36.638Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T12:10:47.065Z"
+  },
+  "afcat::afcat-numerical::Arithmetic (Percentage, Profit & Loss, Ratio & Proportion, Time-Speed-Distance, Time & Work, Simple & Compound Interest, Average)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T12:10:47.066Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-reasoning::Spatial Ability (Figure completion, Pattern recognition, Paper folding)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T12:11:39.201Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-verbal::Reading Comprehension (Passages from various topics)": {
+    "attempts": 1,
+    "insertedTotal": 20,
+    "lastAttemptAt": "2026-05-17T12:54:21.172Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T12:55:26.004Z"
+  },
+  "afcat::afcat-ekt::Electrical Engineering (Circuits, Machines, Power systems, Control systems)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T12:57:58.512Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Indian History (Ancient, Medieval, Modern, Freedom struggle)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:24:56.781Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-numerical::Algebra (Linear equations, Quadratic equations)": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-17T13:25:57.404Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:26:54.038Z"
+  },
+  "afcat::afcat-reasoning::Verbal Reasoning (Analogies, Series, Coding-Decoding, Blood Relations, Direction)": {
+    "attempts": 1,
+    "insertedTotal": 16,
+    "lastAttemptAt": "2026-05-17T13:26:54.039Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:27:36.819Z"
+  },
+  "afcat::afcat-verbal::Error Detection (Grammatical errors in sentences)": {
+    "attempts": 1,
+    "insertedTotal": 10,
+    "lastAttemptAt": "2026-05-17T13:27:36.820Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:28:20.642Z"
+  },
+  "afcat::afcat-ekt::Electronics Engineering (Analog & Digital circuits, Signals, Communication)": {
+    "attempts": 1,
+    "insertedTotal": 19,
+    "lastAttemptAt": "2026-05-17T13:30:38.313Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:32:10.811Z"
+  },
+  "afcat::afcat-gk::Geography (Indian & World, Physical, Political, Economic)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:32:10.812Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-numerical::Geometry (Triangles, Circles, Mensuration)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:33:31.090Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-reasoning::Non-Verbal Reasoning (Figure series, Figure classification, Figure matrix)": {
+    "attempts": 1,
+    "insertedTotal": 13,
+    "lastAttemptAt": "2026-05-17T13:35:51.485Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:38:16.753Z"
+  },
+  "afcat::afcat-verbal::Synonyms & Antonyms": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-17T13:38:16.754Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:40:17.367Z"
+  },
+  "afcat::afcat-ekt::Computer Science (Data structures, Programming, DBMS, Operating systems)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:42:48.111Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Indian Polity & Constitution": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:43:55.194Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-numerical::Data Interpretation (Tables, Graphs, Charts)": {
+    "attempts": 1,
+    "insertedTotal": 1,
+    "lastAttemptAt": "2026-05-17T13:45:22.226Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:46:15.029Z"
+  },
+  "afcat::afcat-reasoning::Military Aptitude (Defense terminology, Ranks, Aircraft identification, Defense organization)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:46:15.030Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-verbal::Sentence Completion": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-17T13:47:47.173Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:50:09.769Z"
+  },
+  "afcat::afcat-gk::Indian Economy": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:52:46.770Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-numerical::Number System (Divisibility, HCF, LCM)": {
+    "attempts": 1,
+    "insertedTotal": 16,
+    "lastAttemptAt": "2026-05-17T13:53:58.046Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:55:59.459Z"
+  },
+  "afcat::afcat-reasoning::Numerical Reasoning (Number series)": {
+    "attempts": 1,
+    "insertedTotal": 16,
+    "lastAttemptAt": "2026-05-17T13:55:59.460Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T13:58:03.190Z"
+  },
+  "afcat::afcat-verbal::Idioms & Phrases": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:58:03.191Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-gk::Indian History": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T13:59:10.754Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Defense (Indian Air Force - History, Aircraft, Ranks, Organization; Indian Armed Forces)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T14:04:26.843Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-numerical::Simplification": {
+    "attempts": 1,
+    "insertedTotal": 21,
+    "lastAttemptAt": "2026-05-17T14:06:09.000Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T14:08:12.313Z"
+  },
+  "afcat::afcat-gk::General Science (Physics, Chemistry, Biology basics)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T14:11:04.819Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-gk::Geography": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T14:16:06.941Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-reasoning::Analytical Ability": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T14:21:19.863Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-subject::Anatomy & Physiology": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T14:39:36.206Z",
+    "lastStatus": "failed"
+  },
+  "ailet::ailet-english::Vocabulary (Synonyms, Antonyms)": {
+    "attempts": 1,
+    "insertedTotal": 18,
+    "lastAttemptAt": "2026-05-17T14:41:06.525Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T14:42:10.046Z"
+  },
+  "aiims-nursing::nursing-gk::Medical & Health Awareness": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T14:59:01.013Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-reasoning::Verbal Reasoning": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T15:01:14.495Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-subject::Midwifery & Obstetrical Nursing": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T15:04:34.342Z",
+    "lastStatus": "failed"
+  },
+  "ailet::ailet-english::Verbal Ability": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-17T15:08:40.345Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T15:13:05.332Z"
+  },
+  "ailet::ailet-gk::Current Affairs (National & International, last 12 months)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T15:13:05.333Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Sports (National & International events, Awards)": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-17T15:56:13.866Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T15:57:57.181Z"
+  },
+  "afcat::afcat-verbal::Sentence Improvement": {
+    "attempts": 1,
+    "insertedTotal": 20,
+    "lastAttemptAt": "2026-05-17T15:57:57.182Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:01:26.126Z"
+  },
+  "aiims-nursing::nursing-gk::Polity": {
+    "attempts": 1,
+    "insertedTotal": 23,
+    "lastAttemptAt": "2026-05-17T16:01:26.127Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:04:19.015Z"
+  },
+  "aiims-nursing::nursing-reasoning::Logical Reasoning": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:04:19.015Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-subject::Child Health Nursing (Pediatrics)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:07:07.028Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Art & Culture": {
+    "attempts": 1,
+    "insertedTotal": 22,
+    "lastAttemptAt": "2026-05-17T16:12:43.540Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:15:09.148Z"
+  },
+  "afcat::afcat-verbal::Ordering of Words/Sentences": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:15:09.149Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-gk::Healthcare schemes": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:17:11.216Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-subject::Community Health Nursing": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:20:06.476Z",
+    "lastStatus": "failed"
+  },
+  "ailet::ailet-english::Grammar (Parts of speech, Tenses, Voice)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:21:44.349Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-reasoning::Non-Verbal Reasoning": {
+    "attempts": 1,
+    "insertedTotal": 21,
+    "lastAttemptAt": "2026-05-17T16:29:39.914Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:33:13.123Z"
+  },
+  "ailet::ailet-english::Reading Comprehension": {
+    "attempts": 1,
+    "insertedTotal": 9,
+    "lastAttemptAt": "2026-05-17T16:33:13.125Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:34:14.915Z"
+  },
+  "ailet::ailet-gk::Legal Affairs (Landmark judgments, New laws)": {
+    "attempts": 1,
+    "insertedTotal": 16,
+    "lastAttemptAt": "2026-05-17T16:34:14.917Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:36:12.738Z"
+  },
+  "ailet::ailet-maths::Data Interpretation (Tables, Charts)": {
+    "attempts": 1,
+    "insertedTotal": 12,
+    "lastAttemptAt": "2026-05-17T16:36:12.739Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:36:58.954Z"
+  },
+  "ailet::ailet-reasoning::Logical Reasoning (Syllogisms, Analogies, Series)": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:36:58.955Z",
+    "lastStatus": "failed"
+  },
+  "aiims-nursing::nursing-reasoning::Numerical Ability": {
+    "attempts": 1,
+    "insertedTotal": 17,
+    "lastAttemptAt": "2026-05-17T16:40:31.201Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T16:42:16.944Z"
+  },
+  "ailet::ailet-gk::Indian History, Geography & Polity": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-17T16:42:16.945Z",
+    "lastStatus": "failed"
+  },
+  "afcat::afcat-gk::Famous Personalities": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-17T16:47:14.917Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T17:29:47.078Z"
+  },
+  "ailet::ailet-english::Idioms & Phrases": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-17T17:29:47.079Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-17T17:31:09.489Z"
+  },
+  "ailet::ailet-gk::National & International Events": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-17T17:31:09.490Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T05:31:08.385Z"
+  },
+  "ailet::ailet-maths::Arithmetic (Percentage, Profit & Loss, Ratio, Average)": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T05:31:08.386Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T05:38:55.792Z"
+  },
+  "ailet::ailet-reasoning::Analytical Reasoning (Puzzles, Arrangements)": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T05:38:55.794Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T05:50:10.188Z"
+  },
+  "aipvt::aipvt-biology::Ecology": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T05:50:10.188Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T05:50:57.440Z"
+  },
+  "aipvt::aipvt-chemistry::Physical Chemistry (Thermodynamics, Equilibrium)": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T05:50:57.440Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T06:04:13.979Z"
+  },
+  "aipvt::aipvt-physics::Electricity & Magnetism": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T06:04:13.980Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T06:18:26.864Z"
+  },
+  "ap-eamcet::ap-chemistry::Chemical Bonding": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T06:18:26.864Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T06:28:44.143Z"
+  },
+  "ap-eamcet::ap-maths::Algebra": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T06:28:44.144Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T06:48:33.416Z"
+  },
+  "comedk::comedk-physics::Semiconductors": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:16:58.252Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:23:21.895Z"
+  },
+  "comedk::comedk-chemistry::Chemical Bonding": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:23:21.896Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:30:42.876Z"
+  },
+  "comedk::comedk-chemistry::d-Block Elements": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:30:42.877Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:35:36.231Z"
+  },
+  "mht-cet::mht-physics::Magnetism": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:35:36.232Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:37:49.342Z"
+  },
+  "mht-cet::mht-physics::Wave Motion": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:37:49.343Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:41:18.459Z"
+  },
+  "mht-cet::mht-chemistry::Atomic Structure": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-18T07:41:18.460Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:46:10.136Z"
+  },
+  "mht-cet::mht-chemistry::States of Matter": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:46:10.138Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:47:16.415Z"
+  },
+  "mht-cet::mht-chemistry::Organic Chemistry Basics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:47:16.416Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:48:26.625Z"
+  },
+  "mht-cet::mht-chemistry::Hydrocarbons": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:48:26.626Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:50:48.283Z"
+  },
+  "mht-cet::mht-chemistry::Electrochemistry": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:50:48.284Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:51:51.428Z"
+  },
+  "mht-cet::mht-maths::Statistics & Probability": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:55:05.049Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:56:08.846Z"
+  },
+  "mht-cet::mht-maths::Complex Numbers": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:56:08.847Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T07:57:51.156Z"
+  },
+  "mht-cet::mht-maths::Matrices & Determinants": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T07:57:51.157Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:08:05.536Z"
+  },
+  "mht-cet::mht-maths::Differential Equations": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:08:05.537Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:16:47.536Z"
+  },
+  "mht-cet::mht-maths::Conic Sections": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:16:47.537Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:19:36.940Z"
+  },
+  "mht-cet::mht-maths::Mathematical Logic": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:19:36.941Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:25:35.677Z"
+  },
+  "ts-eamcet::ts-physics::Mechanics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:25:35.678Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:29:07.049Z"
+  },
+  "ts-eamcet::ts-physics::Electrostatics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:29:07.051Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:32:42.141Z"
+  },
+  "ts-eamcet::ts-physics::Electromagnetic Induction": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:32:42.142Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:33:56.882Z"
+  },
+  "ts-eamcet::ts-physics::Wave Optics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:33:56.884Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:35:54.976Z"
+  },
+  "ts-eamcet::ts-physics::Fluid Mechanics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:39:11.316Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:40:39.423Z"
+  },
+  "ts-eamcet::ts-chemistry::Equilibrium": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:40:39.425Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:42:31.630Z"
+  },
+  "ts-eamcet::ts-chemistry::Redox Reactions": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:42:31.631Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T08:45:51.067Z"
+  },
+  "ts-eamcet::ts-chemistry::Surface Chemistry": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T08:50:31.845Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T09:11:01.608Z"
+  },
+  "ts-eamcet::ts-chemistry::Periodic Table": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T09:11:01.609Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T09:40:06.267Z"
+  },
+  "ts-eamcet::ts-chemistry::d-Block Elements": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T09:44:27.891Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T10:01:35.828Z"
+  },
+  "ts-eamcet::ts-chemistry::p-Block Elements": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T10:01:35.829Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T10:24:55.686Z"
+  },
+  "ts-eamcet::ts-chemistry::Biomolecules": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T10:24:55.687Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T10:38:58.288Z"
+  },
+  "ts-eamcet::ts-maths::Algebra": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T10:38:58.288Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T10:45:07.867Z"
+  },
+  "ts-eamcet::ts-maths::Vectors & 3D Geometry": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T11:03:27.395Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T11:31:44.152Z"
+  },
+  "ts-eamcet::ts-maths::Differentiation": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-18T11:31:44.153Z",
+    "lastStatus": "empty"
+  },
+  "ap-eamcet::ap-physics::Thermodynamics": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-18T12:30:24.516Z",
+    "lastStatus": "empty"
+  },
+  "ap-eamcet::ap-physics::Wave Optics": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-18T12:49:49.405Z",
+    "lastStatus": "empty"
+  },
+  "ap-eamcet::ap-chemistry::Equilibrium": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-18T12:52:12.452Z",
+    "lastStatus": "empty"
+  },
+  "ap-eamcet::ap-chemistry::Redox Reactions": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-18T13:24:37.011Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T13:51:28.773Z"
+  },
+  "ap-eamcet::ap-chemistry::Hydrocarbons": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T13:51:28.773Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T14:08:14.639Z"
+  },
+  "ap-eamcet::ap-chemistry::Electrochemistry": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T14:08:14.640Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T14:24:26.180Z"
+  },
+  "ap-eamcet::ap-chemistry::Chemical Kinetics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T14:24:26.181Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T14:40:25.647Z"
+  },
+  "ap-eamcet::ap-chemistry::Chemistry in Everyday Life": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T14:40:25.648Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T14:57:40.463Z"
+  },
+  "ap-eamcet::ap-maths::Vectors & 3D Geometry": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T17:47:32.366Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T17:51:15.254Z"
+  },
+  "ap-eamcet::ap-maths::Permutations & Combinations": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T17:51:15.255Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T17:54:23.493Z"
+  },
+  "ap-eamcet::ap-maths::Straight Lines": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T17:54:23.494Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T17:55:58.645Z"
+  },
+  "ap-eamcet::ap-maths::Circles": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T17:55:58.646Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T17:58:47.741Z"
+  },
+  "wbjee::wbjee-physics::Mechanics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T17:58:47.742Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T18:01:55.698Z"
+  },
+  "wbjee::wbjee-physics::Electrostatics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T18:01:55.699Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T18:05:09.249Z"
+  },
+  "wbjee::wbjee-physics::Magnetism": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T18:05:09.250Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T18:08:34.168Z"
+  },
+  "wbjee::wbjee-physics::Physical World": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T18:08:34.169Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T18:14:54.526Z"
+  },
+  "wbjee::wbjee-chemistry::Atomic Structure": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T18:14:54.527Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T19:10:48.022Z"
+  },
+  "wbjee::wbjee-chemistry::States of Matter": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T19:10:48.023Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T19:11:19.661Z"
+  },
+  "ap-eamcet::ap-maths::Statistics & Probability": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T19:25:31.498Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T19:27:05.669Z"
+  },
+  "ap-eamcet::ap-maths::Sets & Relations": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T19:27:05.671Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T19:31:35.785Z"
+  },
+  "ap-eamcet::ap-maths::Complex Numbers": {
+    "attempts": 1,
+    "insertedTotal": 14,
+    "lastAttemptAt": "2026-05-18T19:31:35.786Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T19:40:01.118Z"
+  },
+  "ap-eamcet::ap-maths::Limits & Continuity": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T19:40:01.120Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T19:46:11.176Z"
+  },
+  "ap-eamcet::ap-maths::Integration": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-18T19:46:11.177Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-18T22:48:39.306Z"
+  },
+  "ap-eamcet::ap-maths::Differential Equations": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-18T22:48:39.307Z",
+    "lastStatus": "empty"
+  },
+  "ap-eamcet::ap-maths::Conic Sections": {
+    "attempts": 1,
+    "insertedTotal": 0,
+    "lastAttemptAt": "2026-05-19T01:25:34.115Z",
+    "lastStatus": "empty"
+  },
+  "wbjee::wbjee-physics::Waves & Oscillations": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-19T02:46:55.234Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-19T02:49:34.313Z"
+  },
+  "wbjee::wbjee-physics::Optics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-19T02:49:34.314Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-19T03:17:23.811Z"
+  },
+  "wbjee::wbjee-physics::Modern Physics": {
+    "attempts": 1,
+    "insertedTotal": 15,
+    "lastAttemptAt": "2026-05-19T03:17:23.813Z",
+    "lastStatus": "success",
+    "lastSuccessAt": "2026-05-19T03:19:43.988Z"
+  }
+}

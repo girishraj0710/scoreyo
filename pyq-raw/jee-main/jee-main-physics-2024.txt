@@ -1,0 +1,723 @@
+National Testing Agency
+Question Paper Name : 	B Tech 2nd Apr 2026 Shift 1
+Subject Name : 	B. Tech
+Creation Date : 	2026-04-02 14:02:41
+Duration : 	180
+Total Marks : 	300
+Display Marks: 	Yes
+B. Tech
+Group Number : 	1
+Group Id : 	6911211
+Group Maximum Duration : 	0
+Group Minimum Duration : 	180
+Show Attended Group? : 	No
+Edit Attended Group? : 	No
+Break time : 	0
+Group Marks : 	300
+Mathematics Section A
+Section Id : 	6911211
+Section Number : 	1
+Section type : 	Online
+Mandatory or Optional : 	Mandatory
+Number of Questions : 	20
+Number of Questions to be attempted : 	20
+Section Marks : 	80
+Maximum Instruction Time : 	0
+Sub-Section Number : 	1
+Sub-Section Id : 	6911211
+Question Shuffling Allowed : 	Yes
+Is Section Default? : 	No
+Question Number : 1 Question Id : 6911211 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+6911211.
+6911212.
+6911213.
+6911214.
+Question Number : 2 Question Id : 6911212 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 1 of 30 --
+
+Options :
+6911215.
+6911216.
+6911217.
+6911218.
+Question Number : 3 Question Id : 6911213 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+6911219.
+69112110.
+69112111.
+69112112.
+Question Number : 4 Question Id : 6911214 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112113.
+
+-- 2 of 30 --
+
+69112114.
+69112115.
+69112116.
+Question Number : 5 Question Id : 6911215 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112117.
+69112118.
+69112119.
+69112120.
+Question Number : 6 Question Id : 6911216 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112121.
+69112122.
+69112123.
+69112124.
+Question Number : 7 Question Id : 6911217 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112125.
+
+-- 3 of 30 --
+
+69112126.
+69112127.
+69112128.
+Question Number : 8 Question Id : 6911218 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112129.
+69112130.
+69112131.
+69112132.
+Question Number : 9 Question Id : 6911219 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112133.
+69112134.
+69112135.
+69112136.
+Question Number : 10 Question Id : 69112110 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+
+-- 4 of 30 --
+
+69112137.
+69112138.
+69112139.
+69112140.
+Question Number : 11 Question Id : 69112111 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112141.
+69112142.
+69112143.
+69112144.
+Question Number : 12 Question Id : 69112112 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112145.
+69112146.
+69112147.
+69112148.
+
+-- 5 of 30 --
+
+Question Number : 13 Question Id : 69112113 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112149.
+69112150.
+69112151.
+69112152.
+Question Number : 14 Question Id : 69112114 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112153.
+69112154.
+69112155.
+69112156.
+Question Number : 15 Question Id : 69112115 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112157.
+69112158.
+69112159.
+
+-- 6 of 30 --
+
+69112160.
+Question Number : 16 Question Id : 69112116 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112161.
+69112162.
+69112163.
+69112164.
+Question Number : 17 Question Id : 69112117 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112165.
+69112166.
+69112167.
+69112168.
+Question Number : 18 Question Id : 69112118 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112169.
+69112170.
+69112171.
+
+-- 7 of 30 --
+
+69112172.
+Question Number : 19 Question Id : 69112119 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112173.
+69112174.
+69112175.
+69112176.
+Question Number : 20 Question Id : 69112120 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112177.
+69112178.
+69112179.
+69112180.
+Mathematics Section B
+Section Id : 	6911212
+Section Number : 	2
+Section type : 	Online
+Mandatory or Optional : 	Mandatory
+
+-- 8 of 30 --
+
+Number of Questions : 	5
+Number of Questions to be attempted : 	5
+Section Marks : 	20
+Maximum Instruction Time : 	0
+Sub-Section Number : 	1
+Sub-Section Id : 	6911212
+Question Shuffling Allowed : 	Yes
+Is Section Default? : 	No
+Question Number : 21 Question Id : 69112121 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 22 Question Id : 69112122 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 23 Question Id : 69112123 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 24 Question Id : 69112124 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+
+-- 9 of 30 --
+
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 25 Question Id : 69112125 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Physics Section A
+Section Id : 	6911213
+Section Number : 	3
+Section type : 	Online
+Mandatory or Optional : 	Mandatory
+Number of Questions : 	20
+Number of Questions to be attempted : 	20
+Section Marks : 	80
+Maximum Instruction Time : 	0
+Sub-Section Number : 	1
+Sub-Section Id : 	6911213
+Question Shuffling Allowed : 	Yes
+Is Section Default? : 	No
+Question Number : 26 Question Id : 69112126 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112186.
+69112187.
+69112188.
+69112189.
+Question Number : 27 Question Id : 69112127 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 10 of 30 --
+
+Options :
+69112190.
+69112191.
+69112192.
+69112193.
+Question Number : 28 Question Id : 69112128 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+69112194.
+69112195.
+69112196.
+69112197.
+Question Number : 29 Question Id : 69112129 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 11 of 30 --
+
+Options :
+69112198.
+69112199.
+691121100.
+691121101.
+Question Number : 30 Question Id : 69112130 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121102.
+691121103.
+691121104.
+691121105.
+Question Number : 31 Question Id : 69112131 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121106.
+691121107.
+691121108.
+691121109.
+Question Number : 32 Question Id : 69112132 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 12 of 30 --
+
+Options :
+691121110.
+691121111.
+691121112.
+691121113.
+Question Number : 33 Question Id : 69112133 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121114.
+691121115.
+691121116.
+691121117.
+Question Number : 34 Question Id : 69112134 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121118.
+
+-- 13 of 30 --
+
+691121119.
+691121120.
+691121121.
+Question Number : 35 Question Id : 69112135 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121122.
+691121123.
+691121124.
+691121125.
+Question Number : 36 Question Id : 69112136 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121126.
+691121127.
+691121128.
+
+-- 14 of 30 --
+
+691121129.
+Question Number : 37 Question Id : 69112137 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121130.
+691121131.
+691121132.
+691121133.
+Question Number : 38 Question Id : 69112138 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121134.
+691121135.
+691121136.
+691121137.
+
+-- 15 of 30 --
+
+Question Number : 39 Question Id : 69112139 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121138.
+691121139.
+691121140.
+691121141.
+Question Number : 40 Question Id : 69112140 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121142.
+691121143.
+691121144.
+691121145.
+Question Number : 41 Question Id : 69112141 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 16 of 30 --
+
+Options :
+691121146.
+691121147.
+691121148.
+691121149.
+Question Number : 42 Question Id : 69112142 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121150.
+691121151.
+691121152.
+691121153.
+Question Number : 43 Question Id : 69112143 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121154.
+
+-- 17 of 30 --
+
+691121155.
+691121156.
+691121157.
+Question Number : 44 Question Id : 69112144 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121158.
+691121159.
+691121160.
+691121161.
+Question Number : 45 Question Id : 69112145 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121162.
+691121163.
+691121164.
+691121165.
+Physics Section B
+Section Id : 	6911214
+Section Number : 	4
+Section type : 	Online
+Mandatory or Optional : 	Mandatory
+Number of Questions : 	5
+Number of Questions to be attempted : 	5
+Section Marks : 	20
+Maximum Instruction Time : 	0
+Sub-Section Number : 	1
+Sub-Section Id : 	6911214
+Question Shuffling Allowed : 	Yes
+
+-- 18 of 30 --
+
+Is Section Default? : 	No
+Question Number : 46 Question Id : 69112146 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 47 Question Id : 69112147 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 48 Question Id : 69112148 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 49 Question Id : 69112149 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+
+-- 19 of 30 --
+
+1
+Question Number : 50 Question Id : 69112150 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Chemistry Section A
+Section Id : 	6911215
+Section Number : 	5
+Section type : 	Online
+Mandatory or Optional : 	Mandatory
+Number of Questions : 	20
+Number of Questions to be attempted : 	20
+Section Marks : 	80
+Maximum Instruction Time : 	0
+Sub-Section Number : 	1
+Sub-Section Id : 	6911215
+Question Shuffling Allowed : 	Yes
+Is Section Default? : 	No
+Question Number : 51 Question Id : 69112151 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121171.
+691121172.
+691121173.
+691121174.
+Question Number : 52 Question Id : 69112152 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 20 of 30 --
+
+Options :
+691121175.
+691121176.
+691121177.
+691121178.
+Question Number : 53 Question Id : 69112153 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121179.
+691121180.
+691121181.
+691121182.
+Question Number : 54 Question Id : 69112154 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121183.
+
+-- 21 of 30 --
+
+691121184.
+691121185.
+691121186.
+Question Number : 55 Question Id : 69112155 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121187.
+691121188.
+691121189.
+691121190.
+Question Number : 56 Question Id : 69112156 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121191.
+691121192.
+691121193.
+691121194.
+Question Number : 57 Question Id : 69112157 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 22 of 30 --
+
+Options :
+691121195.
+691121196.
+691121197.
+691121198.
+Question Number : 58 Question Id : 69112158 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121199.
+691121200.
+691121201.
+691121202.
+Question Number : 59 Question Id : 69112159 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121203.
+691121204.
+
+-- 23 of 30 --
+
+691121205.
+691121206.
+Question Number : 60 Question Id : 69112160 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121207.
+691121208.
+691121209.
+691121210.
+Question Number : 61 Question Id : 69112161 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121211.
+691121212.
+691121213.
+691121214.
+Question Number : 62 Question Id : 69112162 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 24 of 30 --
+
+Options :
+691121215.
+691121216.
+691121217.
+691121218.
+Question Number : 63 Question Id : 69112163 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121219.
+691121220.
+691121221.
+691121222.
+Question Number : 64 Question Id : 69112164 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+
+-- 25 of 30 --
+
+691121223.
+691121224.
+691121225.
+691121226.
+Question Number : 65 Question Id : 69112165 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121227.
+691121228.
+691121229.
+691121230.
+Question Number : 66 Question Id : 69112166 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121231.
+691121232.
+691121233.
+691121234.
+Question Number : 67 Question Id : 69112167 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+
+-- 26 of 30 --
+
+Options :
+691121235.
+691121236.
+691121237.
+691121238.
+Question Number : 68 Question Id : 69112168 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121239.
+691121240.
+691121241.
+
+-- 27 of 30 --
+
+691121242.
+Question Number : 69 Question Id : 69112169 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121243.
+691121244.
+691121245.
+691121246.
+Question Number : 70 Question Id : 69112170 Question Type : MCQ Option Shuffling : Yes Display Question Number : Yes Is
+Question Mandatory : No Single Line Question Option : No Option Orientation : Vertical
+Options :
+691121247.
+691121248.
+691121249.
+691121250.
+Chemistry Section B
+Section Id : 	6911216
+Section Number : 	6
+Section type : 	Online
+Mandatory or Optional : 	Mandatory
+
+-- 28 of 30 --
+
+Number of Questions : 	5
+Number of Questions to be attempted : 	5
+Section Marks : 	20
+Maximum Instruction Time : 	0
+Sub-Section Number : 	1
+Sub-Section Id : 	6911216
+Question Shuffling Allowed : 	Yes
+Is Section Default? : 	No
+Question Number : 71 Question Id : 69112171 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 72 Question Id : 69112172 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 73 Question Id : 69112173 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 74 Question Id : 69112174 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+
+-- 29 of 30 --
+
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+Question Number : 75 Question Id : 69112175 Question Type : SA Display Question Number : Yes Keyboard Layout : Inscript
+Response Type : Numeric
+Evaluation Required For SA : Yes
+Show Word Count : Yes
+Answers Type : Equal
+Text Areas : PlainText
+Possible Answers :
+1
+
+-- 30 of 30 --

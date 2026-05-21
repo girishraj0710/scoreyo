@@ -1,0 +1,2176 @@
+{
+  "generatedAt": "2026-05-20T16:05:48.038Z",
+  "summary": {
+    "totalExams": 73,
+    "examsWithOfficialSyllabusNotice": 11,
+    "localCoverage": {
+      "ready": 0,
+      "partial": 1,
+      "missing": 72
+    },
+    "syllabusEntriesWithoutExamMatch": [
+      "karnataka-cet",
+      "comedk-uget"
+    ]
+  },
+  "rows": [
+    {
+      "examId": "jee-main",
+      "examName": "JEE Main",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://jeemain.nta.nic.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://jeemain.nta.nic.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/jee-main",
+        "foundFiles": [
+          "jee-main-physics-2024.pdf",
+          "jee-main-physics-2024.txt"
+        ],
+        "yearsFound": [
+          2024
+        ],
+        "coverageStatus": "partial"
+      }
+    },
+    {
+      "examId": "jee-advanced",
+      "examName": "JEE Advanced",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://jeeadv.ac.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://jeeadv.ac.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "kcet",
+      "examName": "Karnataka CET",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://cetonline.karnataka.gov.in/kea/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/kcet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "comedk",
+      "examName": "COMEDK UGET",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/comedk",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "mht-cet",
+      "examName": "MHT CET",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://cetcell.mahacet.org/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://cetcell.mahacet.org/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/mht-cet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ts-eamcet",
+      "examName": "TS EAMCET",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://eamcet.tsche.ac.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://eamcet.tsche.ac.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ts-eamcet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ap-eamcet",
+      "examName": "AP EAMCET",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://apeapcet.nic.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://apeapcet.nic.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ap-eamcet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "wbjee",
+      "examName": "WBJEE",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://wbjeeb.nic.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://wbjeeb.nic.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/wbjee",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "keam",
+      "examName": "KEAM",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://cee.kerala.gov.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://cee.kerala.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/keam",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "upsee",
+      "examName": "UPSEE",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/upsee",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "bcece",
+      "examName": "BCECE",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/bcece",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ojee",
+      "examName": "OJEE",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ojee",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "tnea",
+      "examName": "TNEA",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/tnea",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "gujcet",
+      "examName": "GUJCET",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/gujcet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "reap",
+      "examName": "REAP",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/reap",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "jcece",
+      "examName": "JCECE",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/jcece",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "gate",
+      "examName": "GATE",
+      "subjects": [
+        "Computer Science & IT",
+        "General Aptitude",
+        "Engineering Mathematics"
+      ],
+      "currentSyllabusYear": 2025,
+      "officialSyllabusNotice": "https://gate.iitm.ac.in/",
+      "recommendedPaperYears": [
+        2025,
+        2024,
+        2023,
+        2022,
+        2021
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://gate.iitm.ac.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/gate",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "neet-ug",
+      "examName": "NEET UG",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Biology (Botany & Zoology)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://neet.nta.nic.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://neet.nta.nic.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/neet-ug",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "neet-pg",
+      "examName": "NEET PG",
+      "subjects": [
+        "Pre-Clinical Sciences",
+        "Clinical Sciences"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://natboard.edu.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://natboard.edu.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/neet-pg",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "upsc-cse",
+      "examName": "UPSC CSE",
+      "subjects": [
+        "Indian Polity & Governance",
+        "Indian History & Culture",
+        "Geography",
+        "Indian Economy",
+        "Science & Technology",
+        "Current Affairs & General Studies",
+        "Ethics, Integrity & Aptitude"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": "https://www.upsc.gov.in/",
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://www.upsc.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/upsc-cse",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "sbi-po",
+      "examName": "SBI PO",
+      "subjects": [
+        "Quantitative Aptitude & Data Interpretation",
+        "Reasoning Ability & Computer Aptitude",
+        "English Language",
+        "Banking & General Awareness"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://sbi.co.in/web/careers",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/sbi-po",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ibps-po",
+      "examName": "IBPS PO",
+      "subjects": [
+        "Quantitative Aptitude & Data Interpretation",
+        "Reasoning Ability",
+        "English Language",
+        "Computer Aptitude",
+        "Banking & General Awareness"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://www.ibps.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ibps-po",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ibps-clerk",
+      "examName": "IBPS Clerk",
+      "subjects": [
+        "Numerical Ability",
+        "Reasoning Ability",
+        "English Language",
+        "Computer Knowledge"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://www.ibps.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ibps-clerk",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rbi-grade-b",
+      "examName": "RBI Grade B",
+      "subjects": [
+        "General Awareness",
+        "Quantitative Aptitude",
+        "Reasoning Ability",
+        "English Language",
+        "Economic & Social Issues",
+        "Finance & Management"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rbi-grade-b",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ssc-cgl",
+      "examName": "SSC CGL",
+      "subjects": [
+        "Quantitative Aptitude",
+        "General Intelligence & Reasoning",
+        "English Language & Comprehension",
+        "General Awareness",
+        "Statistics (Tier-II for Statistical Investigator)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://ssc.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ssc-cgl",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ssc-chsl",
+      "examName": "SSC CHSL",
+      "subjects": [
+        "Quantitative Aptitude",
+        "General Intelligence & Reasoning",
+        "English Language & Comprehension",
+        "General Awareness"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://ssc.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ssc-chsl",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "clat",
+      "examName": "CLAT",
+      "subjects": [
+        "English Language & Comprehension",
+        "General Knowledge & Current Affairs",
+        "Legal Reasoning",
+        "Logical Reasoning",
+        "Quantitative Techniques"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/clat",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ailet",
+      "examName": "AILET",
+      "subjects": [
+        "English Language & Comprehension",
+        "General Knowledge & Current Affairs",
+        "Logical Reasoning",
+        "Legal Reasoning",
+        "Quantitative Techniques"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ailet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "cat",
+      "examName": "CAT",
+      "subjects": [
+        "Quantitative Aptitude (QA)",
+        "Verbal Ability & Reading Comprehension (VARC)",
+        "Data Interpretation & Logical Reasoning (DILR)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://iimcat.ac.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/cat",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "xat",
+      "examName": "XAT",
+      "subjects": [
+        "Verbal & Logical Ability",
+        "Decision Making",
+        "Quantitative Ability & Data Interpretation",
+        "General Knowledge"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/xat",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "nda",
+      "examName": "NDA",
+      "subjects": [
+        "Mathematics",
+        "General Ability Test"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://upsc.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/nda",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "cds",
+      "examName": "CDS",
+      "subjects": [
+        "English",
+        "General Knowledge",
+        "Elementary Mathematics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/cds",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ugc-net",
+      "examName": "UGC NET",
+      "subjects": [
+        "Paper 1 (Teaching & Research Aptitude)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ugc-net",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ctet",
+      "examName": "CTET",
+      "subjects": [
+        "Child Development & Pedagogy (CDP)",
+        "Mathematics & Pedagogy",
+        "Science & Pedagogy (Environmental Studies)",
+        "English Language & Pedagogy",
+        "Hindi Bhasha & Shikshan Vidhi",
+        "Social Studies & Pedagogy"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ctet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "nid",
+      "examName": "NID DAT",
+      "subjects": [
+        "General Knowledge & Current Affairs",
+        "Analytical & Logical Reasoning"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/nid",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "nift",
+      "examName": "NIFT",
+      "subjects": [
+        "General Ability Test",
+        "Creative Ability Test"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/nift",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rrb-ntpc",
+      "examName": "RRB NTPC",
+      "subjects": [
+        "Mathematics",
+        "General Intelligence & Reasoning",
+        "General Awareness & Current Affairs"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://www.rrbcdg.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rrb-ntpc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rrb-group-d",
+      "examName": "RRB Group D",
+      "subjects": [
+        "Mathematics",
+        "General Intelligence & Reasoning",
+        "General Science",
+        "General Awareness & Current Affairs"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rrb-group-d",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "lic-aao",
+      "examName": "LIC AAO",
+      "subjects": [
+        "Reasoning Ability",
+        "Quantitative Aptitude & Data Interpretation",
+        "English Language",
+        "General Knowledge, Current Affairs & Insurance Awareness",
+        "Computer Knowledge"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/lic-aao",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "delhi-police",
+      "examName": "Delhi Police",
+      "subjects": [
+        "Reasoning Ability",
+        "General Knowledge & Awareness",
+        "Numerical Ability",
+        "Computer Fundamentals"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/delhi-police",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "up-police",
+      "examName": "UP Police",
+      "subjects": [
+        "General Knowledge & Awareness",
+        "Numerical & Mental Ability",
+        "Mental Ability & IQ",
+        "Hindi Language"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/up-police",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "cisf",
+      "examName": "CISF",
+      "subjects": [
+        "General Awareness & Intelligence",
+        "Reasoning",
+        "Numerical Ability"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/cisf",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "uppsc",
+      "examName": "UPPSC",
+      "subjects": [
+        "General Studies",
+        "CSAT (Aptitude Test)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/uppsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "mppsc",
+      "examName": "MPPSC",
+      "subjects": [
+        "General Studies",
+        "Aptitude Test"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/mppsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "bpsc",
+      "examName": "BPSC",
+      "subjects": [
+        "General Studies"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/bpsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rpsc",
+      "examName": "RPSC",
+      "subjects": [
+        "General Studies",
+        "Aptitude Test"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rpsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "htet",
+      "examName": "HTET",
+      "subjects": [
+        "Child Development & Pedagogy",
+        "Hindi Bhasha & Shikshan Vidhi",
+        "English Language & Pedagogy",
+        "Mathematics & Pedagogy",
+        "Science & Pedagogy (Environmental Studies)",
+        "Social Studies & Pedagogy"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/htet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rtet",
+      "examName": "RTET",
+      "subjects": [
+        "Child Development & Pedagogy",
+        "Hindi Bhasha & Shikshan Vidhi",
+        "English Language & Pedagogy",
+        "Mathematics & Pedagogy",
+        "Science & Pedagogy (Environmental Studies)",
+        "Social Studies & Pedagogy"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rtet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "uptet",
+      "examName": "UPTET",
+      "subjects": [
+        "Child Development & Pedagogy",
+        "Hindi Bhasha & Shikshan Vidhi",
+        "English Language & Pedagogy",
+        "Mathematics & Pedagogy",
+        "Science & Pedagogy (Environmental Studies)",
+        "Social Studies & Pedagogy"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/uptet",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "kvs",
+      "examName": "KVS",
+      "subjects": [
+        "General Awareness & Current Affairs",
+        "Reasoning Ability",
+        "Subject Knowledge & Pedagogy",
+        "Hindi Language"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/kvs",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "dsssb",
+      "examName": "DSSSB",
+      "subjects": [
+        "General Awareness",
+        "General Intelligence & Reasoning",
+        "Arithmetical & Numerical Ability",
+        "Hindi Language",
+        "English Language"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/dsssb",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "nchmct",
+      "examName": "NCHMCT JEE",
+      "subjects": [
+        "English Language",
+        "Numerical Ability & Analytical Aptitude",
+        "Reasoning & Logical Deduction",
+        "General Knowledge & Current Affairs",
+        "Service Aptitude"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/nchmct",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "nata",
+      "examName": "NATA",
+      "subjects": [
+        "Mathematics",
+        "Drawing Test",
+        "General Aptitude"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/nata",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ca-foundation",
+      "examName": "CA Foundation",
+      "subjects": [
+        "Paper 1: Principles & Practice of Accounting",
+        "Paper 2: Business Laws & Business Correspondence",
+        "Paper 3A: Business Mathematics",
+        "Paper 3B: Logical Reasoning",
+        "Paper 3C: Statistics",
+        "Paper 4A: Business Economics",
+        "Paper 4B: Business & Commercial Knowledge"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ca-foundation",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "cs-foundation",
+      "examName": "CS Foundation",
+      "subjects": [
+        "Business Environment & Entrepreneurship",
+        "Business Management, Ethics & Communication",
+        "Business Economics",
+        "Fundamentals of Accounting & Auditing"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/cs-foundation",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "icar-aieea",
+      "examName": "ICAR AIEEA",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Biology (Botany & Zoology)",
+        "Mathematics (Optional)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/icar-aieea",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "aipvt",
+      "examName": "AIPVT",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Biology (Zoology focus)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/aipvt",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "gpat",
+      "examName": "GPAT",
+      "subjects": [
+        "Pharmaceutics",
+        "Pharmaceutical Chemistry",
+        "Pharmaceutical Analysis",
+        "Pharmacology & Pharmacognosy"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/gpat",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "aiims-nursing",
+      "examName": "AIIMS Nursing",
+      "subjects": [
+        "General Knowledge & Awareness",
+        "Reasoning Ability",
+        "Nursing & Medical Subjects"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/aiims-nursing",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "afcat",
+      "examName": "AFCAT",
+      "subjects": [
+        "General Awareness",
+        "Verbal Ability in English",
+        "Numerical Ability",
+        "Reasoning & Military Aptitude",
+        "EKT - Engineering Knowledge Test"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/afcat",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "indian-navy",
+      "examName": "Indian Navy",
+      "subjects": [
+        "Mathematics",
+        "Physics",
+        "English",
+        "General Knowledge & Reasoning"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/indian-navy",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "indian-army",
+      "examName": "Indian Army",
+      "subjects": [
+        "Mathematics",
+        "Physics",
+        "Chemistry"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/indian-army",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rrb-je",
+      "examName": "RRB JE",
+      "subjects": [
+        "General Awareness",
+        "General Intelligence & Reasoning",
+        "Mathematics & General Science",
+        "Technical Ability (Branch-wise)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rrb-je",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "rrb-alp",
+      "examName": "RRB ALP",
+      "subjects": [
+        "Mathematics",
+        "General Intelligence & Reasoning",
+        "General Science",
+        "General Awareness & Current Affairs"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": "https://www.rrbcdg.gov.in/",
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rrb-alp",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "judicial-services",
+      "examName": "Judicial Services",
+      "subjects": [
+        "Law",
+        "General Knowledge & Current Affairs"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/judicial-services",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "ifs",
+      "examName": "IFS",
+      "subjects": [
+        "General Studies (Same as UPSC CSE)",
+        "CSAT (Aptitude Test)"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/ifs",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "gds",
+      "examName": "GDS",
+      "subjects": [
+        "Mathematics",
+        "Reasoning Ability",
+        "General Knowledge"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/gds",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "postal-assistant",
+      "examName": "Postal Assistant",
+      "subjects": [
+        "Reasoning Ability",
+        "Quantitative Aptitude",
+        "English Language",
+        "General Knowledge & Current Affairs"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/postal-assistant",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "kpsc",
+      "examName": "KPSC",
+      "subjects": [
+        "General Studies",
+        "Aptitude Test"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/kpsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "tnpsc",
+      "examName": "TNPSC",
+      "subjects": [
+        "General Studies",
+        "Aptitude & Mental Ability"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/tnpsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "wbpsc",
+      "examName": "WBPSC",
+      "subjects": [
+        "General Studies"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/wbpsc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "isi",
+      "examName": "ISI",
+      "subjects": [
+        "Mathematics",
+        "Statistics"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/isi",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    },
+    {
+      "examId": "iimc",
+      "examName": "IIMC",
+      "subjects": [
+        "General Awareness & Current Affairs",
+        "English Language & Comprehension",
+        "Reasoning & Aptitude"
+      ],
+      "currentSyllabusYear": 2024,
+      "officialSyllabusNotice": null,
+      "recommendedPaperYears": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ],
+      "sourcePlan": {
+        "sourceType": "exam-conducting-body",
+        "primaryUrl": null,
+        "authenticityRule": "Accept only official board/authority papers or answer keys. Cross-check year + shift + subject before import."
+      },
+      "localCoverage": {
+        "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/iimc",
+        "foundFiles": [],
+        "yearsFound": [],
+        "coverageStatus": "missing"
+      }
+    }
+  ]
+}

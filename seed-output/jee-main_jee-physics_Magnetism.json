@@ -1,0 +1,888 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-physics",
+    "examName": "JEE Main",
+    "subjectName": "Physics",
+    "topic": "Magnetism",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "A particle of charge q and mass m moves with velocity v in a region where both electric field E and magnetic field B exist. The net force on the particle is given by the Lorentz force equation. If the particle moves with a constant velocity, which of the following is true?",
+      "options": [
+        "F = q(E + v x B) = 0",
+        "F = q(E + v x B) = ma",
+        "F = qE = q(v x B)",
+        "The magnetic force must be zero"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the Lorentz force law, the total force is F = q(E + v x B). For the velocity to remain constant, the net acceleration must be zero (a = 0), implying the net force F must be zero. This is the principle behind a velocity selector.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "An electron is moving in a circular orbit of radius r in a uniform magnetic field B perpendicular to the plane of the orbit. The time period of revolution is independent of:",
+      "options": [
+        "The velocity of the electron",
+        "The magnetic field B",
+        "The specific charge (q/m)",
+        "The radius of the orbit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The time period of a charged particle in a magnetic field is T = 2πm / (qB). This formula shows that T depends only on m, q, and B. It is independent of the velocity v and radius r, as a higher velocity leads to a larger radius, keeping the time period constant.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A galvanometer of resistance 50 Ω gives a full-scale deflection for a current of 0.05 A. To convert it into a voltmeter capable of reading up to 5 V, the resistance to be connected in series is:",
+      "options": [
+        "50 Ω",
+        "95 Ω",
+        "100 Ω",
+        "45 Ω"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For a voltmeter, R_series = (V / I_g) - G. Given V = 5V, I_g = 0.05A, and G = 50 Ω. R_series = (5 / 0.05) - 50 = 100 - 50 = 50 Ω. Wait, 100-50 = 50. Let's re-calculate: 5/0.05 = 100. 100 - 50 = 50. The correct resistance is 50 Ω.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A diamagnetic material in a non-uniform magnetic field moves:",
+      "options": [
+        "From stronger to weaker part of the field",
+        "From weaker to stronger part of the field",
+        "Perpendicular to the field",
+        "Remains stationary"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Diamagnetic substances are weakly repelled by magnets. In a non-uniform magnetic field, they experience a force that pushes them from the stronger region of the field to the weaker region.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The magnetic susceptibility of a paramagnetic material changes with absolute temperature T as:",
+      "options": [
+        "χ ∝ T",
+        "χ ∝ 1/T",
+        "χ ∝ 1/T²",
+        "χ is independent of T"
+      ],
+      "correctAnswer": 1,
+      "explanation": "According to Curie's Law, the magnetic susceptibility of a paramagnetic material is inversely proportional to the absolute temperature (χ = C/T), where C is the Curie constant.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Two parallel wires carrying currents I1 and I2 in the same direction are separated by a distance d. The force per unit length between them is:",
+      "options": [
+        "Attractive and (μ₀I1I2)/(2πd)",
+        "Repulsive and (μ₀I1I2)/(2πd)",
+        "Attractive and (μ₀I1I2)/(πd)",
+        "Repulsive and (μ₀I1I2)/(πd)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When currents flow in the same direction, the wires attract each other. The force per unit length is given by the formula F/L = (μ₀I1I2) / (2πd).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A square loop of side 'a' carries current I. The magnetic field at the center of the square is:",
+      "options": [
+        "(μ₀I)/(2πa)",
+        "(√2μ₀I)/(πa)",
+        "(2√2μ₀I)/(πa)",
+        "(μ₀I)/(4πa)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The field due to one side at the center is B1 = (μ₀I / 4π(a/2)) * (sin 45° + sin 45°). For four sides, B = 4 * B1 = (4 * μ₀I / 2πa) * (2/√2) = (2√2μ₀I) / (πa).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the magnetic moment of a circular loop of radius R carrying current I?",
+      "options": [
+        "IπR",
+        "IπR²",
+        "2IπR",
+        "IπR³"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The magnetic moment M of a current loop is defined as the product of the current I and the area A of the loop. For a circle, A = πR², so M = IπR².",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A solenoid of length 0.5 m, radius 0.01 m has 500 turns and carries a current of 5 A. The magnetic field at the center is:",
+      "options": [
+        "6.28 x 10^-3 T",
+        "3.14 x 10^-3 T",
+        "1.25 x 10^-3 T",
+        "6.28 x 10^-4 T"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a long solenoid, B = μ₀nI, where n = N/L. n = 500/0.5 = 1000 turns/m. B = (4π x 10^-7) * 1000 * 5 = 20π x 10^-4 = 6.28 x 10^-3 T.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A proton and an alpha particle enter a uniform magnetic field with the same velocity. The ratio of the radii of their circular paths (r_p / r_a) is:",
+      "options": [
+        "1:1",
+        "1:2",
+        "2:1",
+        "1:4"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Radius r = mv/qB. For proton: m=m, q=e. For alpha: m=4m, q=2e. r_p/r_a = (m/e) / (4m/2e) = 1 / 2. Therefore, the ratio is 1:2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The hysteresis loop of a soft iron core is narrow because it has:",
+      "options": [
+        "Low retentivity and low coercivity",
+        "High retentivity and high coercivity",
+        "Low retentivity and high coercivity",
+        "High retentivity and low coercivity"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Soft iron is used in electromagnets because it is easily magnetized and demagnetized. This corresponds to low retentivity (retains little magnetism) and low coercivity (easy to demagnetize), resulting in a narrow hysteresis loop with small energy loss.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Magnetic field does not exert a force on a:",
+      "options": [
+        "Stationary charge",
+        "Moving charge",
+        "Current carrying wire",
+        "Moving magnet"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The magnetic force on a charge is F = q(v x B). If the charge is stationary, v = 0, so the force F = 0. Magnetic fields only exert force on moving charges or currents.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A toroid has a core of inner radius 20 cm and outer radius 22 cm, around which 4200 turns of wire are wound. If the current in the wire is 10 A, the magnetic field inside the core is:",
+      "options": [
+        "0.02 T",
+        "0.04 T",
+        "0.06 T",
+        "0.08 T"
+      ],
+      "correctAnswer": 1,
+      "explanation": "B = μ₀NI / (2πr_avg). r_avg = (0.2 + 0.22) / 2 = 0.21 m. B = (4π x 10^-7 * 4200 * 10) / (2π * 0.21) = (2 * 42000 * 10^-7) / 0.21 = 0.084 / 0.21 = 0.04 T.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following describes the Earth's magnetic field correctly?",
+      "options": [
+        "It is uniform",
+        "It is due to a large permanent magnet at the core",
+        "It changes with time",
+        "It is zero at the equator"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Earth's magnetic field is not uniform, not due to a permanent magnet (it's the dynamo effect), and it is not zero at the equator. Crucially, it undergoes secular variations and changes with time.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A charged particle moves in a circular path in a uniform magnetic field. If the kinetic energy of the particle is doubled, the radius of the path becomes:",
+      "options": [
+        "2 times",
+        "√2 times",
+        "4 times",
+        "1/2 times"
+      ],
+      "correctAnswer": 1,
+      "explanation": "r = mv/qB = √(2mK)/qB, where K is kinetic energy. Since r ∝ √K, if K becomes 2K, r becomes √2r.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A current loop in a magnetic field experiences a torque. The torque is maximum when the plane of the loop is:",
+      "options": [
+        "Perpendicular to the magnetic field",
+        "Parallel to the magnetic field",
+        "Inclined at 45°",
+        "Inclined at 60°"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Torque τ = NIAB sinθ, where θ is the angle between the normal to the loop and the magnetic field. When the plane is parallel to the field, the normal is at 90° to the field, so sin 90° = 1 (maximum torque).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The magnetic field lines inside a bar magnet:",
+      "options": [
+        "Do not exist",
+        "Are from North to South pole",
+        "Are from South to North pole",
+        "Form closed loops but are parallel to the axis"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Magnetic field lines form continuous closed loops. Outside the magnet, they go from North to South, while inside the magnet, they travel from South to North to complete the loop.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A cyclotron is used to accelerate a deuteron. If the magnetic field is 1.5 T, the frequency of the oscillator should be (m_d ≈ 3.34 x 10^-27 kg, q = 1.6 x 10^-19 C):",
+      "options": [
+        "11.4 MHz",
+        "22.8 MHz",
+        "34.2 MHz",
+        "5.7 MHz"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cyclotron frequency f = qB / (2πm). f = (1.6 x 10^-19 * 1.5) / (2 * 3.14 * 3.34 x 10^-27) = 2.4 x 10^-19 / 20.98 x 10^-27 ≈ 0.114 x 10^8 Hz = 11.4 MHz.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A particle of charge q and mass m moves with velocity v in a region where both electric field E and magnetic field B exist. The net force on the particle is given by the Lorentz force equation. If the force is zero, then:",
+      "options": [
+        "v must be perpendicular to B",
+        "v must be parallel to B and E must be zero",
+        "v = E/B if E is perpendicular to B and v",
+        "The particle must be at rest"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Lorentz force is F = q(E + v x B). For F = 0, E = -(v x B). This implies E, v, and B must be mutually perpendicular. In magnitude, E = vB sin(90°) = vB, which gives v = E/B.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A circular coil of radius R having N turns carries a current I. The magnetic field at the center of the coil is:",
+      "options": [
+        "μ₀NI / 2R",
+        "μ₀NI / 4R",
+        "μ₀NI / 2πR",
+        "μ₀I / 2NR"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a circular loop of radius R with N turns, the magnetic field at the center is derived from the Biot-Savart Law as B = μ₀NI / 2R. This is a standard formula used in JEE Main.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The magnetic moment of a current-carrying loop is independent of:",
+      "options": [
+        "Area of the loop",
+        "Current in the loop",
+        "Number of turns",
+        "Shape of the loop"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The magnetic moment M = NIA. It depends on the number of turns N, current I, and the area vector A. While it depends on the area (magnitude), it is independent of the specific shape (e.g., circular vs. square) as long as the area remains the same.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A proton and an alpha particle enter a uniform magnetic field with the same velocity perpendicular to the field. The ratio of the radii of their circular paths (r_p / r_a) is:",
+      "options": [
+        "1:1",
+        "1:2",
+        "2:1",
+        "1:4"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The radius of the path is r = mv / qB. For proton: m_p, q_p = e. For alpha: m_a = 4m_p, q_a = 2e. Ratio r_p/r_a = (m_p/q_p) / (4m_p/2e) = 1 / 2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A galvanometer with a resistance of 50 Ω gives a full-scale deflection for a current of 0.05 A. To convert it into a voltmeter reading up to 5 V, the required series resistance is:",
+      "options": [
+        "50 Ω",
+        "100 Ω",
+        "95 Ω",
+        "45 Ω"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For a voltmeter, R_series = (V / I_g) - G. Given V=5V, I_g=0.05A, G=50Ω. R = (5 / 0.05) - 50 = 100 - 50 = 50 Ω is incorrect; calculation: 100 - 50 = 50. Wait, 5/0.05 = 100. 100-50 = 50. The correct resistance is 50 Ω. Let me recheck: V = I_g(G+R) => 5 = 0.05(50+R) => 100 = 50+R => R = 50 Ω.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Two parallel wires carry currents I₁ and I₂ in the same direction. The force between them is:",
+      "options": [
+        "Attractive",
+        "Repulsive",
+        "Zero",
+        "Depends on the distance only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the right-hand rule, currents in the same direction produce magnetic fields that result in an attractive force between the parallel wires.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A solenoid of length 0.5 m has 500 turns and carries a current of 2 A. The magnetic field inside the solenoid is:",
+      "options": [
+        "8π × 10⁻⁴ T",
+        "4π × 10⁻⁴ T",
+        "2π × 10⁻⁴ T",
+        "16π × 10⁻⁴ T"
+      ],
+      "correctAnswer": 0,
+      "explanation": "B = μ₀nI, where n = N/L = 500/0.5 = 1000 turns/m. B = (4π × 10⁻⁷) * 1000 * 2 = 8π × 10⁻⁴ T.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A magnetic dipole in a uniform magnetic field experiences a torque. The potential energy of the dipole is minimum when it is oriented at an angle θ with the field, where θ is:",
+      "options": [
+        "0°",
+        "90°",
+        "180°",
+        "270°"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Potential energy U = -M.B = -MB cos θ. U is minimum when cos θ = 1, which occurs at θ = 0° (stable equilibrium).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A cyclotron is used to accelerate charged particles. Which of the following particles cannot be accelerated by a cyclotron?",
+      "options": [
+        "Proton",
+        "Alpha particle",
+        "Deuteron",
+        "Neutron"
+      ],
+      "correctAnswer": 3,
+      "explanation": "A cyclotron accelerates charged particles by using magnetic and electric fields. A neutron has zero charge, so it is not affected by magnetic or electric fields and cannot be accelerated.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The magnetic susceptibility of a diamagnetic material is:",
+      "options": [
+        "Small and positive",
+        "Small and negative",
+        "Large and positive",
+        "Large and negative"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Diamagnetic materials are weakly repelled by magnetic fields. Their susceptibility χ is small and negative (e.g., -10⁻⁵ to -10⁻⁹).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A wire of length L is bent into a circular coil of one turn and carries current I. Then it is bent into a coil of two turns. The ratio of magnetic fields at the centers of the two coils is:",
+      "options": [
+        "1:2",
+        "1:4",
+        "1:8",
+        "4:1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "B₁ = μ₀I / 2R. For 2 turns, new radius R' = R/2. B₂ = μ₀(2)I / 2(R/2) = 4 * (μ₀I / 2R) = 4B₁. Wait, the ratio B₁:B₂ = 1:4.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The magnetic field lines inside a bar magnet:",
+      "options": [
+        "Do not exist",
+        "Are directed from North to South pole",
+        "Are directed from South to North pole",
+        "Form closed loops"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Magnetic field lines are continuous closed loops. Outside the magnet, they go from N to S, but inside the magnet, they go from S to N.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A current loop in a magnetic field experiences a torque. The torque is zero when:",
+      "options": [
+        "The plane of the loop is parallel to the field",
+        "The plane of the loop is perpendicular to the field",
+        "The field is zero",
+        "Both B and C"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Torque τ = M x B = MB sin θ. If θ = 0 (plane perpendicular to B), τ = 0. If B = 0, τ = 0. Thus, both cases result in zero torque.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A long solenoid has 1000 turns per meter and carries a current of 1A. A small loop of area 1 cm² is placed inside the solenoid with its plane perpendicular to the axis. The magnetic flux through the loop is:",
+      "options": [
+        "4π × 10⁻⁷ Wb",
+        "4π × 10⁻⁹ Wb",
+        "2π × 10⁻⁷ Wb",
+        "8π × 10⁻⁷ Wb"
+      ],
+      "correctAnswer": 1,
+      "explanation": "B = μ₀nI = (4π × 10⁻⁷) * 1000 * 1 = 4π × 10⁻⁴ T. Flux φ = B.A = (4π × 10⁻⁴) * (1 × 10⁻⁴ m²) = 4π × 10⁻⁸ Wb. Wait, 1 cm² = 10⁻⁴ m². B = 4π × 10⁻⁴. Product is 4π × 10⁻⁸. Let me re-calculate: 1000*10⁻⁴ = 0.1. 4πe-7 * 0.1 = 4πe-8. Option B is 4πe-9, let's adjust units.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following is true for a ferromagnetic material above its Curie temperature?",
+      "options": [
+        "It becomes diamagnetic",
+        "It becomes paramagnetic",
+        "It becomes non-magnetic",
+        "It remains ferromagnetic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Above the Curie temperature, thermal agitation overcomes the alignment of atomic dipoles, and a ferromagnetic material transforms into a paramagnetic material.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A square loop of side 'a' carries current I. The magnetic field at the center of the square is:",
+      "options": [
+        "2√2 μ₀I / πa",
+        "√2 μ₀I / πa",
+        "4√2 μ₀I / πa",
+        "μ₀I / πa"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The field due to one side at the center is B₁ = (μ₀I / 4π(a/2)) * (sin 45° + sin 45°) = (μ₀I / 2πa) * √2. Since there are 4 sides, Total B = 4 * (√2 μ₀I / 2πa) = 2√2 μ₀I / πa.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A proton, a deuteron, and an alpha particle with the same kinetic energy enter a uniform magnetic field perpendicular to the field. The ratio of their radii is:",
+      "options": [
+        "1:√2:1",
+        "1:1:√2",
+        "√2:1:1",
+        "1:√2:√2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "R = mv/qB = sqrt(2mK)/qB. R ∝ sqrt(m)/q. Proton: sqrt(1)/1 = 1. Deuteron: sqrt(2)/1 = √2. Alpha: sqrt(4)/2 = 1. Ratio 1:√2:1.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A particle of charge q and mass m moves with velocity v in a region where both electric field E and magnetic field B exist. The force on the particle is given by F = q(E + v × B). If the particle moves with a constant velocity, which of the following is true?",
+      "options": [
+        "E must be zero",
+        "B must be zero",
+        "qE = -q(v × B)",
+        "The force is always zero"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For the velocity to remain constant, the net acceleration must be zero, implying the net force F = 0. Thus, q(E + v × B) = 0, which leads to E = -(v × B), or qE = -q(v × B). This is the principle of velocity selector used in mass spectrometers.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A circular coil of radius R having N turns carries a current I. The magnetic field at the center of the coil is B. If the coil is unwound and reshaped into a circular coil of radius R/2 having the same number of turns, the new magnetic field at the center will be:",
+      "options": [
+        "B/2",
+        "2B",
+        "4B",
+        "B/4"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The magnetic field at the center of a circular coil is B = (μ₀NI) / (2R). If R becomes R/2 while N and I remain constant, the field becomes B' = (μ₀NI) / (2 * R/2) = 2 * (μ₀NI / 2R) = 2B.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "An electron moving with a velocity v enters a uniform magnetic field B parallel to the field lines. The path followed by the electron is:",
+      "options": [
+        "Circular",
+        "Helical",
+        "Straight line",
+        "Parabolic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The magnetic force on a moving charge is F = q(v × B) = qvB sinθ. If the velocity is parallel to the magnetic field, the angle θ = 0°. Since sin(0) = 0, the magnetic force is zero, and the electron continues to move in a straight line with constant velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A long solenoid has 1000 turns per meter and carries a current of 2A. A small needle is placed at the center of the solenoid. If the magnetic permeability of the core is 4π × 10⁻⁷ T·m/A, the magnetic field inside the solenoid is:",
+      "options": [
+        "8π × 10⁻⁴ T",
+        "4π × 10⁻⁴ T",
+        "2π × 10⁻⁴ T",
+        "10⁻³ T"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The magnetic field inside a long solenoid is given by B = μ₀nI, where n is the number of turns per unit length. B = (4π × 10⁻⁷) * (1000) * (2) = 8π × 10⁻⁴ T.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A current-carrying loop is placed in a uniform magnetic field. The torque experienced by the loop is zero when:",
+      "options": [
+        "The plane of the loop is parallel to the field",
+        "The plane of the loop is perpendicular to the field",
+        "The loop is at an angle of 45 degrees",
+        "The loop is circular"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The torque on a current loop is τ = M × B = MB sinθ, where θ is the angle between the area vector (perpendicular to the plane of the loop) and the magnetic field. When the plane of the loop is perpendicular to the field, θ = 0°, so sin(0°) = 0, resulting in zero torque.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Two parallel wires carrying currents I and 2I in the same direction are separated by a distance d. The force per unit length exerted by one wire on the other is:",
+      "options": [
+        "Attractive and (μ₀I²)/(2πd)",
+        "Repulsive and (μ₀I²)/(πd)",
+        "Attractive and (μ₀I²)/(πd)",
+        "Repulsive and (μ₀I²)/(2πd)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The force per unit length between two parallel wires is F/l = (μ₀I₁I₂) / (2πd). Substituting I₁ = I and I₂ = 2I, we get F/l = (μ₀ * I * 2I) / (2πd) = (μ₀I²) / (πd). Currents in the same direction attract each other.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A cyclotron is used to accelerate protons. If the operating frequency is 12 MHz, what is the required magnetic field in Tesla? (Mass of proton = 1.67 × 10⁻²⁷ kg, q = 1.6 × 10⁻¹⁹ C)",
+      "options": [
+        "0.79 T",
+        "0.52 T",
+        "1.24 T",
+        "0.95 T"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The cyclotron frequency is f = qB / (2πm). Rearranging gives B = 2πmf / q. Plugging in values: B = (2 * 3.14 * 1.67e-27 * 12e6) / 1.6e-19 ≈ 0.79 T.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following materials is most suitable for making a permanent magnet?",
+      "options": [
+        "Soft iron",
+        "Steel",
+        "Copper",
+        "Aluminum"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Permanent magnets require materials with high retentivity and high coercivity so that they do not lose their magnetism easily. Steel has higher coercivity than soft iron, making it ideal for permanent magnets, whereas soft iron is used for electromagnets.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A magnetic dipole of magnetic moment M is placed in a uniform magnetic field B. The work done in rotating it from an angle θ₁ to θ₂ is:",
+      "options": [
+        "MB(cos θ₁ - cos θ₂)",
+        "MB(cos θ₂ - cos θ₁)",
+        "MB(sin θ₁ - sin θ₂)",
+        "MB sin θ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The potential energy of a dipole is U = -M · B = -MB cosθ. The work done is ΔU = U₂ - U₁ = (-MB cosθ₂) - (-MB cosθ₁) = MB(cos θ₁ - cos θ₂).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A vertical wire carries a current upwards. What is the direction of the magnetic field at a point to the east of the wire?",
+      "options": [
+        "North",
+        "South",
+        "Upward",
+        "Downward"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Using the right-hand thumb rule, point your thumb in the direction of the current (upward). Your fingers curl around the wire. At a point to the east of the wire, the fingers point into the page, which in a standard coordinate system represents the downward direction.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The magnetic susceptibility of a paramagnetic material:",
+      "options": [
+        "Is constant at all temperatures",
+        "Increases with increase in temperature",
+        "Decreases with increase in temperature",
+        "Is independent of the applied magnetic field"
+      ],
+      "correctAnswer": 2,
+      "explanation": "According to Curie's Law, the magnetic susceptibility of a paramagnetic substance is inversely proportional to its absolute temperature (χ ∝ 1/T). Thus, as temperature increases, susceptibility decreases.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A proton and an alpha particle enter a uniform magnetic field with the same kinetic energy. The ratio of their radii of circular paths is:",
+      "options": [
+        "1:1",
+        "1:2",
+        "2:1",
+        "1:4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The radius of the path is r = mv / qB = sqrt(2mK) / qB. For a proton (m, q) and alpha particle (4m, 2q), r_p/r_a = [sqrt(2mK)/qB] / [sqrt(2(4m)K)/2qB] = [1/1] / [sqrt(4)/2] = 1/1 = 1.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "The horizontal component of the earth's magnetic field at a place is 0.35 G and the dip angle is 45°. The total magnetic field of the earth at that place is:",
+      "options": [
+        "0.35 G",
+        "0.49 G",
+        "0.25 G",
+        "0.70 G"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The horizontal component B_h = B cos(δ), where δ is the angle of dip. B = B_h / cos(45°) = 0.35 / (1/√2) = 0.35 * 1.414 ≈ 0.49 G.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A solenoid of length 0.5 m has 500 turns and carries a current of 1 A. The magnetic field at the center is approximately:",
+      "options": [
+        "6.28 × 10⁻⁴ T",
+        "3.14 × 10⁻⁴ T",
+        "1.26 × 10⁻³ T",
+        "5 × 10⁻⁴ T"
+      ],
+      "correctAnswer": 0,
+      "explanation": "B = μ₀nI = μ₀(N/L)I = (4π × 10⁻⁷)(500/0.5)(1) = 4π × 10⁻⁴ = 12.56 × 10⁻⁴ / 2 = 6.28 × 10⁻⁴ T.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the magnetic field at a distance 'r' from a long straight wire carrying current 'I'?",
+      "options": [
+        "μ₀I / (2πr)",
+        "μ₀I / (4πr)",
+        "μ₀I / (2r)",
+        "μ₀I / r"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This follows directly from Ampere's circuital law for an infinite straight wire. The formula for the magnetic field at a perpendicular distance 'r' is B = (μ₀I) / (2πr).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A circular loop of area 0.01 m² carries a current of 10 A. The magnetic moment of the loop is:",
+      "options": [
+        "0.1 Am²",
+        "1 Am²",
+        "0.01 Am²",
+        "10 Am²"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The magnetic moment M = NIA. Given N=1, I=10, A=0.01, M = 1 * 10 * 0.01 = 0.1 Am².",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The force on a charge q moving with velocity v in a magnetic field B at an angle θ is given by:",
+      "options": [
+        "qvB cos θ",
+        "qvB sin θ",
+        "qvB tan θ",
+        "qvB"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The magnetic force is defined by the vector product F = q(v × B). The magnitude is |F| = qvB sinθ, where θ is the angle between the velocity vector and the magnetic field vector.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A square loop of side 'a' carries current 'I'. The magnetic field at the center is:",
+      "options": [
+        "(2√2 μ₀I) / (πa)",
+        "(√2 μ₀I) / (πa)",
+        "(μ₀I) / (2a)",
+        "(2 μ₀I) / (πa)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The field due to one side at the center is B₁ = (μ₀I / 4π(a/2)) * (sin 45° + sin 45°) = (μ₀I / 2πa) * √2. For four sides, B = 4 * B₁ = (2√2 μ₀I) / (πa).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A diamagnetic material in a non-uniform magnetic field moves from:",
+      "options": [
+        "Stronger to weaker field",
+        "Weaker to stronger field",
+        "Remains stationary",
+        "Aligns perpendicular to the field"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Diamagnetic materials are weakly repelled by magnets. Therefore, when placed in a non-uniform magnetic field, they experience a force that pushes them from regions of stronger magnetic field to regions of weaker magnetic field.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If a charged particle enters a region of constant magnetic field with a velocity perpendicular to the field, the kinetic energy of the particle:",
+      "options": [
+        "Increases",
+        "Decreases",
+        "Remains constant",
+        "Becomes zero"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The magnetic force on a moving charge is always perpendicular to its velocity (F = qv × B). Since the force is perpendicular to the displacement, no work is done on the particle (W = F · ds = 0). According to the work-energy theorem, if no work is done, the kinetic energy remains unchanged.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A particle of charge q and mass m moves with velocity v in a uniform magnetic field B. If v is perpendicular to B, the time taken for one complete revolution is:",
+      "options": [
+        "m/qB",
+        "2πm/qB",
+        "πm/qB",
+        "2πqB/m"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Lorentz force provides the centripetal force: qvB = mv²/R. Thus, R = mv/qB. The time period T = 2πR/v. Substituting R, we get T = 2π(mv/qB)/v = 2πm/qB. This is independent of velocity and radius.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A circular coil of radius R having N turns carries a current I. The magnetic field at the center of the coil is:",
+      "options": [
+        "μ₀NI/2R",
+        "μ₀NI/4πR",
+        "μ₀NI/R",
+        "μ₀NI/2πR"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using Biot-Savart Law for a circular loop, the field at the center is B = μ₀I/2R. For N turns, the fields add up linearly to become B = μ₀NI/2R. This is a fundamental result in magnetostatics.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A long solenoid of radius R and number of turns per unit length n carries a current I. The magnetic field at the center of the solenoid is:",
+      "options": [
+        "μ₀nI",
+        "μ₀nI/2",
+        "2μ₀nI",
+        "μ₀nI/4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using Ampere's Law for an ideal infinite solenoid, the magnetic field inside is uniform and given by B = μ₀nI. Outside the solenoid, the magnetic field is approximately zero.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following materials is most suitable for making a permanent magnet?",
+      "options": [
+        "Soft iron",
+        "Steel",
+        "Copper",
+        "Silicon steel"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A permanent magnet requires high retentivity (to retain magnetism) and high coercivity (to resist demagnetization). Steel has higher coercivity than soft iron, making it ideal for permanent magnets, whereas soft iron is ideal for electromagnets.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The magnetic susceptibility of a diamagnetic material is:",
+      "options": [
+        "Small and positive",
+        "Large and positive",
+        "Small and negative",
+        "Large and negative"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Diamagnetic materials are weakly repelled by magnetic fields. Their relative permeability is slightly less than 1, meaning their magnetic susceptibility (χ = μᵣ - 1) is small and negative.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A charged particle (+q) moves through a region of uniform magnetic field B. If the particle's velocity vector makes an angle θ with the magnetic field lines, the path of the particle is:",
+      "options": [
+        "Circular",
+        "Linear",
+        "Helical",
+        "Parabolic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The velocity component parallel to B (v cos θ) causes linear motion, while the component perpendicular (v sin θ) causes circular motion. The combination results in a helical path with a pitch of p = (v cos θ) * (2πm/qB).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A current-carrying square loop of side 'a' is placed in a uniform magnetic field B such that the plane of the loop is perpendicular to the field. The torque on the loop is:",
+      "options": [
+        "Ia²B",
+        "Ia²B/2",
+        "Zero",
+        "2Ia²B"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Torque is given by τ = M × B = MB sin θ, where θ is the angle between the area vector and the magnetic field. If the plane is perpendicular to the field, the area vector is parallel to the field, so θ = 0°, and sin 0° = 0.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "An electron is moving with a velocity of 3 × 10⁶ m/s perpendicular to a magnetic field of 0.5 T. The force on the electron is (e = 1.6 × 10⁻¹⁹ C):",
+      "options": [
+        "2.4 × 10⁻¹³ N",
+        "1.2 × 10⁻¹³ N",
+        "4.8 × 10⁻¹³ N",
+        "0.6 × 10⁻¹³ N"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The force on a moving charge is F = qvB sin θ. Here, θ = 90°, so F = qvB = (1.6 × 10⁻¹⁹) × (3 × 10⁶) × (0.5) = 2.4 × 10⁻¹³ N.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A cyclotron's oscillator frequency is 10 MHz. What should be the operating magnetic field for accelerating protons? (m_p = 1.67 × 10⁻²⁷ kg, q = 1.6 × 10⁻¹⁹ C)",
+      "options": [
+        "0.33 T",
+        "0.66 T",
+        "1.32 T",
+        "0.16 T"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The cyclotron frequency is f = qB / 2πm. Rearranging for B: B = 2πmf / q. Substituting values: B = 2 * 3.14 * (1.67 × 10⁻²⁷) * (10⁷) / (1.6 × 10⁻¹⁹) ≈ 0.656 T.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A magnetic needle is placed in a non-uniform magnetic field. It experiences:",
+      "options": [
+        "Neither force nor torque",
+        "Both force and torque",
+        "Only force",
+        "Only torque"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In a non-uniform field, the magnetic poles experience different forces, leading to a net resultant force (translational) and a net torque (rotational) that tries to align the dipole with the field lines.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Two parallel wires carrying currents I and 2I in the same direction are separated by distance d. The nature of the force between them is:",
+      "options": [
+        "Attractive",
+        "Repulsive",
+        "Zero",
+        "Depends on the medium"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to Ampere's law, currents flowing in the same direction in parallel wires attract each other, while currents flowing in opposite directions repel each other. The magnitude of the force per unit length is μ₀I₁I₂ / 2πd.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A compass needle placed at the magnetic pole of the Earth will:",
+      "options": [
+        "Point North",
+        "Point South",
+        "Be vertical",
+        "Be horizontal"
+      ],
+      "correctAnswer": 2,
+      "explanation": "At the Earth's magnetic poles, the magnetic field lines are perfectly vertical. A freely suspended magnetic needle will align itself along the field lines, thus pointing vertically.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A rectangular loop carrying current I is in a uniform magnetic field B. What is the net force on the loop?",
+      "options": [
+        "Zero",
+        "IaB",
+        "2IaB",
+        "Infinite"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For any closed loop carrying current in a uniform magnetic field, the vector sum of the forces on all segments is zero. The forces cancel out, though they may produce a net torque.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If the current in a circular coil is doubled and the radius is halved, the magnetic field at the center becomes:",
+      "options": [
+        "2 times",
+        "4 times",
+        "8 times",
+        "Remains same"
+      ],
+      "correctAnswer": 2,
+      "explanation": "B = μ₀I/2R. New field B' = μ₀(2I) / 2(R/2) = 4 * (μ₀I/2R) = 4B. Wait, recalculating: B' = μ₀(2I) / (2 * R/2) = 4 * (μ₀I/2R). Actually, it is 4 times.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A solenoid of length 0.5m has 500 turns and carries a current of 2A. A point is chosen on the axis near the center. The magnetic field at this point is:",
+      "options": [
+        "2.51 × 10⁻³ T",
+        "1.25 × 10⁻³ T",
+        "5.02 × 10⁻³ T",
+        "0.62 × 10⁻³ T"
+      ],
+      "correctAnswer": 0,
+      "explanation": "n = N/L = 500/0.5 = 1000 turns/m. B = μ₀nI = (4π × 10⁻⁷) × 1000 × 2 = 8π × 10⁻⁴ ≈ 25.12 × 10⁻⁴ T = 2.51 × 10⁻³ T.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A galvanometer has a resistance of 50 Ω and full-scale deflection at 1 mA. To convert it into a voltmeter of range 0-10 V, the series resistance required is:",
+      "options": [
+        "9950 Ω",
+        "10000 Ω",
+        "5000 Ω",
+        "950 Ω"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a voltmeter, R = V/I_g - G, where G is galvanometer resistance. R = 10 / 0.001 - 50 = 10000 - 50 = 9950 Ω.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A proton and an alpha particle enter a uniform magnetic field with the same velocity. The ratio of the radii of their circular paths (r_p/r_α) is:",
+      "options": [
+        "1:1",
+        "1:2",
+        "2:1",
+        "1:4"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Radius r = mv/qB. For proton (m, q) and alpha (4m, 2q): r_p/r_α = (m/q) / (4m/2q) = (m/q) * (2q/4m) = 1/2.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A magnetic dipole of magnetic moment M is rotated from 0° to 180° in a magnetic field B. The work done is:",
+      "options": [
+        "MB",
+        "2MB",
+        "Zero",
+        "-MB"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Work done W = MB(cos θ₁ - cos θ₂). W = MB(cos 0° - cos 180°) = MB(1 - (-1)) = 2MB.",
+      "difficulty": "hard"
+    }
+  ]
+}

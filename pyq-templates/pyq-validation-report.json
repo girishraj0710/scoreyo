@@ -1,0 +1,593 @@
+{
+  "filePath": "pyq-data/jee-advanced-jee-adv-maths-2024-pattern-extracted.json",
+  "totalQuestions": 34,
+  "validQuestions": 34,
+  "issues": [
+    {
+      "row": 1,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 2,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 3,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 4,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 5,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 6,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 7,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 8,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 9,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 10,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 11,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 12,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 13,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 14,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 15,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 16,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 17,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 18,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 19,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 20,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 21,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 22,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 23,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 24,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 25,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 26,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 27,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 28,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 29,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 30,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 31,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 32,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 33,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    },
+    {
+      "row": 34,
+      "severity": "warning",
+      "code": "invalid_topic",
+      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
+    }
+  ],
+  "quality": {
+    "averageScore": 91,
+    "high": 34,
+    "medium": 0,
+    "low": 0,
+    "perQuestion": [
+      {
+        "row": 1,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 2,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 3,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 4,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 5,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 6,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 7,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 8,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 9,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 10,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 11,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 12,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 13,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 14,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 15,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 16,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 17,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 18,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 19,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 20,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 21,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 22,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 23,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 24,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 25,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 26,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 27,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 28,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 29,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 30,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 31,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 32,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 33,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      },
+      {
+        "row": 34,
+        "score": 91,
+        "verdict": "high",
+        "breakdown": {
+          "authenticity": 100,
+          "syllabusAlignment": 75,
+          "structure": 100,
+          "freshness": 100
+        }
+      }
+    ]
+  }
+}

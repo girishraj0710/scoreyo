@@ -1,0 +1,240 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-physics",
+    "examName": "JEE Main",
+    "subjectName": "Physics",
+    "topic": "Semiconductors",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following is an intrinsic semiconductor?",
+      "options": [
+        "Silicon doped with phosphorus",
+        "Germanium doped with Boron",
+        "Pure Germanium",
+        "Gallium Arsenide"
+      ],
+      "correctAnswer": 2,
+      "explanation": "An intrinsic semiconductor is a pure semiconductor material with no significant dopant atoms. Silicon and Germanium in their pure crystalline form are intrinsic semiconductors. Doping with elements like phosphorus (pentavalent) or boron (trivalent) creates extrinsic semiconductors.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "In a p-n junction diode, the barrier potential is primarily due to:",
+      "options": [
+        "The applied forward voltage",
+        "The applied reverse voltage",
+        "The diffusion of majority charge carriers across the junction",
+        "The drift of minority charge carriers across the junction"
+      ],
+      "correctAnswer": 2,
+      "explanation": "When a p-n junction is formed, majority charge carriers (holes from p-side, electrons from n-side) diffuse across the junction due to concentration gradients. This diffusion leaves behind immobile ions, creating a depletion region and an electric field, which in turn creates a barrier potential opposing further diffusion.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The forbidden energy gap of a semiconductor material is approximately 1.1 eV. If photons of energy 2.0 eV are incident on this material, then:",
+      "options": [
+        "Electrons will be excited to the conduction band, and the material will become a conductor.",
+        "No electrons will be excited to the conduction band.",
+        "Electrons will be excited to the conduction band, and the excess energy will be released as heat or light.",
+        "Only electrons from the valence band will be excited to the conduction band."
+      ],
+      "correctAnswer": 2,
+      "explanation": "For an electron to jump from the valence band to the conduction band, it must absorb energy at least equal to the band gap (1.1 eV). Since the incident photon energy (2.0 eV) is greater than the band gap, excitation will occur. The excess energy (2.0 eV - 1.1 eV) will be dissipated, typically as heat or sometimes light (photoluminescence).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A zener diode is best used as:",
+      "options": [
+        "A rectifier",
+        "An amplifier",
+        "A voltage regulator",
+        "A light detector"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A zener diode is designed to operate in the reverse breakdown region. In this region, the voltage across the zener diode remains nearly constant even with significant changes in current. This characteristic makes it ideal for maintaining a stable voltage, hence used as a voltage regulator.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The majority charge carriers in an n-type semiconductor are:",
+      "options": [
+        "Electrons",
+        "Holes",
+        "Both electrons and holes equally",
+        "Immobile ions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In an n-type semiconductor, the material is doped with pentavalent impurity atoms (e.g., phosphorus in silicon). These impurity atoms contribute extra electrons that are loosely bound and easily become free charge carriers. Therefore, electrons are the majority charge carriers.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A full-wave rectifier converts:",
+      "options": [
+        "AC input into AC output with increased frequency",
+        "AC input into pulsating DC output",
+        "DC input into pulsating AC output",
+        "AC input into pure DC output"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A full-wave rectifier utilizes both halves of the AC input cycle. It converts the alternating current (AC) into a direct current (DC) that flows in only one direction. However, this DC output is not pure; it is pulsating, meaning it varies in magnitude but maintains a constant polarity.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The threshold voltage (or cut-in voltage) for a silicon p-n junction diode is approximately:",
+      "options": [
+        "0.3 V",
+        "0.7 V",
+        "1.1 V",
+        "1.5 V"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The threshold voltage (or cut-in voltage) is the minimum forward voltage required for a diode to start conducting significantly. For silicon diodes, this value is typically around 0.7 V. For germanium diodes, it is around 0.3 V.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "In a semiconductor device, the depletion region is a region:",
+      "options": [
+        "Rich in free electrons",
+        "Rich in holes",
+        "Devoid of mobile charge carriers",
+        "Containing mobile ions"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The depletion region, also known as the space charge region, is formed at the junction of a p-type and n-type semiconductor. It is depleted of mobile charge carriers (electrons and holes) because they have diffused across the junction, leaving behind immobile ionized acceptor and donor atoms.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following logic gates can be implemented using a single NOT gate?",
+      "options": [
+        "AND",
+        "OR",
+        "NAND",
+        "None of these"
+      ],
+      "correctAnswer": 3,
+      "explanation": "A NOT gate only inverts the input signal. Implementing logic gates like AND, OR, or NAND requires combinations of multiple gates or different types of gates. A single NOT gate alone cannot perform the functions of AND, OR, or NAND gates.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A diode is a device that allows current to flow predominantly in:",
+      "options": [
+        "Both directions with equal ease",
+        "The reverse direction only",
+        "The forward direction only",
+        "Neither direction"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A diode exhibits non-linear electrical characteristics. It offers very low resistance to current flow when forward biased (voltage applied in the direction that allows current) and very high resistance when reverse biased (voltage applied in the opposite direction). Thus, it primarily allows current to flow in the forward direction.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A transistor is used as an amplifier by operating it in which region?",
+      "options": [
+        "Cut-off region",
+        "Saturation region",
+        "Active region",
+        "Breakdown region"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For a transistor to function as an amplifier, it must be biased in the active region. In this region, a small change in the input signal (base current or voltage) causes a large proportional change in the output signal (collector current or voltage), leading to amplification.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If the input signal to a logic inverter (NOT gate) is '1', the output will be:",
+      "options": [
+        "'0'",
+        "'1'",
+        "High impedance",
+        "Undefined"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A logic inverter (NOT gate) performs the function of logical negation. If the input is a logical '1' (representing a high voltage level), the output is a logical '0' (representing a low voltage level). Conversely, if the input is '0', the output is '1'.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "In a semiconductor, the conductivity (σ) is related to the number density of charge carriers (n) and their mobility (μ) by the formula:",
+      "options": [
+        "σ = n/(eμ)",
+        "σ = e/(nμ)",
+        "σ = neμ",
+        "σ = e/(n/μ)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The electrical conductivity (σ) of a material is given by the product of the charge carrier density (n), the elementary charge (e), and the mobility of the charge carriers (μ). For a material with both electrons and holes, σ = n_e e μ_e + n_h e μ_h, where n_e, μ_e are electron density and mobility, and n_h, μ_h are hole density and mobility. For intrinsic semiconductors, n_e = n_h = n. For extrinsic semiconductors, one term dominates.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A light-emitting diode (LED) is a p-n junction that emits light when:",
+      "options": [
+        "Forward biased",
+        "Reverse biased",
+        "Zero biased",
+        "Operated in breakdown region"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An LED is a special type of p-n junction diode. When it is forward biased, charge carriers (electrons and holes) recombine at the junction. This recombination process releases energy in the form of photons, which we perceive as light.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The rectification efficiency of a full-wave rectifier is approximately:",
+      "options": [
+        "40.6%",
+        "81.2%",
+        "100%",
+        "20.3%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The theoretical maximum rectification efficiency for an ideal full-wave rectifier is about 81.2%. This is significantly higher than that of a half-wave rectifier, which is about 40.6%. The efficiency is defined as the ratio of the DC power output to the AC power input.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In a common-base configuration of a transistor, the relation between α and β is given by:",
+      "options": [
+        "α = β / (1 + β)",
+        "β = α / (1 - α)",
+        "α = (1 + β) / β",
+        "β = (1 + α) / α"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In transistor analysis, α represents the common-base current gain (ratio of collector current change to emitter current change), and β represents the common-emitter current gain (ratio of collector current change to base current change). The relationship is derived from I_E = I_C + I_B. Dividing by I_E gives 1 = α + I_B/I_E. Since β = I_C/I_B and α = I_C/I_E, it can be shown that α = β / (1 + β).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "A semiconductor device exhibits a negative temperature coefficient of resistance. This means that as the temperature increases:",
+      "options": [
+        "Its resistance increases",
+        "Its resistance decreases",
+        "Its resistance remains constant",
+        "Its conductivity decreases"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A negative temperature coefficient of resistance implies that the resistance of the material decreases as its temperature increases. This is characteristic of semiconductors, where increased temperature provides more thermal energy, freeing more charge carriers and thus increasing conductivity (decreasing resistance).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is TRUE for a p-n junction diode operating in reverse bias?",
+      "options": [
+        "A large current flows from the p-side to the n-side.",
+        "A large current flows from the n-side to the p-side.",
+        "Only a small reverse saturation current flows.",
+        "The depletion region becomes narrower."
+      ],
+      "correctAnswer": 2,
+      "explanation": "In reverse bias, the external voltage opposes the internal barrier potential, widening the depletion region and significantly reducing the number of majority carriers crossing the junction. Hence, only a small current, known as the reverse saturation current (due to minority carriers), flows. The depletion region widens, not narrows.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A photodiode is used to detect light. It is operated in:",
+      "options": [
+        "Forward bias to maximize current flow",
+        "Reverse bias to maximize sensitivity",
+        "Cut-off region for maximum gain",
+        "Active region for amplification"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A photodiode is designed to detect light. It is operated under reverse bias. When light strikes the depletion region, it generates electron-hole pairs. The strong electric field in the reverse-biased junction sweeps these carriers across, creating a photocurrent proportional to the light intensity. This reverse bias operation maximizes the sensitivity and the width of the depletion region for efficient light absorption.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -194,12 +194,12 @@ After complete migration:
 **Phase 5:** 1-2 weeks (app code changes + testing)  
 **Phase 6:** 1-2 weeks (gradual rollout)  
 
-## Questions to Resolve
+## Operational Follow-up
 
-1. **Should we run Phase 1-2 now?** (Safe, no prod impact)
-2. **Deduplication strategy:** Keep highest quality or merge explanations?
-3. **State-specific topics:** Which states to prioritize?
-4. **Testing strategy:** Staging environment available?
+1. Continue monitoring dimensional mode query health and latency.
+2. Keep feature flag rollback path (`USE_DIMENSIONAL_MODEL=false`) documented and tested.
+3. Maintain migration scripts for backfill/repair operations only (no further structural cutover work pending).
+4. Keep docs and scripts in sync as schema/query changes are made.
 
 ## Commands Reference
 
@@ -210,13 +210,11 @@ npx tsx scripts/migrate-to-dimensional-model.ts
 # Phase 2: Populate dimensions
 npx tsx scripts/populate-dimensions.ts
 
-# Check results
-npx tsx scripts/analyze-dimensional-model.ts
-
-# Rollback if needed
-npx tsx scripts/rollback-dimensional-model.ts
+# Check schema and migration status
+npx tsx scripts/check-schema.ts
+npx tsx scripts/check-migration-status.ts
 ```
 
 ---
 
-**Ready to proceed with Phase 1 & 2?** They're safe operations that don't affect production data.
+Dimensional migration is complete; this document now serves as runbook/history for maintenance and verification.

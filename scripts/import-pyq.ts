@@ -15,6 +15,7 @@ import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { parse } from "csv-parse/sync";
 import { getCurrentSyllabusYear } from "../src/lib/syllabus-config";
+import { resolveCanonicalSubjectId, validatePYQFile } from "./lib/pyq-validation";
 
 const envFile = readFileSync(join(process.cwd(), ".env.local"), "utf-8");
 envFile.split("\n").forEach((line) => {
@@ -76,7 +77,7 @@ async function importFromCSV(filePath: string): Promise<number> {
       const r = record as any;
       const pyq: PYQQuestion = {
         examId: r.exam_id,
-        subjectId: r.subject_id,
+        subjectId: resolveCanonicalSubjectId(r.exam_id, r.subject_id),
         topic: r.topic,
         question: r.question,
         optionA: r.option_a,
@@ -146,7 +147,7 @@ async function importFromJSON(filePath: string): Promise<number> {
     try {
       const pyq: PYQQuestion = {
         examId: q.examId,
-        subjectId: q.subjectId,
+        subjectId: resolveCanonicalSubjectId(q.examId, q.subjectId),
         topic: q.topic,
         question: q.question,
         optionA: q.options[0],
@@ -238,6 +239,7 @@ async function main() {
     console.log("  npx tsx scripts/import-pyq.ts <file.csv>");
     console.log("  npx tsx scripts/import-pyq.ts <file.json>");
     console.log("  npx tsx scripts/import-pyq.ts --batch pyq-data/");
+    console.log("  npx tsx scripts/import-pyq.ts <file.json|file.csv> --skip-validate");
     console.log("");
     console.log("File formats:");
     console.log("");
@@ -255,6 +257,7 @@ async function main() {
   }
 
   let totalInserted = 0;
+  const skipValidate = args.includes("--skip-validate");
 
   if (args[0] === "--batch" && args[1]) {
     // Batch import from directory
@@ -268,6 +271,27 @@ async function main() {
     // Single file import
     const filePath = args[0];
     const ext = filePath.toLowerCase().split('.').pop();
+
+    if (!skipValidate) {
+      console.log("\n🔎 Running syllabus/topic validation before import...");
+      const validation = validatePYQFile(filePath);
+      const errors = validation.issues.filter((issue) => issue.severity === "error");
+      const warnings = validation.issues.filter((issue) => issue.severity === "warning");
+      console.log(
+        `   Validation result: total=${validation.totalQuestions}, valid=${validation.validQuestions}, errors=${errors.length}, warnings=${warnings.length}`
+      );
+      console.log(
+        `   Quality: avg=${validation.quality.averageScore}, high=${validation.quality.high}, medium=${validation.quality.medium}, low=${validation.quality.low}`
+      );
+      if (errors.length > 0) {
+        console.log("   ❌ Import blocked due to validation errors.");
+        console.log("   💡 Fix the file or run validator for detailed report:");
+        console.log(`      npx tsx scripts/validate-pyq-syllabus.ts ${filePath}`);
+        process.exit(2);
+      }
+    } else {
+      console.log("\n⚠️  Skipping pre-import validation (--skip-validate)");
+    }
 
     if (ext === 'csv') {
       totalInserted = await importFromCSV(filePath);

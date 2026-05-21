@@ -34,7 +34,7 @@ Current structure duplicates topics across exams:
         │               │      │ difficulty           │
         │               │      │ source               │
 ┌──────────────────────┐│      │ valid_from           │
-│bridge_exam_subj_topic││      │ valid_until          │
+│bridge_exam_subject_topic││      │ valid_until          │
 ├──────────────────────┤│      └──────────────────────┘
 │ id (PK)              ││           │
 │ exam_id (FK)         ││           │
@@ -169,8 +169,6 @@ CREATE INDEX idx_bridge_topic ON bridge_exam_subject_topic(topic_id);
 ```sql
 CREATE TABLE fact_exam_questions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  exam_id INTEGER NOT NULL,
-  subject_id INTEGER NOT NULL,
   topic_id INTEGER NOT NULL,
   question TEXT NOT NULL,
   options TEXT NOT NULL, -- JSON array
@@ -182,17 +180,14 @@ CREATE TABLE fact_exam_questions (
   valid_until INTEGER,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (exam_id) REFERENCES dim_exams(id),
-  FOREIGN KEY (subject_id) REFERENCES dim_subjects(id),
   FOREIGN KEY (topic_id) REFERENCES dim_topics(id)
 );
 
--- Prevent exact duplicates per exam
+-- Prevent exact duplicates per topic
 CREATE UNIQUE INDEX idx_unique_question 
-ON fact_exam_questions(exam_id, topic_id, substr(question, 1, 100));
+ON fact_exam_questions(topic_id, substr(question, 1, 100));
 
 -- Query performance indexes
-CREATE INDEX idx_questions_exam_subject ON fact_exam_questions(exam_id, subject_id);
 CREATE INDEX idx_questions_topic ON fact_exam_questions(topic_id);
 CREATE INDEX idx_questions_difficulty ON fact_exam_questions(difficulty);
 ```
@@ -218,8 +213,10 @@ SELECT * FROM fact_exam_questions WHERE topic_id = 1;
 
 **Get Current Affairs for specific exam:**
 ```sql
-SELECT * FROM fact_exam_questions 
-WHERE exam_id = 1 AND topic_id = 1;
+SELECT q.*
+FROM fact_exam_questions q
+JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+WHERE b.exam_id = 1 AND q.topic_id = 1;
 ```
 
 **Get all topics for an exam:**
@@ -232,10 +229,10 @@ WHERE b.exam_id = 1;
 **Cross-exam question sharing:**
 ```sql
 -- All exams using "Current Affairs" questions
-SELECT e.exam_name, COUNT(q.id) as question_count
+SELECT e.exam_name, COUNT(*) as mapped_topic_count
 FROM dim_exams e
-JOIN fact_exam_questions q ON e.id = q.exam_id
-WHERE q.topic_id = 1
+JOIN bridge_exam_subject_topic b ON e.id = b.exam_id
+WHERE b.topic_id = 1
 GROUP BY e.exam_name;
 ```
 
@@ -260,6 +257,9 @@ GROUP BY e.exam_name;
 - GATE Computer Science specific topics
 
 ## Migration Strategy
+
+> Status note (2026-05-20): Dimensional model is implemented with feature-flagged dual mode.
+> The phases below are retained as design history/reference.
 
 ### Phase 1: Create Dimensional Schema (Week 1)
 - Create new tables alongside existing structure

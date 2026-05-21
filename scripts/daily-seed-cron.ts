@@ -164,7 +164,7 @@ IMPORTANT: Return ONLY the JSON array. No markdown code blocks, no additional te
       "X-Title": "PrepGenie Daily Seeder",
     },
     body: JSON.stringify({
-      model: "google/gemini-2.0-flash-exp:free",
+      model: "google/gemini-2.5-flash-lite",
       messages: [
         {
           role: "system",

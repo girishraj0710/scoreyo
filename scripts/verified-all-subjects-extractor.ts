@@ -166,7 +166,7 @@ Return ONLY valid JSON array:
         "X-Title": "PrepGenie Verified All-Subjects",
       },
       body: JSON.stringify({
-        model: "google/gemini-3.1-flash-lite",
+        model: "google/gemini-2.0-flash-exp:free", // FREE model!
         messages: [
           {
             role: "system",

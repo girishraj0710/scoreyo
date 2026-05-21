@@ -1,0 +1,600 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-maths",
+    "examName": "JEE Main",
+    "subjectName": "Mathematics",
+    "topic": "Mathematical Reasoning",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → p",
+        "(p ∨ q) → q",
+        "p ∨ (p ∧ q)",
+        "p ∧ (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tautology is a statement that is true for all possible truth values of its components. For statement (p ∧ q) → p, we construct a truth table: if (p ∧ q) is true, then both p and q must be true, making p true. If (p ∧ q) is false, the implication is automatically true. Since the result is always true, it is a tautology.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The negation of the statement 'If it rains, then the match will be cancelled' is:",
+      "options": [
+        "It rains and the match will not be cancelled.",
+        "It does not rain and the match will be cancelled.",
+        "It rains or the match will be cancelled.",
+        "If it does not rain, then the match will not be cancelled."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The given statement is of the form p → q, where p is 'it rains' and q is 'the match will be cancelled'. The negation of an implication p → q is p ∧ ~q. Therefore, the negation is 'It rains (p) and the match will not be cancelled (~q)'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'For every real number x, if x > 2, then x² > 4'. The contrapositive of this statement is:",
+      "options": [
+        "For every real number x, if x² ≤ 4, then x ≤ 2.",
+        "For every real number x, if x² > 4, then x > 2.",
+        "For every real number x, if x ≤ 2, then x² ≤ 4.",
+        "For some real number x, if x² ≤ 4, then x ≤ 2."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of 'If p, then q' is 'If ~q, then ~p'. Here, p is 'x > 2' and q is 'x² > 4'. Negating q gives 'x² ≤ 4' and negating p gives 'x ≤ 2'. Thus, the contrapositive is 'If x² ≤ 4, then x ≤ 2'. Quantifiers like 'for every' remain unchanged in contrapositive statements.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The statement ~(p ∨ (~p ∧ q)) is equivalent to:",
+      "options": [
+        "p ∧ q",
+        "p ∨ q",
+        "~p ∧ ~q",
+        "~p ∨ ~q"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using distributive law on p ∨ (~p ∧ q), we get (p ∨ ~p) ∧ (p ∨ q). Since (p ∨ ~p) is a tautology (T), the expression simplifies to T ∧ (p ∨ q), which is (p ∨ q). Now, applying negation: ~(p ∨ q). By De Morgan's Law, this is equivalent to ~p ∧ ~q.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following is the inverse of the statement 'If a function f is differentiable, then it is continuous'?",
+      "options": [
+        "If a function f is not continuous, then it is not differentiable.",
+        "If a function f is continuous, then it is differentiable.",
+        "If a function f is not differentiable, then it is not continuous.",
+        "A function f is differentiable if and only if it is continuous."
+      ],
+      "correctAnswer": 2,
+      "explanation": "For an implication 'If p, then q', the inverse is defined as 'If ~p, then ~q'. Here, p is 'f is differentiable' and q is 'f is continuous'. Therefore, the inverse is 'If f is not differentiable, then it is not continuous'. Note: While this statement is logically false in calculus, the task is to identify the inverse based on logical structure.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∨ q) ∨ (p ∨ ¬q)",
+        "(p ∧ q) ∧ (p ∨ q)",
+        "(p ∨ q) ∧ (¬p ∧ ¬q)",
+        "(p → q) ∧ (p ∧ ¬q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tautology is a statement that is true for all possible truth values of its components. Evaluating option A: (p ∨ q) ∨ (p ∨ ¬q) is equivalent to p ∨ (q ∨ ¬q). Since (q ∨ ¬q) is always true (a tautology), the whole expression becomes p ∨ T, which is always True. Option D is the negation of a conditional, which is a contradiction. Options B and C depend on the values of p and q.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The statement contrapositive of the statement: 'If a function f is differentiable, then it is continuous' is:",
+      "options": [
+        "If a function f is not continuous, then it is not differentiable.",
+        "If a function f is continuous, then it is differentiable.",
+        "If a function f is not differentiable, then it is not continuous.",
+        "If a function f is continuous, then it is not differentiable."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of a conditional statement 'If p, then q' (p → q) is defined as 'If not q, then not p' (¬q → ¬p). Here, p is 'f is differentiable' and q is 'f is continuous'. Therefore, the contrapositive is 'If f is not continuous, then it is not differentiable'. This is logically equivalent to the original statement.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If the truth value of the statement (p ∨ q) → (p ∧ r) is False, then the truth values of p, q, and r respectively are:",
+      "options": [
+        "T, T, F",
+        "T, F, T",
+        "F, T, F",
+        "T, F, F"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An implication A → B is False only when A is True and B is False. For (p ∨ q) to be True and (p ∧ r) to be False: If p is True, then (p ∨ q) is True (satisfied). However, for (p ∧ r) to be False when p is True, r must be False. We check the options: if p=T, q=T, r=F: (T ∨ T) → (T ∧ F) becomes T → F, which is False. This matches the condition.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The negation of the statement 'For all real numbers x, if x² > 0, then x > 0' is:",
+      "options": [
+        "There exists a real number x such that x² > 0 and x ≤ 0.",
+        "For all real numbers x, if x² > 0, then x ≤ 0.",
+        "There exists a real number x such that x² ≤ 0 and x > 0.",
+        "For all real numbers x, if x² ≤ 0, then x ≤ 0."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The negation of a universal statement 'For all x, P(x) → Q(x)' is 'There exists an x such that P(x) and not Q(x)'. Here P(x) is 'x² > 0' and Q(x) is 'x > 0'. Negating the conditional part results in 'x² > 0 AND x ≤ 0'. Therefore, the negation is 'There exists a real number x such that x² > 0 and x ≤ 0'.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Consider the compound statement S: ~(p ∨ (~p ∧ q)). Which of the following is equivalent to S?",
+      "options": [
+        "~p ∧ ~q",
+        "p ∨ q",
+        "~p ∨ ~q",
+        "p ∧ q"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Apply De Morgan's Law and distributive laws: S = ~(p ∨ (~p ∧ q)). By distributive law, (p ∨ (~p ∧ q)) = (p ∨ ~p) ∧ (p ∨ q). Since (p ∨ ~p) is True (a tautology), the expression simplifies to (T ∧ (p ∨ q)) = (p ∨ q). The negation of the whole expression S is ~(p ∨ q). By De Morgan's Law, ~(p ∨ q) = ~p ∧ ~q.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p → (p ∧ q)",
+        "q → (p ∧ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tautology is a statement that is always true regardless of the truth values of its components. For option A, (p ∧ q) is true only when both p and q are true. If (p ∧ q) is true, then (p ∨ q) is necessarily true. If (p ∧ q) is false, the implication p → q is true by definition. Thus, (p ∧ q) → (p ∨ q) is always true. Other options fail when p and q have different truth values.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The negation of the statement 'If it is raining, then I will go to the market' is:",
+      "options": [
+        "It is raining and I will not go to the market.",
+        "It is not raining and I will go to the market.",
+        "If it is not raining, then I will not go to the market.",
+        "It is not raining or I will not go to the market."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The given statement is in the form p → q, where p is 'It is raining' and q is 'I will go to the market'. The negation of an implication p → q is given by ~(p → q) ≡ p ∧ ~q. Applying this, the negation is 'It is raining (p) AND I will not go to the market (~q)'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The statement 'If x^2 is not even, then x is not even' is the __________ of the statement 'If x is even, then x^2 is even'.",
+      "options": [
+        "Converse",
+        "Inverse",
+        "Contrapositive",
+        "Negation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For an implication p → q, the contrapositive is defined as ~q → ~p. Let p be 'x is even' and q be 'x^2 is even'. The original statement is p → q. The given statement is '~q → ~p', which translates to 'If x^2 is not even, then x is not even'. By logical equivalence, a statement and its contrapositive always have the same truth value.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement S: 'For every real number x, x^2 > 0'. Which of the following is the correct negation of S?",
+      "options": [
+        "There exists a real number x such that x^2 < 0.",
+        "There exists a real number x such that x^2 ≤ 0.",
+        "For every real number x, x^2 ≤ 0.",
+        "There exists a real number x such that x^2 = 0."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The negation of a universal quantifier 'For every' (∀) is the existential quantifier 'There exists' (∃). The negation of a predicate P(x) is ~P(x). Here, P(x) is 'x^2 > 0'. The negation of 'x^2 > 0' is 'x^2 ≤ 0'. Therefore, the negation of the entire statement is 'There exists a real number x such that x^2 ≤ 0' (which is true for x=0).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p ∨ (p ∧ q)",
+        "p ∧ (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A statement is a tautology if its truth value is always 'True' regardless of the truth values of its components. For (p ∧ q) → (p ∨ q): If (p ∧ q) is true, then both p and q must be true, which makes (p ∨ q) true. Thus, True → True is True. If (p ∧ q) is false, the implication is vacuously true. Since the implication holds for all combinations of truth values for p and q, it is a tautology.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The contrapositive of the statement 'If a function f(x) is differentiable at x = a, then it is continuous at x = a' is:",
+      "options": [
+        "If a function f(x) is not continuous at x = a, then it is not differentiable at x = a.",
+        "If a function f(x) is continuous at x = a, then it is differentiable at x = a.",
+        "If a function f(x) is not differentiable at x = a, then it is not continuous at x = a.",
+        "If a function f(x) is not continuous at x = a, then it is differentiable at x = a."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of a conditional statement 'If p, then q' (p → q) is defined as 'If not q, then not p' (~q → ~p). Here, p = 'f(x) is differentiable at x = a' and q = 'f(x) is continuous at x = a'. Therefore, the contrapositive is 'If f(x) is not continuous at x = a, then f(x) is not differentiable at x = a'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The negation of the statement 'For all real numbers x, if x² > 0, then x > 0' is:",
+      "options": [
+        "There exists a real number x such that x² > 0 and x ≤ 0.",
+        "For all real numbers x, x² ≤ 0 or x > 0.",
+        "There exists a real number x such that x² ≤ 0 and x > 0.",
+        "For all real numbers x, if x² > 0, then x ≤ 0."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The negation of '∀x, P(x) → Q(x)' is '∃x such that P(x) ∧ ~Q(x)'. Here, P(x) is 'x² > 0' and Q(x) is 'x > 0'. Negating the statement while keeping the quantifier logic in mind: The negation of 'if P then Q' is 'P and not Q'. Thus, we get 'There exists a real number x such that x² > 0 and x ≤ 0'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'If it rains, then the match will be cancelled.' Which of the following is logically equivalent to this statement?",
+      "options": [
+        "If the match is not cancelled, then it did not rain.",
+        "If the match is cancelled, then it rained.",
+        "If it does not rain, then the match will not be cancelled.",
+        "It rains and the match is not cancelled."
+      ],
+      "correctAnswer": 0,
+      "explanation": "A conditional statement 'p → q' is logically equivalent to its contrapositive '~q → ~p'. Given p = 'It rains' and q = 'The match is cancelled', the contrapositive is 'If the match is not cancelled (~q), then it did not rain (~p)'. Options B and C represent the converse and inverse, respectively, which are not logically equivalent to the original statement.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Let p and q be two logical statements. The expression ~(p ∨ (~p ∧ q)) is logically equivalent to:",
+      "options": [
+        "~p ∧ ~q",
+        "p ∨ q",
+        "p ∧ ~q",
+        "~p ∨ ~q"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using distributive law on (p ∨ (~p ∧ q)): (p ∨ ~p) ∧ (p ∨ q). Since (p ∨ ~p) is a tautology (T), the expression simplifies to T ∧ (p ∨ q) = (p ∨ q). Now, we need the negation: ~(p ∨ q). By De Morgan's Law, ~(p ∨ q) = ~p ∧ ~q. This demonstrates the application of boolean algebraic simplification in logical reasoning.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p ∨ (p ∧ q)",
+        "p ∧ (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A statement is a tautology if its truth value is always 'True' regardless of the truth values of its components. For (p ∧ q) → (p ∨ q): If (p ∧ q) is true, then both p and q must be true, which makes (p ∨ q) true. If (p ∧ q) is false, the implication is vacuously true. Since the antecedent implies the consequent in all cases, it is a tautology.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The negation of the statement 'If it rains, then the match will be cancelled' is:",
+      "options": [
+        "It does not rain and the match will be cancelled.",
+        "It rains and the match will not be cancelled.",
+        "It does not rain or the match will not be cancelled.",
+        "If it does not rain, then the match will not be cancelled."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The given statement is of the form p → q, where p is 'It rains' and q is 'The match will be cancelled'. The negation of an implication p → q is given by p ∧ (~q). Applying this, we get 'It rains AND the match will NOT be cancelled'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'For every real number x, if x² > 0, then x > 0'. The negation of this statement is:",
+      "options": [
+        "There exists a real number x such that x² > 0 and x ≤ 0.",
+        "For every real number x, x² ≤ 0 and x ≤ 0.",
+        "There exists a real number x such that x² ≤ 0 or x ≤ 0.",
+        "There exists a real number x such that x² > 0 and x > 0."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The statement is of the form ∀x, P(x) → Q(x). The negation of ∀x is ∃x. The negation of an implication P → Q is P ∧ (~Q). Thus, the negation is ∃x such that P(x) is true AND Q(x) is false. Here, P(x) is x² > 0 and Q(x) is x > 0. Negation of Q(x) is x ≤ 0. Therefore, ∃x such that x² > 0 and x ≤ 0.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The boolean expression ~(p ∨ (~p ∧ q)) is equivalent to:",
+      "options": [
+        "p ∧ q",
+        "p ∨ q",
+        "~p ∧ ~q",
+        "~p ∨ ~q"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using De Morgan's laws and distributive laws: ~(p ∨ (~p ∧ q)) = ~p ∧ ~(~p ∧ q) = ~p ∧ (p ∨ ~q). Now distribute the ~p: (~p ∧ p) ∨ (~p ∧ ~q). Since (~p ∧ p) is a contradiction (F), the expression simplifies to F ∨ (~p ∧ ~q), which is equivalent to ~p ∧ ~q.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following is the contrapositive of the statement 'If a function f is differentiable, then it is continuous'?",
+      "options": [
+        "If a function f is not continuous, then it is not differentiable.",
+        "If a function f is continuous, then it is differentiable.",
+        "If a function f is not differentiable, then it is not continuous.",
+        "If a function f is differentiable, then it is not continuous."
+      ],
+      "correctAnswer": 0,
+      "explanation": "For any implication p → q, the contrapositive is defined as ~q → ~p. Given p: 'f is differentiable' and q: 'f is continuous', the contrapositive is 'If f is not continuous (~q), then f is not differentiable (~p)'. This is a logically equivalent statement to the original implication.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p ∨ (p ∧ q)",
+        "p ∧ (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A statement is a tautology if its truth value is always true for all possible truth values of its components. For (p ∧ q) → (p ∨ q), if (p ∧ q) is true, then both p and q are true, which makes (p ∨ q) true. If (p ∧ q) is false, the implication becomes true by the definition of conditional statements. Since the result is always true, it is a tautology.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The contrapositive of the statement 'If a function f is differentiable at x=c, then it is continuous at x=c' is:",
+      "options": [
+        "If a function f is not continuous at x=c, then it is not differentiable at x=c.",
+        "If a function f is continuous at x=c, then it is differentiable at x=c.",
+        "If a function f is not differentiable at x=c, then it is not continuous at x=c.",
+        "If a function f is continuous at x=c, then it is not differentiable at x=c."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of a conditional statement 'If p, then q' (p → q) is defined as 'If not q, then not p' (~q → ~p). Here, p is 'f is differentiable' and q is 'f is continuous'. Thus, the contrapositive is 'If f is not continuous, then f is not differentiable'. This is a logically equivalent statement to the original.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Let p and q be two statements. The expression ~ (p ∨ (~q)) is logically equivalent to:",
+      "options": [
+        "(~p) ∧ q",
+        "(~p) ∨ q",
+        "p ∧ (~q)",
+        "(~p) ∨ (~q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using De Morgan's Laws: ~(p ∨ r) is (~p ∧ ~r). Applying this to ~(p ∨ (~q)), we get (~p ∧ ~(~q)). Since ~(~q) is q, the expression simplifies to (~p ∧ q). This is a fundamental application of Boolean algebra laws used in logic gates and set theory.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The negation of the statement 'For all real numbers x, x² > 0' is:",
+      "options": [
+        "For all real numbers x, x² ≤ 0",
+        "There exists a real number x such that x² ≤ 0",
+        "There exists a real number x such that x² < 0",
+        "For no real number x, x² > 0"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The negation of a universal quantifier (∀x, P(x)) is the existential quantifier (∃x, ~P(x)). The statement 'x² > 0' has the negation 'x² ≤ 0'. Therefore, the negation of 'For all x, x² > 0' is 'There exists at least one x such that x² ≤ 0'. Note that x=0 satisfies x² ≤ 0, making the original statement false.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the compound statement: S = (p → q) ∧ (q → p). Which of the following statements is equivalent to S?",
+      "options": [
+        "p ↔ q",
+        "p ∧ q",
+        "p ∨ q",
+        "p → ~q"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The biconditional statement p ↔ q is defined as the conjunction of the two implications (p → q) and (q → p). This is a standard definition in mathematical logic. In truth tables, both expressions yield true only when p and q have identical truth values (both true or both false), confirming their logical equivalence.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p → (p ∧ q)",
+        "q → (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tautology is a statement that is always true regardless of the truth values of its components. For option A: If p and q are both true, (p ∧ q) is true and (p ∨ q) is true, so T → T is T. If p is true and q is false, (p ∧ q) is false, so F → T is true. Since the implication holds for all truth table combinations, it is a tautology.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The negation of the statement 'If it rains, then the match will be cancelled' is:",
+      "options": [
+        "If it does not rain, then the match will not be cancelled.",
+        "It rains and the match will not be cancelled.",
+        "It does not rain or the match will be cancelled.",
+        "The match will be cancelled if and only if it rains."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The given statement is of the form p → q, where p is 'it rains' and q is 'the match will be cancelled'. The negation of an implication p → q is logically equivalent to p ∧ ~q. Therefore, the negation is 'It rains (p) AND the match will not be cancelled (~q)'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'For every real number x, if x² > 0, then x > 0'. Which of the following is the contrapositive of this statement?",
+      "options": [
+        "For every real number x, if x ≤ 0, then x² ≤ 0.",
+        "For every real number x, if x² ≤ 0, then x ≤ 0.",
+        "For every real number x, if x > 0, then x² > 0.",
+        "There exists a real number x such that x² > 0 and x ≤ 0."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The statement is of the form ∀x, P(x) → Q(x). Its contrapositive is defined as ∀x, ~Q(x) → ~P(x). Here, P(x) is 'x² > 0' and Q(x) is 'x > 0'. The negation of P(x) is 'x² ≤ 0' and the negation of Q(x) is 'x ≤ 0'. Thus, the contrapositive is: 'For every real number x, if x ≤ 0, then x² ≤ 0'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Let p and q be two logical statements. The expression ~(p ∨ (~p ∧ q)) is logically equivalent to:",
+      "options": [
+        "~p ∧ ~q",
+        "p ∧ q",
+        "~p ∨ ~q",
+        "p ∨ q"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using the distributive law on (p ∨ (~p ∧ q)), we get (p ∨ ~p) ∧ (p ∨ q). Since (p ∨ ~p) is a tautology (T), the expression simplifies to T ∧ (p ∨ q), which is (p ∨ q). Now, we take the negation: ~(p ∨ q). By De Morgan's Law, this is equivalent to ~p ∧ ~q.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Identify which of the following sentences is a mathematical statement.",
+      "options": [
+        "Close the door.",
+        "How are you?",
+        "The square root of 2 is an irrational number.",
+        "x is a prime number."
+      ],
+      "correctAnswer": 2,
+      "explanation": "A mathematical statement is a declarative sentence that is either true or false, but not both. 'Close the door' is an imperative sentence, 'How are you?' is an interrogative sentence, and 'x is a prime number' is an open sentence because its truth value depends on the value of x. 'The square root of 2 is an irrational number' is a factually true declarative statement, hence it qualifies.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p ∨ (p ∧ q)",
+        "p ∧ (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A statement is a tautology if its truth value is always true for all possible truth values of its components. For (p ∧ q) → (p ∨ q), if (p ∧ q) is true, then both p and q are true, which makes (p ∨ q) true; thus, True → True is True. If (p ∧ q) is false, the implication is vacuously true. The other options fail for cases where p and q have different truth values (e.g., p=T, q=F).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The boolean expression ~(p ∨ (~p ∧ q)) is equivalent to:",
+      "options": [
+        "p ∧ q",
+        "~p ∧ ~q",
+        "~p ∨ ~q",
+        "p ∨ q"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using distributive law on (p ∨ (~p ∧ q)), we get (p ∨ ~p) ∧ (p ∨ q). Since (p ∨ ~p) is a tautology (T), the expression simplifies to T ∧ (p ∨ q) = p ∨ q. Now, applying negation, we get ~(p ∨ q). By De Morgan's Law, ~(p ∨ q) is equivalent to ~p ∧ ~q.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The contrapositive of the statement 'If a function f is differentiable at x=a, then it is continuous at x=a' is:",
+      "options": [
+        "If a function f is not continuous at x=a, then it is not differentiable at x=a.",
+        "If a function f is continuous at x=a, then it is differentiable at x=a.",
+        "If a function f is not differentiable at x=a, then it is not continuous at x=a.",
+        "If a function f is continuous at x=a, then it is not differentiable at x=a."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of an implication 'p → q' is '~q → ~p'. Here, p is 'f is differentiable at x=a' and q is 'f is continuous at x=a'. The negation ~q is 'f is not continuous at x=a' and ~p is 'f is not differentiable at x=a'. Thus, the contrapositive is 'If f is not continuous at x=a, then f is not differentiable at x=a'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'For every real number x, if x > 2, then x² > 4'. Which of the following is the negation of this statement?",
+      "options": [
+        "There exists a real number x such that x > 2 and x² ≤ 4.",
+        "For every real number x, if x > 2, then x² ≤ 4.",
+        "There exists a real number x such that x ≤ 2 and x² > 4.",
+        "There exists a real number x such that x > 2 and x² > 4."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The negation of a universal quantifier 'for every x, P(x)' is 'there exists x such that ~P(x)'. The negation of an implication 'p → q' is 'p ∧ ~q'. Therefore, the negation of 'For every x, (x > 2 → x² > 4)' is 'There exists x such that ~(x > 2 → x² > 4)', which simplifies to 'There exists x such that (x > 2 ∧ ~(x² > 4))', resulting in 'There exists x such that x > 2 and x² ≤ 4'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Let p and q be two statements. The expression (p → q) ↔ (~q → ~p) is:",
+      "options": [
+        "A tautology",
+        "A contradiction",
+        "Equivalent to p ∧ ~q",
+        "Equivalent to ~p ∨ q"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In classical logic, the contrapositive (~q → ~p) is logically equivalent to the original implication (p → q). Since both expressions always have the same truth values for any assignment of p and q, the biconditional statement (p → q) ↔ (~q → ~p) will always result in 'True'. Therefore, it is a tautology.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → (p ∨ q)",
+        "(p ∨ q) → (p ∧ q)",
+        "p ∨ (p ∧ q)",
+        "p ∧ (p ∨ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A statement is a tautology if its truth value is 'True' for all possible truth values of its components. For the implication (p ∧ q) → (p ∨ q), if p ∧ q is True, then both p and q must be True, which makes p ∨ q True. If p ∧ q is False, the implication is vacuously True. Thus, it is always True. Other options fail for cases where p and q have different truth values.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The negation of the statement 'If it rains, then the match will be cancelled' is:",
+      "options": [
+        "It rains and the match will not be cancelled.",
+        "It does not rain and the match will be cancelled.",
+        "It does not rain or the match will be cancelled.",
+        "If it does not rain, then the match will not be cancelled."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The given statement is of the form p → q, where p = 'It rains' and q = 'The match will be cancelled'. The negation of an implication p → q is logically equivalent to p ∧ ~q. Therefore, the negation is 'It rains AND the match will NOT be cancelled'. This is a fundamental rule in propositional logic frequently tested in JEE Main.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The statement ~ (p ∨ (~q)) is logically equivalent to:",
+      "options": [
+        "(~p) ∨ q",
+        "(~p) ∧ q",
+        "p ∧ (~q)",
+        "(~p) ∨ (~q)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using De Morgan's Law, the negation of a disjunction is the conjunction of the negations: ~(p ∨ r) ≡ (~p) ∧ (~r). Here, r = ~q. Therefore, ~(p ∨ (~q)) ≡ (~p) ∧ (~(~q)). Since the negation of a negation is the original statement (~(~q) ≡ q), the expression simplifies to (~p) ∧ q.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'If x is a real number such that x^3 + 4x = 0, then x = 0'. Which of the following is the contrapositive of this statement?",
+      "options": [
+        "If x ≠ 0, then x is a real number such that x^3 + 4x ≠ 0.",
+        "If x = 0, then x^3 + 4x ≠ 0.",
+        "If x is not a real number, then x^3 + 4x ≠ 0.",
+        "If x ≠ 0, then x^3 + 4x ≠ 0."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of an implication 'If p, then q' is 'If ~q, then ~p'. Here, p is 'x is a real number and x^3 + 4x = 0' and q is 'x = 0'. Negating q gives 'x ≠ 0'. Negating p gives 'x is not a real number OR x^3 + 4x ≠ 0'. The correct contrapositive follows the logical structure: If x ≠ 0, then x is not a real number or x^3 + 4x ≠ 0. Given x is real, this simplifies to 'If x ≠ 0, then x^3 + 4x ≠ 0'.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Let p and q be two statements. The expression (p ∧ (~q)) ∨ (~p) is equivalent to:",
+      "options": [
+        "p ∨ q",
+        "p ∧ q",
+        "~p ∨ ~q",
+        "~p ∧ q"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using the distributive law: (p ∧ (~q)) ∨ (~p) ≡ (p ∨ (~p)) ∧ ((~q) ∨ (~p)). Since (p ∨ (~p)) is a tautology (T), the expression becomes T ∧ ((~p) ∨ (~q)). Any statement conjoined with T remains itself. Thus, the expression simplifies to (~p) ∨ (~q), which is De Morgan's Law for ~(p ∧ q).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is a tautology?",
+      "options": [
+        "(p ∧ q) → p",
+        "(p ∨ q) → q",
+        "p ∨ (p ∧ q)",
+        "p → (p ∧ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tautology is a statement that is true for all possible truth values of its components. For the statement (p ∧ q) → p, we construct a truth table: if (p ∧ q) is true, then both p and q must be true, which makes the conclusion 'p' true. If (p ∧ q) is false, the implication 'if-then' is automatically true by definition. Thus, the statement is always true regardless of the truth values of p and q.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The negation of the statement 'If it rains, then the match will be cancelled' is:",
+      "options": [
+        "It rains and the match will not be cancelled.",
+        "It does not rain and the match will be cancelled.",
+        "It does not rain or the match will be cancelled.",
+        "The match will be cancelled if it does not rain."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The given statement is of the form p → q, where p is 'it rains' and q is 'the match will be cancelled'. The negation of p → q is logically equivalent to p ∧ (~q). Therefore, the negation is 'It rains' (p) AND 'the match will not be cancelled' (~q).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the statement: 'If x^2 is irrational, then x is irrational.' The contrapositive of this statement is:",
+      "options": [
+        "If x is rational, then x^2 is rational.",
+        "If x is irrational, then x^2 is irrational.",
+        "If x^2 is rational, then x is rational.",
+        "If x is rational, then x^2 is irrational."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The contrapositive of an implication p → q is defined as ~q → ~p. Here, p is 'x^2 is irrational' and q is 'x is irrational'. The contrapositive is 'If x is not irrational (i.e., rational), then x^2 is not irrational (i.e., rational)'. This directly matches the option 'If x is rational, then x^2 is rational'.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The Boolean expression (p ∧ q) ∨ (~p ∧ q) ∨ (p ∧ ~q) is equivalent to:",
+      "options": [
+        "p ∨ q",
+        "p ∧ q",
+        "p ↔ q",
+        "~(p ∧ q)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We simplify the expression using distributive laws: (p ∧ q) ∨ (~p ∧ q) ∨ (p ∧ ~q). Group the first two terms: [(p ∨ ~p) ∧ q] ∨ (p ∧ ~q). Since (p ∨ ~p) is a tautology (T), we get (T ∧ q) ∨ (p ∧ ~q), which simplifies to q ∨ (p ∧ ~q). By distributive law, this is (q ∨ p) ∧ (q ∨ ~q). Since (q ∨ ~q) is a tautology, the expression simplifies to (q ∨ p), which is p ∨ q.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Determine the truth value of the statement: 'For every real number x, x^2 > 0'.",
+      "options": [
+        "True",
+        "False",
+        "Cannot be determined",
+        "Sometimes true"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The statement is a universal quantification over all real numbers. For the statement to be true, it must hold for all x in R. However, if x = 0, then x^2 = 0, which is not greater than 0. Since there exists at least one real number (zero) for which the condition fails, the universal statement is False.",
+      "difficulty": "easy"
+    }
+  ]
+}

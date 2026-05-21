@@ -17,15 +17,11 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN!,
 });
 
-async function checkSchema() {
-  const schema = await db.execute(`
-    SELECT sql FROM sqlite_master 
-    WHERE type='table' AND name='fact_exam_questions'
-  `);
-  
-  console.log("\nfact_exam_questions schema:\n");
-  console.log(schema.rows[0]?.sql || "Table not found");
+async function check() {
+  const schema = await db.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='dim_topics'");
+  console.log("\ndim_topics schema:");
+  console.log(schema.rows[0].sql);
   console.log();
 }
 
-checkSchema();
+check().then(() => process.exit(0)).catch(console.error);

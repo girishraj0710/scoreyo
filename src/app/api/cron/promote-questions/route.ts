@@ -78,10 +78,12 @@ export async function GET(request: NextRequest) {
     let promoted = 0;
     for (let i = 0; i < candidates.length; i += BATCH) {
       const slice = candidates.slice(i, i + BATCH);
+      if (slice.length === 0) continue;
+
       const placeholders = slice.map(() => "?").join(",");
       await db.execute({
-        sql: `UPDATE exam_questions SET source = 'ai-validated' WHERE id IN (${placeholders})`,
-        args: slice,
+        sql: `UPDATE exam_questions SET source = ? WHERE id IN (${placeholders})`,
+        args: ['ai-validated', ...slice],
       });
       promoted += slice.length;
     }

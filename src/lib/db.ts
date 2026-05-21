@@ -968,7 +968,7 @@ export async function getCachedQuestions(
     correctAnswer: row.correct_answer,
     explanation: row.explanation,
     difficulty: row.difficulty,
-    source: row.source,
+    source: row.source || 'ai-cached', // Fallback for rows without source
   }));
 }
 

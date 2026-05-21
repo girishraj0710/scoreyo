@@ -1,0 +1,552 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-chemistry",
+    "examName": "JEE Main",
+    "subjectName": "Chemistry",
+    "topic": "Polymers",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following polymers is an example of a biodegradable polyester formed by the copolymerization of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid?",
+      "options": [
+        "PHBV",
+        "Nylon-2-nylon-6",
+        "Dextron",
+        "Glyptal"
+      ],
+      "correctAnswer": 0,
+      "explanation": "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate) is a biodegradable aliphatic polyester. It is synthesized by the copolymerization of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. It undergoes microbial degradation in the environment, making it a sustainable alternative to conventional plastics. Nylon-2-nylon-6 is also biodegradable but is a polyamide, not a polyester.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the monomer units of the polymer Bakelite.",
+      "options": [
+        "Phenol and Ethylene glycol",
+        "Phenol and Methanal",
+        "Benzene and Formaldehyde",
+        "Phenol and Propanal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bakelite is a thermosetting polymer formed by the condensation polymerization of phenol and formaldehyde (methanal) in the presence of an acid or base catalyst. The process involves the formation of ortho- and para-hydroxymethylphenol derivatives, which further cross-link to form a rigid, infusible solid network structure.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Regarding the number average molecular mass (Mn) and weight average molecular mass (Mw) of polymers, which of the following statements is correct?",
+      "options": [
+        "Mn is always equal to Mw",
+        "Mn is calculated using the weight fraction of molecules",
+        "Polydispersity Index (PDI) = Mw / Mn",
+        "For natural polymers, PDI is always greater than 2"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Polydispersity Index (PDI) is defined as the ratio of weight average molecular mass (Mw) to number average molecular mass (Mn). PDI indicates the breadth of the molecular weight distribution. For natural polymers, PDI is usually close to 1 (monodisperse), whereas for synthetic polymers, it is greater than 1. Mn is calculated using the mole fraction, while Mw uses the weight fraction.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A sample of a polymer contains 100 molecules of mass 10,000 u and 200 molecules of mass 20,000 u. What is the number average molecular mass (Mn) of this polymer sample?",
+      "options": [
+        "16,666.6 u",
+        "15,000 u",
+        "13,333.3 u",
+        "18,000 u"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The number average molecular mass (Mn) is calculated using the formula: Mn = Σ(ni * Mi) / Σni, where ni is the number of molecules and Mi is their respective molecular mass. Calculation: [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.67 u.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding synthetic rubbers:\nI. Neoprene is a polymer of chloroprene.\nII. Buna-N is a copolymer of 1,3-butadiene and acrylonitrile.\nIII. Vulcanization increases the elasticity of rubber by forming sulfur cross-links.\nWhich of the above statements are correct?",
+      "options": [
+        "I and II only",
+        "II and III only",
+        "I and III only",
+        "I, II, and III"
+      ],
+      "correctAnswer": 3,
+      "explanation": "All statements are correct. Neoprene (Polychloroprene) is a synthetic rubber resistant to vegetable and mineral oils. Buna-N is a copolymer of 1,3-butadiene and acrylonitrile, known for its resistance to oil and solvents. Vulcanization involves heating raw rubber with sulfur, which creates cross-links between polymer chains at reactive sites, significantly improving the mechanical properties and elasticity of the rubber.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is an example of a biodegradable polyester suitable for use in surgical sutures and orthopaedic devices?",
+      "options": [
+        "Nylon 6,6",
+        "PHBV",
+        "Bakelite",
+        "Teflon"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate) is a biodegradable aliphatic polyester obtained by the copolymerization of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. It undergoes bacterial degradation in the environment and is biocompatible, making it ideal for medical applications like controlled drug release and surgical sutures. Nylon 6,6 and Bakelite are synthetic non-biodegradable polymers, while Teflon is a fluoropolymer.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Consider the following statements regarding synthetic rubbers:\n(I) Neoprene is a polymer of chloroprene.\n(II) Buna-S is a copolymer of 1,3-butadiene and styrene.\n(III) Vulcanization of rubber involves the formation of sulfur bridges between polymer chains.\nWhich of the above statements are correct?",
+      "options": [
+        "(I) and (II) only",
+        "(II) and (III) only",
+        "(I), (II) and (III)",
+        "(I) and (III) only"
+      ],
+      "correctAnswer": 2,
+      "explanation": "All three statements are correct. (I) Neoprene (polychloroprene) is formed by the polymerization of 2-chloro-1,3-butadiene. (II) Buna-S (SBR) is a synthetic rubber produced by the emulsion polymerization of a mixture of 1,3-butadiene and styrene. (III) Vulcanization is a process of heating raw rubber with sulfur, which introduces sulfur cross-links at the reactive sites of double bonds, significantly improving the mechanical properties like elasticity and tensile strength.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The monomer units of Dacron (Terylene) are:",
+      "options": [
+        "Ethylene glycol and terephthalic acid",
+        "Adipic acid and hexamethylenediamine",
+        "Phenol and formaldehyde",
+        "Caprolactam and water"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Dacron, also known as Terylene, is a polyester fiber synthesized by the condensation polymerization of ethylene glycol (ethane-1,2-diol) and terephthalic acid (benzene-1,4-dicarboxylic acid) at high temperatures in the presence of zinc acetate-antimony trioxide catalyst. Hexamethylenediamine and adipic acid form Nylon 6,6; phenol and formaldehyde form Bakelite; and caprolactam is used to produce Nylon 6.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molar mass 10,000 g/mol and 200 molecules of molar mass 20,000 g/mol. The number average molar mass (Mn) of the polymer is:",
+      "options": [
+        "15,000 g/mol",
+        "16,667 g/mol",
+        "13,333 g/mol",
+        "18,000 g/mol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The number average molar mass (Mn) is calculated using the formula: Mn = Σ(NiMi) / ΣNi. Here, N1=100, M1=10,000; N2=200, M2=20,000. Mn = [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = [1,000,000 + 4,000,000] / 300 = 5,000,000 / 300 = 16,666.67 g/mol. Rounding to the nearest whole number gives 16,667 g/mol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following structural features is responsible for the thermoplastic nature of polymers like Polyethylene and Polystyrene, distinguishing them from Thermosetting polymers like Melamine-formaldehyde resin?",
+      "options": [
+        "High degree of cross-linking between polymer chains",
+        "Presence of strong covalent bonds forming a 3D network",
+        "Long linear or branched chains with weak intermolecular forces of attraction",
+        "High ionic character in the monomer units leading to rigidity"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Thermoplastics are linear or slightly branched long-chain polymers that can be repeatedly softened on heating and hardened on cooling because they are held together only by weak intermolecular forces (like van der Waals forces or dipole-dipole interactions). Thermosetting polymers, conversely, contain extensive cross-linking through covalent bonds between chains, forming a rigid, infusible 3D network that does not soften upon heating. The lack of such cross-links allows thermoplastics to be reshaped.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is a polyamide and is prepared by the condensation polymerization of hexamethylenediamine and adipic acid?",
+      "options": [
+        "Nylon-6",
+        "Nylon-6,6",
+        "Terylene",
+        "Bakelite"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nylon-6,6 is a synthetic polyamide formed by the polycondensation of hexamethylenediamine (H2N(CH2)6NH2) and adipic acid (HOOC(CH2)4COOH). It is called 6,6 because both monomers contain 6 carbon atoms. Nylon-6 is made from caprolactam, while Terylene is a polyester.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following sets of monomers is used for the preparation of Buna-S?",
+      "options": [
+        "1,3-Butadiene and Styrene",
+        "1,3-Butadiene and Acrylonitrile",
+        "Chloroprene and Vinyl chloride",
+        "Ethylene and Styrene"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Buna-S (SBR - Styrene Butadiene Rubber) is a copolymer formed by the polymerization of 1,3-butadiene and styrene in the presence of a peroxide catalyst. Buna-N is formed from 1,3-butadiene and acrylonitrile. The 'S' in Buna-S stands for Styrene.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Identify the biodegradable polymer among the following, which is a copolymer of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid:",
+      "options": [
+        "PHBV",
+        "Nylon-2-nylon-6",
+        "Dextran",
+        "Poly-β-hydroxybutyrate"
+      ],
+      "correctAnswer": 0,
+      "explanation": "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate) is a biodegradable aliphatic polyester. It is a copolymer of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. It is used in specialty packaging, orthopedic devices, and in controlled release of drugs.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molecular mass 10,000 u and 200 molecules of molecular mass 20,000 u. The number average molecular mass (Mn) of the polymer is:",
+      "options": [
+        "16,666 u",
+        "15,000 u",
+        "13,333 u",
+        "18,000 u"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The number average molecular mass is calculated as Mn = Σ(NiMi) / ΣNi. Here, Σ(NiMi) = (100 * 10,000) + (200 * 20,000) = 1,000,000 + 4,000,000 = 5,000,000. ΣNi = 100 + 200 = 300. Thus, Mn = 5,000,000 / 300 = 16,666.67 u.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding polymers:\n(i) Vulcanization of rubber involves cross-linking with sulfur.\n(ii) Teflon is chemically inert and resistant to attack by corrosive reagents.\n(iii) Novolac is a linear polymer used in paints, formed by the reaction of phenol and formaldehyde with a lower ratio of formaldehyde.\nWhich of these statements are correct?",
+      "options": [
+        "(i) and (ii) only",
+        "(ii) and (iii) only",
+        "(i) and (iii) only",
+        "(i), (ii), and (iii)"
+      ],
+      "correctAnswer": 3,
+      "explanation": "All statements are correct. (i) Vulcanization increases the toughness and elasticity of rubber by creating sulfur cross-links. (ii) Teflon (polytetrafluoroethylene) is highly resistant to heat and chemicals. (iii) Novolac is the linear product formed when phenol-formaldehyde reaction is carried out with an excess of phenol and acid catalyst, contrasting with the cross-linked Bakelite.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is an example of a biodegradable polyester suitable for use in surgical sutures and capsules?",
+      "options": [
+        "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate)",
+        "Nylon-6,6",
+        "Bakelite",
+        "Teflon"
+      ],
+      "correctAnswer": 0,
+      "explanation": "PHBV is a copolymer of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. It is a biodegradable aliphatic polyester. It is widely used in packaging, orthopedic devices, and controlled release of drugs. Nylon-6,6, Bakelite, and Teflon are synthetic, non-biodegradable polymers.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the monomer units of Glyptal, a polyester resin used in the manufacture of paints and lacquers.",
+      "options": [
+        "Ethylene glycol and terephthalic acid",
+        "Ethylene glycol and phthalic acid",
+        "Hexamethylenediamine and adipic acid",
+        "Phenol and formaldehyde"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Glyptal is a condensation polymer formed by the polymerization of ethylene glycol (ethane-1,2-diol) and phthalic acid (benzene-1,2-dicarboxylic acid). It is a thermosetting resin used in paints and coatings. Ethylene glycol and terephthalic acid form Dacron (Terylene).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molecular mass 10,000 u and 200 molecules of molecular mass 20,000 u. What is the number average molecular mass (Mn) of the polymer?",
+      "options": [
+        "15,000 u",
+        "16,666 u",
+        "18,500 u",
+        "30,000 u"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Number average molecular mass is defined as Mn = Σ(ni * Mi) / Σni. Here, ni are the number of molecules and Mi are their respective molar masses. Mn = ((100 * 10,000) + (200 * 20,000)) / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.66 u.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding the properties and synthesis of polymers?",
+      "options": [
+        "Vulcanization of rubber involves the cross-linking of chains with sulfur to improve mechanical properties.",
+        "Thermosetting polymers are cross-linked polymers that undergo permanent change on heating.",
+        "Elastomers have the weakest intermolecular forces of attraction among all classes of polymers.",
+        "Addition polymers are generally formed by the condensation of bifunctional monomeric units."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Addition polymers are formed by the repeated addition of monomer molecules possessing double or triple bonds without the loss of any small molecules. Condensation polymers involve the loss of small molecules like water or alcohols. Therefore, the statement claiming addition polymers are formed by condensation is incorrect.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Considering the structure-property relationship of synthetic fibers, which of the following characteristics accurately describes the intermolecular forces in Nylon-6,6 and their effect on its physical properties?",
+      "options": [
+        "Weak van der Waals forces, leading to high elasticity and low melting point.",
+        "Strong hydrogen bonding between amide groups, resulting in high tensile strength and crystalline structure.",
+        "Covalent cross-linking between chains, making the material brittle and insoluble in most solvents.",
+        "Ionic interactions between carboxylate and ammonium ions, causing high water solubility."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nylon-6,6 is a polyamide. The presence of the -CONH- linkage allows for strong intermolecular hydrogen bonding between the chains. These forces hold the chains in a close-packed, crystalline arrangement, which results in high tensile strength and high melting points, making it an ideal fiber for textiles.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is formed by the condensation polymerization of hexamethylenediamine and adipic acid?",
+      "options": [
+        "Terylene",
+        "Nylon 6,6",
+        "Bakelite",
+        "Nylon 6"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nylon 6,6 is a polyamide formed by the condensation reaction between hexamethylenediamine [H2N(CH2)6NH2] and adipic acid [HOOC(CH2)4COOH] with the elimination of water molecules. It is a classic example of a step-growth (condensation) polymerization process commonly tested in JEE.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following sets contains only addition polymers?",
+      "options": [
+        "Teflon, Polystyrene, Neoprene",
+        "Nylon 6,6, Urea-formaldehyde resin, Terylene",
+        "Buna-N, Bakelite, PVC",
+        "Polypropylene, Dacron, Buna-S"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Addition polymers are formed by the repeated addition of monomers containing double or triple bonds without the loss of any small molecules. Teflon (poly-tetrafluoroethylene), Polystyrene, and Neoprene (polychloroprene) are all addition polymers. Options B, C, and D contain condensation polymers like Nylon 6,6, Bakelite, and Dacron, which involve the elimination of small molecules like H2O.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molar mass 10,000 g/mol and 200 molecules of molar mass 20,000 g/mol. The number average molar mass (Mn) of the polymer is:",
+      "options": [
+        "16,666.67 g/mol",
+        "15,000 g/mol",
+        "18,333.33 g/mol",
+        "13,333.33 g/mol"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The number average molar mass is calculated using the formula Mn = Σ(NiMi) / ΣNi, where Ni is the number of molecules and Mi is the molar mass. Mn = [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.67 g/mol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding biodegradable polymers:\n(i) PHBV is a copolymer of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid.\n(ii) Nylon-2-nylon-6 is a polyamide copolymer of glycine and aminocaproic acid.\n(iii) Biodegradable polymers are generally aliphatic polyesters.\nSelect the correct option:",
+      "options": [
+        "(i) and (ii) are correct",
+        "(ii) and (iii) are correct",
+        "(i) and (iii) are correct",
+        "(i), (ii), and (iii) are correct"
+      ],
+      "correctAnswer": 3,
+      "explanation": "All three statements are factually correct based on the NCERT Chemistry curriculum. PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate) is a biodegradable polyester. Nylon-2-nylon-6 is a biodegradable polyamide copolymer. Most biodegradable polymers synthesized for industrial use (like polyhydroxyalkanoates) are indeed aliphatic polyesters that can undergo enzymatic hydrolysis.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following is correctly matched with its monomer(s) and property?",
+      "options": [
+        "Buna-S : 1,3-butadiene and styrene; Thermoplastic",
+        "Bakelite : Phenol and formaldehyde; Thermosetting",
+        "Neoprene : Chloroprene; Thermoplastic",
+        "PVC : Vinyl chloride; Thermosetting"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bakelite is formed by the cross-linking of phenol and formaldehyde, resulting in a rigid, infusible, and insoluble 3D structure, making it a thermosetting polymer. Buna-S is a synthetic rubber (elastomer), not a thermoplastic. Neoprene is an elastomer. PVC is a thermoplastic, not a thermosetting plastic. Thus, only Bakelite is correctly identified with its monomer and property.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following polymers is formed by the condensation polymerization of hexamethylenediamine and adipic acid?",
+      "options": [
+        "Nylon 6",
+        "Nylon 6,6",
+        "Terylene",
+        "Bakelite"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nylon 6,6 is a polyamide formed by the condensation reaction between hexamethylenediamine (H2N(CH2)6NH2) and adipic acid (HOOC(CH2)4COOH) with the elimination of water molecules. Nylon 6 is formed from caprolactam, while Terylene is a polyester formed from ethylene glycol and terephthalic acid. Bakelite is a thermosetting resin formed from phenol and formaldehyde.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the monomer units used in the preparation of Buna-S rubber.",
+      "options": [
+        "1,3-Butadiene and Acrylonitrile",
+        "1,3-Butadiene and Styrene",
+        "Chloroprene and Vinyl chloride",
+        "Ethylene and Propylene"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Buna-S is a copolymer of 1,3-butadiene and styrene. The 'Bu' stands for butadiene, 'na' for sodium (the catalyst), and 'S' for styrene. Acrylonitrile is used in the synthesis of Buna-N (Nitrile rubber). Chloroprene is the monomer for Neoprene. Styrene is a vinyl benzene derivative essential for the physical properties of SBR (Styrene-Butadiene Rubber).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements regarding synthetic polymers is NOT correct?",
+      "options": [
+        "Biodegradable polymers like PHBV are produced by bacterial decomposition.",
+        "Thermosetting polymers are cross-linked and cannot be remolded by heating.",
+        "Natural rubber is a linear polymer of 2-methyl-1,3-butadiene (isoprene).",
+        "Teflon is prepared by the free radical polymerization of vinyl chloride."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Teflon (Polytetrafluoroethylene) is prepared by the polymerization of tetrafluoroethylene (CF2=CF2), not vinyl chloride. Vinyl chloride (CH2=CHCl) is the monomer for PVC (Polyvinyl chloride). All other statements are correct: PHBV is indeed biodegradable, thermosetting polymers like Bakelite undergo cross-linking, and natural rubber is a cis-1,4-polyisoprene.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molecular mass 10,000 u and 200 molecules of molecular mass 20,000 u. The number average molecular mass (Mn) of the polymer is:",
+      "options": [
+        "13,333 u",
+        "15,000 u",
+        "16,667 u",
+        "18,000 u"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The number average molecular mass (Mn) is calculated using the formula Mn = Σ(NiMi) / ΣNi, where Ni is the number of molecules and Mi is the molecular mass. Calculation: [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.67 u. Thus, the value is approximately 16,667 u.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following polymers: (I) Kevlar, (II) Dacron, (III) Urea-formaldehyde resin, (IV) Neoprene. Which of these are examples of condensation polymers?",
+      "options": [
+        "I, II and III",
+        "I, III and IV",
+        "II, III and IV",
+        "I, II and IV"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Condensation polymers are formed by the repeated condensation reaction between two bifunctional or trifunctional monomeric units with the elimination of small molecules like H2O, HCl, or CH3OH. Kevlar (polyamide), Dacron (polyester), and Urea-formaldehyde (thermosetting plastic) involve condensation. Neoprene is an addition polymer formed by the polymerization of chloroprene (2-chloro-1,3-butadiene) via a free-radical addition mechanism.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is an example of a biodegradable aliphatic polyester copolymer used in surgical sutures?",
+      "options": [
+        "Nylon 2-nylon 6",
+        "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate)",
+        "Nylon 6,6",
+        "Glyptal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PHBV is a copolymer of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. It is a well-known biodegradable aliphatic polyester used for orthopedic devices and controlled drug release. Nylon 2-nylon 6 is also biodegradable but is a polyamide. Nylon 6,6 and Glyptal are non-biodegradable synthetic polymers.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the monomer units of the polymer 'Bakelite'.",
+      "options": [
+        "Phenol and Methanal",
+        "Phenol and Ethanal",
+        "Benzene and Methanal",
+        "Phenol and Propanone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Bakelite is a thermosetting polymer formed by the condensation polymerization of phenol and formaldehyde (methanal). The reaction involves the formation of o- and p-hydroxymethyl phenol derivatives, which further cross-link to produce the rigid, infusible structure of Bakelite.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Arrange the following polymers in the increasing order of their intermolecular forces: Nylon 6,6, Buna-S, Polythene.",
+      "options": [
+        "Buna-S < Polythene < Nylon 6,6",
+        "Polythene < Buna-S < Nylon 6,6",
+        "Nylon 6,6 < Polythene < Buna-S",
+        "Buna-S < Nylon 6,6 < Polythene"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Intermolecular forces determine the classification: Elastomers (weakest forces, e.g., Buna-S), Thermoplastics (intermediate forces, e.g., Polythene), and Fibers (strongest forces due to hydrogen bonding, e.g., Nylon 6,6). Therefore, the correct order is Elastomer < Thermoplastic < Fiber.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molecular mass 10,000 u and 200 molecules of molecular mass 20,000 u. The number average molecular mass (Mn) of the polymer is:",
+      "options": [
+        "15,000 u",
+        "16,666 u",
+        "13,333 u",
+        "18,000 u"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The number average molecular mass is calculated using the formula: Mn = Σ(NiMi) / ΣNi. Here, N1=100, M1=10,000; N2=200, M2=20,000. Mn = [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.67 u.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statement(s) is/are correct regarding the structure and properties of Vulcanized rubber?",
+      "options": [
+        "It involves the formation of disulfide (S-S) cross-links between polymer chains.",
+        "Sulfur forms cross-links at the reactive allylic positions of polyisoprene chains.",
+        "Vulcanization makes the rubber stiffer, harder, and more resistant to heat and chemicals.",
+        "All of the above."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Vulcanization is the process of heating natural rubber (cis-1,4-polyisoprene) with sulfur. Sulfur atoms create cross-links between the polymer chains at the allylic carbon sites. This structural modification restricts the mobility of the chains, significantly enhancing the mechanical properties (stiffness, hardness) and thermal stability of the rubber, making it commercially useful.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is an example of a biodegradable polyester suitable for use in surgical sutures and capsules for drug delivery?",
+      "options": [
+        "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate)",
+        "Nylon-6,6",
+        "Glyptal",
+        "Terylene"
+      ],
+      "correctAnswer": 0,
+      "explanation": "PHBV is a biodegradable aliphatic polyester synthesized by the copolymerization of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. It is biologically degradable and biocompatible, making it ideal for medical applications like controlled drug release and absorbable sutures. Nylon-6,6, Glyptal, and Terylene are non-biodegradable synthetic polymers used in textiles or paints.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the monomer units of the polymer 'Nylon-2-nylon-6'.",
+      "options": [
+        "Hexamethylenediamine and Adipic acid",
+        "Glycine and Aminocaproic acid",
+        "Caprolactam and Adipic acid",
+        "Glycine and Hexamethylenediamine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nylon-2-nylon-6 is a polyamide copolymer formed by the condensation of glycine (aminoacetic acid, H2N-CH2-COOH) and aminocaproic acid (NH2-(CH2)5-COOH). The '2' represents the two carbon atoms in glycine, and the '6' represents the six carbon atoms in aminocaproic acid. It is a well-known biodegradable polyamide.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Bakelite is formed by the reaction of phenol with formaldehyde. In this process, the initial step involves the formation of ortho- and para-hydroxybenzyl alcohols. Which type of polymerization reaction is this?",
+      "options": [
+        "Addition polymerization",
+        "Chain growth polymerization",
+        "Step growth condensation polymerization",
+        "Coordination polymerization"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Bakelite (phenol-formaldehyde resin) is formed via step-growth condensation polymerization. The reaction involves the elimination of water molecules as the monomers (phenol and formaldehyde) link together to form linear (Novolac) or cross-linked (Bakelite) structures. Unlike addition polymerization, condensation polymerization involves the loss of small molecules like H2O or HCl.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molar mass 10,000 g/mol and 200 molecules of molar mass 20,000 g/mol. Calculate the number-average molar mass (Mn) of the polymer.",
+      "options": [
+        "16,666.67 g/mol",
+        "15,000 g/mol",
+        "13,333.33 g/mol",
+        "18,000 g/mol"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The number-average molar mass (Mn) is given by the formula: Mn = Σ(NiMi) / ΣNi, where Ni is the number of molecules and Mi is the molar mass. Mn = [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.67 g/mol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding synthetic rubbers:\n(I) Neoprene is a polymer of chloroprene.\n(II) Buna-N is a copolymer of 1,3-butadiene and acrylonitrile.\n(III) Vulcanization of rubber involves the introduction of sulfur bridges between polymer chains to improve elasticity.\nWhich of the above statements are correct?",
+      "options": [
+        "I and II only",
+        "II and III only",
+        "I and III only",
+        "I, II, and III"
+      ],
+      "correctAnswer": 3,
+      "explanation": "All statements are correct. (I) Neoprene (Polychloroprene) is formed by the polymerization of 2-chloro-1,3-butadiene. (II) Buna-N is a synthetic copolymer of 1,3-butadiene and acrylonitrile, known for resistance to oil and solvents. (III) Vulcanization involves heating natural rubber with sulfur, which creates cross-links (sulfur bridges) between polyisoprene chains, significantly increasing the tensile strength and elasticity of the material.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following polymers is formed by the condensation polymerization of hexamethylenediamine and adipic acid?",
+      "options": [
+        "Terylene",
+        "Nylon-6,6",
+        "Nylon-6",
+        "Bakelite"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nylon-6,6 is a polyamide formed by the condensation polymerization of hexamethylenediamine (H2N(CH2)6NH2) and adipic acid (HOOC(CH2)4COOH) with the loss of water molecules. Terylene is a polyester, Nylon-6 is formed by the polymerization of caprolactam, and Bakelite is a thermosetting phenol-formaldehyde resin.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following sets of monomers are used for the preparation of Buna-S?",
+      "options": [
+        "1,3-Butadiene and Styrene",
+        "1,3-Butadiene and Acrylonitrile",
+        "Vinyl chloride and Formaldehyde",
+        "Chloroprene and Vinyl chloride"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Buna-S (Styrene-Butadiene Rubber) is a copolymer formed by the polymerization of 1,3-butadiene and styrene in the presence of a peroxide catalyst. The prefix 'Bu' stands for butadiene, 'na' for sodium (catalsyt), and 'S' for styrene. It is an elastomeric polymer used extensively for manufacturing automobile tires.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Biodegradable polymers are polymers that decompose by bacterial action. Which of the following is a biodegradable polymer consisting of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid?",
+      "options": [
+        "PHBV",
+        "Nylon-2-nylon-6",
+        "Dextran",
+        "Poly-β-hydroxybutyrate"
+      ],
+      "correctAnswer": 0,
+      "explanation": "PHBV (Poly-β-hydroxybutyrate-co-β-hydroxyvalerate) is a biodegradable aliphatic polyester. It is obtained by the copolymerization of 3-hydroxybutanoic acid and 3-hydroxypentanoic acid. The monomer units are linked by ester linkages, allowing microbial degradation. Nylon-2-nylon-6 is another biodegradable polyamide.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polymer sample contains 100 molecules of molar mass 10,000 g/mol and 200 molecules of molar mass 20,000 g/mol. The number average molar mass (Mn) of the polymer is:",
+      "options": [
+        "15,000 g/mol",
+        "16,667 g/mol",
+        "13,333 g/mol",
+        "18,000 g/mol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The number average molar mass (Mn) is calculated using the formula: Mn = Σ(ni * Mi) / Σni, where ni is the number of molecules and Mi is the molar mass. Mn = [(100 * 10,000) + (200 * 20,000)] / (100 + 200) = (1,000,000 + 4,000,000) / 300 = 5,000,000 / 300 = 16,666.67 g/mol. Rounding to the nearest integer gives 16,667 g/mol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding the structural properties of polymers?",
+      "options": [
+        "High-density polyethylene (HDPE) has a linear structure and high crystallinity.",
+        "Vulcanization of rubber involves the introduction of sulfur cross-links between polymer chains.",
+        "Thermosetting polymers are cross-linked polymers which cannot be remolded upon heating.",
+        "Teflon is a thermoplastic polymer produced by the free-radical polymerization of vinyl chloride."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Teflon (Polytetrafluoroethylene) is produced by the polymerization of tetrafluoroethylene (CF2=CF2), not vinyl chloride. Vinyl chloride (CH2=CHCl) is the monomer for PVC (Polyvinyl chloride). The other statements are correct: HDPE is linear due to its manufacturing process (Ziegler-Natta catalyst), Vulcanization adds sulfur bridges to increase elasticity, and thermosetting plastics are permanently set by cross-linking.",
+      "difficulty": "hard"
+    }
+  ]
+}

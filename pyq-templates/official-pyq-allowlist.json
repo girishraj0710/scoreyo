@@ -1,0 +1,61 @@
+{
+  "default": {
+    "allowPathPatterns": [
+      "question-paper",
+      "questionpaper",
+      "previous-year",
+      "previous_question",
+      "qpaper",
+      "/qp/",
+      "paper-1",
+      "paper-2",
+      "shift"
+    ]
+  },
+  "exams": {
+    "jee-main": {
+      "allowNumericFilenames": true,
+      "allowPathPatterns": [
+        "question-paper",
+        "qpaper",
+        "jee",
+        "nta",
+        "cdnbbsr.s3waas.gov.in"
+      ]
+    },
+    "jee-advanced": {
+      "allowPathPatterns": [
+        "p1_english",
+        "p2_english",
+        "p1_hindi",
+        "p2_hindi",
+        "question",
+        "paper"
+      ]
+    },
+    "neet-ug": {
+      "allowNumericFilenames": true,
+      "allowPathPatterns": [
+        "question-paper",
+        "neet",
+        "nta",
+        "cdnbbsr.s3waas.gov.in"
+      ]
+    },
+    "upsc-cse": {
+      "allowPathPatterns": [
+        "previous-question-papers",
+        "question",
+        "paper"
+      ]
+    },
+    "mht-cet": {
+      "allowPathPatterns": [
+        "question-paper",
+        "qpaper",
+        "previous-year",
+        "mock-question"
+      ]
+    }
+  }
+}

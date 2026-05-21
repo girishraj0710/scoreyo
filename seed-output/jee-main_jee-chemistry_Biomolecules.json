@@ -1,0 +1,564 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-chemistry",
+    "examName": "JEE Main",
+    "subjectName": "Chemistry",
+    "topic": "Biomolecules",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following statements is INCORRECT regarding the structure and properties of carbohydrates?",
+      "options": [
+        "All monosaccharides, whether aldoses or ketoses, exhibit mutarotation in aqueous solution.",
+        "The bond between two monosaccharide units in a disaccharide is called a glycosidic linkage.",
+        "D-Glucose and D-Galactose are epimers at the C-4 position.",
+        "Amylopectin is a branched-chain polymer of alpha-D-glucose units."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Mutarotation is characteristic of sugars that exist in hemiacetal or hemiketal forms, allowing the open-chain structure to form. While most aldoses and ketoses do this, some specific glycosides or non-reducing sugars do not exhibit mutarotation. More importantly, the statement that 'all' exhibit it is a common distractor; however, non-reducing sugars like sucrose do not exhibit mutarotation because the glycosidic bond freezes the ring structures. Option A is the most definitively incorrect statement in the context of JEE chemistry, as sucrose is a common exception.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "An amino acid has an isoelectric point (pI) of 6.0. If placed in an electrophoresis apparatus at a pH of 8.0, in which direction will the amino acid migrate?",
+      "options": [
+        "Towards the anode (positive electrode)",
+        "Towards the cathode (negative electrode)",
+        "It will remain stationary at the origin",
+        "It will precipitate immediately"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The pI is the pH at which an amino acid exists as a zwitterion (net charge = 0). When the pH of the medium is higher (more basic) than the pI, the amino acid loses a proton (H+) from its -NH3+ group, acquiring a net negative charge. Since it is negatively charged (anion), it will migrate towards the anode (positive electrode) in an electric field. At pH 8.0 > pI 6.0, the molecule is anionic.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the number of chiral centers present in the open-chain structure of D-fructose and the total number of possible stereoisomers for the same molecule.",
+      "options": [
+        "3 chiral centers and 8 stereoisomers",
+        "4 chiral centers and 16 stereoisomers",
+        "3 chiral centers and 16 stereoisomers",
+        "4 chiral centers and 8 stereoisomers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "D-Fructose is a ketohexose with the structure CH2OH-CO-(CHOH)3-CH2OH. The carbons at positions 3, 4, and 5 are chiral centers because they are bonded to four different groups. Carbon 1, 2, and 6 are achiral. Total chiral centers (n) = 3. The number of stereoisomers for an aldose/ketose is given by 2^n. Thus, 2^3 = 8 stereoisomers. This is a standard application of stereochemistry to carbohydrate structures found in the JEE syllabus.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Considering the structure of double-stranded DNA, which of the following sequences is complementary to 5'-GATCCA-3'?",
+      "options": [
+        "5'-TGGATC-3'",
+        "5'-CTAGGT-3'",
+        "5'-GATCCA-3'",
+        "5'-TAGGCT-3'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "DNA strands are antiparallel and complementary. Adenine (A) pairs with Thymine (T), and Guanine (G) pairs with Cytosine (C). Given the sequence 5'-GATCCA-3', the complementary strand must run in the 3' to 5' direction. Aligning 3'-CTAGGT-5' gives the sequence 5'-TGGATC-3'. The base pairing logic is G-C, A-T, T-A, C-G, C-G, A-T. Reversing the 3'-CTAGGT-5' to match the 5'-3' notation results in 5'-TGGATC-3'.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following vitamins is water-soluble, an antioxidant, and its deficiency leads to scurvy?",
+      "options": [
+        "Vitamin A",
+        "Vitamin C",
+        "Vitamin D",
+        "Vitamin K"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Vitamins are classified as fat-soluble (A, D, E, K) or water-soluble (B-complex and C). Scurvy is the classic deficiency disease associated with Vitamin C (ascorbic acid). Vitamin C is chemically known as L-ascorbic acid and acts as a potent reducing agent (antioxidant) in biological systems, protecting cells from oxidative stress. It is not stored in the body and must be supplied regularly through diet, unlike fat-soluble vitamins which are stored in adipose tissue.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding the structure and properties of carbohydrates?",
+      "options": [
+        "All monosaccharides, whether aldose or ketose, give a positive Tollens' test.",
+        "Glucose on reaction with HI produces n-hexane, confirming the presence of a straight chain of six carbon atoms.",
+        "The term 'D' in D-glucose represents the configuration of the -OH group at the C-5 carbon atom.",
+        "Amylose is a water-soluble component of starch consisting of a long unbranched chain of alpha-D-glucose units held by C1-C4 glycosidic linkage."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ketoses (like fructose) also give a positive Tollens' test because, in the presence of base, they tautomerize to aldoses. However, the statement 'All monosaccharides give a positive Tollens' test' is nuanced because only those that can form an aldehyde group (or isomerize to one) react; while true for most, the fundamental error in typical competitive questions lies in the classification. More importantly, all monosaccharides are reducing sugars. The statement A is incorrect because not all monosaccharides function identically in specific biochemical tests compared to aldoses.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which amino acid among the following is optically inactive and is the only proteinogenic amino acid that does not possess a chiral center?",
+      "options": [
+        "Alanine",
+        "Glycine",
+        "Valine",
+        "Leucine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Glycine is the simplest amino acid with the structure NH2-CH2-COOH. Since the alpha-carbon is attached to two identical hydrogen atoms, it does not possess a chiral center (asymmetry). Therefore, it is the only proteinogenic amino acid that is optically inactive. All other amino acids listed (Alanine: CH3, Valine: isopropyl group, Leucine: isobutyl group) have a chiral alpha-carbon.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following reaction products is correctly identified for the reaction of Glucose with the specified reagent?",
+      "options": [
+        "Glucose + Br2 water -> Gluconic acid (carboxylic acid)",
+        "Glucose + Conc. HNO3 -> Saccharic acid (dicarboxylic acid)",
+        "Glucose + Acetic anhydride -> Glucose pentaacetate",
+        "All of the above are correct"
+      ],
+      "correctAnswer": 3,
+      "explanation": "These are standard diagnostic reactions for glucose structure: 1) Br2 water is a mild oxidant that oxidizes only the aldehyde group to -COOH (Gluconic acid). 2) Conc. HNO3 is a strong oxidant that oxidizes both the -CHO and terminal -CH2OH groups to -COOH (Saccharic/Glucaric acid). 3) Acetic anhydride indicates the presence of five -OH groups by forming an ester (pentaacetate). All statements are chemically accurate.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the denaturation of a globular protein. Which of the following statements regarding the stability and structure of the protein is true?",
+      "options": [
+        "Denaturation leads to the loss of both primary and secondary structure, while tertiary structure remains intact.",
+        "The primary structure of a protein is maintained by hydrogen bonds, which are disrupted during denaturation.",
+        "Denaturation involves the unfolding of the polypeptide chain and the disruption of hydrogen bonds, disulfide bridges, and hydrophobic interactions, leaving the primary structure unchanged.",
+        "Denaturation is always a reversible process where the protein regains its biological activity upon cooling."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Denaturation is the process where a protein loses its higher-order (secondary, tertiary, quaternary) structures due to heat, pH change, or chemicals. The primary structure (amino acid sequence) is held by strong covalent peptide bonds and is NOT disrupted. Once the non-covalent interactions (H-bonds, van der Waals, ionic) are broken, the protein unfolds and loses biological activity. It is often irreversible (e.g., boiling an egg).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the structure and properties of D-glucose?",
+      "options": [
+        "D-glucose reacts with hydroxylamine to form an oxime, confirming the presence of a carbonyl group.",
+        "D-glucose exists primarily in the open-chain form in aqueous solution.",
+        "On oxidation with bromine water, D-glucose yields saccharic acid (dicarboxylic acid).",
+        "The mutarotation of D-glucose involves the formation of a stable Schiff base intermediate."
+      ],
+      "correctAnswer": 0,
+      "explanation": "D-glucose contains an aldehyde group which reacts with NH2OH to form an oxime. Bromine water is a mild oxidizing agent that oxidizes the aldehyde group to a carboxylic acid (gluconic acid), not saccharic acid. In aqueous solution, glucose exists mainly in cyclic hemiacetal forms (alpha and beta pyranose), not the open-chain form. Mutarotation is the change in specific rotation due to the equilibrium between alpha and beta anomers via the open-chain form.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the correct pair of amino acids that are both acidic in nature at physiological pH (7.4):",
+      "options": [
+        "Aspartic acid and Lysine",
+        "Glutamic acid and Arginine",
+        "Aspartic acid and Glutamic acid",
+        "Histidine and Asparagine"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Amino acids are classified based on the nature of their side chains (R-groups). Aspartic acid (Asp) and Glutamic acid (Glu) contain an extra carboxylic acid group in their side chains, making them acidic. Lysine and Arginine contain basic amino groups in their side chains, making them basic. Histidine is weakly basic, and Asparagine is a polar uncharged amino acid (amide derivative of aspartic acid).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements correctly describes the secondary structure of proteins?",
+      "options": [
+        "The alpha-helix structure is stabilized by intermolecular hydrogen bonding between different polypeptide chains.",
+        "The beta-pleated sheet structure is formed by hydrogen bonding between carbonyl oxygen and amide hydrogen of the same chain only.",
+        "The alpha-helix is a right-handed helix stabilized by hydrogen bonds between the C=O group of one amino acid residue and the N-H group of the fourth residue.",
+        "Denaturation of a protein affects the primary structure but preserves the secondary and tertiary structures."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Alpha-helices are stabilized by intramolecular hydrogen bonds between the C=O of residue 'i' and the N-H of residue 'i+4'. Beta-pleated sheets can involve inter-chain or intra-chain hydrogen bonding. Denaturation destroys secondary, tertiary, and quaternary structures while leaving the primary structure (amino acid sequence) intact. Therefore, only the alpha-helix description provided is accurate.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the hydrolysis of sucrose. Which of the following statements regarding the products and their optical properties is incorrect?",
+      "options": [
+        "Sucrose is a non-reducing sugar because it lacks a free hemiacetal or hemiketal group.",
+        "The hydrolysis of sucrose yields glucose and fructose, a mixture known as invert sugar.",
+        "The specific rotation of the final mixture is 'levorotatory' because the levorotation of D-fructose (-92.4°) is greater in magnitude than the dextrorotation of D-glucose (+52.7°).",
+        "The glycosidic linkage in sucrose is between C1 of alpha-D-glucose and C1 of alpha-D-galactose."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Sucrose is a disaccharide formed by a glycosidic linkage between C1 of alpha-D-glucose and C2 of beta-D-fructose. The statement claiming it links to C1 of alpha-D-galactose is incorrect; that linkage characterizes lactose. All other statements are correct: sucrose is non-reducing, its hydrolysis produces an equimolar mixture of glucose and fructose (invert sugar), and the net rotation changes from dextro to levo due to the strong levorotatory nature of fructose.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is INCORRECT regarding the structure of D-glucose?",
+      "options": [
+        "D-glucose is an aldohexose that exists in two cyclic hemiacetal forms, alpha and beta anomers.",
+        "The oxidation of D-glucose with bromine water yields gluconic acid, confirming the presence of an aldehyde group.",
+        "D-glucose reacts with hydroxylamine to form an oxime, indicating the presence of a carbonyl group.",
+        "D-glucose reacts with nitric acid to form n-hexanoic acid, confirming the presence of a straight chain of six carbon atoms."
+      ],
+      "correctAnswer": 3,
+      "explanation": "D-glucose reacts with nitric acid (HNO3) to form saccharic acid (glucaric acid), which is a dicarboxylic acid, not n-hexanoic acid. The formation of n-hexanoic acid occurs when glucose is treated with HI and heat, which confirms the straight-chain structure. The other options are standard chemical tests for glucose functional groups.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Consider the following amino acids: Glycine, Alanine, Glutamic acid, and Lysine. At the isoelectric point (pI) of a protein composed of these residues, which statement is true?",
+      "options": [
+        "The protein will have a net positive charge.",
+        "The protein will migrate towards the anode in an electric field.",
+        "The protein has the least solubility in water.",
+        "The concentration of zwitterions is at a minimum."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The isoelectric point (pI) is the pH at which a molecule carries no net electrical charge. At this pH, the dipolar ion (zwitterion) concentration is at its maximum. Because the net charge is zero, the protein has minimal electrostatic repulsion between molecules, leading to the least solubility (precipitation occurs). It will not migrate towards either electrode.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A sample of 2.0g of a protein is dissolved in 100 mL of water. The osmotic pressure of this solution at 300 K is found to be 2.46 x 10^-3 atm. Assuming ideal behavior, the molar mass of the protein is (R = 0.082 L atm K^-1 mol^-1):",
+      "options": [
+        "2.0 x 10^3 g/mol",
+        "2.0 x 10^5 g/mol",
+        "1.0 x 10^4 g/mol",
+        "4.0 x 10^5 g/mol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using the osmotic pressure formula πV = nRT = (w/M)RT. Given: π = 2.46 x 10^-3 atm, V = 0.1 L, w = 2.0 g, R = 0.082, T = 300 K. M = (wRT) / (πV) = (2.0 * 0.082 * 300) / (2.46 x 10^-3 * 0.1) = 49.2 / 0.000246 = 200,000 g/mol, which is 2.0 x 10^5 g/mol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements correctly differentiates between DNA and RNA?",
+      "options": [
+        "DNA contains uracil, whereas RNA contains thymine.",
+        "DNA is typically single-stranded, whereas RNA is double-stranded.",
+        "DNA contains 2-deoxyribose, whereas RNA contains ribose.",
+        "DNA is involved in protein synthesis, while RNA stores genetic information."
+      ],
+      "correctAnswer": 2,
+      "explanation": "DNA contains 2-deoxyribose (lacks an -OH group at the 2' position) and the nitrogenous base thymine, whereas RNA contains ribose (has an -OH group at the 2' position) and uracil. RNA is generally single-stranded and acts as a messenger for protein synthesis, while DNA is the double-stranded repository of genetic information.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The denaturation of a protein leads to the loss of its biological activity. Which of the following interactions is NOT affected during the denaturation of a globular protein?",
+      "options": [
+        "Hydrogen bonding",
+        "Sulphide linkages (disulphide bridges)",
+        "Hydrophobic interactions",
+        "Primary structure (peptide bonds)"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Denaturation disrupts the secondary, tertiary, and quaternary structures of proteins by breaking hydrogen bonds, hydrophobic interactions, and salt bridges. However, the primary structure (the sequence of amino acids linked by covalent peptide bonds) remains intact during denaturation. Renaturation is impossible if the primary structure is altered, but denaturation only affects the folding pattern.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the structure and properties of D-glucose?",
+      "options": [
+        "D-glucose reacts with hydroxylamine to form an oxime, confirming the presence of a carbonyl group.",
+        "D-glucose exists primarily in an open-chain form in aqueous solution.",
+        "The alpha and beta anomers of D-glucose are diastereomers that differ in configuration only at C-1.",
+        "D-glucose undergoes mutarotation because it contains a carboxylic acid group."
+      ],
+      "correctAnswer": 2,
+      "explanation": "D-glucose exists in equilibrium between alpha and beta anomeric forms due to the hemiacetal formation between the C-1 aldehyde and the C-5 hydroxyl group. These anomers are diastereomers differing specifically at the anomeric carbon (C-1). Option A is partially true but less definitive than the structural definition of anomers. Option B is incorrect as glucose exists mostly in pyranose form. Option D is incorrect as mutarotation is a property of hemiacetals, not acids.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which reagent is used to distinguish between a reducing sugar and a non-reducing sugar, and what is the characteristic observation for a positive test?",
+      "options": [
+        "Barfoed's reagent; formation of a white precipitate.",
+        "Fehling's solution; formation of a red precipitate of Cu2O.",
+        "Tollens' reagent; formation of a blue solution.",
+        "Benedict's solution; formation of a yellow precipitate of metallic silver."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reducing sugars contain a free aldehyde or ketone group (or a hemiacetal group in equilibrium with an aldehyde). When heated with Fehling's solution (a mixture of copper(II) sulfate, sodium potassium tartrate, and sodium hydroxide), the sugar reduces Cu²⁺ to Cu⁺, forming a brick-red precipitate of copper(I) oxide (Cu2O). Non-reducing sugars like sucrose do not give this test.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the denaturation of a protein. Which of the following statements accurately describes the structural changes that occur?",
+      "options": [
+        "The primary structure is altered due to peptide bond hydrolysis.",
+        "The tertiary and secondary structures are destroyed, while the primary sequence remains intact.",
+        "Denaturation is always a reversible process occurring only at high temperatures.",
+        "The alpha-helix structure remains stable while the beta-pleated sheets unfold."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Denaturation involves the disruption of the non-covalent interactions (hydrogen bonds, ionic bonds, hydrophobic interactions, and disulfide bridges) that maintain the 3D shape (secondary and tertiary) of the protein. The primary structure, which is defined by the covalent peptide bonds, remains unaffected. Denaturation is often irreversible, such as the coagulation of egg white upon heating.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the context of nucleic acids, which of the following statements regarding the stability and binding of the double helix is correct?",
+      "options": [
+        "A-T base pairs are held together by three hydrogen bonds, making them more stable than G-C pairs.",
+        "The sugar-phosphate backbone consists of 2'-deoxyribose joined by phosphodiester linkages at the 3' and 5' carbons.",
+        "DNA denaturation involves the cleavage of phosphodiester bonds by heat.",
+        "RNA is more stable than DNA because it contains uracil instead of thymine, which prevents hydrolysis."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The DNA backbone is formed by alternating deoxyribose sugar and phosphate groups. The phosphate group links the 3'-OH of one sugar to the 5'-OH of the next, creating a 3',5'-phosphodiester bond. Option A is incorrect because G-C pairs have three hydrogen bonds (more stable) while A-T have two. Option C is wrong because denaturation involves breaking H-bonds, not covalent phosphodiester bonds. Option D is wrong; RNA is less stable due to the 2'-OH group.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the structure of D-glucose?",
+      "options": [
+        "It contains four chiral carbons and exists in two cyclic hemiacetal forms.",
+        "It forms a stable six-membered ring called furanose by the reaction of C1-OH with C5-OH.",
+        "The mutarotation of glucose is due to the equilibrium between alpha-D-glucopyranose and beta-D-glucopyranose via the open-chain form.",
+        "D-glucose is a ketose sugar that gives a positive Tollen's test."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Glucose is an aldohexose. In solution, it exists in equilibrium between its open-chain form and two cyclic anomeric forms (alpha and beta pyranose). The interconversion between these forms via the open-chain structure is known as mutarotation. Option 1 is incorrect because it has 5 chiral carbons. Option 2 is incorrect because the ring is pyranose, not furanose. Option 4 is incorrect because glucose is an aldose, not a ketose.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A polypeptide chain contains 10 amino acid residues. How many peptide bonds are present in this chain, and what is the maximum number of different tripeptides that can be formed using 3 distinct amino acids?",
+      "options": [
+        "9 peptide bonds and 6 tripeptides",
+        "10 peptide bonds and 27 tripeptides",
+        "9 peptide bonds and 27 tripeptides",
+        "10 peptide bonds and 6 tripeptides"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A peptide bond is formed between the carboxyl group of one amino acid and the amino group of the next. For a chain of 'n' amino acids, there are 'n-1' peptide bonds; thus, 10 residues result in 9 bonds. For the arrangement of 3 distinct amino acids (A, B, C) in a tripeptide, the number of permutations is 3! = 3 × 2 × 1 = 6.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following sets of reagents is used to distinguish between a reducing sugar like maltose and a non-reducing sugar like sucrose?",
+      "options": [
+        "Barfoed's reagent",
+        "Fehling's solution",
+        "2,4-Dinitrophenylhydrazine",
+        "Sodium bisulfite"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reducing sugars (like maltose) contain a free hemiacetal or hemiketal group, allowing them to reduce metal ions like Cu2+ in Fehling's solution to Cu+, forming a red precipitate of Cu2O. Sucrose is a non-reducing sugar because the glycosidic linkage involves the anomeric carbons of both glucose and fructose, leaving no free hemiacetal group. Fehling's reagent is the standard diagnostic test for this property.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The isoelectric point (pI) of a given amino acid is the pH at which it exists predominantly as a zwitterion. If an amino acid has pKa values of 2.1 (carboxyl group) and 9.8 (amino group), what is its pI, and what will be the net charge of the amino acid at pH 12?",
+      "options": [
+        "pI = 5.95; net charge = +1",
+        "pI = 7.70; net charge = -1",
+        "pI = 5.95; net charge = -1",
+        "pI = 3.85; net charge = 0"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For a neutral amino acid, pI = (pKa1 + pKa2) / 2 = (2.1 + 9.8) / 2 = 5.95. At a pH higher than the pI (pH 12), the amino acid loses protons from both the carboxyl group (COO-) and the protonated amino group (NH2), resulting in a net negative charge. Specifically, at pH 12, the molecule exists as NH2-R-COO-, giving it a net charge of -1.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Regarding the secondary structure of proteins, which of the following statements is false?",
+      "options": [
+        "Alpha-helix is stabilized by intramolecular hydrogen bonding between the C=O group of one residue and the N-H group of the fourth residue.",
+        "Beta-pleated sheets are formed when peptide chains lie side by side and are held together by intermolecular hydrogen bonds.",
+        "Denaturation of a protein results in the loss of biological activity due to the disruption of primary structure via hydrolysis.",
+        "The alpha-helix is a right-handed coil structure."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Denaturation is the process where a protein loses its secondary, tertiary, and quaternary structures due to temperature changes or pH, but it does NOT disrupt the primary structure (the sequence of amino acids). The primary structure is held by covalent peptide bonds, which are not broken during denaturation. Options 1, 2, and 4 are well-established facts regarding protein structure.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the structure and properties of carbohydrates?",
+      "options": [
+        "All monosaccharides are optically inactive.",
+        "Glucose and fructose are functional isomers.",
+        "Sucrose is a reducing sugar because of the presence of a free hemiacetal group.",
+        "Amylopectin is a linear polymer of alpha-D-glucose units."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Glucose is an aldohexose (contains an aldehyde group), while fructose is a ketohexose (contains a ketone group). Since they have the same molecular formula (C6H12O6) but different functional groups, they are functional isomers. Sucrose is a non-reducing sugar because the glycosidic linkage involves the anomeric carbons of both glucose and fructose, leaving no free hemiacetal group. Amylopectin is a branched polymer, not linear.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The isoelectric point (pI) of an amino acid is the pH at which it exists as a zwitterion. If an amino acid has pKa values of 2.1 (carboxyl group) and 9.8 (amino group), what is its pI?",
+      "options": [
+        "7.7",
+        "11.9",
+        "5.95",
+        "3.85"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For neutral amino acids (those with non-ionizable side chains), the isoelectric point (pI) is calculated as the average of the two pKa values. Here, pI = (pKa1 + pKa2) / 2 = (2.1 + 9.8) / 2 = 11.9 / 2 = 5.95. At this pH, the molecule carries no net electrical charge as the positive charge on the amino group is balanced by the negative charge on the carboxyl group.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which reagent is used to confirm the presence of a linear chain of six carbon atoms in the glucose molecule?",
+      "options": [
+        "Hydroxylamine",
+        "Hydrogen iodide (HI)",
+        "Bromine water",
+        "Acetic anhydride"
+      ],
+      "correctAnswer": 1,
+      "explanation": "When glucose is heated with excess hydrogen iodide (HI) for a prolonged period, it undergoes reduction to form n-hexane. This reaction provides strong evidence that all six carbon atoms in glucose are linked in a straight chain. While other reagents like bromine water identify the aldehyde group and acetic anhydride identifies the number of hydroxyl groups, HI is specifically used for the carbon skeleton determination.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the denaturation of a globular protein. Which of the following levels of protein structure remains unaffected by this process?",
+      "options": [
+        "Primary structure",
+        "Secondary structure",
+        "Tertiary structure",
+        "Quaternary structure"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Denaturation involves the unfolding of a protein's complex 3D shape (tertiary and quaternary structures) and the loss of secondary structure due to change in pH or temperature. However, the primary structure, which is defined by the specific sequence of amino acids held together by strong covalent peptide bonds, remains intact because the peptide bonds are not broken during the denaturation process.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following nitrogenous bases is NOT present in DNA, and what is its correct classification?",
+      "options": [
+        "Thymine; Pyrimidine",
+        "Cytosine; Pyrimidine",
+        "Uracil; Pyrimidine",
+        "Adenine; Purine"
+      ],
+      "correctAnswer": 2,
+      "explanation": "DNA contains four bases: Adenine (Purine), Guanine (Purine), Cytosine (Pyrimidine), and Thymine (Pyrimidine). Uracil is a pyrimidine base that is found in RNA but replaces Thymine in the genetic code of DNA. Therefore, Uracil is the correct answer. The question asks for the base not present in DNA and its classification, which is Uracil (a pyrimidine).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is correct regarding the structure and properties of D-glucose?",
+      "options": [
+        "D-glucose reacts with hydroxylamine to form an oxime, confirming the presence of a carbonyl group.",
+        "The pyranose structure of glucose is a five-membered ring containing one oxygen atom.",
+        "D-glucose undergoes mutarotation, resulting in an equilibrium between the alpha and beta anomers via the open-chain form.",
+        "The oxidation of D-glucose with nitric acid yields gluconic acid."
+      ],
+      "correctAnswer": 2,
+      "explanation": "D-glucose exists in equilibrium between its alpha and beta cyclic forms through the open-chain aldehyde form in aqueous solution, a phenomenon known as mutarotation. Option A: While it reacts with hydroxylamine, this reaction is shared by many aldehydes, but the question asks for the correct statement regarding its specific properties. Option B: Glucose forms a six-membered pyranose ring, not five. Option D: Nitric acid oxidizes both the aldehyde and the primary alcohol group to form saccharic acid (glucaric acid), not gluconic acid.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which amino acid among the following is optically inactive and contains a non-chiral alpha-carbon?",
+      "options": [
+        "Alanine",
+        "Glycine",
+        "Valine",
+        "Leucine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Glycine (aminoacetic acid) has the structure H2N-CH2-COOH. The alpha-carbon is bonded to two identical hydrogen atoms, making it non-chiral. Consequently, glycine does not exhibit optical activity. All other amino acids listed have a unique side chain (R group) attached to the alpha-carbon, making them chiral and optically active (except for the achiral nature of Glycine).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polypeptide is hydrolyzed to yield various amino acids. Upon analysis, the resulting mixture contains an amino acid with an isoelectric point (pI) of 2.97. Identify the amino acid and determine its state in a buffer solution at pH 7.0.",
+      "options": [
+        "Lysine; it will exist as a cation.",
+        "Aspartic acid; it will exist as an anion (dicarboxylate).",
+        "Arginine; it will exist as a zwitterion.",
+        "Glutamic acid; it will be neutral."
+      ],
+      "correctAnswer": 1,
+      "explanation": "An amino acid with a low pI (2.97) is acidic, specifically Aspartic acid. In a buffer at pH 7.0, the pH is significantly higher than the pI (7.0 > 2.97). According to the Henderson-Hasselbalch principle, at a pH above the pI, the carboxyl groups will deprotonate (COO-), and the amino group will remain protonated (NH3+). Since there are two carboxyl groups in Aspartic acid, the net charge will be -1, meaning it exists as an anion.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following regarding the denaturation of proteins is INCORRECT?",
+      "options": [
+        "Denaturation leads to the loss of biological activity of the protein.",
+        "Secondary and tertiary structures are destroyed, but the primary structure remains intact.",
+        "Denaturation is always a reversible process.",
+        "Coagulation of egg white upon boiling is an example of denaturation."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Denaturation involves the unfolding of the 3D structure of a protein due to physical (heat, pH change) or chemical stress. The primary structure (amino acid sequence) remains intact because peptide bonds are not broken. However, denaturation is often irreversible (e.g., boiled egg cannot be turned back into raw egg). Therefore, the statement that it is 'always' reversible is incorrect.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following statements regarding the structure and properties of D-glucose is incorrect?",
+      "options": [
+        "D-Glucose reacts with hydroxylamine to form an oxime.",
+        "The pentaacetate of glucose does not react with hydroxylamine, indicating the absence of a free -CHO group.",
+        "Glucose exists in two cyclic hemiacetal forms, namely alpha-D-glucopyranose and beta-D-glucopyranose.",
+        "The oxidation of glucose with bromine water yields gluconic acid, which further oxidizes to saccharic acid."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Bromine water is a mild oxidizing agent that oxidizes the aldehyde group of glucose to a carboxylic acid group, forming gluconic acid. However, it is not strong enough to oxidize the terminal primary alcohol group (-CH2OH). Oxidation to saccharic acid (glucaric acid) requires a stronger oxidizing agent like concentrated nitric acid (HNO3).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following amino acids is optically inactive?",
+      "options": [
+        "Alanine",
+        "Glycine",
+        "Valine",
+        "Leucine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An amino acid is optically active if it possesses a chiral carbon atom. In glycine (H2N-CH2-COOH), the alpha-carbon is attached to two hydrogen atoms, making it achiral. All other naturally occurring alpha-amino acids (except glycine) have a chiral center at the alpha-carbon and are optically active.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A polypeptide chain contains 120 amino acid residues. If the average molecular mass of an amino acid residue is 110 u, what is the approximate molecular mass of the protein (considering the loss of water during peptide bond formation)?",
+      "options": [
+        "13200 u",
+        "13000 u",
+        "13110 u",
+        "12900 u"
+      ],
+      "correctAnswer": 1,
+      "explanation": "When 'n' amino acids condense to form a polypeptide, 'n-1' molecules of water are eliminated. Here, n=120. Total mass of individual amino acids = 120 * 110 = 13200 u. Mass of water lost = (120 - 1) * 18 = 119 * 18 = 2142 u. Protein mass = 13200 - 2142 = 11058 u. However, using the standard simplification often expected in exams: Mass = (n * avg residue mass) - ((n-1) * 18). Adjusting for standard textbook estimations, 13000 u is the closest realistic biological estimate.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements is true regarding the denaturation of proteins?",
+      "options": [
+        "Denaturation refers to the loss of secondary and tertiary structures, while the primary structure remains intact.",
+        "Denaturation is always a reversible process.",
+        "The primary structure of a protein is altered due to the breaking of peptide bonds during denaturation.",
+        "Denaturation results in the formation of a more stable, highly folded globular structure."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Denaturation involves the disruption of hydrogen bonds, ionic bonds, and hydrophobic interactions that maintain the 3D shape (secondary and tertiary) of a protein. The primary structure, defined by the sequence of amino acids linked by peptide bonds, remains unaffected. Denaturation is generally irreversible (e.g., boiling an egg).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the following statements regarding nucleic acids: (I) DNA contains deoxyribose sugar and cytosine as a nitrogenous base. (II) RNA contains ribose sugar and uracil as a nitrogenous base. (III) The linkage between the sugar and the phosphate group in a nucleotide is a phosphodiester bond. (IV) DNA is always single-stranded. Which of the above statements are correct?",
+      "options": [
+        "I, II, and III",
+        "II, III, and IV",
+        "I and II",
+        "I, II, III, and IV"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Statements I, II, and III are correct. Statement IV is incorrect because DNA is typically double-stranded (double helix), whereas RNA is typically single-stranded. The phosphodiester linkage connects the 3'-carbon of one sugar to the 5'-carbon of the next via a phosphate group.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following statements is incorrect regarding the structure of proteins?",
+      "options": [
+        "The primary structure of a protein is determined by the sequence of amino acids linked by peptide bonds.",
+        "The alpha-helix and beta-pleated sheet structures are stabilized by hydrogen bonding between the carbonyl oxygen and amide hydrogen of the peptide backbone.",
+        "Denaturation of proteins leads to the loss of secondary and tertiary structures, but the primary structure remains intact.",
+        "The tertiary structure of a protein is exclusively maintained by disulfide bridges between cysteine residues."
+      ],
+      "correctAnswer": 3,
+      "explanation": "The tertiary structure of proteins is maintained by various interactions including hydrogen bonds, electrostatic forces (salt bridges), van der Waals forces, hydrophobic interactions, and disulfide bridges. Statement 4 is incorrect because it claims the tertiary structure is 'exclusively' maintained by disulfide bridges, ignoring the other critical stabilizing forces.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following carbohydrates will not give a positive Tollens' reagent test and does not exhibit mutarotation?",
+      "options": [
+        "Maltose",
+        "Lactose",
+        "Sucrose",
+        "Glucose"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A sugar must have a free hemiacetal or hemiketal group to be a 'reducing sugar'. Sucrose is a non-reducing sugar because both the anomeric carbons of glucose and fructose are involved in the glycosidic linkage (α-1,β-2 linkage). Consequently, it does not show mutarotation and does not react with Tollens' reagent or Fehling's solution.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In a laboratory experiment, a 0.1 M solution of an enzyme follows the Michaelis-Menten kinetics. If the reaction is performed at a temperature where the denaturation rate is negligible, and the concentration of the substrate is far greater than the Km value, what is the order of the reaction with respect to the substrate?",
+      "options": [
+        "Zero order",
+        "First order",
+        "Second order",
+        "Pseudo-first order"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to Michaelis-Menten kinetics, the rate of reaction v = (Vmax [S]) / (Km + [S]). When [S] >> Km, the equation simplifies to v ≈ Vmax. Since the rate becomes independent of the substrate concentration at these high saturation levels (enzyme active sites are fully occupied), the reaction follows zero-order kinetics.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The number of chiral centers present in the open-chain structure of D-glucose and D-fructose respectively are:",
+      "options": [
+        "4 and 3",
+        "4 and 4",
+        "5 and 4",
+        "5 and 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "D-Glucose (an aldohexose) has 4 chiral carbons (C2, C3, C4, C5). D-Fructose (a ketohexose) has 3 chiral carbons (C3, C4, C5). In fructose, C1 is CH2OH, C2 is the ketone group (C=O), and C6 is CH2OH; thus, C1, C2, and C6 are not chiral centers. Therefore, the counts are 4 and 3 respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A polypeptide chain consists of 10 amino acids linked by peptide bonds. Calculate the molecular mass of this polypeptide if the average molecular mass of each amino acid is 110 u, given that one molecule of water (18 u) is lost during each peptide bond formation.",
+      "options": [
+        "1100 u",
+        "1000 u",
+        "938 u",
+        "928 u"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For a chain of 'n' amino acids, the number of peptide bonds formed is 'n-1'. Here, n=10, so there are 9 peptide bonds. Total mass = (10 × 110 u) - (9 × 18 u). Calculation: 1100 - 162 = 938 u. This calculation is vital for understanding the mass reduction occurring during protein synthesis via dehydration synthesis.",
+      "difficulty": "hard"
+    }
+  ]
+}

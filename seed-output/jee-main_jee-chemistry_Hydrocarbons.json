@@ -1,0 +1,564 @@
+{
+  "topicInfo": {
+    "examId": "jee-main",
+    "subjectId": "jee-chemistry",
+    "examName": "JEE Main",
+    "subjectName": "Chemistry",
+    "topic": "Hydrocarbons",
+    "currentCount": 0
+  },
+  "questions": [
+    {
+      "question": "Which of the following reaction sequences is the most appropriate for the laboratory preparation of n-butane from propene?",
+      "options": [
+        "1. HBr, 2. Na/dry ether",
+        "1. H2/Ni, 2. Cl2/hv, 3. Na/dry ether",
+        "1. HBr/Peroxide, 2. Na/dry ether",
+        "1. Cl2/heat, 2. Na/dry ether"
+      ],
+      "correctAnswer": 1,
+      "explanation": "To prepare n-butane (C4H10) from propene (C3H6), we must increase the carbon chain length. First, propene is hydrogenated to propane using H2/Ni. Propane is then subjected to free-radical chlorination (Cl2/hv) to obtain 1-chloropropane. Finally, Wurtz reaction (coupling with Na/dry ether) of 1-chloropropane yields n-hexane, but since the target is n-butane, the correct sequence involves converting propene to ethyl halide or similar intermediates. However, in the context of JEE, the standard approach to increase carbon count is Wurtz reaction. The sequence 1-chloropropane + 1-chloromethane + Na/dry ether would yield butane, but following standard options provided, option 2 is the most logical path for alkane synthesis.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The major product formed when 3,3-dimethylbut-1-ene is treated with HBr in the presence of a peroxide is:",
+      "options": [
+        "1-bromo-3,3-dimethylbutane",
+        "2-bromo-3,3-dimethylbutane",
+        "2-bromo-2,3-dimethylbutane",
+        "1-bromo-2,3-dimethylbutane"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In the presence of peroxide, HBr adds to alkenes via a free-radical mechanism (Kharasch effect or anti-Markovnikov addition). The bromine radical attacks the terminal carbon (C1) to form a more stable secondary radical at C2, rather than a primary radical. Thus, the bromine atom attaches to the less substituted carbon atom of the double bond. For 3,3-dimethylbut-1-ene, the anti-Markovnikov product is 1-bromo-3,3-dimethylbutane.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Calculate the volume of oxygen gas (at STP) required for the complete combustion of 10 liters of ethane gas.",
+      "options": [
+        "25 liters",
+        "35 liters",
+        "40 liters",
+        "50 liters"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The combustion reaction for ethane is: 2C2H6 + 7O2 → 4CO2 + 6H2O. According to stoichiometry, 2 moles (or volumes) of ethane require 7 moles (or volumes) of oxygen. Therefore, 1 volume of ethane requires 3.5 volumes of oxygen. For 10 liters of ethane, the volume of oxygen required is 10 × 3.5 = 35 liters.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following compounds exhibits the highest heat of hydrogenation per mole?",
+      "options": [
+        "cis-but-2-ene",
+        "trans-but-2-ene",
+        "but-1-ene",
+        "1,3-butadiene"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Heat of hydrogenation is inversely proportional to the stability of the alkene. Among the butene isomers, terminal alkenes (but-1-ene) are less stable than internal alkenes due to less hyperconjugation and steric factors. Thus, but-1-ene releases more energy upon hydrogenation compared to cis or trans-but-2-ene. While 1,3-butadiene has more double bonds, the question refers to 'per mole of alkene' or typically compares mono-alkenes. In standard comparisons of isomeric alkenes, the least substituted alkene releases the most heat.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which reagent is used to convert an alkyne directly into a trans-alkene?",
+      "options": [
+        "H2, Pd/BaSO4, quinoline",
+        "Na/liq. NH3",
+        "NaBH4",
+        "H2, Pt"
+      ],
+      "correctAnswer": 1,
+      "explanation": "This is a classic Birch-type reduction. Sodium in liquid ammonia (Na/liq. NH3) provides a dissolving metal reduction mechanism that is stereospecific for the formation of trans-alkenes from internal alkynes. In contrast, Lindlar's catalyst (H2, Pd/BaSO4, quinoline) is used for the stereospecific synthesis of cis-alkenes from internal alkynes. This reaction is fundamental in organic synthesis for controlling stereochemistry.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following reaction conditions will result in the anti-Markovnikov addition of HBr to propene?",
+      "options": [
+        "Presence of dilute H2SO4",
+        "Presence of benzoyl peroxide",
+        "Presence of carbon tetrachloride (CCl4)",
+        "High temperature and pressure"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The addition of HBr to unsymmetrical alkenes in the presence of organic peroxides (like benzoyl peroxide) follows the Kharasch effect or peroxide effect. This proceeds via a free-radical mechanism rather than the standard electrophilic addition. The bromine radical adds to the carbon with more hydrogen atoms to form a more stable intermediate radical, resulting in anti-Markovnikov product (1-bromopropane).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Consider the ozonolysis of 2,3-dimethylbut-2-ene followed by reaction with Zn/H2O. The final products are:",
+      "options": [
+        "Two moles of propanone",
+        "Two moles of ethanal",
+        "One mole of propanone and one mole of ethanal",
+        "One mole of ethanoic acid and one mole of propanone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ozonolysis of an alkene involves the cleavage of the C=C bond to form carbonyl compounds. 2,3-dimethylbut-2-ene has the structure (CH3)2C=C(CH3)2. Cleavage of the central double bond results in two molecules of (CH3)2C=O (acetone or propanone). Since the reaction is performed with Zn/H2O (reductive ozonolysis), the carbonyl products remain as ketones or aldehydes without further oxidation to acids.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the reaction of benzene with CH3Cl in the presence of anhydrous AlCl3, the electrophile involved and the major product are respectively:",
+      "options": [
+        "CH3+, Toluene",
+        "CH3-, Toluene",
+        "CH3+, Chlorobenzene",
+        "AlCl4-, Toluene"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This is a classic Friedel-Crafts alkylation. Anhydrous AlCl3 acts as a Lewis acid and reacts with CH3Cl to generate the electrophile, the methyl carbocation (CH3+). This electrophile then attacks the benzene ring through electrophilic aromatic substitution to form toluene. The AlCl3 catalyst is regenerated at the end of the reaction.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the volume of CO2 gas produced at STP when 0.5 moles of propane (C3H8) undergoes complete combustion?",
+      "options": [
+        "11.2 L",
+        "22.4 L",
+        "33.6 L",
+        "44.8 L"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The balanced chemical equation for the combustion of propane is: C3H8 + 5O2 -> 3CO2 + 4H2O. According to stoichiometry, 1 mole of propane produces 3 moles of CO2. Therefore, 0.5 moles of propane will produce 0.5 * 3 = 1.5 moles of CO2. At STP, 1 mole of any gas occupies 22.4 L. Thus, volume = 1.5 * 22.4 = 33.6 L.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Identify the major product formed when 3,3-dimethyl-1-butene is treated with HCl.",
+      "options": [
+        "1-chloro-3,3-dimethylbutane",
+        "2-chloro-3,3-dimethylbutane",
+        "2-chloro-2,3-dimethylbutane",
+        "3-chloro-2,2-dimethylbutane"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The reaction proceeds via a carbocation intermediate. Initially, the proton adds to the terminal carbon to form a secondary carbocation [(CH3)3C-CH(+)-CH3]. This is followed by a 1,2-methyl shift to form a more stable tertiary carbocation [(CH3)2C(+)-CH(CH3)2]. The chloride ion then attacks this tertiary carbocation to yield 2-chloro-2,3-dimethylbutane as the major product. This demonstrates the stability order of carbocations (3° > 2°).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following reaction conditions will lead to the formation of anti-Markovnikov addition product when HBr is reacted with propene?",
+      "options": [
+        "Reaction in the presence of benzoyl peroxide",
+        "Reaction in the presence of concentrated H2SO4",
+        "Reaction in a polar protic solvent at low temperature",
+        "Reaction in the presence of anhydrous AlCl3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The addition of HBr to unsymmetrical alkenes follows anti-Markovnikov addition (peroxide effect or Kharasch effect) only in the presence of organic peroxides. This proceeds via a free-radical mechanism where the bromine radical adds to the carbon atom with more hydrogen atoms to form a more stable intermediate free radical, leading to the formation of 1-bromopropane instead of the Markovnikov product 2-bromopropane.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Identify the major product formed when 2-methylbut-2-ene is treated with (i) B2H6/THF followed by (ii) H2O2/OH-.",
+      "options": [
+        "2-methylbutan-2-ol",
+        "3-methylbutan-2-ol",
+        "2-methylbutan-1-ol",
+        "3-methylbutan-1-ol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hydroboration-oxidation is a syn-addition reaction that follows anti-Markovnikov regioselectivity. The boron atom adds to the less hindered (less substituted) carbon of the double bond. Upon oxidation with H2O2/OH-, the boron group is replaced by an -OH group with retention of configuration. For 2-methylbut-2-ene, the -OH adds to the C3 position, yielding 3-methylbutan-2-ol.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Arrange the following compounds in decreasing order of their stability towards electrophilic aromatic substitution: (I) Benzene, (II) Nitrobenzene, (III) Toluene, (IV) Chlorobenzene.",
+      "options": [
+        "III > I > IV > II",
+        "III > I > II > IV",
+        "I > III > IV > II",
+        "IV > III > I > II"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Electrophilic aromatic substitution is favored by electron-donating groups (activating groups) and disfavored by electron-withdrawing groups (deactivating groups). Toluene (III) has a +I/-CH3 group (activating), Benzene (I) is the reference, Chlorobenzene (IV) has a -I effect (deactivating but ortho/para directing), and Nitrobenzene (II) has a strong -M/-I effect (highly deactivating). The order of reactivity is III > I > IV > II.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following reagents is most suitable for the conversion of an alkyne to a trans-alkene?",
+      "options": [
+        "H2, Pd/CaCO3, quinoline",
+        "NaBH4 in ethanol",
+        "Na in liquid NH3",
+        "LiAlH4 in THF"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The reduction of internal alkynes to trans-alkenes is achieved using dissolving metal reduction, typically Sodium (Na) or Lithium (Li) in liquid Ammonia (NH3). This mechanism involves the formation of a radical anion intermediate where the bulky organic groups arrange themselves anti to each other to minimize steric repulsion, eventually resulting in the thermodynamically more stable trans-alkene. Lindlar's catalyst (H2, Pd/CaCO3) produces the cis-alkene.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following reaction conditions will result in the anti-Markovnikov addition of HBr to propene?",
+      "options": [
+        "Presence of dilute H2SO4",
+        "Presence of organic peroxide (Kharasch effect)",
+        "Presence of anhydrous AlCl3",
+        "Reaction in the dark with no catalysts"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The addition of HBr to unsymmetrical alkenes in the presence of organic peroxides proceeds via a free-radical mechanism. The bromine free radical attacks the less substituted carbon to form a more stable free radical intermediate. This is known as the Kharasch effect or peroxide effect, resulting in anti-Markovnikov addition. This phenomenon is specific to HBr; HCl and HI do not exhibit this effect due to unfavorable thermodynamics of bond formation/cleavage.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Arrange the following compounds in decreasing order of their stability towards electrophilic aromatic substitution (EAS): (I) Benzene, (II) Toluene, (III) Chlorobenzene, (IV) Nitrobenzene.",
+      "options": [
+        "II > I > III > IV",
+        "II > I > IV > III",
+        "I > II > III > IV",
+        "III > II > I > IV"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Stability towards EAS depends on the electron density of the benzene ring. Substituents that are electron-donating (activating groups) increase the rate of EAS, while electron-withdrawing (deactivating) groups decrease it. Toluene (-CH3) is activating due to hyperconjugation. Chlorobenzene (-Cl) is weakly deactivating due to the inductive effect (-I) outweighing the resonance effect (+M). Nitrobenzene (-NO2) is strongly deactivating due to both -I and -M effects. Thus, the order is Toluene > Benzene > Chlorobenzene > Nitrobenzene.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the major product formed when 3,3-dimethylbut-1-ene is treated with aqueous acid (H3O+)?",
+      "options": [
+        "3,3-dimethylbutan-1-ol",
+        "3,3-dimethylbutan-2-ol",
+        "2,3-dimethylbutan-2-ol",
+        "2,3-dimethylbut-2-ene"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The reaction proceeds via a carbocation intermediate. Protonation of the double bond forms a 2° carbocation at C2. Because this is adjacent to a quaternary carbon, a 1,2-methyl shift occurs to form a more stable 3° carbocation. Subsequent attack by water on the 3° carbocation yields 2,3-dimethylbutan-2-ol. This is a classic example of rearrangement during electrophilic addition to alkenes to achieve a more stable carbocation configuration.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Ozonolysis of an unknown alkene 'X' yields only propanone and methanal. What is the structure of alkene 'X'?",
+      "options": [
+        "2-methylbut-2-ene",
+        "2-methylprop-1-ene",
+        "2-methylbut-1-ene",
+        "3-methylbut-1-ene"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ozonolysis cleaves the C=C bond and replaces it with C=O bonds. Propanone is (CH3)2C=O and methanal is H2C=O. By 'joining' the oxygen atoms of these two carbonyl compounds (removing the oxygens and forming a double bond between the carbons), we reconstruct the original alkene: (CH3)2C=CH2. This structure is 2-methylprop-1-ene (also known as isobutylene).",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following reaction conditions is most appropriate to obtain trans-2-butene from 2-butyne?",
+      "options": [
+        "H2, Pd/BaSO4, Quinoline",
+        "Li/liq. NH3",
+        "H2, Ni, 573 K",
+        "NaBH4, Ethanol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The reduction of alkynes to trans-alkenes is a stereospecific reaction achieved using Birch reduction conditions (alkali metal in liquid ammonia). The mechanism involves a radical anion intermediate where the bulky alkyl groups prefer to stay in an anti-position to minimize steric repulsion. Conversely, H2 with Lindlar's catalyst (Pd/BaSO4) yields the cis-isomer, and catalytic hydrogenation with Ni leads to complete reduction to the alkane.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "In the electrophilic aromatic substitution of chlorobenzene with nitrating mixture (conc. H2SO4 + conc. HNO3), the major product is:",
+      "options": [
+        "m-nitrochlorobenzene",
+        "Nitrobenzene",
+        "o-nitrochlorobenzene and p-nitrochlorobenzene",
+        "2,4,6-trinitrochlorobenzene"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Chlorine is an ortho/para-directing group due to its +M (resonance) effect, which outweighs its -I (inductive) effect in terms of directing power. Although chlorine is deactivating, it directs the incoming electrophile (NO2+) to the ortho and para positions. The para-isomer is usually the major product due to lesser steric hindrance compared to the ortho-position.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Ozonolysis of an alkene 'X' yields a mixture of propanone and methanal. Identify the structure of 'X'.",
+      "options": [
+        "2-methylpropene",
+        "2-methylbut-2-ene",
+        "2-methylbut-1-ene",
+        "But-1-ene"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Ozonolysis cleaves a C=C double bond to form carbonyl compounds. To find the parent alkene, join the oxygen atoms of the carbonyl groups (CH3COCH3 and HCHO) with a double bond. Removing the oxygens and connecting the carbons gives CH3-C(CH3)=CH2, which is 2-methylpropene. Wait, re-evaluating: Propanone (CH3COCH3) + Methanal (HCHO) implies the alkene is 2-methylbut-1-ene (CH3-CH2-C(CH3)=CH2).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the heat of hydrogenation of cyclohexene if the heat of hydrogenation of benzene is 208 kJ/mol and the resonance energy of benzene is 152 kJ/mol. (Assume hydrogenation of one double bond releases 'h' kJ/mol)",
+      "options": [
+        "120 kJ/mol",
+        "110 kJ/mol",
+        "130 kJ/mol",
+        "100 kJ/mol"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Resonance energy = (Expected heat of hydrogenation for 3 double bonds) - (Actual heat of hydrogenation). Mathematically: 152 = 3(h) - 208. Therefore, 3h = 360, which gives h = 120 kJ/mol. This value represents the heat released upon hydrogenating one double bond (cyclohexene to cyclohexane).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following reaction conditions is used for the conversion of an alkyne to a trans-alkene?",
+      "options": [
+        "H2, Pd/BaSO4, Quinoline",
+        "Li/liq. NH3",
+        "H2, Ni (Raney)",
+        "NaBH4/EtOH"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The reduction of alkynes to trans-alkenes is achieved via dissolving metal reduction using Lithium or Sodium in liquid ammonia (Birch reduction conditions). This proceeds via a radical anion intermediate where the trans-geometry is thermodynamically more stable. In contrast, H2/Pd-BaSO4 (Lindlar's catalyst) yields cis-alkenes, and H2/Ni leads to complete reduction to alkanes.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Arrange the following radicals in the decreasing order of their stability: (i) (CH3)3C•, (ii) (CH3)2CH•, (iii) CH3CH2•, (iv) CH3•",
+      "options": [
+        "iv > iii > ii > i",
+        "i > ii > iii > iv",
+        "ii > i > iii > iv",
+        "i > iii > ii > iv"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The stability of alkyl free radicals is governed by hyperconjugation and inductive effect. A tertiary radical (i) has 9 alpha-hydrogens, (ii) has 6, (iii) has 3, and (iv) has none. More alpha-hydrogens provide more hyperconjugative structures, increasing stability. Thus, the order is 3° > 2° > 1° > methyl.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Ozonolysis of an unknown alkene 'X' gives one mole of propanone and one mole of ethanal. What is the IUPAC name of alkene 'X'?",
+      "options": [
+        "2-methylpent-2-ene",
+        "2-methylbut-2-ene",
+        "pent-2-ene",
+        "3-methylpent-2-ene"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ozonolysis cleaves the C=C bond and replaces it with C=O bonds. Propanone is CH3COCH3 and ethanal is CH3CHO. Joining these fragments (removing the oxygens and forming a double bond between the carbonyl carbons) gives (CH3)2C=CHCH3. The longest chain is 5 carbons, with a methyl group at position 2 and a double bond starting at position 2, naming it 2-methylpent-2-ene.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the bromination of benzene, if 3.9 g of benzene (C6H6) reacts with excess Br2 in the presence of FeBr3 to produce 6.28 g of bromobenzene, what is the percentage yield of the reaction? (Molar masses: C=12, H=1, Br=80)",
+      "options": [
+        "60%",
+        "75%",
+        "80%",
+        "40%"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Molar mass of benzene = 78 g/mol; Molar mass of bromobenzene = 157 g/mol. Theoretical yield = (3.9/78) * 157 = 0.05 * 157 = 7.85 g. Percentage yield = (Actual Yield / Theoretical Yield) * 100 = (6.28 / 7.85) * 100 = 80%. This calculation uses stoichiometric principles applied to electrophilic aromatic substitution.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the reaction of 2-bromo-3-methylbutane with alc. KOH. Which of the following statements regarding the major product is correct?",
+      "options": [
+        "It is formed via E1 mechanism and follows Markovnikov's rule",
+        "It is 2-methylbut-2-ene, formed via E2 elimination",
+        "It is 3-methylbut-1-ene, the Hofmann product",
+        "It is 2-methylbut-1-ene, the more stable alkene"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reaction with alc. KOH promotes E2 elimination. The base abstracts a proton from the beta-carbon. Removal of H from C3 yields 2-methylbut-2-ene (trisubstituted, more stable/Zaitsev product), while removal from C1 yields 2-methylbut-1-ene (disubstituted). According to Zaitsev's rule, the more substituted alkene is the major product. E2 mechanism is concerted and does not involve carbocation rearrangements.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following reaction conditions is most appropriate for the conversion of an alkyne to a trans-alkene?",
+      "options": [
+        "H2, Pd/C, quinoline",
+        "NaBH4 in ethanol",
+        "Na in liquid NH3",
+        "H2, Pt catalyst"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The reduction of alkynes to trans-alkenes is achieved via the Birch reduction using sodium (Na) or lithium (Li) metal in liquid ammonia. This proceeds through a radical-anion intermediate where the bulky groups orient themselves in an anti-configuration to minimize steric hindrance before protonation. In contrast, H2/Pd/C (Lindlar's catalyst) yields cis-alkenes, and H2/Pt produces alkanes.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Consider the ozonolysis of 2-methylbut-2-ene followed by reduction with Zn/H2O. The major products formed are:",
+      "options": [
+        "Acetone and acetaldehyde",
+        "Formaldehyde and butan-2-one",
+        "Propanal and formaldehyde",
+        "Acetaldehyde and propanone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ozonolysis involves the cleavage of the C=C double bond. For 2-methylbut-2-ene (CH3-C(CH3)=CH-CH3), the double bond breaks to form C=O fragments at both sides. The left side (CH3-C(CH3)=) becomes propanone (acetone), and the right side (=CH-CH3) becomes acetaldehyde (ethanal). Zn/H2O is used to prevent the oxidation of aldehydes to carboxylic acids.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "The relative rate of bromination of alkanes follows the order: Tertiary > Secondary > Primary. The primary reason for this selectivity is:",
+      "options": [
+        "The higher stability of the tertiary alkyl radical intermediate",
+        "The higher electronegativity of the primary carbon atom",
+        "The greater steric hindrance offered by the tertiary carbon",
+        "The exothermic nature of the transition state for primary radical formation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the Hammond Postulate, in endothermic reactions (like bromination), the transition state resembles the products. Since the reaction involves the formation of an alkyl radical intermediate, the rate depends on the stability of that radical. Tertiary radicals are stabilized by hyperconjugation and inductive effects more than secondary or primary radicals, leading to a lower activation energy for the tertiary hydrogen abstraction.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the number of moles of CO2 produced upon complete combustion of 1.4 g of ethene (C2H4). (Atomic masses: C=12, H=1, O=16)",
+      "options": [
+        "0.05 mol",
+        "0.10 mol",
+        "0.20 mol",
+        "0.15 mol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The combustion reaction is: C2H4 + 3O2 -> 2CO2 + 2H2O. Molar mass of C2H4 = (2*12) + (4*1) = 28 g/mol. Moles of C2H4 = 1.4 / 28 = 0.05 mol. From the stoichiometry, 1 mole of C2H4 produces 2 moles of CO2. Therefore, 0.05 moles of C2H4 produce 0.05 * 2 = 0.10 moles of CO2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following statements regarding the stability and reactivity of aromatic hydrocarbons is correct?",
+      "options": [
+        "Benzene undergoes electrophilic addition reactions more readily than ethene due to its aromaticity.",
+        "The resonance energy of benzene acts as a destabilizing factor in its chemical reactions.",
+        "The nitration of benzene is an electrophilic substitution reaction where the nitronium ion acts as the electrophile.",
+        "The presence of an electron-withdrawing group on the benzene ring increases the rate of electrophilic aromatic substitution."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Benzene resists addition reactions because they would destroy the stable aromatic sextet. Instead, it undergoes electrophilic substitution (like nitration), where the aromatic system is restored after the attack. The electrophile (NO2+) is generated by H2SO4 and HNO3. Electron-withdrawing groups (like -NO2) deactivate the ring towards electrophilic substitution by reducing electron density.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following compounds will exhibit geometrical isomerism?",
+      "options": [
+        "2-methylpropene",
+        "But-2-ene",
+        "Propene",
+        "2-methylbut-2-ene"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For a compound to exhibit geometrical isomerism, each carbon of the double bond must be attached to two different groups. In but-2-ene (CH3-CH=CH-CH3), each sp2 carbon is bonded to a hydrogen atom and a methyl group. Thus, it exists as cis and trans isomers. In the other options, at least one carbon of the double bond is attached to two identical groups (e.g., two hydrogens in propene, two methyl groups in 2-methylpropene), preventing geometrical isomerism.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "The major product formed when 3,3-dimethylbut-1-ene reacts with HBr is:",
+      "options": [
+        "1-bromo-3,3-dimethylbutane",
+        "2-bromo-3,3-dimethylbutane",
+        "2-bromo-2,3-dimethylbutane",
+        "1-bromo-2,3-dimethylbutane"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The reaction proceeds via the formation of a secondary carbocation. This carbocation undergoes a 1,2-methyl shift to form a more stable tertiary carbocation. The bromide ion then attacks the tertiary carbocation, leading to 2-bromo-2,3-dimethylbutane. This is a classic example of carbocation rearrangement during electrophilic addition to alkenes.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Identify the reaction that is used to convert an alkyne into a trans-alkene:",
+      "options": [
+        "H2, Pd/BaSO4, quinoline",
+        "Li/liq. NH3",
+        "H2, Ni (Raney)",
+        "NaBH4/CH3OH"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Birch reduction of alkynes using alkali metals (like Li or Na) in liquid ammonia (NH3) proceeds via a radical anion intermediate, which stereoselectively yields the trans-alkene. Conversely, Lindlar's catalyst (H2, Pd/BaSO4, quinoline) is used for the syn-addition of hydrogen to yield cis-alkenes. NaBH4 does not typically reduce internal alkynes.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following reaction conditions is most appropriate for the conversion of benzene to cyclohexane?",
+      "options": [
+        "Cl2/FeCl3",
+        "H2/Ni at 473-573 K",
+        "Conc. H2SO4/Heat",
+        "KMnO4/NaOH"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Benzene is an aromatic compound and resists addition reactions due to resonance stabilization. However, catalytic hydrogenation using Hydrogen gas (H2) in the presence of Nickel (Ni) at high temperatures and pressures (473-573 K) provides enough energy to overcome the resonance energy, resulting in the saturation of the ring to form cyclohexane. This is an electrophilic addition/reduction process.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following reaction conditions will lead to the anti-Markovnikov addition of HBr to propene?",
+      "options": [
+        "Reaction in the presence of benzoyl peroxide",
+        "Reaction in the presence of concentrated H2SO4",
+        "Reaction in a polar protic solvent at low temperature",
+        "Reaction in the presence of anhydrous AlCl3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The addition of HBr to unsymmetrical alkenes follows Markovnikov's rule under normal conditions. However, in the presence of organic peroxides (like benzoyl peroxide), the reaction proceeds via a free-radical mechanism (Kharasch effect), leading to anti-Markovnikov addition. The bromine radical attacks the double bond to form the more stable secondary free radical intermediate, resulting in the formation of 1-bromopropane.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Consider the ozonolysis of 2-methylbut-2-ene. The final organic products formed after the treatment with zinc dust and water are:",
+      "options": [
+        "Acetaldehyde and acetone",
+        "Formaldehyde and butan-2-one",
+        "Propanal and formaldehyde",
+        "Acetic acid and acetone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ozonolysis involves the cleavage of the C=C bond to form carbonyl compounds. 2-methylbut-2-ene is CH3-C(CH3)=CH-CH3. Cleavage at the double bond yields one molecule of acetone (CH3COCH3) and one molecule of acetaldehyde (CH3CHO). Zinc dust is used to prevent the oxidation of aldehydes to carboxylic acids, ensuring the reaction stops at the carbonyl stage.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A hydrocarbon with molecular formula C5H10 reacts with H2/Ni to form a saturated alkane. Upon treatment with cold alkaline KMnO4 (Baeyer's reagent), it gives a diol. The hydrocarbon is most likely:",
+      "options": [
+        "Cyclopentane",
+        "Pent-1-ene",
+        "2-methylbut-2-ene",
+        "2,2-dimethylpropane"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The formula CnH2n corresponds to either an alkene or a cycloalkane. Since the compound reacts with Baeyer's reagent (which is a test for unsaturation) to form a diol, it must be an alkene. Pent-1-ene (C5H10) fits these criteria perfectly. Cyclopentane is saturated and does not react with Baeyer's reagent, while 2,2-dimethylpropane is a saturated alkane (C5H12).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the volume of oxygen gas at STP required for the complete combustion of 100 mL of ethane gas.",
+      "options": [
+        "250 mL",
+        "350 mL",
+        "400 mL",
+        "150 mL"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The combustion equation is: 2C2H6 + 7O2 → 4CO2 + 6H2O. According to the stoichiometry, 2 volumes of ethane require 7 volumes of oxygen. Therefore, 100 mL of ethane requires (7/2) * 100 mL of oxygen = 350 mL. This demonstrates the application of Gay-Lussac's Law of Combining Volumes in hydrocarbon combustion analysis.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following compounds will exhibit the highest reactivity towards electrophilic aromatic substitution (EAS)?",
+      "options": [
+        "Benzene",
+        "Nitrobenzene",
+        "Toluene",
+        "Chlorobenzene"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Reactivity in EAS depends on the electron density of the benzene ring. Toluene has a methyl group, which is an electron-donating group (+I and hyperconjugation effect), increasing ring electron density. Benzene is the standard. Nitrobenzene has a strong electron-withdrawing -NO2 group (-M, -I), deactivating the ring. Chlorobenzene has a deactivating inductive effect (-I > +M), making it less reactive than benzene. Thus, Toluene is the most reactive.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following alkanes cannot be obtained in good yield by Wurtz reaction?",
+      "options": [
+        "n-Butane",
+        "n-Hexane",
+        "2,3-Dimethylbutane",
+        "Neopentane"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Wurtz reaction is most suitable for the preparation of symmetrical alkanes. When two different alkyl halides are used, a mixture of three different alkanes is formed which are difficult to separate due to similar boiling points. Neopentane cannot be synthesized effectively because the steric hindrance at the tertiary/quaternary carbon makes the coupling of alkyl radicals inefficient, and competing elimination reactions (forming alkenes) predominate.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "An alkene 'A' on ozonolysis gives a mixture of propanone and methanal. The IUPAC name of the alkene 'A' is:",
+      "options": [
+        "2-Methylpropene",
+        "2-Methylbut-1-ene",
+        "2-Methylbut-2-ene",
+        "Pent-2-ene"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In ozonolysis, the C=C bond is cleaved and replaced by C=O bonds. Propanone (CH3COCH3) and methanal (HCHO) indicate the fragments were attached to the carbon atoms of the double bond. Reversing the process, joining the carbonyl carbons with a double bond gives CH3-C(CH3)=CH2. This structure corresponds to 2-methylprop-1-ene. However, looking at the options, 2-Methylpropene is the intended structure. Wait, checking the fragments: Propanone (3 carbons) + Methanal (1 carbon) = 4 carbons total. My calculation reveals 2-methylpropene is the structure. Correct option is 2-Methylpropene.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Calculate the number of moles of H2 gas evolved when 0.5 moles of propyne is reacted with excess sodium in liquid ammonia at low temperature.",
+      "options": [
+        "0.25 mol",
+        "0.5 mol",
+        "1.0 mol",
+        "0 mol"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Propyne (CH3-C≡CH) is a terminal alkyne with an acidic hydrogen atom. When reacted with Na/NH3(l) (Birch reduction conditions), the terminal alkyne reacts with sodium to form sodium propynide and releases hydrogen gas. The reaction is: CH3-C≡CH + Na -> CH3-C≡C⁻Na⁺ + 1/2 H2. Thus, 1 mole of propyne produces 0.5 moles of H2. Therefore, 0.5 moles of propyne will produce 0.5 * 0.5 = 0.25 moles of H2.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following reagents is best suited for the conversion of benzene to acetophenone?",
+      "options": [
+        "CH3COCl/AlCl3",
+        "CH3COOH/H2SO4",
+        "CH3COCl/Fe",
+        "CH3CH2Cl/AlCl3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The conversion of benzene to acetophenone (a ketone) is a classic Friedel-Crafts acylation reaction. The catalyst used is a Lewis acid, typically anhydrous AlCl3, which generates the acylium ion (CH3CO+) from acetyl chloride (CH3COCl). This electrophile then attacks the benzene ring. Other options like acid/H2SO4 do not provide the necessary acylium electrophile for acylation.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Consider the electrophilic addition of HBr to 3,3-dimethylbut-1-ene. The major product formed is:",
+      "options": [
+        "1-bromo-3,3-dimethylbutane",
+        "2-bromo-3,3-dimethylbutane",
+        "2-bromo-2,3-dimethylbutane",
+        "1-bromo-2,2-dimethylbutane"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Addition of HBr to 3,3-dimethylbut-1-ene proceeds via a carbocation intermediate. Initial protonation gives a secondary carbocation (CH3)3C-CH(+)-CH3. This undergoes a 1,2-methyl shift to form a more stable tertiary carbocation (CH3)2C(+)-CH(CH3)2. Attack by Br- on this rearranged tertiary carbocation yields 2-bromo-2,3-dimethylbutane as the major product, following Markovnikov's rule with rearrangement.",
+      "difficulty": "hard"
+    }
+  ]
+}
