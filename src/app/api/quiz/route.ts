@@ -7,6 +7,7 @@ import {
   saveQuestionAttempts,
   updateTopicMastery,
   saveCachedQuestions,
+  getCachedQuestionCount,
   isProUser,
   getTodayQuizCount,
   getEnglishQuestions,
