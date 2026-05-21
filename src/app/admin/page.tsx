@@ -73,6 +73,7 @@ export default function AdminDashboardPage() {
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedExamFilter, setSelectedExamFilter] = useState<string>("all");
+  const [topicSearchQuery, setTopicSearchQuery] = useState<string>("");
 
   // Helper to get exam display name
   const getExamName = (examId: string): string => {
@@ -126,26 +127,55 @@ export default function AdminDashboardPage() {
   const getFilteredTopicBreakdown = () => {
     if (!analytics) return [];
 
-    // Dimensional model doesn't support per-exam filtering
-    if (analytics.modelType === "dimensional") {
-      return analytics.topicBreakdown;
+    let filtered = [...analytics.topicBreakdown]; // Create a copy to avoid mutation
+
+    // Filter by exam
+    if (selectedExamFilter !== "all") {
+      if (analytics.modelType === "dimensional") {
+        // For dimensional model: Can't filter by individual exam since topics are shared
+        // The dimensional model shows topics across all exams, so we keep all results
+        // Note: If you need per-exam filtering, you'd need to modify the API to join bridge table
+        filtered = filtered; // No filtering for dimensional
+      } else {
+        // Legacy model: direct examId filter
+        filtered = filtered.filter(item => {
+          return item.examId === selectedExamFilter;
+        });
+      }
     }
 
-    // Legacy model: filter by exam
-    if (selectedExamFilter === "all") return analytics.topicBreakdown;
-    return analytics.topicBreakdown.filter(item => item.examId === selectedExamFilter);
+    // Apply search query filter (works for both models)
+    if (topicSearchQuery.trim()) {
+      const query = topicSearchQuery.toLowerCase();
+      filtered = filtered.filter(item => {
+        const topicMatch = item.topic?.toLowerCase().includes(query);
+        const examMatch = analytics.modelType === "dimensional"
+          ? false
+          : getExamName(item.examId!).toLowerCase().includes(query);
+        const subjectMatch = analytics.modelType === "dimensional"
+          ? false
+          : getSubjectName(item.examId!, item.subjectId!).toLowerCase().includes(query);
+        const sourceMatch = item.source?.toLowerCase().includes(query) || item.sources?.toLowerCase().includes(query);
+        return topicMatch || examMatch || subjectMatch || sourceMatch;
+      });
+    }
+
+    return filtered;
   };
 
   // Get unique exams from topic breakdown for filter
   const getUniqueExamsInBreakdown = () => {
     if (!analytics) return [];
 
-    // Dimensional model: no exam filtering needed
+    // For dimensional model, use all available exams from config
     if (analytics.modelType === "dimensional") {
-      return [];
+      return examCategories
+        .flatMap(cat => cat.exams)
+        .map(exam => ({ id: exam.id, name: exam.name }))
+        .sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    // Legacy model: extract unique exams
+    // Legacy model: extract unique exams from breakdown
     const uniqueExamIds = [...new Set(analytics.topicBreakdown.map(item => item.examId!))];
     return uniqueExamIds.map(examId => ({
       id: examId,
@@ -710,45 +740,113 @@ export default function AdminDashboardPage() {
 
         {/* Detailed Topic-Level Breakdown */}
         <div className="mt-8 bg-white rounded-xl shadow-md p-6">
-          <div className="flex items-start justify-between mb-6 gap-4">
-            <div className="flex-1">
-              <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-                Topic-Level Question Breakdown
-                {analytics?.modelType && (
-                  <span className={`ml-3 px-2 py-1 rounded text-xs font-medium ${
-                    analytics.modelType === "dimensional"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-gray-100 text-gray-700"
-                  }`}>
-                    {analytics.modelType === "dimensional" ? "📊 Dimensional Model" : "📦 Legacy Model"}
-                  </span>
-                )}
-              </h2>
-              <p className="text-sm text-gray-600 mt-1">
-                {analytics?.modelType === "dimensional"
-                  ? "Showing shared topics across all exams with question pools"
-                  : "Detailed view of questions by exam, subject, topic, source, and difficulty"}
-              </p>
-            </div>
-            {analytics?.modelType !== "dimensional" && (
-              <div>
-                <select
-                  value={selectedExamFilter}
-                  onChange={(e) => setSelectedExamFilter(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-                >
-                  <option value="all">All Exams</option>
-                  {getUniqueExamsInBreakdown().map((exam) => (
-                    <option key={exam.id} value={exam.id}>
-                      {exam.name}
-                    </option>
-                  ))}
-                </select>
+          <div className="mb-6">
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex-1">
+                <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  Topic-Level Question Breakdown
+                  {analytics?.modelType && (
+                    <span className={`ml-3 px-2 py-1 rounded text-xs font-medium ${
+                      analytics.modelType === "dimensional"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-gray-100 text-gray-700"
+                    }`}>
+                      {analytics.modelType === "dimensional" ? "📊 Dimensional Model" : "📦 Legacy Model"}
+                    </span>
+                  )}
+                </h2>
+                <p className="text-sm text-gray-600 mt-1">
+                  {analytics?.modelType === "dimensional"
+                    ? "Showing shared topics across all exams with question pools"
+                    : "Detailed view of questions by exam, subject, topic, source, and difficulty"}
+                </p>
               </div>
-            )}
+            </div>
+
+            {/* Filter Controls */}
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Search Input */}
+              <div className="flex-1 min-w-[300px]">
+                <div className="relative">
+                  <svg
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Search topics, exams, subjects, sources..."
+                    value={topicSearchQuery}
+                    onChange={(e) => setTopicSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+                  />
+                  {topicSearchQuery && (
+                    <button
+                      onClick={() => setTopicSearchQuery("")}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      aria-label="Clear search"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Exam Filter Dropdown (Only for Legacy Model) */}
+              {analytics?.modelType !== "dimensional" && (
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-gray-700 whitespace-nowrap">
+                    Filter by Exam:
+                  </label>
+                  <select
+                    value={selectedExamFilter}
+                    onChange={(e) => {
+                      console.log("Selected exam filter:", e.target.value);
+                      setSelectedExamFilter(e.target.value);
+                    }}
+                    className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white min-w-[200px]"
+                  >
+                    <option value="all">All Exams ({getUniqueExamsInBreakdown().length})</option>
+                    {getUniqueExamsInBreakdown().map((exam) => (
+                      <option key={exam.id} value={exam.id}>
+                        {exam.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* Info message for dimensional model */}
+              {analytics?.modelType === "dimensional" && (
+                <div className="px-3 py-2 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-700">
+                  ℹ️ Dimensional model shows shared topics across all exams. Use search to filter.
+                </div>
+              )}
+
+              {/* Active Filters Count */}
+              {(selectedExamFilter !== "all" || topicSearchQuery) && (
+                <button
+                  onClick={() => {
+                    setSelectedExamFilter("all");
+                    setTopicSearchQuery("");
+                  }}
+                  className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  Clear Filters
+                </button>
+              )}
+            </div>
           </div>
 
           <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg">
