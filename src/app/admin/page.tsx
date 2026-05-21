@@ -172,17 +172,6 @@ export default function AdminDashboardPage() {
     })).sort((a, b) => a.name.localeCompare(b.name));
   };
 
-  useEffect(() => {
-    fetchAnalytics();
-  }, []); // Only fetch once on mount
-
-  useEffect(() => {
-    // Re-fetch only topic breakdown when exam filter changes
-    if (analytics) {
-      fetchTopicBreakdown();
-    }
-  }, [selectedExamFilter]);
-
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
@@ -213,11 +202,17 @@ export default function AdminDashboardPage() {
         ? `/api/admin/analytics?examId=${encodeURIComponent(selectedExamFilter)}`
         : "/api/admin/analytics";
 
+      console.log("Fetching topic breakdown with URL:", url);
+
       const res = await fetch(url);
       if (!res.ok) {
+        const errorText = await res.text();
+        console.error("API error response:", errorText);
         throw new Error("Failed to fetch topic breakdown");
       }
       const data = await res.json();
+      console.log("Topic breakdown data received:", data.topicBreakdown?.length, "entries");
+
       // Only update the topic breakdown, keep other analytics data
       setAnalytics(prev => prev ? {
         ...prev,
@@ -226,10 +221,24 @@ export default function AdminDashboardPage() {
       } : null);
     } catch (error) {
       console.error("Error fetching topic breakdown:", error);
+      alert("Failed to fetch topic breakdown: " + (error as Error).message);
     } finally {
       setTopicBreakdownLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchAnalytics();
+  }, []); // Only fetch once on mount
+
+  useEffect(() => {
+    // Re-fetch only topic breakdown when exam filter changes (skip initial render)
+    if (analytics && selectedExamFilter) {
+      console.log("Exam filter changed to:", selectedExamFilter);
+      fetchTopicBreakdown();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedExamFilter]);
 
   if (loading) {
     return (

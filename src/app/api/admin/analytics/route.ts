@@ -35,6 +35,10 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const examFilter = searchParams.get("examId") || null;
 
+    if (examFilter) {
+      console.log("[Admin Analytics] Filtering by exam:", examFilter);
+    }
+
     // 1. Question Quality Metrics
     // FEATURE FLAG: Use dimensional model or legacy table
     const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
@@ -267,6 +271,11 @@ export async function GET(req: NextRequest) {
         sql: dimensionalQuery,
         args: dimensionalArgs,
       });
+
+      console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.rows.length} topics`);
+      if (examFilter && dimensionalTopics.rows.length === 0) {
+        console.warn(`[Admin Analytics] No topics found for exam: ${examFilter}. Check if exam_code exists in dim_exams table.`);
+      }
 
       topicBreakdown = {
         rows: dimensionalTopics.rows.map((r: any) => ({
