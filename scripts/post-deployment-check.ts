@@ -143,7 +143,7 @@ async function postDeploymentCheck() {
     `);
 
     for (const row of sample.rows) {
-      const source = row.source || 'NULL';
+      const source = String(row.source || 'NULL');
       const question = String(row.question).substring(0, 50);
       console.log(`   ${source.padEnd(15)} ${question}...`);
     }

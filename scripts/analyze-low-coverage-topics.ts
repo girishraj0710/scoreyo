@@ -78,9 +78,9 @@ async function analyzeLowCoverage() {
   console.log("-".repeat(80));
 
   critical.slice(0, 50).forEach(t => {
-    const exam = t.exam_id.padEnd(20);
-    const subject = t.subject_id.substring(0, 24).padEnd(25);
-    const topic = t.topic.substring(0, 44).padEnd(45);
+    const exam = String(t.exam_id).padEnd(20);
+    const subject = String(t.subject_id).substring(0, 24).padEnd(25);
+    const topic = String(t.topic).substring(0, 44).padEnd(45);
     console.log(`${exam} ${subject} ${topic} ${String(t.total).padStart(5)}    ${String(t.verified).padStart(2)}   ${String(t.ai).padStart(2)}`);
   });
 
@@ -94,9 +94,9 @@ async function analyzeLowCoverage() {
   console.log("-".repeat(80));
 
   low.slice(0, 20).forEach(t => {
-    const exam = t.exam_id.padEnd(20);
-    const subject = t.subject_id.substring(0, 24).padEnd(25);
-    const topic = t.topic.substring(0, 44).padEnd(45);
+    const exam = String(t.exam_id).padEnd(20);
+    const subject = String(t.subject_id).substring(0, 24).padEnd(25);
+    const topic = String(t.topic).substring(0, 44).padEnd(45);
     console.log(`${exam} ${subject} ${topic} ${String(t.total).padStart(5)}    ${String(t.verified).padStart(2)}   ${String(t.ai).padStart(2)}`);
   });
 
@@ -132,7 +132,7 @@ async function analyzeLowCoverage() {
 
   examPriority.forEach(e => {
     console.log(
-      `${e.exam.padEnd(20)} ${String(e.critical).padStart(8)}    ${String(e.low).padStart(8)}    ${String(e.good).padStart(8)}    ${e.priority}`
+      `${String(e.exam).padEnd(20)} ${String(e.critical).padStart(8)}    ${String(e.low).padStart(8)}    ${String(e.good).padStart(8)}    ${e.priority}`
     );
   });
 
