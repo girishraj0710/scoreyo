@@ -15,7 +15,7 @@ export interface QuizQuestion {
     commonMistakes: string[]; // Common student errors (2-3 items)
   };
   difficulty: "easy" | "medium" | "hard";
-  source: "ai" | "verified"; // tracks where the question came from
+  source: "ai" | "verified" | "ai-cached" | "ai-validated" | "expert-curated" | "ncert-derived"; // tracks where the question came from
 }
 
 // Free-tier OpenRouter models raced in parallel. Order is informational only —
