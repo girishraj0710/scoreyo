@@ -74,6 +74,7 @@ export default function AdminDashboardPage() {
   const [loading, setLoading] = useState(true);
   const [selectedExamFilter, setSelectedExamFilter] = useState<string>("all");
   const [topicSearchQuery, setTopicSearchQuery] = useState<string>("");
+  const [topicBreakdownLoading, setTopicBreakdownLoading] = useState(false);
 
   // Helper to get exam display name
   const getExamName = (examId: string): string => {
@@ -173,17 +174,19 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     fetchAnalytics();
-  }, [selectedExamFilter]); // Re-fetch when exam filter changes
+  }, []); // Only fetch once on mount
+
+  useEffect(() => {
+    // Re-fetch only topic breakdown when exam filter changes
+    if (analytics) {
+      fetchTopicBreakdown();
+    }
+  }, [selectedExamFilter]);
 
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      // Build URL with optional exam filter
-      const url = selectedExamFilter !== "all"
-        ? `/api/admin/analytics?examId=${encodeURIComponent(selectedExamFilter)}`
-        : "/api/admin/analytics";
-
-      const res = await fetch(url);
+      const res = await fetch("/api/admin/analytics");
       if (!res.ok) {
         if (res.status === 403) {
           alert("Admin access required");
@@ -199,6 +202,32 @@ export default function AdminDashboardPage() {
       alert("Failed to load analytics");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchTopicBreakdown = async () => {
+    try {
+      setTopicBreakdownLoading(true);
+      // Build URL with optional exam filter
+      const url = selectedExamFilter !== "all"
+        ? `/api/admin/analytics?examId=${encodeURIComponent(selectedExamFilter)}`
+        : "/api/admin/analytics";
+
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error("Failed to fetch topic breakdown");
+      }
+      const data = await res.json();
+      // Only update the topic breakdown, keep other analytics data
+      setAnalytics(prev => prev ? {
+        ...prev,
+        topicBreakdown: data.topicBreakdown,
+        modelType: data.modelType,
+      } : null);
+    } catch (error) {
+      console.error("Error fetching topic breakdown:", error);
+    } finally {
+      setTopicBreakdownLoading(false);
     }
   };
 
@@ -832,7 +861,20 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg">
+          {/* Loading indicator for topic breakdown */}
+          {topicBreakdownLoading && (
+            <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-700 flex items-center gap-2">
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+              Loading topics for selected exam...
+            </div>
+          )}
+
+          <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg relative">
+            {topicBreakdownLoading && (
+              <div className="absolute inset-0 bg-white/60 backdrop-blur-sm z-20 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+              </div>
+            )}
             <table className="w-full table-fixed divide-y divide-gray-200">
               <thead className="bg-gray-50 sticky top-0 z-10">
                 <tr>
