@@ -11,17 +11,17 @@ async function checkQuestions() {
 
   // Count in legacy table
   const legacyCount = await db.execute("SELECT COUNT(*) as count FROM exam_questions");
-  console.log(`Legacy table (exam_questions): ${legacyCount.rows[0].count}`);
+  console.log(`Legacy table (exam_questions): ${legacyCount.rows[0]?.count || 0}`);
 
   // Count in dimensional table
   const dimensionalCount = await db.execute("SELECT COUNT(*) as count FROM fact_exam_questions");
-  console.log(`Dimensional table (fact_exam_questions): ${dimensionalCount.rows[0].count}`);
+  console.log(`Dimensional table (fact_exam_questions): ${dimensionalCount.rows[0]?.count || 0}`);
 
   // Count in cached_questions
   const cachedCount = await db.execute("SELECT COUNT(*) as count FROM cached_questions");
-  console.log(`Cached questions: ${cachedCount.rows[0].count}`);
+  console.log(`Cached questions: ${cachedCount.rows[0]?.count || 0}`);
 
-  console.log(`\nTotal across all tables: ${Number(legacyCount.rows[0].count) + Number(dimensionalCount.rows[0].count) + Number(cachedCount.rows[0].count)}`);
+  console.log(`\nTotal across all tables: ${Number(legacyCount.rows[0]?.count || 0) + Number(dimensionalCount.rows[0]?.count || 0) + Number(cachedCount.rows[0]?.count || 0)}`);
 
   // Check for duplicate removal history
   console.log("\n🔍 Checking for recent deletions...");
@@ -37,7 +37,7 @@ async function checkQuestions() {
 
   console.log("\n🔥 Top 10 topics by question count (legacy):");
   for (const row of topTopics.rows) {
-    console.log(`  ${row.topic}: ${row.count}`);
+    console.log(`  ${row.topic}: ${row.count || 0}`);
   }
 
   // Check topics with invalid names
@@ -51,7 +51,7 @@ async function checkQuestions() {
   if (invalidTopics.rows.length > 0) {
     console.log("\n⚠️  Invalid topic names found:");
     for (const row of invalidTopics.rows) {
-      console.log(`  "${row.topic}": ${row.count} questions`);
+      console.log(`  "${row.topic}": ${row.count || 0} questions`);
     }
   } else {
     console.log("\n✅ No invalid topic names found");
@@ -63,7 +63,7 @@ async function checkQuestions() {
     FROM exam_questions
     WHERE topic IS NULL OR topic = ''
   `);
-  console.log(`\nQuestions with NULL/empty topic: ${examQuestionsWithoutTopics.rows[0].count}`);
+  console.log(`\nQuestions with NULL/empty topic: ${examQuestionsWithoutTopics.rows[0]?.count || 0}`);
 }
 
 checkQuestions().catch(console.error);
