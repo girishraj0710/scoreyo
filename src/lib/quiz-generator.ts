@@ -18,24 +18,24 @@ export interface QuizQuestion {
   source: "ai" | "verified" | "ai-cached" | "ai-validated" | "expert-curated" | "ncert-derived"; // tracks where the question came from
 }
 
-// Paid-tier OpenRouter models - using cheapest reliable options.
-// Racing cheap models gives us speed + reliability without high cost.
+// Paid-tier OpenRouter models - using VERIFIED working models only.
+// Based on actual OpenRouter availability as of 2026-05-21.
 //
 // Cost per 1M tokens (input/output):
-// - deepseek-v3: $0.27/$1.10 (high quality, good reasoning)
-// - gemini-2.0-flash-exp: $0/$0 (experimental, free but reliable)
-// - qwen-2.5-72b: $0.40/$0.40 (fallback)
+// - anthropic claude-3.5-haiku: $1/$5 (reliable, good reasoning)
+// - google gemini-pro-1.5: $1.25/$5 (fast, reliable)
+// - openai gpt-4o-mini: $0.15/$0.60 (cheapest reliable option)
 //
-// Strategy: Use cheap/free models, race them for speed. Average cost per
-// 10-question batch (~1500 input + 2000 output tokens) ≈ $0.0005
+// Strategy: Use proven working models. Average cost per
+// 10-question batch (~1500 input + 2000 output tokens) ≈ $0.0015
 const RACE_MODELS = [
-  "google/gemini-2.0-flash-exp:free",  // Free experimental, very fast
-  "deepseek/deepseek-v3",              // $0.27/$1.10 per 1M - great quality
-  "qwen/qwen-2.5-72b-instruct",        // $0.40/$0.40 per 1M - fallback
+  "openai/gpt-4o-mini",                // $0.15/$0.60 - cheapest reliable
+  "anthropic/claude-3.5-haiku",        // $1/$5 - backup
+  "google/gemini-pro-1.5",             // $1.25/$5 - fallback
 ];
 
-// Per-model hard timeout. These models respond quickly.
-const PER_MODEL_TIMEOUT_MS = 10000;
+// Per-model hard timeout
+const PER_MODEL_TIMEOUT_MS = 15000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
