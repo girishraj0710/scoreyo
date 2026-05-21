@@ -124,10 +124,11 @@ export async function GET(request: NextRequest) {
       return m;
     }
 
-    const [examCounts, cachedCounts] = await Promise.all([
-      loadCounts(useDimensional ? "fact_exam_questions" : "exam_questions", useDimensional),
-      loadCounts("cached_questions", false), // cached_questions always uses legacy schema
-    ]);
+    // Load counts from unified exam_questions table (includes all sources)
+    const examCounts = await loadCounts(
+      useDimensional ? "fact_exam_questions" : "exam_questions",
+      useDimensional
+    );
 
     // 2) Walk the catalog and score every cell by total existing coverage.
     //    The lowest-coverage cells are the prewarm targets.
@@ -144,7 +145,7 @@ export async function GET(request: NextRequest) {
       for (const subject of exam.subjects) {
         for (const topic of subject.topics) {
           const k = keyOf(exam.id, subject.id, topic);
-          const current = (examCounts.get(k) || 0) + (cachedCounts.get(k) || 0);
+          const current = examCounts.get(k) || 0;
           if (current >= TARGET_PER_TOPIC) continue;
           cells.push({
             examId: exam.id,
@@ -242,20 +243,17 @@ export async function GET(request: NextRequest) {
           return;
         }
 
-        // Inline dedupe against existing cached rows for this cell so a
+        // Inline dedupe against existing questions in exam_questions so a
         // hot rerun doesn't keep adding the same questions.
         const existing = await db.execute({
           sql:
-            "SELECT question_json FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
+            "SELECT question FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
           args: [cell.examId, cell.subjectId, cell.topic],
         });
         const seen = new Set<string>();
         for (const r of existing.rows) {
-          try {
-            const q = JSON.parse(String(r.question_json));
-            const k = (q?.question || "").toLowerCase().trim();
-            if (k) seen.add(k);
-          } catch {}
+          const k = (String(r.question) || "").toLowerCase().trim();
+          if (k) seen.add(k);
         }
 
         const fresh = questions.filter(
@@ -269,13 +267,19 @@ export async function GET(request: NextRequest) {
         await db.batch(
           fresh.map((q) => ({
             sql:
-              "INSERT INTO cached_questions (exam_id, subject_id, topic, difficulty, question_json) VALUES (?, ?, ?, ?, ?)",
+              `INSERT INTO exam_questions
+               (exam_id, subject_id, topic, question, options, correct_answer,
+                explanation, difficulty, source)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'ai-cached')`,
             args: [
               cell.examId,
               cell.subjectId,
               cell.topic,
+              q.question,
+              JSON.stringify(q.options),
+              q.correctAnswer,
+              typeof q.explanation === 'string' ? q.explanation : JSON.stringify(q.explanation),
               q.difficulty || "medium",
-              JSON.stringify(q),
             ],
           })),
           "write"

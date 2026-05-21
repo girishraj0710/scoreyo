@@ -886,16 +886,25 @@ export async function getCachedQuestions(
 ) {
   let rows: any[];
 
-  // If topic is empty, match all topics in the subject (for mock tests)
+  // Query exam_questions table where source is AI-generated (cached or validated)
+  // This replaces the old cached_questions table lookup
   if (!topic || topic.trim() === '') {
+    // If topic is empty, match all topics in the subject (for mock tests)
     if (difficulty === "mixed") {
       rows = await queryAll(
-        "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
+        `SELECT * FROM exam_questions
+         WHERE exam_id = ? AND subject_id = ?
+         AND source IN ('ai-cached', 'ai-validated')
+         ORDER BY RANDOM() LIMIT ?`,
         [examId, subjectId, limit]
       );
     } else {
       rows = await queryAll(
-        "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND difficulty = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
+        `SELECT * FROM exam_questions
+         WHERE exam_id = ? AND subject_id = ?
+         AND source IN ('ai-cached', 'ai-validated')
+         AND difficulty = ?
+         ORDER BY RANDOM() LIMIT ?`,
         [examId, subjectId, difficulty, limit]
       );
     }
@@ -903,26 +912,44 @@ export async function getCachedQuestions(
     // Topic-specific query with fuzzy matching
     if (difficulty === "mixed") {
       rows = await queryAll(
-        "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) ORDER BY used_count ASC, RANDOM() LIMIT ?",
+        `SELECT * FROM exam_questions
+         WHERE exam_id = ? AND subject_id = ?
+         AND (topic = ? OR topic LIKE ?)
+         AND source IN ('ai-cached', 'ai-validated')
+         ORDER BY RANDOM() LIMIT ?`,
         [examId, subjectId, topic, `%${topic}%`, limit]
       );
     } else {
       rows = await queryAll(
-        "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
+        `SELECT * FROM exam_questions
+         WHERE exam_id = ? AND subject_id = ?
+         AND (topic = ? OR topic LIKE ?)
+         AND source IN ('ai-cached', 'ai-validated')
+         AND difficulty = ?
+         ORDER BY RANDOM() LIMIT ?`,
         [examId, subjectId, topic, `%${topic}%`, difficulty, limit]
       );
     }
 
     // If still no results, try fuzzy match on keywords
-    if (rows.length === 0 && topic.length > 0) {
+    if (rows.length < limit && topic.length > 0) {
       const keywords = topic.toLowerCase().split(/[&\s]+/).filter(w => w.length > 3);
       for (const keyword of keywords) {
         if (rows.length >= limit) break;
 
         const fuzzyRows = await queryAll(
           difficulty === "mixed"
-            ? "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? ORDER BY used_count ASC, RANDOM() LIMIT ?"
-            : "SELECT * FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? ORDER BY used_count ASC, RANDOM() LIMIT ?",
+            ? `SELECT * FROM exam_questions
+               WHERE exam_id = ? AND subject_id = ?
+               AND topic LIKE ?
+               AND source IN ('ai-cached', 'ai-validated')
+               ORDER BY RANDOM() LIMIT ?`
+            : `SELECT * FROM exam_questions
+               WHERE exam_id = ? AND subject_id = ?
+               AND topic LIKE ?
+               AND source IN ('ai-cached', 'ai-validated')
+               AND difficulty = ?
+               ORDER BY RANDOM() LIMIT ?`,
           difficulty === "mixed"
             ? [examId, subjectId, `%${keyword}%`, limit - rows.length]
             : [examId, subjectId, `%${keyword}%`, difficulty, limit - rows.length]
@@ -933,9 +960,15 @@ export async function getCachedQuestions(
     }
   }
 
+  // Return in same format as getExamQuestions for consistency
   return rows.map((row: any) => ({
-    ...JSON.parse(row.question_json),
-    _cacheId: row.id,
+    id: row.id,
+    question: row.question,
+    options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
+    correctAnswer: row.correct_answer,
+    explanation: row.explanation,
+    difficulty: row.difficulty,
+    source: row.source,
   }));
 }
 
@@ -954,22 +987,40 @@ export async function saveCachedQuestions(
   await ensureInitialized();
   const db = getClient();
 
-  // Check for duplicates by question text
+  // Check for duplicates by question text in main exam_questions table
   const existing = await queryAll(
-    "SELECT question_json FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
+    "SELECT question FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
     [examId, subjectId, topic]
   );
   const existingTexts = new Set(
-    existing.map((r: any) => JSON.parse(r.question_json).question?.toLowerCase().trim())
+    existing.map((r: any) => r.question?.toLowerCase().trim())
   );
 
   const statements = [];
   let added = 0;
   for (const q of questions) {
     if (existingTexts.has(q.question?.toLowerCase().trim())) continue;
+
+    // Serialize explanation if it's an object
+    const explanationStr = typeof q.explanation === 'string'
+      ? q.explanation
+      : JSON.stringify(q.explanation);
+
     statements.push({
-      sql: "INSERT INTO cached_questions (exam_id, subject_id, topic, difficulty, question_json) VALUES (?, ?, ?, ?, ?)",
-      args: [examId, subjectId, topic, q.difficulty || "medium", JSON.stringify(q)] as any[],
+      sql: `INSERT INTO exam_questions
+            (exam_id, subject_id, topic, question, options, correct_answer,
+             explanation, difficulty, source)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'ai-cached')`,
+      args: [
+        examId,
+        subjectId,
+        topic,
+        q.question,
+        JSON.stringify(q.options),
+        q.correctAnswer,
+        explanationStr,
+        q.difficulty || "medium"
+      ] as any[],
     });
     existingTexts.add(q.question?.toLowerCase().trim());
     added++;
@@ -983,21 +1034,18 @@ export async function saveCachedQuestions(
 }
 
 export async function markCachedQuestionsUsed(cacheIds: number[]) {
-  if (cacheIds.length === 0) return;
-  await ensureInitialized();
-  const db = getClient();
-
-  const statements = cacheIds.map((id) => ({
-    sql: "UPDATE cached_questions SET used_count = used_count + 1 WHERE id = ?",
-    args: [id] as any[],
-  }));
-
-  await db.batch(statements, "write");
+  // No-op: We no longer track usage counts in the unified exam_questions table.
+  // This function is kept for backward compatibility but does nothing.
+  // Questions are now selected randomly from exam_questions with source IN ('ai-cached', 'ai-validated')
+  return;
 }
 
 export async function getCachedQuestionCount(examId: string, subjectId: string, topic: string) {
+  // Now queries exam_questions table with AI sources
   const result = await queryOne(
-    "SELECT COUNT(*) as count FROM cached_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
+    `SELECT COUNT(*) as count FROM exam_questions
+     WHERE exam_id = ? AND subject_id = ? AND topic = ?
+     AND source IN ('ai-cached', 'ai-validated')`,
     [examId, subjectId, topic]
   );
   return (result?.count as number) || 0;

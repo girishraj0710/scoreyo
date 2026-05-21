@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@libsql/client";
 
-// Promote new `cached_questions` rows into the verified `exam_questions`
-// table. The seed script `scripts/seed-exam-questions.ts` did the initial
-// bulk import; this endpoint keeps the verified pool in sync as new AI
-// questions accumulate from user traffic + scheduled prewarms.
+// Promote AI-cached questions to validated status within exam_questions table.
+// Questions start with source='ai-cached' when first generated. This endpoint
+// promotes them to source='ai-validated' after they've been in the system for
+// at least MIN_AGE_DAYS and meet quality criteria.
 //
 // Strategy:
-//   - Load existing exam_questions question-text keys (lowercased, trimmed).
-//   - Page through cached_questions newest-first.
-//   - For each row whose text isn't already in exam_questions, insert a row.
-//   - Stop after MAX_PROMOTIONS to bound a single run's cost / latency.
+//   - Find ai-cached questions older than MIN_AGE_DAYS
+//   - Apply quality filters (if any reports, skip)
+//   - Update source='ai-cached' → source='ai-validated'
+//   - Stop after MAX_PROMOTIONS to bound a single run's cost / latency
 //
 // Idempotent and safe to re-run on any cadence (recommended: weekly).
 //
@@ -21,11 +21,8 @@ export const maxDuration = 60;
 
 const CRON_SECRET = process.env.CRON_SECRET || "your-secret-token-here";
 const MAX_PROMOTIONS = 5000; // hard cap per invocation
+const MIN_AGE_DAYS = 7; // questions must be this old to promote
 const PAGE_SIZE = 1000;
-
-function normaliseKey(q: string): string {
-  return (q || "").toLowerCase().trim();
-}
 
 export async function GET(request: NextRequest) {
   const startedAt = Date.now();
@@ -40,111 +37,73 @@ export async function GET(request: NextRequest) {
       authToken: process.env.TURSO_AUTH_TOKEN!,
     });
 
-    // 1) Snapshot existing exam_questions text keys so we can dedupe.
-    const seen = new Set<string>();
-    let offset = 0;
-    while (true) {
-      const res = await db.execute({
-        sql: "SELECT question FROM exam_questions LIMIT ? OFFSET ?",
-        args: [PAGE_SIZE, offset],
-      });
-      if (res.rows.length === 0) break;
-      for (const r of res.rows) seen.add(normaliseKey(String(r.question)));
-      if (res.rows.length < PAGE_SIZE) break;
-      offset += PAGE_SIZE;
-    }
-    const existingCount = seen.size;
+    // Calculate cutoff date (questions must be older than this)
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - MIN_AGE_DAYS);
+    const cutoffISO = cutoffDate.toISOString();
 
-    // 2) Walk cached_questions newest-first, collecting candidates whose
-    //    text isn't already in exam_questions. Bounded by MAX_PROMOTIONS.
-    type Candidate = {
-      examId: string;
-      subjectId: string;
-      topic: string;
-      question: string;
-      options: string;
-      correctAnswer: number;
-      explanation: string;
-      difficulty: string;
-    };
-    const candidates: Candidate[] = [];
-    offset = 0;
+    // 1) Find ai-cached questions that are old enough to promote
+    //    and don't have any pending/unresolved reports
+    const candidates: number[] = []; // Store question IDs
+    let offset = 0;
+
     outer: while (true) {
       const res = await db.execute({
-        sql:
-          "SELECT exam_id, subject_id, topic, difficulty, question_json FROM cached_questions ORDER BY id DESC LIMIT ? OFFSET ?",
-        args: [PAGE_SIZE, offset],
+        sql: `
+          SELECT eq.id
+          FROM exam_questions eq
+          LEFT JOIN question_reports qr ON eq.id = qr.question_id AND qr.status = 'pending'
+          WHERE eq.source = 'ai-cached'
+            AND eq.created_at < ?
+            AND qr.id IS NULL
+          ORDER BY eq.created_at ASC
+          LIMIT ? OFFSET ?
+        `,
+        args: [cutoffISO, PAGE_SIZE, offset],
       });
+
       if (res.rows.length === 0) break;
 
       for (const r of res.rows) {
-        try {
-          const q = JSON.parse(String(r.question_json));
-          if (!q?.question || !Array.isArray(q?.options) || q.options.length < 4) continue;
-          if (typeof q.correctAnswer !== "number") continue;
-          const key = normaliseKey(String(q.question));
-          if (!key || seen.has(key)) continue;
-          seen.add(key);
-
-          candidates.push({
-            examId: String(r.exam_id),
-            subjectId: String(r.subject_id),
-            topic: String(r.topic),
-            question: String(q.question),
-            options: JSON.stringify(q.options.slice(0, 4).map((o: any) => String(o))),
-            correctAnswer: Math.min(Math.max(0, q.correctAnswer), 3),
-            explanation:
-              typeof q.explanation === "string"
-                ? q.explanation
-                : JSON.stringify(q.explanation ?? ""),
-            difficulty: String(r.difficulty || q.difficulty || "medium"),
-          });
-
-          if (candidates.length >= MAX_PROMOTIONS) break outer;
-        } catch {
-          // skip malformed row
-        }
+        candidates.push(Number(r.id));
+        if (candidates.length >= MAX_PROMOTIONS) break outer;
       }
 
       if (res.rows.length < PAGE_SIZE) break;
       offset += PAGE_SIZE;
     }
 
-    // 3) Insert in batches via libsql.batch (bounded size to keep each
-    //    HTTP call short; matches the seed script's tuning).
+    // 2) Update source field in batches
     const BATCH = 200;
-    let inserted = 0;
+    let promoted = 0;
     for (let i = 0; i < candidates.length; i += BATCH) {
       const slice = candidates.slice(i, i + BATCH);
-      await db.batch(
-        slice.map((r) => ({
-          sql:
-            "INSERT INTO exam_questions (exam_id, subject_id, topic, question, options, correct_answer, explanation, difficulty, source) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-          args: [
-            r.examId,
-            r.subjectId,
-            r.topic,
-            r.question,
-            r.options,
-            r.correctAnswer,
-            r.explanation,
-            r.difficulty,
-            "validated-ai",
-          ],
-        })),
-        "write"
-      );
-      inserted += slice.length;
+      const placeholders = slice.map(() => "?").join(",");
+      await db.execute({
+        sql: `UPDATE exam_questions SET source = 'ai-validated' WHERE id IN (${placeholders})`,
+        args: slice,
+      });
+      promoted += slice.length;
     }
 
-    const after = await db.execute("SELECT COUNT(*) AS n FROM exam_questions");
+    // Get final counts by source
+    const stats = await db.execute(`
+      SELECT source, COUNT(*) as count
+      FROM exam_questions
+      GROUP BY source
+    `);
+    const countsBySource: Record<string, number> = {};
+    for (const row of stats.rows) {
+      countsBySource[String(row.source)] = Number(row.count);
+    }
+
     return NextResponse.json({
       success: true,
       durationMs: Date.now() - startedAt,
-      existingBefore: existingCount,
-      promoted: inserted,
-      totalNow: Number(after.rows[0].n),
+      promoted,
+      countsBySource,
       capped: candidates.length >= MAX_PROMOTIONS,
+      message: `Promoted ${promoted} questions from ai-cached to ai-validated`,
     });
   } catch (error: any) {
     console.error("[promote-questions] failed:", error);
