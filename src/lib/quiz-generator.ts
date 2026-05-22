@@ -30,8 +30,8 @@ const RACE_MODELS = [
   "openai/gpt-4o-mini",                // $0.15/$0.60 - ONLY model used
 ];
 
-// Single model timeout - no racing needed
-const PER_MODEL_TIMEOUT_MS = 20000;
+// Single model timeout - increased since no racing/competition
+const PER_MODEL_TIMEOUT_MS = 45000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();
