@@ -39,70 +39,35 @@ export async function GET(req: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "20");
     const offset = (page - 1) * limit;
 
-    // FEATURE FLAG: Support both legacy and dimensional models
-    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
-
-    let sql: string;
-    if (useDimensional) {
-      // Dimensional model: Use stored exam_id/subject_id from report (captured at submission time)
-      sql = `SELECT
-              qr.id as report_id,
-              qr.question_id,
-              qr.user_id,
-              qr.reason,
-              qr.details,
-              qr.status,
-              qr.admin_notes,
-              qr.created_at,
-              qr.resolved_at,
-              qr.exam_id,
-              qr.subject_id,
-              feq.question,
-              feq.options,
-              feq.correct_answer,
-              feq.explanation,
-              dt.topic_name as topic,
-              feq.difficulty,
-              feq.source,
-              u.name as reporter_name,
-              u.email as reporter_email
-            FROM question_reports qr
-            LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
-            LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-            LEFT JOIN users u ON qr.user_id = u.id
-            WHERE qr.status = ?
-            ORDER BY qr.created_at DESC
-            LIMIT ? OFFSET ?`;
-    } else {
-      // Legacy model: Direct query
-      sql = `SELECT
-              qr.id as report_id,
-              qr.question_id,
-              qr.user_id,
-              qr.reason,
-              qr.details,
-              qr.status,
-              qr.admin_notes,
-              qr.created_at,
-              qr.resolved_at,
-              eq.question,
-              eq.options,
-              eq.correct_answer,
-              eq.explanation,
-              eq.topic,
-              eq.subject_id,
-              eq.exam_id,
-              eq.difficulty,
-              eq.source,
-              u.name as reporter_name,
-              u.email as reporter_email
-            FROM question_reports qr
-            LEFT JOIN exam_questions eq ON qr.question_id = eq.id
-            LEFT JOIN users u ON qr.user_id = u.id
-            WHERE qr.status = ?
-            ORDER BY qr.created_at DESC
-            LIMIT ? OFFSET ?`;
-    }
+    // Using Dimensional Model for all question data
+    const sql = `SELECT
+            qr.id as report_id,
+            qr.question_id,
+            qr.user_id,
+            qr.reason,
+            qr.details,
+            qr.status,
+            qr.admin_notes,
+            qr.created_at,
+            qr.resolved_at,
+            qr.exam_id,
+            qr.subject_id,
+            feq.question,
+            feq.options,
+            feq.correct_answer,
+            feq.explanation,
+            dt.topic_name as topic,
+            feq.difficulty,
+            feq.source,
+            u.name as reporter_name,
+            u.email as reporter_email
+          FROM question_reports qr
+          LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
+          LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+          LEFT JOIN users u ON qr.user_id = u.id
+          WHERE qr.status = ?
+          ORDER BY qr.created_at DESC
+          LIMIT ? OFFSET ?`;
 
     // Fetch reported questions with details
     const reports = await db.execute({

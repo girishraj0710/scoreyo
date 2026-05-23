@@ -39,69 +39,37 @@ export async function GET(req: NextRequest) {
       console.log("[Admin Analytics] Filtering by exam:", examFilter);
     }
 
-    // 1. Question Quality Metrics
-    // FEATURE FLAG: Use dimensional model or legacy table
-    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
+    // 1. Question Quality Metrics - Using Dimensional Model
+    const totalQuestions = await db.execute({
+      sql: "SELECT COUNT(*) as count FROM fact_exam_questions",
+      args: [],
+    });
 
-    const totalQuestions = useDimensional
-      ? await db.execute({
-          sql: "SELECT COUNT(*) as count FROM fact_exam_questions",
-          args: [],
-        })
-      : await db.execute({
-          sql: "SELECT COUNT(*) as count FROM exam_questions",
-          args: [],
-        });
+    const questionsBySource = await db.execute({
+      sql: `SELECT source, COUNT(*) as count
+            FROM fact_exam_questions
+            GROUP BY source
+            ORDER BY count DESC
+            LIMIT 10`,
+      args: [],
+    });
 
-    const questionsBySource = useDimensional
-      ? await db.execute({
-          sql: `SELECT source, COUNT(*) as count
-                FROM fact_exam_questions
-                GROUP BY source
-                ORDER BY count DESC
-                LIMIT 10`,
-          args: [],
-        })
-      : await db.execute({
-          sql: `SELECT source, COUNT(*) as count
-                FROM exam_questions
-                GROUP BY source
-                ORDER BY count DESC
-                LIMIT 10`,
-          args: [],
-        });
+    const questionsByDifficulty = await db.execute({
+      sql: `SELECT difficulty, COUNT(*) as count
+            FROM fact_exam_questions
+            GROUP BY difficulty`,
+      args: [],
+    });
 
-    const questionsByDifficulty = useDimensional
-      ? await db.execute({
-          sql: `SELECT difficulty, COUNT(*) as count
-                FROM fact_exam_questions
-                GROUP BY difficulty`,
-          args: [],
-        })
-      : await db.execute({
-          sql: `SELECT difficulty, COUNT(*) as count
-                FROM exam_questions
-                GROUP BY difficulty`,
-          args: [],
-        });
-
-    const questionsByExam = useDimensional
-      ? await db.execute({
-          sql: `SELECT e.exam_code as exam_id, e.exam_name, COUNT(DISTINCT q.id) as count
-                FROM dim_exams e
-                JOIN bridge_exam_subject_topic b ON e.id = b.exam_id
-                JOIN fact_exam_questions q ON b.topic_id = q.topic_id
-                GROUP BY e.id
-                ORDER BY count DESC`,
-          args: [],
-        })
-      : await db.execute({
-          sql: `SELECT exam_id, COUNT(*) as count
-                FROM exam_questions
-                GROUP BY exam_id
-                ORDER BY count DESC`,
-          args: [],
-        });
+    const questionsByExam = await db.execute({
+      sql: `SELECT e.exam_code as exam_id, e.exam_name, COUNT(DISTINCT q.id) as count
+            FROM dim_exams e
+            JOIN bridge_exam_subject_topic b ON e.id = b.exam_id
+            JOIN fact_exam_questions q ON b.topic_id = q.topic_id
+            GROUP BY e.id
+            ORDER BY count DESC`,
+      args: [],
+    });
 
     const reportStats = await db.execute({
       sql: `SELECT
@@ -226,153 +194,70 @@ export async function GET(req: NextRequest) {
     });
 
     // 6. Detailed topic-level breakdown (sorted by count ASC - least to most)
-    let topicBreakdown;
+    // Using Dimensional Model - show shared topics across exams
+    let dimensionalQuery;
+    let dimensionalArgs: any[];
 
-    if (useDimensional) {
-      // NEW: Show shared topics across exams with dimensional model
-      // Support optional exam filtering via bridge table
-      let dimensionalQuery;
-      let dimensionalArgs: any[];
-
-      if (examFilter) {
-        // Filter topics by exam using bridge table
-        // Note: fact_exam_questions doesn't have exam_id, questions are linked via topic_id
-        dimensionalQuery = `SELECT
-                t.topic_name as topic,
-                t.scope,
-                COUNT(DISTINCT q.id) as question_count,
-                1 as exam_count,
-                GROUP_CONCAT(DISTINCT q.source) as sources,
-                GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
-              FROM dim_topics t
-              INNER JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
-              LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
-              WHERE b.exam_id = (SELECT id FROM dim_exams WHERE exam_code = ?)
-              GROUP BY t.id
-              ORDER BY question_count ASC, t.topic_name`;
-        dimensionalArgs = [examFilter];
-      } else {
-        // Show all topics across all exams
-        dimensionalQuery = `SELECT
-                t.topic_name as topic,
-                t.scope,
-                COUNT(DISTINCT q.id) as question_count,
-                COUNT(DISTINCT b.exam_id) as exam_count,
-                GROUP_CONCAT(DISTINCT q.source) as sources,
-                GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
-              FROM dim_topics t
-              LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
-              LEFT JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
-              GROUP BY t.id
-              ORDER BY question_count ASC, t.topic_name`;
-        dimensionalArgs = [];
-      }
-
-      try {
-        const dimensionalTopics = await db.execute({
-          sql: dimensionalQuery,
-          args: dimensionalArgs,
-        });
-
-        console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.rows.length} topics`);
-        if (examFilter && dimensionalTopics.rows.length === 0) {
-          console.warn(`[Admin Analytics] No topics found for exam: ${examFilter}. Check if exam_code exists in dim_exams table.`);
-        }
-
-        topicBreakdown = {
-          rows: dimensionalTopics.rows.map((r: any) => ({
-            topic: r.topic,
-            scope: r.scope,
-            exam_count: Number(r.exam_count),
-            question_count: Number(r.question_count),
-            sources: r.sources,
-            difficulties: r.difficulties,
-          })),
-        };
-      } catch (sqlError) {
-        console.error("[Admin Analytics] SQL error in dimensional query:", sqlError);
-        console.error("[Admin Analytics] Query:", dimensionalQuery);
-        console.error("[Admin Analytics] Args:", dimensionalArgs);
-        throw sqlError;
-      }
+    if (examFilter) {
+      // Filter topics by exam using bridge table
+      dimensionalQuery = `SELECT
+              t.topic_name as topic,
+              t.scope,
+              COUNT(DISTINCT q.id) as question_count,
+              1 as exam_count,
+              GROUP_CONCAT(DISTINCT q.source) as sources,
+              GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
+            FROM dim_topics t
+            INNER JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+            LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
+            WHERE b.exam_id = (SELECT id FROM dim_exams WHERE exam_code = ?)
+            GROUP BY t.id
+            ORDER BY question_count ASC, t.topic_name`;
+      dimensionalArgs = [examFilter];
     } else {
-      // OLD: Legacy topic breakdown by exam-subject-topic
-      // First, get all existing questions grouped
-      const existingQuestions = await db.execute({
-        sql: `SELECT
-                exam_id,
-                subject_id,
-                topic,
-                source,
-                difficulty,
-                COUNT(*) as count
-              FROM exam_questions
-              GROUP BY exam_id, subject_id, topic, source, difficulty`,
-        args: [],
+      // Show all topics across all exams
+      dimensionalQuery = `SELECT
+              t.topic_name as topic,
+              t.scope,
+              COUNT(DISTINCT q.id) as question_count,
+              COUNT(DISTINCT b.exam_id) as exam_count,
+              GROUP_CONCAT(DISTINCT q.source) as sources,
+              GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
+            FROM dim_topics t
+            LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
+            LEFT JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+            GROUP BY t.id
+            ORDER BY question_count ASC, t.topic_name`;
+      dimensionalArgs = [];
+    }
+
+    let topicBreakdown;
+    try {
+      const dimensionalTopics = await db.execute({
+        sql: dimensionalQuery,
+        args: dimensionalArgs,
       });
 
-      // Build a map of existing questions
-      const questionMap = new Map<string, any[]>();
-      for (const row of existingQuestions.rows) {
-        const key = `${row.exam_id}|||${row.subject_id}|||${row.topic}`;
-        if (!questionMap.has(key)) {
-          questionMap.set(key, []);
-        }
-        questionMap.get(key)!.push({
-          source: row.source,
-          difficulty: row.difficulty,
-          count: Number(row.count),
-        });
+      console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.rows.length} topics`);
+      if (examFilter && dimensionalTopics.rows.length === 0) {
+        console.warn(`[Admin Analytics] No topics found for exam: ${examFilter}. Check if exam_code exists in dim_exams table.`);
       }
 
-      // Now generate ALL possible combinations from exam definitions
-      const { examCategories } = await import("@/lib/exams");
-      const allTopicCombinations: any[] = [];
-
-      for (const category of examCategories) {
-        for (const exam of category.exams) {
-          for (const subject of exam.subjects) {
-            for (const topic of subject.topics) {
-              const key = `${exam.id}|||${subject.id}|||${topic}`;
-              const existingData = questionMap.get(key);
-
-              if (existingData && existingData.length > 0) {
-                // Topic has questions - add each source/difficulty combo
-                for (const item of existingData) {
-                  allTopicCombinations.push({
-                    exam_id: exam.id,
-                    subject_id: subject.id,
-                    topic: topic,
-                    source: item.source,
-                    difficulty: item.difficulty,
-                    count: item.count,
-                  });
-                }
-              } else {
-                // Topic has NO questions - add with 0 count
-                allTopicCombinations.push({
-                  exam_id: exam.id,
-                  subject_id: subject.id,
-                  topic: topic,
-                  source: "-",
-                  difficulty: "-",
-                  count: 0,
-                });
-              }
-            }
-          }
-        }
-      }
-
-      // Sort by count ASC (0s first), then by exam/subject/topic
       topicBreakdown = {
-        rows: allTopicCombinations.sort((a, b) => {
-          if (a.count !== b.count) return a.count - b.count;
-          if (a.exam_id !== b.exam_id) return a.exam_id.localeCompare(b.exam_id);
-          if (a.subject_id !== b.subject_id) return a.subject_id.localeCompare(b.subject_id);
-          return a.topic.localeCompare(b.topic);
-        }),
+        rows: dimensionalTopics.rows.map((r: any) => ({
+          topic: r.topic,
+          scope: r.scope,
+          exam_count: Number(r.exam_count),
+          question_count: Number(r.question_count),
+          sources: r.sources,
+          difficulties: r.difficulties,
+        })),
       };
+    } catch (sqlError) {
+      console.error("[Admin Analytics] SQL error in dimensional query:", sqlError);
+      console.error("[Admin Analytics] Query:", dimensionalQuery);
+      console.error("[Admin Analytics] Args:", dimensionalArgs);
+      throw sqlError;
     }
 
     return NextResponse.json({
@@ -445,17 +330,8 @@ export async function GET(req: NextRequest) {
           total: Number(revenue30Days.rows[0]?.total || 0) / 100, // Convert paise to rupees
         },
       },
-      topicBreakdown: useDimensional
-        ? topicBreakdown.rows
-        : topicBreakdown.rows.map((r: any) => ({
-            examId: r.exam_id,
-            subjectId: r.subject_id,
-            topic: r.topic,
-            source: r.source,
-            difficulty: r.difficulty,
-            count: Number(r.count),
-          })),
-      modelType: useDimensional ? 'dimensional' : 'legacy',
+      topicBreakdown: topicBreakdown.rows,
+      modelType: 'dimensional',
     });
   } catch (error) {
     console.error("Error fetching analytics:", error);

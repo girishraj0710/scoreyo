@@ -245,28 +245,8 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_english_daily_user ON english_daily_practice(user_id, date DESC);
 
-    -- OLD TABLE (kept for migration purposes)
-    -- This table may contain existing questions that need to be migrated
-    -- to the new fact_exam_questions dimensional model
-    CREATE TABLE IF NOT EXISTS exam_questions (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      exam_id TEXT NOT NULL,
-      subject_id TEXT NOT NULL,
-      topic TEXT NOT NULL,
-      question TEXT NOT NULL,
-      options TEXT NOT NULL,
-      correct_answer INTEGER NOT NULL,
-      explanation TEXT NOT NULL,
-      difficulty TEXT DEFAULT 'medium',
-      source TEXT DEFAULT 'verified',
-      valid_from INTEGER,
-      valid_until INTEGER,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_exam_questions_lookup ON exam_questions(exam_id, subject_id, topic, difficulty);
-
-    -- DIMENSIONAL MODEL TABLES (Phase 5)
+    -- DIMENSIONAL MODEL TABLES
+    -- All questions are now stored in fact_exam_questions with dimensional lookups
     -- These tables enable topic sharing across exams for larger question pools
 
     CREATE TABLE IF NOT EXISTS dim_exams (

@@ -107,56 +107,27 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const status = searchParams.get("status") || "pending";
 
-    // Fetch reports with question details
-    // FEATURE FLAG: Support both legacy and dimensional models
-    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
-
-    let sql: string;
-    if (useDimensional) {
-      // Dimensional model: Use stored exam_id/subject_id from report (captured at submission time)
-      // This ensures we show the correct context the user was in when they reported the issue
-      sql = `SELECT
-              qr.id,
-              qr.question_id,
-              qr.user_id,
-              qr.reason,
-              qr.details,
-              qr.status,
-              qr.created_at,
-              qr.exam_id,
-              qr.subject_id,
-              feq.question,
-              dt.topic_name as topic,
-              feq.correct_answer,
-              feq.explanation
-            FROM question_reports qr
-            LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
-            LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-            WHERE qr.status = ?
-            ORDER BY qr.created_at DESC
-            LIMIT 50`;
-    } else {
-      // Legacy model: Direct query
-      sql = `SELECT
-              qr.id,
-              qr.question_id,
-              qr.user_id,
-              qr.reason,
-              qr.details,
-              qr.status,
-              qr.created_at,
-              eq.question,
-              eq.topic,
-              eq.exam_id,
-              eq.subject_id,
-              eq.correct_answer,
-              eq.explanation
-            FROM question_reports qr
-            LEFT JOIN exam_questions eq ON qr.question_id = eq.id
-            WHERE qr.status = ?
-            ORDER BY qr.created_at DESC
-            LIMIT 50`;
-    }
+    // Fetch reports with question details using Dimensional Model
+    const sql = `SELECT
+            qr.id,
+            qr.question_id,
+            qr.user_id,
+            qr.reason,
+            qr.details,
+            qr.status,
+            qr.created_at,
+            qr.exam_id,
+            qr.subject_id,
+            feq.question,
+            dt.topic_name as topic,
+            feq.correct_answer,
+            feq.explanation
+          FROM question_reports qr
+          LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
+          LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+          WHERE qr.status = ?
+          ORDER BY qr.created_at DESC
+          LIMIT 50`;
 
     const reports = await db.execute({
       sql,
