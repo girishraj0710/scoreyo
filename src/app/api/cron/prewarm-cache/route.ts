@@ -1,18 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
 import { generateQuiz } from "@/lib/quiz-generator";
+import { saveVerifiedQuestions } from "@/lib/db";
 import { getAllExams } from "@/lib/exams";
+import { createClient } from "@libsql/client";
 
 // Scheduled cache prewarmer. Walks the exam catalog, finds the (exam,
-// subject, topic) cells with the LOWEST combined question count across
-// `exam_questions` + `cached_questions`, and runs generateQuiz on them.
-// Successful AI generations are written to `cached_questions`, which
-// (via the parallel promote-questions cron) eventually flow into the
-// verified `exam_questions` pool.
-//
-// Bounded per run by MAX_TOPICS so a single invocation fits inside the
-// serverless maxDuration. The schedule runs every few hours; over a day
-// the entire long tail gets warmed.
+// subject, topic) cells with the LOWEST question count in fact_exam_questions,
+// and runs generateQuiz on them. Saves results directly to fact_exam_questions
+// via saveVerifiedQuestions() (dimensional model).
 //
 // Called by .github/workflows/prewarm-cache.yml:
 //   GET /api/cron/prewarm-cache?secret=$CRON_SECRET
@@ -20,44 +15,11 @@ import { getAllExams } from "@/lib/exams";
 export const maxDuration = 60;
 
 const CRON_SECRET = process.env.CRON_SECRET || "your-secret-token-here";
-// Hard caps keep one invocation bounded.
-//
-// Tuning notes (learned the hard way across three production runs):
-//
-//   Run 1 (BATCH=4, QUESTIONS=10): 0/8 warmed. 16 concurrent OpenRouter
-//   requests per batch saturated the free tier and every race timed out.
-//
-//   Run 2 (BATCH=2, QUESTIONS=5): 1/8 warmed. Still 10 concurrent
-//   requests per batch, plus orphan losing-race requests from the
-//   previous batch still in flight when the next one fired.
-//
-//   Run 3 (same + round-robin exams): 2/8 warmed. Confirmed it's
-//   concurrency, not prompt quality — short topics like "Indian History"
-//   and "Thermodynamics" failed alongside verbose ones.
-//
-// So this iteration goes fully serial (BATCH=1). With ~5 concurrent
-// model requests per cell (only inside the race, no cross-cell overlap),
-// OpenRouter free tier behaves. Trade-off: a single all-timeout run can
-// take up to 8 × 12s = 96s which exceeds the 60s maxDuration ceiling.
-// Two guards prevent a 504:
-//   - TIME_BUDGET_MS: refuse to launch new cells once elapsed crosses
-//     this. Returns partial results; the next scheduled run continues.
-//   - CELL_TIMEOUT_MS: wraps each warmOne in a hard outer timeout so a
-//     single misbehaving cell can never blow the entire run past
-//     maxDuration. Previously a cell starting at t=48s with the
-//     internal 12s model timeout + DB overhead could land at t=63s
-//     and trip Vercel's hard 60s kill.
-//   - Budget MUST be < maxDuration - CELL_TIMEOUT - startup_overhead.
-//     With 60s ceiling, 18s cell timeout, ~5s overhead → budget ≤ 37s.
-//     We use 30s for additional safety margin.
 const MAX_TOPICS = 8;
 const BATCH = 1;
-const QUESTIONS_PER_TOPIC = 5;
+const QUESTIONS_PER_TOPIC = 10;
 const TIME_BUDGET_MS = 30_000;
 const CELL_TIMEOUT_MS = 18_000;
-// Topics already at this floor are skipped — keeps the prewarmer
-// focused on the long tail instead of repeatedly topping up the same
-// hot topics every run.
 const TARGET_PER_TOPIC = 30;
 
 export async function GET(request: NextRequest) {
@@ -73,65 +35,38 @@ export async function GET(request: NextRequest) {
       authToken: process.env.TURSO_AUTH_TOKEN!,
     });
 
-    // 1) Bulk-load per-(exam, subject, topic) counts from both tables in one
-    //    pass so we don't issue one query per catalog cell (~3000 cells).
+    // 1) Load per-(exam, subject, topic) counts from dimensional model
     type CountMap = Map<string, number>;
     const keyOf = (e: string, s: string, t: string) =>
       `${e}|${s}|${t.toLowerCase().trim()}`;
 
-    // FEATURE FLAG: Use dimensional model or legacy table
-    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
-
-    async function loadCounts(table: string, isDimensional: boolean): Promise<CountMap> {
+    async function loadCounts(): Promise<CountMap> {
       const m: CountMap = new Map();
-
-      if (isDimensional && table === "fact_exam_questions") {
-        // Dimensional model: JOIN through bridge and dimension tables
-        const r = await db.execute(`
-          SELECT
-            de.exam_id,
-            ds.subject_id,
-            dt.topic_name as topic,
-            COUNT(*) AS n
-          FROM fact_exam_questions feq
-          JOIN dim_topics dt ON feq.topic_id = dt.id
-          JOIN bridge_exam_subject_topic best ON dt.id = best.topic_id
-          JOIN dim_exams de ON best.exam_id = de.id
-          JOIN dim_subjects ds ON best.subject_id = ds.id
-          GROUP BY de.exam_id, ds.subject_id, dt.topic_name
-        `);
-
-        for (const row of r.rows) {
-          m.set(
-            keyOf(String(row.exam_id), String(row.subject_id), String(row.topic)),
-            Number(row.n)
-          );
-        }
-      } else {
-        // Legacy model: direct query (works for both exam_questions and cached_questions)
-        const r = await db.execute(
-          `SELECT exam_id, subject_id, topic, COUNT(*) AS n FROM ${table} GROUP BY exam_id, subject_id, topic`
+      const r = await db.execute(`
+        SELECT
+          e.exam_code as exam_id,
+          s.subject_code as subject_id,
+          t.topic_name as topic,
+          COUNT(q.id) AS n
+        FROM dim_topics t
+        JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+        JOIN dim_exams e ON b.exam_id = e.id
+        JOIN dim_subjects s ON b.subject_id = s.id
+        LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
+        GROUP BY e.exam_code, s.subject_code, t.topic_name
+      `);
+      for (const row of r.rows) {
+        m.set(
+          keyOf(String(row.exam_id), String(row.subject_id), String(row.topic)),
+          Number(row.n)
         );
-
-        for (const row of r.rows) {
-          m.set(
-            keyOf(String(row.exam_id), String(row.subject_id), String(row.topic)),
-            Number(row.n)
-          );
-        }
       }
-
       return m;
     }
 
-    // Load counts from unified exam_questions table (includes all sources)
-    const examCounts = await loadCounts(
-      useDimensional ? "fact_exam_questions" : "exam_questions",
-      useDimensional
-    );
+    const examCounts = await loadCounts();
 
-    // 2) Walk the catalog and score every cell by total existing coverage.
-    //    The lowest-coverage cells are the prewarm targets.
+    // 2) Walk the catalog and find lowest-coverage cells
     type Cell = {
       examId: string;
       examFullName: string;
@@ -159,15 +94,7 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Round-robin selection across exams. Naive "coldest first" sort would
-    // pull every target from the same exam (the one with the most zero-count
-    // cells — e.g. AFCAT with 1801 unseeded topics), which means a single
-    // exam's quirks (niche terminology, verbose topic names, model
-    // unfamiliarity) can lock the whole prewarmer to zero progress until that
-    // exam is fully warmed. Round-robin guarantees every run touches a
-    // diverse spread of exams, so a single bad exam can't monopolize.
-    //
-    // Within each exam, still prefer the coldest cell first.
+    // Round-robin across exams so no single exam monopolizes a run
     const byExam = new Map<string, Cell[]>();
     for (const c of cells) {
       const list = byExam.get(c.examId) || [];
@@ -177,7 +104,7 @@ export async function GET(request: NextRequest) {
     for (const list of byExam.values()) {
       list.sort((a, b) => a.current - b.current);
     }
-    const examIds = [...byExam.keys()].sort(); // deterministic order
+    const examIds = [...byExam.keys()].sort();
     const targets: Cell[] = [];
     let rrIndex = 0;
     while (targets.length < MAX_TOPICS && byExam.size > 0) {
@@ -205,18 +132,10 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // 3) Warm targets in parallel batches. Each call: generateQuiz (race of
-    //    free OpenRouter models) → saveCachedQuestions if valid.
+    // 3) Warm targets serially with timeout guard
     const warmed: Array<{ examId: string; topic: string; added: number }> = [];
     const failed: Array<{ examId: string; topic: string; reason: string }> = [];
 
-    // Strip verbose parenthetical clutter from topic names before sending
-    // them to the LLM. The catalog often stores things like
-    //   "Defense (Indian Air Force - History, Aircraft, Ranks, Organization; Indian Armed Forces)"
-    // The parenthetical adds prompt noise and confused the smaller free
-    // models in the first run. We still use the ORIGINAL `cell.topic` for
-    // DB queries and inserts so cached rows stay keyed to the catalog
-    // value the rest of the app expects.
     function promptTopic(t: string): string {
       const stripped = t.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim();
       return stripped || t;
@@ -235,83 +154,30 @@ export async function GET(request: NextRequest) {
           questions.length === 0 ||
           questions[0].question.includes("[Service Unavailable]")
         ) {
-          failed.push({
-            examId: cell.examId,
-            topic: cell.topic,
-            reason: "AI returned fallback",
-          });
+          failed.push({ examId: cell.examId, topic: cell.topic, reason: "AI returned fallback" });
           return;
         }
 
-        // Inline dedupe against existing questions in exam_questions so a
-        // hot rerun doesn't keep adding the same questions.
-        const existing = await db.execute({
-          sql:
-            "SELECT question FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
-          args: [cell.examId, cell.subjectId, cell.topic],
-        });
-        const seen = new Set<string>();
-        for (const r of existing.rows) {
-          const k = (String(r.question) || "").toLowerCase().trim();
-          if (k) seen.add(k);
-        }
-
-        const fresh = questions.filter(
-          (q) => !seen.has((q.question || "").toLowerCase().trim())
+        // Save to dimensional model (fact_exam_questions)
+        const added = await saveVerifiedQuestions(
+          cell.examId,
+          cell.subjectId,
+          cell.topic,
+          questions
         );
-        if (fresh.length === 0) {
-          warmed.push({ examId: cell.examId, topic: cell.topic, added: 0 });
-          return;
-        }
-
-        await db.batch(
-          fresh.map((q) => ({
-            sql:
-              `INSERT INTO exam_questions
-               (exam_id, subject_id, topic, question, options, correct_answer,
-                explanation, difficulty, source)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'ai-cached')`,
-            args: [
-              cell.examId,
-              cell.subjectId,
-              cell.topic,
-              q.question,
-              JSON.stringify(q.options),
-              q.correctAnswer,
-              typeof q.explanation === 'string' ? q.explanation : JSON.stringify(q.explanation),
-              q.difficulty || "medium",
-            ],
-          })),
-          "write"
-        );
-        warmed.push({ examId: cell.examId, topic: cell.topic, added: fresh.length });
+        warmed.push({ examId: cell.examId, topic: cell.topic, added: questions.length });
       } catch (err: any) {
-        failed.push({
-          examId: cell.examId,
-          topic: cell.topic,
-          reason: err?.message || "unknown",
-        });
+        failed.push({ examId: cell.examId, topic: cell.topic, reason: err?.message || "unknown" });
       }
     }
 
     let stoppedEarly = false;
     for (let i = 0; i < targets.length; i += BATCH) {
-      // Hard guard against the 60s maxDuration. If we're already past
-      // TIME_BUDGET_MS, abort the loop and return what we have. The
-      // remaining cells will get picked up by the next scheduled run.
       if (Date.now() - startedAt > TIME_BUDGET_MS) {
         stoppedEarly = true;
         break;
       }
       const slice = targets.slice(i, i + BATCH);
-      // Outer per-cell timeout. The inner generateQuiz already races models
-      // with a 12s PER_MODEL_TIMEOUT_MS, but the Promise.race losers keep
-      // running and DB queries add 2-4s on top. We wrap each warmOne with
-      // a hard CELL_TIMEOUT_MS so no single cell can push us past
-      // maxDuration. The `settled` flag ensures we only record ONE result
-      // per cell — either the natural warmOne outcome (success or its own
-      // logged failure) OR an outer-timeout failure, never both. Without
-      // this, run 5 showed each failed cell appearing twice in failed[].
       await Promise.all(
         slice.map(
           (cell) =>
@@ -320,16 +186,11 @@ export async function GET(request: NextRequest) {
               const tid = setTimeout(() => {
                 if (settled) return;
                 settled = true;
-                failed.push({
-                  examId: cell.examId,
-                  topic: cell.topic,
-                  reason: `outer timeout ${CELL_TIMEOUT_MS}ms`,
-                });
+                failed.push({ examId: cell.examId, topic: cell.topic, reason: `outer timeout ${CELL_TIMEOUT_MS}ms` });
                 resolve();
               }, CELL_TIMEOUT_MS);
-
               warmOne(cell).finally(() => {
-                if (settled) return; // outer timeout already won; warmOne's result is discarded
+                if (settled) return;
                 settled = true;
                 clearTimeout(tid);
                 resolve();

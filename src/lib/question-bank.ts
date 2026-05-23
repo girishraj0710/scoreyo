@@ -4308,8 +4308,8 @@ export function getVerifiedQuestions(
 
 /**
  * Enumerates every verified bank entry as a flat array of rows ready for
- * insertion into the `exam_questions` Turso table. Used by the seed script
- * (`scripts/seed-exam-questions.ts`) to copy the in-memory bank into the
+ * insertion into the `fact_exam_questions` Turso table (dimensional model).
+ * Used by the seed script to copy the in-memory bank into the
  * persistent verified-questions store so it survives across requests and
  * deployments. Not used by the runtime hot path.
  */

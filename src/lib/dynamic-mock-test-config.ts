@@ -13,15 +13,22 @@ function getDbClient() {
   });
 }
 
-// Helper to count questions
+// Helper to count questions using dimensional model
 async function countQuestions(examId: string, subjectId?: string): Promise<number> {
   const db = getDbClient();
 
-  let sql = "SELECT COUNT(*) as count FROM exam_questions WHERE exam_id = ?";
+  let sql = `
+    SELECT COUNT(DISTINCT q.id) as count
+    FROM fact_exam_questions q
+    JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+    JOIN dim_exams e ON b.exam_id = e.id
+    JOIN dim_subjects s ON b.subject_id = s.id
+    WHERE e.exam_code = ?
+  `;
   let args: any[] = [examId];
 
   if (subjectId) {
-    sql += " AND subject_id = ?";
+    sql += " AND s.subject_code = ?";
     args.push(subjectId);
   }
 

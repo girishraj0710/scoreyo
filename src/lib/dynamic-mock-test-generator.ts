@@ -89,13 +89,9 @@ const defaultExamPattern = {
 
 /**
  * Check how many UNIQUE questions are available for a given exam and subject
- * across the verified pool (`exam_questions`) and the AI cache
- * (`cached_questions`). Used by `calculateMaxTestsAvailable` to size the
+ * from the dimensional model (`fact_exam_questions`).
+ * Used by `calculateMaxTestsAvailable` to size the
  * mock-test capacity displayed in the UI.
- *
- * Dedupe by lowercased trimmed question text so a question that lives in both
- * tables only counts once. Otherwise capacity gets inflated and the UI
- * advertises tests it can't actually deliver.
  */
 export async function getAvailableQuestionCount(examId: string, subjectId: string): Promise<number> {
   try {
@@ -322,12 +318,10 @@ export async function selectQuestionsForMockTest(
 
   const allQuestions: any[] = [];
 
-  // Select questions for each section. Pool order:
-  //   1) exam_questions (verified bank — seeded from in-memory + promoted
-  //      from cached_questions; this is the highest-quality source).
-  //   2) cached_questions (AI-generated, accumulated from prior traffic).
-  // We merge both pools then dedupe by question text so a question that lives
-  // in both tables only contributes once. Selection within the merged pool is
+  // Select questions for each section from fact_exam_questions (dimensional model).
+  // getExamQuestions() queries the fact table via bridge + dimension lookups.
+  // getCachedQuestions() forwards to getExamQuestions() — same pool.
+  // We dedupe by question text and select within the merged pool in
   // deterministic by testNumber so Test 1 / Test 2 / Test 3 stay distinct.
   for (const section of config.sections) {
     try {

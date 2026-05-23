@@ -282,10 +282,10 @@ export async function POST(request: NextRequest) {
           let sectionQuestions: any[] = [];
           const topics = subject.topics;
 
-          // Tier 1: verified DB pool (exam_questions) + AI cache pool
-          // (cached_questions), queried in parallel and merged. Both use
-          // empty-topic mode so we sample broadly across the subject. The
-          // verified rows take precedence because we push them first into
+          // Tier 1: questions from fact_exam_questions (dimensional model),
+          // queried in parallel via getExamQuestions + getCachedQuestions.
+          // Both use empty-topic mode to sample broadly across the subject.
+          // Verified rows take precedence because we push them first into
           // the dedupe set — duplicate question text in cached_questions
           // is dropped in favour of the verified copy.
           const [verifiedPool, cachedPool] = await Promise.all([
@@ -314,8 +314,8 @@ export async function POST(request: NextRequest) {
           sectionQuestions = merged;
 
           // Tier 2: in-memory verified bank, sampled across topics (only
-          // reached if Tier 1 came up short — usually only for exams that
-          // haven't been seeded into exam_questions yet).
+          // reached if Tier 1 came up short — usually only for exams with
+          // very few questions in fact_exam_questions yet).
           if (sectionQuestions.length < needed) {
             for (const t of shuffle(topics).slice(0, 5)) {
               const verified = getVerifiedQuestions(examId, section.subjectId, t);

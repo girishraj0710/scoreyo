@@ -880,8 +880,7 @@ export async function getCachedQuestions(
 
 /**
  * DEPRECATED: saveCachedQuestions() removed - use saveVerifiedQuestions() instead
- * This function saved to the old flat exam_questions table
- * Now we only use fact_exam_questions with dimensional model
+ * All questions are stored in fact_exam_questions (dimensional model)
  */
 
 // ─── Save to Main Fact Table (Permanent Verified Questions) ──────
@@ -1002,9 +1001,8 @@ export async function saveVerifiedQuestions(
 }
 
 export async function markCachedQuestionsUsed(cacheIds: number[]) {
-  // No-op: We no longer track usage counts in the unified exam_questions table.
-  // This function is kept for backward compatibility but does nothing.
-  // Questions are now selected randomly from exam_questions with source IN ('ai-cached', 'ai-validated')
+  // No-op: Not needed in dimensional model.
+  // Questions are stored in fact_exam_questions and selected randomly.
   return;
 }
 
