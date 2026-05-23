@@ -31,7 +31,8 @@ const RACE_MODELS = [
 ];
 
 // Single model timeout - increased since no racing/competition
-const PER_MODEL_TIMEOUT_MS = 45000;
+// 10 questions typically take 20-30s, so 60s timeout is safe
+const PER_MODEL_TIMEOUT_MS = 60000;
 
 function parseQuizResponse(text: string): QuizQuestion[] {
   let cleanText = text.trim();

@@ -10,8 +10,7 @@ import {
   getInProgressMockTest,
   isProUser,
   getCachedQuestions,
-  saveCachedQuestions,
-  markCachedQuestionsUsed,
+  saveVerifiedQuestions,
   getExamQuestions,
 } from "@/lib/db";
 import { getMockTestConfig, getAllMockTestConfigs } from "@/lib/mock-test-config";
@@ -160,9 +159,9 @@ export async function POST(request: NextRequest) {
           ? cachedPool.filter((q: any) => section.selectedTopics.includes(q.topic))
           : cachedPool;
 
-        // Mark cache as used
-        const cacheIds = filteredCached.map((q: any) => q._cacheId).filter(Boolean);
-        if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
+        // Mark cache as used (deprecated - no longer needed in dimensional model)
+        // const cacheIds = filteredCached.map((q: any) => q._cacheId).filter(Boolean);
+        // if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
 
         // Merge and deduplicate
         for (const q of [...filteredVerified, filteredCached]) {
@@ -294,10 +293,9 @@ export async function POST(request: NextRequest) {
             getCachedQuestions(examId, section.subjectId, "", "mixed", needed * 4),
           ]);
 
-          const cacheIds = cachedPool
-            .map((q: any) => q._cacheId)
-            .filter(Boolean);
-          if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
+          // Mark cache as used (deprecated - no longer needed in dimensional model)
+          // const cacheIds = cachedPool.map((q: any) => q._cacheId).filter(Boolean);
+          // if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
 
           const seen = new Set<string>();
           const merged: any[] = [];
@@ -362,7 +360,7 @@ export async function POST(request: NextRequest) {
                   "mixed"
                 );
                 if (ai.length > 0 && !ai[0].question.includes("[Service Unavailable]")) {
-                  await saveCachedQuestions(examId, section.subjectId, prewarmTopic, ai);
+                  await saveVerifiedQuestions(examId, section.subjectId, prewarmTopic, ai);
                   console.log(
                     `[MockTest] post-response prewarm cached ${ai.length} qs for ${examId}/${section.subjectName}`
                   );

@@ -3,8 +3,7 @@ import { generateQuiz, type QuizQuestion } from "@/lib/quiz-generator";
 import { getVerifiedQuestions } from "@/lib/question-bank";
 import {
   getCachedQuestions,
-  saveCachedQuestions,
-  markCachedQuestionsUsed,
+  saveVerifiedQuestions,
   isProUser,
   getTodayQuizCount,
   getLevelQuestionCache,
@@ -135,7 +134,7 @@ export async function POST(request: NextRequest) {
       const cacheIds = cachedToUse.map((q: any) => q._cacheId).filter(Boolean);
 
       if (cacheIds.length > 0) {
-        await markCachedQuestionsUsed(cacheIds);
+        await // markCachedQuestionsUsed - no longer needed(cacheIds);
       }
 
       const cleanCached: QuizQuestion[] = cachedToUse.map((q: any) => {
@@ -161,7 +160,7 @@ export async function POST(request: NextRequest) {
       aiCount = aiQuestions.length;
 
       if (aiQuestions.length > 0 && !aiQuestions[0].question.includes("[Service Unavailable]")) {
-        saveCachedQuestions(examId, subjectId, topic, aiQuestions);
+        saveVerifiedQuestions(examId, subjectId, topic, aiQuestions);
       }
     }
 

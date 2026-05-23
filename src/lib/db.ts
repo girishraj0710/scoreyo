@@ -104,7 +104,7 @@ async function initializeDb() {
       admin_notes TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       resolved_at DATETIME,
-      FOREIGN KEY (question_id) REFERENCES exam_questions(id),
+      FOREIGN KEY (question_id) REFERENCES fact_exam_questions(id),
       FOREIGN KEY (user_id) REFERENCES users(id)
     );
 
@@ -245,6 +245,9 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_english_daily_user ON english_daily_practice(user_id, date DESC);
 
+    -- OLD TABLE (kept for migration purposes)
+    -- This table may contain existing questions that need to be migrated
+    -- to the new fact_exam_questions dimensional model
     CREATE TABLE IF NOT EXISTS exam_questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       exam_id TEXT NOT NULL,
@@ -256,6 +259,8 @@ async function initializeDb() {
       explanation TEXT NOT NULL,
       difficulty TEXT DEFAULT 'medium',
       source TEXT DEFAULT 'verified',
+      valid_from INTEGER,
+      valid_until INTEGER,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
@@ -877,6 +882,11 @@ export async function getReports(status: string = "pending") {
 
 // ─── Question Cache functions ────────────────────────────
 
+/**
+ * DEPRECATED: getCachedQuestions() now merged into getExamQuestions()
+ * All questions (verified + AI-generated) are now in fact_exam_questions
+ * Simply call getExamQuestions() instead
+ */
 export async function getCachedQuestions(
   examId: string,
   subjectId: string,
@@ -884,95 +894,18 @@ export async function getCachedQuestions(
   difficulty: string = "mixed",
   limit: number = 10
 ) {
-  let rows: any[];
-
-  // Query exam_questions table where source is AI-generated (cached or validated)
-  // This replaces the old cached_questions table lookup
-  if (!topic || topic.trim() === '') {
-    // If topic is empty, match all topics in the subject (for mock tests)
-    if (difficulty === "mixed") {
-      rows = await queryAll(
-        `SELECT * FROM exam_questions
-         WHERE exam_id = ? AND subject_id = ?
-         AND source IN ('ai-cached', 'ai-validated')
-         ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, limit]
-      );
-    } else {
-      rows = await queryAll(
-        `SELECT * FROM exam_questions
-         WHERE exam_id = ? AND subject_id = ?
-         AND source IN ('ai-cached', 'ai-validated')
-         AND difficulty = ?
-         ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, difficulty, limit]
-      );
-    }
-  } else {
-    // Topic-specific query with fuzzy matching
-    if (difficulty === "mixed") {
-      rows = await queryAll(
-        `SELECT * FROM exam_questions
-         WHERE exam_id = ? AND subject_id = ?
-         AND (topic = ? OR topic LIKE ?)
-         AND source IN ('ai-cached', 'ai-validated')
-         ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, topic, `%${topic}%`, limit]
-      );
-    } else {
-      rows = await queryAll(
-        `SELECT * FROM exam_questions
-         WHERE exam_id = ? AND subject_id = ?
-         AND (topic = ? OR topic LIKE ?)
-         AND source IN ('ai-cached', 'ai-validated')
-         AND difficulty = ?
-         ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, topic, `%${topic}%`, difficulty, limit]
-      );
-    }
-
-    // If still no results, try fuzzy match on keywords
-    if (rows.length < limit && topic.length > 0) {
-      const keywords = topic.toLowerCase().split(/[&\s]+/).filter(w => w.length > 3);
-      for (const keyword of keywords) {
-        if (rows.length >= limit) break;
-
-        const fuzzyRows = await queryAll(
-          difficulty === "mixed"
-            ? `SELECT * FROM exam_questions
-               WHERE exam_id = ? AND subject_id = ?
-               AND topic LIKE ?
-               AND source IN ('ai-cached', 'ai-validated')
-               ORDER BY RANDOM() LIMIT ?`
-            : `SELECT * FROM exam_questions
-               WHERE exam_id = ? AND subject_id = ?
-               AND topic LIKE ?
-               AND source IN ('ai-cached', 'ai-validated')
-               AND difficulty = ?
-               ORDER BY RANDOM() LIMIT ?`,
-          difficulty === "mixed"
-            ? [examId, subjectId, `%${keyword}%`, limit - rows.length]
-            : [examId, subjectId, `%${keyword}%`, difficulty, limit - rows.length]
-        );
-
-        rows = [...rows, ...fuzzyRows];
-      }
-    }
-  }
-
-  // Return in same format as getExamQuestions for consistency
-  return rows.map((row: any) => ({
-    id: row.id,
-    question: row.question,
-    options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
-    correctAnswer: row.correct_answer,
-    explanation: row.explanation,
-    difficulty: row.difficulty,
-    source: row.source || 'ai-cached', // Fallback for rows without source
-  }));
+  // Forward to main dimensional query function
+  return getExamQuestions(examId, subjectId, topic, difficulty, limit);
 }
 
-export async function saveCachedQuestions(
+/**
+ * DEPRECATED: saveCachedQuestions() removed - use saveVerifiedQuestions() instead
+ * This function saved to the old flat exam_questions table
+ * Now we only use fact_exam_questions with dimensional model
+ */
+
+// ─── Save to Main Fact Table (Permanent Verified Questions) ──────
+export async function saveVerifiedQuestions(
   examId: string,
   subjectId: string,
   topic: string,
@@ -981,16 +914,67 @@ export async function saveCachedQuestions(
     options: string[];
     correctAnswer: number;
     explanation: string | { logic: string; formula?: string | null; calculation?: string | null; trapAlerts: string[]; commonMistakes: string[]; };
-    difficulty: string
+    difficulty: string;
+    source?: string;
   }>
 ) {
   await ensureInitialized();
   const db = getClient();
 
-  // Check for duplicates by question text in main exam_questions table
+  // Get dimensional IDs for exam, subject, and topic
+  const examDim = await queryOne(
+    "SELECT id FROM dim_exams WHERE exam_code = ?",
+    [examId]
+  );
+  const subjectDim = await queryOne(
+    "SELECT id FROM dim_subjects WHERE subject_code = ?",
+    [subjectId]
+  );
+
+  if (!examDim || !subjectDim) {
+    console.error(`Cannot save to fact table: exam=${examId} or subject=${subjectId} not found in dimensions`);
+    return 0;
+  }
+
+  // Get or create topic dimension (topics are universal, not per-subject)
+  let topicDim = await queryOne(
+    "SELECT id FROM dim_topics WHERE topic_name = ?",
+    [topic]
+  );
+
+  if (!topicDim) {
+    // Create new topic dimension
+    await execute(
+      "INSERT INTO dim_topics (topic_name, category, scope) VALUES (?, ?, ?)",
+      [topic, "general", "universal"]
+    );
+    topicDim = await queryOne(
+      "SELECT id FROM dim_topics WHERE topic_name = ?",
+      [topic]
+    );
+
+    // Create bridge entry
+    await execute(
+      "INSERT OR IGNORE INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id) VALUES (?, ?, ?)",
+      [examDim.id, subjectDim.id, topicDim.id]
+    );
+  } else {
+    // Topic exists, ensure bridge entry exists
+    await execute(
+      "INSERT OR IGNORE INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id) VALUES (?, ?, ?)",
+      [examDim.id, subjectDim.id, topicDim.id]
+    );
+  }
+
+  if (!topicDim) {
+    console.error(`Failed to create topic dimension: ${topic}`);
+    return 0;
+  }
+
+  // Check for duplicates in fact_exam_questions
   const existing = await queryAll(
-    "SELECT question FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic = ?",
-    [examId, subjectId, topic]
+    "SELECT question FROM fact_exam_questions WHERE topic_id = ?",
+    [topicDim.id]
   );
   const existingTexts = new Set(
     existing.map((r: any) => r.question?.toLowerCase().trim())
@@ -998,6 +982,8 @@ export async function saveCachedQuestions(
 
   const statements = [];
   let added = 0;
+  const currentYear = new Date().getFullYear();
+
   for (const q of questions) {
     if (existingTexts.has(q.question?.toLowerCase().trim())) continue;
 
@@ -1007,19 +993,20 @@ export async function saveCachedQuestions(
       : JSON.stringify(q.explanation);
 
     statements.push({
-      sql: `INSERT INTO exam_questions
-            (exam_id, subject_id, topic, question, options, correct_answer,
-             explanation, difficulty, source)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'ai-cached')`,
+      sql: `INSERT INTO fact_exam_questions
+            (topic_id, question, options, correct_answer, explanation,
+             difficulty, source, valid_from, valid_until)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       args: [
-        examId,
-        subjectId,
-        topic,
+        topicDim.id,
         q.question,
         JSON.stringify(q.options),
         q.correctAnswer,
         explanationStr,
-        q.difficulty || "medium"
+        q.difficulty || "medium",
+        q.source || "ai-validated",  // Mark as ai-validated instead of ai-cached
+        currentYear,
+        currentYear + 10  // Valid for 10 years
       ] as any[],
     });
     existingTexts.add(q.question?.toLowerCase().trim());
@@ -1028,6 +1015,7 @@ export async function saveCachedQuestions(
 
   if (statements.length > 0) {
     await db.batch(statements, "write");
+    console.log(`✅ Saved ${added} verified questions to fact_exam_questions for ${examId}/${subjectId}/${topic}`);
   }
 
   return added;
@@ -1040,13 +1028,30 @@ export async function markCachedQuestionsUsed(cacheIds: number[]) {
   return;
 }
 
+/**
+ * Get question count for a topic (dimensional model)
+ */
 export async function getCachedQuestionCount(examId: string, subjectId: string, topic: string) {
-  // Now queries exam_questions table with AI sources
+  // Get dimensional IDs
+  const examDim = await queryOne(`SELECT id FROM dim_exams WHERE exam_code = ?`, [examId]);
+  const subjectDim = await queryOne(`SELECT id FROM dim_subjects WHERE subject_code = ?`, [subjectId]);
+
+  if (!examDim || !subjectDim) {
+    return 0;
+  }
+
+  const topicDim = await queryOne(
+    `SELECT id FROM dim_topics WHERE topic_name = ?`,
+    [topic]
+  );
+
+  if (!topicDim) {
+    return 0;
+  }
+
   const result = await queryOne(
-    `SELECT COUNT(*) as count FROM exam_questions
-     WHERE exam_id = ? AND subject_id = ? AND topic = ?
-     AND source IN ('ai-cached', 'ai-validated')`,
-    [examId, subjectId, topic]
+    `SELECT COUNT(*) as count FROM fact_exam_questions WHERE topic_id = ?`,
+    [topicDim.id]
   );
   return (result?.count as number) || 0;
 }
@@ -1547,6 +1552,10 @@ export async function updateEnglishProgress(
   }
 }
 
+/**
+ * Get exam questions using DIMENSIONAL MODEL
+ * Uses fact_exam_questions + dim_exams/dim_subjects/dim_topics + bridge tables
+ */
 export async function getExamQuestions(
   examId: string,
   subjectId: string,
@@ -1554,98 +1563,150 @@ export async function getExamQuestions(
   difficulty: string = "mixed",
   limit: number = 10
 ) {
-  // FEATURE FLAG: Use dimensional model queries (Phase 5)
-  // Set USE_DIMENSIONAL_MODEL=true in .env.local to enable new queries
-  // Default: false (use old exam_questions table)
-  const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
-
-  if (useDimensional) {
-    // NEW: Use dimensional model (fact_exam_questions + bridge)
-    return getExamQuestionsDimensional(examId, subjectId, topic, difficulty, limit);
-  }
-
-  // OLD: Use legacy exam_questions table (current production behavior)
   let rows: any[];
 
-  // VALIDITY PERIOD SYSTEM: Get questions valid for current year
-  // Strategy:
-  // Questions valid in current year if: valid_from <= current_year AND (valid_until IS NULL OR valid_until >= current_year)
-  // Examples:
-  //   Question: valid_from=2024, valid_until=NULL → Valid in 2024, 2025, 2026, 2027... (current syllabus)
-  //   Question: valid_from=2024, valid_until=2026 → Valid in 2024-2026, expired in 2027+ (old syllabus)
-  //   Question: valid_from=2027, valid_until=NULL → Valid from 2027 onwards (new syllabus)
-  //
-  // This automatically handles:
-  // - User in 2027 with JEE 2024 syllabus (still valid) → Gets 2024 questions ✅
-  // - User in 2027 after JEE 2027 syllabus announced → Gets 2027 questions ✅
-  // - No manual "mark as outdated" needed - just set valid_until when syllabus changes
-
   const currentYear = new Date().getFullYear();
-
-  // Build validity condition for SQL queries
   const validityCondition = "valid_from <= ? AND (valid_until IS NULL OR valid_until >= ?)";
   const validityArgs = [currentYear, currentYear];
 
-  // Empty topic = sample across all topics in the subject. Used by mock-test
-  // generation so we can pull a broad mix of questions for a section without
-  // pinning to one topic. Mirrors the same convention in `getCachedQuestions`.
+  // Step 1: Get dimension IDs for exam and subject
+  // Schema uses exam_code and subject_code (flat dimensions, not snowflake)
+  const examDim = await queryOne(
+    `SELECT id FROM dim_exams WHERE exam_code = ?`,
+    [examId]
+  );
+
+  const subjectDim = await queryOne(
+    `SELECT id FROM dim_subjects WHERE subject_code = ?`,
+    [subjectId]
+  );
+
+  if (!examDim || !subjectDim) {
+    console.warn(`⚠️ Exam or subject not found in dimensional model: exam=${examId}, subject=${subjectId}`);
+    return [];
+  }
+
+  const examDimId = examDim.id;
+  const subjectDimId = subjectDim.id;
+
+  // Priority: verified sources first, then ai-validated, then others
+  const priorityOrder = `
+    CASE
+      WHEN q.source LIKE 'verified%' THEN 1
+      WHEN q.source = 'expert-curated' THEN 1
+      WHEN q.source LIKE 'ncert%' THEN 2
+      WHEN q.source = 'ai-validated' THEN 3
+      WHEN q.source = 'ai-cached' THEN 4
+      ELSE 5
+    END,
+    RANDOM()
+  `;
+
+  // Step 2: Query based on topic
   if (!topic || topic.trim() === "") {
+    // Empty topic = sample across ALL topics for this exam-subject combination
     if (difficulty === "mixed") {
       rows = await queryAll(
-        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, ...validityArgs, limit]
+        `SELECT q.*
+         FROM fact_exam_questions q
+         JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+         WHERE b.exam_id = ?
+           AND b.subject_id = ?
+           AND q.${validityCondition}
+         ORDER BY ${priorityOrder}
+         LIMIT ?`,
+        [examDimId, subjectDimId, ...validityArgs, limit]
       );
     } else {
       rows = await queryAll(
-        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND difficulty = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, difficulty, ...validityArgs, limit]
+        `SELECT q.*
+         FROM fact_exam_questions q
+         JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
+         WHERE b.exam_id = ?
+           AND b.subject_id = ?
+           AND q.difficulty = ?
+           AND q.${validityCondition}
+         ORDER BY ${priorityOrder}
+         LIMIT ?`,
+        [examDimId, subjectDimId, difficulty, ...validityArgs, limit]
       );
     }
   } else {
-    // Topic-specific query with fuzzy matching. Mirrors getCachedQuestions
-    // so a quiz request like topic="Plant Physiology" still hits verified
-    // rows tagged "plant physiology basics" etc. Without this the verified
-    // pool effectively only serves exact-string matches, which is rare given
-    // how topic names diverge between the UI and the seeded data.
+    // Topic-specific query: lookup topic dimension and get questions
+    const topicDim = await queryOne(
+      `SELECT id FROM dim_topics WHERE topic_name = ?`,
+      [topic]
+    );
 
-    if (difficulty === "mixed") {
-      rows = await queryAll(
-        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, topic, `%${topic}%`, ...validityArgs, limit]
-      );
-    } else {
-      rows = await queryAll(
-        `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND (topic = ? OR topic LIKE ?) AND difficulty = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
-        [examId, subjectId, topic, `%${topic}%`, difficulty, ...validityArgs, limit]
-      );
-    }
-
-    // Fallback: keyword-level fuzzy match on the topic name.
-    if (rows.length < limit && topic.length > 0) {
-      const keywords = topic.toLowerCase().split(/[&\s]+/).filter((w) => w.length > 3);
-      for (const keyword of keywords) {
-        if (rows.length >= limit) break;
-        const remaining = limit - rows.length;
-
-        const keywordRows = await queryAll(
-          difficulty === "mixed"
-            ? `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`
-            : `SELECT * FROM exam_questions WHERE exam_id = ? AND subject_id = ? AND topic LIKE ? AND difficulty = ? AND ${validityCondition} ORDER BY RANDOM() LIMIT ?`,
-          difficulty === "mixed"
-            ? [examId, subjectId, `%${keyword}%`, ...validityArgs, remaining]
-            : [examId, subjectId, `%${keyword}%`, difficulty, ...validityArgs, remaining]
+    if (topicDim) {
+      // Exact topic match found
+      if (difficulty === "mixed") {
+        rows = await queryAll(
+          `SELECT q.* FROM fact_exam_questions q
+           WHERE q.topic_id = ?
+             AND q.${validityCondition}
+           ORDER BY ${priorityOrder}
+           LIMIT ?`,
+          [topicDim.id, ...validityArgs, limit]
         );
-        rows = [...rows, ...keywordRows];
+      } else {
+        rows = await queryAll(
+          `SELECT q.* FROM fact_exam_questions q
+           WHERE q.topic_id = ?
+             AND q.difficulty = ?
+             AND q.${validityCondition}
+           ORDER BY ${priorityOrder}
+           LIMIT ?`,
+          [topicDim.id, difficulty, ...validityArgs, limit]
+        );
+      }
+    } else {
+      // Topic not found in dimensions - try fuzzy match on topic name
+      console.log(`⚠️ Topic "${topic}" not found in dim_topics, trying fuzzy match...`);
+
+      const fuzzyTopics = await queryAll(
+        `SELECT DISTINCT t.id FROM dim_topics t
+         JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
+         WHERE b.exam_id = ? AND b.subject_id = ?
+           AND t.topic_name LIKE ?`,
+        [examDimId, subjectDimId, `%${topic}%`]
+      );
+
+      if (fuzzyTopics.length > 0) {
+        const topicIdList = fuzzyTopics.map((t: any) => t.id).join(',');
+
+        if (difficulty === "mixed") {
+          rows = await queryAll(
+            `SELECT q.* FROM fact_exam_questions q
+             WHERE q.topic_id IN (${topicIdList})
+               AND q.${validityCondition}
+             ORDER BY ${priorityOrder}
+             LIMIT ?`,
+            [...validityArgs, limit]
+          );
+        } else {
+          rows = await queryAll(
+            `SELECT q.* FROM fact_exam_questions q
+             WHERE q.topic_id IN (${topicIdList})
+               AND q.difficulty = ?
+               AND q.${validityCondition}
+             ORDER BY ${priorityOrder}
+             LIMIT ?`,
+            [difficulty, ...validityArgs, limit]
+          );
+        }
+      } else {
+        rows = [];
       }
     }
   }
 
-  // GUARANTEE: Never return empty (for debugging, log if no questions found)
+  // Log if no questions found
   if (rows.length === 0) {
-    console.warn(`⚠️ No questions found for exam=${examId}, subject=${subjectId}, topic=${topic}, difficulty=${difficulty}, year=${currentYear}`);
-    console.warn(`   This should not happen! Check database validity periods.`);
+    console.warn(`⚠️ No questions found (dimensional): exam=${examId}, subject=${subjectId}, topic=${topic}, difficulty=${difficulty}, year=${currentYear}`);
   }
 
+  // Map to same format as expected by frontend
   return rows.map((row: any) => ({
     id: row.id,
     question: row.question,
@@ -1653,15 +1714,15 @@ export async function getExamQuestions(
     correctAnswer: row.correct_answer,
     explanation: row.explanation,
     difficulty: row.difficulty,
-    source: row.source || 'verified', // Use actual source from DB, fallback to 'verified'
+    source: row.source || 'dimensional',
   }));
 }
 
 /**
- * DIMENSIONAL MODEL QUERIES (Phase 5)
- * Uses fact_exam_questions + bridge tables for shared topic pools
+ * DEPRECATED: Old dimensional function (now merged into getExamQuestions)
+ * Keeping temporarily for reference, will be removed
  */
-async function getExamQuestionsDimensional(
+async function getExamQuestionsDimensional_OLD(
   examId: string,
   subjectId: string,
   topic: string,

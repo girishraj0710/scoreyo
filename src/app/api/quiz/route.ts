@@ -6,7 +6,7 @@ import {
   createQuizSession,
   saveQuestionAttempts,
   updateTopicMastery,
-  saveCachedQuestions,
+  saveVerifiedQuestions,
   getCachedQuestionCount,
   isProUser,
   getTodayQuizCount,
@@ -25,7 +25,8 @@ import { v4 as uuidv4 } from "uuid";
 // kills any in-flight `saveCachedQuestions` / background-prefill promises and
 // prevents the cache from ever warming. Setting maxDuration gives `after()`
 // callbacks room to finish their AI calls + DB writes after we respond.
-export const maxDuration = 60;
+// Increased to 90s to handle 10-question generation (20-30s) + background cache fill
+export const maxDuration = 90;
 
 const FREE_QUIZ_LIMIT = 3;
 
@@ -39,7 +40,7 @@ function shuffle<T>(array: T[]): T[] {
   return arr;
 }
 
-// Background pre-fill: generate questions and save to cache.
+// Background pre-fill: generate questions and save to FACT TABLE (dimensional model).
 // MUST be invoked from inside an `after()` callback so the work survives the
 // response. Without `after()` Vercel freezes the function and the AI fetch +
 // DB write are killed mid-flight — that's why the cache never warmed in prod.
@@ -63,11 +64,13 @@ async function backgroundCacheFill(
     );
     if (questions.length > 0 && !questions[0].question.includes("[Service Unavailable]")) {
       const topicToSave = saveAsTopic || topic;  // Use mapped topic if provided
-      await saveCachedQuestions(examId, subjectId, topicToSave, questions);
-      console.log(`[Cache] Background fill saved ${questions.length} qs for ${examId}/${topicToSave}`);
+
+      // Always save to dimensional fact_exam_questions table
+      await saveVerifiedQuestions(examId, subjectId, topicToSave, questions);
+      console.log(`[Dimensional] Background fill saved ${questions.length} verified qs for ${examId}/${topicToSave}`);
     }
   } catch (err) {
-    console.error("[Cache] Background fill failed:", err);
+    console.error("[Background fill] Failed:", err);
   }
 }
 
@@ -290,8 +293,8 @@ export async function POST(request: NextRequest) {
     let remaining = numberOfQuestions - finalQuestions.length;
 
     // ── TIER 2: Fresh AI generation (only if database doesn't have enough) ─
-    // generateQuiz races models in parallel with a 12s per-model cap, so the
-    // worst case here is ~13s. Outer guard kept at 14s as a hard ceiling.
+    // generateQuiz uses gpt-4o-mini with 60s timeout per model.
+    // 10 questions typically take 20-30s, so outer guard set to 65s to avoid premature timeout.
     let aiTimedOut = false;
     if (remaining > 0) {
       console.log(`[Quiz API] Need ${remaining} more questions, calling AI generation...`);
@@ -305,7 +308,7 @@ export async function POST(request: NextRequest) {
             difficulty as any
           ),
           new Promise<QuizQuestion[]>((_, reject) =>
-            setTimeout(() => reject(new Error("AI generation timeout")), 14000)
+            setTimeout(() => reject(new Error("AI generation timeout")), 65000)
           ),
         ]);
 
@@ -317,18 +320,18 @@ export async function POST(request: NextRequest) {
           if (!isFallback) {
             finalQuestions = [...finalQuestions, ...aiQuestions];
             aiCount = aiQuestions.length;
-            // Persist to cache AFTER the response — `after()` keeps the
-            // serverless function alive long enough for the DB write to
-            // complete (previously this was killed when we returned).
-            // Save with mappedTopic so future queries can find it in Tier 2
+            // Persist to FACT TABLE (dimensional model) AFTER the response
+            // `after()` keeps the serverless function alive long enough for the DB write
+            // Save with mappedTopic so future queries can find it in Tier 1
             after(async () => {
               try {
-                await saveCachedQuestions(examId, subjectId, mappedTopic, aiQuestions);
+                // Always save to dimensional fact_exam_questions table
+                await saveVerifiedQuestions(examId, subjectId, mappedTopic, aiQuestions);
               } catch (err) {
-                console.error("[Quiz API] post-response cache save failed:", err);
+                console.error("[Quiz API] post-response save failed:", err);
               }
             });
-            console.log(`[Quiz API] ✓ Added ${aiCount} AI-generated questions`);
+            console.log(`[Quiz API] ✓ Added ${aiCount} AI-generated questions (will save to fact table)`);
           } else {
             aiTimedOut = true;
             console.log(`[Quiz API] ✗ AI returned fallback questions`);
@@ -387,16 +390,14 @@ export async function POST(request: NextRequest) {
 
     const sessionId = uuidv4();
 
-    // ── Aggressive background pre-fill cache ──────────
-    // Don't await - run in background to speed up future quizzes
+    // ── Aggressive background pre-fill to FACT TABLE ──────────
+    // Check how many verified questions exist in fact table for this topic
     const cacheCountForMeta = await getCachedQuestionCount(examId, subjectId, topic);
 
     if (cacheCountForMeta < 50) {
-      // Pre-fill more aggressively (50 questions target instead of 20).
+      // Pre-fill more aggressively (50 questions target).
       // Wrapped in `after()` so the AI generation + DB write actually runs
-      // to completion on Vercel — without this the serverless function is
-      // frozen when we return the response and the prefill is silently
-      // killed mid-flight, which is why the cache never warmed.
+      // to completion on Vercel.
       const fillCount = Math.min(30, 50 - cacheCountForMeta);
       after(() =>
         backgroundCacheFill(
