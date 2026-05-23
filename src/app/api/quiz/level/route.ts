@@ -131,11 +131,9 @@ export async function POST(request: NextRequest) {
       );
 
       const cachedToUse = uniqueCached.slice(0, remaining);
-      const cacheIds = cachedToUse.map((q: any) => q._cacheId).filter(Boolean);
-
-      if (cacheIds.length > 0) {
-        await // markCachedQuestionsUsed - no longer needed(cacheIds);
-      }
+      // Mark cache as used (deprecated - no longer needed in dimensional model)
+      // const cacheIds = cachedToUse.map((q: any) => q._cacheId).filter(Boolean);
+      // if (cacheIds.length > 0) await markCachedQuestionsUsed(cacheIds);
 
       const cleanCached: QuizQuestion[] = cachedToUse.map((q: any) => {
         const { _cacheId, ...rest } = q;
