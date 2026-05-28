@@ -59,12 +59,14 @@ async function analyzeTopics() {
   // Show topics that need questions most
   console.log('⚠️  Top 20 Topics Needing Questions:\n');
   needsQuestions.slice(0, 20).forEach((topic, i) => {
-    console.log(`${(i + 1).toString().padStart(2, ' ')}. ${topic.topic_name.toString().padEnd(50, ' ')} [${topic.category}] (${topic.question_count} Qs)`);
+    const topicName = topic.topic_name?.toString() || 'Unknown Topic';
+    const category = topic.category || 'General';
+    console.log(`${(i + 1).toString().padStart(2, ' ')}. ${topicName.padEnd(50, ' ')} [${category}] (${topic.question_count} Qs)`);
   });
 
   // Identify NCERT-relevant topics
   const ncertTopics = topics.rows.filter(t => {
-    const name = t.topic_name.toString().toLowerCase();
+    const name = t.topic_name?.toString().toLowerCase() || '';
     return name.includes('physics') || name.includes('chemistry') ||
            name.includes('biology') || name.includes('mathematics') ||
            name.includes('algebra') || name.includes('calculus') ||
@@ -79,14 +81,15 @@ async function analyzeTopics() {
   const lowNCERT = ncertTopics.filter(t => Number(t.question_count) < 50);
   console.log('📚 NCERT Topics with Low Coverage (< 50 questions):\n');
   lowNCERT.slice(0, 20).forEach((topic, i) => {
-    console.log(`${(i + 1).toString().padStart(2, ' ')}. ${topic.topic_name.toString().padEnd(50, ' ')} (${topic.question_count} Qs)`);
+    const topicName = topic.topic_name?.toString() || 'Unknown Topic';
+    console.log(`${(i + 1).toString().padStart(2, ' ')}. ${topicName.padEnd(50, ' ')} (${topic.question_count} Qs)`);
   });
 
   // Save to file for scraper to use
   const targetTopics = lowNCERT.slice(0, 100).map(t => ({
-    name: t.topic_name,
-    category: t.category,
-    currentCount: t.question_count,
+    name: t.topic_name || 'Unknown',
+    category: t.category || 'General',
+    currentCount: t.question_count || 0,
   }));
 
   require('fs').writeFileSync(
