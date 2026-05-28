@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { saveOtp, verifyOtp, getUserByEmail } from "@/lib/db";
+import { otpSendLimiter, otpVerifyLimiter } from "@/lib/rate-limit";
+import { saveOTPToCache, verifyOTPFromCache } from "@/lib/otp-cache";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -18,6 +20,26 @@ export async function POST(request: NextRequest) {
     }
 
     const cleanEmail = email.toLowerCase().trim();
+
+    // Rate limit check - prevent email bombing
+    const identifier = `${cleanEmail}:${action}`;
+    const { success, limit, reset, remaining } = await otpSendLimiter.limit(identifier);
+
+    if (!success) {
+      return NextResponse.json(
+        {
+          error: "Too many OTP requests",
+          message: "Please wait 10 minutes before requesting another OTP",
+          retryAfter: Math.ceil((reset - Date.now()) / 1000),
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(Math.ceil((reset - Date.now()) / 1000)),
+          }
+        }
+      );
+    }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,9 +66,14 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Generate and save OTP
+    // Generate and save OTP (Redis first, database as backup)
     const code = generateOtp();
-    await saveOtp(cleanEmail, code, 10); // Expires in 10 minutes
+    try {
+      await saveOTPToCache(cleanEmail, code, 10); // Expires in 10 minutes - REDIS (no DB hit!)
+    } catch (error) {
+      console.error('[OTP] Redis cache failed, falling back to database:', error);
+      await saveOtp(cleanEmail, code, 10); // Fallback to database
+    }
 
     // Send email via Resend
     const { error } = await resend.emails.send({
@@ -93,7 +120,34 @@ export async function PUT(request: NextRequest) {
     }
 
     const cleanEmail = email.toLowerCase().trim();
-    const isValid = await verifyOtp(cleanEmail, code.trim());
+
+    // Rate limit verification attempts - prevent brute force
+    const identifier = `verify:${cleanEmail}`;
+    const { success, limit, reset, remaining } = await otpVerifyLimiter.limit(identifier);
+
+    if (!success) {
+      return NextResponse.json(
+        {
+          error: "Too many verification attempts",
+          message: "Please wait 15 minutes before trying again",
+          retryAfter: Math.ceil((reset - Date.now()) / 1000),
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(Math.ceil((reset - Date.now()) / 1000)),
+          }
+        }
+      );
+    }
+    // Try Redis first (no DB hit!), fallback to database
+    let isValid = false;
+    try {
+      isValid = await verifyOTPFromCache(cleanEmail, code.trim());
+    } catch (error) {
+      console.error('[OTP] Redis verification failed, falling back to database:', error);
+      isValid = await verifyOtp(cleanEmail, code.trim());
+    }
 
     if (!isValid) {
       return NextResponse.json({ error: "Invalid or expired code. Please try again." }, { status: 400 });
