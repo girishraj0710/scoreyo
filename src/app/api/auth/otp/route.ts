@@ -22,23 +22,25 @@ export async function POST(request: NextRequest) {
     const cleanEmail = email.toLowerCase().trim();
 
     // Rate limit check - prevent email bombing
-    const identifier = `${cleanEmail}:${action}`;
-    const { success, limit, reset, remaining } = await otpSendLimiter.limit(identifier);
+    if (otpSendLimiter) {
+      const identifier = `${cleanEmail}:${action}`;
+      const { success, limit, reset, remaining } = await otpSendLimiter.limit(identifier);
 
-    if (!success) {
-      return NextResponse.json(
-        {
-          error: "Too many OTP requests",
-          message: "Please wait 10 minutes before requesting another OTP",
-          retryAfter: Math.ceil((reset - Date.now()) / 1000),
-        },
-        {
-          status: 429,
-          headers: {
-            "Retry-After": String(Math.ceil((reset - Date.now()) / 1000)),
+      if (!success) {
+        return NextResponse.json(
+          {
+            error: "Too many OTP requests",
+            message: "Please wait 10 minutes before requesting another OTP",
+            retryAfter: Math.ceil((reset - Date.now()) / 1000),
+          },
+          {
+            status: 429,
+            headers: {
+              "Retry-After": String(Math.ceil((reset - Date.now()) / 1000)),
+            }
           }
-        }
-      );
+        );
+      }
     }
 
     // Validate email format
@@ -122,23 +124,25 @@ export async function PUT(request: NextRequest) {
     const cleanEmail = email.toLowerCase().trim();
 
     // Rate limit verification attempts - prevent brute force
-    const identifier = `verify:${cleanEmail}`;
-    const { success, limit, reset, remaining } = await otpVerifyLimiter.limit(identifier);
+    if (otpVerifyLimiter) {
+      const identifier = `verify:${cleanEmail}`;
+      const { success, limit, reset, remaining } = await otpVerifyLimiter.limit(identifier);
 
-    if (!success) {
-      return NextResponse.json(
-        {
-          error: "Too many verification attempts",
-          message: "Please wait 15 minutes before trying again",
-          retryAfter: Math.ceil((reset - Date.now()) / 1000),
-        },
-        {
-          status: 429,
-          headers: {
-            "Retry-After": String(Math.ceil((reset - Date.now()) / 1000)),
+      if (!success) {
+        return NextResponse.json(
+          {
+            error: "Too many verification attempts",
+            message: "Please wait 15 minutes before trying again",
+            retryAfter: Math.ceil((reset - Date.now()) / 1000),
+          },
+          {
+            status: 429,
+            headers: {
+              "Retry-After": String(Math.ceil((reset - Date.now()) / 1000)),
+            }
           }
-        }
-      );
+        );
+      }
     }
     // Try Redis first (no DB hit!), fallback to database
     let isValid = false;
