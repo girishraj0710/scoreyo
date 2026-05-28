@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { saveOtp, verifyOtp, getUserByEmail } from "@/lib/db";
 import { otpSendLimiter, otpVerifyLimiter } from "@/lib/rate-limit";
 import { saveOTPToCache, verifyOTPFromCache } from "@/lib/otp-cache";
+import { isEmergencyAuthMode, checkUserExistsInCache } from "@/lib/user-cache";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -49,23 +50,51 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    // Check if user already exists
-    const existingUser = await getUserByEmail(cleanEmail);
+    // Check if we're in emergency auth mode (during migration)
+    const emergencyMode = await isEmergencyAuthMode();
 
-    // If action is "signup" and user exists, return error
-    if (action === "signup" && existingUser) {
-      return NextResponse.json({
-        error: "An account with this email already exists. Please log in instead.",
-        shouldLogin: true
-      }, { status: 400 });
-    }
+    if (emergencyMode) {
+      console.log('[OTP] 🚨 Emergency mode active - bypassing database checks');
+      // In emergency mode, allow all OTPs (we'll sort out users after migration)
+    } else {
+      // Normal mode: check database for user existence
+      try {
+        // Try Redis cache first
+        const cachedExists = await checkUserExistsInCache(cleanEmail);
 
-    // If action is "login" and user doesn't exist, return error
-    if (action === "login" && !existingUser) {
-      return NextResponse.json({
-        error: "No account found with this email. Please sign up first.",
-        shouldSignup: true
-      }, { status: 400 });
+        let existingUser = null;
+        if (cachedExists !== null) {
+          // Use cached result
+          existingUser = cachedExists ? { email: cleanEmail } : null;
+        } else {
+          // Cache miss - try database (will fail during Turso block)
+          try {
+            existingUser = await getUserByEmail(cleanEmail);
+          } catch (dbError) {
+            console.error('[OTP] Database check failed (Turso blocked?), allowing OTP:', dbError);
+            // If DB fails, allow the OTP - we'll handle user creation in auth/route.ts
+          }
+        }
+
+        // If action is "signup" and user exists, return error
+        if (action === "signup" && existingUser) {
+          return NextResponse.json({
+            error: "An account with this email already exists. Please log in instead.",
+            shouldLogin: true
+          }, { status: 400 });
+        }
+
+        // If action is "login" and user doesn't exist, return error
+        if (action === "login" && existingUser === null && cachedExists === false) {
+          return NextResponse.json({
+            error: "No account found with this email. Please sign up first.",
+            shouldSignup: true
+          }, { status: 400 });
+        }
+      } catch (error) {
+        console.error('[OTP] User check failed, allowing OTP anyway:', error);
+        // If everything fails, allow the OTP
+      }
     }
 
     // Generate and save OTP (Redis first, database as backup)
