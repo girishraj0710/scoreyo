@@ -9,7 +9,8 @@ import { verifyCsrfToken, CSRF_COOKIE_NAME, CSRF_HEADER_NAME } from "@/lib/csrf"
  */
 
 export function middleware(request: NextRequest) {
-  const { pathname, method } = request.nextUrl;
+  const { pathname } = request.nextUrl;
+  const method = request.method;
 
   // Only check CSRF for state-changing methods
   if (!["POST", "PUT", "DELETE", "PATCH"].includes(method)) {
