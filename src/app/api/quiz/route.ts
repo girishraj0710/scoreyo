@@ -106,16 +106,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Rate limit: 10 quizzes per hour (prevents abuse)
-    const rateLimitResult = await quizGenerationLimiter.limit(userId);
-    if (!rateLimitResult.success) {
-      return NextResponse.json(
-        {
-          error: "Too many requests",
-          message: "You're generating quizzes too quickly. Please wait a moment.",
-          retryAfter: Math.ceil((rateLimitResult.reset - Date.now()) / 1000),
-        },
-        { status: 429 }
-      );
+    if (quizGenerationLimiter) {
+      const rateLimitResult = await quizGenerationLimiter.limit(userId);
+      if (!rateLimitResult.success) {
+        return NextResponse.json(
+          {
+            error: "Too many requests",
+            message: "You're generating quizzes too quickly. Please wait a moment.",
+            retryAfter: Math.ceil((rateLimitResult.reset - Date.now()) / 1000),
+          },
+          { status: 429 }
+        );
+      }
     }
 
     // Check quiz limit for free users (CACHED - reduces DB load by 90%)
