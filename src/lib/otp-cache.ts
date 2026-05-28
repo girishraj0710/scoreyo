@@ -37,7 +37,8 @@ export async function verifyOTPFromCache(email: string, code: string): Promise<b
     return false;
   }
 
-  const otpData: OTPData = JSON.parse(cached as string);
+  // Upstash Redis automatically parses JSON - no need for JSON.parse
+  const otpData: OTPData = typeof cached === 'string' ? JSON.parse(cached) : cached as OTPData;
 
   // Check if expired
   if (Date.now() > otpData.expiresAt) {
@@ -75,7 +76,8 @@ export async function isOTPVerifiedInCache(email: string): Promise<boolean> {
   const cached = await redis.get(key);
   if (!cached) return false;
 
-  const otpData: OTPData = JSON.parse(cached as string);
+  // Upstash Redis automatically parses JSON - no need for JSON.parse
+  const otpData: OTPData = typeof cached === 'string' ? JSON.parse(cached) : cached as OTPData;
 
   // Check if expired
   if (Date.now() > otpData.expiresAt) {
