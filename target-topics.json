@@ -1,0 +1,502 @@
+[
+  {
+    "name": "Algebra (Sets, Functions)",
+    "category": "mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra",
+    "category": "migrated",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra (Matrices, Determinants, Eigenvalues, Vector spaces)",
+    "category": "mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra (Vector spaces, Matrices, Determinants, Eigenvalues)",
+    "category": "mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra - Determinants",
+    "category": "Mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra - Eigenvalues & Eigenvectors",
+    "category": "Mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra - Matrices",
+    "category": "Mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra - System of Linear Equations",
+    "category": "Mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Linear Algebra - Vector Spaces",
+    "category": "Mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Mathematics Pedagogy",
+    "category": "mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Mathematics Pedagogy (Nature of mathematics, Teaching-learning methods, Curriculum, Remedial teaching, Evaluation, NCF 2005 guidelines)",
+    "category": "mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Mechanics (Kinematics - 2D & 3D motion, Relative velocity; Laws of Motion - Advanced problems, Friction; Work Energy Power - Conservative forces; Rotational Dynamics - Moment of inertia, Angular momentum; Gravitation - Orbital motion, Escape velocity)",
+    "category": "science",
+    "currentCount": 0
+  },
+  {
+    "name": "Mechanics (Kinematics, Laws of Motion, Work Energy Power)",
+    "category": "general",
+    "currentCount": 0
+  },
+  {
+    "name": "Mechanics (Motion, Force, Work Energy Power, Rotational motion)",
+    "category": "general",
+    "currentCount": 0
+  },
+  {
+    "name": "Medicinal Chemistry",
+    "category": "migrated",
+    "currentCount": 0
+  },
+  {
+    "name": "Medicinal Chemistry (Drug design, SAR)",
+    "category": "chemistry",
+    "currentCount": 0
+  },
+  {
+    "name": "Nuclear Physics",
+    "category": "science",
+    "currentCount": 0
+  },
+  {
+    "name": "Organic Chemistry (Basic concepts - GOC, Resonance, Hyperconjugation, Inductive effect; Nomenclature & Isomerism - Structural, Stereoisomerism; Reaction Mechanisms - SN1, SN2, E1, E2, Electrophilic & Nucleophilic; Hydrocarbons - Alkanes, Alkenes, Alkynes, Aromatic; Oxygen containing - Alcohols, Phenols, Ethers, Aldehydes, Ketones, Carboxylic acids; Nitrogen containing - Amines, Diazonium salts; Biomolecules - Carbohydrates, Amino acids, Proteins, Nucleic acids; Polymers - Addition, Condensation; Practical Organic - Purification, Detection of elements)",
+    "category": "science",
+    "currentCount": 0
+  },
+  {
+    "name": "Organic Chemistry (Hydrocarbons, Functional groups, Biomolecules)",
+    "category": "chemistry",
+    "currentCount": 0
+  },
+  {
+    "name": "Organic Chemistry (Hydrocarbons, Haloalkanes, Alcohols Phenols Ethers, Aldehydes Ketones, Carboxylic acids, Amines, Biomolecules)",
+    "category": "chemistry",
+    "currentCount": 0
+  },
+  {
+    "name": "Organic Chemistry (Reactions, Mechanisms)",
+    "category": "chemistry",
+    "currentCount": 0
+  },
+  {
+    "name": "Physical Chemistry (Atomic structure, Bonding, Thermodynamics, Equilibrium)",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physical Chemistry (Atomic structure, Chemical bonding, States of matter, Thermodynamics, Equilibrium, Electrochemistry, Kinetics)",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics (Mechanics, Heat, Light, Sound, Electricity)",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics (Motion, Force, Energy)",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics (Motion, Force, Energy, Heat, Light, Sound, Electricity, Magnetism)",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics (Motion, Force, Energy, Light, Sound, Electricity, Magnetism)",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics (Physical quantities, Motion, Force, Work Energy Power, Gravitation, Properties of Matter, Heat, Light, Sound, Electricity, Magnetism, Modern Physics)",
+    "category": "science",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics - Electricity & Magnetism",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics - Heat & Thermodynamics",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics - Mechanics",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Physics - Optics",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Science - Biology",
+    "category": "biology",
+    "currentCount": 0
+  },
+  {
+    "name": "Science - Chemistry",
+    "category": "chemistry",
+    "currentCount": 0
+  },
+  {
+    "name": "Science - Physics",
+    "category": "physics",
+    "currentCount": 0
+  },
+  {
+    "name": "Set Theory & Algebra (Sets, Relations, Groups, Rings)",
+    "category": "Mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Thermal Physics",
+    "category": "science",
+    "currentCount": 0
+  },
+  {
+    "name": "Thermal Physics (Thermodynamics - Laws, Carnot engine, Entropy; Kinetic Theory - Maxwell distribution, Mean free path; Heat Transfer - Conduction, Convection, Radiation)",
+    "category": "science",
+    "currentCount": 0
+  },
+  {
+    "name": "Thermodynamics (Laws, Heat transfer)",
+    "category": "general",
+    "currentCount": 0
+  },
+  {
+    "name": "Thermodynamics (Laws, Kinetic theory)",
+    "category": "general",
+    "currentCount": 0
+  },
+  {
+    "name": "Vector Algebra (Addition, Scalar & Vector products)",
+    "category": "mathematics",
+    "currentCount": 0
+  },
+  {
+    "name": "Organic Chemistry Basics",
+    "category": "science",
+    "currentCount": 7
+  },
+  {
+    "name": "Biochemistry (Metabolism, Enzymes)",
+    "category": "chemistry",
+    "currentCount": 10
+  },
+  {
+    "name": "Biology (Human body systems, Diseases, Nutrition, Plants, Animals)",
+    "category": "biology",
+    "currentCount": 10
+  },
+  {
+    "name": "Calculus - Multivariable Calculus",
+    "category": "Mathematics",
+    "currentCount": 10
+  },
+  {
+    "name": "Digital Logic (Boolean Algebra, K-maps, Combinational & Sequential Circuits)",
+    "category": "mathematics",
+    "currentCount": 10
+  },
+  {
+    "name": "Fluid Mechanics (Pressure, Buoyancy, Bernoulli's theorem, Viscosity)",
+    "category": "science",
+    "currentCount": 10
+  },
+  {
+    "name": "Heat & Thermodynamics",
+    "category": "science",
+    "currentCount": 10
+  },
+  {
+    "name": "Inorganic Chemistry (Periodic Table - Trends, Exceptions; Hydrogen & its compounds; s-Block - Alkali & Alkaline earth metals; p-Block - Group 13-18 elements; d-Block - Transition metals, Coordination compounds - Nomenclature, Isomerism, Bonding, CFT; f-Block - Lanthanides, Actinides; Metallurgy - Extraction principles; Qualitative Analysis - Salt analysis)",
+    "category": "science",
+    "currentCount": 10
+  },
+  {
+    "name": "Mechanical Engineering (Thermodynamics, Strength of materials, Manufacturing, Theory of machines, Fluid mechanics, Heat transfer)",
+    "category": "general",
+    "currentCount": 10
+  },
+  {
+    "name": "Mechanics (Motion, Force, Work Energy)",
+    "category": "general",
+    "currentCount": 10
+  },
+  {
+    "name": "Microbiology (Bacteriology, Virology, Mycology, Parasitology, Immunology)",
+    "category": "biology",
+    "currentCount": 10
+  },
+  {
+    "name": "Modern Physics (Atoms, Nuclei, Semiconductors)",
+    "category": "physics",
+    "currentCount": 10
+  },
+  {
+    "name": "Organic Chemistry (Hydrocarbons, Functional groups)",
+    "category": "chemistry",
+    "currentCount": 10
+  },
+  {
+    "name": "Physical Chemistry (Atomic Structure - Quantum numbers, Orbitals; Chemical Bonding - MOT, VSEPR, Hybridization; Gaseous State - Real gases; Solid State - Crystal lattices, Defects; Thermodynamics - Laws, Hess law, Entropy, Gibbs energy; Equilibrium - Chemical & Ionic equilibrium; Electrochemistry - Nernst equation, Electrolysis; Chemical Kinetics - Order, Rate laws, Activation energy; Surface Chemistry - Adsorption, Catalysis, Colloids; Solutions - Colligative properties, Raoult's law)",
+    "category": "science",
+    "currentCount": 10
+  },
+  {
+    "name": "Algebra (Linear Equations, Simultaneous equations, Factorization, Polynomials)",
+    "category": "mathematics",
+    "currentCount": 12
+  },
+  {
+    "name": "Algebra (Complex Numbers - De Moivre, Roots of unity; Quadratic Equations - Relations between roots; Sequences & Series - AP, GP, HP, AGP; Permutations & Combinations; Binomial Theorem - Properties, Applications; Matrices - Operations, Determinants, Inverse, System of equations; Probability - Conditional, Bayes, Binomial, Mean & Variance)",
+    "category": "mathematics",
+    "currentCount": 14
+  },
+  {
+    "name": "Algebra (Linear Equations, Polynomials)",
+    "category": "mathematics",
+    "currentCount": 14
+  },
+  {
+    "name": "Algebra (Complex Numbers, Quadratic Equations, Logarithms, AP, GP, HP)",
+    "category": "mathematics",
+    "currentCount": 15
+  },
+  {
+    "name": "Algebra (Linear Equations, Quadratic Equations, Polynomials)",
+    "category": "mathematics",
+    "currentCount": 15
+  },
+  {
+    "name": "Electrochemistry",
+    "category": "science",
+    "currentCount": 15
+  },
+  {
+    "name": "Surface Chemistry",
+    "category": "science",
+    "currentCount": 15
+  },
+  {
+    "name": "Mathematics",
+    "category": "migrated",
+    "currentCount": 16
+  },
+  {
+    "name": "Calculus (Limits, Continuity, Differentiation, Integration, Multivariable calculus)",
+    "category": "mathematics",
+    "currentCount": 17
+  },
+  {
+    "name": "General Science (Physics, Chemistry, Biology basics)",
+    "category": "general-knowledge",
+    "currentCount": 19
+  },
+  {
+    "name": "Inorganic Chemistry (Periodic table, Elements)",
+    "category": "chemistry",
+    "currentCount": 20
+  },
+  {
+    "name": "Mechanical Engineering (Thermodynamics, Mechanics, Manufacturing, Strength of Materials)",
+    "category": "general",
+    "currentCount": 20
+  },
+  {
+    "name": "Algebra (Linear equations, Quadratic equations)",
+    "category": "mathematics",
+    "currentCount": 26
+  },
+  {
+    "name": "Algebra (Linear equations, Quadratic equations, Inequalities, Functions, Logarithms, Progressions)",
+    "category": "mathematics",
+    "currentCount": 28
+  },
+  {
+    "name": "Calculus (Limits - L'Hospital rule; Continuity & Differentiability; Derivatives - Chain rule, Implicit, Parametric; Applications - Tangent, Normal, Maxima-Minima, Rate of change; Indefinite Integration - Methods, Partial fractions; Definite Integration - Properties, Leibnitz rule; Applications - Area, Volume; Differential Equations - Formation, Solution of first order)",
+    "category": "mathematics",
+    "currentCount": 29
+  },
+  {
+    "name": "Biology - Cell & Genetics",
+    "category": "biology",
+    "currentCount": 30
+  },
+  {
+    "name": "Chemistry in Everyday Life",
+    "category": "science",
+    "currentCount": 30
+  },
+  {
+    "name": "Digital Logic (Boolean Algebra, K-maps, Combinational Circuits, Sequential Circuits)",
+    "category": "General",
+    "currentCount": 30
+  },
+  {
+    "name": "Environmental Chemistry",
+    "category": "science",
+    "currentCount": 30
+  },
+  {
+    "name": "Inorganic Chemistry (Periodic table, s-block, p-block, d-block elements)",
+    "category": "chemistry",
+    "currentCount": 31
+  },
+  {
+    "name": "Calculus - Integration",
+    "category": "Mathematics",
+    "currentCount": 32
+  },
+  {
+    "name": "Discrete Mathematics",
+    "category": "mathematics",
+    "currentCount": 32
+  },
+  {
+    "name": "Integral Calculus (Integration techniques, Definite Integrals, Area under curves)",
+    "category": "mathematics",
+    "currentCount": 32
+  },
+  {
+    "name": "Algebra (Quadratic equations, Polynomials, Logarithms, Progressions)",
+    "category": "mathematics",
+    "currentCount": 33
+  },
+  {
+    "name": "Biology (Human body, Plants, Diseases)",
+    "category": "biology",
+    "currentCount": 33
+  },
+  {
+    "name": "Biology - Human Body Systems",
+    "category": "biology",
+    "currentCount": 33
+  },
+  {
+    "name": "Calculus - Limits & Continuity",
+    "category": "Mathematics",
+    "currentCount": 33
+  },
+  {
+    "name": "Chemistry - Acids Bases Salts",
+    "category": "chemistry",
+    "currentCount": 33
+  },
+  {
+    "name": "Discrete Mathematics (Set Theory, Relations, Functions, Combinatorics)",
+    "category": "General",
+    "currentCount": 33
+  },
+  {
+    "name": "Modern Physics (Photoelectric effect, Compton effect, Matter waves, Bohr model, X-rays, Radioactivity, Nuclear reactions)",
+    "category": "science",
+    "currentCount": 33
+  },
+  {
+    "name": "Algebra (Equations, Polynomials)",
+    "category": "mathematics",
+    "currentCount": 34
+  },
+  {
+    "name": "Algebra (Linear Equations)",
+    "category": "mathematics",
+    "currentCount": 34
+  },
+  {
+    "name": "Algebra - Inequalities",
+    "category": "mathematics",
+    "currentCount": 34
+  },
+  {
+    "name": "Algebra - Quadratic Equations",
+    "category": "mathematics",
+    "currentCount": 34
+  },
+  {
+    "name": "Biology (Living organisms)",
+    "category": "biology",
+    "currentCount": 34
+  },
+  {
+    "name": "Biology - Diseases & Immunity",
+    "category": "biology",
+    "currentCount": 34
+  },
+  {
+    "name": "Calculus (Differentiation, Integration, Applications)",
+    "category": "mathematics",
+    "currentCount": 34
+  },
+  {
+    "name": "Calculus - Differentiation",
+    "category": "Mathematics",
+    "currentCount": 34
+  },
+  {
+    "name": "Chemistry (Matter, Elements)",
+    "category": "chemistry",
+    "currentCount": 34
+  },
+  {
+    "name": "Civil Engineering (Building materials, Surveying, Strength of materials, RCC, Soil mechanics, Hydraulics, Transportation)",
+    "category": "general",
+    "currentCount": 34
+  },
+  {
+    "name": "Genetics & Evolution",
+    "category": "general-knowledge",
+    "currentCount": 34
+  },
+  {
+    "name": "Inorganic Chemistry (Periodic table, s-block, p-block, d-block, f-block elements, Coordination compounds)",
+    "category": "chemistry",
+    "currentCount": 34
+  },
+  {
+    "name": "Inorganic Chemistry (Pharmaceutical inorganics)",
+    "category": "chemistry",
+    "currentCount": 34
+  },
+  {
+    "name": "Algebra (Groups, Rings, Fields, Polynomials)",
+    "category": "mathematics",
+    "currentCount": 35
+  },
+  {
+    "name": "Biochemistry (Clinical biochemistry, Metabolism, Molecular biology, Nutrition)",
+    "category": "chemistry",
+    "currentCount": 35
+  }
+]

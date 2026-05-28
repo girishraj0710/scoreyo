@@ -1,0 +1,444 @@
+[
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑎⃗ , 𝑏⃗⃗ be two vectors, and let 𝑃, 𝑄 and 𝑅 be the points with position vectors 𝑎⃗ , 𝑏⃗⃗ and 𝑎⃗ + 𝑏⃗⃗ , respectively, with respect to the origin 𝑂 . If |𝑎⃗ + 𝑏⃗⃗ | = √21 , |𝑎⃗ − 𝑏⃗⃗ | = 3 , and 𝑎⃗ and (𝑎⃗ − 𝑏⃗⃗ ) are perpendicular to each other, then the area of the triangle 𝑂𝑃𝑅 is",
+    "options": [
+      "√3",
+      "√3 2",
+      "3√3 2",
+      "3 2"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑇 be the tangent to the parabola 𝑦2 = 16𝑥 at the point (64, 32). Let 𝐿 be the tangent to the same parabola at another point (𝑥1 , 𝑦1) on the parabola. If 𝐿 and 𝑇 are perpendicular to each other, then the distance between the point (𝑥1 , 𝑦1) and the focus of the parabola, is",
+    "options": [
+      "15 4",
+      "4",
+      "17 4",
+      "5"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑦 ∶ (−∞, ∞) → (0, ∞) be the solution of the differential equation 𝑑𝑦 𝑑𝑥 = 𝑒5𝑥𝑦3 + 𝑦3 𝑒𝑥 + 𝑒𝑥𝑦4 , satisfying 𝑦(0) = 1 √2 . Then the value of 𝑦(log𝑒 2) is",
+    "options": [
+      "√5 + √35 2",
+      "√7 + √53 2",
+      "7 + √53 2",
+      "5 + √35 2 JEE (Advanced) 2026 Paper 2 2/9"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The value of the definite integral ∫ 1 3𝑥 + 3 2 0 𝑑𝑥 is",
+    "options": [
+      "1 2",
+      "1 3",
+      "loge 3 3",
+      "loge 3 2 JEE (Advanced) 2026 Paper 2 3/9 SECTION 2 (Maximum Marks: 20) • This section contains FIVE (05) questions. • Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four option(s) is(are) correct answer(s). • For each question, choose the option(s) corresponding to (all) the correct answer(s). • Answer to each question will be evaluated according to the following marking scheme: Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen; Partial Marks : +3 If all the four options are correct but ONLY three options are chosen; Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of which are correct; Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a correct option; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases. • For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct answers, then choosing ONLY (A), (B) and (D) will get +4 marks; choosing ONLY (A) and (B) will get +2 marks; choosing ONLY (A) and (D) will get +2 marks; choosing ONLY (B) and (D) will get +2 marks; choosing ONLY (A) will get +1 mark; choosing ONLY (B) will get +1 mark; choosing ONLY (D) will get +1 mark; choosing no option (i.e. the question is unanswered) will get 0 marks; and choosing any other combination of options will get −1 marks."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let ℝ denote the set of all real numbers. Consider the polynomial function 𝑓: ℝ → ℝ defined by 𝑓(𝑥) = 𝑑10 𝑑𝑥10 ((𝑥2 − 1)10), for all 𝑥 ∈ ℝ . Here 𝑑10 𝑑𝑥10 ((𝑥2 − 1)10) is the 10th order derivative of the function (𝑥2 − 1)10 . Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "The coefficient of 𝑥8 in the polynomial 𝑓(𝑥) is (−10) (18! 8! )",
+      "The value of 𝑓(1) + 𝑓(−1) is equal to 10! 211",
+      "The degree of the polynomial 𝑓(𝑥) is 10",
+      "The constant term of the polynomial 𝑓(𝑥) is − (10! 5! ) JEE (Advanced) 2026 Paper 2 4/9"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑎, 𝑏, 𝑐 be positive integers in arithmetic progression such that the equation 𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0 has only integer solutions. Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "𝑐 − 𝑏 is an integer multiple of 𝑎",
+      "Both the roots of the equation 𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0 are odd integers",
+      "If 𝑐 = 15 , then 𝑎𝑏 = 8",
+      "If 𝑏 = 8 , then 𝑥 = 3 is a root of the equation 𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝐿 be the straight line joining the points 𝑃(1, 2, −1) and 𝑄(2, 3, 1). Let 𝑆 be the foot of the perpendicular drawn from the point 𝑅(4, −1, 5) to the line 𝐿 . Another line passing through 𝑅 intersects 𝐿 at a point 𝑇 such that the point 𝑆 divides the line segment 𝑃𝑇 internally in the ratio |𝑃𝑆| ∶ |𝑆𝑇| = 1 ∶ 2 , where |𝑃𝑆| and |𝑆𝑇| are the lengths of the line segments 𝑃𝑆 and 𝑆𝑇, respectively. Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "The orthocentre of the triangle 𝑃𝑅𝑇 is (23 5 , −4, 31 5 )",
+      "The orthocentre of the triangle 𝑃𝑅𝑇 is (4, 3, 5)",
+      "The area of the triangle 𝑃𝑅𝑇 is 6√5",
+      "The area of the triangle 𝑃𝑅𝑇 is 18√5"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let 𝑦 = 𝑓(𝑥) be the real valued function defined on the interval (0, ∞) , satisfying 𝑦(1) = 0 and the differential equation 𝑥 𝑑𝑦 𝑑𝑥 = 𝑦 − 𝑥3 . Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "The function 𝑓 has a local minimum at 𝑥 = 1 √3",
+      "The function 𝑓 has a local maximum at 𝑥 = 1 √3",
+      "The function 𝑓 is increasing in the interval (1, 2)",
+      "If 𝑔(𝑥) = 4𝑥3 − 5𝑥2 + 3 2 𝑥 for 𝑥 > 0, then the number of elements in the set {𝑥 ∈ (0, ∞) ∶ 𝑓(𝑥) = 𝑔(𝑥)} is 2 JEE (Advanced) 2026 Paper 2 5/9"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Let ℝ denote the set of all real numbers and let 𝑖 = √−1 . Consider the matrices 𝑆 = [0 −1 1 0] and 𝑇 = [1 1 0 1] . Let 𝑎, 𝑏, 𝑐, 𝑑 be real numbers such that 𝑆𝑇 = [𝑎 𝑏 𝑐 𝑑] . Let 𝐻 = { 𝑥 + 𝑖𝑦 ∶ 𝑥, 𝑦 ∈ ℝ and 𝑦 > 0 } . Then which of the following statements is (are) TRUE ?",
+    "options": [
+      "𝑏+𝑖𝑎 𝑑+𝑖𝑐 = 𝑖",
+      "If 𝜔 = −1+𝑖√3 2 , then 𝑎𝜔+𝑏 𝑐𝜔+𝑑 = 𝜔",
+      "If 𝑚 is an integer greater than 2 such that (𝑆𝑇)2 = (𝑆𝑇)𝑚 , then 𝑚 is an integer multiple of 8",
+      "If 𝑧 ∈ 𝐻 , then 𝑎𝑧+𝑏 𝑐𝑧+𝑑 ∈ 𝐻 JEE (Advanced) 2026 Paper 2 6/9"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "If 𝛼 is the area of the common region that lies inside both the given ellipses, then the value of cot 𝛼 is ___________. END OF THE QUESTION PAPER JEE (Advanced) 2026 Paper 2 1/10 SECTION 1 (Maximum Marks: 12)  This section contains FOUR (04) questions.  Each question has FOUR options",
+    "options": [
+      ",",
+      ",",
+      "and",
+      ". ONLY ONE of these four options is the correct answer.  For each question, choose the option corresponding to the correct answer.  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +3 If ONLY the correct option is chosen; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A metal wire of cross-sectional area 0.5 mm2 and length 100 m is connected across a battery of e.m.f. 2 V and internal resistance 1 Ω. The density, atomic mass and electrical conductivity of the metal are 6.35 × 103 kg m−3, 63.5 gm/mole and 2 × 108 mho m−1, respectively. Assuming one conduction electron per atom of the metal, the drift velocity (in mm s−1) of the electrons in the wire is: [Take Avogadro’s number as 6 × 1023 and charge of the electron as 1.6 × 10−19 C.]",
+    "options": [
+      "0.052",
+      "0.104",
+      "0.208",
+      "0.156"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A nuclear reactor starts producing a radioactive nuclide 𝑋 from 𝑡 = 0, at a constant rate of 𝛼 per second. Each decay of 𝑋 produces energy 𝐸0, which is utilized to heat a liquid of mass 𝑚 and specific heat 𝑠. Assuming no heat loss from the liquid and taking 𝜆 as the decay constant of 𝑋, the rate of increase in the temperature of the liquid is:",
+    "options": [
+      "𝛼𝐸0 𝑚 𝑠 (1 − 𝑒−𝜆𝑡)",
+      "𝛼𝐸0 𝑚 𝑠 (𝑒𝜆𝑡 − 1)",
+      "𝜆𝐸0 𝑚 𝑠 (1 − 𝑒−𝜆𝑡)",
+      "𝐸0 𝑚 𝑠 (𝛼 − 𝜆𝑒−𝜆𝑡)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A beam of polychromatic light passes through a thin prism of prism angle 6°. The refractive index of the material of the prism varies with wavelength (𝜆) as 𝑛(𝜆) = 𝛼𝜆 + 𝛽 𝜆2, where 𝛼 = 3 𝜇m−1 and 𝛽 = 0.096 𝜇m2. If 𝜆min is the wavelength at which the angle of minimum deviation 𝐷𝑚 is smallest, then the correct value of 𝐷𝑚 at 𝜆min is",
+    "options": [
+      "6.4°",
+      "4.8°",
+      "3.2°",
+      "2.4° JEE (Advanced) 2026 Paper 2 2/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "A particle of mass 𝑚, and angular momentum ℓ is moving in a circular orbit of radius 𝑟0 under the influence of an attractive force 𝐹⃗ (𝑟) = − 𝑘 𝑟2 𝑟̂ . Keeping its angular momentum unchanged, the particle is displaced radially by a small distance 𝛿𝑟 ≪ 𝑟0, due to which its radial distance varies periodically. The corresponding time period is:",
+    "options": [
+      "2𝜋ℓ3 𝑚𝑘2",
+      "2𝜋√𝑚 𝑘",
+      "2𝜋ℓ3 3𝑚𝑘2",
+      "2𝜋ℓ3 5𝑚𝑘2 JEE (Advanced) 2026 Paper 2 3/10 SECTION 2 (Maximum Marks: 20)  This section contains FIVE (05) questions.  Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four option(s) is(are) correct answer(s).  For each question, choose the option(s) corresponding to (all) the correct answer(s).  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen; Partial Marks : +3 If all the four options are correct but ONLY three options are chosen; Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of which are correct; Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a correct option; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases.  For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct answers, then choosing ONLY (A), (B) and (D) will get +4 marks; choosing ONLY (A) and (B) will get +2 marks; choosing ONLY (A) and (D) will get +2 marks; choosing ONLY (B) and (D) will get +2 marks; choosing ONLY (A) will get +1 mark; choosing ONLY (B) will get +1 mark; choosing ONLY (D) will get +1 mark; choosing no option (i.e. the question is unanswered) will get 0 marks; and choosing any other combination of options will get −1 marks. JEE (Advanced) 2026 Paper 2 4/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider two isosceles prisms 1 and 2 with prism angles 𝐴1 and 𝐴2 and refractive indices 𝑛1and 𝑛2, respectively, as shown in the figure. The faces 𝑎1𝑏1 and 𝑎2𝑏2 are parallel to each other and perpendicular to the mirror 𝑀. If a ray of light is incident on the face 𝑎1𝑐1 and emerges from the face 𝑎2𝑐2, then the correct statement(s) is/are:",
+    "options": [
+      "If both the prisms are at minimum deviation condition, then 𝑛2 𝑛1 = sin (𝐴1 2 ) / sin (𝐴2 2 ).",
+      "If prism 2 is at minimum deviation condition, then sin 𝑖1 = 𝑛2 sin (𝐴2 2 ) is always true.",
+      "If both the prisms 1 and 2 are thin and are at minimum deviation condition with angles of deviation 𝛿𝑚1 and 𝛿𝑚2, respectively, then 𝜃 = 𝛿𝑚1 2(𝑛1−1) + 𝛿𝑚2 2(𝑛2−1) .",
+      "If prism 1 is at minimum deviation condition, then sin 𝑖2 = 𝑛1 sin (𝐴1 2 ) is always true."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "In a vacuum chamber, a particle of charge 1 𝜇C and mass 1 mg is projected with a velocity (𝑖̂ + 2𝑗̂ ) ms−1 from the 𝑋𝑍 plane at time 𝑡 = 0 in an electric field of 1𝑖̂ Vm−1. At 𝑡 = 0.2 s, the electric field is switched off and a magnetic field of 6𝑗̂ T is switched on. The acceleration due to gravity is −10𝑗̂ ms−2. Correct option(s) is/are:",
+    "options": [
+      "The vertical distance of the particle from the 𝑋𝑍 plane at 𝑡 = 0.3 s is 15 cm.",
+      "The vertical distance of the particle from the 𝑋𝑍 plane at 𝑡 = 0.4 s is 10 cm.",
+      "The radius of the trajectory of the particle for 𝑡 > 0.2 s is 20 cm.",
+      "The particle will be in the 𝑋𝑍 plane at 𝑡 = 0.35 s."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Two charges 𝑄1 = 𝑞 and 𝑄2 = 𝑚𝑞 are placed at the points 𝑃1(𝑎, 𝑏) and 𝑃2 (𝑚𝑎, 𝑚𝑏), respectively, in the 𝑋𝑌 plane, where 𝑎, 𝑏 ≠ 0 and 𝑚 ≠ 0, 1. If 𝑉1 is the potential at a point in the 𝑋𝑌 plane due to charge 𝑄1 and 𝑉2 is the potential at that point due to charge 𝑄2. Correct statement(s) for the points at which |𝑉1| = |𝑉2| is/are:",
+    "options": [
+      "For 𝑚 = −1, locus of these points is 𝑎𝑥 + 𝑏𝑦 = 0.",
+      "For 𝑚 = 2, the locus of these points is a circle of radius 2 3 √𝑎2 + 𝑏2 centered at (2 3 𝑎, 2 3 𝑏)",
+      "For 𝑚 = −2, the locus of these points is a circle of radius 2√𝑎2 + 𝑏2 centered at (2𝑎, 2𝑏)",
+      "For 𝑚 = −3, locus of these points is 3𝑏𝑥 + 3𝑎𝑦 = 0. JEE (Advanced) 2026 Paper 2 5/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Consider an electric dipole comprising two charges +𝑞 and −𝑞 each with mass 𝑚, separated by a fixed distance 𝑑 and initially at rest with its dipole moment pointing along 𝑖̂. A uniform electric field 𝐸𝑗̂ is turned on at time 𝑡 = 0 and it is turned off at 𝑡 = 𝑡𝑓, when the dipole moment makes an angle 𝜃𝑓 with 𝑖̂ . Neglecting any sources of energy loss, correct option(s) is/are:",
+    "options": [
+      "The center of mass of the dipole is deflected towards 𝑗̂ in the presence of the field.",
+      "If the magnitude of the final angular velocity 𝜔𝑓 = √2𝑞𝐸 𝑚𝑑 , then 𝜃𝑓 = 𝜋 6.",
+      "If 𝜃𝑓 = 𝜋/3, then the change in kinetic energy of the dipole is given by 2√3 𝑞𝐸𝑑.",
+      "For 𝜃𝑓 = 𝜋/4, the dipole rotates around its center of mass with a constant angular velocity after 𝑡 > 𝑡𝑓."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Ten moles of an ideal monoatomic gas, initially in state 𝒂 at atmospheric pressure and temperature 𝑇𝑎 = 27°C, is enclosed in a metal cylinder of volume 𝑉0 fitted with a frictionless piston. The gas is suddenly compressed to state 𝒃 with volume 𝑉0/3. Now, keeping the piston stationary, the cylinder is submerged in a water bath of temperature 11℃ until the gas reaches the temperature of the water bath, which is denoted as state 𝒄. Finally, while still in the water bath, the piston is brought slowly to its initial position, which is denoted as state 𝒇. If 𝑅 is universal gas constant, then the correct option(s) is/are: [Given: 91/3 = 2.08]",
+    "options": [
+      "The schematic P-V diagram of the processes described above is:",
+      "The change in internal energy in going from state 𝒂 to 𝒃 is 4860R.",
+      "The net change in the internal energy in the whole process is −240R.",
+      "The pressure and temperature of the state 𝒃 are 2.08 times the atmospheric pressure and 624 K, respectively. JEE (Advanced) 2026 Paper 2 6/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Amount of energy loss (in J) in the collision is: END OF THE QUESTION PAPER JEE (Advanced) 2026 Paper 2 1/10 SECTION 1 (Maximum Marks: 12)  This section contains FOUR (04) questions.  Each question has FOUR options",
+    "options": [
+      ",",
+      ",",
+      "and",
+      ". ONLY ONE of these four options is the correct answer.  For each question, choose the option corresponding to the correct answer.  Answer to each question will be evaluated according to the following marking scheme: Full Marks : +3 If ONLY the correct option is chosen; Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered); Negative Marks : −1 In all other cases."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "At 300 K, the molar conductivities of the aqueous solutions of three salts at two different concentrations are given below: The conductivity of a saturated aqueous solution of AgCl is 1.40×10−6 S cm−1 at 300 K. If the solubility of AgCl in water at 300 K is X mol L−1, then log10(X −1) is (Assume that AgCl dissolved in water ionizes completely and that the molar conductivity of saturated AgCl solution is equal to its limiting molar conductivity.)",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The correct order of ONO bond angle in the given species is",
+    "options": [
+      "NO2+ < NO2 < NO3– < NO2–",
+      "NO2– < NO3– < NO2 < NO2+",
+      "NO3– < NO2– < NO2 < NO2+",
+      "NO2– < NO3– < NO2+ < NO2 JEE (Advanced) 2026 Paper 2 2/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "Correct statement(s) about the compounds P, Q and R is(are)",
+    "options": [
+      "P has two lone pairs of electrons on the central atom.",
+      "Q has a perfect octahedral geometry.",
+      "Q can act as a fluorinating agent.",
+      "The molecular structure of R is trigonal pyramidal. JEE (Advanced) 2026 Paper 2 6/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The correct statement(s) regarding the periodic properties of elements is(are)",
+    "options": [
+      "Second ionization enthalpy of carbon atom is less than that of boron atom.",
+      "Increasing order of ionic radii: Al3+ < Mg2+ < Na+",
+      "Under identical conditions, in solid state, the density of potassium metal is more than density of sodium metal.",
+      "The H–H bond is weaker than F–F bond."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "In the following reaction sequence, P, Q, S and T are the major products. The correct statement(s) about P, Q, S and T is(are)",
+    "options": [
+      "Q on treatment with ethanol generates an aromatic aldehyde.",
+      "S gives positive phthalein dye test.",
+      "P is a dinitro compound.",
+      "T is a coloured compound."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "The correct statement(s) regarding sugars is(are) Given: Specific rotations of L-(−)-glucose and L-(+)-fructose are −52.5 and +92.5, respectively.",
+    "options": [
+      "On treatment with HNO3, gluconic acid is oxidized to saccharic acid, whereas glucose is not oxidized to saccharic acid.",
+      "Fructose gives a positive Fehling’s test because it isomerises to glucose and another aldohexose in the presence of Fehling’s reagent.",
+      "Invert sugar is an equimolar mixture of D-glucose and D-fructose formed after hydrolysis of the corresponding disaccharide.",
+      "Specific rotation of invert sugar is −40. JEE (Advanced) 2026 Paper 2 7/10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  }
+]

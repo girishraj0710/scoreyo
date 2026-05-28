@@ -1,0 +1,580 @@
+[
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "र् िन (function) 𝑓: (0, ∞) → (−∞, ∞), जप 𝑓(𝑥) = √𝑥 loge(𝑥) − 𝑥 + 1 द्व ारा लिया गया है, पर लिचार कीलज ए | तब लनम्नलिस्खत कर्नपं में से कौन सा एक कर्न सत्य है ?",
+    "options": [
+      "अंतराि (0, 1) में, र् िन 𝑓 का अिकिज (derivative) ह्र ासमान ( decreasing) है",
+      "लकसी लबंिु 𝑎 ∈ (0, ∞) पर, र् िन 𝑓 का एक थर्ानीय उच्चतम (local maximum) है",
+      "लकसी लबंिु 𝑏 ∈ (0, ∞) पर, र् िन 𝑓 का एक थर्ानीय लनम्नतम (local minimum) है",
+      "अंतराि (0, ∞) में, र् िन 𝑓 का न तप कपई थर्ानीय उच्चतम का लबंिु (point of local maximum) है और न ही कपई थर्ानीय लनम्नतम का लबंिु (point of local minimum) है"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "मान िीलजए लक 𝑃, परििय (parabola) 𝑦 = 𝑥2 पर िह लबंिु है लजस पर परििय की स्प शण -रेखा (tangent) की प्र िर्ता (slope) 4 है | मान िीलजए लक 𝑄,प्रर् म चतुर्ाांश (first quadrant) में िह लबंिु है जप िृत्त (circle) 𝑥2 + 𝑦2 = 2 पर स् थर्त है तर्ा लजस पर िृत्त की स्प शण -रेखा की प्र िर्ता −1 है | मान िीलजए लक 𝑅, प्रर् म चतुर्ाांश में िह लबंिु है जप िीर्णिृत्त (ellipse) 𝑥2 + 4𝑦2 = 8 पर स् थर्त है तर्ा लजस पर िीर्णिृत्त की स्प शण -रेखा की प्र िर्ता − 1 2 है | तब लबंिुओं 𝑃, 𝑄 और 𝑅 से गुजरने िािे िृत्त की लिज्या (radius) है",
+    "options": [
+      "√10",
+      "√5",
+      "√5 2",
+      "2√5 JEE (Advanced) 2026 Paper 1 2/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "लनम्नलिस्खत आव्यूहपं (matrices) में से कौन से एक आव्यूह ( matrix) कप 3 × 3 तत्समक आव्यूह (identity matrix) पर प्र ारंलभक पंस्ि संलियाओं के प्र यपग द्व ारा (by performing elementary row transformations) प्र ाप्त लकया जा सकता है ?",
+    "options": [
+      "[ 1 1 1 1 1 1 1 1 1 ]",
+      "[ 1 1 1 2 3 4 1 2 1 ]",
+      "[ 1 1 1 2 3 4 2 5 8 ]",
+      "[ 1 1 1 −1 1 2 0 2 3 ]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "प्र लतिपम लिकपर्लमतीय र् िनपं ( inverse trigonometric functions) के केिि मुख्य मानपं (principal values) कप ध्य ान में रखते हु ए , cot−1(cot(−11)) + 10 sin (2 cos−1 ( 1 √2)) + 10 sin(2 tan−1(2)) का मान है",
+    "options": [
+      "3𝜋 + 7",
+      "7",
+      "4𝜋 + 7",
+      "3𝜋 − 5 JEE (Advanced) 2026 Paper 1 3/12 खंड 2 (अधिकतम अंक : 16) • इस खंड में चार (04) प्रश् न हैं | • प्रत्ये क प्रश् न के लिए चार लिकल्प (A), (B), (C) और (D) लिए गए हैं | इन चार लिकल्पपं में से एक या एक से अधिक लिकल्प सही उत्तर है (हैं) | • प्रत्ये क प्रश् न के लिए लिए हु ए लिकल्पपं में से सही उत्तर (उत्तरपं ) से संबंलित लिकल्प (लिकल्पपं ) कप चुलनए | • प्रत्ये क प्रश् न के उत्तर का मूल्ांकन धनम्न योजना के अनुसार होगा : पूर्ण अंक :+4 यलि केवल (सारे) सही लिकल्प (लिकल्पपं ) कप चुना गया है | आंलशक अंक : +3 यलि चारपं लिकल्प सही हैं परन्तु केवल तीन लिकल्पपं कप चुना गया है | आंलशक अंक : +2 यलि तीन या तीन से अलिक लिकल्प सही हैं परन्तु केवल िप लिकल्पपं कप चुना गया है और िपनपं चुने हु ए लिकल्प सही लिकल्प हैं | आंलशक अंक : +1 यलि िप या िप से अलिक लिकल्प सही हैं परन्तु केवल एक लिकल्प कप चुना गया है और चुना हु आ लिकल्प एक सही लिकल्प है | शून्य अंक : 0 यलि लकसी भी लिकल्प कप नहीं चुना गया है (अर्ाणत् प्रश् न अनुत्तररत है ) | ऋर् अंक : −1 अन्य सभी पररस्थर्लतयपं में | • उिाहरर् : यलि लकसी प्रश् न के लिए केिि लिकल्प (A), (B) और (D) सही लिकल्प हैं ,तब केिि लिकल्प (A), (B) और (D) चुनने पर +4 अंक लमिेंगे; केिि लिकल्प (A) और (B) चुनने पर +2 अंक लमिेंगे; केिि लिकल्प (A) और (D) चुनने पर +2 अंक लमिेंगे; केिि लिकल्प (B) और (D) चुनने पर +2 अंक लमिेंगे; केिि लिकल्प (A) चुनने पर +1 अंक लमिेंगे; केिि लिकल्प (B) चुनने पर +1 अंक लमिेंगे; केिि लिकल्प (D) चुनने पर +1 अंक लमिेंगे ; कपई भी लिकल्प ना चुनने पर (अर्ाणत् प्रश् न अनुत्तररत रहने पर ) 0 अंक लमिेंगे; और अन्य लकसी लिकल्पपं के संयपजन कप चुनने पर −1 अंक लमिेंगे |"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "मान िीलजए लक पेटी I में 6 िाि गेंिें और 9 हरी गेंिें हैं, तर्ा पेटी II में 8 िाि गेंिें और 12 हरी गेंिें हैं | पेटी I और पेटी II की सभी गेंिपं कप एक सार् लमिाकर उनमें से एक गेंि कप यादृच्छया (at random) चुना जाता है | मान िीलजए लक 𝐸1 िह र् टना (event) है लक चुनी हु ई गेंि पेटी I से र् ी , और 𝐸2 िह र् टना है लक चुनी हु ई गेंि पेटी II से र् ी | मान िीलजए लक 𝐹1 िह र् टना है लक चुनी हु ई गेंि िाि है, और 𝐹2 िह र् टना है लक चुनी हु ई गेंि हरी है | तब लनम्नलिस्खत कर्नपं में से कौन सा (से) सत्य है (हैं) ?",
+    "options": [
+      "र् टनाएँ 𝐸1 और 𝐹1 स्व तंि ( independent) हैं",
+      "र् टनाएँ 𝐸2 और 𝐹2 परालित (dependent) हैं",
+      "सप्रलतबंि प्र ालयकता ( conditional probability) 𝑃(𝐹1 | 𝐸1) , सप्रलतबंि प्र ालयकता 𝑃(𝐹1 | 𝐸2) के बराबर है",
+      "सप्रलत बंि प्र ालयकता (conditional probability) 𝑃(𝐹1 | 𝐸1), सप्रलतबंि प्र ालयकता 𝑃(𝐹2 | 𝐸2) से बड़ी है JEE (Advanced) 2026 Paper 1 4/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "मान िीलजए लक 𝑃 एक इस प्र कार का समति (plane) है जप सरि रेखा (straight line) 𝑥−1 2 = 𝑦−3 3 = 𝑧+2 1 कप अंतलिणष्ट करता है (contains) और समति 𝑥 + 2𝑦 + 3𝑧 = 4 के िंबित (perpendicular) है | मान िीलजए लक 𝑃1 िह समति है जप लबंिु (4, 2, 2) से गुजरता है और 𝑃 के समांतर (parallel) है | तब लनम्नलिस्खत कर्नपं में से कौन सा (से) सत्य है (हैं) ?",
+    "options": [
+      "समति 𝑃 का समीकरर् 7𝑥 − 5𝑦 + 𝑧 = −10 है",
+      "समतिपं 𝑃 और 𝑃1 के बीच की िूरी 30 है",
+      "समति 𝑃 की मूिलबंिु (origin) से िूरी 2√3 है",
+      "समति 𝑃 और समति 2𝑥 + 2𝑦 + 𝑧 = 3 के बीच का न्यू नकपर् ( acute angle) cos−1 ( 1 3√3) है"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "मान िीलजए लक ℝ सभी िास्तलिक संख्याओं के समुच्चय ( the set of all real numbers) कप िशाणता है | मान िीलजए लक 𝑓 ∶ ℝ → ℝ एक स्वेच्छ र् िन ( arbitrary function) है , और मान िीलजए लक र् िन 𝑔 ∶ ℝ → ℝ 𝑔(𝑥) = 𝑥𝑓(𝑥) , सभी 𝑥 ∈ ℝ के लिए , द्व ारा पररभालित है | तब लनम्नलिस्खत कर्नपं में से कौन सा (से) सत्य है (हैं) ?",
+    "options": [
+      "र् िन 𝑔 , 𝑥 = 0 पर सिैि संतत (continuous) है",
+      "यलि 𝑓, 𝑥 = 0 पर संतत (continuous) है , तब 𝑔 , 𝑥 = 0 पर अिकिनीय (differentiable) है",
+      "यलि 𝑔 , 𝑥 = 0 पर अिकिनीय (differentiable) है , तब 𝑓, 𝑥 = 0 पर संतत (continuous) है",
+      "यलि 𝑔 , 𝑥 = 0 पर अिकिनीय (differentiable) है, तब lim 𝑥→0 𝑓(𝑥) का अस्स्तत्व है JEE (Advanced) 2026 Paper 1 5/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "आव्यूह (matrix) 𝑀 = [2 −1 1 0] पर लिचार कीलजए | मान िीलजए लक 𝑝 , 𝑞 , 𝑟 , 𝑠 , 𝑎 , 𝑏 , 𝑐 तर्ा 𝑑 इस प्र कार के पूर्ाांक (integers) हैं लक 𝑀26 = [𝑝 𝑞 𝑟 𝑠] और ∑ 𝑀𝑘 = 26 𝑘=1 [𝑎 𝑏 𝑐 𝑑] हैं | तब लनम्नलिस्खत कर्नपं में से कौन सा (से) सत्य है (हैं) ?",
+    "options": [
+      "एक िास्तलिक संख्याओं की प्र लिलष्टयपं (real entries) िािे 2 × 2व्युत्क्र मर्ीय आव्यूह (invertible matrix) 𝑁 का अस्स्तत्व है लक 𝑀𝑁 = 𝑁 [1 1 0 1] है",
+      "𝑎 का मान 378 है",
+      "लिए गये लकन्ीं भी िप पूर्ाांकपं (integers) 𝑚 और 𝑛 के लिए, अलद्वतीय पूर्ाां कपं (unique integers) 𝑥 और 𝑦 का अस्स्तत्व है लक 𝑝𝑥 + 𝑞𝑦 = 𝑚 और 𝑟𝑥 + 𝑠𝑦 = 𝑛 हैं",
+      "प्रत्ये क िन िास्तलिक संख्या (positive real number) 𝑡 के लिए, रैस्खक समीकरर्पं के लनकाय (system of linear equations) (𝑎 + 𝑡)𝑥 + 𝑏𝑦 = 1 𝑐𝑥 + (𝑑 + 𝑡)𝑦 = −1 का एक अलद्वतीय हि (unique solution) है JEE (Advanced) 2026 Paper 1 6/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "सूची-I की प्रत्ये क प्र लिलष्ट (entry) का सूची-II की सही प्र लिलष्ट से लमिान कर सही लिकल्प (option) चुलनए | सूची-I सूची-II (P) यलि 𝛼 और 𝛽 , समीकरर् 𝑥2 + 𝑥 + 1 = 0 के लभन्न मूि (distinct roots) हैं , तब िह लद्वर्ातीय समीकरर् (quadratic equation) लजसके मूि (roots) 1 (𝛼+1)2026 और 1 (𝛽+1)2026 हैं , (1) 𝑥2 + 𝑥 + 1 = 0 है (Q) यलि 𝛼 और 𝛽 , समीकरर् 𝑥2 + 𝑥 + 1 = 0 के लभन्न मूि (distinct roots) हैं , तब िह लद्वर्ातीय समीकरर् (quadratic equation) लजसके मूि (roots) 1 (𝛼+1)2027 और 1 (𝛽+1)2027 हैं , (2) 𝑥2 − 𝑥 + 1 = 0 है (R) यलि 𝛾 और 𝛿 , समीकरर् 𝑥2 − 𝑥 + 1 = 0 के लभन्न मूि (distinct roots ) हैं , तब 1 (𝛾−1)2026 + 1 (𝛿−1)2026 का मान (3) 𝑥2 + 𝑥 − 1 = 0 है (S) यलि 𝑝 और 𝑟 , समीकरर् 𝑥2 + 𝑥 − 1 = 0 के लभन्न मूि (distinct roots ) हैं , तब 1 (𝑝+1)3 + 1 (𝑟+1)3 का मान (4) −1 है (5) −4 है",
+    "options": [
+      "(P) → (1), (Q) → (2), (R) → (5), (S) → (4)",
+      "(P) → (3), (Q) → (1), (R) → (4), (S) → (5)",
+      "(P) → (1), (Q) → (2), (R) → (4), (S) → (5)",
+      "(P) → (2), (Q) → (3), (R) → (5), (S) → (4) JEE (Advanced) 2026 Paper 1 10/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "सूची-I की प्रत्ये क प्र लिलष्ट (entry) का सूची-II की सही प्र लिलष्ट से लमिान कर सही लिकल्प (option) चुलनए | सूची-I सूची-II (P) समुच्चय {𝑥 ∈ [−𝜋, 𝜋] ∶ sin6 𝑥 + cos4 𝑥 = 1} में अियिपं की संख्या (number of elements) (1) 1 है (Q) समुच्चय {𝑥 ∈ [− 𝜋 2 , 𝜋 2] ∶ sin2 𝑥 + cos6 𝑥 = 1} में अियिपं की संख्या (number of elements) (2) 2 है (R) समुच्चय {𝑥 ∈ [−𝜋, 𝜋] ∶ cos2 (𝑥 2) − sin2 𝑥 = 1 2} में अियिपं की संख्या (number of elements) (3) 3 है (S) समुच्चय {𝑥 ∈ [−2𝜋, 2𝜋] ∶ 6 sin2 (𝑥 2) − cos 3𝑥 = 3} (4) 4 है में अियिपं की संख्या (number of elements) (5) 5 है",
+    "options": [
+      "(P) → (2), (Q) → (5), (R) → (3), (S) → (4)",
+      "(P) → (5), (Q) → (3), (R) → (2), (S) → (4)",
+      "(P) → (5), (Q) → (4), (R) → (1), (S) → (3)",
+      "(P) → (4), (Q) → (3), (R) → (2), (S) → (5) JEE (Advanced) 2026 Paper 1 11/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "िास्तलिक संख्याओं ( real numbers) 𝛼, 𝛽, 𝛾, 𝛿 और 𝜇 के लिए , आव्यूह ( matrix) 𝑀 = [ 𝛼 1 √2 − 1 √2 1 √3 𝛽 1 √3 𝛾 𝛿 𝜇 ] पर लिचार कीलजए | मान िीलजए लक 𝑀𝑀𝑇 = 𝐼 है, जहाँ 𝑀𝑇, आव्यूह 𝑀 का पररितण (transpose) है और 𝐼 , 3 × 3 तत्समक आव्यूह (identity matrix) है | मान िीलजए लक 𝑢⃗ = 𝛼 𝑖̂ + 1 √3 𝑗̂ + 𝛾 𝑘̂ , 𝑣 = 1 √2 𝑖̂ + 𝛽𝑗̂ + 𝛿𝑘̂ और 𝑤 ⃗⃗ = − 1 √2 𝑖̂ + 1 √3 𝑗̂ + 𝜇𝑘̂ हैं | सूची-I की प्रत्ये क प्र लिलष्ट (entry) का सूची-II की सही प्र लिलष्ट से लमिान कर सही लिकल्प (option) चुलनए | सूची-I सूची-II (P) 𝛾2 + 𝛿2 का मान (1) 0 है (Q) यलि लकन्ीं िास्तलिक संख्याओं 𝑥, 𝑦 और 𝑧 के लिए 𝑥𝑢⃗ + 𝑦𝑣 + 𝑧𝑤 ⃗⃗ = 𝑗̂ है, तब 𝑥 का मान (2) 1 है (R) |𝑢⃗ ⋅ (𝑣 × 𝑤 ⃗⃗ )| का मान (3) 1 √2 है (S) |𝑢⃗ × (𝑣 × 𝑤 ⃗⃗ )| का मान (4) 1 √3 है (5) 5 6 है",
+    "options": [
+      "(P) → (5), (Q) → (4), (R) → (2), (S) → (1)",
+      "(P) → (4), (Q) → (5), (R) → (1), (S) → (2)",
+      "(P) → (5), (Q) → (3), (R) → (2), (S) → (1)",
+      "(P) → (5), (Q) → (4), (R) → (1), (S) → (2) JEE (Advanced) 2026 Paper 1 12/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "सूची-I की प्रत्ये क प्र लिलष्ट (entry) का सूची-II की सही प्र लिलष्ट से लमिान कर सही लिकल्प (option) चुलनए | सूची-I सूची-II (P) िह िृत्त ( circle) लजसका केंद्र ( centre) (1, 2) है और जप सरि रेखा (straight line) 3𝑥 + 4𝑦 = 1 कप स्प शण करता है , (1) लबंिु (1, 1) से गुजरता / गुजरती है (Q) िृत्त ( circle) 𝑥2 + 𝑦2 = 2 और परििय (parabola) 𝑦2 = 8𝑥 की उभयलनष्ठ स्प शण -रेखा (common tangent) लजसकी प्र िर्ता (slope) िनात्मक ( positive) है, (2) लबंिु (7, 9) से गुजरता / गुजरती है (R) मान िीलजए लक 𝑀 , िीर्णिृत्त ( ellipse) 3𝑥2 + 4𝑦2 = 48 की नालभिंब जीिा (latus rectum) का िह अंत्य लबंिु (endpoint) है जप प्रर् म चतुर्ाांश ( first quadrant) में है | तब लबंिु 𝑀 पर खींचे गये िीर्णिृत्त का अलभिंब (normal) (3) लबंिु (3, 2) से गुजरता / गुजरती है (S) मान िीलजए लक 𝐻 िह अलतपरििय (hyperbola) है लजसका केंद्र ( centre) मूि लबंिु (origin) पर है , एक नालभ (focus) (5, 0) पर है, और एक लनयता (directrix) 5𝑥 + 16 = 0 है | तब 𝐻 (4) लबंिु (2, 5) से गुजरता / गुजरती है (5) लबंिु (8, 3√3 ) से गुजरता / गुजरती है",
+    "options": [
+      "(P) → (3), (Q) → (4), (R) → (1), (S) → (2)",
+      "(P) → (3), (Q) → (2), (R) → (1), (S) → (5)",
+      "(P) → (3), (Q) → (2), (R) → (4), (S) → (5)",
+      "(P) → (4), (Q) → (1), (R) → (2), (S) → (3) END OF THE QUESTION PAPER JEE (Advanced) 2026 Paper 1 1/14 खंड 1 (अधिकतम अंक : 12)  इस खंड में चार (04) प्रश् न हैं |  प्रत्ये क प्रश् न के लिए चार लिकल्प (A), (B), (C) और (D) लिए गए हैं | इन चार लिकल्पपं में से केवल एक लिकल्प ही सही उत्तर है |  प्रत्ये क प्रश् न के लिए लिए हु ए लिकल्पपं में से सही उत्तर से संबंलित लिकल्प कप चुलनए |  प्रत्ये क प्रश् न के उत्तर का मूल्ांकन धनम्न योजना के अनुसार होगा : पूर्ण अंक : +3 यलि लसर्ण सही लिकल्प ही चुना गया है | शून्य अंक : 0 यलि कपई भी लिकल्प नहीं चुना गया है (अर्ाणत् प्रश् न अनुत्तररत है ) | ऋर् अंक : −1 अन्य सभी पररस्थिलतयपं में"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक 𝑅 लिज्या की बड़ी चकती (disk) की पररलि पर स्थ ित िप छपटी 𝑟 = 𝑅/50 लिज्या की चकलतयां िशाणए लचिानुसार स्थ ित हैं| प्र ारंभ में छपटी चकलतयााँ एक िूसरे से इस प्र कार संपकण में हैं लक उनके केन्द्पं के बीच कपर्ीय िूरी Δ𝜃 है| छपटी चकलतयपं कप बड़ी चकती की पररलि पर लबना लर्सिे लिपरीत लिशाओं में अचर कपर्ीय िेग 𝜔 और 2𝜔 से िुढ़काया जाता है जबलक बड़ी चकती कप स्थ िर रखा गया है | समय 𝜏 , लजस पर छपटी चकलतयााँ पुनः संपकण में आती है, हपगा: [ गुरुत्वाकर्णर् की उपेक्षा कीलजये एिं sin(Δ𝜃) = Δ𝜃 का प्र यपग कीलजये ]",
+    "options": [
+      "𝜏 = 51 × (2𝜋 − 4 51) /𝜔",
+      "𝜏 = 51 × (2𝜋 − 2 51) /3𝜔",
+      "𝜏 = 51 × (2𝜋 − 4 51) /3𝜔",
+      "𝜏 = 51 × (2𝜋 − 2 51) /𝜔 JEE (Advanced) 2026 Paper 1 2/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक 𝐶 िाररता के संिाररि और एक कुंडिी, लजसकी िम्बाई 𝑑, अनुप्रि -काट का क्षे िर्ि 𝑆 , जहााँ 𝑑2 ≫ 𝑆 है एिं इकाई िम्बाई में र्े रपं की संख्या 𝑁 है, से युक्त एक लिि्युत् पररपर् पर लिचार कीलजये| एक िूसरी कुंडिी, लजसकी िम्बाई 𝑑/2, अनुप्रि -काट का क्षे िर्ि 𝑆/2 एिं इकाई िम्बाई में र्े रपं की संख्या 2𝑁 है, कप पूर्णतया पहिी कुंडिी के भीतर लचिानुसार रखा गया है| छपटी कुंडिी के लसरपं कप एक-िूसरे से एक लिि्युतरपिी-परत-युक्त (insulated) चािक तार से जपड़ा गया है| बड़ी कुंडिी का स्व -प्रे रकत्व 𝐿 है| अंत- प्र भािपं एिं ओमीय (Ohmic) प्र लतरपिपं कप नगण्य मानते हु ए लिि्युत् पररपर् की अनुनाि आिृलत्त है :",
+    "options": [
+      "4 √15 𝐿𝐶",
+      "6 √5 𝐿𝐶",
+      "2 √3 𝐿𝐶",
+      "√ 2 3 𝐿𝐶"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक 𝑅 लिज्या का ठपस बेिन लचिानुसार एक उर्ध्ाणिर लकनारे िािे क्षै लतज समति पर द्रव्य मान -केंद्र की चाि 𝑣0 = √𝑔𝑅 3 से लबना लर्सिे हु ए िुढ़क रहा है| यहााँ 𝑔 गुरुत्वीय त्व रर् है | लजस क्षर् पर बे िन का, लकनारे के पररतः घूर्णन के कारर्, समति से संपकण टूटता है उस क्षर् पर बेिन के द्रव्य मान -केंद्र की चाि है :",
+    "options": [
+      "0",
+      "√5𝑔𝑅 7",
+      "√𝑔𝑅 15",
+      "√3𝑔𝑅 7 JEE (Advanced) 2026 Paper 1 3/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक हाईडरपजन परमार्ु की कक्षा 𝑘 में इिेक्ट्रान की चाि, कक्षा -लिज्या एिं गलतज उजाण क्र मशः 𝑣𝑘, 𝑟𝑘 एिं 𝐾𝑘 से लनरुलपत हैं| इिेक्ट्रान कक्षा 𝑛 से इस तरह संक्रमर् करता है लक िाइमन श्रेर् ी के संगत लिलकरर् उत्सलजणत हपता है | यलि ℎ प् ांक स्थ िरांक एिं 𝜖0 मुक्त आकाश की लिि्युतशीिता है तप लनम्न में से सही कर्न है/हैं:",
+    "options": [
+      "इिेक्ट्रान की गलतज उजाण में पररितणन के पररमार् कप ℎ 4𝜋 |𝑛𝑣𝑛 𝑟𝑛 − 𝑣1 𝑟1 | से व्यक्त लकया जा सकता है |",
+      "इिेक्ट्रान की िे-ब्रॉग्ली तरंग -िैर्ध्ण में पररितणन के पररमार् कप 𝑒2 4𝜖0 | 1 𝐾𝑛 − 1 𝐾1 | से व्यक्त लकया जा सकता है|",
+      "उत्सलजणत लिलकरर् की आिृलत्त कप 𝑒2 8𝜋𝜖0ℎ ( 1 𝑟1 − 1 𝑟𝑛 ) से व्यक्त लकया जा सकता है |",
+      "इिेक्ट्रान की कुि ऊजाण में पररितणन के पररमार् कप ℎ 2𝜋 |𝑣1 𝑟1 − 𝑛𝑣𝑛 𝑟𝑛 | से व्यक्त लकया जा सकता है | JEE (Advanced) 2026 Paper 1 5/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक कर् कप लबंिु 𝑂 से क्षै लतज समति से , लचिानुसार, 𝜃 कपर् बनाते हु ए 𝑣 चाि से इस प्र कार प्रक्षे लपत लकया जाता है लक कर् लबंिु 𝑃, लजसकी समति से ऊंचाई 1 m एिं 𝑂 से क्षै लतज िूरी 5 m है, से हपकर गुजरता है| यलि गुरुत्वीय त्व रर् का मान 𝑔 ms−2 है, तप लनम्न में से सही कर्न है/हैं :",
+    "options": [
+      "यलि 𝜃 = 45o, तप 𝑣 = 5√𝑔 2 ms−1 हपगा|",
+      "यलि 𝜃 = 45o, तप कर् लबंिु 𝑃 पर पहुाँचने से पहिे प्रक्षेप्य -पर् की अलिकतम ऊंचाई पर पहुंचेगा |",
+      "यलि 𝜃 = 30o, तप कर् लबंिु 𝑃 पर पहुाँचने के बाि प्रक्षेप्य -पर् की अलिकतम ऊंचाई पर पहुंचेगा |",
+      "यलि 𝜃 = tan−1 (1 5) है, तप 𝑣 = 125√𝑔 ms−1 हपगा|"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक-परमास्थिक आिशण गैस का एक िैलतककल्प ( quasi-static)चक्र क्र मशः एक समतापीय प्रक्र म (𝒂𝒃), समआयातलनक प्रक्र म (𝒃𝒄) एिं रुद्ध पष्म प्रक्र म (𝒄𝒂) से लचिानुसार पूरा हपता है| 𝒂 तर्ा 𝒃 पर गैस का आयतन क्र मशः 𝑉1 और 𝑉2 है| यलि चक्र की लनिेशी ( input) ऊष्मा 𝑄in एिं लनगणत (output) ऊष्मा 𝑄out है, तप चक्र की िक्षता 𝜂 = 𝑄in−𝑄out 𝑄in से पररभालर्त की जाती है | लनम्न में से सही कर्न है/हैं : [लिया है: ln 2 ≈ 0.7]",
+    "options": [
+      "यलि 𝑉2/𝑉1 = 8, तप 𝒃𝒄 प्रक्र म में लनष्कालर्त ऊष्मा 𝒂𝒃 प्रक्र म में अिशपलर्त ऊष्मा से कम है|",
+      "𝑉2/𝑉1 के लिए गए मान के लिए 𝜂 का मान समतापीय प्रक्र म के तापमान पर लनभणर नहीं करता है |",
+      "यलि 𝑉2/𝑉1 = 8, तप 𝒂 पर गैस का तापमान 𝒄 पर गैस के तापमान का 4 गुना है|",
+      "यलि 𝑉2/𝑉1 = 8, तप 𝒂 पर गैस का िाब 𝒃 पर गैस के िाब का 4 गुना है| JEE (Advanced) 2026 Paper 1 6/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "लनिाणत में चिती हु ई एक लिि्युतचुम्बकीय तरंग से सम्बद्ध िैि्युत क्षे ि कप 𝐸0 sin(3𝑦 + 4𝑧 + 𝜔𝑡)𝑖̂ से व्यक्त लकया जाता है, जहााँ 𝜔 कपर्ीय आिृलत्त है | इस तरंग से सम्बंलित सही कर्न है/हैं [लिया है: लनिाणत में प्र काश की चाि 𝑐 = 3 × 108 ms−1]",
+    "options": [
+      "तरंग − 1 5 (3𝑗̂ + 4𝑘̂ ) लिशा में चि रही है|",
+      "तरंग सलिश (wave vector) का पररमार् 0.5 m−1 है|",
+      "𝜔 का मान 1.5 × 109 rad s−1 है|",
+      "तरंग से सम्बद्ध चुम्बकीय क्षे ि 𝐸0 𝑐 sin(3𝑦 + 4𝑧 + 𝜔𝑡)(4𝑗̂ − 3𝑘̂ ) है| JEE (Advanced) 2026 Paper 1 7/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I में सीिी एिं अिण-िृत्ताकार पतिी िायु-युक्त नलिकाओं से बनी चार संरचनाएं िशाणयी गयी हैं| इन संरचनाओं में लबंिु 𝑆 पर 𝜆 = 0.29 m तरंग-िैर्ध्ण का एक र्ध् लन स्र पत एिं लबंिु 𝐷 पर एक र्ध् लन -संसूचक रखा गया है| र्ध् लन, लबंिु 𝑆 से लबंिु 𝐷 तक केिि नलिकाओं से हपकर पहुाँचती है| List-II में 𝑙 के उस न्यू नतम संभि मान कप रखा गया है लजसके लिए संसूचक प्रत्ये क संरचना में र्ध् लन की अलिकतम तीव्रता संसूलचत करता है| तीक्ष्र् लकनारपं के प्र भाि की उपेक्षा कीलजये | [लिया गया है: cos 15° = 0.97 ] List-I एिं List-II की प्र लिलष्टयपं के लनकटतम सही लमिान कप लिखाने िािे लिकल्प कप चुलनए | List-I List-II (P) (1) 1.32 m (Q) (2) 1.19 m (R) (3) 0.51 m (S) (4) 0.29 m (5) 0.13 m",
+    "options": [
+      "P→4, Q→3, R→5, S→1",
+      "P→4, Q→3, R→1, S→5",
+      "P→3, Q→4, R→1, S→2",
+      "P→3, Q→4, R→5, S→2 JEE (Advanced) 2026 Paper 1 12/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I में चार प्र काशीय घटनाएाँ उस्थिस्थखत हैं | List-II में इन प्र काशीय घटनाओं कप समझाने के लिए आिश्यक भौलतकीय प्र भाि लिए गए हैं | List-I एिं List-II की प्र लिलष्टयपं के सही लमिान कप लिखाने िािे लिकल्प कप चुलनए | List-I List-II (P) उत्तर -ध्रुिीय क्षे ि में रंगीन आकाश (उत्तर ध्रु िीय ज्य पलत) (1) िर्ण -लिक्षेपर् एिं पराितणन (Q) सूयण के प्र काश का आंलशक ध्रु िर् (2) पूर्ण आतंररक पराितणन (R) इन्द्िनुर् (3) लिितणन (S) अिीप्त एिं िीप्त लरंजें (4) िायुमंडि के अर्ुओं द्व ारा प्र काश का प्र कीर्णन (5) आिेलशत कर्पं द्व ारा उत्तेलजत ऑक्सीजन एिं नाइटरपजन परमार्ुओं से लिलकरर् का उत्सजणन",
+    "options": [
+      "P→5, Q→4, R→1, S→3",
+      "P→4, Q→2, R→1, S→3",
+      "P→4, Q→1, R→2, S→3",
+      "P→5, Q→4, R→1, S→2 JEE (Advanced) 2026 Paper 1 13/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I में 𝑋𝑌 ति में स्थ ित 4 चािक िूप लचि द्व ारा िशाणए गए हैं| सभी िूप लबंिु 𝑂 से हपकर जाने िािी 𝑍 अक्ष के पररतः 𝑇 आितणकाि से िलक्षर्ाितण (clockwise) घूम रहे हैं| क्षे ि 𝑥 > 0 में +𝑧 लिशा में एक एकसमान चुम्बकीय क्षे ि 𝐵 िगाया गया है| List-II में इन िूपपं में चुम्बकीय क्षे ि द्व ारा प्रे ररत लिि्युत् िारा 𝑖(𝑡) कप गुर्ात्मक रू प से लिखाया गया है | List-I एिं List-II की प्र लिलष्टयपं के सही लमिान कप लिखाने िािे लिकल्प कप चुलनए | List-I List-II (P) (1) (Q) (2) (R) (3) (S) (4) (5)",
+    "options": [
+      "P → 5, Q → 4, R → 1, S → 3",
+      "P → 3, Q → 2, R → 5, S → 4",
+      "P → 3, Q → 2, R → 1, S → 4",
+      "P → 5, Q → 1, R → 2, S → 3 JEE (Advanced) 2026 Paper 1 14/14"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "List-I में 𝑚 द्रव्य मान एिं 𝑙 िंबाई की एकसमान ठपस छड़पं से बनी हु ई चार समति संरचनाएं िशाणयी गयीं हैं| List-II में इन संरचनाओं के अक्ष 𝑂𝐶𝑂′, जप लक संरचना के ति में है, के पररतः संभालित जड़त्व - आघूर्ण लिए गए हैं| List-I एिं List-II की प्र लिलष्टयपं के सही लमिान कप लिखाने िािे लिकल्प कप चुलनए | List-I List-II (P) (1) 5 4 𝑚𝑙2 (Q) (2) 1 6 𝑚𝑙2 (R) (3) 1 12 𝑚𝑙2 (S) (4) 2 3 𝑚𝑙2 (5) 1 3 𝑚𝑙2",
+    "options": [
+      "P→ 5, Q→ 1, R→ 4, S→ 2",
+      "P→ 1, Q→ 3, R→ 4, S→ 2",
+      "P→ 5, Q→ 3, R→ 2, S→ 1",
+      "P→ 5, Q→ 4, R→ 2, S→ 1 END OF THE QUESTION PAPER JEE (Advanced) 2026 Paper 1 1/12 खंड 1 (अधिकतम अंक : 12)  इस खंड में चार (04) प्रश् न हैं |  प्रत्ये क प्रश् न के लिए चार लिकल्प (A), (B), (C) और (D) लिए गए हैं | इन चार लिकल्पपं में से केवल एक लिकल्प ही सही उत्तर है |  प्रत्ये क प्रश् न के लिए लिए हु ए लिकल्पपं में से सही उत्तर से संबंलित लिकल्प कप चु लनए |  प्रत्ये क प्रश् न के उत्तर का मूल्ांकन धनम्न योजना के अनुसार होगा : पूर्ण अंक : +3 यलि लसर्ण सही लिकल्प ही चुना गया है | शून्य अंक : 0 यलि कपई भी लिकल्प नहीं चुना गया है (अर्ाणत् प्रश् न अनुत्तररत है ) | ऋर् अंक : −1 अन्य सभी पररस्थिलतयपं में"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "एक आिशण गैस (0.5 मपि), जप आरम्भ में 2 bar िाब पर है, कप 600 K स्थ िर ताप मान पर िप चरर्पं में संपीलडत (compressed) लकया जाता है − पहिे एक स्थ िर बाह्य िाब P bar (2 < P < 8) के लिरुद्ध, और लर्र स्थ िर बाह्य िाब 8 bar के लिरुद्ध | प्रत्ये क चरर् में गैस का िाब जब बाह्य िाब के बराबर हप जाता है, तब ही संपीडन कप रपका जाता है| इन चरर्पं में गैस पर लकया गया कुि कायण W है| P (2 < P < 8) के सभी संभि मान पर लिचार करते हु ए एिं गैस लनयतांक (gas constant) कप R (J K−1 mol−1 में) िेते हु ए , | W | का न्यू नतम मान ( J में) है",
+    "options": [
+      "207R",
+      "600R",
+      "630R",
+      "900R JEE (Advanced) 2026 Paper 1 2/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "लिये हु ए स्प ीशीज़ के लिध्रुि आघूर्ों (dipole moments) का सही िम है",
+    "options": [
+      "BF3 = NH4+ < NF3 < NH3",
+      "BF3 < NH4+ < NF3 < NH3",
+      "NH4+ < BF3 < NH3 < NF3",
+      "BF3 < NH4+ < NH3 < NF3 JEE (Advanced) 2026 Paper 1 3/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "मानते हु ए लक LiBH4 एस्टर समूह कप संगत ऐल्कपहॉि में अपचयन (reduce) करता है तर्ा काबोस्थिलिक अम्ल समूह का अपचयन नहीं करता है, प्र मुख उत्पािपं P, Q, R तर्ा S के बारे में उलचत कर्न है",
+    "options": [
+      "P और Q समान हैं, तर्ा R और S डायास्ट ीररयपमर (diastereomers) हैं|",
+      "P और Q डायास्ट ीररयपमर (diastereomers) हैं, तर्ा R और S समान हैं|",
+      "P और Q डायास्ट ीररयपमर (diastereomers) हैं, तर्ा R और S डायास्ट ीररयपमर (diastereomers) हैं|",
+      "P और Q समान हैं, तर्ा R और S समान हैं| JEE (Advanced) 2026 Paper 1 4/12 खंड 2 (अधिकतम अंक : 16)  इस खंड में चार (04) प्रश् न हैं |  प्रत्ये क प्रश् न के लिए चार लिकल्प (A), (B), (C) और (D) लिए गए हैं | इन चार लिकल्पपं में से एक या एक से अधिक लिकल्प सही उत्तर है (हैं) |  प्रत्ये क प्रश् न के लिए लिए हु ए लिकल्पपं में से सही उत्तर (उत्तरपं ) से संबंलित लिकल्प (लिकल्पपं ) कप चुलनए |  प्रत्ये क प्रश् न के उत्तर का मूल्ांकन धनम्न योजना के अनुसार होगा : पूर्ण अंक :+4 यलि केवल (सारे) सही लिकल्प (लिकल्पपं ) कप चुना गया है | आंलशक अंक : +3 यलि चारपं लिकल्प सही हैं परन्तु केवल तीन लिकल्पपं कप चुना गया है | आंलशक अंक : +2 यलि तीन या तीन से अलिक लिकल्प सही हैं परन्तु केवल िप लिकल्पपं कप चुना गया है और िपनपं चुने हु ए लिकल्प सही लिकल्प हैं | आंलशक अंक : +1 यलि िप या िप से अलिक लिकल्प सही हैं परन्तु केवल एक लिकल्प कप चुना गया है और चुना हु आ लिकल्प एक सही लिकल्प है | शून्य अंक : 0 यलि लकसी भी लिकल्प कप नहीं चुना गया है (अर्ाणत् प्रश् न अनुत्तररत है ) | ऋर् अंक : −1 अन्य सभी पररस्थिलतयपं में |  उिाहरर् : यलि लकसी प्रश् न के लिए केिि लिकल्प (A), (B) और (D) सही लिकल्प हैं ,तब केिि लिकल्प (A), (B) और (D) चुनने पर +4 अंक लमिेंगे; केिि लिकल्प (A) और (B) चुनने पर +2 अंक लमिेंगे; केिि लिकल्प (A) और (D) चुनने पर +2 अंक लमिेंगे; केिि लिकल्प (B) और (D) चुनने पर +2 अंक लमिेंगे; केिि लिकल्प (A) चुनने पर +1 अंक लमिेंगे; केिि लिकल्प (B) चुनने पर +1 अंक लमिेंगे; केिि लिकल्प (D) चुनने पर +1 अंक लमिेंगे ; कपई भी लिकल्प ना चुनने पर (अर्ाणत् प्रश् न अनुत्तररत रहने पर ) 0 अंक लमिेंगे; और अन्य लकसी लिकल्पपं के संयपजन कप चुनने पर −1 अंक लमिेंगे |"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "हाइडरपजन परमार्ु के 2s और 2p कक्षकपं की उजाण िमशः E2s(H) और E2p(H) है| िीलर्यम परमार्ु के 2s और 2p कक्षकपं की उजाण िमशः E2s(Li) और E2p(Li) है| कक्षक उजाण ओं (orbital energies) के सन्दभण में सही लिकल्प है(हैं)",
+    "options": [
+      "E2s(Li) < E2p(Li)",
+      "E2s(H) = E2p(H)",
+      "E2p(H) < E2s(Li)",
+      "E2s(H) > E2s(Li) JEE (Advanced) 2026 Paper 1 5/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "यौलगकपं X, Y तर्ा Z के बारे में उलचत कर्न है(हैं) (Conc.: सांद्र ; Greenish yellow gas: हररत पीिी गैस; Excess: आलिक्य )",
+    "options": [
+      "X पीने के पानी कप लनजणमण (sterilize) करने में उपयपग हपता है|",
+      "Y एक समतिी संरचना (planar structure) रखता है|",
+      "235U के संििणन (enrichment) में Z का उपयपग हपता है|",
+      "Y अमपलनया से अलिक प्र बि िूइस क्ष ारक (Lewis base) है|"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "ऑिीजन (O2) गैस के सार् PtF6 की अलभलिया से एक आयलनक यौलगक, X+Y– लनलमणत हपता है| सही कर्न है(हैं)",
+    "options": [
+      "X+ की आबंि कपलि (bond order) 1.5 है|",
+      "X+Y– में िातु आयन के संयपजक d-कक्षकपं में 5 इिेक्ट्रॉन हैं |",
+      "इस अलभलिया में PtF6 एक ऑिीकारक (oxidant) का काम करता है|",
+      "इस अलभलिया में PtF6 एक फ़् िु ओरीनीकरर् (fluorinating) कमणक का काम करता है| JEE (Advanced) 2026 Paper 1 6/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "लनम्नलिस्थखत अलभलिया अनुिम में, Q, R, S तर्ा T प्र मुख उत्पाि हैं| (Kolbe’s electrolysis: कपल्बे लिि्युत-अपघिन; anhyd.: लनजणि; heat: ताप) Q, R, S तर्ा T के लिए सही कर्न है(हैं)",
+    "options": [
+      "S कप अमपलनकि (ammoniacal) AgNO3 के सार् गमण करने पर लसल्वर िपणर् ( silver mirror) लमिता है|",
+      "Q कप Cl2(आलिक्य )/UV से उपचाररत करने से गैमेिीन (gammaxane) लमिता है|",
+      "T एक हेिरपसाइकलिक (heterocyclic) यौलगक है|",
+      "R अम्ल उत्प्रेररत (acid catalyzed) अंतराआर्लिक चिीकरर् (intramolecular cyclization) के उपरांत Zn-Hg/HCl से उपचाररत करने पर 9,10-डाइहाइडरािीएंथ्रासीन (9,10- dihydroxyanthracene) िेता है| JEE (Advanced) 2026 Paper 1 7/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "सूची-I में लिलभन्न भौलतक/रासायलनक उपिम हैं, तर्ा सूची-II में एन्थै ल्प ी ( enthalpy) पररितणन (Δ H) और एन्ट्रॉपी ( entropy) पररितणन (Δ S) के संयपजन हैं| सूची-I की प्रत्ये क प्र लिलष्ट कप सूची-II में िी गयी उपयुक्त प्र लिलष्ट के सार् सुमेि करें, तर्ा सही लिकल्प का चयन करें| सूची-I सूची-II (P) भौलतक अलिशपर्र् (physisorption) (1) Δ H > 0 तर्ा Δ S > 0 (Q) हीरा (diamond) ⟶ ग्रेर् ाइि (2) Δ H < 0 तर्ा Δ S < 0 (R) प्र पिीन का लिकृतीकरर् (denaturation) (3) Δ H < 0 तर्ा Δ S = 0 (S) प्र पपीन ⟶ साइक्लपप्रपपेन (4) Δ H > 0 तर्ा Δ S < 0 (5) Δ H < 0 तर्ा Δ S > 0",
+    "options": [
+      "P → 2; Q → 3; R → 5; S → 4",
+      "P → 4; Q → 3; R → 5; S → 1",
+      "P → 2; Q → 5; R → 1; S → 4",
+      "P → 2; Q → 5; R → 1; S → 3 खंड 4 (अधिकतम अंक : 16)  इस खंड में चार (04) सूची-सुमेिन (Matching List) सेि्स (sets) हैं।  प्रत्ये क सूची -सुमेिन सेि में एक (01) एकालिक लिकल्प प्रश् न (Multiple Choice Question) है।  प्रत्ये क सूची -सुमेिन सेि में दो सूलचयााँ हैं: सूची-I और सूची-II  सूची-I में चार (04) प्र लिलष्टयााँ ( P), (Q), (R) और (S) हैं एिं सूची-II में पााँच (05) प्र लि लष्टयााँ (1) , (2), (3), (4) और (5) हैं।  प्रत्ये क एकालिक लिकल्प प्रश् न में सूची-I और सूची-II पर आिाररत चार लिकल्प लिए गए हैं औ र इन लिकल्पपं में से केवल एक लिकल्प ही एकालिक लिकल्प प्रश् न की शतण पूरा करता है।  प्रत्ये क प्रश् न के उत्तर का मूल्ांकन धनम्न योजना के अनुसार होगा : पूर्ण अंक : +4 यलि लसर्फण सही लिकल्प कप ही चुना गया है। शून्य अंक : 0 यलि कपई भी लिकल्प नहीं चुना गया है (अर्ाणत्प्रश् न अनुत्तररत है) | ऋर् अंक : −1 अन्य सभी पररस्थिलतयपं में| JEE (Advanced) 2026 Paper 1 10/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "लनम्नलिस्थखत स्प ीशीज पर ध्य ान िें: SOCl2, XeOF4, ClF3, ClF5, XeF5+, SO32–, XeF3+, SF4 सूची-I में लिलभन्न आर्लिक आकृलतयां हैं तर्ा सूची-II में िी गयी स्प ीशीज में से एक जैसी आर्लिक आकृलतयपं िािी स्प ीशीज की कुि संख्या है | सूची-I की प्रत्ये क प्र लिलष्ट कप सूची-II में िी गयी उपयुक्त प्र लिलष्ट के सार् सुमेि करें तर्ा सही लिकल्प का चयन करें | सूची-I सूची-II (P) ढेंकुिी (See-saw) (1) एक (Q) T-आकृलत (T-Shaped) (2) िप (R) लत्रकपर्ीय समतिी (Trigonal Planar) (3) तीन (S) िगण-लपरालमडी (Square Pyramidal) (4) चार (5) शून्य",
+    "options": [
+      "P  1; Q  2; R  5; S  3",
+      "P  5; Q  4; R  2; S  3",
+      "P  3; Q  2; R  1; S  4",
+      "P  1; Q  3; R  5; S  4 JEE (Advanced) 2026 Paper 1 11/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "सूची-II में लिये गये उत्पाि सूची-I के यौलगकपं की O3/Zn-H2O से अलभलिया के बाि जिीय NaOH की उपस्थिलत में चिीकरर् [अलिक िायी ईनॉिेि ( enolate) के िारा], से उत्पन्न हपते हैं| सूची-I की प्रत्ये क प्र लिलष्ट कप सूची-II में िी गयी उपयुक्त प्र लिलष्ट के सार् सुमेि करें तर्ा सही लिकल्प का चयन करें | सूची-I सूची-II (P) (1) (Q) (2) (R) (3) (S) (4) (5)",
+    "options": [
+      "P ⟶ 2; Q ⟶ 4; R ⟶ 1; S ⟶ 3",
+      "P ⟶ 3; Q ⟶ 4; R ⟶ 5; S ⟶ 2",
+      "P ⟶ 2; Q ⟶ 1; R ⟶ 5; S ⟶ 3",
+      "P ⟶ 3; Q ⟶ 5; R ⟶ 4; S ⟶ 2 JEE (Advanced) 2026 Paper 1 12/12"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  },
+  {
+    "examId": "jee-advanced",
+    "subjectId": "jee-adv-maths",
+    "topic": "PYQ Mathematics",
+    "question": "सूची-I में िी गयी अलभलियाओं में उत्पन्न हु ए मुख्य उत्पािपं कप सूची-II के अनुरूप (corresponding) संरचनाओं से सुमेि करें तर्ा सही लिकल्प का चयन करें | सूची-I सूची-II (P) (1) (Q) (2) (R) (3) (S) (4) (5) (aqueous: जिीय)",
+    "options": [
+      "P → 2; Q ⟶ 1; R → 5; S ⟶ 4",
+      "P → 1; Q ⟶ 2; R → 4; S ⟶ 5",
+      "P → 1; Q ⟶ 2; R → 3; S ⟶ 4",
+      "P → 2; Q ⟶ 1; R → 3; S ⟶ 5 END OF THE QUESTION PAPER"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Official PYQ parsed from paper text. Answer key to be mapped separately.",
+    "year": 2024,
+    "difficulty": "medium",
+    "marks": 4
+  }
+]

@@ -11,6 +11,11 @@ const FAST_MODELS = [
   "meta-llama/llama-3.3-70b-instruct:free",
 ];
 
+// Escape SQL LIKE wildcards to prevent LIKE injection
+function escapeLikePattern(str: string): string {
+  return str.replace(/[%_\\]/g, '\\$&');
+}
+
 export async function POST(request: Request) {
   try {
     const userId = (await cookies()).get("prepgenie-user-id")?.value;
@@ -30,12 +35,15 @@ export async function POST(request: Request) {
       authToken: process.env.TURSO_AUTH_TOKEN!,
     });
 
+    // Escape wildcards to prevent LIKE injection
+    const escapedQuestion = escapeLikePattern(userQuestion);
+
     const existingResult = await db.execute({
       sql: `SELECT ai_response FROM clarifications
-            WHERE question_text = ? AND user_question LIKE ?
+            WHERE question_text = ? AND user_question LIKE ? ESCAPE '\\'
             AND helpful = 1
             LIMIT 1`,
-      args: [questionText, `%${userQuestion}%`]
+      args: [questionText, `%${escapedQuestion}%`]
     });
 
     const existingClarification = existingResult.rows[0];

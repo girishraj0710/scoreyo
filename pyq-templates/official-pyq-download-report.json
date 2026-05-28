@@ -1,21 +1,18 @@
 {
-  "generatedAt": "2026-05-20T17:37:09.651Z",
-  "examFilter": "jee-advanced",
+  "generatedAt": "2026-05-23T10:24:02.716Z",
+  "examFilter": "nda",
   "perExamLimit": 2,
   "totalExamsProcessed": 1,
-  "totalAttempted": 2,
-  "totalDownloaded": 2,
+  "totalAttempted": 0,
+  "totalDownloaded": 0,
   "totalSkipped": 0,
   "totalFailed": 0,
   "results": [
     {
-      "examId": "jee-advanced",
-      "examName": "JEE Advanced",
-      "attempted": 2,
-      "downloaded": [
-        "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced/p1_english.pdf",
-        "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced/p1_hindi.pdf"
-      ],
+      "examId": "nda",
+      "examName": "NDA",
+      "attempted": 0,
+      "downloaded": [],
       "skipped": [],
       "failed": []
     }

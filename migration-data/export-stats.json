@@ -1,0 +1,200 @@
+[
+  {
+    "table": "users",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "dim_exams",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "dim_subjects",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "dim_topics",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "bridge_exam_subject_topic",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "fact_exam_questions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "quiz_sessions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "question_attempts",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "topic_mastery",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "subscriptions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "payment_history",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "mock_tests",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "weakness_profiles",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "clarifications",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "daily_practice_problems",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "dpp_completions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "daily_sprints",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "sprint_participations",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "english_progress",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "english_questions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "english_daily_practice",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "user_quiz_levels",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "user_english_levels",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "level_definitions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "level_question_cache",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "user_badges",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "badge_stats",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "daily_challenges",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "daily_challenge_progress",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "reported_questions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "question_reports",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "cached_questions",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  },
+  {
+    "table": "otp_codes",
+    "rows": 0,
+    "exported": false,
+    "error": "BLOCKED: Operation was blocked: SQL read operations are forbidden (reads are blocked, do you need to upgrade your plan?)"
+  }
+]

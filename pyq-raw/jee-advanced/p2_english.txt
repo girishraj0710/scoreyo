@@ -1,0 +1,731 @@
+JEE (Advanced) 2026 Paper 2
+1/9
+SECTION 1 (Maximum Marks: 12)
+• This section contains FOUR (04) questions.
+• Each question has FOUR options (A), (B), (C) and (D). ONLY ONE of these four options is the correct
+answer.
+• For each question, choose the option corresponding to the correct answer.
+• Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +3 If ONLY the correct option is chosen;
+Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered);
+Negative Marks : −1 In all other cases.
+Q.1 Let 𝑎⃗ , 𝑏⃗⃗ be two vectors, and let 𝑃, 𝑄 and 𝑅 be the points with position vectors 𝑎⃗ , 𝑏⃗⃗ and 𝑎⃗ + 𝑏⃗⃗ ,
+respectively, with respect to the origin 𝑂 . If |𝑎⃗ + 𝑏⃗⃗ | = √21 , |𝑎⃗ − 𝑏⃗⃗ | = 3 , and 𝑎⃗ and (𝑎⃗ − 𝑏⃗⃗ ) are
+perpendicular to each other, then the area of the triangle 𝑂𝑃𝑅 is
+(A) √3 (B) √3
+2
+(C) 3√3
+2
+(D) 3
+2
+Q.2 Let 𝑇 be the tangent to the parabola 𝑦2 = 16𝑥 at the point (64, 32). Let 𝐿 be the tangent to the same
+parabola at another point (𝑥1 , 𝑦1) on the parabola. If 𝐿 and 𝑇 are perpendicular to each other, then
+the distance between the point (𝑥1 , 𝑦1) and the focus of the parabola, is
+(A) 15
+4
+(B) 4 (C) 17
+4
+(D) 5
+Q.3 Let 𝑦 ∶ (−∞, ∞) → (0, ∞) be the solution of the differential equation
+𝑑𝑦
+𝑑𝑥 = 𝑒5𝑥𝑦3 + 𝑦3
+𝑒𝑥 + 𝑒𝑥𝑦4 ,
+satisfying 𝑦(0) = 1
+√2 . Then the value of 𝑦(log𝑒 2) is
+(A)
+√5 + √35
+2
+(B)
+√7 + √53
+2
+(C) 7 + √53
+2
+(D) 5 + √35
+2
+
+-- 1 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+2/9
+Q.4 The value of the definite integral
+∫ 1
+3𝑥 + 3
+2
+0
+𝑑𝑥
+is
+(A) 1
+2
+(B) 1
+3
+(C) loge 3
+3
+(D) loge 3
+2
+
+-- 2 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+3/9
+SECTION 2 (Maximum Marks: 20)
+• This section contains FIVE (05) questions.
+• Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four option(s)
+is(are) correct answer(s).
+• For each question, choose the option(s) corresponding to (all) the correct answer(s).
+• Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen;
+Partial Marks : +3 If all the four options are correct but ONLY three options are chosen;
+Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of
+which are correct;
+Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a
+correct option;
+Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered);
+Negative Marks : −1 In all other cases.
+• For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct
+answers, then
+choosing ONLY (A), (B) and (D) will get +4 marks;
+choosing ONLY (A) and (B) will get +2 marks;
+choosing ONLY (A) and (D) will get +2 marks;
+choosing ONLY (B) and (D) will get +2 marks;
+choosing ONLY (A) will get +1 mark;
+choosing ONLY (B) will get +1 mark;
+choosing ONLY (D) will get +1 mark;
+choosing no option (i.e. the question is unanswered) will get 0 marks; and
+choosing any other combination of options will get −1 marks.
+Q.5 Let ℝ denote the set of all real numbers. Consider the polynomial function 𝑓: ℝ → ℝ defined by
+𝑓(𝑥) = 𝑑10
+𝑑𝑥10 ((𝑥2 − 1)10), for all 𝑥 ∈ ℝ .
+Here 𝑑10
+𝑑𝑥10 ((𝑥2 − 1)10) is the 10th order derivative of the function (𝑥2 − 1)10 .
+Then which of the following statements is (are) TRUE ?
+(A) The coefficient of 𝑥8 in the polynomial 𝑓(𝑥) is (−10) (18!
+8! )
+(B) The value of 𝑓(1) + 𝑓(−1) is equal to 10! 211
+(C) The degree of the polynomial 𝑓(𝑥) is 10
+(D) The constant term of the polynomial 𝑓(𝑥) is − (10!
+5! )
+
+-- 3 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+4/9
+Q.6 Let 𝑎, 𝑏, 𝑐 be positive integers in arithmetic progression such that the equation
+𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0
+has only integer solutions.
+Then which of the following statements is (are) TRUE ?
+(A) 𝑐 − 𝑏 is an integer multiple of 𝑎
+(B) Both the roots of the equation 𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0 are odd integers
+(C) If 𝑐 = 15 , then 𝑎𝑏 = 8
+(D) If 𝑏 = 8 , then 𝑥 = 3 is a root of the equation 𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0
+Q.7 Let 𝐿 be the straight line joining the points 𝑃(1, 2, −1) and 𝑄(2, 3, 1). Let 𝑆 be the foot of the
+perpendicular drawn from the point 𝑅(4, −1, 5) to the line 𝐿 . Another line passing through 𝑅
+intersects 𝐿 at a point 𝑇 such that the point 𝑆 divides the line segment 𝑃𝑇 internally in the ratio
+|𝑃𝑆| ∶ |𝑆𝑇| = 1 ∶ 2 , where |𝑃𝑆| and |𝑆𝑇| are the lengths of the line segments 𝑃𝑆 and 𝑆𝑇,
+respectively.
+Then which of the following statements is (are) TRUE ?
+(A) The orthocentre of the triangle 𝑃𝑅𝑇 is (23
+5 , −4, 31
+5 )
+(B) The orthocentre of the triangle 𝑃𝑅𝑇 is (4, 3, 5)
+(C) The area of the triangle 𝑃𝑅𝑇 is 6√5
+(D) The area of the triangle 𝑃𝑅𝑇 is 18√5
+Q.8 Let 𝑦 = 𝑓(𝑥) be the real valued function defined on the interval (0, ∞) , satisfying 𝑦(1) = 0 and
+the differential equation
+𝑥 𝑑𝑦
+𝑑𝑥 = 𝑦 − 𝑥3 .
+Then which of the following statements is (are) TRUE ?
+(A) The function 𝑓 has a local minimum at 𝑥 = 1
+√3
+(B) The function 𝑓 has a local maximum at 𝑥 = 1
+√3
+(C) The function 𝑓 is increasing in the interval (1, 2)
+(D) If 𝑔(𝑥) = 4𝑥3 − 5𝑥2 + 3
+2 𝑥 for 𝑥 > 0, then the number of elements in the set
+{𝑥 ∈ (0, ∞) ∶ 𝑓(𝑥) = 𝑔(𝑥)}
+is 2
+
+-- 4 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+5/9
+Q.9 Let ℝ denote the set of all real numbers and let 𝑖 = √−1 . Consider the matrices
+𝑆 = [0 −1
+1 0] and 𝑇 = [1 1
+0 1] .
+Let 𝑎, 𝑏, 𝑐, 𝑑 be real numbers such that
+𝑆𝑇 = [𝑎 𝑏
+𝑐 𝑑] .
+Let
+𝐻 = { 𝑥 + 𝑖𝑦 ∶ 𝑥, 𝑦 ∈ ℝ and 𝑦 > 0 } .
+Then which of the following statements is (are) TRUE ?
+(A) 𝑏+𝑖𝑎
+𝑑+𝑖𝑐 = 𝑖
+(B) If 𝜔 = −1+𝑖√3
+2 , then 𝑎𝜔+𝑏
+𝑐𝜔+𝑑 = 𝜔
+(C) If 𝑚 is an integer greater than 2 such that (𝑆𝑇)2 = (𝑆𝑇)𝑚 , then 𝑚 is an integer multiple
+of 8
+(D) If 𝑧 ∈ 𝐻 , then 𝑎𝑧+𝑏
+𝑐𝑧+𝑑 ∈ 𝐻
+
+-- 5 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+6/9
+Q.10 Let ℕ denote the set of all positive integers. Consider the sets
+𝐴 = {1, 2, 3, 4, 5} and 𝐵 = {1, 2, 3, 4, 5, 6, 7} .
+Let 𝑆 be the set of all functions 𝑓: 𝐴 → 𝐵 such that 𝑓(2) ≠ 2 and 𝑓(4) ≠ 4. Consider the set
+𝑇 = {𝑓 ∈ 𝑆 ∶ there exists a function 𝑔 ∶ 𝐵 → ℕ such that 𝑔(𝑓(𝑥)) = 2𝑥 for all 𝑥 ∈ 𝐴} .
+Then the number of elements in the set 𝑇 is ___________.
+Q.11 A bookshelf contains 6 distinct books of Mathematics and 5 distinct books of Physics. From these
+11 books, 6 books are chosen at random. Let 𝑋 be the absolute value of the difference between the
+number of Mathematics books chosen and the number of Physics books chosen. If 𝛼 is the mean of
+the random variable 𝑋 , then the value of 77𝛼 is ___________.
+Q.12 Consider a data consisting of 10 observations 𝑥1, 𝑥2, … , 𝑥10 , whose mean is 5 and variance is 7 .
+If the mean and the variance of the first 8 observations 𝑥1, 𝑥2, … , 𝑥8 are 4 and 3.5 , respectively,
+and 𝑥9 < 𝑥10 , then the value of 3𝑥9 + 2𝑥10 is ___________.
+Q.13 Consider the ellipse 𝐸 given by 𝑥2
+18 + 𝑦2
+12 = 1 . Let 𝐻 be the hyperbola whose eccentricity is the
+reciprocal of the eccentricity of 𝐸 and whose foci are the same as that of 𝐸 . Let 𝑃 and 𝑄 be the
+points of intersection of 𝐻 and the parabola √5 𝑦 = 𝑥2 in the first quadrant. Let 𝑑 be the distance
+between 𝑃 and 𝑄.
+If 𝑎 and 𝑏 are the integers such that 𝑑2 = 𝑎 + 𝑏√5 , then the value of 𝑎 − 𝑏 is __________.
+SECTION 3 (Maximum Marks: 20)
+• This section contains FIVE (05) questions.
+• The answer to each question is a NUMERICAL VALUE.
+• For each question, enter the correct numerical value corresponding to the answer in the designated
+place using the mouse and the on-screen virtual numeric keypad.
+• If the numerical value has more than two decimal places, truncate/round-off the value to TWO
+decimal places.
+• Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +4 If ONLY the correct numerical value is entered in the designated place;
+Zero Marks : 0 In all other cases.
+
+-- 6 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+7/9
+Q.14 For a real number 𝛼 , let [𝛼] denote the greatest integer less than or equal to 𝛼. For a finite set 𝑆 ,
+let |𝑆| denote the number of elements in the set 𝑆 .
+Consider the functions 𝑓 ∶ (−3, 3) → (−∞, ∞) and 𝑔 ∶ (−3, 3) → (−∞, ∞) defined by
+𝑓(𝑥) = [𝑥3] log𝑒(1 + sin2(𝜋(𝑥 − [𝑥])))
+and
+𝑔(𝑥) = 𝑥3 sin2(𝜋 log𝑒(1 + 𝑥 − [𝑥])).
+Let
+𝐴 = {𝑥 ∈ (−3, 3) ∶ 𝑓 is discontinuous at 𝑥}
+and
+𝐵 = {𝑥 ∈ (−3, 3) ∶ 𝑔 is discontinuous at 𝑥}.
+Then the value of |𝐴| + 2|𝐵| − |𝐴 ∩ 𝐵| is ___________.
+
+-- 7 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+8/9
+Question Stem for Question Nos. 15 and 16
+Consider the curve 𝐶1 given by
+𝑦 = 𝑒−𝑥 for 𝑥 ∈ [0, 10𝜋] ,
+and the curve 𝐶2 given by
+𝑦 = 𝑒−𝑥(sin 𝑥 + cos 𝑥) for 𝑥 ∈ [0, 10𝜋] .
+Let 𝑛 be the total number of points of intersection of the curves 𝐶1 and 𝐶2 .
+Suppose that 𝛼1 , 𝛼2 , … , 𝛼𝑛 ∈ [0, 10𝜋] are the 𝑥 - coordinates of the points of intersection of the curves
+𝐶1 and 𝐶2 such that
+𝛼1 < 𝛼2 < ⋯ < 𝛼𝑛 .
+Q.15 The value of 𝑛 is ___________.
+Q.16 Let 𝛽 be the area of the region enclosed between the curves 𝐶1 , 𝐶2 , and the lines
+𝑥 = 𝛼1 and 𝑥 = 𝛼4 . Then the value of
+− 1
+𝜋 log𝑒 (𝛽 − 2 𝑒 − 𝜋
+2 )
+is ___________.
+SECTION 4 (Maximum Marks: 8)
+• This section contains TWO (02) question stems.
+• There are TWO (02) questions corresponding to each question stem.
+• The answer to each question is a NUMERICAL VALUE.
+• For each question, enter the correct numerical value corresponding to the answer in the
+designated place using the mouse and the on-screen virtual numeric keypad.
+• If the numerical value has more than two decimal places, truncate/round-off the value to TWO
+decimal places.
+• Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +2 If ONLY the correct numerical value is entered at the designated place;
+Zero Marks : 0 In all other cases.
+
+-- 8 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+9/9
+Question Stem for Question Nos. 17 and 18
+Consider the ellipses given by
+𝑥2 + 4𝑦2 = 1 and 4𝑥2 + 𝑦2 = 1 .
+Q.17 Let 𝑃 be the point in the first quadrant where the given ellipses intersect. If 𝜃 is the acute angle
+between the tangents to the given ellipses at the point 𝑃, then the value of 4 tan 𝜃 is ___________.
+Q.18 If 𝛼 is the area of the common region that lies inside both the given ellipses, then the value of
+cot 𝛼 is ___________.
+END OF THE QUESTION PAPER
+
+-- 9 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+1/10
+SECTION 1 (Maximum Marks: 12)
+ This section contains FOUR (04) questions.
+ Each question has FOUR options (A), (B), (C) and (D). ONLY ONE of these four options is the correct
+answer.
+ For each question, choose the option corresponding to the correct answer.
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +3 If ONLY the correct option is chosen;
+Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered);
+Negative Marks : −1 In all other cases.
+Q.1 A metal wire of cross-sectional area 0.5 mm2 and length 100 m is connected across a battery of
+e.m.f. 2 V and internal resistance 1 Ω. The density, atomic mass and electrical conductivity of the
+metal are 6.35 × 103 kg m−3, 63.5 gm/mole and 2 × 108 mho m−1, respectively. Assuming one
+conduction electron per atom of the metal, the drift velocity (in mm s−1) of the electrons in the
+wire is:
+[Take Avogadro’s number as 6 × 1023 and charge of the electron as 1.6 × 10−19 C.]
+(A) 0.052 (B) 0.104 (C) 0.208 (D) 0.156
+Q.2 A nuclear reactor starts producing a radioactive nuclide 𝑋 from 𝑡 = 0, at a constant rate of 𝛼 per
+second. Each decay of 𝑋 produces energy 𝐸0, which is utilized to heat a liquid of mass 𝑚 and
+specific heat 𝑠. Assuming no heat loss from the liquid and taking 𝜆 as the decay constant of 𝑋, the
+rate of increase in the temperature of the liquid is:
+(A) 𝛼𝐸0
+𝑚 𝑠 (1 − 𝑒−𝜆𝑡) (B) 𝛼𝐸0
+𝑚 𝑠 (𝑒𝜆𝑡 − 1)
+(C) 𝜆𝐸0
+𝑚 𝑠 (1 − 𝑒−𝜆𝑡) (D) 𝐸0
+𝑚 𝑠 (𝛼 − 𝜆𝑒−𝜆𝑡)
+Q.3 A beam of polychromatic light passes through a thin prism of prism angle 6°. The refractive index
+of the material of the prism varies with wavelength (𝜆) as 𝑛(𝜆) = 𝛼𝜆 + 𝛽
+𝜆2, where 𝛼 = 3 𝜇m−1 and
+𝛽 = 0.096 𝜇m2. If 𝜆min is the wavelength at which the angle of minimum deviation 𝐷𝑚 is
+smallest, then the correct value of 𝐷𝑚 at 𝜆min is
+(A) 6.4° (B) 4.8° (C) 3.2° (D) 2.4°
+
+-- 10 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+2/10
+Q.4 A particle of mass 𝑚, and angular momentum ℓ is moving in a circular orbit of radius 𝑟0
+under the influence of an attractive force 𝐹⃗ (𝑟) = − 𝑘
+𝑟2 𝑟̂ . Keeping its angular momentum
+unchanged, the particle is displaced radially by a small distance 𝛿𝑟 ≪ 𝑟0, due to which its radial
+distance varies periodically. The corresponding time period is:
+(A) 2𝜋ℓ3
+𝑚𝑘2
+(B) 2𝜋√𝑚
+𝑘
+(C) 2𝜋ℓ3
+3𝑚𝑘2
+(D) 2𝜋ℓ3
+5𝑚𝑘2
+
+-- 11 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+3/10
+SECTION 2 (Maximum Marks: 20)
+ This section contains FIVE (05) questions.
+ Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four option(s)
+is(are) correct answer(s).
+ For each question, choose the option(s) corresponding to (all) the correct answer(s).
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen;
+Partial Marks : +3 If all the four options are correct but ONLY three options are chosen;
+Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of
+which are correct;
+Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a
+correct option;
+Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered);
+Negative Marks : −1 In all other cases.
+ For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct
+answers, then
+choosing ONLY (A), (B) and (D) will get +4 marks;
+choosing ONLY (A) and (B) will get +2 marks;
+choosing ONLY (A) and (D) will get +2 marks;
+choosing ONLY (B) and (D) will get +2 marks;
+choosing ONLY (A) will get +1 mark;
+choosing ONLY (B) will get +1 mark;
+choosing ONLY (D) will get +1 mark;
+choosing no option (i.e. the question is unanswered) will get 0 marks; and
+choosing any other combination of options will get −1 marks.
+
+-- 12 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+4/10
+Q.5 Consider two isosceles prisms 1 and 2 with prism angles 𝐴1 and 𝐴2 and refractive indices 𝑛1and
+𝑛2, respectively, as shown in the figure. The faces 𝑎1𝑏1 and 𝑎2𝑏2 are parallel to each other and
+perpendicular to the mirror 𝑀. If a ray of light is incident on the face 𝑎1𝑐1 and emerges from the
+face 𝑎2𝑐2, then the correct statement(s) is/are:
+(A) If both the prisms are at minimum deviation condition, then 𝑛2
+𝑛1
+= sin (𝐴1
+2 ) / sin (𝐴2
+2 ).
+(B) If prism 2 is at minimum deviation condition, then sin 𝑖1 = 𝑛2 sin (𝐴2
+2 ) is always true.
+(C) If both the prisms 1 and 2 are thin and are at minimum deviation condition with angles of
+deviation 𝛿𝑚1 and 𝛿𝑚2, respectively, then 𝜃 = 𝛿𝑚1
+2(𝑛1−1) + 𝛿𝑚2
+2(𝑛2−1) .
+(D) If prism 1 is at minimum deviation condition, then sin 𝑖2 = 𝑛1 sin (𝐴1
+2 ) is always true.
+Q.6 In a vacuum chamber, a particle of charge 1 𝜇C and mass 1 mg is projected with a velocity
+(𝑖̂ + 2𝑗̂ ) ms−1 from the 𝑋𝑍 plane at time 𝑡 = 0 in an electric field of 1𝑖̂ Vm−1. At 𝑡 = 0.2 s, the
+electric field is switched off and a magnetic field of 6𝑗̂ T is switched on. The acceleration due to
+gravity is −10𝑗̂ ms−2. Correct option(s) is/are:
+(A) The vertical distance of the particle from the 𝑋𝑍 plane at 𝑡 = 0.3 s is 15 cm.
+(B) The vertical distance of the particle from the 𝑋𝑍 plane at 𝑡 = 0.4 s is 10 cm.
+(C) The radius of the trajectory of the particle for 𝑡 > 0.2 s is 20 cm.
+(D) The particle will be in the 𝑋𝑍 plane at 𝑡 = 0.35 s.
+Q.7 Two charges 𝑄1 = 𝑞 and 𝑄2 = 𝑚𝑞 are placed at the points 𝑃1(𝑎, 𝑏) and 𝑃2 (𝑚𝑎, 𝑚𝑏), respectively,
+in the 𝑋𝑌 plane, where 𝑎, 𝑏 ≠ 0 and 𝑚 ≠ 0, 1. If 𝑉1 is the potential at a point in the 𝑋𝑌 plane due
+to charge 𝑄1 and 𝑉2 is the potential at that point due to charge 𝑄2. Correct statement(s) for the
+points at which |𝑉1| = |𝑉2| is/are:
+(A) For 𝑚 = −1, locus of these points is 𝑎𝑥 + 𝑏𝑦 = 0.
+(B) For 𝑚 = 2, the locus of these points is a circle of radius 2
+3 √𝑎2 + 𝑏2 centered at (2
+3 𝑎, 2
+3 𝑏)
+(C) For 𝑚 = −2, the locus of these points is a circle of radius 2√𝑎2 + 𝑏2 centered at (2𝑎, 2𝑏)
+(D) For 𝑚 = −3, locus of these points is 3𝑏𝑥 + 3𝑎𝑦 = 0.
+
+-- 13 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+5/10
+Q.8 Consider an electric dipole comprising two charges +𝑞 and −𝑞 each with mass 𝑚, separated by a
+fixed distance 𝑑 and initially at rest with its dipole moment pointing along 𝑖̂. A uniform electric
+field 𝐸𝑗̂ is turned on at time 𝑡 = 0 and it is turned off at 𝑡 = 𝑡𝑓, when the dipole moment makes an
+angle 𝜃𝑓 with 𝑖̂ . Neglecting any sources of energy loss, correct option(s) is/are:
+(A) The center of mass of the dipole is deflected towards 𝑗̂ in the presence of the field.
+(B) If the magnitude of the final angular velocity 𝜔𝑓 = √2𝑞𝐸
+𝑚𝑑 , then 𝜃𝑓 = 𝜋
+6.
+(C) If 𝜃𝑓 = 𝜋/3, then the change in kinetic energy of the dipole is given by 2√3 𝑞𝐸𝑑.
+(D) For 𝜃𝑓 = 𝜋/4, the dipole rotates around its center of mass with a constant angular velocity
+after 𝑡 > 𝑡𝑓.
+Q.9 Ten moles of an ideal monoatomic gas, initially in state 𝒂 at atmospheric pressure and temperature
+𝑇𝑎 = 27°C, is enclosed in a metal cylinder of volume 𝑉0 fitted with a frictionless piston. The gas is
+suddenly compressed to state 𝒃 with volume 𝑉0/3. Now, keeping the piston stationary, the cylinder
+is submerged in a water bath of temperature 11℃ until the gas reaches the temperature of the water
+bath, which is denoted as state 𝒄. Finally, while still in the water bath, the piston is brought slowly
+to its initial position, which is denoted as state 𝒇. If 𝑅 is universal gas constant, then the correct
+option(s) is/are:
+[Given: 91/3 = 2.08]
+(A) The schematic P-V diagram of the processes described above is:
+(B) The change in internal energy in going from state 𝒂 to 𝒃 is 4860R.
+(C) The net change in the internal energy in the whole process is −240R.
+(D) The pressure and temperature of the state 𝒃 are 2.08 times the atmospheric pressure and
+624 K, respectively.
+
+-- 14 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+6/10
+Q.10 Two thin wires, Wire-1 of diameter 0.650 mm and Wire-2 of unknown diameter 𝑑 are given. To
+obtain the value of 𝑑, the diameters of the two wires are measured with a screw gauge. The screw
+gauge has a pitch of 0.5 mm and there are 100 divisions on the circular scale (CS). The smallest
+division on the linear scale (LS) is 0.5 mm. The table shows the readings of LS and CS for the
+measurements. The value of 𝑑 (in μm) is:
+Q.11 In a single slit diffraction experiment, a slit of width (0.016 ± 0.002) mm is used to measure the
+wavelength of a monochromatic light source. In the diffraction pattern, the angular distance
+between the central maximum and first minimum is measured to be (2° ± 40′). The value of the
+fractional error in the measurement of wavelength is:
+[Given: sin(2°) = 0.035]
+SECTION 3 (Maximum Marks: 20)
+ This section contains FIVE (05) questions.
+ The answer to each question is a NUMERICAL VALUE.
+ For each question, enter the correct numerical value corresponding to the answer in the designated
+place using the mouse and the on-screen virtual numeric keypad.
+ If the numerical value has more than two decimal places, truncate/round-off the value to TWO
+decimal places.
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +4 If ONLY the correct numerical value is entered in the designated place;
+Zero Marks : 0 In all other cases.
+
+-- 15 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+7/10
+Q.12 As shown in the figure, a ray 𝐴𝐵 of unpolarized light enters from water of refractive index 𝑛𝑤 =
+4/3 into a medium of refractive index 𝑛𝑝 = 4/√3 after passing through a glass plate of refractive
+index 𝑛𝑔 = 1.5 and a layer of water. At a particular incident angle 𝑖 the reflected ray 𝐶𝐷 is
+polarized in the direction as shown in the figure. The value of 𝑖 (in degrees) is:
+Q.13 As shown in the figure, the resistance of a galvanometer 𝐺 can be found by the half-deflection
+method. Here the resistance 𝑅2 is adjusted such that when the key 𝐾 is closed the deflection in the
+galvanometer becomes half of the value as compared to when 𝐾 is open. Half-deflection is obtained
+at 𝑅2 = 4 Ω and thus the galvanometer resistance is found to be 6 Ω. In this half-deflection
+condition the current (in mA) through the resistor 𝑅1 is:
+Q.14 In a new system of units, the units of mass, length, time and current are 5 kg, 5 m, 5 s and 5 A,
+respectively. If μ0 and 𝜖0 are the permeability and permittivity of free space, respectively, then in this
+new system of units, the magnitude of one SI unit of √𝜇0/𝜖0, is:
+
+-- 16 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+8/10
+SECTION 4 (Maximum Marks: 8)
+ This section contains TWO (02) question stems.
+ There are TWO (02) questions corresponding to each question stem.
+ The answer to each question is a NUMERICAL VALUE.
+ For each question, enter the correct numerical value corresponding to the answer in the
+designated place using the mouse and the on-screen virtual numeric keypad.
+ If the numerical value has more than two decimal places, truncate/round-off the value to TWO
+decimal places.
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +2 If ONLY the correct numerical value is entered at the designated place;
+Zero Marks : 0 In all other cases.
+
+-- 17 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+9/10
+Question Stem for Question Nos. 15 and 16
+A container of height 2 m, length 2 m and breadth 1 m is made of insulating vertical walls and two
+large area horizontal metal plates (M1 and M2) which extend far beyond the vertical walls in all
+directions. The container is partitioned into two equal chambers with a thin insulating vertical wall.
+The partition wall contains a small hole of cross-sectional area √10 cm2 near its bottom edge. Initially
+the hole is closed and the left chamber of the container is completely filled with a liquid of dielectric
+constant 𝜖𝑟 = 15 and the right chamber is empty (𝜖𝑟 = 1). At time 𝑡 = 0, the hole is opened and the
+liquid flows from the left chamber to the right chamber. In both the chambers, the space above the
+liquid has 𝜖𝑟 = 1 and is maintained at atmospheric pressure. The schematic of the container at a time
+𝑡 > 0 is shown in the figure.
+[Given: acceleration due to gravity is 10 ms−2.]
+Q.15 The height (in m) of the liquid in left chamber at 𝑡 = 500 s is:
+Q.16 The difference in the capacitance (in F) between the metal plates at 𝑡 = 0 and that at 𝑡 = 500 s
+is (8 − 𝑛)𝜖0, where 𝜖0 is the permittivity of free space. The value of 𝑛 is:
+
+-- 18 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+10/10
+Question Stem for Question Nos. 17 and 18
+A uniform circular disk of radius 0.2 m and mass 1 kg is pivoted at its top point 𝐶 such that it can
+rotate freely around 𝐶 in the 𝑋𝑌 plane, as shown in the figure. Initially, when the disk is at rest, a
+particle of mass 20 g, travelling along negative 𝑥 direction in the 𝑋𝑌 plane with speed 100 ms−1,
+hits the circumference of the disk at a point 𝑃. After collision the particle moves along negative 𝑦
+direction at a speed of 90 ms−1.
+[Given: the acceleration due to gravity (g) = − 10 𝑗̂ ms−2]
+Q.17 After the collision the disk starts to rotate around point 𝐶 in the 𝑋𝑌 plane. The maximum change in
+the height (in m) of its center 𝑂 is:
+Q.18 Amount of energy loss (in J) in the collision is:
+END OF THE QUESTION PAPER
+
+-- 19 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+1/10
+SECTION 1 (Maximum Marks: 12)
+ This section contains FOUR (04) questions.
+ Each question has FOUR options (A), (B), (C) and (D). ONLY ONE of these four options is the correct
+answer.
+ For each question, choose the option corresponding to the correct answer.
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +3 If ONLY the correct option is chosen;
+Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered);
+Negative Marks : −1 In all other cases.
+Q.1 At 300 K, the molar conductivities of the aqueous solutions of three salts at two different
+concentrations are given below:
+The conductivity of a saturated aqueous solution of AgCl is 1.40×10−6 S cm−1 at 300 K. If the
+solubility of AgCl in water at 300 K is X mol L−1, then log10(X −1) is
+(Assume that AgCl dissolved in water ionizes completely and that the molar conductivity of saturated
+AgCl solution is equal to its limiting molar conductivity.)
+(A) 3
+(B) 4
+(C) 5
+(D) 6
+Q.2 The correct order of ONO bond angle in the given species is
+(A) NO2+ < NO2 < NO3– < NO2–
+(B) NO2– < NO3– < NO2 < NO2+
+(C) NO3– < NO2– < NO2 < NO2+
+(D) NO2– < NO3– < NO2+ < NO2
+
+-- 20 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+2/10
+Q.3 Natural rubber on complete ozonolysis (O3/Zn-H2O) gives compound X as the major product. X gives
+positive iodoform and Tollen’s tests. X on heating with aqueous NaOH gives Y as the major product.
+Y is
+(A) (B)
+(C) (D)
+
+-- 21 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+3/10
+Q.4 A known artificial sweetener X is composed of 4-chloro-4-deoxy-α-D-galactose and 1,6-dichloro-
+1,6-dideoxy-β-D-fructose joined by a glycosidic linkage. Structure of D-galactose is given below:
+The correct structure of X is
+(A)
+(B)
+(C)
+(D)
+
+-- 22 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+4/10
+SECTION 2 (Maximum Marks: 20)
+ This section contains FIVE (05) questions.
+ Each question has FOUR options (A), (B), (C) and (D). ONE OR MORE THAN ONE of these four
+option(s) is(are) correct answer(s).
+ For each question, choose the option(s) corresponding to (all) the correct answer(s).
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +4 ONLY if (all) the correct option(s) is(are) chosen;
+Partial Marks : +3 If all the four options are correct but ONLY three options are chosen;
+Partial Marks : +2 If three or more options are correct but ONLY two options are chosen, both of
+which are correct;
+Partial Marks : +1 If two or more options are correct but ONLY one option is chosen and it is a
+correct option;
+Zero Marks : 0 If none of the options is chosen (i.e. the question is unanswered);
+Negative Marks : −1 In all other cases.
+ For example, in a question, if (A), (B) and (D) are the ONLY three options corresponding to correct
+answers, then
+choosing ONLY (A), (B) and (D) will get +4 marks;
+choosing ONLY (A) and (B) will get +2 marks;
+choosing ONLY (A) and (D) will get +2 marks;
+choosing ONLY (B) and (D) will get +2 marks;
+choosing ONLY (A) will get +1 mark;
+choosing ONLY (B) will get +1 mark;
+choosing ONLY (D) will get +1 mark;
+choosing no option (i.e. the question is unanswered) will get 0 marks; and
+choosing any other combination of options will get −1 marks.
+
+-- 23 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+5/10
+Q.5 For a first-order reaction R ⟶ P at a given temperature, k is the rate constant. For this reaction, at
+the given temperature, the concentrations of R and P at a time t are [R] and [P], respectively. The
+correct graphical representation(s) for this reaction is(are)
+(A) (B)
+(C) (D)
+Q.6 Correct statement(s) about the compounds P, Q and R is(are)
+(A) P has two lone pairs of electrons on the central atom.
+(B) Q has a perfect octahedral geometry.
+(C) Q can act as a fluorinating agent.
+(D) The molecular structure of R is trigonal pyramidal.
+
+-- 24 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+6/10
+Q.7 The correct statement(s) regarding the periodic properties of elements is(are)
+(A) Second ionization enthalpy of carbon atom is less than that of boron atom.
+(B) Increasing order of ionic radii: Al3+ < Mg2+ < Na+
+(C) Under identical conditions, in solid state, the density of potassium metal is more than density
+of sodium metal.
+(D) The H–H bond is weaker than F–F bond.
+Q.8 In the following reaction sequence, P, Q, S and T are the major products.
+The correct statement(s) about P, Q, S and T is(are)
+(A) Q on treatment with ethanol generates an aromatic aldehyde.
+(B) S gives positive phthalein dye test.
+(C) P is a dinitro compound.
+(D) T is a coloured compound.
+Q.9 The correct statement(s) regarding sugars is(are)
+Given: Specific rotations of L-(−)-glucose and L-(+)-fructose are −52.5 and +92.5, respectively.
+(A) On treatment with HNO3, gluconic acid is oxidized to saccharic acid, whereas glucose is not
+oxidized to saccharic acid.
+(B) Fructose gives a positive Fehling’s test because it isomerises to glucose and another
+aldohexose in the presence of Fehling’s reagent.
+(C) Invert sugar is an equimolar mixture of D-glucose and D-fructose formed after hydrolysis of
+the corresponding disaccharide.
+(D) Specific rotation of invert sugar is −40.
+
+-- 25 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+7/10
+Q.10 Xa+ and Yb+ are hydrogen-like species. The wavelength of light absorbed during the transition
+between the states with principal quantum numbers 𝑛 = 1 and 𝑛 = 2 of Xa+ is 𝜆. The wavelength of
+light absorbed during the transition between the states with principal quantum numbers 𝑛 = 2 and
+𝑛 = 4 of Yb+ is 9𝜆. The lowest possible value of (a+b) is ____.
+Q.11 At a given temperature, 0.45 g of acetic acid in 50 mL of water is shaken with 1.0 g of charcoal and
+the pH of the resulting solution is 3.0. Assume, the adsorption of acetic acid from the aqueous solution
+by charcoal follows Freundlich isotherm,
+𝑥
+𝑚 = 𝑘𝐶1/𝑛
+If the plot of log10(x/m) against log10C gives a straight line with slope 1, the value of k in
+L mol−1 is ____.
+Given: The molar mass of acetic acid is 60 g mol−1.
+The acid dissociation constant of acetic acid is 1.0×10−5 at the given temperature.
+x is the mass (in grams) of acetic acid adsorbed.
+m is the mass (in grams) of charcoal.
+C is the equilibrium concentration of acetic acid in the solution after the adsorption is complete.
+k and n are constants for acetic acid–charcoal system at the given temperature.
+SECTION 3 (Maximum Marks: 20)
+ This section contains FIVE (05) questions.
+ The answer to each question is a NUMERICAL VALUE.
+ For each question, enter the correct numerical value corresponding to the answer in the
+designated place using the mouse and the on-screen virtual numeric keypad.
+ If the numerical value has more than two decimal places, truncate/round-off the value to TWO
+decimal places.
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +4 If ONLY the correct numerical value is entered in the designated place;
+Zero Marks : 0 In all other cases.
+
+-- 26 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+8/10
+Q.12 In a solvent S, a compound B is partially dissociated into C and D as given below:
+B ⇌ 2C + 2D
+B, C and D are non-volatile in nature. The molar mass of B is 10 times the molar mass of S. The
+standard boiling point and the standard enthalpy of vaporization of S are 400 K and
+10R J mol−1, respectively (R is the gas constant in J K−1 mol−1). A solution of B in S with an initial
+concentration of B as 0.25% (mass/mass) has a boiling point of 408 K at 1 bar pressure. In this
+solution, the mole percent of B that has been dissociated is ____.
+Q.13 Consider that the coordinating atoms of the ligands in cis-[Co(NH3)4Cl2]Cl and mer-[Co(NH3)3Cl3]
+octahedral complexes are at the vertices of an octahedron. The sum of total number of the triangular
+faces in both the complexes having one N atom and two Cl atoms at their corners is____.
+Q.14 In the following reaction sequence, major products X and Y are acyclic monomers.
+500 mol of X completely reacts with 500 mol of Y to give 1 mol of a single biodegradable acyclic
+copolymer Z as the only product. The amount of Z formed in grams is ____.
+Given:
+Atomic mass (in amu): H : 1, C : 12, N : 14, O : 16, Br : 80
+
+-- 27 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+9/10
+Question Stem for Question Nos. 15 and 16
+Two volatile liquids A and B form an ideal solution. Consider a 5 molal solution of B in A inside a closed
+container having a total vapour pressure of 100 mm Hg at 300 K. The vapour pressure of pure A at 300K
+is 105 mm Hg. Assume that A and B behave as ideal gases in the vapour phase.
+Given:
+The gas constant R = 0.08 L atm K−1 mol−1
+Molar mass of A is 50 g mol−1
+Molar mass of B is 57 g mol−1
+Density of liquid B at 300 K is 0.5 g/mL
+1 atm = 760 mm Hg
+Q.15 At 300 K, the ratio of the molar volume of pure B in vapour phase to its molar volume in liquid
+phase is ____.
+Q.16 The mole fraction of B in vapour phase which is in equilibrium with this solution is ____.
+SECTION 4 (Maximum Marks: 8)
+ This section contains TWO (02) question stems.
+ This section contains TWO (02) questions corresponding to each question stem.
+ The answer to each question is a NUMERICAL VALUE.
+ For each question, enter the correct numerical value corresponding to the answer in the
+designated place using the mouse and the on-screen virtual numeric keypad.
+ If the numerical value has more than two decimal places, truncate/round-off the value to TWO
+decimal places.
+ Answer to each question will be evaluated according to the following marking scheme:
+Full Marks : +2 If ONLY the correct numerical value is entered in the designated place;
+Zero Marks : 0 In all other cases.
+
+-- 28 of 29 --
+
+JEE (Advanced) 2026 Paper 2
+10/10
+Question Stem for Question Nos. 17 and 18
+Consider the following reaction sequence in which J, K, L and M are the major products.
+Given:
+Atomic mass (in amu): H : 1, C : 12, N : 14, O : 16, S : 32, Br : 80, Ba : 137
+Q.17 The volume of 1 M aqueous H2SO4 required to completely neutralize the ammonia evolved
+from 5.72 g of L in Kjeldahl’s method of nitrogen estimation is ____ mL.
+Q.18 In sulphur estimation by Carius method, the amount of BaSO4 formed from 3.79 g of M is
+____ g.
+END OF THE QUESTION PAPER
+
+-- 29 of 29 --

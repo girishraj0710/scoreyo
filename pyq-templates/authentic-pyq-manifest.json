@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T16:05:48.038Z",
+  "generatedAt": "2026-05-23T10:09:26.026Z",
   "summary": {
     "totalExams": 73,
     "examsWithOfficialSyllabusNotice": 11,
@@ -39,6 +39,10 @@
       "localCoverage": {
         "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/jee-main",
         "foundFiles": [
+          "2024102824.pdf",
+          "2024102824.txt",
+          "2024111842.pdf",
+          "2024111842.txt",
           "jee-main-physics-2024.pdf",
           "jee-main-physics-2024.txt"
         ],
@@ -72,7 +76,16 @@
       },
       "localCoverage": {
         "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/jee-advanced",
-        "foundFiles": [],
+        "foundFiles": [
+          "p1_english.pdf",
+          "p1_english.txt",
+          "p1_hindi.pdf",
+          "p1_hindi.txt",
+          "p2_english.pdf",
+          "p2_english.txt",
+          "p2_hindi.pdf",
+          "p2_hindi.txt"
+        ],
         "yearsFound": [],
         "coverageStatus": "missing"
       }
@@ -159,8 +172,20 @@
       },
       "localCoverage": {
         "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/mht-cet",
-        "foundFiles": [],
-        "yearsFound": [],
+        "foundFiles": [
+          "20250807061824.pdf",
+          "2025122218023922122025.pdf",
+          "20251226073126.pdf",
+          "HowtoCreateAPAARID_up.pdf",
+          "MBA-Normalization-2026.pdf",
+          "MHnursing3032026.pdf",
+          "Technical-Education-CET-final-dates_2026.pdf",
+          "law_officer_ARA.pdf"
+        ],
+        "yearsFound": [
+          2026,
+          2025
+        ],
         "coverageStatus": "missing"
       }
     },
@@ -536,8 +561,17 @@
       },
       "localCoverage": {
         "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/neet-ug",
-        "foundFiles": [],
-        "yearsFound": [],
+        "foundFiles": [
+          "2025020754.pdf",
+          "20260102588210790.pdf",
+          "202602231394640855.pdf",
+          "202605122066418251.pdf",
+          "20260515960654684.pdf"
+        ],
+        "yearsFound": [
+          2026,
+          2025
+        ],
         "coverageStatus": "missing"
       }
     },
@@ -1103,8 +1137,16 @@
       },
       "localCoverage": {
         "rawDir": "/Users/girish.raj/prepgenie/pyq-raw/rrb-ntpc",
-        "foundFiles": [],
-        "yearsFound": [],
+        "foundFiles": [
+          "CBT-2_22-04-2025_Shift2_Cancel-Hi.pdf",
+          "CBT-2_22-04-2025_Shift2_Cancel.pdf",
+          "CBT2-Reschedule_1stShift_20-03-2025.pdf",
+          "CBT2-Reschedule_1stShift_20-03-2025_20Hi.pdf",
+          "CBT2-Reschedule_1st_2ndShift_19-03-2025.pdf"
+        ],
+        "yearsFound": [
+          2025
+        ],
         "coverageStatus": "missing"
       }
     },

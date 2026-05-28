@@ -7,7 +7,8 @@ const db = createClient({
 });
 
 // Simple admin check (you can enhance this later with proper admin roles)
-const ADMIN_EMAILS = ["girish.raj0710@gmail.com", "grgowda07.1992@gmail.com", "admin@prepgenie.co.in"];
+// Move admin emails to environment variable for security
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "admin@prepgenie.co.in").split(",").map(e => e.trim());
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {
@@ -211,12 +212,8 @@ export async function PUT(req: NextRequest) {
 
     args.push(questionId);
 
-    // FEATURE FLAG: Update correct table based on dimensional model setting
-    const useDimensional = process.env.USE_DIMENSIONAL_MODEL === 'true';
-    const tableName = useDimensional ? 'fact_exam_questions' : 'exam_questions';
-
     await db.execute({
-      sql: `UPDATE ${tableName} SET ${updates.join(", ")} WHERE id = ?`,
+      sql: `UPDATE fact_exam_questions SET ${updates.join(", ")} WHERE id = ?`,
       args,
     });
 

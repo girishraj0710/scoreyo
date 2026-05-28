@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import crypto from "crypto";
 import { createSubscription, getUserSubscription } from "@/lib/db";
+import { handleApiError, logError, logInfo } from "@/lib/error-handler";
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID!,
@@ -40,6 +41,8 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    logInfo("Payment Order Created", { orderId: order.id, plan, userId });
+
     return NextResponse.json({
       orderId: order.id,
       amount: order.amount,
@@ -48,8 +51,7 @@ export async function POST(request: NextRequest) {
       planLabel: planDetails.label,
     });
   } catch (error) {
-    console.error("Payment order error:", error);
-    return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
+    return handleApiError(error, "Payment Order Creation");
   }
 }
 
@@ -62,9 +64,10 @@ export async function PUT(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, plan } = body;
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = body;
+    // ❌ Do NOT trust client-supplied plan parameter anymore
 
-    // Verify signature
+    // Step 1: Verify signature
     const expectedSignature = crypto
       .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET!)
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
@@ -74,24 +77,54 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "Payment verification failed" }, { status: 400 });
     }
 
-    // Get plan amount
-    const planDetails = PLANS[plan as keyof typeof PLANS];
-    if (!planDetails) {
-      return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
+    // Step 2: Fetch order from Razorpay server-side to get TRUE plan
+    const order = await razorpay.orders.fetch(razorpay_order_id);
+
+    // Step 3: Get plan from immutable order notes (not client request)
+    const plan = order.notes?.plan as string;
+
+    if (!plan || !PLANS[plan as keyof typeof PLANS]) {
+      console.error("Invalid plan in order notes:", order);
+      return NextResponse.json(
+        { error: "Invalid subscription plan in order" },
+        { status: 400 }
+      );
     }
 
-    // Activate subscription
+    // Step 4: Verify amount matches plan (prevent payment amount manipulation)
+    const planDetails = PLANS[plan as keyof typeof PLANS];
+    if (order.amount !== planDetails.amount) {
+      logError("Payment Amount Mismatch", {
+        expected: planDetails.amount,
+        actual: order.amount,
+        plan,
+        orderId: razorpay_order_id,
+      });
+      return NextResponse.json(
+        { error: "Payment amount mismatch" },
+        { status: 400 }
+      );
+    }
+
+    // Step 5: Activate subscription with SERVER-SIDE verified plan
     await createSubscription(userId, plan, planDetails.amount, razorpay_payment_id, razorpay_order_id);
 
     const subscription = await getUserSubscription(userId);
 
+    logInfo("Payment Verified Successfully", {
+      userId,
+      plan,
+      paymentId: razorpay_payment_id,
+      orderId: razorpay_order_id,
+    });
+
     return NextResponse.json({
       success: true,
       subscription,
+      plan,
       message: "Welcome to PrepGenie Pro!",
     });
   } catch (error) {
-    console.error("Payment verification error:", error);
-    return NextResponse.json({ error: "Payment verification failed" }, { status: 500 });
+    return handleApiError(error, "Payment Verification");
   }
 }

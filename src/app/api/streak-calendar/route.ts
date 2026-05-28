@@ -17,7 +17,14 @@ async function queryAll(sql: string, args: any[] = []): Promise<any[]> {
 }
 
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("prepgenie-user-id")?.value || "default-user";
+  const userId = request.cookies.get("prepgenie-user-id")?.value;
+
+  if (!userId) {
+    return NextResponse.json(
+      { error: "Authentication required" },
+      { status: 401 }
+    );
+  }
 
   try {
     // Get all quiz sessions to calculate streak

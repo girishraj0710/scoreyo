@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { getReviewSummary } from "@/lib/db";
 
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("prepgenie-user-id")?.value || "default-user";
+  const userId = request.cookies.get("prepgenie-user-id")?.value;
+
+  if (!userId) {
+    return NextResponse.json(
+      { error: "Authentication required" },
+      { status: 401 }
+    );
+  }
 
   try {
     const summary = await getReviewSummary(userId);

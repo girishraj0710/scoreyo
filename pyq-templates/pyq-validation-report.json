@@ -1,7 +1,7 @@
 {
   "filePath": "pyq-data/jee-advanced-jee-adv-maths-2024-pattern-extracted.json",
-  "totalQuestions": 34,
-  "validQuestions": 34,
+  "totalQuestions": 26,
+  "validQuestions": 26,
   "issues": [
     {
       "row": 1,
@@ -158,59 +158,11 @@
       "severity": "warning",
       "code": "invalid_topic",
       "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 27,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 28,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 29,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 30,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 31,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 32,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 33,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
-    },
-    {
-      "row": 34,
-      "severity": "warning",
-      "code": "invalid_topic",
-      "message": "Topic \"PYQ Mathematics\" does not match current syllabus topics for jee-advanced/jee-adv-maths"
     }
   ],
   "quality": {
     "averageScore": 91,
-    "high": 34,
+    "high": 26,
     "medium": 0,
     "low": 0,
     "perQuestion": [
@@ -491,94 +443,6 @@
       },
       {
         "row": 26,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 27,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 28,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 29,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 30,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 31,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 32,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 33,
-        "score": 91,
-        "verdict": "high",
-        "breakdown": {
-          "authenticity": 100,
-          "syllabusAlignment": 75,
-          "structure": 100,
-          "freshness": 100
-        }
-      },
-      {
-        "row": 34,
         "score": 91,
         "verdict": "high",
         "breakdown": {

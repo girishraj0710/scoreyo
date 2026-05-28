@@ -1184,7 +1184,7 @@ export async function getMilestones(userId: string) {
 
 export async function getLeaderboard() {
   return queryAll(
-    `SELECT u.id, u.name, u.avatar_color,
+    `SELECT u.name, u.avatar_color,
             COUNT(qs.id) as total_sessions,
             COALESCE(SUM(qs.total_questions), 0) as total_questions,
             COALESCE(SUM(qs.correct_answers), 0) as total_correct,
@@ -1651,26 +1651,28 @@ export async function getExamQuestions(
       );
 
       if (fuzzyTopics.length > 0) {
-        const topicIdList = fuzzyTopics.map((t: any) => t.id).join(',');
+        // Use parameterized placeholders instead of string interpolation
+        const topicIds = fuzzyTopics.map((t: any) => t.id);
+        const placeholders = topicIds.map(() => '?').join(',');
 
         if (difficulty === "mixed") {
           rows = await queryAll(
             `SELECT q.* FROM fact_exam_questions q
-             WHERE q.topic_id IN (${topicIdList})
+             WHERE q.topic_id IN (${placeholders})
                AND q.${validityCondition}
              ORDER BY ${priorityOrder}
              LIMIT ?`,
-            [...validityArgs, limit]
+            [...topicIds, ...validityArgs, limit]
           );
         } else {
           rows = await queryAll(
             `SELECT q.* FROM fact_exam_questions q
-             WHERE q.topic_id IN (${topicIdList})
+             WHERE q.topic_id IN (${placeholders})
                AND q.difficulty = ?
                AND q.${validityCondition}
              ORDER BY ${priorityOrder}
              LIMIT ?`,
-            [difficulty, ...validityArgs, limit]
+            [...topicIds, difficulty, ...validityArgs, limit]
           );
         }
       } else {
@@ -1791,29 +1793,31 @@ async function getExamQuestionsDimensional_OLD(
     );
 
     if (topicIds.length > 0) {
-      const topicIdList = topicIds.map((t: any) => t.id).join(',');
+      // Use parameterized placeholders instead of string interpolation
+      const topicIdValues = topicIds.map((t: any) => t.id);
+      const placeholders = topicIdValues.map(() => '?').join(',');
 
       if (difficulty === "mixed") {
         rows = await queryAll(
           `SELECT q.*
            FROM fact_exam_questions q
-           WHERE q.topic_id IN (${topicIdList})
+           WHERE q.topic_id IN (${placeholders})
              AND q.${validityCondition}
            ORDER BY ${priorityOrder}
            LIMIT ?`,
-          [...validityArgs, limit]
+          [...topicIdValues, ...validityArgs, limit]
         );
       } else {
         rows = await queryAll(
           `SELECT q.*
            FROM fact_exam_questions q
-           WHERE q.topic_id IN (${topicIdList})
+           WHERE q.topic_id IN (${placeholders})
              AND q.difficulty = ?
              AND q.${validityCondition}
            ORDER BY ${priorityOrder}
            ORDER BY RANDOM()
            LIMIT ?`,
-          [difficulty, ...validityArgs, limit]
+          [...topicIdValues, difficulty, ...validityArgs, limit]
         );
       }
     } else {
@@ -1840,22 +1844,24 @@ async function getExamQuestionsDimensional_OLD(
         );
 
         if (keywordTopicIds.length > 0) {
-          const keywordIdList = keywordTopicIds.map((t: any) => t.id).join(',');
+          // Use parameterized placeholders instead of string interpolation
+          const keywordIdValues = keywordTopicIds.map((t: any) => t.id);
+          const placeholders = keywordIdValues.map(() => '?').join(',');
 
           const keywordRows = await queryAll(
             difficulty === "mixed"
               ? `SELECT q.* FROM fact_exam_questions q
-                 WHERE q.topic_id IN (${keywordIdList})
+                 WHERE q.topic_id IN (${placeholders})
                    AND q.${validityCondition}
                  ORDER BY ${priorityOrder} LIMIT ?`
               : `SELECT q.* FROM fact_exam_questions q
-                 WHERE q.topic_id IN (${keywordIdList})
+                 WHERE q.topic_id IN (${placeholders})
                    AND q.difficulty = ?
                    AND q.${validityCondition}
                  ORDER BY ${priorityOrder} LIMIT ?`,
             difficulty === "mixed"
-              ? [...validityArgs, remaining]
-              : [difficulty, ...validityArgs, remaining]
+              ? [...keywordIdValues, ...validityArgs, remaining]
+              : [...keywordIdValues, difficulty, ...validityArgs, remaining]
           );
 
           rows = [...rows, ...keywordRows];
