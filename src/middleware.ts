@@ -21,6 +21,7 @@ export function middleware(request: NextRequest) {
   const csrfExemptPaths = [
     "/api/auth",
     "/api/auth/otp",
+    "/api/admin/emergency", // Admin endpoint for emergency mode
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
