@@ -1,51 +1,49 @@
 #!/bin/bash
-# Monitor both import and comprehensive seeder
+# PrepGenie - Monitor Question Seeding Progress
+# Usage: ./scripts/monitor-seeding.sh
 
-clear
-echo "═══════════════════════════════════════════════════════════════════════════════"
-echo "📊 SEEDING MONITOR - Real-time Progress"
-echo "═══════════════════════════════════════════════════════════════════════════════"
+export PATH="/opt/homebrew/bin:$PATH"
+
+echo "╔════════════════════════════════════════════════════════════╗"
+echo "║                                                            ║"
+echo "║   PrepGenie - Question Seeding Monitor                    ║"
+echo "║                                                            ║"
+echo "╚════════════════════════════════════════════════════════════╝"
 echo ""
 
-# Check import status
-if ps aux | grep -q "[i]mport-cached-questions"; then
-  echo "📥 IMPORT STATUS: Running"
-  import_progress=$(tail -3 import-cached.log 2>/dev/null | grep "Batch" | tail -1)
-  echo "   $import_progress"
+# Check if process is running
+PROCESS_COUNT=$(ps aux | grep -E "fill-question-gaps|seed-questions" | grep -v grep | wc -l | tr -d ' ')
+
+if [ "$PROCESS_COUNT" -gt 0 ]; then
+    echo "✅ Seeding process is RUNNING"
+    echo ""
+    ps aux | grep -E "fill-question-gaps|seed-questions" | grep -v grep | awk '{print "   PID: " $2 " | CPU: " $3 "% | Memory: " $4 "% | Runtime: " $10}'
+    echo ""
 else
-  echo "📥 IMPORT STATUS: Completed"
-  import_summary=$(grep -A3 "IMPORT COMPLETE" import-cached.log 2>/dev/null | tail -3)
-  if [ -n "$import_summary" ]; then
-    echo "$import_summary" | sed 's/^/   /'
-  fi
+    echo "❌ No seeding process running"
+    echo ""
+fi
+
+# Check Ollama service
+if pgrep -x "ollama" > /dev/null; then
+    echo "✅ Ollama service is running"
+else
+    echo "⚠️  Ollama service is NOT running"
+    echo "   Start with: ollama serve &"
 fi
 
 echo ""
-echo "─────────────────────────────────────────────────────────────────────────────"
-echo ""
+echo "─────────────────────────────────────────────────────────────"
+echo "📊 Database Statistics"
+echo "─────────────────────────────────────────────────────────────"
 
-# Check comprehensive seeder status
-if ps aux | grep -q "[c]omprehensive-seed-generator"; then
-  echo "🌱 COMPREHENSIVE SEEDER STATUS: Running"
-
-  # Check if still scanning or generating
-  if grep -q "Found.*empty topics" comprehensive-seed.log 2>/dev/null; then
-    echo "   Phase: Generating Questions"
-    batch_info=$(grep "📦 BATCH" comprehensive-seed.log 2>/dev/null | tail -1)
-    echo "   $batch_info"
-    recent_progress=$(tail -10 comprehensive-seed.log 2>/dev/null | grep -E "Generated|Inserted|Topic:" | tail -3)
-    echo "$recent_progress" | sed 's/^/   /'
-  else
-    echo "   Phase: Scanning Topics"
-    last_scan=$(tail -1 comprehensive-seed.log 2>/dev/null)
-    echo "   $last_scan"
-  fi
-else
-  echo "🌱 COMPREHENSIVE SEEDER STATUS: Not running"
-fi
+npx tsx scripts/check-progress.ts 2>&1 | grep -v "injected env"
 
 echo ""
-echo "═══════════════════════════════════════════════════════════════════════════════"
-echo "Run 'bash scripts/monitor-seeding.sh' to refresh"
-echo "Or: 'watch -n 10 bash scripts/monitor-seeding.sh' for auto-refresh every 10s"
-echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "─────────────────────────────────────────────────────────────"
+echo ""
+echo "💡 Commands:"
+echo "   Monitor: ./scripts/monitor-seeding.sh"
+echo "   Stop:    pkill -f 'fill-question-gaps'"
+echo "   Restart: npm run fill:gaps"
+echo ""

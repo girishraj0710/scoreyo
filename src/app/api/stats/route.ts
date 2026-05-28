@@ -7,12 +7,33 @@ import {
   getTopicsForReview,
   getAllMastery,
 } from "@/lib/db";
+import { getCached, setCached, CacheKeys } from "@/lib/redis";
 
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("prepgenie-user-id")?.value || "default-user";
+  const userId = request.cookies.get("prepgenie-user-id")?.value;
+
+  if (!userId) {
+    return NextResponse.json(
+      { error: "Authentication required" },
+      { status: 401 }
+    );
+  }
+
   const examId = request.nextUrl.searchParams.get("examId");
 
   try {
+    // Try cache first (5-minute TTL - balances freshness vs performance)
+    const cacheKey = CacheKeys.userStats(userId);
+    const cached = await getCached<any>(cacheKey);
+
+    if (cached && (!examId || cached.examId === examId)) {
+      console.log(`[Stats API] ✓ Cache hit for user ${userId}`);
+      return NextResponse.json(cached);
+    }
+
+    console.log(`[Stats API] Cache miss, querying DB for user ${userId}`);
+
+    // Query from database
     const stats = await getUserStats(userId);
     const recentSessions = await getRecentSessions(userId, 20);
     const reviewTopics = await getTopicsForReview(userId);
@@ -27,13 +48,19 @@ export async function GET(request: NextRequest) {
       mastery = await getAllMastery(userId);
     }
 
-    return NextResponse.json({
+    const response = {
       stats,
       recentSessions,
       mastery,
       weakTopics,
       reviewTopics,
-    });
+      examId: examId || null,
+    };
+
+    // Cache for 5 minutes (300 seconds)
+    await setCached(cacheKey, response, 300);
+
+    return NextResponse.json(response);
   } catch (error) {
     console.error("Stats error:", error);
     return NextResponse.json(

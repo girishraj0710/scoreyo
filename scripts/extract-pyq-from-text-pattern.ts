@@ -61,7 +61,7 @@ function parseMcqBlocks(text: string): Array<{ stem: string; options: string[] }
 }
 
 async function main() {
-  const [examId, subjectId, yearStr, textFile, topic] = process.argv.slice(2);
+  const [examId, subjectId, yearStr, textFile, topic, outputTag] = process.argv.slice(2);
   if (!examId || !subjectId || !yearStr || !textFile) {
     console.log("Usage:");
     console.log(
@@ -96,7 +96,8 @@ async function main() {
     mkdirSync(outDir, { recursive: true });
   }
 
-  const outPath = join(outDir, `${examId}-${subjectId}-${year}-pattern-extracted.json`);
+  const safeTag = outputTag ? `-${outputTag.replace(/[^a-zA-Z0-9_-]/g, "_")}` : "";
+  const outPath = join(outDir, `${examId}-${subjectId}-${year}-pattern-extracted${safeTag}.json`);
   writeFileSync(outPath, JSON.stringify(questions, null, 2));
 
   console.log("=".repeat(80));
