@@ -36,7 +36,9 @@ export async function POST(request: NextRequest) {
     const cleanEmail = email.toLowerCase().trim();
 
     // Check if we're in emergency auth mode (during migration)
+    console.log('[Auth] Checking emergency mode...');
     const emergencyMode = await isEmergencyAuthMode();
+    console.log(`[Auth] Emergency mode: ${emergencyMode}`);
 
     // Check that the email was verified via OTP
     let otpVerified = false;
