@@ -49,7 +49,8 @@ export async function POST(request: NextRequest) {
         const redis = getRedis();
         const otpData = await redis.get(`otp:${cleanEmail}`);
         if (otpData) {
-          const parsed = JSON.parse(otpData as string);
+          // Upstash Redis auto-parses JSON - no need for JSON.parse
+          const parsed = typeof otpData === 'string' ? JSON.parse(otpData) : otpData;
           otpVerified = parsed.verified === true;
         }
       } catch (error) {
@@ -75,7 +76,8 @@ export async function POST(request: NextRequest) {
         const redis = getRedis();
         const userData = await redis.get(`user:data:${cleanEmail}`);
         if (userData) {
-          user = JSON.parse(userData as string);
+          // Upstash Redis auto-parses JSON - no need for JSON.parse
+          user = typeof userData === 'string' ? JSON.parse(userData) : userData;
         }
       }
       // If cache says user doesn't exist or we couldn't get data, allow signup
