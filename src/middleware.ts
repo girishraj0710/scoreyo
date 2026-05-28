@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
 
   // Verify CSRF token for protected endpoints
   const csrfTokenFromHeader = request.headers.get(CSRF_HEADER_NAME);
-  const csrfTokenFromCookie = request.cookies.get(CSRF_COOKIE_NAME)?.value;
+  const csrfTokenFromCookie = request.cookies.get(CSRF_COOKIE_NAME)?.value || null;
 
   if (!verifyCsrfToken(csrfTokenFromHeader, csrfTokenFromCookie)) {
     console.warn(`[CSRF] Token mismatch on ${method} ${pathname}`);
