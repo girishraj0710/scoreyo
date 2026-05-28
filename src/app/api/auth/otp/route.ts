@@ -176,16 +176,30 @@ export async function PUT(request: NextRequest) {
     // Try Redis first (no DB hit!), fallback to database
     let isValid = false;
     try {
+      console.log(`[OTP] Verifying OTP for ${cleanEmail}, code: ${code.trim()}`);
       isValid = await verifyOTPFromCache(cleanEmail, code.trim());
+      console.log(`[OTP] Redis verification result: ${isValid}`);
     } catch (error) {
       console.error('[OTP] Redis verification failed, falling back to database:', error);
-      isValid = await verifyOtp(cleanEmail, code.trim());
+      try {
+        isValid = await verifyOtp(cleanEmail, code.trim());
+        console.log(`[OTP] Database verification result: ${isValid}`);
+      } catch (dbError) {
+        console.error('[OTP] Database verification also failed (Turso blocked?):', dbError);
+        // If both fail, return error
+        return NextResponse.json({
+          error: "Verification service unavailable. Please try again later.",
+          details: "Both Redis and database verification failed"
+        }, { status: 503 });
+      }
     }
 
     if (!isValid) {
+      console.log(`[OTP] Invalid OTP for ${cleanEmail}`);
       return NextResponse.json({ error: "Invalid or expired code. Please try again." }, { status: 400 });
     }
 
+    console.log(`[OTP] ✅ OTP verified successfully for ${cleanEmail}`);
     return NextResponse.json({
       success: true,
       verified: true,
@@ -193,6 +207,9 @@ export async function PUT(request: NextRequest) {
     });
   } catch (error) {
     console.error("OTP verify error:", error);
-    return NextResponse.json({ error: "Verification failed" }, { status: 500 });
+    return NextResponse.json({
+      error: "Verification failed",
+      details: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
   }
 }
