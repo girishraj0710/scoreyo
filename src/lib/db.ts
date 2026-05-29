@@ -1587,8 +1587,6 @@ export async function getExamQuestions(
   let rows: any[];
 
   const currentYear = new Date().getFullYear();
-  const validityCondition = "valid_from <= ? AND (valid_until IS NULL OR valid_until >= ?)";
-  const validityArgs = [currentYear, currentYear];
 
   // Step 1: Get dimension IDs for exam and subject
   // Schema uses exam_code and subject_code (flat dimensions, not snowflake)
@@ -1633,10 +1631,10 @@ export async function getExamQuestions(
          JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
          WHERE b.exam_id = ?
            AND b.subject_id = ?
-           AND q.${validityCondition}
+           AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
          ORDER BY ${priorityOrder}
          LIMIT ?`,
-        [examDimId, subjectDimId, ...validityArgs, limit]
+        [examDimId, subjectDimId, currentYear, currentYear, limit]
       );
     } else {
       rows = await queryAll(
@@ -1646,10 +1644,10 @@ export async function getExamQuestions(
          WHERE b.exam_id = ?
            AND b.subject_id = ?
            AND q.difficulty = ?
-           AND q.${validityCondition}
+           AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
          ORDER BY ${priorityOrder}
          LIMIT ?`,
-        [examDimId, subjectDimId, difficulty, ...validityArgs, limit]
+        [examDimId, subjectDimId, difficulty, currentYear, currentYear, limit]
       );
     }
   } else {
@@ -1665,20 +1663,20 @@ export async function getExamQuestions(
         rows = await queryAll(
           `SELECT q.* FROM fact_exam_questions q
            WHERE q.topic_id = ?
-             AND q.${validityCondition}
+             AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
            ORDER BY ${priorityOrder}
            LIMIT ?`,
-          [topicDim.id, ...validityArgs, limit]
+          [topicDim.id, currentYear, currentYear, limit]
         );
       } else {
         rows = await queryAll(
           `SELECT q.* FROM fact_exam_questions q
            WHERE q.topic_id = ?
              AND q.difficulty = ?
-             AND q.${validityCondition}
+             AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
            ORDER BY ${priorityOrder}
            LIMIT ?`,
-          [topicDim.id, difficulty, ...validityArgs, limit]
+          [topicDim.id, difficulty, currentYear, currentYear, limit]
         );
       }
     } else {
@@ -1702,20 +1700,20 @@ export async function getExamQuestions(
           rows = await queryAll(
             `SELECT q.* FROM fact_exam_questions q
              WHERE q.topic_id IN (${placeholders})
-               AND q.${validityCondition}
+               AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
              ORDER BY ${priorityOrder}
              LIMIT ?`,
-            [...topicIds, ...validityArgs, limit]
+            [...topicIds, currentYear, currentYear, limit]
           );
         } else {
           rows = await queryAll(
             `SELECT q.* FROM fact_exam_questions q
              WHERE q.topic_id IN (${placeholders})
                AND q.difficulty = ?
-               AND q.${validityCondition}
+               AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
              ORDER BY ${priorityOrder}
              LIMIT ?`,
-            [...topicIds, difficulty, ...validityArgs, limit]
+            [...topicIds, difficulty, currentYear, currentYear, limit]
           );
         }
       } else {
@@ -1755,8 +1753,6 @@ async function getExamQuestionsDimensional_OLD(
   let rows: any[];
 
   const currentYear = new Date().getFullYear();
-  const validityCondition = "valid_from <= ? AND (valid_until IS NULL OR valid_until >= ?)";
-  const validityArgs = [currentYear, currentYear];
 
   // Step 1: Get dimension IDs for exam and subject
   const examDim = await queryOne(
@@ -1802,10 +1798,10 @@ async function getExamQuestionsDimensional_OLD(
          JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
          WHERE b.exam_id = ?
            AND b.subject_id = ?
-           AND q.${validityCondition}
+           AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
          ORDER BY ${priorityOrder}
          LIMIT ?`,
-        [examDimId, subjectDimId, ...validityArgs, limit]
+        [examDimId, subjectDimId, currentYear, currentYear, limit]
       );
     } else {
       rows = await queryAll(
@@ -1815,10 +1811,10 @@ async function getExamQuestionsDimensional_OLD(
          WHERE b.exam_id = ?
            AND b.subject_id = ?
            AND q.difficulty = ?
-           AND q.${validityCondition}
+           AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
          ORDER BY ${priorityOrder}
          LIMIT ?`,
-        [examDimId, subjectDimId, difficulty, ...validityArgs, limit]
+        [examDimId, subjectDimId, difficulty, currentYear, currentYear, limit]
       );
     }
   } else {
@@ -1845,10 +1841,10 @@ async function getExamQuestionsDimensional_OLD(
           `SELECT q.*
            FROM fact_exam_questions q
            WHERE q.topic_id IN (${placeholders})
-             AND q.${validityCondition}
+             AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
            ORDER BY ${priorityOrder}
            LIMIT ?`,
-          [...topicIdValues, ...validityArgs, limit]
+          [...topicIdValues, currentYear, currentYear, limit]
         );
       } else {
         rows = await queryAll(
@@ -1856,11 +1852,11 @@ async function getExamQuestionsDimensional_OLD(
            FROM fact_exam_questions q
            WHERE q.topic_id IN (${placeholders})
              AND q.difficulty = ?
-             AND q.${validityCondition}
+             AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
            ORDER BY ${priorityOrder}
            ORDER BY RANDOM()
            LIMIT ?`,
-          [...topicIdValues, difficulty, ...validityArgs, limit]
+          [...topicIdValues, difficulty, currentYear, currentYear, limit]
         );
       }
     } else {
@@ -1895,16 +1891,16 @@ async function getExamQuestionsDimensional_OLD(
             difficulty === "mixed"
               ? `SELECT q.* FROM fact_exam_questions q
                  WHERE q.topic_id IN (${placeholders})
-                   AND q.${validityCondition}
+                   AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
                  ORDER BY ${priorityOrder} LIMIT ?`
               : `SELECT q.* FROM fact_exam_questions q
                  WHERE q.topic_id IN (${placeholders})
                    AND q.difficulty = ?
-                   AND q.${validityCondition}
+                   AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
                  ORDER BY ${priorityOrder} LIMIT ?`,
             difficulty === "mixed"
-              ? [...keywordIdValues, ...validityArgs, remaining]
-              : [...keywordIdValues, difficulty, ...validityArgs, remaining]
+              ? [...keywordIdValues, currentYear, currentYear, remaining]
+              : [...keywordIdValues, difficulty, currentYear, currentYear, remaining]
           );
 
           rows = [...rows, ...keywordRows];
