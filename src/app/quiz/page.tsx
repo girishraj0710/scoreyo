@@ -7,6 +7,7 @@ import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
 import { LevelCompleteModal } from "@/components/level-complete-modal";
 import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
 import { calculateStars } from "@/lib/level-definitions";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface Question {
   id?: string;
@@ -58,7 +59,7 @@ function ReportModal({
     try {
       await fetch("/api/report", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           examId,
           subjectId,
@@ -372,7 +373,7 @@ function QuizContent() {
     try {
       const res = await fetch("/api/quiz", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           sessionId: quizData.sessionId,
           examId: quizData.examId,
@@ -398,7 +399,7 @@ function QuizContent() {
       if (isLevelMode) {
         const levelRes = await fetch("/api/quiz/complete-level", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: getHeadersWithCsrf(),
           body: JSON.stringify({
             examId: quizData.examId,
             subjectId: quizData.subjectId,
@@ -429,7 +430,7 @@ function QuizContent() {
           if (levelData.nextLevelUnlocked) {
             await fetch("/api/quiz/level", {
               method: "PUT",
-              headers: { "Content-Type": "application/json" },
+              headers: getHeadersWithCsrf(),
               body: JSON.stringify({
                 examId: quizData.examId,
                 subjectId: quizData.subjectId,
