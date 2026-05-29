@@ -1205,9 +1205,17 @@ function QuizContent() {
               );
             })}
           </div>
+        </div>
+      </motion.div>
 
-        {/* Explanation */}
-        {showExplanation && (
+      {/* Explanation Section - Separate from options */}
+      {showExplanation && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 mb-2 shrink-0 max-h-48 overflow-y-auto"
+        >
           <RichExplanation
             explanation={question.explanation}
             correctAnswer={question.correctAnswer}
@@ -1217,9 +1225,8 @@ function QuizContent() {
             examId={examId}
             subjectId={subjectId}
           />
-        )}
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Navigation - IMPROVED BUTTONS */}
       <div className="flex items-center justify-between shrink-0">
