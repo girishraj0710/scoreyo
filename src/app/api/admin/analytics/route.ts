@@ -294,7 +294,7 @@ export async function GET(req: NextRequest) {
           status: r.status,
           count: Number(r.count),
         })),
-        recentCount: Number(recentReports?.count || 0),
+        recentCount: Number(recentReports?.rows[0]?.count || 0),
       },
       usageMetrics: {
         users: {
