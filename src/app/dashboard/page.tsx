@@ -270,7 +270,7 @@ export default function DashboardPage() {
         <MistakeMapWidget />
 
         {/* Weak Topics */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[400px]">
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[500px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Topics to Improve
           </h3>
