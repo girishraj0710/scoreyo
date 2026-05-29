@@ -7,6 +7,7 @@ import { getExamById } from "@/lib/exams";
 import { FileText, Sparkles } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { CustomMockTestBuilder } from "@/components/custom-mock-test-builder";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface MockTestConfig {
   examId: string;
@@ -219,7 +220,7 @@ export default function MockTestPage() {
     try {
       const res = await fetch("/api/mock-test", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({ examId, testNumber, isFullLength }),
       });
       const data = await res.json();
@@ -260,7 +261,7 @@ export default function MockTestPage() {
     try {
       const res = await fetch("/api/mock-test", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           action: "create-custom",
           customConfig: config,
@@ -299,7 +300,7 @@ export default function MockTestPage() {
       const timeTaken = timeLimitSeconds - timeRemaining;
       const res = await fetch("/api/mock-test", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({ testId, answers, timeTaken }),
       });
       const data = await res.json();
