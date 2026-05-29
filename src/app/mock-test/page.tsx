@@ -28,7 +28,7 @@ interface Question {
   subjectName: string;
 }
 
-type PageState = "select" | "loading" | "test" | "results" | "pro-required";
+type PageState = "select" | "instructions" | "loading" | "test" | "results" | "pro-required";
 type TestType = "short" | "full";
 
 export default function MockTestPage() {
@@ -66,6 +66,13 @@ export default function MockTestPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [results, setResults] = useState<any>(null);
   const [currentSection, setCurrentSection] = useState<string>("all");
+
+  // Instructions page state
+  const [instructionsExamId, setInstructionsExamId] = useState("");
+  const [instructionsTestNumber, setInstructionsTestNumber] = useState(1);
+  const [instructionsIsFullLength, setInstructionsIsFullLength] = useState(false);
+  const [isGeneratingInBackground, setIsGeneratingInBackground] = useState(false);
+  const [generationError, setGenerationError] = useState<string | null>(null);
 
   // Add global click listener to detect header clicks when in test or loading
   useEffect(() => {
@@ -216,7 +223,17 @@ export default function MockTestPage() {
   };
 
   async function startTest(examId: string, testNumber: number = 1, isFullLength: boolean = false) {
-    setPageState("loading");
+    // Show instructions page first
+    setInstructionsExamId(examId);
+    setInstructionsTestNumber(testNumber);
+    setInstructionsIsFullLength(isFullLength);
+    const exam = getExamById(examId);
+    setExamName(exam?.name || examId);
+    setPageState("instructions");
+    setIsGeneratingInBackground(true);
+    setGenerationError(null);
+
+    // Start generating test in background
     try {
       const res = await fetch("/api/mock-test", {
         method: "POST",
@@ -228,24 +245,39 @@ export default function MockTestPage() {
       if (!res.ok) {
         if (data.proRequired) {
           setPageState("pro-required");
+          setIsGeneratingInBackground(false);
           return;
         }
-        alert(data.error || "Failed to start test");
-        setPageState("select");
+        setGenerationError(data.error || "Failed to generate test");
+        setIsGeneratingInBackground(false);
         return;
       }
 
+      // Store generated test data
       setTestId(data.testId);
-      setExamName(data.examName);
       setQuestions(data.questions);
       setAnswers(new Array(data.questions.length).fill(null));
       setTimeLimitSeconds(data.timeLimitSeconds);
       setTimeRemaining(data.timeLimitSeconds);
       setCurrentQuestion(0);
-      setPageState("test");
+      setIsGeneratingInBackground(false);
     } catch {
-      alert("Something went wrong. Please try again.");
+      setGenerationError("Something went wrong. Please try again.");
+      setIsGeneratingInBackground(false);
+    }
+  }
+
+  function startTestFromInstructions() {
+    if (isGeneratingInBackground) {
+      // Still generating, show loading state
+      setPageState("loading");
+    } else if (generationError) {
+      // Generation failed, go back
+      alert(generationError);
       setPageState("select");
+    } else {
+      // Test ready, start immediately
+      setPageState("test");
     }
   }
 
@@ -336,6 +368,119 @@ export default function MockTestPage() {
             <button onClick={() => setPageState("select")} className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
               Go Back
             </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Instructions screen
+  if (pageState === "instructions") {
+    const exam = getExamById(instructionsExamId);
+    const config = configs.find(c => c.examId === instructionsExamId && c.testNumber === instructionsTestNumber);
+
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-indigo-600 to-violet-500 p-6 text-white">
+            <div className="flex items-center gap-3 mb-2">
+              {exam && <ColorfulExamIcon examId={exam.id} size={32} className="text-white" />}
+              <h1 className="text-2xl font-bold">{examName}</h1>
+            </div>
+            <p className="text-indigo-100">
+              {instructionsIsFullLength ? "Full Length" : "Short"} Mock Test {instructionsTestNumber}
+            </p>
+            {config && (
+              <div className="mt-4 flex gap-4 text-sm">
+                <span className="bg-white/20 px-3 py-1 rounded-full">
+                  📝 {config.totalQuestions} Questions
+                </span>
+                <span className="bg-white/20 px-3 py-1 rounded-full">
+                  ⏱️ {config.timeLimitMinutes} Minutes
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Instructions */}
+          <div className="p-8">
+            <h2 className="text-xl font-bold text-slate-800 mb-4">📋 General Instructions</h2>
+
+            <div className="space-y-4 text-slate-700">
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <p className="font-semibold text-amber-900">⏰ Timer Rules</p>
+                <p className="text-sm mt-1">The countdown timer will display the remaining time. When the timer reaches zero, the test will end automatically. You don't need to manually submit.</p>
+              </div>
+
+              <div>
+                <p className="font-semibold mb-2">📊 Question Status Indicators:</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-3">
+                    <span className="w-6 h-6 border-2 border-slate-300 rounded"></span>
+                    <span>Not visited yet</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="w-6 h-6 bg-red-100 border-2 border-red-300 rounded"></span>
+                    <span>Not answered</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="w-6 h-6 bg-green-100 border-2 border-green-400 rounded"></span>
+                    <span>Answered</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-semibold mb-2">🎯 Answering Questions:</p>
+                <ul className="space-y-1 text-sm list-disc list-inside">
+                  <li>Choose one answer from 4 options (A, B, C, D)</li>
+                  <li>Click on an option to select it</li>
+                  <li>You can change your answer anytime before submitting</li>
+                  <li>Use Previous/Next buttons to navigate between questions</li>
+                </ul>
+              </div>
+
+              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+                <p className="font-semibold text-indigo-900">💡 Pro Tips:</p>
+                <ul className="text-sm mt-2 space-y-1 list-disc list-inside">
+                  <li>Attempt all questions - there's no negative marking</li>
+                  <li>Manage your time wisely across all questions</li>
+                  <li>Use the question palette to track your progress</li>
+                  <li>Review your answers before final submission</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="bg-slate-50 p-6 flex items-center justify-between border-t">
+            <button
+              onClick={() => setPageState("select")}
+              className="px-6 py-2 text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg border border-slate-200 transition-colors"
+            >
+              ← Back
+            </button>
+
+            <div className="flex items-center gap-4">
+              {isGeneratingInBackground && (
+                <div className="flex items-center gap-2 text-sm text-indigo-600">
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  <span>Preparing test...</span>
+                </div>
+              )}
+
+              <button
+                onClick={startTestFromInstructions}
+                disabled={isGeneratingInBackground}
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              >
+                {isGeneratingInBackground ? "Please wait..." : "Start Test →"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
