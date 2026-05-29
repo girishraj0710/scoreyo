@@ -1236,7 +1236,7 @@ function QuizContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 mb-3 shrink-0 max-h-48 overflow-y-auto"
+          className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 mt-4 shrink-0 max-h-48 overflow-y-auto"
         >
           <RichExplanation
             explanation={question.explanation}
@@ -1251,7 +1251,7 @@ function QuizContent() {
       )}
 
       {/* Navigation - Centered */}
-      <div className="flex items-center justify-center gap-3 shrink-0 mt-auto pt-3">
+      <div className={`flex items-center justify-center gap-3 shrink-0 ${showExplanation ? 'mt-4' : 'mt-6'}`}>
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
@@ -1304,7 +1304,7 @@ function QuizContent() {
       </div>
 
       {/* Quick navigation dots */}
-      <div className="flex justify-center gap-1.5 mt-3 shrink-0 pb-2">
+      <div className="flex justify-center gap-1.5 mt-4 shrink-0 pb-2">
         {quizData.questions.map((_, idx) => (
           <button
             key={idx}
