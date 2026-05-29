@@ -1,22 +1,11 @@
 // Dynamic Mock Test Configuration
 // Auto-scales based on available questions in database
 
-import { getExamQuestions } from "./db";
+import { getExamQuestions, queryOne } from "./db";
 import { examCategories } from "./exams";
-import { createClient } from "@libsql/client";
-
-// Database client for direct queries
-function getDbClient() {
-  return createClient({
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN!,
-  });
-}
 
 // Helper to count questions using dimensional model
 async function countQuestions(examId: string, subjectId?: string): Promise<number> {
-  const db = getDbClient();
-
   let sql = `
     SELECT COUNT(DISTINCT q.id) as count
     FROM fact_exam_questions q
@@ -32,8 +21,8 @@ async function countQuestions(examId: string, subjectId?: string): Promise<numbe
     args.push(subjectId);
   }
 
-  const result = await db.execute({ sql, args });
-  return Number(result.rows[0]?.count || 0);
+  const result = await queryOne(sql, args);
+  return Number(result?.count || 0);
 }
 
 export interface MockTestTemplate {
