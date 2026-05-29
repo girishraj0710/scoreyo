@@ -162,12 +162,33 @@ export async function POST(request: NextRequest) {
     const cacheKey = CacheKeys.questions(examId, subjectId, mappedTopic, difficulty, numberOfQuestions);
     let verifiedQuestions: QuizQuestion[] = [];
 
+    // Check if this is a reading comprehension topic
+    const isReadingComprehension = topic.toLowerCase().includes('reading comprehension') ||
+                                    topic.toLowerCase().includes('passage') ||
+                                    topic.toLowerCase().includes('prose') ||
+                                    topic.toLowerCase().includes('poetry') ||
+                                    topic.toLowerCase().includes('unseen');
+
     // Try Redis first
     const cachedQuestions = await getCached<QuizQuestion[]>(cacheKey);
     if (cachedQuestions && cachedQuestions.length >= numberOfQuestions) {
-      verifiedQuestions = cachedQuestions;
-      console.log(`[Quiz API] ✓ CACHE HIT: ${verifiedQuestions.length} questions from Redis`);
-    } else {
+      // Validate reading comprehension questions have passages
+      if (isReadingComprehension) {
+        const hasPassages = cachedQuestions.every((q: QuizQuestion) => q.passage);
+        if (!hasPassages) {
+          console.log(`[Quiz API] ⚠️ Cache invalidated: Reading comprehension questions missing passages`);
+          // Don't use cached questions, regenerate with passages
+        } else {
+          verifiedQuestions = cachedQuestions;
+          console.log(`[Quiz API] ✓ CACHE HIT: ${verifiedQuestions.length} questions from Redis`);
+        }
+      } else {
+        verifiedQuestions = cachedQuestions;
+        console.log(`[Quiz API] ✓ CACHE HIT: ${verifiedQuestions.length} questions from Redis`);
+      }
+    }
+
+    if (verifiedQuestions.length === 0) {
       console.log(`[Quiz API] Cache miss, querying database...`);
 
       // ── TIER 2: Database questions (verified + cached, prioritized by source) ─
