@@ -59,9 +59,9 @@ export function StudyStreakCalendar() {
   const dayLabels = ["S", "M", "T", "W", "T", "F", "S"];
 
   return (
-    <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 shadow-lg border border-amber-100 h-[400px]">
+    <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 shadow-lg border border-amber-100 h-[400px] flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
             <Flame className="w-6 h-6 text-white" />
@@ -81,7 +81,7 @@ export function StudyStreakCalendar() {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-3 gap-3 mb-4 shrink-0">
         <div className="bg-white rounded-lg p-3 border border-amber-100">
           <div className="flex items-center gap-1 mb-1">
             <Flame className="w-3 h-3 text-amber-500" />
@@ -114,9 +114,9 @@ export function StudyStreakCalendar() {
       </div>
 
       {/* Calendar Grid */}
-      <div className="bg-white rounded-lg p-4 border border-slate-200">
+      <div className="bg-white rounded-lg p-3 border border-slate-200 flex-1 flex flex-col overflow-hidden">
         {/* Day Labels */}
-        <div className="grid grid-cols-7 gap-2 mb-2">
+        <div className="grid grid-cols-7 gap-2 mb-2 shrink-0">
           {dayLabels.map((label, idx) => (
             <div
               key={idx}
@@ -128,7 +128,7 @@ export function StudyStreakCalendar() {
         </div>
 
         {/* Calendar Grid - 4 rows of 7 days */}
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-7 gap-2 flex-1">
           {days.map((date, idx) => {
             const isToday = date.toDateString() === today.toDateString();
             const studied = streakData.last30Days[27 - idx]; // Reverse index
@@ -166,7 +166,7 @@ export function StudyStreakCalendar() {
         </div>
 
         {/* Legend */}
-        <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-slate-100">
+        <div className="flex items-center justify-center gap-4 mt-3 pt-3 border-t border-slate-100 shrink-0">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded"></div>
             <span className="text-xs text-slate-500">Studied</span>
@@ -180,8 +180,8 @@ export function StudyStreakCalendar() {
 
       {/* Motivational Message */}
       {streakData.currentStreak > 0 && (
-        <div className="mt-4 p-3 bg-amber-100 border border-amber-200 rounded-lg">
-          <p className="text-sm text-amber-800 font-medium text-center">
+        <div className="mt-3 p-2.5 bg-amber-100 border border-amber-200 rounded-lg shrink-0">
+          <p className="text-xs text-amber-800 font-medium text-center">
             {streakData.currentStreak >= 7
               ? `🔥 Amazing! ${streakData.currentStreak} days strong! Keep it going!`
               : streakData.currentStreak >= 3
@@ -192,8 +192,8 @@ export function StudyStreakCalendar() {
       )}
 
       {streakData.currentStreak === 0 && (
-        <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-sm text-blue-800 font-medium text-center">
+        <div className="mt-3 p-2.5 bg-blue-50 border border-blue-200 rounded-lg shrink-0">
+          <p className="text-xs text-blue-800 font-medium text-center">
             🎯 Start your streak today! Complete any quiz to begin.
           </p>
         </div>
