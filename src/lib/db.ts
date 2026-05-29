@@ -711,12 +711,24 @@ export async function createQuizSession(
   sourceStats?: { verified?: number; cached?: number; ai?: number },
   sprintId?: string
 ) {
-  const sourceStatsJson = sourceStats ? JSON.stringify(sourceStats) : null;
-  return execute(
-    `INSERT INTO quiz_sessions (id, user_id, exam_id, subject_id, topic, total_questions, correct_answers, time_taken_seconds, source_stats, sprint_id)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [sessionId, userId, examId, subjectId, topic, totalQuestions, correctAnswers, timeTaken, sourceStatsJson, sprintId || null]
-  );
+  // For PostgreSQL JSONB, pass the object directly, not stringified
+  const sourceStatsValue = sourceStats || null;
+
+  try {
+    return await execute(
+      `INSERT INTO quiz_sessions (id, user_id, exam_id, subject_id, topic, total_questions, correct_answers, time_taken_seconds, source_stats, sprint_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?::jsonb, ?)`,
+      [sessionId, userId, examId, subjectId, topic, totalQuestions, correctAnswers, timeTaken, JSON.stringify(sourceStatsValue), sprintId || null]
+    );
+  } catch (error) {
+    console.error('[createQuizSession] SQL Error:', error);
+    console.error('[createQuizSession] Values:', {
+      sessionId, userId, examId, subjectId, topic,
+      totalQuestions, correctAnswers, timeTaken,
+      sourceStats: sourceStatsValue, sprintId
+    });
+    throw error;
+  }
 }
 
 export async function getRecentSessions(userId: string, limit: number = 10) {
