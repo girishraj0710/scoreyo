@@ -1209,7 +1209,8 @@ function QuizContent() {
             subjectId={subjectId}
           />
         )}
-      </div>
+        </div>
+      </motion.div>
 
       {/* Navigation - IMPROVED BUTTONS */}
       <div className="flex items-center justify-between">
