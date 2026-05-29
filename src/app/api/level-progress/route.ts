@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   try {
     // Get total completed levels across all subjects
     const completedLevels = await queryAll(
-      "SELECT * FROM user_quiz_levels WHERE user_id = $1 AND is_completed = true ORDER BY completed_at DESC",
+      "SELECT * FROM user_quiz_levels WHERE user_id = $1 AND is_completed = 1 ORDER BY completed_at DESC",
       [userId]
     );
 
@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
 
     // Get current level (highest unlocked but not completed)
     const currentLevel = await queryOne(
-      "SELECT level_number FROM user_quiz_levels WHERE user_id = $1 AND is_unlocked = true AND is_completed = false ORDER BY level_number DESC LIMIT 1",
+      "SELECT level_number FROM user_quiz_levels WHERE user_id = $1 AND is_unlocked = 1 AND is_completed = 0 ORDER BY level_number DESC LIMIT 1",
       [userId]
     );
 
