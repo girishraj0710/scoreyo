@@ -138,8 +138,8 @@ export function MistakeMapWidget() {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
-      <div className="flex items-center justify-between mb-4">
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[400px]">
+      <div className="flex items-center justify-between mb-4 shrink-0">
         <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
           <Brain className="w-6 h-6 text-indigo-600" />
           Your Mistake Pattern
@@ -150,7 +150,7 @@ export function MistakeMapWidget() {
       </div>
 
       {/* Simple Bar Chart */}
-      <div className="space-y-3 mb-6">
+      <div className="space-y-3 mb-6 overflow-y-auto flex-1 pr-2">
         {weaknessTypes.map((type) => (
           <div key={type.id}>
             <div className="flex items-center justify-between mb-1">
@@ -176,7 +176,7 @@ export function MistakeMapWidget() {
       </div>
 
       {/* Recommendation */}
-      <div className={`${primaryWeakness.lightColor} rounded-lg p-3 border ${primaryWeakness.color.replace('bg-', 'border-')}`}>
+      <div className={`${primaryWeakness.lightColor} rounded-lg p-3 border ${primaryWeakness.color.replace('bg-', 'border-')} shrink-0`}>
         <div className="flex items-start gap-2">
           <primaryWeakness.IconComponent className={`w-5 h-5 shrink-0 ${primaryWeakness.iconColor}`} />
           <div>

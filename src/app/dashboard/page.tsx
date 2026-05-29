@@ -270,8 +270,8 @@ export default function DashboardPage() {
         <MistakeMapWidget />
 
         {/* Weak Topics */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Topics to Improve
           </h3>
           {mastery.length === 0 ? (
@@ -279,7 +279,7 @@ export default function DashboardPage() {
               Complete more quizzes to see weak areas
             </p>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-3 overflow-y-auto flex-1 pr-2">
               {mastery
                 .filter((m) => m.mastery_score < 80)
                 .slice(0, 6)
@@ -326,14 +326,14 @@ export default function DashboardPage() {
         <StudyStreakCalendar />
 
         {/* Recent Sessions */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2 flex flex-col h-[400px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Recent Quizzes
           </h3>
           {recentSessions.length === 0 ? (
             <p className="text-slate-400 text-sm">No quizzes taken yet</p>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto overflow-y-auto flex-1">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="text-left text-slate-500 border-b border-slate-100">
