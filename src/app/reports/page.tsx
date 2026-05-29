@@ -129,12 +129,12 @@ export default function ReportsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Subject-wise Breakdown */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("subjectPerformance")}</h3>
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("subjectPerformance")}</h3>
           {subjectBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-3 overflow-y-auto flex-1 pr-2">
               {subjectBreakdown.map((s: any, idx: number) => {
                 const exam = getExamById(s.exam_id);
                 const subject = getSubjectById(s.exam_id, s.subject_id);
@@ -168,7 +168,7 @@ export default function ReportsPage() {
         </div>
 
         {/* Quiz Performance Distribution */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 h-[400px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("performanceDistribution")}</h3>
           {difficultyBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
@@ -276,14 +276,14 @@ export default function ReportsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Strongest Topics */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[350px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2 shrink-0">
             <Zap className="w-5 h-5 text-emerald-500" /> {t("strongestTopics")}
           </h3>
           {strongTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-2 overflow-y-auto flex-1 pr-2">
               {strongTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 return (
@@ -301,14 +301,14 @@ export default function ReportsPage() {
         </div>
 
         {/* Weakest Topics */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[350px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2 shrink-0">
             <Target className="w-5 h-5 text-red-500" /> {t("weakestTopics")}
           </h3>
           {weakTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-2 overflow-y-auto flex-1 pr-2">
               {weakTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 return (
@@ -385,9 +385,9 @@ export default function ReportsPage() {
 
       {/* Mock Test History */}
       {mockTestHistory.length > 0 && (
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("mockTestHistory")}</h3>
-          <div className="space-y-2">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("mockTestHistory")}</h3>
+          <div className="space-y-2 overflow-y-auto flex-1 pr-2">
             {mockTestHistory.map((test: any, idx: number) => {
               const exam = getExamById(test.exam_id);
               const acc = test.total_questions > 0 ? Math.round((test.correct_answers / test.total_questions) * 100) : 0;
