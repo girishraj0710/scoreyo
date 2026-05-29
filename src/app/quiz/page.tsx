@@ -971,7 +971,7 @@ function QuizContent() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-2 h-screen flex flex-col">
+    <div className="max-w-5xl mx-auto px-4 py-2 h-screen flex flex-col">
       {/* Report Modal */}
       {reportQuestion && (
         <ReportModal
@@ -1137,7 +1137,7 @@ function QuizContent() {
           </div>
 
           {/* Options */}
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {question.options.map((option, idx) => {
               const isSelected = answers[currentQuestion] === idx;
               const isCorrect = idx === question.correctAnswer;
