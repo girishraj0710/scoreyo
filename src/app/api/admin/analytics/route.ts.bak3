@@ -217,8 +217,8 @@ export async function GET(req: NextRequest) {
               t.scope,
               COUNT(DISTINCT q.id) as question_count,
               1 as exam_count,
-              STRING_AGG(DISTINCT q.source, ',') as sources,
-              STRING_AGG(DISTINCT q.difficulty, ',') as difficulties
+              GROUP_CONCAT(DISTINCT q.source) as sources,
+              GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
             FROM dim_topics t
             INNER JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
             LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
@@ -233,8 +233,8 @@ export async function GET(req: NextRequest) {
               t.scope,
               COUNT(DISTINCT q.id) as question_count,
               COUNT(DISTINCT b.exam_id) as exam_count,
-              STRING_AGG(DISTINCT q.source, ',') as sources,
-              STRING_AGG(DISTINCT q.difficulty, ',') as difficulties
+              GROUP_CONCAT(DISTINCT q.source) as sources,
+              GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
             FROM dim_topics t
             LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
             LEFT JOIN bridge_exam_subject_topic b ON t.id = b.topic_id

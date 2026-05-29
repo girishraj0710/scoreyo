@@ -96,7 +96,7 @@ export async function GET(req: NextRequest) {
       sql: `SELECT
               COUNT(*) as count
             FROM reported_questions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '7 days'`,
+            WHERE created_at >= datetime('now', '-7 days')`,
       args: [],
     });
 
@@ -109,14 +109,14 @@ export async function GET(req: NextRequest) {
     const activeUsers7Days = await db.execute({
       sql: `SELECT COUNT(DISTINCT user_id) as count
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '7 days'`,
+            WHERE created_at >= datetime('now', '-7 days')`,
       args: [],
     });
 
     const activeUsers30Days = await db.execute({
       sql: `SELECT COUNT(DISTINCT user_id) as count
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'`,
+            WHERE created_at >= datetime('now', '-30 days')`,
       args: [],
     });
 
@@ -128,21 +128,21 @@ export async function GET(req: NextRequest) {
     const quizzesLast7Days = await db.execute({
       sql: `SELECT COUNT(*) as count
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '7 days'`,
+            WHERE created_at >= datetime('now', '-7 days')`,
       args: [],
     });
 
     const quizzesLast30Days = await db.execute({
       sql: `SELECT COUNT(*) as count
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'`,
+            WHERE created_at >= datetime('now', '-30 days')`,
       args: [],
     });
 
     const popularExams = await db.execute({
       sql: `SELECT exam_id, COUNT(*) as attempts
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'
+            WHERE created_at >= datetime('now', '-30 days')
             GROUP BY exam_id
             ORDER BY attempts DESC
             LIMIT 10`,
@@ -152,7 +152,7 @@ export async function GET(req: NextRequest) {
     const popularSubjects = await db.execute({
       sql: `SELECT subject_id, COUNT(*) as attempts
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'
+            WHERE created_at >= datetime('now', '-30 days')
             GROUP BY subject_id
             ORDER BY attempts DESC
             LIMIT 10`,
@@ -164,7 +164,7 @@ export async function GET(req: NextRequest) {
               exam_id,
               AVG(CAST(correct_answers AS REAL) / total_questions * 100) as avg_score_pct
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND total_questions > 0
+            WHERE created_at >= datetime('now', '-30 days') AND total_questions > 0
             GROUP BY exam_id
             ORDER BY avg_score_pct DESC
             LIMIT 10`,
@@ -178,7 +178,7 @@ export async function GET(req: NextRequest) {
               COUNT(*) as quizzes,
               COUNT(DISTINCT user_id) as users
             FROM quiz_sessions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '14 days'
+            WHERE created_at >= datetime('now', '-14 days')
             GROUP BY DATE(created_at)
             ORDER BY date DESC`,
       args: [],
@@ -201,7 +201,7 @@ export async function GET(req: NextRequest) {
               COUNT(*) as count,
               SUM(amount) as total
             FROM subscriptions
-            WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'`,
+            WHERE created_at >= datetime('now', '-30 days')`,
       args: [],
     });
 
@@ -217,8 +217,8 @@ export async function GET(req: NextRequest) {
               t.scope,
               COUNT(DISTINCT q.id) as question_count,
               1 as exam_count,
-              STRING_AGG(DISTINCT q.source, ',') as sources,
-              STRING_AGG(DISTINCT q.difficulty, ',') as difficulties
+              GROUP_CONCAT(DISTINCT q.source) as sources,
+              GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
             FROM dim_topics t
             INNER JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
             LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
@@ -233,8 +233,8 @@ export async function GET(req: NextRequest) {
               t.scope,
               COUNT(DISTINCT q.id) as question_count,
               COUNT(DISTINCT b.exam_id) as exam_count,
-              STRING_AGG(DISTINCT q.source, ',') as sources,
-              STRING_AGG(DISTINCT q.difficulty, ',') as difficulties
+              GROUP_CONCAT(DISTINCT q.source) as sources,
+              GROUP_CONCAT(DISTINCT q.difficulty) as difficulties
             FROM dim_topics t
             LEFT JOIN fact_exam_questions q ON t.id = q.topic_id
             LEFT JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
