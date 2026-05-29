@@ -983,20 +983,20 @@ function QuizContent() {
         />
       )}
 
-      {/* Quiz Header with Back Button */}
-      <div className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-200 mb-2 shrink-0">
-        {/* Back Button - Top Left */}
-        <button
-          onClick={handleBack}
-          className="inline-flex items-center gap-1 mb-2 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
-          aria-label="Back"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back
-        </button>
+      {/* Back Button - Standalone Floating */}
+      <button
+        onClick={handleBack}
+        className="inline-flex items-center gap-1.5 mb-3 px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 rounded-lg transition-colors shadow-sm shrink-0 self-start"
+        aria-label="Back"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </button>
 
+      {/* Quiz Header */}
+      <div className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-200 mb-2 shrink-0">
         <div className="flex items-center justify-between mb-1.5">
           <div className="flex items-center gap-2 flex-wrap">
             {isLevelMode && (
