@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     // Scan for keys
     do {
-      const result = await redis.scan(cursor, { match: pattern, count: 100 });
+      const result: [string | number, string[]] = await redis.scan(cursor, { match: pattern, count: 100 });
       cursor = result[0];
       userKeys.push(...result[1]);
     } while (cursor !== '0' && cursor !== 0);
