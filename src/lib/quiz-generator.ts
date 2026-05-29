@@ -16,6 +16,7 @@ export interface QuizQuestion {
   };
   difficulty: "easy" | "medium" | "hard";
   source: "ai" | "verified" | "ai-cached" | "ai-validated" | "expert-curated" | "ncert-derived"; // tracks where the question came from
+  passage?: string; // For reading comprehension - poem, prose, or passage
 }
 
 // Using ONLY gpt-4o-mini to minimize costs.
@@ -97,6 +98,7 @@ function parseQuizResponse(text: string): QuizQuestion[] {
     }
 
     return {
+      passage: q.passage || undefined,
       question: q.question,
       options: q.options.slice(0, 4),
       correctAnswer: Math.min(Math.max(0, q.correctAnswer), 3),
@@ -119,10 +121,23 @@ export async function generateQuiz(
       ? "mix easy/medium/hard"
       : `all ${difficulty}`;
 
+  // Check if this is a reading comprehension topic
+  const isReadingComprehension = topic.toLowerCase().includes('reading comprehension') ||
+                                  topic.toLowerCase().includes('passage') ||
+                                  topic.toLowerCase().includes('prose') ||
+                                  topic.toLowerCase().includes('poetry') ||
+                                  topic.toLowerCase().includes('unseen');
+
   // Ultra-tight prompt — minimizes output tokens so generation completes fast.
   // The parser server-side fills trapAlerts/commonMistakes defaults if absent,
   // so we only require the essentials from the model.
-  const prompt = `Generate ${numberOfQuestions} MCQs for ${examName} > ${subjectName} > ${topic} (${difficultyInstruction}).
+  const prompt = isReadingComprehension
+    ? `Generate ${numberOfQuestions} reading comprehension MCQs for ${examName} > ${subjectName} > ${topic} (${difficultyInstruction}).
+IMPORTANT: Each question MUST include a "passage" field with a poem, prose passage, or story (100-200 words).
+Return ONLY a JSON array. Each element:
+{"passage":"[Full text of poem/prose/passage here]","question":"Question about the passage","options":["A","B","C","D"],"correctAnswer":0,"explanation":"1-2 sentence why correct","difficulty":"easy|medium|hard"}
+Rules: exactly 4 options; correctAnswer is 0-3; passage is REQUIRED; valid JSON starting with [ ending with ].`
+    : `Generate ${numberOfQuestions} MCQs for ${examName} > ${subjectName} > ${topic} (${difficultyInstruction}).
 Return ONLY a JSON array. Each element:
 {"question":"...","options":["A","B","C","D"],"correctAnswer":0,"explanation":"1-2 sentence why correct","difficulty":"easy|medium|hard"}
 Rules: exactly 4 options; correctAnswer is 0-3; valid JSON starting with [ ending with ].`;
