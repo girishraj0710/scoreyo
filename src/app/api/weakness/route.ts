@@ -22,9 +22,14 @@ export async function POST(request: Request) {
     await recordWeaknessType(userId, examId, subjectId, topic, weaknessType);
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error("[Weakness API] Error:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    // Return error details for debugging
+    return NextResponse.json({
+      error: "Internal server error",
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      hint: "weakness_profiles table may not exist"
+    }, { status: 500 });
   }
 }
 

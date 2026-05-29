@@ -1493,14 +1493,15 @@ export async function recordWeaknessType(
 
   const column = columnMap[weaknessType];
 
+  // Use ? placeholders for execute function (it converts to $1, $2...)
   const sql = `INSERT INTO weakness_profiles (user_id, exam_id, subject_id, topic, ${column}, total_errors, last_updated)
-        VALUES ($1, $2, $3, $4, 1, 1, CURRENT_TIMESTAMP)
+        VALUES (?, ?, ?, ?, 1, 1, CURRENT_TIMESTAMP)
         ON CONFLICT(user_id, exam_id, subject_id, topic) DO UPDATE SET
-          ${column} = ${column} + 1,
-          total_errors = total_errors + 1,
+          ${column} = weakness_profiles.${column} + 1,
+          total_errors = weakness_profiles.total_errors + 1,
           last_updated = CURRENT_TIMESTAMP`;
 
-  await executeQuery(sql, [userId, examId, subjectId, topic]);
+  await execute(sql, [userId, examId, subjectId, topic]);
 }
 
 export async function getWeaknessProfile(userId: string, examId: string) {

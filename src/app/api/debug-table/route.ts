@@ -8,13 +8,34 @@ export async function GET() {
       ssl: { rejectUnauthorized: false },
     });
 
-    // Check table structure
-    const result = await pool.query(`
+    // Check multiple table structures
+    const quizSessionsResult = await pool.query(`
       SELECT column_name, data_type, is_nullable, column_default
       FROM information_schema.columns
       WHERE table_schema = 'public' AND table_name = 'quiz_sessions'
       ORDER BY ordinal_position
     `);
+
+    // Check if weakness_profiles table exists
+    const weaknessTableExists = await pool.query(`
+      SELECT EXISTS (
+        SELECT FROM information_schema.tables
+        WHERE table_schema = 'public' AND table_name = 'weakness_profiles'
+      )
+    `);
+
+    let weaknessColumns = [];
+    if (weaknessTableExists.rows[0].exists) {
+      const weaknessResult = await pool.query(`
+        SELECT column_name, data_type, is_nullable
+        FROM information_schema.columns
+        WHERE table_schema = 'public' AND table_name = 'weakness_profiles'
+        ORDER BY ordinal_position
+      `);
+      weaknessColumns = weaknessResult.rows;
+    }
+
+    const result = quizSessionsResult;
 
     // Try a test insert (will rollback)
     const client = await pool.connect();
@@ -33,7 +54,9 @@ export async function GET() {
 
       return NextResponse.json({
         success: true,
-        columns: result.rows,
+        quizSessionsColumns: result.rows,
+        weaknessTableExists: weaknessTableExists.rows[0].exists,
+        weaknessColumns,
         testInsertWorks: true,
         testInsertResult: testInsert.rows[0],
       });
@@ -41,7 +64,9 @@ export async function GET() {
       await client.query('ROLLBACK');
       return NextResponse.json({
         success: false,
-        columns: result.rows,
+        quizSessionsColumns: result.rows,
+        weaknessTableExists: weaknessTableExists.rows[0].exists,
+        weaknessColumns,
         testInsertWorks: false,
         insertError: insertError.message,
       });
