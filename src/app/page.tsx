@@ -218,10 +218,9 @@ function HomePageContent() {
             Smart Exam Prep
           </span>
         </h1>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-6">
-          Practice with AI-powered, expert-curated questions from NCERT, previous year papers &amp; standard textbooks for JEE, NEET, UPSC, SSC,
-          Banking, CAT &amp; 20+ Indian competitive exams. Track your progress and
-          master every topic.
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-6 leading-relaxed">
+          Expert-curated questions from NCERT, PYQs &amp; textbooks for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br />
+          AI-powered practice with progress tracking to master every topic.
         </p>
 
         {/* Search Bar for logged-in users */}
