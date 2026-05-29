@@ -21,10 +21,14 @@ export default function ReportsPage() {
           return;
         }
         if (res.ok) {
-          setData(await res.json());
+          const jsonData = await res.json();
+          console.log('[Reports] API Response:', jsonData);
+          setData(jsonData);
+        } else {
+          console.error('[Reports] API Error:', res.status, res.statusText);
         }
-      } catch {
-        // ignore
+      } catch (error) {
+        console.error('[Reports] Fetch Error:', error);
       } finally {
         setIsLoading(false);
       }
@@ -68,7 +72,8 @@ export default function ReportsPage() {
     );
   }
 
-  if (!data || !data.stats) {
+  if (!data || !data.stats || data.stats.totalSessions === 0) {
+    console.log('[Reports] No data condition:', { data, stats: data?.stats, totalSessions: data?.stats?.totalSessions });
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
