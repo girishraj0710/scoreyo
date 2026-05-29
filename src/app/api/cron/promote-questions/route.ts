@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
+import { queryAll, execute } from "@/lib/db";
 
 // Promote AI-generated questions to validated status within fact_exam_questions.
 // Questions start with source='ai' or source='ai-cached' when first generated.
@@ -26,11 +26,6 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
-
     const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - MIN_AGE_DAYS);
     const cutoffISO = cutoffDate.toISOString();
@@ -40,28 +35,26 @@ export async function GET(request: NextRequest) {
     let offset = 0;
 
     outer: while (true) {
-      const res = await db.execute({
-        sql: `
-          SELECT feq.id
-          FROM fact_exam_questions feq
-          LEFT JOIN question_reports qr ON feq.id = qr.question_id AND qr.status = 'pending'
-          WHERE feq.source IN ('ai', 'ai-cached')
-            AND feq.created_at < ?
-            AND qr.id IS NULL
-          ORDER BY feq.created_at ASC
-          LIMIT ? OFFSET ?
-        `,
-        args: [cutoffISO, PAGE_SIZE, offset],
-      });
+      const res = await queryAll(
+        `SELECT feq.id
+         FROM fact_exam_questions feq
+         LEFT JOIN question_reports qr ON feq.id = qr.question_id AND qr.status = 'pending'
+         WHERE feq.source IN ('ai', 'ai-cached')
+           AND feq.created_at < ?
+           AND qr.id IS NULL
+         ORDER BY feq.created_at ASC
+         LIMIT ? OFFSET ?`,
+        [cutoffISO, PAGE_SIZE, offset]
+      );
 
-      if (res.rows.length === 0) break;
+      if (res.length === 0) break;
 
-      for (const r of res.rows) {
+      for (const r of res) {
         candidates.push(Number(r.id));
         if (candidates.length >= MAX_PROMOTIONS) break outer;
       }
 
-      if (res.rows.length < PAGE_SIZE) break;
+      if (res.length < PAGE_SIZE) break;
       offset += PAGE_SIZE;
     }
 
@@ -72,21 +65,21 @@ export async function GET(request: NextRequest) {
       const slice = candidates.slice(i, i + BATCH);
       if (slice.length === 0) continue;
       const placeholders = slice.map(() => "?").join(",");
-      await db.execute({
-        sql: `UPDATE fact_exam_questions SET source = 'ai-validated' WHERE id IN (${placeholders})`,
-        args: slice,
-      });
+      await execute(
+        `UPDATE fact_exam_questions SET source = 'ai-validated' WHERE id IN (${placeholders})`,
+        slice
+      );
       promoted += slice.length;
     }
 
     // 3) Final counts by source
-    const stats = await db.execute(`
-      SELECT source, COUNT(*) as count
-      FROM fact_exam_questions
-      GROUP BY source
-    `);
+    const stats = await queryAll(
+      `SELECT source, COUNT(*) as count
+       FROM fact_exam_questions
+       GROUP BY source`
+    );
     const countsBySource: Record<string, number> = {};
-    for (const row of stats.rows) {
+    for (const row of stats) {
       countsBySource[String(row.source)] = Number(row.count);
     }
 
