@@ -533,6 +533,15 @@ export async function PUT(request: NextRequest) {
       );
     }
 
+    // Validate topic is not empty (prevents empty topic_mastery records)
+    if (!topic || topic.trim() === '') {
+      console.error('[Quiz Submit] Invalid request: empty topic', { examId, subjectId, sessionId });
+      return NextResponse.json(
+        { error: "Invalid request: topic cannot be empty" },
+        { status: 400 }
+      );
+    }
+
     // Ensure user exists in database (handles migration edge cases)
     const { ensureUserExists } = await import("@/lib/db");
     await ensureUserExists(userId);

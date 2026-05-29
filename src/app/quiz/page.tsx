@@ -162,7 +162,7 @@ function QuizContent() {
   const router = useRouter();
   const examId = searchParams.get("examId") || "";
   const subjectId = searchParams.get("subjectId") || "";
-  const topic = searchParams.get("topic") || "";
+  const topicParam = searchParams.get("topic") || "";
   const count = parseInt(searchParams.get("count") || "5");
   const difficulty = searchParams.get("difficulty") || "mixed";
   const pressureMode = searchParams.get("pressureMode") === "true";
@@ -175,6 +175,9 @@ function QuizContent() {
   const isLevelMode = mode === "level";
   const isSprintMode = mode === "sprint";
   const sprintId = searchParams.get("sprintId");
+
+  // Generate effective topic with fallback (prevents empty topics in database)
+  const topic = topicParam || (isLevelMode ? (levelName || `Level ${levelNumber}`) : "General");
 
   const [quizData, setQuizData] = useState<QuizData | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -243,9 +246,9 @@ function QuizContent() {
               sessionId: sprint.sprint.id,
               examId: sprint.sprint.examId,
               subjectId: sprint.sprint.subjectId,
-              topic: sprint.sprint.topic,
+              topic: sprint.sprint.topic || 'Sprint Challenge',
               examName: "Sprint Challenge",
-              subjectName: sprint.sprint.topic,
+              subjectName: sprint.sprint.topic || 'Mixed Topics',
               questions: sprint.sprint.questions,
             });
             setAnswers(new Array(sprint.sprint.questions.length).fill(null));

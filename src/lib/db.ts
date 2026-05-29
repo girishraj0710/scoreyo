@@ -831,9 +831,16 @@ export async function updateTopicMastery(
   attempted: number,
   correct: number
 ) {
+  // Add fallback for empty topic (defensive programming - should never happen after API validation)
+  const effectiveTopic = topic && topic.trim() !== '' ? topic.trim() : 'General Topic';
+
+  if (effectiveTopic === 'General Topic' && topic !== 'General Topic') {
+    console.warn('[updateTopicMastery] Empty topic received, using fallback', { userId, examId, subjectId, originalTopic: topic });
+  }
+
   const existing = await queryOne(
     "SELECT * FROM topic_mastery WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND topic = ?",
-    [userId, examId, subjectId, topic]
+    [userId, examId, subjectId, effectiveTopic]
   );
 
   if (existing) {
@@ -858,7 +865,7 @@ export async function updateTopicMastery(
     await execute(
       `INSERT INTO topic_mastery (user_id, exam_id, subject_id, topic, total_attempted, total_correct, mastery_score, last_attempted, next_review)
        VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?)`,
-      [userId, examId, subjectId, topic, attempted, correct, mastery, nextReview.toISOString()]
+      [userId, examId, subjectId, effectiveTopic, attempted, correct, mastery, nextReview.toISOString()]
     );
   }
 }
