@@ -245,10 +245,11 @@ export async function GET(req: NextRequest) {
 
     let topicBreakdown;
     try {
-      const dimensionalTopics = await db.execute({
+      const dimensionalResult = await db.execute({
         sql: dimensionalQuery,
         args: dimensionalArgs,
       });
+      const dimensionalTopics = dimensionalResult.rows;
 
       console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.length} topics`);
       if (examFilter && dimensionalTopics.length === 0) {
