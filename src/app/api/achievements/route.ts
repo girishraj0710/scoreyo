@@ -14,11 +14,15 @@ export async function GET(request: NextRequest) {
 
   try {
     // Get user's unlocked badges
+    console.log('[Achievements] Fetching badges for user:', userId);
     const unlockedBadges = await getUserBadges(userId);
+    console.log('[Achievements] Unlocked badges:', unlockedBadges);
     const unlockedIds = new Set(unlockedBadges.map((b: any) => b.badge_id));
 
     // Get badge stats
+    console.log('[Achievements] Fetching badge stats...');
     const stats = await getBadgeStats(userId);
+    console.log('[Achievements] Badge stats:', stats);
 
     // Check which badges are earned
     const earnedBadges = checkBadges({
@@ -54,10 +58,11 @@ export async function GET(request: NextRequest) {
       badges: allBadges,
       stats,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Achievements error:", error);
+    console.error("Error details:", error.message, error.stack);
     return NextResponse.json(
-      { error: "Failed to fetch achievements" },
+      { error: "Failed to fetch achievements", details: error.message },
       { status: 500 }
     );
   }

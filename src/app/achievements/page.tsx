@@ -29,6 +29,9 @@ export default function AchievementsPage() {
       const res = await fetch("/api/achievements");
       const data = await res.json();
 
+      console.log("Badges API response:", data);
+      console.log("Badges count:", data.badges?.length || 0);
+
       setBadges(data.badges || []);
       setStats(data.stats || {});
     } catch (error) {
