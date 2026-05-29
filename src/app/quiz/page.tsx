@@ -971,7 +971,7 @@ function QuizContent() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="max-w-4xl mx-auto px-4 py-3 h-screen flex flex-col">
       {/* Report Modal */}
       {reportQuestion && (
         <ReportModal
@@ -983,21 +983,21 @@ function QuizContent() {
         />
       )}
 
-      {/* Back Button */}
+      {/* Back Button - Compact */}
       <button
         onClick={handleBack}
-        className="inline-flex items-center gap-1.5 mb-3 px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 rounded-lg shadow-sm transition-colors"
+        className="inline-flex items-center gap-1 mb-2 px-2 py-1 text-xs font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 rounded-lg transition-colors"
         aria-label="Back"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
-        {isSprintMode ? "Back to Sprints" : isLevelMode ? "Back to Levels" : "Back to Topics"}
+        Back
       </button>
 
-      {/* Quiz Header */}
-      <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-6">
-        <div className="flex items-center justify-between mb-3">
+      {/* Quiz Header - Compact */}
+      <div className="bg-white rounded-lg p-3 shadow-sm border border-slate-200 mb-3 shrink-0">
+        <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2 flex-wrap">
             {isLevelMode && (
               <span className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white">
@@ -1067,17 +1067,17 @@ function QuizContent() {
         </div>
       </div>
 
-      {/* Question Card - REDESIGNED! */}
+      {/* Question Card - COMPACT */}
       <motion.div
         key={currentQuestion}
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.3 }}
-        className="bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-2xl border border-slate-200 overflow-hidden mb-6"
+        className="bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-lg border border-slate-200 overflow-hidden mb-3 flex-1 flex flex-col"
       >
         {/* Colored Header Strip */}
-        <div className={`h-2 bg-gradient-to-r ${
+        <div className={`h-1 bg-gradient-to-r ${
           (question?.difficulty || "medium") === "easy"
             ? "from-emerald-500 to-green-500"
             : (question?.difficulty || "medium") === "hard"
@@ -1085,9 +1085,9 @@ function QuizContent() {
             : "from-amber-500 to-orange-500"
         }`} />
 
-        <div className="p-8 md:p-10">
+        <div className="p-4 md:p-6 overflow-y-auto flex-1">
           {/* Meta Bar - IMPROVED */}
-          <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+          <div className="flex items-center justify-between mb-3 flex-wrap gap-3">
             <div className="flex items-center gap-3 flex-wrap">
               {/* Question Number Badge */}
               <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">
@@ -1130,14 +1130,14 @@ function QuizContent() {
           </div>
 
           {/* Question Text - BALANCED TYPOGRAPHY */}
-          <div className="mb-8">
+          <div className="mb-4">
             <h2 className="text-xl md:text-2xl font-semibold text-slate-900 leading-relaxed">
               {question.question}
             </h2>
           </div>
 
           {/* Options - BEAUTIFUL CARDS */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             {question.options.map((option, idx) => {
               const isSelected = answers[currentQuestion] === idx;
               const isCorrect = idx === question.correctAnswer;
@@ -1151,7 +1151,7 @@ function QuizContent() {
                   whileHover={!showExplanation ? { scale: 1.02, y: -2 } : {}}
                   whileTap={!showExplanation ? { scale: 0.98 } : {}}
                   className={`
-                    w-full flex items-start gap-4 p-5 rounded-2xl border-2 text-left transition-all
+                    w-full flex items-start gap-3 p-4 rounded-xl border-2 text-left transition-all
                     ${
                       showExplanation && isCorrect
                         ? "border-green-400 bg-green-50 shadow-lg shadow-green-100"
@@ -1222,11 +1222,11 @@ function QuizContent() {
       </motion.div>
 
       {/* Navigation - IMPROVED BUTTONS */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between shrink-0">
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
-          className="px-6 py-3 text-base font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
+          className="px-4 py-2 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
         >
           ← Previous
         </button>
@@ -1237,7 +1237,7 @@ function QuizContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={checkAnswer}
-              className="px-8 py-3 text-base font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl hover:from-amber-600 hover:to-orange-600 shadow-lg hover:shadow-xl transition-all"
+              className="px-6 py-2 text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg hover:from-amber-600 hover:to-orange-600 shadow-md hover:shadow-lg transition-all"
             >
               ✓ Check Answer
             </motion.button>
@@ -1248,7 +1248,7 @@ function QuizContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={nextQuestion}
-              className="px-8 py-3 text-base font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
+              className="px-6 py-2 text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all"
             >
               Next Question →
             </motion.button>
@@ -1257,7 +1257,7 @@ function QuizContent() {
           {!isLastQuestion && !showExplanation && (
             <button
               onClick={nextQuestion}
-              className="px-6 py-3 text-base font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
+              className="px-4 py-2 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
             >
               Skip →
             </button>
@@ -1269,7 +1269,7 @@ function QuizContent() {
               whileTap={{ scale: 0.95 }}
               onClick={submitQuiz}
               disabled={isSubmitting}
-              className="px-8 py-3 text-base font-bold bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl hover:from-emerald-600 hover:to-green-600 shadow-lg hover:shadow-xl disabled:opacity-50 transition-all"
+              className="px-6 py-2 text-sm font-bold bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-lg hover:from-emerald-600 hover:to-green-600 shadow-md hover:shadow-lg disabled:opacity-50 transition-all"
             >
               {isSubmitting ? "Submitting..." : "🎯 Submit Quiz"}
             </motion.button>
@@ -1288,7 +1288,7 @@ function QuizContent() {
       </div>
 
       {/* Quick navigation dots */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-2 mt-3 shrink-0">
         {quizData.questions.map((_, idx) => (
           <button
             key={idx}
@@ -1296,7 +1296,7 @@ function QuizContent() {
               setShowExplanation(false);
               setCurrentQuestion(idx);
             }}
-            className={`w-8 h-8 rounded-full text-xs font-medium ${
+            className={`w-7 h-7 rounded-full text-xs font-medium ${
               idx === currentQuestion
                 ? "bg-slate-500 text-white"
                 : answers[idx] !== null
