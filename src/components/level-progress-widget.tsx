@@ -47,7 +47,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
 
   if (!progress || progress.totalLevelsCompleted === 0) {
     return (
-      <div className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-xl p-6 shadow-sm border border-indigo-100">
+      <div className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl p-6 shadow-lg border border-indigo-100">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center">
             <Trophy className="w-6 h-6 text-white" />
@@ -92,7 +92,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
     : 100;
 
   return (
-    <div className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-xl p-6 shadow-sm border border-indigo-100">
+    <div className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl p-6 shadow-lg border border-indigo-100">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">

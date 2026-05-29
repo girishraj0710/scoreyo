@@ -215,7 +215,7 @@ export default function DashboardPage() {
         <DPPCard />
 
         {/* Exam-wise Breakdown */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[400px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Exam-wise Performance
           </h3>
@@ -270,7 +270,7 @@ export default function DashboardPage() {
         <MistakeMapWidget />
 
         {/* Weak Topics */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[400px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Topics to Improve
           </h3>
@@ -326,7 +326,7 @@ export default function DashboardPage() {
         <StudyStreakCalendar />
 
         {/* Recent Sessions */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2 flex flex-col h-[400px]">
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 md:col-span-2 flex flex-col h-[400px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Recent Quizzes
           </h3>
@@ -335,13 +335,13 @@ export default function DashboardPage() {
           ) : (
             <div className="overflow-x-auto overflow-y-auto flex-1">
               <table className="w-full text-sm">
-                <thead>
+                <thead className="sticky top-0 bg-white z-10">
                   <tr className="text-left text-slate-500 border-b border-slate-100">
-                    <th className="pb-3 font-medium">Exam</th>
-                    <th className="pb-3 font-medium">Topic</th>
-                    <th className="pb-3 font-medium text-center">Score</th>
-                    <th className="pb-3 font-medium text-center">Time</th>
-                    <th className="pb-3 font-medium text-right">Date</th>
+                    <th className="pb-3 pt-0 font-medium">Exam</th>
+                    <th className="pb-3 pt-0 font-medium">Topic</th>
+                    <th className="pb-3 pt-0 font-medium text-center">Score</th>
+                    <th className="pb-3 pt-0 font-medium text-center">Time</th>
+                    <th className="pb-3 pt-0 font-medium text-right">Date</th>
                   </tr>
                 </thead>
                 <tbody>
