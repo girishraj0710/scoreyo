@@ -275,22 +275,22 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
       questionMetrics: {
-        total: Number(totalQuestions?.count || 0),
-        bySource: questionsBySource.map((r: any) => ({
+        total: Number(totalQuestions?.rows[0]?.count || 0),
+        bySource: questionsBySource.rows.map((r: any) => ({
           source: r.source,
           count: Number(r.count),
         })),
-        byDifficulty: questionsByDifficulty.map((r: any) => ({
+        byDifficulty: questionsByDifficulty.rows.map((r: any) => ({
           difficulty: r.difficulty,
           count: Number(r.count),
         })),
-        byExam: questionsByExam.map((r: any) => ({
+        byExam: questionsByExam.rows.map((r: any) => ({
           examId: r.exam_id,
           count: Number(r.count),
         })),
       },
       reportMetrics: {
-        byStatus: reportStats.map((r: any) => ({
+        byStatus: reportStats.rows.map((r: any) => ({
           status: r.status,
           count: Number(r.count),
         })),
@@ -307,20 +307,20 @@ export async function GET(req: NextRequest) {
           last7Days: Number(quizzesLast7Days?.count || 0),
           last30Days: Number(quizzesLast30Days?.count || 0),
         },
-        popularExams: popularExams.map((r: any) => ({
+        popularExams: popularExams.rows.map((r: any) => ({
           examId: r.exam_id,
           attempts: Number(r.attempts),
         })),
-        popularSubjects: popularSubjects.map((r: any) => ({
+        popularSubjects: popularSubjects.rows.map((r: any) => ({
           subjectId: r.subject_id,
           attempts: Number(r.attempts),
         })),
-        avgScores: avgScores.map((r: any) => ({
+        avgScores: avgScores.rows.map((r: any) => ({
           examId: r.exam_id,
           avgScore: Number(r.avg_score_pct).toFixed(1),
         })),
       },
-      dailyActivity: dailyActivity.map((r: any) => ({
+      dailyActivity: dailyActivity.rows.map((r: any) => ({
         date: r.date,
         quizzes: Number(r.quizzes),
         users: Number(r.users),
