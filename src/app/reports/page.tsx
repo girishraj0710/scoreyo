@@ -323,7 +323,7 @@ export default function ReportsPage() {
                       <span className="text-lg font-bold text-red-600">{Math.round(topic.mastery_score)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
-                        className="text-xs text-indigo-600 bg-slate-50 px-2 py-1 rounded hover:bg-indigo-100"
+                        className="text-xs text-indigo-600 bg-slate-50 px-3 py-2 rounded hover:bg-indigo-100"
                       >
                         {t("practice")}
                       </a>

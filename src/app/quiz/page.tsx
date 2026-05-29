@@ -1260,7 +1260,7 @@ function QuizContent() {
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
-          className="px-4 py-2 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
+          className="px-4 py-3 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
         >
           ← Previous
         </button>
@@ -1269,7 +1269,7 @@ function QuizContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={checkAnswer}
-              className="px-6 py-2 text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg hover:from-amber-600 hover:to-orange-600 shadow-md hover:shadow-lg transition-all"
+              className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg hover:from-amber-600 hover:to-orange-600 shadow-md hover:shadow-lg transition-all"
             >
               ✓ Check Answer
             </motion.button>
@@ -1280,7 +1280,7 @@ function QuizContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={nextQuestion}
-              className="px-6 py-2 text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all"
+              className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all"
             >
               Next Question →
             </motion.button>
@@ -1289,7 +1289,7 @@ function QuizContent() {
           {!isLastQuestion && !showExplanation && (
             <button
               onClick={nextQuestion}
-              className="px-4 py-2 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
+              className="px-4 py-3 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
             >
               Skip →
             </button>
@@ -1317,7 +1317,7 @@ function QuizContent() {
               setShowExplanation(false);
               setCurrentQuestion(idx);
             }}
-            className={`w-6 h-6 rounded-full text-xs font-medium ${
+            className={`w-8 h-8 rounded-full text-xs font-medium ${
               idx === currentQuestion
                 ? "bg-slate-500 text-white"
                 : answers[idx] !== null
