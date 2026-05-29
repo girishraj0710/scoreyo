@@ -5,18 +5,7 @@ import { Pool } from 'pg';
 
 const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY || "default-key";
 
-// Sync users from Redis cache to database
-export async function POST(request: NextRequest) {
-  const authHeader = request.headers.get("authorization");
-  const body = await request.json().catch(() => ({}));
-  const urlKey = request.nextUrl.searchParams.get("key");
-
-  const providedKey = authHeader?.replace("Bearer ", "") || body.key || urlKey;
-
-  if (providedKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
+async function syncUsersFromRedis() {
   const redis = getRedis();
   const pool = new Pool({
     connectionString: process.env.POSTGRES_URL,
@@ -103,4 +92,39 @@ export async function POST(request: NextRequest) {
       details: error.message
     }, { status: 500 });
   }
+}
+
+// GET - Sync users (GET request to avoid CSRF)
+export async function GET(request: NextRequest) {
+  const urlKey = request.nextUrl.searchParams.get("key");
+  const action = request.nextUrl.searchParams.get("action");
+
+  if (urlKey !== ADMIN_KEY) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  if (action !== "sync") {
+    return NextResponse.json({
+      message: "User sync endpoint ready",
+      instruction: "Add &action=sync to sync users"
+    });
+  }
+
+  // Run the sync
+  return await syncUsersFromRedis();
+}
+
+// POST - Sync users from Redis cache to database
+export async function POST(request: NextRequest) {
+  const authHeader = request.headers.get("authorization");
+  const body = await request.json().catch(() => ({}));
+  const urlKey = request.nextUrl.searchParams.get("key");
+
+  const providedKey = authHeader?.replace("Bearer ", "") || body.key || urlKey;
+
+  if (providedKey !== ADMIN_KEY) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  return await syncUsersFromRedis();
 }
