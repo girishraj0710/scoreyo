@@ -215,14 +215,14 @@ export default function DashboardPage() {
         <DPPCard />
 
         {/* Exam-wise Breakdown */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
             Exam-wise Performance
           </h3>
           {stats.examBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">No exam data yet</p>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-3 overflow-y-auto flex-1 pr-2">
               {stats.examBreakdown.map((eb) => {
                 const exam = getExamById(eb.exam_id);
                 const accuracy =
