@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     // Get all user:data:* keys
     const pattern = 'user:data:*';
-    let cursor = 0;
+    let cursor: string | number = '0';
     const userKeys: string[] = [];
 
     // Scan for keys
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       const result = await redis.scan(cursor, { match: pattern, count: 100 });
       cursor = result[0];
       userKeys.push(...result[1]);
-    } while (cursor !== 0);
+    } while (cursor !== '0' && cursor !== 0);
 
     console.log(`[Sync] Found ${userKeys.length} users in Redis`);
 
