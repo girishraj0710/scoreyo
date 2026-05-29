@@ -643,8 +643,12 @@ export async function PUT(request: NextRequest) {
     });
   } catch (error) {
     console.error("Submit quiz error:", error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "Failed to submit quiz" },
+      {
+        error: "Failed to submit quiz",
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }

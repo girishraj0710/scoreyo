@@ -393,7 +393,16 @@ function QuizContent() {
         }),
       });
 
-      if (!res.ok) throw new Error("Failed to submit quiz");
+      if (!res.ok) {
+        let errorMsg = "Failed to submit quiz";
+        try {
+          const errData = await res.json();
+          errorMsg = errData.error || errData.message || errorMsg;
+        } catch {
+          // Response wasn't JSON
+        }
+        throw new Error(errorMsg);
+      }
       const data = await res.json();
       setResults(data);
       setIsSubmitted(true);
