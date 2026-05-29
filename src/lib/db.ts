@@ -750,36 +750,48 @@ export async function saveQuestionAttempts(
     explanation: string | { logic: string; formula?: string | null; calculation?: string | null; trapAlerts: string[]; commonMistakes: string[]; };
   }>
 ) {
-  const db = getClient();
   await ensureInitialized();
 
-  // Use batch for transactional inserts
-  const statements = attempts.map((item) => {
-    // Serialize explanation to string for storage
-    const explanationStr = typeof item.explanation === 'string'
-      ? item.explanation
-      : JSON.stringify(item.explanation);
+  // Insert each attempt in a transaction
+  const pool = getPool();
+  const client = await pool.connect();
 
-    return {
-      sql: `INSERT INTO question_attempts (session_id, user_id, exam_id, subject_id, topic, question_text, options, correct_answer, user_answer, is_correct, explanation)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    args: [
-      item.sessionId,
-      item.userId,
-      item.examId,
-      item.subjectId,
-      item.topic,
-      item.questionText,
-      JSON.stringify(item.options),
-      item.correctAnswer,
-      item.userAnswer,
-      item.isCorrect ? 1 : 0,
-      explanationStr,
-    ] as any[],
-    };
-  });
+  try {
+    await client.query('BEGIN');
 
-  await db.batch(statements, "write");
+    for (const item of attempts) {
+      // Serialize explanation to string for storage
+      const explanationStr = typeof item.explanation === 'string'
+        ? item.explanation
+        : JSON.stringify(item.explanation);
+
+      const sql = `INSERT INTO question_attempts (session_id, user_id, exam_id, subject_id, topic, question_text, options, correct_answer, user_answer, is_correct, explanation)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
+
+      const params = [
+        item.sessionId,
+        item.userId,
+        item.examId,
+        item.subjectId,
+        item.topic,
+        item.questionText,
+        JSON.stringify(item.options),
+        item.correctAnswer,
+        item.userAnswer,
+        item.isCorrect ? 1 : 0,
+        explanationStr,
+      ];
+
+      await client.query(sql, params);
+    }
+
+    await client.query('COMMIT');
+  } catch (error) {
+    await client.query('ROLLBACK');
+    throw error;
+  } finally {
+    client.release();
+  }
 }
 
 // ─── Topic Mastery functions ─────────────────────────────
@@ -912,9 +924,8 @@ export async function saveVerifiedQuestions(
     difficulty: string;
     source?: string;
   }>
-) {
+)  {
   await ensureInitialized();
-  const db = getClient();
 
   // Get dimensional IDs for exam, subject, and topic
   const examDim = await queryOne(
@@ -950,13 +961,13 @@ export async function saveVerifiedQuestions(
 
     // Create bridge entry
     await execute(
-      "INSERT OR IGNORE INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id) VALUES (?, ?, ?)",
+      "INSERT INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id) VALUES (?, ?, ?) ON CONFLICT DO NOTHING",
       [examDim.id, subjectDim.id, topicDim.id]
     );
   } else {
     // Topic exists, ensure bridge entry exists
     await execute(
-      "INSERT OR IGNORE INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id) VALUES (?, ?, ?)",
+      "INSERT INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id) VALUES (?, ?, ?) ON CONFLICT DO NOTHING",
       [examDim.id, subjectDim.id, topicDim.id]
     );
   }
@@ -1009,8 +1020,26 @@ export async function saveVerifiedQuestions(
   }
 
   if (statements.length > 0) {
-    await db.batch(statements, "write");
-    console.log(`✅ Saved ${added} verified questions to fact_exam_questions for ${examId}/${subjectId}/${topic}`);
+    // Insert questions in a transaction
+    const pool = getPool();
+    const client = await pool.connect();
+
+    try {
+      await client.query('BEGIN');
+
+      for (const stmt of statements) {
+        const { sql: pgSql, params } = convertPlaceholders(stmt.sql, stmt.args);
+        await client.query(pgSql, params);
+      }
+
+      await client.query('COMMIT');
+      console.log(`✅ Saved ${added} verified questions to fact_exam_questions for ${examId}/${subjectId}/${topic}`);
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
   }
 
   return added;
@@ -1427,7 +1456,6 @@ export async function recordWeaknessType(
   weaknessType: 'calculation' | 'concept' | 'time' | 'careless'
 ) {
   await ensureInitialized();
-  const db = getClient();
 
   const columnMap = {
     calculation: 'calculation_errors',
@@ -1438,15 +1466,14 @@ export async function recordWeaknessType(
 
   const column = columnMap[weaknessType];
 
-  await db.execute({
-    sql: `INSERT INTO weakness_profiles (user_id, exam_id, subject_id, topic, ${column}, total_errors, last_updated)
-          VALUES (?, ?, ?, ?, 1, 1, CURRENT_TIMESTAMP)
-          ON CONFLICT(user_id, exam_id, subject_id, topic) DO UPDATE SET
-            ${column} = ${column} + 1,
-            total_errors = total_errors + 1,
-            last_updated = CURRENT_TIMESTAMP`,
-    args: [userId, examId, subjectId, topic]
-  });
+  const sql = `INSERT INTO weakness_profiles (user_id, exam_id, subject_id, topic, ${column}, total_errors, last_updated)
+        VALUES ($1, $2, $3, $4, 1, 1, CURRENT_TIMESTAMP)
+        ON CONFLICT(user_id, exam_id, subject_id, topic) DO UPDATE SET
+          ${column} = ${column} + 1,
+          total_errors = total_errors + 1,
+          last_updated = CURRENT_TIMESTAMP`;
+
+  await executeQuery(sql, [userId, examId, subjectId, topic]);
 }
 
 export async function getWeaknessProfile(userId: string, examId: string) {
@@ -1934,14 +1961,27 @@ export async function saveEnglishQuestions(
   }>
 ) {
   await ensureInitialized();
-  const db = getClient();
 
-  const statements = questions.map((q) => ({
-    sql: "INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    args: [q.pathId, q.topicId, q.level, q.question, JSON.stringify(q.options), q.correctAnswer, q.explanation, q.difficulty] as any[],
-  }));
+  // Insert questions in a transaction
+  const pool = getPool();
+  const client = await pool.connect();
 
-  await db.batch(statements, "write");
+  try {
+    await client.query('BEGIN');
+
+    for (const q of questions) {
+      const sql = "INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
+      const params = [q.pathId, q.topicId, q.level, q.question, JSON.stringify(q.options), q.correctAnswer, q.explanation, q.difficulty];
+      await client.query(sql, params);
+    }
+
+    await client.query('COMMIT');
+  } catch (error) {
+    await client.query('ROLLBACK');
+    throw error;
+  } finally {
+    client.release();
+  }
 }
 
 export async function getEnglishDailyStreak(userId: string) {
