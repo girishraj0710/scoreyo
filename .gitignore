@@ -56,3 +56,4 @@ daily-seed-cron.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+migration-data/*.json

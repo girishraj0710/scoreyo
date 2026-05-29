@@ -1,16 +1,38 @@
-import { createClient, type Client } from "@libsql/client";
+import { Pool, type PoolClient } from 'pg';
 
-let client: Client | null = null;
+let pool: Pool | null = null;
 let initialized = false;
 
-function getClient(): Client {
-  if (!client) {
-    client = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
+function getPool(): Pool {
+  if (!pool) {
+    pool = new Pool({
+      connectionString: process.env.POSTGRES_URL,
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+      max: 20, // Connection pool size
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 10000,
+    });
+
+    pool.on('error', (err) => {
+      console.error('[PostgreSQL] Pool error:', err);
     });
   }
-  return client;
+  return pool;
+}
+
+// Helper to execute query
+async function executeQuery(sql: string, params: any[] = []) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(sql, params);
+    return {
+      rows: result.rows,
+      rowCount: result.rowCount || 0,
+    };
+  } finally {
+    client.release();
+  }
 }
 
 async function ensureInitialized() {
@@ -20,6 +42,11 @@ async function ensureInitialized() {
 }
 
 async function initializeDb() {
+  // Tables already exist in Supabase PostgreSQL - no initialization needed
+  console.log('[DB] Using Supabase PostgreSQL');
+  return;
+
+  /* OLD TURSO TABLE CREATION - KEPT FOR REFERENCE
   const db = getClient();
 
   await db.executeMultiple(`
@@ -519,49 +546,38 @@ async function initializeDb() {
 
     CREATE INDEX IF NOT EXISTS idx_daily_challenge_progress_user ON daily_challenge_progress(user_id, challenge_id);
   `);
+  */
 
-  // Create a default user if none exists
-  const result = await db.execute("SELECT COUNT(*) as count FROM users");
-  const count = result.rows[0].count as number;
-  if (count === 0) {
-    await db.execute({
-      sql: "INSERT INTO users (id, name) VALUES (?, ?)",
-      args: ["default-user", "Student"],
-    });
-  }
+}
+
+// Convert Turso-style ? placeholders to PostgreSQL $1, $2 format
+function convertPlaceholders(sql: string, args: any[]): { sql: string; params: any[] } {
+  let paramIndex = 1;
+  const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+  return { sql: convertedSql, params: args };
 }
 
 // Helper: get a single row
 export async function queryOne(sql: string, args: any[] = []): Promise<any | undefined> {
   await ensureInitialized();
-  const result = await getClient().execute({ sql, args });
-  if (result.rows.length === 0) return undefined;
-  // Convert Row proxy to plain object
-  const row = result.rows[0];
-  const obj: any = {};
-  for (const col of result.columns) {
-    obj[col] = row[col];
-  }
-  return obj;
+  const { sql: pgSql, params } = convertPlaceholders(sql, args);
+  const result = await executeQuery(pgSql, params);
+  return result.rows[0] || undefined;
 }
 
 // Helper: get multiple rows
 export async function queryAll(sql: string, args: any[] = []): Promise<any[]> {
   await ensureInitialized();
-  const result = await getClient().execute({ sql, args });
-  return result.rows.map((row) => {
-    const obj: any = {};
-    for (const col of result.columns) {
-      obj[col] = row[col];
-    }
-    return obj;
-  });
+  const { sql: pgSql, params } = convertPlaceholders(sql, args);
+  const result = await executeQuery(pgSql, params);
+  return result.rows;
 }
 
 // Helper: execute a write operation
 async function execute(sql: string, args: any[] = []) {
   await ensureInitialized();
-  return getClient().execute({ sql, args });
+  const { sql: pgSql, params } = convertPlaceholders(sql, args);
+  return executeQuery(pgSql, params);
 }
 
 // ─── User functions ──────────────────────────────────────
