@@ -665,7 +665,7 @@ export async function saveOtp(email: string, code: string, expiresMinutes: numbe
 export async function verifyOtp(email: string, code: string): Promise<boolean> {
   const normalizedEmail = email.toLowerCase().trim();
   const otp = await queryOne(
-    "SELECT * FROM otp_codes WHERE email = ? AND code = ? AND verified = 0",
+    "SELECT * FROM otp_codes WHERE email = ? AND code = ? AND verified = false",
     [normalizedEmail, code]
   );
 
@@ -676,14 +676,14 @@ export async function verifyOtp(email: string, code: string): Promise<boolean> {
     return false;
   }
 
-  await execute("UPDATE otp_codes SET verified = 1 WHERE id = ?", [otp.id]);
+  await execute("UPDATE otp_codes SET verified = true WHERE id = ?", [otp.id]);
   return true;
 }
 
 export async function isOtpVerified(email: string): Promise<boolean> {
   const normalizedEmail = email.toLowerCase().trim();
   const otp = await queryOne(
-    "SELECT * FROM otp_codes WHERE email = ? AND verified = 1 ORDER BY created_at DESC LIMIT 1",
+    "SELECT * FROM otp_codes WHERE email = ? AND verified = true ORDER BY created_at DESC LIMIT 1",
     [normalizedEmail]
   );
 
@@ -778,7 +778,7 @@ export async function saveQuestionAttempts(
         JSON.stringify(item.options),
         item.correctAnswer,
         item.userAnswer,
-        item.isCorrect ? 1 : 0,
+        item.isCorrect,
         explanationStr,
       ];
 
@@ -2075,7 +2075,7 @@ export async function completeQuizLevel(
     // Update if better performance
     if (accuracy > (existing.best_accuracy as number)) {
       await execute(
-        "UPDATE user_quiz_levels SET is_completed = 1, stars_earned = ?, best_accuracy = ?, attempts = attempts + 1, completed_at = CURRENT_TIMESTAMP WHERE id = ?",
+        "UPDATE user_quiz_levels SET is_completed = true, stars_earned = ?, best_accuracy = ?, attempts = attempts + 1, completed_at = CURRENT_TIMESTAMP WHERE id = ?",
         [stars, accuracy, existing.id]
       );
     } else {
@@ -2171,14 +2171,14 @@ export async function completeEnglishLevel(
   if (existing) {
     if (isPractice) {
       await execute(
-        "UPDATE user_english_levels SET practice_completed = 1, attempts = attempts + 1 WHERE id = ?",
+        "UPDATE user_english_levels SET practice_completed = true, attempts = attempts + 1 WHERE id = ?",
         [existing.id]
       );
     } else {
       // Test completion
       if (accuracy > (existing.best_accuracy as number)) {
         await execute(
-          "UPDATE user_english_levels SET test_completed = 1, stars_earned = ?, best_accuracy = ?, attempts = attempts + 1, completed_at = CURRENT_TIMESTAMP WHERE id = ?",
+          "UPDATE user_english_levels SET test_completed = true, stars_earned = ?, best_accuracy = ?, attempts = attempts + 1, completed_at = CURRENT_TIMESTAMP WHERE id = ?",
           [stars, accuracy, existing.id]
         );
       } else {
@@ -2288,7 +2288,7 @@ export async function markLevelPassed(
   await ensureInitialized();
 
   await execute(
-    "UPDATE level_question_cache SET is_passed = 1 WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
+    "UPDATE level_question_cache SET is_passed = true WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
     [userId, examId, subjectId, levelNumber]
   );
 }
