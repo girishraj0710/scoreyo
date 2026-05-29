@@ -622,46 +622,36 @@ export async function PUT(request: NextRequest) {
     const dayOfWeek = new Date().getDay();
     if (dayOfWeek === 0 || dayOfWeek === 6) badgeUpdates.weekendSessions = 1;
 
-    // Update badge stats if any achievements earned this quiz
-    if (Object.keys(badgeUpdates).length > 0) {
+    // Process badges in background (don't block response)
+    after(async () => {
       try {
-        console.log(`[Quiz Submit] Updating badge stats:`, badgeUpdates);
-        await updateBadgeStats(userId, badgeUpdates);
-        console.log(`[Quiz Submit] ✓ Badge stats updated`);
-      } catch (error) {
-        console.error('[Quiz Submit] updateBadgeStats failed:', error);
-        throw new Error(`Database error (updateBadgeStats): ${error instanceof Error ? error.message : String(error)}`);
-      }
-    }
+        // Update badge stats if any achievements earned this quiz
+        if (Object.keys(badgeUpdates).length > 0) {
+          console.log(`[Quiz Submit Background] Updating badge stats:`, badgeUpdates);
+          await updateBadgeStats(userId, badgeUpdates);
+          console.log(`[Quiz Submit Background] ✓ Badge stats updated`);
+        }
 
-    // Check for newly earned badges (non-fatal - don't block quiz submission)
-    let newBadges: any[] = [];
-    try {
-      console.log(`[Quiz Submit] Checking for new badges`);
-      const stats = await getBadgeStats(userId);
-      const earnedBadges = checkBadges(stats);
-      const userBadges = await getUserBadges(userId);
-      const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
+        // Check for newly earned badges
+        console.log(`[Quiz Submit Background] Checking for new badges`);
+        const stats = await getBadgeStats(userId);
+        const earnedBadges = checkBadges(stats);
+        const userBadges = await getUserBadges(userId);
+        const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
 
-      for (const badge of earnedBadges) {
-        if (!userBadgeIds.has(badge.id)) {
-          const unlocked = await unlockBadge(userId, badge.id);
-          if (unlocked) {
-            newBadges.push({
-              id: badge.id,
-              name: badge.name,
-              description: badge.description,
-              icon: badge.icon,
-              rarity: badge.rarity,
-            });
+        for (const badge of earnedBadges) {
+          if (!userBadgeIds.has(badge.id)) {
+            await unlockBadge(userId, badge.id);
+            console.log(`[Quiz Submit Background] ✓ Unlocked badge: ${badge.name}`);
           }
         }
+      } catch (error) {
+        console.error('[Quiz Submit Background] Badge processing failed:', error);
       }
-      console.log(`[Quiz Submit] ✓ Badge check complete, ${newBadges.length} new badges`);
-    } catch (error) {
-      // Badges are optional - don't fail quiz submission if this fails
-      console.error('[Quiz Submit] Badge processing failed (non-fatal):', error);
-    }
+    });
+
+    // Return empty badges array (badges will be shown on next page load)
+    const newBadges: any[] = [];
 
     return NextResponse.json({
       sessionId,

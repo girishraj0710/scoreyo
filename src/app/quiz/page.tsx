@@ -337,23 +337,24 @@ function QuizContent() {
     }
   };
 
-  const handleWeaknessSelect = async (type: 'calculation' | 'concept' | 'time' | 'careless') => {
-    if (currentWeaknessQuestion) {
-      try {
-        await fetch('/api/weakness', {
-          method: 'POST',
-          headers: getHeadersWithCsrf(),
-          body: JSON.stringify({
-            ...currentWeaknessQuestion,
-            weaknessType: type
-          })
-        });
-      } catch (err) {
-        console.error('Failed to record weakness:', err);
-      }
-    }
+  const handleWeaknessSelect = (type: 'calculation' | 'concept' | 'time' | 'careless') => {
+    // Close modal immediately for better UX
     setShowWeaknessTracker(false);
     setCurrentWeaknessQuestion(null);
+
+    // Record weakness in background (fire and forget)
+    if (currentWeaknessQuestion) {
+      fetch('/api/weakness', {
+        method: 'POST',
+        headers: getHeadersWithCsrf(),
+        body: JSON.stringify({
+          ...currentWeaknessQuestion,
+          weaknessType: type
+        })
+      }).catch(err => {
+        console.error('Failed to record weakness:', err);
+      });
+    }
   };
 
   const handleWeaknessSkip = () => {
