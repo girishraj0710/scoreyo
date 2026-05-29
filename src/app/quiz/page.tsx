@@ -1074,7 +1074,7 @@ function QuizContent() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.3 }}
-        className="bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-lg border border-slate-200 overflow-hidden mb-2 flex-1 flex flex-col"
+        className="bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-lg border border-slate-200 overflow-hidden mb-2 shrink-0"
       >
         {/* Colored Header Strip */}
         <div className={`h-1 bg-gradient-to-r ${
@@ -1085,7 +1085,7 @@ function QuizContent() {
             : "from-amber-500 to-orange-500"
         }`} />
 
-        <div className="p-3 md:p-4 overflow-y-auto flex-1">
+        <div className="p-3 md:p-4">
           {/* Meta Bar */}
           <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
             <div className="flex items-center gap-2 flex-wrap">
@@ -1227,6 +1227,9 @@ function QuizContent() {
           />
         </motion.div>
       )}
+
+      {/* Spacer - pushes navigation to bottom */}
+      <div className="flex-1" />
 
       {/* Navigation - IMPROVED BUTTONS */}
       <div className="flex items-center justify-between shrink-0">
