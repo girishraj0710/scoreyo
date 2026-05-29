@@ -59,7 +59,7 @@ export function DPPCard() {
   const { dpp, completed, completionData, streak } = data;
 
   return (
-    <div className="bg-gradient-to-br from-indigo-600 to-violet-500 rounded-2xl p-6 shadow-lg text-white relative overflow-hidden">
+    <div className="bg-gradient-to-br from-indigo-600 to-violet-500 rounded-2xl p-6 shadow-lg text-white relative overflow-hidden h-[400px]">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
       <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
