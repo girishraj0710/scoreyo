@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { AppHeader } from "@/components/app-header";
 import { AppFooter } from "@/components/app-footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Modern, readable font - industry standard
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -42,9 +40,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#f8fafc]">
+      <body className="min-h-full flex flex-col bg-gradient-to-br from-slate-50 via-white to-indigo-50 font-sans">
         <Providers>
           <AppHeader />
           <main className="flex-1">{children}</main>

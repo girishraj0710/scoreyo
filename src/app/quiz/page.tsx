@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { RichExplanation } from "@/components/rich-explanation";
 import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
 import { LevelCompleteModal } from "@/components/level-complete-modal";
@@ -1057,91 +1058,144 @@ function QuizContent() {
         </div>
       </div>
 
-      {/* Question Card */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-6">
-        {/* Top bar: difficulty + source + report */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <span
-              className={`text-xs font-medium px-2 py-1 rounded-full ${
+      {/* Question Card - REDESIGNED! */}
+      <motion.div
+        key={currentQuestion}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -20 }}
+        transition={{ duration: 0.3 }}
+        className="bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-2xl border border-slate-200 overflow-hidden mb-6"
+      >
+        {/* Colored Header Strip */}
+        <div className={`h-2 bg-gradient-to-r ${
+          (question?.difficulty || "medium") === "easy"
+            ? "from-emerald-500 to-green-500"
+            : (question?.difficulty || "medium") === "hard"
+            ? "from-red-500 to-pink-500"
+            : "from-amber-500 to-orange-500"
+        }`} />
+
+        <div className="p-8 md:p-10">
+          {/* Meta Bar - IMPROVED */}
+          <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
+              {/* Question Number Badge */}
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">
+                Question {currentQuestion + 1}/{quizData.questions.length}
+              </span>
+
+              {/* Difficulty Badge - MODERN */}
+              <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
                 (question?.difficulty || "medium") === "easy"
-                  ? "bg-emerald-100 text-emerald-700"
+                  ? "bg-emerald-50"
                   : (question?.difficulty || "medium") === "hard"
-                    ? "bg-red-100 text-red-700"
-                    : "bg-amber-100 text-amber-700"
-              }`}
-            >
-              {((question?.difficulty || "medium").charAt(0).toUpperCase() +
-                (question?.difficulty || "medium").slice(1))}
-            </span>
-            <SourceBadge source={question.source} />
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-slate-400">
-              Q{currentQuestion + 1}
-            </span>
+                  ? "bg-red-50"
+                  : "bg-amber-50"
+              }`}>
+                <span className={`w-2 h-2 rounded-full mr-2 bg-gradient-to-r ${
+                  (question?.difficulty || "medium") === "easy"
+                    ? "from-emerald-500 to-green-500"
+                    : (question?.difficulty || "medium") === "hard"
+                    ? "from-red-500 to-pink-500"
+                    : "from-amber-500 to-orange-500"
+                }`} />
+                {((question?.difficulty || "medium").charAt(0).toUpperCase() +
+                  (question?.difficulty || "medium").slice(1))}
+              </span>
+
+              {/* Source Badge */}
+              <SourceBadge source={question.source} />
+            </div>
+
+            {/* Report Button */}
             <button
               onClick={() => setReportQuestion(question)}
-              className="text-slate-400 hover:text-red-500 p-1"
-              title="Report incorrect question"
+              className="p-2 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors"
+              title="Report issue"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
               </svg>
             </button>
           </div>
-        </div>
 
-        {/* Question text */}
-        <h2 className="text-lg font-medium text-slate-800 mb-6 leading-relaxed">
-          {question.question}
-        </h2>
+          {/* Question Text - BETTER TYPOGRAPHY */}
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 leading-relaxed tracking-tight">
+              {question.question}
+            </h2>
+          </div>
 
-        {/* Options */}
-        <div className="space-y-3">
-          {question.options.map((option, idx) => {
-            let optionClass = "quiz-option";
-            if (showExplanation) {
-              optionClass += " disabled";
-              if (idx === question.correctAnswer) {
-                optionClass += " correct";
-              } else if (
-                idx === answers[currentQuestion] &&
-                idx !== question.correctAnswer
-              ) {
-                optionClass += " incorrect";
-              }
-            } else if (answers[currentQuestion] === idx) {
-              optionClass += " selected";
-            }
+          {/* Options - BEAUTIFUL CARDS */}
+          <div className="space-y-4">
+            {question.options.map((option, idx) => {
+              const isSelected = answers[currentQuestion] === idx;
+              const isCorrect = idx === question.correctAnswer;
+              const isWrong = showExplanation && isSelected && !isCorrect;
 
-            return (
-              <button
-                key={idx}
-                onClick={() => selectAnswer(idx)}
-                disabled={showExplanation}
-                className={`${optionClass} w-full flex items-center gap-3 p-4 rounded-xl border-2 border-slate-200 text-left`}
-              >
-                <span
-                  className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
-                    showExplanation && idx === question.correctAnswer
-                      ? "bg-cyan-400 border-emerald-500 text-white"
-                      : showExplanation &&
-                          idx === answers[currentQuestion] &&
-                          idx !== question.correctAnswer
-                        ? "bg-red-500 border-red-500 text-white"
-                        : answers[currentQuestion] === idx
-                          ? "bg-slate-500 border-indigo-500 text-white"
-                          : "border-slate-300 text-slate-400"
-                  }`}
+              return (
+                <motion.button
+                  key={idx}
+                  onClick={() => !showExplanation && selectAnswer(idx)}
+                  disabled={showExplanation}
+                  whileHover={!showExplanation ? { scale: 1.02, y: -2 } : {}}
+                  whileTap={!showExplanation ? { scale: 0.98 } : {}}
+                  className={`
+                    w-full flex items-start gap-4 p-5 rounded-2xl border-2 text-left transition-all
+                    ${
+                      showExplanation && isCorrect
+                        ? "border-green-400 bg-green-50 shadow-lg shadow-green-100"
+                        : isWrong
+                        ? "border-red-400 bg-red-50 shadow-lg shadow-red-100"
+                        : isSelected
+                        ? "border-indigo-500 bg-indigo-50 shadow-lg shadow-indigo-100"
+                        : "border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 shadow-sm"
+                    }
+                    ${showExplanation ? "cursor-default" : "cursor-pointer"}
+                  `}
                 >
-                  {String.fromCharCode(65 + idx)}
-                </span>
-                <span className="text-slate-700">{option}</span>
-              </button>
-            );
-          })}
-        </div>
+                  {/* Option Letter Circle - GRADIENT */}
+                  <span
+                    className={`
+                      shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-base font-bold transition-all
+                      ${
+                        showExplanation && isCorrect
+                          ? "bg-gradient-to-br from-green-500 to-emerald-500 text-white shadow-md"
+                          : isWrong
+                          ? "bg-gradient-to-br from-red-500 to-pink-500 text-white shadow-md"
+                          : isSelected
+                          ? "bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-md"
+                          : "bg-slate-100 text-slate-600 border border-slate-200"
+                      }
+                    `}
+                  >
+                    {String.fromCharCode(65 + idx)}
+                  </span>
+
+                  {/* Option Text - LARGER, MORE READABLE */}
+                  <span className="flex-1 text-lg text-slate-800 leading-relaxed pt-1.5">
+                    {option}
+                  </span>
+
+                  {/* Status Icon */}
+                  {showExplanation && (
+                    <span className="shrink-0 mt-1">
+                      {isCorrect ? (
+                        <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      ) : isWrong ? (
+                        <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                      ) : null}
+                    </span>
+                  )}
+                </motion.button>
+              );
+            })}
+          </div>
 
         {/* Explanation */}
         {showExplanation && (
@@ -1157,52 +1211,58 @@ function QuizContent() {
         )}
       </div>
 
-      {/* Navigation */}
+      {/* Navigation - IMPROVED BUTTONS */}
       <div className="flex items-center justify-between">
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
-          className="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="px-6 py-3 text-base font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
         >
-          Previous
+          ← Previous
         </button>
 
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           {!showExplanation && isCurrentAnswered && (
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={checkAnswer}
-              className="px-5 py-2 text-sm font-medium bg-amber-500 text-white rounded-lg hover:bg-amber-600"
+              className="px-8 py-3 text-base font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl hover:from-amber-600 hover:to-orange-600 shadow-lg hover:shadow-xl transition-all"
             >
-              Check Answer
-            </button>
+              ✓ Check Answer
+            </motion.button>
           )}
 
           {showExplanation && !isLastQuestion && (
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={nextQuestion}
-              className="px-5 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              className="px-8 py-3 text-base font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
             >
-              Next Question
-            </button>
+              Next Question →
+            </motion.button>
           )}
 
           {!isLastQuestion && !showExplanation && (
             <button
               onClick={nextQuestion}
-              className="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50"
+              className="px-6 py-3 text-base font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
             >
-              Skip
+              Skip →
             </button>
           )}
 
           {(isLastQuestion || answeredCount === quizData.questions.length) && (
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={submitQuiz}
               disabled={isSubmitting}
-              className="px-6 py-2 text-sm font-medium bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:opacity-50"
+              className="px-8 py-3 text-base font-bold bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl hover:from-emerald-600 hover:to-green-600 shadow-lg hover:shadow-xl disabled:opacity-50 transition-all"
             >
-              {isSubmitting ? "Submitting..." : "Submit Quiz"}
-            </button>
+              {isSubmitting ? "Submitting..." : "🎯 Submit Quiz"}
+            </motion.button>
           )}
         </div>
 
