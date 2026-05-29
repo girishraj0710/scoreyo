@@ -232,13 +232,13 @@ export async function GET(req: NextRequest) {
         args: dimensionalArgs,
       });
 
-      console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.length} topics`);
-      if (examFilter && dimensionalTopics.length === 0) {
+      console.log(`[Admin Analytics] Dimensional query returned ${dimensionalTopics.rows.length} topics`);
+      if (examFilter && dimensionalTopics.rows.length === 0) {
         console.warn(`[Admin Analytics] No topics found for exam: ${examFilter}. Check if exam_code exists in dim_exams table.`);
       }
 
       topicBreakdown = {
-        rows: dimensionalTopics.map((r: any) => ({
+        rows: dimensionalTopics.rows.map((r: any) => ({
           topic: r.topic,
           scope: r.scope,
           exam_count: Number(r.exam_count),
@@ -256,58 +256,58 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
       questionMetrics: {
-        total: Number(totalQuestions?.count || 0),
-        bySource: questionsBySource.map((r: any) => ({
+        total: Number(totalQuestions.rows[0]?.count || 0),
+        bySource: questionsBySource.rows.map((r: any) => ({
           source: r.source,
           count: Number(r.count),
         })),
-        byDifficulty: questionsByDifficulty.map((r: any) => ({
+        byDifficulty: questionsByDifficulty.rows.map((r: any) => ({
           difficulty: r.difficulty,
           count: Number(r.count),
         })),
-        byExam: questionsByExam.map((r: any) => ({
+        byExam: questionsByExam.rows.map((r: any) => ({
           examId: r.exam_id,
           count: Number(r.count),
         })),
       },
       reportMetrics: {
-        byStatus: reportStats.map((r: any) => ({
+        byStatus: reportStats.rows.map((r: any) => ({
           status: r.status,
           count: Number(r.count),
         })),
-        recentCount: Number(recentReports?.count || 0),
+        recentCount: Number(recentReports.rows[0]?.count || 0),
       },
       usageMetrics: {
         users: {
-          total: Number(totalUsers?.count || 0),
-          active7Days: Number(activeUsers7Days?.count || 0),
-          active30Days: Number(activeUsers30Days?.count || 0),
+          total: Number(totalUsers.rows[0]?.count || 0),
+          active7Days: Number(activeUsers7Days.rows[0]?.count || 0),
+          active30Days: Number(activeUsers30Days.rows[0]?.count || 0),
         },
         quizzes: {
-          total: Number(totalQuizzes?.count || 0),
-          last7Days: Number(quizzesLast7Days?.count || 0),
-          last30Days: Number(quizzesLast30Days?.count || 0),
+          total: Number(totalQuizzes.rows[0]?.count || 0),
+          last7Days: Number(quizzesLast7Days.rows[0]?.count || 0),
+          last30Days: Number(quizzesLast30Days.rows[0]?.count || 0),
         },
-        popularExams: popularExams.map((r: any) => ({
+        popularExams: popularExams.rows.map((r: any) => ({
           examId: r.exam_id,
           attempts: Number(r.attempts),
         })),
-        popularSubjects: popularSubjects.map((r: any) => ({
+        popularSubjects: popularSubjects.rows.map((r: any) => ({
           subjectId: r.subject_id,
           attempts: Number(r.attempts),
         })),
-        avgScores: avgScores.map((r: any) => ({
+        avgScores: avgScores.rows.map((r: any) => ({
           examId: r.exam_id,
           avgScore: Number(r.avg_score_pct).toFixed(1),
         })),
       },
-      dailyActivity: dailyActivity.map((r: any) => ({
+      dailyActivity: dailyActivity.rows.map((r: any) => ({
         date: r.date,
         quizzes: Number(r.quizzes),
         users: Number(r.users),
       })),
       questionQuality: {
-        lowAccuracy: lowAccuracyQuestions.map((r: any) => ({
+        lowAccuracy: lowAccuracyQuestions.rows.map((r: any) => ({
           id: r.id,
           question: String(r.question).substring(0, 100) + "...",
           examId: r.exam_id,
@@ -318,10 +318,10 @@ export async function GET(req: NextRequest) {
         })),
       },
       subscriptions: {
-        proUsers: Number(proUsers?.count || 0),
+        proUsers: Number(proUsers.rows[0]?.count || 0),
         revenue30Days: {
-          count: Number(revenue30Days?.count || 0),
-          total: Number(revenue30Days?.total || 0) / 100, // Convert paise to rupees
+          count: Number(revenue30Days.rows[0]?.count || 0),
+          total: Number(revenue30Days.rows[0]?.total || 0) / 100, // Convert paise to rupees
         },
       },
       topicBreakdown: topicBreakdown.rows,

@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
-
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
-});
+import { queryOne, queryAll, execute } from "@/lib/db";
 
 // Simple admin check (you can enhance this later with proper admin roles)
 // Move admin emails to environment variable for security
@@ -12,11 +7,8 @@ const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "admin@prepgenie.co.in").split
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {
-    const user = await db.execute({
-      sql: "SELECT email FROM users WHERE id = ?",
-      args: [userId],
-    });
-    return user.rows.length > 0 && ADMIN_EMAILS.includes(user.rows[0].email as string);
+    const user = await queryOne("SELECT email FROM users WHERE id = ?", [userId]);
+    return user && ADMIN_EMAILS.includes(user.email);
   } catch {
     return false;
   }
@@ -71,21 +63,18 @@ export async function GET(req: NextRequest) {
           LIMIT ? OFFSET ?`;
 
     // Fetch reported questions with details
-    const reports = await db.execute({
-      sql,
-      args: [status, limit, offset],
-    });
+    const reports = await queryAll(sql, [status, limit, offset]);
 
     // Get total count
-    const countResult = await db.execute({
-      sql: "SELECT COUNT(*) as count FROM question_reports WHERE status = ?",
-      args: [status],
-    });
+    const countResult = await queryOne(
+      "SELECT COUNT(*) as count FROM question_reports WHERE status = ?",
+      [status]
+    );
 
-    const total = Number(countResult.rows[0]?.count || 0);
+    const total = Number(countResult?.count || 0);
 
     return NextResponse.json({
-      reports: reports.rows.map((r: any) => ({
+      reports: reports.map((r: any) => ({
         reportId: r.report_id,
         questionId: r.question_id,
         reporter: {
@@ -212,10 +201,10 @@ export async function PUT(req: NextRequest) {
 
     args.push(questionId);
 
-    await db.execute({
-      sql: `UPDATE fact_exam_questions SET ${updates.join(", ")} WHERE id = ?`,
-      args,
-    });
+    await execute(
+      `UPDATE fact_exam_questions SET ${updates.join(", ")} WHERE id = ?`,
+      args
+    );
 
     return NextResponse.json({
       success: true,
@@ -257,19 +246,19 @@ export async function PATCH(req: NextRequest) {
       return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }
 
-    await db.execute({
-      sql: `UPDATE question_reports
-            SET status = ?, admin_notes = ?, resolved_at = ?
-            WHERE id = ?`,
-      args: [
+    await execute(
+      `UPDATE question_reports
+       SET status = ?, admin_notes = ?, resolved_at = ?
+       WHERE id = ?`,
+      [
         status,
         adminNotes || null,
         status === "fixed" || status === "dismissed"
           ? new Date().toISOString()
           : null,
         reportId,
-      ],
-    });
+      ]
+    );
 
     return NextResponse.json({
       success: true,
