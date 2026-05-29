@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyCsrfToken, CSRF_COOKIE_NAME, CSRF_HEADER_NAME } from "@/lib/csrf";
 
 /**
- * Middleware for CSRF Protection
+ * Proxy for CSRF Protection (Next.js 16+)
  *
  * Checks CSRF tokens on state-changing requests (POST, PUT, DELETE, PATCH)
  * Excludes: auth endpoints (login/register), public APIs
  */
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const method = request.method;
 
