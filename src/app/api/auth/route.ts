@@ -42,23 +42,27 @@ export async function POST(request: NextRequest) {
 
     // Check that the email was verified via OTP
     let otpVerified = false;
-    if (emergencyMode) {
-      console.log('[Auth] 🚨 Emergency mode - checking OTP in Redis cache only');
-      // In emergency mode, check Redis OTP cache directly (OTP route already cached it)
-      try {
-        const redis = getRedis();
-        const otpData = await redis.get(`otp:${cleanEmail}`);
-        if (otpData) {
-          // Upstash Redis auto-parses JSON - no need for JSON.parse
-          const parsed = typeof otpData === 'string' ? JSON.parse(otpData) : otpData;
-          otpVerified = parsed.verified === true;
-        }
-      } catch (error) {
-        console.error('[Auth] Redis OTP check failed:', error);
+
+    // Always check Redis first (OTPs are cached there)
+    try {
+      console.log('[Auth] Checking OTP in Redis cache...');
+      const redis = getRedis();
+      const otpData = await redis.get(`otp:${cleanEmail}`);
+      if (otpData) {
+        // Upstash Redis auto-parses JSON - no need for JSON.parse
+        const parsed = typeof otpData === 'string' ? JSON.parse(otpData) : otpData;
+        otpVerified = parsed.verified === true;
+        console.log(`[Auth] Redis OTP check: ${otpVerified}`);
       }
-    } else {
-      // Normal mode: check database
+    } catch (error) {
+      console.error('[Auth] Redis OTP check failed:', error);
+    }
+
+    // If not found in Redis, check database as fallback
+    if (!otpVerified && !emergencyMode) {
+      console.log('[Auth] Checking OTP in database...');
       otpVerified = await isOtpVerified(cleanEmail);
+      console.log(`[Auth] Database OTP check: ${otpVerified}`);
     }
 
     if (!otpVerified) {
