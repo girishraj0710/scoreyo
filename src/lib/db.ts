@@ -1110,28 +1110,41 @@ export async function getCachedQuestionCount(examId: string, subjectId: string, 
 
 export async function getUserStats(userId: string) {
   const totalSessions = await queryOne(
-    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = ?",
+    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = $1",
     [userId]
   );
 
   const totalQuestions = await queryOne(
-    "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = ?",
+    "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = $1",
+    [userId]
+  );
+
+  // Get questions answered today
+  const today = new Date().toISOString().split("T")[0];
+  const questionsToday = await queryOne(
+    "SELECT COALESCE(SUM(total_questions), 0) as total FROM quiz_sessions WHERE user_id = $1 AND DATE(created_at) = $2",
+    [userId, today]
+  );
+
+  // Get personal best (most questions in a single day)
+  const personalBest = await queryOne(
+    "SELECT COALESCE(MAX(daily_total), 0) as best FROM (SELECT DATE(created_at) as day, SUM(total_questions) as daily_total FROM quiz_sessions WHERE user_id = $1 GROUP BY DATE(created_at)) as daily_stats",
     [userId]
   );
 
   const streakData = await queryAll(
-    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = ? ORDER BY day DESC",
+    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1 ORDER BY day DESC",
     [userId]
   );
 
-  // Calculate streak
+  // Calculate current streak
   let streak = 0;
-  const today = new Date().toISOString().split("T")[0];
+  const todayDate = new Date().toISOString().split("T")[0];
   const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
 
   if (streakData.length > 0) {
     const lastDay = streakData[0].day;
-    if (lastDay === today || lastDay === yesterday) {
+    if (lastDay === todayDate || lastDay === yesterday) {
       streak = 1;
       for (let i = 1; i < streakData.length; i++) {
         const current = new Date(streakData[i - 1].day);
@@ -1146,9 +1159,31 @@ export async function getUserStats(userId: string) {
     }
   }
 
+  // Calculate best streak (longest streak ever)
+  let bestStreak = 0;
+  let currentStreakCount = 0;
+
+  if (streakData.length > 0) {
+    currentStreakCount = 1;
+    bestStreak = 1;
+
+    for (let i = streakData.length - 1; i > 0; i--) {
+      const current = new Date(streakData[i].day);
+      const prev = new Date(streakData[i - 1].day);
+      const diffDays = (prev.getTime() - current.getTime()) / 86400000;
+
+      if (diffDays === 1) {
+        currentStreakCount++;
+        bestStreak = Math.max(bestStreak, currentStreakCount);
+      } else {
+        currentStreakCount = 1;
+      }
+    }
+  }
+
   const examBreakdown = await queryAll(
     `SELECT exam_id, COUNT(*) as sessions, SUM(total_questions) as questions, SUM(correct_answers) as correct
-     FROM quiz_sessions WHERE user_id = ? GROUP BY exam_id`,
+     FROM quiz_sessions WHERE user_id = $1 GROUP BY exam_id`,
     [userId]
   );
 
@@ -1161,6 +1196,9 @@ export async function getUserStats(userId: string) {
         ? Math.round(((totalQuestions?.correct as number) / (totalQuestions?.total as number)) * 100)
         : 0,
     streak,
+    bestStreak,
+    questionsToday: (questionsToday?.total as number) || 0,
+    personalBest: (personalBest?.best as number) || 0,
     examBreakdown,
   };
 }
