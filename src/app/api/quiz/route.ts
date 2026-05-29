@@ -547,30 +547,51 @@ export async function PUT(request: NextRequest) {
     const sprintId = body.sprintId || null;
 
     // Save to database
-    await createQuizSession(
-      sessionId,
-      userId,
-      examId,
-      subjectId,
-      topic,
-      questions.length,
-      correct,
-      timeTaken || 0,
-      sourceStats,
-      sprintId
-    );
+    try {
+      console.log(`[Quiz Submit] Creating session for user=${userId}, sessionId=${sessionId}`);
+      await createQuizSession(
+        sessionId,
+        userId,
+        examId,
+        subjectId,
+        topic,
+        questions.length,
+        correct,
+        timeTaken || 0,
+        sourceStats,
+        sprintId
+      );
+      console.log(`[Quiz Submit] ✓ Session created`);
+    } catch (error) {
+      console.error('[Quiz Submit] createQuizSession failed:', error);
+      throw new Error(`Database error (createQuizSession): ${error instanceof Error ? error.message : String(error)}`);
+    }
 
-    await saveQuestionAttempts(attempts);
+    try {
+      console.log(`[Quiz Submit] Saving ${attempts.length} question attempts`);
+      await saveQuestionAttempts(attempts);
+      console.log(`[Quiz Submit] ✓ Question attempts saved`);
+    } catch (error) {
+      console.error('[Quiz Submit] saveQuestionAttempts failed:', error);
+      throw new Error(`Database error (saveQuestionAttempts): ${error instanceof Error ? error.message : String(error)}`);
+    }
 
     // Update topic mastery
-    await updateTopicMastery(
-      userId,
-      examId,
-      subjectId,
-      topic,
-      questions.length,
-      correct
-    );
+    try {
+      console.log(`[Quiz Submit] Updating topic mastery`);
+      await updateTopicMastery(
+        userId,
+        examId,
+        subjectId,
+        topic,
+        questions.length,
+        correct
+      );
+      console.log(`[Quiz Submit] ✓ Topic mastery updated`);
+    } catch (error) {
+      console.error('[Quiz Submit] updateTopicMastery failed:', error);
+      throw new Error(`Database error (updateTopicMastery): ${error instanceof Error ? error.message : String(error)}`);
+    }
 
     // ── Badge Tracking ──────────────────────────────────────
     const accuracy = Math.round((correct / questions.length) * 100);
@@ -599,29 +620,43 @@ export async function PUT(request: NextRequest) {
 
     // Update badge stats if any achievements earned this quiz
     if (Object.keys(badgeUpdates).length > 0) {
-      await updateBadgeStats(userId, badgeUpdates);
+      try {
+        console.log(`[Quiz Submit] Updating badge stats:`, badgeUpdates);
+        await updateBadgeStats(userId, badgeUpdates);
+        console.log(`[Quiz Submit] ✓ Badge stats updated`);
+      } catch (error) {
+        console.error('[Quiz Submit] updateBadgeStats failed:', error);
+        throw new Error(`Database error (updateBadgeStats): ${error instanceof Error ? error.message : String(error)}`);
+      }
     }
 
-    // Check for newly earned badges
-    const stats = await getBadgeStats(userId);
-    const earnedBadges = checkBadges(stats);
-    const userBadges = await getUserBadges(userId);
-    const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
+    // Check for newly earned badges (non-fatal - don't block quiz submission)
+    let newBadges: any[] = [];
+    try {
+      console.log(`[Quiz Submit] Checking for new badges`);
+      const stats = await getBadgeStats(userId);
+      const earnedBadges = checkBadges(stats);
+      const userBadges = await getUserBadges(userId);
+      const userBadgeIds = new Set(userBadges.map((b: any) => b.badge_id));
 
-    const newBadges = [];
-    for (const badge of earnedBadges) {
-      if (!userBadgeIds.has(badge.id)) {
-        const unlocked = await unlockBadge(userId, badge.id);
-        if (unlocked) {
-          newBadges.push({
-            id: badge.id,
-            name: badge.name,
-            description: badge.description,
-            icon: badge.icon,
-            rarity: badge.rarity,
-          });
+      for (const badge of earnedBadges) {
+        if (!userBadgeIds.has(badge.id)) {
+          const unlocked = await unlockBadge(userId, badge.id);
+          if (unlocked) {
+            newBadges.push({
+              id: badge.id,
+              name: badge.name,
+              description: badge.description,
+              icon: badge.icon,
+              rarity: badge.rarity,
+            });
+          }
         }
       }
+      console.log(`[Quiz Submit] ✓ Badge check complete, ${newBadges.length} new badges`);
+    } catch (error) {
+      // Badges are optional - don't fail quiz submission if this fails
+      console.error('[Quiz Submit] Badge processing failed (non-fatal):', error);
     }
 
     return NextResponse.json({
