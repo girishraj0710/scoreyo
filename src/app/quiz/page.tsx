@@ -978,7 +978,7 @@ function QuizContent() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-2 h-screen flex flex-col">
+    <div className="max-w-4xl mx-auto px-4 py-2 min-h-screen flex flex-col pb-8">
       {/* Report Modal */}
       {reportQuestion && (
         <ReportModal
@@ -1236,7 +1236,7 @@ function QuizContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 mt-4 shrink-0 max-h-48 overflow-y-auto"
+          className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 mt-4 shrink-0 max-h-56 overflow-y-auto"
         >
           <RichExplanation
             explanation={question.explanation}
@@ -1303,8 +1303,8 @@ function QuizContent() {
           )}
       </div>
 
-      {/* Quick navigation dots */}
-      <div className="flex justify-center gap-1.5 mt-4 shrink-0 pb-2">
+      {/* Quick navigation dots - Always visible at bottom */}
+      <div className="flex justify-center gap-1.5 mt-4 shrink-0 pb-4">
         {quizData.questions.map((_, idx) => (
           <button
             key={idx}
