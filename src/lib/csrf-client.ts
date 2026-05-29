@@ -17,9 +17,9 @@ export function getCsrfToken(): string | null {
 }
 
 // Get headers with CSRF token
-export function getHeadersWithCsrf(additionalHeaders: HeadersInit = {}): HeadersInit {
+export function getHeadersWithCsrf(additionalHeaders: Record<string, string> = {}): HeadersInit {
   const csrfToken = getCsrfToken();
-  const headers: HeadersInit = {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...additionalHeaders,
   };
