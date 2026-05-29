@@ -1444,7 +1444,7 @@ export async function getDetailedPerformance(userId: string) {
             SUM(correct_answers) as total_correct,
             AVG(time_taken_seconds) as avg_time,
             ROUND(CAST(SUM(correct_answers) AS REAL) / NULLIF(SUM(total_questions), 0) * 100) as accuracy
-     FROM quiz_sessions WHERE user_id = ? GROUP BY exam_id, subject_id ORDER BY accuracy ASC`,
+     FROM quiz_sessions WHERE user_id = $1 GROUP BY exam_id, subject_id ORDER BY accuracy ASC`,
     [userId]
   );
 
@@ -1453,7 +1453,7 @@ export async function getDetailedPerformance(userId: string) {
             COUNT(*) as sessions,
             SUM(total_questions) as questions,
             SUM(correct_answers) as correct
-     FROM quiz_sessions WHERE user_id = ? AND created_at >= CURRENT_DATE - INTERVAL '30 days'
+     FROM quiz_sessions WHERE user_id = $1 AND created_at >= CURRENT_DATE - INTERVAL '30 days'
      GROUP BY DATE(created_at) ORDER BY day ASC`,
     [userId]
   );
@@ -1467,7 +1467,7 @@ export async function getDetailedPerformance(userId: string) {
          ELSE 'needs_work'
        END as performance_band,
        COUNT(*) as count
-     FROM quiz_sessions WHERE user_id = ? GROUP BY performance_band`,
+     FROM quiz_sessions WHERE user_id = $1 GROUP BY performance_band`,
     [userId]
   );
 
@@ -1475,26 +1475,26 @@ export async function getDetailedPerformance(userId: string) {
     `SELECT ROUND(CAST(time_taken_seconds AS REAL) / NULLIF(total_questions, 0), 1) as avg_seconds_per_question,
             ROUND(CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) * 100) as accuracy,
             DATE(created_at) as day
-     FROM quiz_sessions WHERE user_id = ? AND time_taken_seconds > 0 ORDER BY created_at DESC LIMIT 20`,
+     FROM quiz_sessions WHERE user_id = $1 AND time_taken_seconds > 0 ORDER BY created_at DESC LIMIT 20`,
     [userId]
   );
 
   const accuracyTrend = await queryAll(
     `SELECT ROUND(CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) * 100) as accuracy,
             topic, exam_id, DATE(created_at) as day
-     FROM quiz_sessions WHERE user_id = ? ORDER BY created_at DESC LIMIT 20`,
+     FROM quiz_sessions WHERE user_id = $1 ORDER BY created_at DESC LIMIT 20`,
     [userId]
   );
 
   const topicPerformance = await queryAll(
     `SELECT exam_id, subject_id, topic, total_attempted, total_correct, mastery_score
-     FROM topic_mastery WHERE user_id = ? AND total_attempted >= 3 ORDER BY mastery_score DESC`,
+     FROM topic_mastery WHERE user_id = $1 AND total_attempted >= 3 ORDER BY mastery_score DESC`,
     [userId]
   );
 
   const mockTestHistory = await queryAll(
     `SELECT id, exam_id, total_questions, correct_answers, time_limit_seconds, time_taken_seconds, status, completed_at
-     FROM mock_tests WHERE user_id = ? AND status = 'completed' ORDER BY completed_at DESC LIMIT 10`,
+     FROM mock_tests WHERE user_id = $1 AND status = 'completed' ORDER BY completed_at DESC LIMIT 10`,
     [userId]
   );
 
