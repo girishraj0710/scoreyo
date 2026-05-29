@@ -683,10 +683,12 @@ export async function PUT(request: NextRequest) {
   } catch (error) {
     console.error("Submit quiz error:", error);
     const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
     return NextResponse.json(
       {
         error: "Failed to submit quiz",
-        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+        message: errorMessage, // Always show for debugging
+        stack: process.env.NODE_ENV === 'development' ? errorStack : undefined
       },
       { status: 500 }
     );

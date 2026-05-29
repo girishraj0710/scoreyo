@@ -1493,15 +1493,30 @@ export async function recordWeaknessType(
 
   const column = columnMap[weaknessType];
 
-  // Use ? placeholders for execute function (it converts to $1, $2...)
-  const sql = `INSERT INTO weakness_profiles (user_id, exam_id, subject_id, topic, ${column}, total_errors, last_updated)
-        VALUES (?, ?, ?, ?, 1, 1, CURRENT_TIMESTAMP)
-        ON CONFLICT(user_id, exam_id, subject_id, topic) DO UPDATE SET
-          ${column} = weakness_profiles.${column} + 1,
-          total_errors = weakness_profiles.total_errors + 1,
-          last_updated = CURRENT_TIMESTAMP`;
+  try {
+    // First check if record exists
+    const existing = await queryOne(
+      'SELECT id FROM weakness_profiles WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND topic = ?',
+      [userId, examId, subjectId, topic]
+    );
 
-  await execute(sql, [userId, examId, subjectId, topic]);
+    if (existing) {
+      // Update existing record
+      await execute(
+        `UPDATE weakness_profiles SET ${column} = ${column} + 1, total_errors = total_errors + 1, last_updated = CURRENT_TIMESTAMP WHERE id = ?`,
+        [existing.id]
+      );
+    } else {
+      // Insert new record
+      await execute(
+        `INSERT INTO weakness_profiles (user_id, exam_id, subject_id, topic, ${column}, total_errors, last_updated) VALUES (?, ?, ?, ?, 1, 1, CURRENT_TIMESTAMP)`,
+        [userId, examId, subjectId, topic]
+      );
+    }
+  } catch (error) {
+    console.error('[recordWeaknessType] Error:', error);
+    // Don't throw - make this non-fatal
+  }
 }
 
 export async function getWeaknessProfile(userId: string, examId: string) {
