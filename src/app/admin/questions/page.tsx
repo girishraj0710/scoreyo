@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface Reporter {
   userId: string;
@@ -102,7 +103,7 @@ export default function AdminQuestionReviewPage() {
       // Update question
       const questionRes = await fetch("/api/admin/questions", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           questionId: editingQuestion.questionId,
           ...editForm,
@@ -116,7 +117,7 @@ export default function AdminQuestionReviewPage() {
       // Update report status to 'fixed'
       const reportRes = await fetch("/api/admin/questions", {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           reportId: editingQuestion.reportId,
           status: "fixed",
@@ -145,7 +146,7 @@ export default function AdminQuestionReviewPage() {
     try {
       const res = await fetch("/api/admin/questions", {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           reportId: report.reportId,
           status: "dismissed",

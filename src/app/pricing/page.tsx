@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 declare global {
   interface Window {
@@ -68,7 +69,7 @@ export default function PricingPage() {
       // 1. Create order
       const orderRes = await fetch("/api/payment", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({ plan }),
       });
       const orderData = await orderRes.json();
@@ -98,7 +99,7 @@ export default function PricingPage() {
           try {
             const verifyRes = await fetch("/api/payment", {
               method: "PUT",
-              headers: { "Content-Type": "application/json" },
+              headers: getHeadersWithCsrf(),
               body: JSON.stringify({
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,

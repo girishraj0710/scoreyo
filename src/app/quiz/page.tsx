@@ -334,7 +334,7 @@ function QuizContent() {
       try {
         await fetch('/api/weakness', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: getHeadersWithCsrf(),
           body: JSON.stringify({
             ...currentWeaknessQuestion,
             weaknessType: type
@@ -446,7 +446,7 @@ function QuizContent() {
         try {
           await fetch("/api/sprint", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: getHeadersWithCsrf(),
             body: JSON.stringify({
               sprintId,
               score: data.correctAnswers,

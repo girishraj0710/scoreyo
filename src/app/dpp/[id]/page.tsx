@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { ChevronLeft, Clock, CheckCircle2, XCircle, Flame } from "lucide-react";
 import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface Question {
   question: string;
@@ -127,7 +128,7 @@ export default function DPPPage() {
     try {
       const res = await fetch("/api/dpp", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           dppId: data.dpp.id,
           score: correctCount,

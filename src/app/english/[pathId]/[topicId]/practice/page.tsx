@@ -5,6 +5,7 @@ import { useUser } from "@/context/user-context";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
 import { getPathById, getTopicById } from "@/lib/english-content";
 import { ChevronLeft, Clock, CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface Question {
   question: string;
@@ -86,7 +87,7 @@ export default function EnglishPracticePage() {
     try {
       const res = await fetch("/api/english/practice", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           pathId,
           topicId,
@@ -146,7 +147,7 @@ export default function EnglishPracticePage() {
     try {
       await fetch("/api/english/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           pathId,
           topicId,

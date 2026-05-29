@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AlertCircle, Check, X } from "lucide-react";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface ReportQuestionButtonProps {
   questionId: string;
@@ -37,7 +38,7 @@ export default function ReportQuestionButton({
     try {
       const response = await fetch("/api/report-question", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({ questionId, reason, details, examId, subjectId }),
       });
 

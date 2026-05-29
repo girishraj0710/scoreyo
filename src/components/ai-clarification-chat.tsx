@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface AIClarificationChatProps {
   questionText: string;
@@ -28,7 +29,7 @@ export function AIClarificationChat({
     try {
       const res = await fetch('/api/clarify', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           questionText,
           userQuestion: userQuestion.trim(),
@@ -56,7 +57,7 @@ export function AIClarificationChat({
     try {
       await fetch('/api/clarify', {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getHeadersWithCsrf(),
         body: JSON.stringify({
           questionText,
           helpful
