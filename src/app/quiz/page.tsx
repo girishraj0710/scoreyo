@@ -972,7 +972,7 @@ function QuizContent() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-2 h-screen flex flex-col">
+    <div className="max-w-4xl mx-auto px-4 py-2 h-screen flex flex-col">
       {/* Report Modal */}
       {reportQuestion && (
         <ReportModal
@@ -1152,7 +1152,7 @@ function QuizContent() {
                   whileHover={!showExplanation ? { scale: 1.01, y: -1 } : {}}
                   whileTap={!showExplanation ? { scale: 0.99 } : {}}
                   className={`
-                    w-full flex items-start gap-2.5 p-3 rounded-lg border-2 text-left transition-all
+                    w-full flex items-center gap-2.5 p-4 rounded-lg border-2 text-left transition-all
                     ${
                       showExplanation && isCorrect
                         ? "border-green-400 bg-green-50 shadow-lg shadow-green-100"
