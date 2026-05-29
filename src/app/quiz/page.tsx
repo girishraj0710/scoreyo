@@ -983,20 +983,20 @@ function QuizContent() {
         />
       )}
 
-      {/* Back Button */}
-      <button
-        onClick={handleBack}
-        className="inline-flex items-center gap-1.5 mb-2 px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 rounded-lg transition-colors shrink-0"
-        aria-label="Back"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-        Back
-      </button>
-
-      {/* Quiz Header */}
+      {/* Quiz Header with Back Button */}
       <div className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-200 mb-2 shrink-0">
+        {/* Back Button - Top Left */}
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center gap-1 mb-2 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
+          aria-label="Back"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back
+        </button>
+
         <div className="flex items-center justify-between mb-1.5">
           <div className="flex items-center gap-2 flex-wrap">
             {isLevelMode && (
@@ -1228,11 +1228,8 @@ function QuizContent() {
         </motion.div>
       )}
 
-      {/* Spacer - pushes navigation to bottom */}
-      <div className="flex-1" />
-
-      {/* Navigation - IMPROVED BUTTONS */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Navigation - Centered */}
+      <div className="flex items-center justify-center gap-3 shrink-0 mt-3">
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
@@ -1240,8 +1237,6 @@ function QuizContent() {
         >
           ← Previous
         </button>
-
-        <div className="flex gap-3">
           {!showExplanation && isCurrentAnswered && (
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -1284,9 +1279,6 @@ function QuizContent() {
               {isSubmitting ? "Submitting..." : "🎯 Submit Quiz"}
             </motion.button>
           )}
-        </div>
-
-        <div className="shrink-0" />
       </div>
 
       {/* Quick navigation dots */}
