@@ -478,8 +478,12 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Quiz generation error:", error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "Failed to generate quiz" },
+      {
+        error: "Failed to generate quiz",
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }

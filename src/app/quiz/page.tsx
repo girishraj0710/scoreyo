@@ -277,7 +277,13 @@ function QuizContent() {
         });
 
         if (!res.ok) {
-          const errData = await res.json();
+          let errData;
+          try {
+            errData = await res.json();
+          } catch {
+            // Server returned non-JSON (probably HTML error page)
+            throw new Error(`Server error (${res.status}). Please try again.`);
+          }
           if (errData.limitReached) {
             setError("LIMIT_REACHED" as any);
             return;
