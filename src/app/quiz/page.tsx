@@ -309,6 +309,13 @@ function QuizContent() {
     loadQuiz();
   }, [examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber, isSprintMode, sprintId]);
 
+  // Scroll to top when results are shown
+  useEffect(() => {
+    if (isSubmitted && results) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [isSubmitted, results]);
+
   const selectAnswer = useCallback(
     (optionIndex: number) => {
       if (showExplanation) return;
@@ -717,11 +724,6 @@ function QuizContent() {
 
   // Results screen
   if (isSubmitted && results) {
-    // Scroll to top when results are shown
-    useEffect(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [isSubmitted]);
-
     const percentage = results.accuracy;
     const grade =
       percentage >= 90
