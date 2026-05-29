@@ -286,10 +286,11 @@ export default function ReportsPage() {
             <div className="space-y-2">
               {strongTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
+                const topicName = topic.topic || "General Topic";
                 return (
                   <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-emerald-100">
                     <div>
-                      <div className="text-sm font-medium text-slate-700">{topic.topic}</div>
+                      <div className="text-sm font-medium text-slate-700">{topicName}</div>
                       <div className="text-xs text-slate-400">{exam?.name} | {topic.total_attempted} Q</div>
                     </div>
                     <div className="text-lg font-bold text-slate-500">{Math.round(topic.mastery_score)}%</div>
@@ -311,16 +312,17 @@ export default function ReportsPage() {
             <div className="space-y-2">
               {weakTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
+                const topicName = topic.topic || "General Topic";
                 return (
                   <div key={idx} className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-100">
                     <div>
-                      <div className="text-sm font-medium text-slate-700">{topic.topic}</div>
+                      <div className="text-sm font-medium text-slate-700">{topicName}</div>
                       <div className="text-xs text-slate-400">{exam?.name} | {topic.total_attempted} Q</div>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-lg font-bold text-red-600">{Math.round(topic.mastery_score)}%</span>
                       <a
-                        href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topic.topic)}&count=5&difficulty=mixed`}
+                        href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
                         className="text-xs text-indigo-600 bg-slate-50 px-2 py-1 rounded hover:bg-indigo-100"
                       >
                         {t("practice")}
