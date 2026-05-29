@@ -51,6 +51,7 @@ export const COLORFUL_CATEGORY_ICONS: Record<string, string> = {
 // Colorful Exam Icons - COMPLETE LIST with unique icons
 export const COLORFUL_EXAM_ICONS: Record<string, string> = {
   // ─── ENGINEERING ───────────────────────────────────────
+  // National Level
   'jee-main': 'noto:gear',                       // ⚙️ Gear (engineering)
   'jee-advanced': 'noto:trophy',                 // 🏆 Gold trophy (advanced/excellence)
   'gate': 'noto:laptop',                         // 💻 Laptop (graduate engineering)
@@ -60,6 +61,21 @@ export const COLORFUL_EXAM_ICONS: Record<string, string> = {
   'comedk': 'noto:microscope',                   // 🔬 Microscope (research)
   'iit-jam': 'noto:alembic',                     // ⚗️ Chemistry flask (science)
   'iiit': 'noto:desktop-computer',               // 🖥️ Computer (IT institutes)
+
+  // State Engineering CETs (13 unique colorful icons)
+  'kcet': 'noto:mage',                           // 🧙 Karnataka CET - mage/wizard (knowledge)
+  'mht-cet': 'noto:factory',                     // 🏭 Maharashtra - industrial/factory
+  'ts-eamcet': 'noto:mosque',                    // 🕌 Telangana - cultural landmark
+  'ap-eamcet': 'noto:sunset',                    // 🌅 Andhra Pradesh - sunrise/progress
+  'wbjee': 'noto:book',                          // 📖 West Bengal - education/books
+  'keam': 'noto:elephant',                       // 🐘 Kerala - state symbol elephant
+  'upsee': 'noto:diya-lamp',                     // 🪔 UP - traditional lamp (knowledge)
+  'bcece': 'noto:bell',                          // 🔔 Bihar - temple bell (learning)
+  'ojee': 'noto:wheel',                          // ☸️ Odisha - dharma wheel/konark
+  'tnea': 'noto:temple',                         // 🛕 Tamil Nadu - temple architecture
+  'gujcet': 'noto:lion',                         // 🦁 Gujarat - Asiatic lion (state animal)
+  'reap': 'noto:camel',                          // 🐫 Rajasthan - desert camel
+  'jcece': 'noto:mountain',                      // ⛰️ Jharkhand - mountains/plateaus
 
   // ─── MEDICAL ───────────────────────────────────────
   'neet-ug': 'noto:stethoscope',                 // 🩺 Stethoscope (medical)
