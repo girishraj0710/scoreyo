@@ -219,7 +219,7 @@ function HomePageContent() {
           </span>
         </h1>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-6 leading-relaxed">
-          Expert-curated questions from NCERT, PYQs &amp; textbooks for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br />
+          Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ competitive exams.<br />
           AI-powered practice with progress tracking to master every topic.
         </p>
 
