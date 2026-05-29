@@ -32,7 +32,7 @@ export const otpVerifyLimiter = redis ? new Ratelimit({
 
 export const quizGenerationLimiter = redis ? new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(10, "1 h"),
+  limiter: Ratelimit.slidingWindow(100, "1 h"), // 100 per hour (generous for testing)
   analytics: true,
   prefix: "ratelimit:quiz-gen",
 }) : undefined;
