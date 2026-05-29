@@ -606,6 +606,21 @@ export async function createNewUser(
   );
 }
 
+// Ensure user exists - create if missing (for migration scenarios)
+export async function ensureUserExists(userId: string) {
+  const user = await getUser(userId);
+  if (!user) {
+    console.log(`[ensureUserExists] User ${userId} not found, creating...`);
+    // Create minimal user record
+    await execute(
+      "INSERT INTO users (id, name, email, avatar_color) VALUES (?, ?, ?, ?) ON CONFLICT (id) DO NOTHING",
+      [userId, "Guest User", "", "#6366f1"]
+    );
+    return await getUser(userId);
+  }
+  return user;
+}
+
 export async function listUsers() {
   return queryAll(
     "SELECT id, name, email, avatar_color, created_at FROM users ORDER BY created_at DESC"

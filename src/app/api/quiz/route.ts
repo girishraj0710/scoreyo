@@ -512,6 +512,10 @@ export async function PUT(request: NextRequest) {
       );
     }
 
+    // Ensure user exists in database (handles migration edge cases)
+    const { ensureUserExists } = await import("@/lib/db");
+    await ensureUserExists(userId);
+
     // Calculate score
     let correct = 0;
     const attempts = questions.map((q: any, i: number) => {
