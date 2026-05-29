@@ -1120,9 +1120,9 @@ function QuizContent() {
             </button>
           </div>
 
-          {/* Question Text - BETTER TYPOGRAPHY */}
+          {/* Question Text - BALANCED TYPOGRAPHY */}
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 leading-relaxed tracking-tight">
+            <h2 className="text-xl md:text-2xl font-semibold text-slate-900 leading-relaxed">
               {question.question}
             </h2>
           </div>
@@ -1173,8 +1173,8 @@ function QuizContent() {
                     {String.fromCharCode(65 + idx)}
                   </span>
 
-                  {/* Option Text - LARGER, MORE READABLE */}
-                  <span className="flex-1 text-lg text-slate-800 leading-relaxed pt-1.5">
+                  {/* Option Text - READABLE SIZE */}
+                  <span className="flex-1 text-base text-slate-800 leading-relaxed pt-1.5">
                     {option}
                   </span>
 
