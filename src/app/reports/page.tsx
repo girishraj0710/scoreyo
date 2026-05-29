@@ -173,7 +173,7 @@ export default function ReportsPage() {
           {difficultyBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-6">
               {[
                 { band: "excellent", label: t("excellentRange"), color: "bg-cyan-400", textColor: "text-slate-500", IconComponent: Star },
                 { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-indigo-600", IconComponent: TrendingUp },
