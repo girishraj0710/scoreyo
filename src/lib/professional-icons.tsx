@@ -21,6 +21,7 @@ import {
   HardDrive,
   Component,
   Binary,
+  CircuitBoard,
 
   // Medical & Science
   Stethoscope,
@@ -30,12 +31,15 @@ import {
   Dna,
   Pill,
   Activity,
+  Syringe,
 
   // Law & Judicial
   Scale,
   Gavel,
   FileText,
   Briefcase,
+  ScrollText,
+  BadgeCheck,
 
   // Government & Civil Services
   Building,
@@ -44,6 +48,7 @@ import {
   Flag,
   Shield,
   Users,
+  University,
 
   // Banking & Finance
   Banknote,
@@ -53,18 +58,24 @@ import {
   CreditCard,
   PiggyBank,
   Coins,
+  Wallet,
+  HandCoins,
 
   // Defense & Services
   ShieldCheck,
   Plane,
   Anchor,
   Target,
+  ShieldAlert,
+  Swords,
 
   // Mathematics & Science
   Calculator as Calc,
-  Calculator as SquareRoot,  // Using Calculator for math
+  Calculator as SquareRoot,
   ChartBar,
   LineChart,
+  PieChart,
+  Sigma,
 
   // Languages & Humanities
   Languages,
@@ -72,6 +83,7 @@ import {
   MessageSquare,
   PenTool,
   Type,
+  BookMarked,
 
   // Arts & Design
   Palette,
@@ -83,6 +95,8 @@ import {
   Train,
   Bus,
   Ship,
+  Truck,
+  TrainTrack,
 
   // General Purpose
   CheckCircle2,
@@ -97,6 +111,8 @@ import {
   MapPin,
   Globe,
   Rocket,
+  Hash,
+  Blocks,
 
   type LucideIcon,
 } from "lucide-react";
@@ -105,64 +121,64 @@ import {
 export const examCategoryIcons: Record<string, LucideIcon> = {
   // Engineering Exams
   "jee": Cpu,                    // CPU for engineering/tech
-  "gate": Cog,                   // Gear/cog for engineering
+  "gate": CircuitBoard,          // Circuit board for GATE (more technical)
   "engineering": Component,       // Component for general engineering
-  "ese": Settings,               // Settings for engineering services
+  "ese": Cog,                    // Gear for engineering services
   "ae-je": Wrench,              // Wrench for assistant engineer
 
   // Medical Exams
   "neet": Stethoscope,          // Stethoscope for medical
   "aiims": Heart,               // Heart for medical institute
   "medical": Activity,           // Activity graph for medical
-  "nursing": Pill,              // Pill for nursing
+  "nursing": Syringe,           // Syringe for nursing (more specific than Pill)
 
   // Civil Services & Government
   "upsc": Landmark,             // Government building for UPSC
   "ias": Flag,                  // Flag for civil services
-  "ips": ShieldCheck,           // Shield for police service
+  "ips": ShieldAlert,           // Shield with alert for police service
   "ifs": Globe,                 // Globe for foreign service
-  "state-psc": Building,        // Building for state services
+  "state-psc": University,      // University for state services
 
   // Banking & Finance
   "banking": Banknote,          // Currency for banking
   "sbi": PiggyBank,             // Piggy bank for SBI
   "rbi": Coins,                 // Coins for RBI
-  "ibps": CreditCard,           // Card for banking exams
-  "finance": TrendingUp,        // Chart for finance
+  "ibps": Wallet,               // Wallet for banking exams
+  "finance": HandCoins,         // Hand with coins for finance
 
   // SSC Exams
   "ssc": Building2,             // Office building for SSC
-  "ssc-cgl": Calculator,        // Calculator for combined exams
-  "ssc-chsl": FileText,         // Document for clerical
+  "ssc-cgl": Sigma,             // Sigma for combined exams (mathematical)
+  "ssc-chsl": ScrollText,       // Scroll for clerical
   "ssc-mts": Users,             // Users for multi-tasking
 
   // Defense & Services
-  "nda": Target,                // Target for defense
-  "cds": ShieldCheck,           // Shield for defense services
+  "nda": Swords,                // Crossed swords for defense academy
+  "cds": ShieldCheck,           // Shield check for defense services
   "capf": Shield,               // Shield for police forces
   "navy": Anchor,               // Anchor for navy
   "airforce": Plane,            // Plane for air force
 
   // Law & Judicial
-  "judiciary": Scale,           // Scale of justice
-  "clat": Gavel,               // Gavel for law
-  "judicial-services": Scale,   // Scale for judicial
-  "law": BookText,             // Law book
+  "judiciary": Gavel,           // Gavel for judiciary
+  "clat": Scale,                // Scale for law entrance
+  "judicial-services": BadgeCheck, // Badge for judicial services
+  "law": BookText,              // Law book
 
   // Management
   "cat": Briefcase,            // Briefcase for management
-  "mat": LineChart,            // Chart for management
+  "mat": PieChart,             // Pie chart for management aptitude
   "gmat": TrendingUp,          // Trending for business
-  "mba": Building2,            // Building for business school
+  "mba": LineChart,            // Line chart for business school
 
   // Teaching
-  "ctet": School,              // School for teaching
+  "ctet": BookMarked,          // Marked book for teaching eligibility
   "tet": GraduationCap,        // Graduation cap for teaching
   "ugc-net": Library,          // Library for academic
   "teaching": BookOpen,        // Open book for teaching
 
   // Railways
-  "rrb": Train,                // Train for railways
+  "rrb": TrainTrack,           // Train track for railways (more specific)
   "railway": Train,            // Train icon
   "ntpc": Zap,                 // Lightning for technical
 
@@ -180,7 +196,7 @@ export const examCategoryIcons: Record<string, LucideIcon> = {
   // State Exams
   "state-exam": MapPin,       // Pin for state-specific
   "mpsc": Building,           // Building for state service
-  "tnpsc": Landmark,          // Landmark for state PSC
+  "tnpsc": Flag,              // Flag for state PSC (different from Landmark)
 
   // Languages
   "english": Type,             // Type for English
@@ -189,8 +205,8 @@ export const examCategoryIcons: Record<string, LucideIcon> = {
 
   // School & Foundation
   "class-10": School,          // School building
-  "class-12": GraduationCap,   // Graduation for 12th
-  "foundation": Library,       // Library for foundation
+  "class-12": University,      // University for senior secondary
+  "foundation": Blocks,        // Blocks for foundation
   "school": BookOpen,          // Book for school
 
   // Olympiad & Competitions
@@ -304,9 +320,9 @@ export const examDisplayIcons: Record<string, LucideIcon> = {
   "IIT JEE": Cpu,
   "JEE Main": Cpu,
   "JEE Advanced": Cpu,
-  "GATE": Cog,
+  "GATE": CircuitBoard,
   "Engineering": Component,
-  "ESE": Settings,
+  "ESE": Cog,
   "AE/JE": Wrench,
 
   // Medical
@@ -314,50 +330,62 @@ export const examDisplayIcons: Record<string, LucideIcon> = {
   "NEET PG": Activity,
   "AIIMS": Heart,
   "Medical": Stethoscope,
+  "Nursing": Syringe,
 
   // Civil Services
   "UPSC CSE": Landmark,
   "IAS": Flag,
-  "IPS": ShieldCheck,
+  "IPS": ShieldAlert,
   "IFS": Globe,
 
   // Banking
   "Banking": Banknote,
   "SBI PO": PiggyBank,
-  "IBPS": CreditCard,
+  "IBPS": Wallet,
   "RBI": Coins,
 
   // SSC
-  "SSC CGL": Calculator,
-  "SSC CHSL": FileText,
+  "SSC CGL": Sigma,
+  "SSC CHSL": ScrollText,
   "SSC MTS": Users,
 
   // Defense
-  "NDA": Target,
+  "NDA": Swords,
   "CDS": ShieldCheck,
+  "CAPF": Shield,
   "Navy": Anchor,
   "Air Force": Plane,
 
   // Law
-  "Judiciary": Scale,
-  "CLAT": Gavel,
-  "Judicial Services": Scale,
+  "Judiciary": Gavel,
+  "CLAT": Scale,
+  "Judicial Services": BadgeCheck,
 
   // Railways
-  "RRB": Train,
+  "RRB": TrainTrack,
   "Railway": Train,
   "RRB NTPC": Zap,
 
   // Management
   "CAT": Briefcase,
-  "MBA": Building2,
+  "MAT": PieChart,
+  "MBA": LineChart,
 
   // Teaching
-  "CTET": School,
+  "CTET": BookMarked,
+  "TET": GraduationCap,
   "UGC NET": Library,
+
+  // State PSC
+  "MPSC": Building,
+  "TNPSC": Flag,
+  "State PSC": University,
+
+  // School
+  "Class 10": School,
+  "Class 12": University,
 
   // Others
   "CA": Calculator,
-  "MPSC": Building,
-  "State PSC": MapPin,
+  "DSSSB": MapPin,
 };
