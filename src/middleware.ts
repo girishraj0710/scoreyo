@@ -22,6 +22,7 @@ export function middleware(request: NextRequest) {
     "/api/auth",
     "/api/auth/otp",
     "/api/admin/emergency", // Admin endpoint for emergency mode
+    "/api/admin/sync-users", // Admin endpoint for user sync
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
