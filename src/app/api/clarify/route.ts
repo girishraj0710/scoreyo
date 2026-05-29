@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
-import { createClient } from "@libsql/client";
+import { queryOne, execute } from "@/lib/db";
 
 // Fast, lightweight models for instant responses
 const FAST_MODELS = [
@@ -30,23 +30,16 @@ export async function POST(request: Request) {
     }
 
     // Check for similar clarifications in database (crowd-sourced wisdom)
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
-
     // Escape wildcards to prevent LIKE injection
     const escapedQuestion = escapeLikePattern(userQuestion);
 
-    const existingResult = await db.execute({
-      sql: `SELECT ai_response FROM clarifications
-            WHERE question_text = ? AND user_question LIKE ? ESCAPE '\\'
-            AND helpful = 1
-            LIMIT 1`,
-      args: [questionText, `%${escapedQuestion}%`]
-    });
-
-    const existingClarification = existingResult.rows[0];
+    const existingClarification = await queryOne(
+      `SELECT ai_response FROM clarifications
+       WHERE question_text = ? AND user_question LIKE ? ESCAPE '\\'
+       AND helpful = true
+       LIMIT 1`,
+      [questionText, `%${escapedQuestion}%`]
+    );
 
     if (existingClarification) {
       return NextResponse.json({
@@ -90,11 +83,11 @@ Response:`;
       );
 
       // Store clarification for future reference
-      await db.execute({
-        sql: `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
-              VALUES (?, ?, ?, ?)`,
-        args: [userId, questionText, userQuestion, result]
-      });
+      await execute(
+        `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
+         VALUES (?, ?, ?, ?)`,
+        [userId, questionText, userQuestion, result]
+      );
 
       return NextResponse.json({
         response: result,
@@ -129,19 +122,18 @@ export async function PATCH(request: Request) {
 
     const { questionText, helpful } = await request.json();
 
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
-
-    await db.execute({
-      sql: `UPDATE clarifications
-            SET helpful = ?
-            WHERE user_id = ? AND question_text = ?
-            ORDER BY created_at DESC
-            LIMIT 1`,
-      args: [helpful ? 1 : 0, userId, questionText]
-    });
+    // PostgreSQL UPDATE with LIMIT requires subquery
+    await execute(
+      `UPDATE clarifications
+       SET helpful = ?
+       WHERE id = (
+         SELECT id FROM clarifications
+         WHERE user_id = ? AND question_text = ?
+         ORDER BY created_at DESC
+         LIMIT 1
+       )`,
+      [helpful, userId, questionText]
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {
