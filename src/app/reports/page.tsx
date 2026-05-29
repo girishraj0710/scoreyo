@@ -129,7 +129,7 @@ export default function ReportsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Subject-wise Breakdown */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col max-h-[400px]">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[345px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("subjectPerformance")}</h3>
           {subjectBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
@@ -168,7 +168,7 @@ export default function ReportsPage() {
         </div>
 
         {/* Quiz Performance Distribution */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 max-h-[400px]">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 h-[345px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("performanceDistribution")}</h3>
           {difficultyBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>

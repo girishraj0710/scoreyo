@@ -114,7 +114,7 @@ export function StudyStreakCalendar() {
       </div>
 
       {/* Calendar Grid */}
-      <div className="bg-white rounded-lg p-3 border border-slate-200 flex-1 flex flex-col overflow-hidden">
+      <div className="bg-white rounded-lg p-4 border border-slate-200 flex-1 flex flex-col min-h-0">
         {/* Day Labels */}
         <div className="grid grid-cols-7 gap-2 mb-2 shrink-0">
           {dayLabels.map((label, idx) => (
@@ -128,7 +128,7 @@ export function StudyStreakCalendar() {
         </div>
 
         {/* Calendar Grid - 4 rows of 7 days */}
-        <div className="grid grid-cols-7 gap-2 flex-1">
+        <div className="grid grid-cols-7 grid-rows-4 gap-2 flex-1 min-h-0">
           {days.map((date, idx) => {
             const isToday = date.toDateString() === today.toDateString();
             const studied = streakData.last30Days[27 - idx]; // Reverse index
@@ -137,7 +137,7 @@ export function StudyStreakCalendar() {
             return (
               <div
                 key={idx}
-                className={`aspect-square rounded-lg flex items-center justify-center text-xs font-medium transition-all ${
+                className={`rounded-lg flex items-center justify-center text-xs font-medium transition-all ${
                   isFuture
                     ? "bg-slate-50 text-slate-300"
                     : studied
