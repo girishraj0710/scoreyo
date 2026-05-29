@@ -22,6 +22,12 @@ import {
   Component,
   Binary,
   CircuitBoard,
+  Layers,
+  Box,
+  Boxes,
+  Cuboid,
+  Network,
+  Radio,
 
   // Medical & Science
   Stethoscope,
@@ -119,12 +125,28 @@ import {
 
 // Exam Category Icons - Highly specific and contextual
 export const examCategoryIcons: Record<string, LucideIcon> = {
-  // Engineering Exams
+  // Engineering Exams - National Level
   "jee": Cpu,                    // CPU for engineering/tech
   "gate": CircuitBoard,          // Circuit board for GATE (more technical)
   "engineering": Component,       // Component for general engineering
   "ese": Cog,                    // Gear for engineering services
   "ae-je": Wrench,              // Wrench for assistant engineer
+
+  // State Engineering CETs (13 unique icons)
+  "kcet": Layers,               // Karnataka CET - layered structure
+  "comedk": Box,                // COMEDK - box/cube for private colleges
+  "mht-cet": Network,           // MHT CET Maharashtra - network/connections
+  "ts-eamcet": Cuboid,          // Telangana EAMCET - 3D cuboid
+  "ap-eamcet": Boxes,           // Andhra Pradesh EAMCET - multiple boxes
+  "wbjee": Binary,              // West Bengal JEE - binary code
+  "keam": Radio,                // Kerala - radio waves/signals
+  "upsee": Settings,            // UP - settings/gear
+  "bcece": HardDrive,           // Bihar - hard drive/storage
+  "ojee": Zap,                  // Odisha - lightning bolt
+  "tnea": Component,            // Tamil Nadu - electronic component
+  "gujcet": Cog,                // Gujarat - gear/cog
+  "reap": Wrench,               // Rajasthan - wrench/tool
+  "jcece": Settings,            // Jharkhand - settings
 
   // Medical Exams
   "neet": Stethoscope,          // Stethoscope for medical
@@ -316,7 +338,7 @@ export function getStatusIcon(status: string): LucideIcon {
 
 // Exam name to icon mapping (for display purposes)
 export const examDisplayIcons: Record<string, LucideIcon> = {
-  // Engineering
+  // Engineering - National
   "IIT JEE": Cpu,
   "JEE Main": Cpu,
   "JEE Advanced": Cpu,
@@ -324,6 +346,22 @@ export const examDisplayIcons: Record<string, LucideIcon> = {
   "Engineering": Component,
   "ESE": Cog,
   "AE/JE": Wrench,
+
+  // Engineering - State CETs
+  "Karnataka CET": Layers,
+  "COMEDK UGET": Box,
+  "MHT CET": Network,
+  "TS EAMCET": Cuboid,
+  "AP EAMCET": Boxes,
+  "WBJEE": Binary,
+  "KEAM": Radio,
+  "UPSEE": Settings,
+  "BCECE": HardDrive,
+  "OJEE": Zap,
+  "TNEA": Component,
+  "GUJCET": Cog,
+  "REAP": Wrench,
+  "JCECE": Settings,
 
   // Medical
   "NEET UG": Stethoscope,
