@@ -108,9 +108,18 @@ export async function POST(request: NextRequest) {
         path: "/",
       });
 
-      // Set CSRF token in httpOnly cookie
+      // Set CSRF token in TWO cookies:
+      // 1. httpOnly for server-side validation
       response.cookies.set(CSRF_COOKIE_NAME, csrfToken, {
         httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+      });
+      // 2. Non-httpOnly for client-side reading (to send in X-CSRF-Token header)
+      response.cookies.set(`${CSRF_COOKIE_NAME}-client`, csrfToken, {
+        httpOnly: false, // Client can read this
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
         maxAge: 365 * 24 * 60 * 60,
@@ -186,9 +195,18 @@ export async function POST(request: NextRequest) {
       path: "/",
     });
 
-    // Set CSRF token in httpOnly cookie
+    // Set CSRF token in TWO cookies:
+    // 1. httpOnly for server-side validation
     response.cookies.set(CSRF_COOKIE_NAME, csrfToken, {
       httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 365 * 24 * 60 * 60,
+      path: "/",
+    });
+    // 2. Non-httpOnly for client-side reading (to send in X-CSRF-Token header)
+    response.cookies.set(`${CSRF_COOKIE_NAME}-client`, csrfToken, {
+      httpOnly: false, // Client can read this
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 365 * 24 * 60 * 60,
