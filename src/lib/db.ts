@@ -573,8 +573,8 @@ export async function queryAll(sql: string, args: any[] = []): Promise<any[]> {
   return result.rows;
 }
 
-// Helper: execute a write operation
-async function execute(sql: string, args: any[] = []) {
+// Helper: execute a write operation (INSERT, UPDATE, DELETE)
+export async function execute(sql: string, args: any[] = []) {
   await ensureInitialized();
   const { sql: pgSql, params } = convertPlaceholders(sql, args);
   return executeQuery(pgSql, params);
