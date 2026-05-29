@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getHealthMetrics } from "@/lib/monitoring";
-import { createClient } from "@libsql/client";
+import { queryOne } from "@/lib/db";
 
 /**
  * Health Check Endpoint
@@ -15,14 +15,9 @@ export async function GET(request: NextRequest) {
 
   try {
     // Check database connectivity
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
-
     let dbStatus: "healthy" | "degraded" | "down" = "healthy";
     try {
-      await db.execute("SELECT 1");
+      await queryOne("SELECT 1 as test");
     } catch (error) {
       console.error("[Health Check] Database check failed:", error);
       dbStatus = "down";

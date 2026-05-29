@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
+import { queryAll } from "@/lib/db";
 
 /**
  * Cache Performance Analytics API
@@ -16,25 +16,18 @@ export async function GET(request: NextRequest) {
 
     const period = request.nextUrl.searchParams.get("period") || "7d";
 
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
-
     // Parse period (7d, 30d, etc.)
     const days = parseInt(period.replace("d", "")) || 7;
 
     // Fetch quiz sessions with source_stats for this user
-    const sessions = await db.execute({
-      sql: `
-        SELECT source_stats, exam_id, created_at
-        FROM quiz_sessions
-        WHERE user_id = ?
-        AND created_at > datetime('now', ?)
-        AND source_stats IS NOT NULL
-      `,
-      args: [userId, `-${days} days`],
-    });
+    const sessions = await queryAll(
+      `SELECT source_stats, exam_id, created_at
+       FROM quiz_sessions
+       WHERE user_id = ?
+       AND created_at > CURRENT_TIMESTAMP - INTERVAL '? days'
+       AND source_stats IS NOT NULL`,
+      [userId, days]
+    );
 
     // Aggregate source stats
     const totals = {
@@ -45,9 +38,11 @@ export async function GET(request: NextRequest) {
 
     const byExam: Record<string, { verified: number; ai: number }> = {};
 
-    for (const row of sessions.rows) {
+    for (const row of sessions) {
       try {
-        const stats = JSON.parse(String(row.source_stats));
+        const stats = typeof row.source_stats === 'string'
+          ? JSON.parse(row.source_stats)
+          : row.source_stats;
         const verified = stats.verified || 0;
         const ai = stats.ai || 0;
 
@@ -96,7 +91,7 @@ export async function GET(request: NextRequest) {
       totals,
       cacheHitRate,
       performanceRating,
-      quizzesTaken: sessions.rows.length,
+      quizzesTaken: sessions.length,
       examBreakdown,
     });
   } catch (error: any) {
