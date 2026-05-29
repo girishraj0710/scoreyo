@@ -1,20 +1,48 @@
 import { Pool, type PoolClient } from 'pg';
+import { logger } from '@/lib/logger';
 
 let pool: Pool | null = null;
 let initialized = false;
+
+// Adaptive pool sizing: Production = 100 connections, Development = 10
+const MAX_CONNECTIONS = process.env.NODE_ENV === 'production'
+  ? parseInt(process.env.DB_POOL_MAX || '100')
+  : 10;
 
 function getPool(): Pool {
   if (!pool) {
     pool = new Pool({
       connectionString: process.env.POSTGRES_URL,
       ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
-      max: 20, // Connection pool size
+      max: MAX_CONNECTIONS,  // 100 in production, 10 in dev
+      min: Math.min(10, MAX_CONNECTIONS),  // Keep 10 warm connections
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 10000,
+      maxUses: 7500,  // Recycle connections (prevents memory leaks)
+      application_name: 'prepgenie-api',
     });
 
     pool.on('error', (err) => {
-      console.error('[PostgreSQL] Pool error:', err);
+      logger.error('PostgreSQL pool error', {}, err);
+    });
+
+    pool.on('connect', () => {
+      logger.debug('DB connection established', {
+        total: pool!.totalCount,
+        idle: pool!.idleCount,
+        waiting: pool!.waitingCount,
+      });
+    });
+
+    // Warn on high connection pressure
+    pool.on('acquire', () => {
+      if (pool!.waitingCount > MAX_CONNECTIONS * 0.8) {
+        logger.warn('High DB connection pressure', {
+          waiting: pool!.waitingCount,
+          max: MAX_CONNECTIONS,
+          usage: `${Math.round((pool!.waitingCount / MAX_CONNECTIONS) * 100)}%`,
+        });
+      }
     });
   }
   return pool;

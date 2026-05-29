@@ -22,6 +22,7 @@ import { getExamById, getSubjectById } from "@/lib/exams";
 import { v4 as uuidv4 } from "uuid";
 import { getCached, setCached, CacheKeys, incrementCached } from "@/lib/redis";
 import { quizGenerationLimiter } from "@/lib/rate-limit";
+import { logger } from "@/lib/logger";
 
 // Vercel serverless freezes the function when the response is returned, which
 // kills any in-flight `saveCachedQuestions` / background-prefill promises and
@@ -88,12 +89,12 @@ export async function POST(request: NextRequest) {
       difficulty = "mixed",
     } = body;
 
-    console.log(`[Quiz API] Request: examId="${examId}", subjectId="${subjectId}", topic="${topic}", difficulty="${difficulty}", count=${numberOfQuestions}`);
+    logger.debug('Quiz API request', { examId, subjectId, topic, difficulty, numberOfQuestions });
 
     // Map topic to database format (fixes 88.7% empty topic issue)
     const mappedTopic = mapTopicToDatabase(examId, subjectId, topic);
     if (mappedTopic !== topic) {
-      console.log(`[Quiz API] Topic mapped: "${topic}" → "${mappedTopic}"`);
+      logger.debug('Topic mapped', { from: topic, to: mappedTopic });
     }
 
     // Require authentication for quiz generation
@@ -176,20 +177,20 @@ export async function POST(request: NextRequest) {
       if (isReadingComprehension) {
         const hasPassages = cachedQuestions.every((q: QuizQuestion) => q.passage);
         if (!hasPassages) {
-          console.log(`[Quiz API] ⚠️ Cache invalidated: Reading comprehension questions missing passages`);
+          logger.warn('Cache invalidated - RC missing passages', { examId, topic });
           // Don't use cached questions, regenerate with passages
         } else {
           verifiedQuestions = cachedQuestions;
-          console.log(`[Quiz API] ✓ CACHE HIT: ${verifiedQuestions.length} questions from Redis`);
+          logger.cacheHit(cacheKey);
         }
       } else {
         verifiedQuestions = cachedQuestions;
-        console.log(`[Quiz API] ✓ CACHE HIT: ${verifiedQuestions.length} questions from Redis`);
+        logger.cacheHit(cacheKey);
       }
     }
 
     if (verifiedQuestions.length === 0) {
-      console.log(`[Quiz API] Cache miss, querying database...`);
+      logger.cacheMiss(cacheKey);
 
       // ── TIER 2: Database questions (verified + cached, prioritized by source) ─
       try {
@@ -200,14 +201,16 @@ export async function POST(request: NextRequest) {
           difficulty,
           numberOfQuestions * 2  // Request more for variety
         ) as QuizQuestion[];
-        console.log(
-          `[Quiz API] Found ${verifiedQuestions.length} questions from DB for ${examId}/${mappedTopic}`
-        );
+        logger.debug('DB query result', {
+          count: verifiedQuestions.length,
+          examId,
+          topic: mappedTopic
+        });
 
         // Cache for 24 hours if we got good results
         if (verifiedQuestions.length >= numberOfQuestions) {
           await setCached(cacheKey, verifiedQuestions, 86400);
-          console.log(`[Quiz API] ✓ Cached ${verifiedQuestions.length} questions to Redis`);
+          logger.debug('Cached to Redis', { count: verifiedQuestions.length });
         }
       } catch (error) {
         console.error("[Quiz API] Database query failed:", error);
