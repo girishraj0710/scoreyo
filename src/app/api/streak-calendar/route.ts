@@ -1,20 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
-
-async function queryAll(sql: string, args: any[] = []): Promise<any[]> {
-  const db = createClient({
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN!,
-  });
-  const result = await db.execute({ sql, args });
-  return result.rows.map((row) => {
-    const obj: any = {};
-    for (const col of result.columns) {
-      obj[col] = row[col];
-    }
-    return obj;
-  });
-}
+import { queryAll } from "@/lib/db";
 
 export async function GET(request: NextRequest) {
   const userId = request.cookies.get("prepgenie-user-id")?.value;
@@ -29,12 +14,11 @@ export async function GET(request: NextRequest) {
   try {
     // Get all quiz sessions to calculate streak
     const sessions = await queryAll(
-      `SELECT
-        DATE(created_at, 'localtime') as date
-      FROM quiz_sessions
-      WHERE user_id = ?
-      ORDER BY created_at DESC
-      LIMIT 365`,
+      `SELECT DATE(created_at) as date
+       FROM quiz_sessions
+       WHERE user_id = ?
+       ORDER BY created_at DESC
+       LIMIT 365`,
       [userId]
     );
 

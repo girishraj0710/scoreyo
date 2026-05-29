@@ -1,15 +1,9 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { createClient } from "@libsql/client";
+import { queryOne, queryAll, execute, updateBadgeStats, getBadgeStats, unlockBadge, getUserBadges } from "@/lib/db";
 import { generateQuiz } from "@/lib/quiz-generator";
 import { v4 as uuidv4 } from "uuid";
-import { updateBadgeStats, getBadgeStats, unlockBadge, getUserBadges } from "@/lib/db";
 import { checkBadges } from "@/lib/achievements";
-
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
-});
 
 // Get today's DPP (or create if doesn't exist)
 export async function GET(request: Request) {
@@ -22,24 +16,21 @@ export async function GET(request: Request) {
     const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
     // Check if DPP exists for today
-    const existingDpp = await db.execute({
-      sql: `SELECT * FROM daily_practice_problems WHERE date = ?`,
-      args: [today]
-    });
+    let dpp = await queryOne(
+      `SELECT * FROM daily_practice_problems WHERE date = ?`,
+      [today]
+    );
 
-    let dpp;
-    if (existingDpp.rows.length > 0) {
-      dpp = existingDpp.rows[0];
-    } else {
+    if (!dpp) {
       // Generate new DPP for today
       dpp = await generateDailyDPP(today);
     }
 
     // Check if user has completed it
-    const completion = await db.execute({
-      sql: `SELECT * FROM dpp_completions WHERE user_id = ? AND dpp_id = ?`,
-      args: [userId, dpp.id]
-    });
+    const completion = await queryOne(
+      `SELECT * FROM dpp_completions WHERE user_id = ? AND dpp_id = ?`,
+      [userId, dpp.id]
+    );
 
     // Get user's streak
     const streak = await getUserDPPStreak(userId);
@@ -55,8 +46,8 @@ export async function GET(request: Request) {
         questions: JSON.parse(dpp.questions as string),
         duration: dpp.duration_minutes,
       },
-      completed: completion.rows.length > 0,
-      completionData: completion.rows[0] || null,
+      completed: !!completion,
+      completionData: completion || null,
       streak
     });
 
@@ -81,21 +72,21 @@ export async function POST(request: Request) {
     }
 
     // Check if already completed
-    const existing = await db.execute({
-      sql: `SELECT id FROM dpp_completions WHERE user_id = ? AND dpp_id = ?`,
-      args: [userId, dppId]
-    });
+    const existing = await queryOne(
+      `SELECT id FROM dpp_completions WHERE user_id = ? AND dpp_id = ?`,
+      [userId, dppId]
+    );
 
-    if (existing.rows.length > 0) {
+    if (existing) {
       return NextResponse.json({ error: "Already completed" }, { status: 400 });
     }
 
     // Record completion
-    await db.execute({
-      sql: `INSERT INTO dpp_completions (user_id, dpp_id, score, total_questions)
-            VALUES (?, ?, ?, ?)`,
-      args: [userId, dppId, score, totalQuestions]
-    });
+    await execute(
+      `INSERT INTO dpp_completions (user_id, dpp_id, score, total_questions)
+       VALUES (?, ?, ?, ?)`,
+      [userId, dppId, score, totalQuestions]
+    );
 
     // ── Badge Tracking ──────────────────────────────────────
     const hour = new Date().getHours();
@@ -177,34 +168,34 @@ async function generateDailyDPP(date: string) {
 
   const id = uuidv4();
 
-  await db.execute({
-    sql: `INSERT INTO daily_practice_problems (id, date, title, exam_id, subject_id, topic, questions, duration_minutes)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-    args: [id, date, template.title, template.exam, template.subject, template.topic, JSON.stringify(questions), 10]
-  });
+  await execute(
+    `INSERT INTO daily_practice_problems (id, date, title, exam_id, subject_id, topic, questions, duration_minutes)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    [id, date, template.title, template.exam, template.subject, template.topic, JSON.stringify(questions), 10]
+  );
 
   return { id, date, title: template.title, exam_id: template.exam, subject_id: template.subject, topic: template.topic, questions: JSON.stringify(questions), duration_minutes: 10 };
 }
 
 // Helper: Calculate user's DPP streak
 async function getUserDPPStreak(userId: string): Promise<number> {
-  const completions = await db.execute({
-    sql: `SELECT DATE(completed_at) as date
-          FROM dpp_completions
-          WHERE user_id = ?
-          ORDER BY completed_at DESC
-          LIMIT 30`,
-    args: [userId]
-  });
+  const completions = await queryAll(
+    `SELECT DATE(completed_at) as date
+     FROM dpp_completions
+     WHERE user_id = ?
+     ORDER BY completed_at DESC
+     LIMIT 30`,
+    [userId]
+  );
 
-  if (completions.rows.length === 0) return 0;
+  if (completions.length === 0) return 0;
 
   let streak = 0;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  for (let i = 0; i < completions.rows.length; i++) {
-    const completionDate = new Date(completions.rows[i].date as string);
+  for (let i = 0; i < completions.length; i++) {
+    const completionDate = new Date(completions[i].date as string);
     completionDate.setHours(0, 0, 0, 0);
 
     const expectedDate = new Date(today);

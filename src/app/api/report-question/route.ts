@@ -1,21 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
-
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
-});
+import { queryOne, queryAll, execute } from "@/lib/db";
 
 // Admin email whitelist
 const ADMIN_EMAILS = ["girish.raj0710@gmail.com", "grgowda07.1992@gmail.com", "admin@prepgenie.co.in"];
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {
-    const user = await db.execute({
-      sql: "SELECT email FROM users WHERE id = ?",
-      args: [userId],
-    });
-    return user.rows.length > 0 && ADMIN_EMAILS.includes(user.rows[0].email as string);
+    const user = await queryOne("SELECT email FROM users WHERE id = ?", [userId]);
+    return user && ADMIN_EMAILS.includes(user.email);
   } catch {
     return false;
   }
@@ -53,19 +45,11 @@ export async function POST(req: NextRequest) {
     // Insert report with exam/subject context (if provided)
     const reportId = `report_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
-    // Try to add columns if they don't exist (graceful migration)
-    try {
-      await db.execute("ALTER TABLE question_reports ADD COLUMN exam_id TEXT");
-    } catch {}
-    try {
-      await db.execute("ALTER TABLE question_reports ADD COLUMN subject_id TEXT");
-    } catch {}
-
-    await db.execute({
-      sql: `INSERT INTO question_reports
-            (id, question_id, user_id, reason, details, exam_id, subject_id, status, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      args: [
+    await execute(
+      `INSERT INTO question_reports
+       (id, question_id, user_id, reason, details, exam_id, subject_id, status, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
         reportId,
         questionId,
         userId,
@@ -75,8 +59,8 @@ export async function POST(req: NextRequest) {
         subjectId || null,
         "pending",
         new Date().toISOString(),
-      ],
-    });
+      ]
+    );
 
     return NextResponse.json({
       success: true,
@@ -108,34 +92,32 @@ export async function GET(req: NextRequest) {
     const status = searchParams.get("status") || "pending";
 
     // Fetch reports with question details using Dimensional Model
-    const sql = `SELECT
-            qr.id,
-            qr.question_id,
-            qr.user_id,
-            qr.reason,
-            qr.details,
-            qr.status,
-            qr.created_at,
-            qr.exam_id,
-            qr.subject_id,
-            feq.question,
-            dt.topic_name as topic,
-            feq.correct_answer,
-            feq.explanation
-          FROM question_reports qr
-          LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
-          LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-          WHERE qr.status = ?
-          ORDER BY qr.created_at DESC
-          LIMIT 50`;
-
-    const reports = await db.execute({
-      sql,
-      args: [status],
-    });
+    const reports = await queryAll(
+      `SELECT
+         qr.id,
+         qr.question_id,
+         qr.user_id,
+         qr.reason,
+         qr.details,
+         qr.status,
+         qr.created_at,
+         qr.exam_id,
+         qr.subject_id,
+         feq.question,
+         dt.topic_name as topic,
+         feq.correct_answer,
+         feq.explanation
+       FROM question_reports qr
+       LEFT JOIN fact_exam_questions feq ON qr.question_id = feq.id
+       LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+       WHERE qr.status = ?
+       ORDER BY qr.created_at DESC
+       LIMIT 50`,
+      [status]
+    );
 
     return NextResponse.json({
-      reports: reports.rows.map((r: any) => ({
+      reports: reports.map((r: any) => ({
         id: r.id,
         questionId: r.question_id,
         userId: r.user_id,
@@ -189,19 +171,19 @@ export async function PATCH(req: NextRequest) {
       return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }
 
-    await db.execute({
-      sql: `UPDATE question_reports
-            SET status = ?, admin_notes = ?, resolved_at = ?
-            WHERE id = ?`,
-      args: [
+    await execute(
+      `UPDATE question_reports
+       SET status = ?, admin_notes = ?, resolved_at = ?
+       WHERE id = ?`,
+      [
         status,
         adminNotes || null,
         status === "fixed" || status === "dismissed"
           ? new Date().toISOString()
           : null,
         reportId,
-      ],
-    });
+      ]
+    );
 
     return NextResponse.json({
       success: true,
