@@ -272,7 +272,7 @@ function QuizContent() {
 
         const res = await fetch(apiEndpoint, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: getHeadersWithCsrf(),
           body: JSON.stringify(requestBody),
         });
 
