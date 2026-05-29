@@ -298,14 +298,14 @@ export async function GET(req: NextRequest) {
       },
       usageMetrics: {
         users: {
-          total: Number(totalUsers?.count || 0),
-          active7Days: Number(activeUsers7Days?.count || 0),
-          active30Days: Number(activeUsers30Days?.count || 0),
+          total: Number(totalUsers?.rows[0]?.count || 0),
+          active7Days: Number(activeUsers7Days?.rows[0]?.count || 0),
+          active30Days: Number(activeUsers30Days?.rows[0]?.count || 0),
         },
         quizzes: {
-          total: Number(totalQuizzes?.count || 0),
-          last7Days: Number(quizzesLast7Days?.count || 0),
-          last30Days: Number(quizzesLast30Days?.count || 0),
+          total: Number(totalQuizzes?.rows[0]?.count || 0),
+          last7Days: Number(quizzesLast7Days?.rows[0]?.count || 0),
+          last30Days: Number(quizzesLast30Days?.rows[0]?.count || 0),
         },
         popularExams: popularExams.rows.map((r: any) => ({
           examId: r.exam_id,
@@ -337,10 +337,10 @@ export async function GET(req: NextRequest) {
         })),
       },
       subscriptions: {
-        proUsers: Number(proUsers?.count || 0),
+        proUsers: Number(proUsers?.rows[0]?.count || 0),
         revenue30Days: {
-          count: Number(revenue30Days?.count || 0),
-          total: Number(revenue30Days?.total || 0) / 100, // Convert paise to rupees
+          count: Number(revenue30Days?.rows[0]?.count || 0),
+          total: Number(revenue30Days?.rows[0]?.total || 0) / 100, // Convert paise to rupees
         },
       },
       topicBreakdown: topicBreakdown.rows,
