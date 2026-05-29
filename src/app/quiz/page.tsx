@@ -1276,7 +1276,7 @@ function QuizContent() {
               disabled={isSubmitting}
               className="px-6 py-2 text-sm font-bold bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-lg hover:from-emerald-600 hover:to-green-600 shadow-md hover:shadow-lg disabled:opacity-50 transition-all"
             >
-              {isSubmitting ? "Submitting..." : "🎯 Submit Quiz"}
+              {isSubmitting ? "Submitting..." : "Submit Quiz"}
             </motion.button>
           )}
       </div>
