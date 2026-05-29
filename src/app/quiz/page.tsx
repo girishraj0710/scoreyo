@@ -971,7 +971,7 @@ function QuizContent() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-3 h-screen flex flex-col">
+    <div className="max-w-4xl mx-auto px-4 py-2 h-screen flex flex-col">
       {/* Report Modal */}
       {reportQuestion && (
         <ReportModal
@@ -983,21 +983,21 @@ function QuizContent() {
         />
       )}
 
-      {/* Back Button - Compact */}
+      {/* Back Button */}
       <button
         onClick={handleBack}
-        className="inline-flex items-center gap-1 mb-2 px-2 py-1 text-xs font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 rounded-lg transition-colors"
+        className="inline-flex items-center gap-1.5 mb-2 px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 rounded-lg transition-colors shrink-0"
         aria-label="Back"
       >
-        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
         Back
       </button>
 
-      {/* Quiz Header - Compact */}
-      <div className="bg-white rounded-lg p-3 shadow-sm border border-slate-200 mb-3 shrink-0">
-        <div className="flex items-center justify-between mb-2">
+      {/* Quiz Header */}
+      <div className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-200 mb-2 shrink-0">
+        <div className="flex items-center justify-between mb-1.5">
           <div className="flex items-center gap-2 flex-wrap">
             {isLevelMode && (
               <span className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white">
@@ -1047,7 +1047,7 @@ function QuizContent() {
           {quizData.questions.map((_, idx) => (
             <div
               key={idx}
-              className={`h-2 flex-1 rounded-full ${
+              className={`h-1.5 flex-1 rounded-full ${
                 idx === currentQuestion
                   ? "bg-slate-500"
                   : answers[idx] !== null
@@ -1057,7 +1057,7 @@ function QuizContent() {
             />
           ))}
         </div>
-        <div className="flex justify-between mt-2 text-xs text-slate-400">
+        <div className="flex justify-between mt-1.5 text-xs text-slate-400">
           <span>
             Question {currentQuestion + 1} of {quizData.questions.length}
           </span>
@@ -1067,14 +1067,14 @@ function QuizContent() {
         </div>
       </div>
 
-      {/* Question Card - COMPACT */}
+      {/* Question Card */}
       <motion.div
         key={currentQuestion}
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.3 }}
-        className="bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-lg border border-slate-200 overflow-hidden mb-3 flex-1 flex flex-col"
+        className="bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-lg border border-slate-200 overflow-hidden mb-2 flex-1 flex flex-col"
       >
         {/* Colored Header Strip */}
         <div className={`h-1 bg-gradient-to-r ${
@@ -1085,17 +1085,17 @@ function QuizContent() {
             : "from-amber-500 to-orange-500"
         }`} />
 
-        <div className="p-4 md:p-6 overflow-y-auto flex-1">
-          {/* Meta Bar - IMPROVED */}
-          <div className="flex items-center justify-between mb-3 flex-wrap gap-3">
-            <div className="flex items-center gap-3 flex-wrap">
+        <div className="p-3 md:p-4 overflow-y-auto flex-1">
+          {/* Meta Bar */}
+          <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               {/* Question Number Badge */}
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">
-                Question {currentQuestion + 1}/{quizData.questions.length}
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-semibold">
+                Q {currentQuestion + 1}/{quizData.questions.length}
               </span>
 
-              {/* Difficulty Badge - MODERN */}
-              <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+              {/* Difficulty Badge */}
+              <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${
                 (question?.difficulty || "medium") === "easy"
                   ? "bg-emerald-50"
                   : (question?.difficulty || "medium") === "hard"
@@ -1129,15 +1129,15 @@ function QuizContent() {
             </button>
           </div>
 
-          {/* Question Text - BALANCED TYPOGRAPHY */}
-          <div className="mb-4">
-            <h2 className="text-xl md:text-2xl font-semibold text-slate-900 leading-relaxed">
+          {/* Question Text */}
+          <div className="mb-3">
+            <h2 className="text-lg md:text-xl font-semibold text-slate-900 leading-relaxed">
               {question.question}
             </h2>
           </div>
 
-          {/* Options - BEAUTIFUL CARDS */}
-          <div className="space-y-3">
+          {/* Options */}
+          <div className="space-y-2">
             {question.options.map((option, idx) => {
               const isSelected = answers[currentQuestion] === idx;
               const isCorrect = idx === question.correctAnswer;
@@ -1148,10 +1148,10 @@ function QuizContent() {
                   key={idx}
                   onClick={() => !showExplanation && selectAnswer(idx)}
                   disabled={showExplanation}
-                  whileHover={!showExplanation ? { scale: 1.02, y: -2 } : {}}
-                  whileTap={!showExplanation ? { scale: 0.98 } : {}}
+                  whileHover={!showExplanation ? { scale: 1.01, y: -1 } : {}}
+                  whileTap={!showExplanation ? { scale: 0.99 } : {}}
                   className={`
-                    w-full flex items-start gap-3 p-4 rounded-xl border-2 text-left transition-all
+                    w-full flex items-start gap-2.5 p-3 rounded-lg border-2 text-left transition-all
                     ${
                       showExplanation && isCorrect
                         ? "border-green-400 bg-green-50 shadow-lg shadow-green-100"
@@ -1164,10 +1164,10 @@ function QuizContent() {
                     ${showExplanation ? "cursor-default" : "cursor-pointer"}
                   `}
                 >
-                  {/* Option Letter Circle - GRADIENT */}
+                  {/* Option Letter Circle */}
                   <span
                     className={`
-                      shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-base font-bold transition-all
+                      shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-all
                       ${
                         showExplanation && isCorrect
                           ? "bg-gradient-to-br from-green-500 to-emerald-500 text-white shadow-md"
@@ -1182,20 +1182,20 @@ function QuizContent() {
                     {String.fromCharCode(65 + idx)}
                   </span>
 
-                  {/* Option Text - READABLE SIZE */}
-                  <span className="flex-1 text-base text-slate-800 leading-relaxed pt-1.5">
+                  {/* Option Text */}
+                  <span className="flex-1 text-sm text-slate-800 leading-relaxed pt-1">
                     {option}
                   </span>
 
                   {/* Status Icon */}
                   {showExplanation && (
-                    <span className="shrink-0 mt-1">
+                    <span className="shrink-0">
                       {isCorrect ? (
-                        <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                       ) : isWrong ? (
-                        <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                         </svg>
                       ) : null}
@@ -1276,19 +1276,11 @@ function QuizContent() {
           )}
         </div>
 
-        {!isLastQuestion && (
-          <button
-            onClick={nextQuestion}
-            className="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50"
-          >
-            Next
-          </button>
-        )}
-        {isLastQuestion && <div />}
+        <div className="shrink-0" />
       </div>
 
       {/* Quick navigation dots */}
-      <div className="flex justify-center gap-2 mt-3 shrink-0">
+      <div className="flex justify-center gap-1.5 mt-2 shrink-0 pb-1">
         {quizData.questions.map((_, idx) => (
           <button
             key={idx}
@@ -1296,7 +1288,7 @@ function QuizContent() {
               setShowExplanation(false);
               setCurrentQuestion(idx);
             }}
-            className={`w-7 h-7 rounded-full text-xs font-medium ${
+            className={`w-6 h-6 rounded-full text-xs font-medium ${
               idx === currentQuestion
                 ? "bg-slate-500 text-white"
                 : answers[idx] !== null
