@@ -6,6 +6,7 @@ import { RichExplanation } from "@/components/rich-explanation";
 import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
 import { LevelCompleteModal } from "@/components/level-complete-modal";
 import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
+import { QuizCelebration } from "@/components/quiz-celebration";
 import { calculateStars } from "@/lib/level-definitions";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
@@ -747,16 +748,17 @@ function QuizContent() {
           />
         )}
 
+        {/* Celebration Animation */}
+        <QuizCelebration
+          accuracy={percentage}
+          correctAnswers={results.correctAnswers}
+          totalQuestions={results.totalQuestions}
+          isNewRecord={results.isNewRecord}
+        />
+
         {/* Score Card */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center mb-8">
-          <h2 className={`text-2xl font-bold ${grade.color} mb-2`}>
-            {grade.label}
-          </h2>
-          <div className="text-6xl font-bold text-slate-800 mb-2">
-            {percentage}%
-          </div>
           <p className="text-slate-500 mb-6">
-            {results.correctAnswers} out of {results.totalQuestions} correct |
             Time: {formatTime(results.timeTaken)}
           </p>
 

@@ -6,6 +6,8 @@ import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
 import { LevelProgressWidget } from "@/components/level-progress-widget";
 import { StudyStreakCalendar } from "@/components/study-streak-calendar";
+import { StreakBadge } from "@/components/streak-badge";
+import { DailyProgressCard } from "@/components/daily-progress-card";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
@@ -15,6 +17,9 @@ interface Stats {
   totalCorrect: number;
   accuracy: number;
   streak: number;
+  bestStreak?: number;
+  questionsToday?: number;
+  personalBest?: number;
   examBreakdown: Array<{
     exam_id: string;
     sessions: number;
@@ -141,12 +146,28 @@ export default function DashboardPage() {
             Track your preparation progress across all exams
           </p>
         </div>
-        <a
-          href="/"
-          className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700"
-        >
-          New Quiz
-        </a>
+        <div className="flex items-center gap-3">
+          <StreakBadge
+            currentStreak={stats.streak || 0}
+            bestStreak={stats.bestStreak || stats.streak || 0}
+            size="sm"
+          />
+          <a
+            href="/"
+            className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700"
+          >
+            New Quiz
+          </a>
+        </div>
+      </div>
+
+      {/* Daily Progress Card - NEW! */}
+      <div className="mb-8">
+        <DailyProgressCard
+          questionsToday={stats.questionsToday || 0}
+          dailyGoal={50}
+          personalBest={stats.personalBest || 0}
+        />
       </div>
 
       {/* Stats Cards */}
