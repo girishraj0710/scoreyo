@@ -1093,7 +1093,7 @@ export async function getUserStats(userId: string) {
   );
 
   const streakData = await queryAll(
-    "SELECT DISTINCT DATE(created_at, 'localtime') as day FROM quiz_sessions WHERE user_id = ? ORDER BY day DESC",
+    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = ? ORDER BY day DESC",
     [userId]
   );
 
@@ -1181,7 +1181,7 @@ export async function getPersonalBests(userId: string) {
 
 export async function getLongestStreak(userId: string) {
   const streakData = await queryAll(
-    "SELECT DISTINCT DATE(created_at, 'localtime') as day FROM quiz_sessions WHERE user_id = ? ORDER BY day ASC",
+    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = ? ORDER BY day ASC",
     [userId]
   );
 
@@ -1264,7 +1264,7 @@ export async function isProUser(userId: string): Promise<boolean> {
 export async function getTodayQuizCount(userId: string): Promise<number> {
   const today = new Date().toISOString().split("T")[0];
   const result = await queryOne(
-    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = ? AND DATE(created_at, 'localtime') = ?",
+    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = ? AND DATE(created_at) = ?",
     [userId, today]
   );
   return (result?.count as number) || 0;
@@ -1384,12 +1384,12 @@ export async function getDetailedPerformance(userId: string) {
   );
 
   const dailyActivity = await queryAll(
-    `SELECT DATE(created_at, 'localtime') as day,
+    `SELECT DATE(created_at) as day,
             COUNT(*) as sessions,
             SUM(total_questions) as questions,
             SUM(correct_answers) as correct
-     FROM quiz_sessions WHERE user_id = ? AND created_at >= DATE('now', 'localtime', '-30 days')
-     GROUP BY DATE(created_at, 'localtime') ORDER BY day ASC`,
+     FROM quiz_sessions WHERE user_id = ? AND created_at >= CURRENT_DATE - INTERVAL '30 days'
+     GROUP BY DATE(created_at) ORDER BY day ASC`,
     [userId]
   );
 
@@ -1409,14 +1409,14 @@ export async function getDetailedPerformance(userId: string) {
   const timeTrend = await queryAll(
     `SELECT ROUND(CAST(time_taken_seconds AS REAL) / NULLIF(total_questions, 0), 1) as avg_seconds_per_question,
             ROUND(CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) * 100) as accuracy,
-            DATE(created_at, 'localtime') as day
+            DATE(created_at) as day
      FROM quiz_sessions WHERE user_id = ? AND time_taken_seconds > 0 ORDER BY created_at DESC LIMIT 20`,
     [userId]
   );
 
   const accuracyTrend = await queryAll(
     `SELECT ROUND(CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) * 100) as accuracy,
-            topic, exam_id, DATE(created_at, 'localtime') as day
+            topic, exam_id, DATE(created_at) as day
      FROM quiz_sessions WHERE user_id = ? ORDER BY created_at DESC LIMIT 20`,
     [userId]
   );
