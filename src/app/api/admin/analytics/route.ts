@@ -326,7 +326,7 @@ export async function GET(req: NextRequest) {
         users: Number(r.users),
       })),
       questionQuality: {
-        lowAccuracy: lowAccuracyQuestions.map((r: any) => ({
+        lowAccuracy: lowAccuracyQuestions.rows.map((r: any) => ({
           id: r.id,
           question: String(r.question).substring(0, 100) + "...",
           examId: r.exam_id,
