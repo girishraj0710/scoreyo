@@ -2,19 +2,25 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyCsrfToken, CSRF_COOKIE_NAME, CSRF_HEADER_NAME } from "@/lib/csrf";
 
 /**
- * Proxy for CSRF Protection (Next.js 16+)
+ * Proxy for CSRF Protection + Edge Performance (Next.js 16+)
  *
- * Checks CSRF tokens on state-changing requests (POST, PUT, DELETE, PATCH)
- * Excludes: auth endpoints (login/register), public APIs
+ * 1. CSRF Protection: Checks tokens on state-changing requests
+ * 2. Edge Performance: Adds performance headers, runs on edge runtime
  */
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const method = request.method;
 
-  // Only check CSRF for state-changing methods
+  // Create response early for header manipulation
+  const response = NextResponse.next();
+
+  // Add performance headers for all requests
+  response.headers.set('X-DNS-Prefetch-Control', 'on');
+
+  // CSRF Protection: Only check for state-changing methods
   if (!["POST", "PUT", "DELETE", "PATCH"].includes(method)) {
-    return NextResponse.next();
+    return response;
   }
 
   // Exclude authentication endpoints (they generate the CSRF token)
@@ -26,7 +32,7 @@ export function proxy(request: NextRequest) {
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
-    return NextResponse.next();
+    return response;
   }
 
   // Verify CSRF token for protected endpoints
@@ -41,13 +47,18 @@ export function proxy(request: NextRequest) {
     );
   }
 
-  return NextResponse.next();
+  return response;
 }
 
-// Configure which routes use this middleware
+// Configure which routes use this proxy
 export const config = {
   matcher: [
     // Match all API routes except static files
     "/api/:path*",
+    // Match all pages for performance headers
+    "/((?!_next/static|_next/image|favicon.ico|public).*)",
   ],
 };
+
+// Note: Proxy in Next.js 16+ runs on Node.js runtime (not edge)
+// Edge distribution is handled by Vercel automatically

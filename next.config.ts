@@ -9,7 +9,10 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["razorpay"],
   transpilePackages: ["lucide-react"],
 
-  // Security Headers
+  // Compression (Vercel handles automatically, but this ensures it's enabled)
+  compress: true,
+
+  // Security Headers + Performance Headers
   async headers() {
     return [
       {
@@ -62,6 +65,36 @@ const nextConfig: NextConfig = {
           {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+      // Cache static assets aggressively (1 year)
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Cache public assets (images, fonts, etc.) for 1 year
+      {
+        source: "/public/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Cache API responses briefly (5 minutes)
+      {
+        source: "/api/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=300, s-maxage=300, stale-while-revalidate=60",
           },
         ],
       },
