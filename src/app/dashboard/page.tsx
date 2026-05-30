@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
-import { SprintCard } from "@/components/sprint-card";
 import { LevelProgressWidget } from "@/components/level-progress-widget";
 import { StudyStreakCalendar } from "@/components/study-streak-calendar";
 import { StreakBadge } from "@/components/streak-badge";
@@ -220,9 +219,6 @@ export default function DashboardPage() {
 
         {/* Daily Practice Problem - THE daily feature */}
         <DPPCard />
-
-        {/* Live Sprint Challenge - Real-time competition */}
-        <SprintCard />
 
         {/* Exam-wise Breakdown */}
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[400px]">
