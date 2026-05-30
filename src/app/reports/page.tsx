@@ -339,8 +339,8 @@ export default function ReportsPage() {
           {/* X-axis labels and title */}
           <div className="ml-16">
             <div className="flex justify-between text-xs text-slate-400 mb-1">
-              <span>{safeDailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
-              <span>{safeDailyActivity.length > 0 ? new Date(dailyActivity[safeDailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+              <span>{safeDailyActivity.length > 0 ? new Date(safeDailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+              <span>{safeDailyActivity.length > 0 ? new Date(safeDailyActivity[safeDailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
             </div>
             <div className="text-center text-[10px] text-slate-500 font-medium">Date</div>
           </div>
