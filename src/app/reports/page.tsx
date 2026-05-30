@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useLocale } from "@/context/locale-context";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { getExamIcon } from "@/lib/professional-icons";
@@ -145,18 +145,18 @@ export default function ReportsPage() {
   const safeWeakTopics = Array.isArray(weakTopics) ? weakTopics : [];
   const safeMockTestHistory = Array.isArray(mockTestHistory) ? mockTestHistory : [];
 
-  // Calculate max for bar charts (memoized to avoid recalculating on every render)
-  const maxDailyQuestions = useMemo(() => {
+  // Calculate max for bar charts (simple calculation, no memoization needed)
+  const maxDailyQuestions = (() => {
     if (safeDailyActivity.length === 0) return 1;
     const values = safeDailyActivity.map((d: any) => Number(d.questions) || 0);
     return Math.max(...values, 1);
-  }, [safeDailyActivity]);
+  })();
 
-  // Calculate total difficulty breakdown once (memoized)
-  const difficultyTotal = useMemo(() => {
+  // Calculate total difficulty breakdown (simple calculation, no memoization needed)
+  const difficultyTotal = (() => {
     if (safeDifficultyBreakdown.length === 0) return 0;
     return safeDifficultyBreakdown.reduce((sum: number, d: any) => sum + (Number(d.count) || 0), 0);
-  }, [safeDifficultyBreakdown]);
+  })();
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
