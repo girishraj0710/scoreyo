@@ -33,6 +33,7 @@ export async function GET(request: NextRequest) {
     const force = request.nextUrl.searchParams.get("force") === "true";
     const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
+    console.log("[Sprint Cron] Step 1: Checking existing sprints");
     // Check if sprints already exist for today
     const existing = await queryAll(
       "SELECT id, exam_id FROM daily_sprints WHERE date = ? AND status = 'active'",
@@ -47,6 +48,7 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    console.log("[Sprint Cron] Step 2: Deleting existing if force=true");
     // If force=true, delete existing sprints for today
     if (force && existing.length > 0) {
       await execute(
@@ -56,11 +58,13 @@ export async function GET(request: NextRequest) {
       console.log(`🗑️  Deleted ${existing.length} existing sprints for ${today}`);
     }
 
+    console.log("[Sprint Cron] Step 3: Deleting old sprints");
     // Delete old sprints (older than 7 days) - PostgreSQL INTERVAL syntax
     // date column is TEXT (YYYY-MM-DD), so cast CURRENT_DATE to text for comparison
     await execute(
       "DELETE FROM daily_sprints WHERE date < TO_CHAR(CURRENT_DATE - INTERVAL '7 days', 'YYYY-MM-DD')"
     );
+    console.log("[Sprint Cron] Step 4: Old sprints deleted");
 
     // Exam-Specific Sprints (compete with peers in same exam)
     const examSpecificSprints = [
