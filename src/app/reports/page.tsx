@@ -72,8 +72,11 @@ export default function ReportsPage() {
     );
   }
 
-  if (!data || !data.stats || data.stats.totalSessions === 0) {
-    console.log('[Reports] No data condition:', { data, stats: data?.stats, totalSessions: data?.stats?.totalSessions });
+  // Convert totalSessions to number (PostgreSQL returns it as string)
+  const totalSessions = data?.stats?.totalSessions ? Number(data.stats.totalSessions) : 0;
+
+  if (!data || !data.stats || totalSessions === 0) {
+    console.log('[Reports] No data condition:', { data, stats: data?.stats, totalSessions });
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
