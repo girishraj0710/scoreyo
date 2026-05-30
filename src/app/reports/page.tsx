@@ -98,7 +98,8 @@ export default function ReportsPage() {
   // Calculate max for bar charts (memoized to avoid recalculating on every render)
   const maxDailyQuestions = useMemo(() => {
     if (!dailyActivity || dailyActivity.length === 0) return 1;
-    return Math.max(...dailyActivity.map((d: any) => Number(d.questions) || 0), 1);
+    const values = dailyActivity.map((d: any) => Number(d.questions) || 0);
+    return Math.max(...values, 1);
   }, [dailyActivity]);
 
   // Calculate total difficulty breakdown once (memoized)
@@ -150,6 +151,10 @@ export default function ReportsPage() {
               {subjectBreakdown.map((s: any, idx: number) => {
                 const exam = getExamById(s.exam_id);
                 const subject = getSubjectById(s.exam_id, s.subject_id);
+                const accuracy = Number(s.accuracy) || 0;
+                const totalCorrect = Number(s.total_correct) || 0;
+                const totalQuestions = Number(s.total_questions) || 0;
+                const totalSessions = Number(s.total_sessions) || 0;
                 return (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="flex-1 min-w-0">
@@ -158,18 +163,18 @@ export default function ReportsPage() {
                           {subject?.name || s.subject_id}
                           <span className="text-xs text-slate-400 ml-1">({exam?.name})</span>
                         </span>
-                        <span className={`text-sm font-bold ${s.accuracy >= 70 ? "text-slate-500" : s.accuracy >= 50 ? "text-amber-600" : "text-red-600"}`}>
-                          {s.accuracy}%
+                        <span className={`text-sm font-bold ${accuracy >= 70 ? "text-slate-500" : accuracy >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                          {accuracy}%
                         </span>
                       </div>
                       <div className="w-full bg-slate-100 rounded-full h-2 mt-1">
                         <div
-                          className={`h-2 rounded-full ${s.accuracy >= 70 ? "bg-cyan-400" : s.accuracy >= 50 ? "bg-amber-500" : "bg-red-500"}`}
-                          style={{ width: `${s.accuracy}%` }}
+                          className={`h-2 rounded-full ${accuracy >= 70 ? "bg-cyan-400" : accuracy >= 50 ? "bg-amber-500" : "bg-red-500"}`}
+                          style={{ width: `${accuracy}%` }}
                         />
                       </div>
                       <div className="text-xs text-slate-400 mt-1">
-                        {s.total_correct}/{s.total_questions} {t("correct")} | {s.total_sessions} {t("quizzes")}
+                        {totalCorrect}/{totalQuestions} {t("correct")} | {totalSessions} {t("quizzes")}
                       </div>
                     </div>
                   </div>
@@ -193,7 +198,7 @@ export default function ReportsPage() {
                 { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
               ].map((band) => {
                 const item = difficultyBreakdown.find((d: any) => d.performance_band === band.band);
-                const count = item?.count || 0;
+                const count = Number(item?.count) || 0;
                 const pct = difficultyTotal > 0 ? Math.round((count / difficultyTotal) * 100) : 0;
                 return (
                   <div key={band.band}>
@@ -251,8 +256,10 @@ export default function ReportsPage() {
             {/* Chart bars */}
             <div className="flex-1 flex items-end gap-1 h-48 relative">
               {dailyActivity.map((d: any, idx: number) => {
-                const heightPx = Math.max((d.questions / maxDailyQuestions) * 192, 4); // 192px = h-48
-                const acc = d.questions > 0 ? Math.round((d.correct / d.questions) * 100) : 0;
+                const questions = Number(d.questions) || 0;
+                const correct = Number(d.correct) || 0;
+                const heightPx = Math.max((questions / maxDailyQuestions) * 192, 4); // 192px = h-48
+                const acc = questions > 0 ? Math.round((correct / questions) * 100) : 0;
                 return (
                   <div key={idx} className="flex-1 flex flex-col justify-end group h-full">
                     <div
@@ -265,7 +272,7 @@ export default function ReportsPage() {
                       {/* Tooltip - positioned above the bar */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
                         <div className="font-semibold">{new Date(d.day).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}</div>
-                        <div className="text-slate-300">{d.questions} questions attempted</div>
+                        <div className="text-slate-300">{questions} questions attempted</div>
                         <div className={`font-semibold ${acc >= 70 ? "text-emerald-300" : acc >= 50 ? "text-amber-300" : "text-red-300"}`}>{acc}% accuracy</div>
                       </div>
                     </div>
@@ -298,13 +305,15 @@ export default function ReportsPage() {
               {strongTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 const topicName = topic.topic || "General Topic";
+                const totalAttempted = Number(topic.total_attempted) || 0;
+                const masteryScore = Number(topic.mastery_score) || 0;
                 return (
                   <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-emerald-100">
                     <div>
                       <div className="text-sm font-medium text-slate-700">{topicName}</div>
-                      <div className="text-xs text-slate-400">{exam?.name} | {topic.total_attempted} Q</div>
+                      <div className="text-xs text-slate-400">{exam?.name} | {totalAttempted} Q</div>
                     </div>
-                    <div className="text-lg font-bold text-slate-500">{Math.round(topic.mastery_score)}%</div>
+                    <div className="text-lg font-bold text-slate-500">{Math.round(masteryScore)}%</div>
                   </div>
                 );
               })}
@@ -324,14 +333,16 @@ export default function ReportsPage() {
               {weakTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 const topicName = topic.topic || "General Topic";
+                const totalAttempted = Number(topic.total_attempted) || 0;
+                const masteryScore = Number(topic.mastery_score) || 0;
                 return (
                   <div key={idx} className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-100">
                     <div>
                       <div className="text-sm font-medium text-slate-700">{topicName}</div>
-                      <div className="text-xs text-slate-400">{exam?.name} | {topic.total_attempted} Q</div>
+                      <div className="text-xs text-slate-400">{exam?.name} | {totalAttempted} Q</div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-lg font-bold text-red-600">{Math.round(topic.mastery_score)}%</span>
+                      <span className="text-lg font-bold text-red-600">{Math.round(masteryScore)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
                         className="text-xs text-indigo-600 bg-slate-50 px-3 py-2 rounded hover:bg-indigo-100"
@@ -367,7 +378,7 @@ export default function ReportsPage() {
             {/* Chart bars */}
             <div className="flex-1 flex items-end gap-2 h-48 relative">
               {accuracyTrend.map((item: any, idx: number) => {
-                const accuracy = item.accuracy || 0;
+                const accuracy = Number(item.accuracy) || 0;
                 const heightPx = Math.max((accuracy / 100) * 192, 4); // 192px = h-48, accuracy is 0-100
                 return (
                   <div key={idx} className="flex-1 flex flex-col justify-end group h-full">
@@ -403,8 +414,12 @@ export default function ReportsPage() {
           <div className="space-y-2 overflow-y-auto flex-1 pr-2">
             {mockTestHistory.map((test: any, idx: number) => {
               const exam = getExamById(test.exam_id);
-              const acc = test.total_questions > 0 ? Math.round((test.correct_answers / test.total_questions) * 100) : 0;
-              const timeUsed = Math.round((test.time_taken_seconds / test.time_limit_seconds) * 100);
+              const totalQuestions = Number(test.total_questions) || 0;
+              const correctAnswers = Number(test.correct_answers) || 0;
+              const timeTaken = Number(test.time_taken_seconds) || 0;
+              const timeLimit = Number(test.time_limit_seconds) || 1;
+              const acc = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
+              const timeUsed = Math.round((timeTaken / timeLimit) * 100);
               const ExamIcon = getExamIcon(test.exam_id);
               return (
                 <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
@@ -414,7 +429,7 @@ export default function ReportsPage() {
                       <div className="text-sm font-medium text-slate-700">{exam?.name || test.exam_id}</div>
                       <div className="text-xs text-slate-400">
                         {new Date(test.completed_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
-                        {" | "}{test.correct_answers}/{test.total_questions}
+                        {" | "}{correctAnswers}/{totalQuestions}
                         {" | "}{timeUsed}% {t("timeUsed")}
                       </div>
                     </div>
