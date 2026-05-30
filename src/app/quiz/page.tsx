@@ -243,32 +243,9 @@ function QuizContent() {
   };
 
   const maxTime = useMemo(() => {
-    if (!pressureMode || !quizData) return 0;
+    if ((!pressureMode && !isSprintMode) || !quizData) return 0;
     return calculateMaxTime(quizData.questions.length, difficulty);
-  }, [pressureMode, quizData, difficulty]);
-
-  // Sprint countdown: Calculate time remaining until sprint ends (in seconds)
-  const [sprintTimeRemaining, setSprintTimeRemaining] = useState(0);
-
-  useEffect(() => {
-    if (!isSprintMode || !sprintData?.sprint?.endTime) return;
-
-    const updateSprintTime = () => {
-      const now = new Date().getTime();
-      const end = new Date(sprintData.sprint.endTime).getTime();
-      const diff = Math.max(0, Math.floor((end - now) / 1000)); // seconds remaining
-      setSprintTimeRemaining(diff);
-
-      if (diff === 0) {
-        setTimeIsUp(true);
-      }
-    };
-
-    updateSprintTime(); // Initial calculation
-    const timer = setInterval(updateSprintTime, 1000); // Update every second
-
-    return () => clearInterval(timer);
-  }, [isSprintMode, sprintData]);
+  }, [pressureMode, isSprintMode, quizData, difficulty]);
 
   // Timer (counts up in normal mode, counts down in pressure/sprint mode)
   useEffect(() => {
@@ -276,8 +253,8 @@ function QuizContent() {
 
     const timer = setInterval(() => {
       setTimeElapsed((t) => {
-        if (pressureMode) {
-          // Countdown mode
+        if (pressureMode || isSprintMode) {
+          // Countdown mode for both pressure and sprint
           if (t >= maxTime) {
             // Time's up!
             setTimeIsUp(true);
@@ -292,7 +269,7 @@ function QuizContent() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isLoading, isSubmitted, pressureMode, maxTime]);
+  }, [isLoading, isSubmitted, pressureMode, isSprintMode, maxTime]);
 
   // Track if time's up for UI warning
   const [timeIsUp, setTimeIsUp] = useState(false);
@@ -1122,10 +1099,8 @@ function QuizContent() {
             <span className={`text-sm font-mono px-3 py-1 rounded-lg ${
               (pressureMode || isSprintMode)
                 ? (() => {
-                    const remaining = pressureMode ? (maxTime - timeElapsed) : sprintTimeRemaining;
-                    const total = pressureMode ? maxTime : (sprintData?.sprint ?
-                      Math.floor((new Date(sprintData.sprint.endTime).getTime() - new Date(sprintData.sprint.startTime).getTime()) / 1000) : 86400);
-                    const percentage = (remaining / total) * 100;
+                    const remaining = maxTime - timeElapsed;
+                    const percentage = (remaining / maxTime) * 100;
                     if (percentage > 50) return "text-green-700 bg-green-100";
                     if (percentage > 25) return "text-orange-700 bg-orange-100 animate-pulse";
                     if (percentage > 10) return "text-red-700 bg-red-100 animate-pulse";
@@ -1138,10 +1113,7 @@ function QuizContent() {
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                   </svg>
-                  {pressureMode
-                    ? formatTime(Math.max(0, maxTime - timeElapsed))
-                    : formatTime(sprintTimeRemaining)
-                  }
+                  {formatTime(Math.max(0, maxTime - timeElapsed))}
                 </span>
               ) : (
                 formatTime(timeElapsed)
