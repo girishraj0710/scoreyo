@@ -1472,14 +1472,15 @@ export async function getInProgressMockTest(userId: string) {
 // ─── Performance Report functions ───────────────────────
 
 export async function getDetailedPerformance(userId: string) {
+  // SQLite syntax (Turso) - no ::numeric, use ? placeholders, CAST AS REAL for divisions
   const subjectBreakdown = await queryAll(
     `SELECT exam_id, subject_id,
             COUNT(*) as total_sessions,
             SUM(total_questions) as total_questions,
             SUM(correct_answers) as total_correct,
             AVG(time_taken_seconds) as avg_time,
-            ROUND((SUM(correct_answers)::numeric / NULLIF(SUM(total_questions), 0) * 100)::numeric) as accuracy
-     FROM quiz_sessions WHERE user_id = $1 GROUP BY exam_id, subject_id ORDER BY accuracy ASC`,
+            ROUND(CAST(SUM(correct_answers) AS REAL) / NULLIF(SUM(total_questions), 0) * 100) as accuracy
+     FROM quiz_sessions WHERE user_id = ? GROUP BY exam_id, subject_id ORDER BY accuracy ASC`,
     [userId]
   );
 
@@ -1488,7 +1489,7 @@ export async function getDetailedPerformance(userId: string) {
             COUNT(*) as sessions,
             SUM(total_questions) as questions,
             SUM(correct_answers) as correct
-     FROM quiz_sessions WHERE user_id = $1 AND created_at >= CURRENT_DATE - INTERVAL '30 days'
+     FROM quiz_sessions WHERE user_id = ? AND created_at >= date('now', '-30 days')
      GROUP BY DATE(created_at) ORDER BY day ASC`,
     [userId]
   );
@@ -1496,40 +1497,40 @@ export async function getDetailedPerformance(userId: string) {
   const difficultyBreakdown = await queryAll(
     `SELECT
        CASE
-         WHEN correct_answers::numeric / NULLIF(total_questions, 0) >= 0.8 THEN 'excellent'
-         WHEN correct_answers::numeric / NULLIF(total_questions, 0) >= 0.6 THEN 'good'
-         WHEN correct_answers::numeric / NULLIF(total_questions, 0) >= 0.4 THEN 'average'
+         WHEN CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) >= 0.8 THEN 'excellent'
+         WHEN CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) >= 0.6 THEN 'good'
+         WHEN CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) >= 0.4 THEN 'average'
          ELSE 'needs_work'
        END as performance_band,
        COUNT(*) as count
-     FROM quiz_sessions WHERE user_id = $1 GROUP BY performance_band`,
+     FROM quiz_sessions WHERE user_id = ? GROUP BY performance_band`,
     [userId]
   );
 
   const timeTrend = await queryAll(
-    `SELECT ROUND((time_taken_seconds::numeric / NULLIF(total_questions, 0))::numeric, 1) as avg_seconds_per_question,
-            ROUND((correct_answers::numeric / NULLIF(total_questions, 0) * 100)::numeric) as accuracy,
+    `SELECT ROUND(CAST(time_taken_seconds AS REAL) / NULLIF(total_questions, 0), 1) as avg_seconds_per_question,
+            ROUND(CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) * 100) as accuracy,
             DATE(created_at) as day
-     FROM quiz_sessions WHERE user_id = $1 AND time_taken_seconds > 0 ORDER BY created_at DESC LIMIT 20`,
+     FROM quiz_sessions WHERE user_id = ? AND time_taken_seconds > 0 ORDER BY created_at DESC LIMIT 20`,
     [userId]
   );
 
   const accuracyTrend = await queryAll(
-    `SELECT ROUND((correct_answers::numeric / NULLIF(total_questions, 0) * 100)::numeric) as accuracy,
+    `SELECT ROUND(CAST(correct_answers AS REAL) / NULLIF(total_questions, 0) * 100) as accuracy,
             topic, exam_id, DATE(created_at) as day
-     FROM quiz_sessions WHERE user_id = $1 ORDER BY created_at DESC LIMIT 20`,
+     FROM quiz_sessions WHERE user_id = ? ORDER BY created_at DESC LIMIT 20`,
     [userId]
   );
 
   const topicPerformance = await queryAll(
     `SELECT exam_id, subject_id, topic, total_attempted, total_correct, mastery_score
-     FROM topic_mastery WHERE user_id = $1 AND total_attempted >= 3 ORDER BY mastery_score DESC`,
+     FROM topic_mastery WHERE user_id = ? AND total_attempted >= 3 ORDER BY mastery_score DESC`,
     [userId]
   );
 
   const mockTestHistory = await queryAll(
     `SELECT id, exam_id, total_questions, correct_answers, time_limit_seconds, time_taken_seconds, status, completed_at
-     FROM mock_tests WHERE user_id = $1 AND status = 'completed' ORDER BY completed_at DESC LIMIT 10`,
+     FROM mock_tests WHERE user_id = ? AND status = 'completed' ORDER BY completed_at DESC LIMIT 10`,
     [userId]
   );
 
