@@ -19,9 +19,9 @@ function parseNumbers(obj: any): any {
 
   // Parse numeric strings to numbers
   if (typeof obj === 'string') {
-    const num = Number(obj);
-    if (!isNaN(num) && obj.trim() !== '') {
-      return num;
+    // Check if it's a pure numeric string (integer or decimal)
+    if (/^\d+$/.test(obj) || /^\d+\.\d+$/.test(obj)) {
+      return Number(obj);
     }
   }
 
