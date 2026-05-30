@@ -11,6 +11,7 @@ export default function ReportsPage() {
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [proRequired, setProRequired] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -26,15 +27,41 @@ export default function ReportsPage() {
           setData(jsonData);
         } else {
           console.error('[Reports] API Error:', res.status, res.statusText);
+          setError(`API Error: ${res.status}`);
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error('[Reports] Fetch Error:', error);
+        setError(error?.message || 'Failed to load reports');
       } finally {
         setIsLoading(false);
       }
     }
     load();
   }, []);
+
+  if (error) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+        <div className="bg-white rounded-2xl p-12 shadow-lg border border-red-200">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-100 flex items-center justify-center">
+            <svg className="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-semibold text-slate-800 mb-2">Error Loading Reports</h2>
+          <p className="text-slate-500 mb-4">{error}</p>
+          <div className="flex gap-3 justify-center">
+            <button onClick={() => window.location.reload()} className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg">
+              Retry
+            </button>
+            <a href="/dashboard" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
+              {t("dashboard")}
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -93,7 +120,17 @@ export default function ReportsPage() {
     );
   }
 
-  const { stats, subjectBreakdown, dailyActivity, difficultyBreakdown, timeTrend, accuracyTrend, strongTopics, weakTopics, mockTestHistory } = data;
+  const {
+    stats,
+    subjectBreakdown = [],
+    dailyActivity = [],
+    difficultyBreakdown = [],
+    timeTrend = [],
+    accuracyTrend = [],
+    strongTopics = [],
+    weakTopics = [],
+    mockTestHistory = []
+  } = data || {};
 
   // Calculate max for bar charts (memoized to avoid recalculating on every render)
   const maxDailyQuestions = useMemo(() => {
@@ -221,7 +258,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Daily Activity Chart */}
-      {dailyActivity.length > 0 && (
+      {dailyActivity && dailyActivity.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-slate-800">{t("dailyActivity")}</h3>
@@ -265,7 +302,7 @@ export default function ReportsPage() {
                     <div
                       className="w-full rounded-t-sm relative"
                       style={{ height: `${heightPx}px` }}
-                      title={`${d.day}: ${d.questions} questions, ${acc}% accuracy`}
+                      title={`${d.day}: ${questions} questions, ${acc}% accuracy`}
                     >
                       {/* Bar color */}
                       <div className={`w-full h-full rounded-t-sm ${acc >= 70 ? "bg-emerald-400" : acc >= 50 ? "bg-amber-400" : "bg-red-400"}`} />
@@ -298,7 +335,7 @@ export default function ReportsPage() {
           <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
             <Zap className="w-5 h-5 text-emerald-500" /> {t("strongestTopics")}
           </h3>
-          {strongTopics.length === 0 ? (
+          {!strongTopics || strongTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
           ) : (
             <div className="space-y-2">
@@ -326,7 +363,7 @@ export default function ReportsPage() {
           <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-red-500" /> {t("weakestTopics")}
           </h3>
-          {weakTopics.length === 0 ? (
+          {!weakTopics || weakTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
           ) : (
             <div className="space-y-2">
@@ -359,7 +396,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Accuracy Trend */}
-      {accuracyTrend.length > 0 && (
+      {accuracyTrend && accuracyTrend.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("accuracyTrend")}</h3>
           <div className="flex gap-2">
@@ -408,7 +445,7 @@ export default function ReportsPage() {
       )}
 
       {/* Mock Test History */}
-      {mockTestHistory.length > 0 && (
+      {mockTestHistory && mockTestHistory.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("mockTestHistory")}</h3>
           <div className="space-y-2 overflow-y-auto flex-1 pr-2">
