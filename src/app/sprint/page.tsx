@@ -38,11 +38,20 @@ export default function SprintPage() {
   const [noActiveSprint, setNoActiveSprint] = useState(false);
   const [loading, setLoading] = useState(true);
   const [selectedSprintId, setSelectedSprintId] = useState<string | null>(null);
+  const [, setTick] = useState(0); // Force re-render every second for countdown
 
   useEffect(() => {
     fetchSprintData();
     const interval = setInterval(fetchSprintData, 30000); // Refresh every 30 seconds
     return () => clearInterval(interval);
+  }, []);
+
+  // Update countdown every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTick((t) => t + 1);
+    }, 1000);
+    return () => clearInterval(timer);
   }, []);
 
   async function fetchSprintData() {
