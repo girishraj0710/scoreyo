@@ -1,13 +1,20 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import dynamic from "next/dynamic";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
 import { FileText, Sparkles } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
-import { CustomMockTestBuilder } from "@/components/custom-mock-test-builder";
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
+
+// Dynamic import: Only load builder when user clicks "Create Custom Test"
+const CustomMockTestBuilder = dynamic(
+  () => import("@/components/custom-mock-test-builder").then((mod) => ({ default: mod.CustomMockTestBuilder })),
+  { loading: () => <LoadingSkeleton type="card" /> }
+);
 
 interface MockTestConfig {
   examId: string;

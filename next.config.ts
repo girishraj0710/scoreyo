@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 
+// Bundle analyzer (use: ANALYZE=true npm run build)
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig: NextConfig = {
   serverExternalPackages: ["razorpay"],
   transpilePackages: ["lucide-react"],
@@ -64,4 +69,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

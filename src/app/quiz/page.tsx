@@ -2,14 +2,37 @@
 
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { RichExplanation } from "@/components/rich-explanation";
-import { WeaknessTrackerModal } from "@/components/weakness-tracker-modal";
-import { LevelCompleteModal } from "@/components/level-complete-modal";
-import { BadgeUnlockModal } from "@/components/badge-unlock-modal";
-import { QuizCelebration } from "@/components/quiz-celebration";
 import { calculateStars } from "@/lib/level-definitions";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
+import { LoadingSpinner } from "@/components/loading-skeleton";
+
+// Dynamic imports: Only load these modals when actually needed
+const RichExplanation = dynamic(
+  () => import("@/components/rich-explanation").then((mod) => ({ default: mod.RichExplanation })),
+  { loading: () => <LoadingSpinner /> }
+);
+
+const WeaknessTrackerModal = dynamic(
+  () => import("@/components/weakness-tracker-modal").then((mod) => ({ default: mod.WeaknessTrackerModal })),
+  { loading: () => <LoadingSpinner /> }
+);
+
+const LevelCompleteModal = dynamic(
+  () => import("@/components/level-complete-modal").then((mod) => ({ default: mod.LevelCompleteModal })),
+  { loading: () => <LoadingSpinner /> }
+);
+
+const BadgeUnlockModal = dynamic(
+  () => import("@/components/badge-unlock-modal").then((mod) => ({ default: mod.BadgeUnlockModal })),
+  { loading: () => <LoadingSpinner /> }
+);
+
+const QuizCelebration = dynamic(
+  () => import("@/components/quiz-celebration").then((mod) => ({ default: mod.QuizCelebration })),
+  { loading: () => <div /> }
+);
 
 interface Question {
   id?: string;
