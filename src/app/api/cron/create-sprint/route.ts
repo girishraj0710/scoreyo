@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@libsql/client";
 import { generateQuiz } from "@/lib/quiz-generator";
 import { getExamById } from "@/lib/exams";
+import { queryAll, execute } from "@/lib/db";
 
 // Secret token for cron job authentication
 const CRON_SECRET = process.env.CRON_SECRET;
@@ -31,40 +31,34 @@ export async function GET(request: NextRequest) {
     }
 
     const force = request.nextUrl.searchParams.get("force") === "true";
-
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
-
     const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
     // Check if sprints already exist for today
-    const existing = await db.execute({
-      sql: "SELECT id, exam_id FROM daily_sprints WHERE date = ? AND status = 'active'",
-      args: [today],
-    });
+    const existing = await queryAll(
+      "SELECT id, exam_id FROM daily_sprints WHERE date = ? AND status = 'active'",
+      [today]
+    );
 
-    if (existing.rows.length > 0 && !force) {
+    if (existing.length > 0 && !force) {
       return NextResponse.json({
         message: "Sprints already exist for today",
-        count: existing.rows.length,
-        sprints: existing.rows.map((r: any) => ({ id: r.id, examId: r.exam_id })),
+        count: existing.length,
+        sprints: existing.map((r: any) => ({ id: r.id, examId: r.exam_id })),
       });
     }
 
     // If force=true, delete existing sprints for today
-    if (force && existing.rows.length > 0) {
-      await db.execute({
-        sql: "DELETE FROM daily_sprints WHERE date = ?",
-        args: [today],
-      });
-      console.log(`🗑️  Deleted ${existing.rows.length} existing sprints for ${today}`);
+    if (force && existing.length > 0) {
+      await execute(
+        "DELETE FROM daily_sprints WHERE date = ?",
+        [today]
+      );
+      console.log(`🗑️  Deleted ${existing.length} existing sprints for ${today}`);
     }
 
-    // Delete old sprints (older than 7 days)
-    await db.execute(
-      "DELETE FROM daily_sprints WHERE date < date('now', '-7 days')"
+    // Delete old sprints (older than 7 days) - PostgreSQL INTERVAL syntax
+    await execute(
+      "DELETE FROM daily_sprints WHERE date < CURRENT_DATE - INTERVAL '7 days'"
     );
 
     // Exam-Specific Sprints (compete with peers in same exam)
@@ -327,10 +321,10 @@ export async function GET(request: NextRequest) {
 
         const sprintId = `sprint-${config.examId}-${config.subjectId}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
 
-        await db.execute({
-          sql: `INSERT INTO daily_sprints (id, date, start_time, end_time, topic, exam_id, subject_id, questions, status)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          args: [
+        await execute(
+          `INSERT INTO daily_sprints (id, date, start_time, end_time, topic, exam_id, subject_id, questions, status)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
             sprintId,
             today,
             startTime,
@@ -340,8 +334,8 @@ export async function GET(request: NextRequest) {
             config.subjectId,
             JSON.stringify(questions),
             "active",
-          ],
-        });
+          ]
+        );
 
         createdSprints.push({
           id: sprintId,
