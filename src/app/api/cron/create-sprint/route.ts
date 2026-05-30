@@ -4,7 +4,7 @@ import { generateQuiz } from "@/lib/quiz-generator";
 import { getExamById } from "@/lib/exams";
 
 // Secret token for cron job authentication
-const CRON_SECRET = process.env.CRON_SECRET || "your-secret-token-here";
+const CRON_SECRET = process.env.CRON_SECRET;
 
 // Safety knobs to bound cost & latency
 const QUESTIONS_PER_SPRINT = 10;
@@ -19,10 +19,15 @@ export async function GET(request: NextRequest) {
   try {
     // Verify cron secret (skip check if CRON_SECRET not configured in production)
     const secret = request.nextUrl.searchParams.get("secret");
-    const hasSecretConfigured = CRON_SECRET && CRON_SECRET !== "your-secret-token-here";
 
-    if (hasSecretConfigured && secret !== CRON_SECRET) {
+    // Only validate if CRON_SECRET is configured
+    if (CRON_SECRET && secret !== CRON_SECRET) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    // Log if running without secret (for debugging)
+    if (!CRON_SECRET) {
+      console.log("[Sprint Cron] Running without CRON_SECRET (not configured)");
     }
 
     const force = request.nextUrl.searchParams.get("force") === "true";
