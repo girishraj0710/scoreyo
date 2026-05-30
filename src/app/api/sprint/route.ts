@@ -12,9 +12,9 @@ export async function GET() {
 
     const now = new Date();
 
-    // Check for active sprints (all exams)
+    // Check for active sprints (all exams) - from daily_sprints table
     const activeSprints = await queryAll(
-      `SELECT * FROM sprints
+      `SELECT * FROM daily_sprints
        WHERE status = 'active' AND end_time > ?
        ORDER BY exam_id, start_time DESC`,
       [now.toISOString()]
