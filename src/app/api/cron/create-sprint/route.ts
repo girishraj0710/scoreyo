@@ -7,7 +7,7 @@ import { queryAll, execute } from "@/lib/db";
 const CRON_SECRET = process.env.CRON_SECRET;
 
 // Safety knobs to bound cost & latency
-const QUESTIONS_PER_SPRINT = 10;
+const QUESTIONS_PER_SPRINT = 20;
 const MAX_SPRINTS_PER_RUN = 30; // hard cap regardless of configs
 const BATCH_SIZE = 4; // generate this many sprints in parallel
 
