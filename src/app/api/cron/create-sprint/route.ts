@@ -57,8 +57,9 @@ export async function GET(request: NextRequest) {
     }
 
     // Delete old sprints (older than 7 days) - PostgreSQL INTERVAL syntax
+    // date column is TEXT (YYYY-MM-DD), so cast CURRENT_DATE to text for comparison
     await execute(
-      "DELETE FROM daily_sprints WHERE date < CURRENT_DATE - INTERVAL '7 days'"
+      "DELETE FROM daily_sprints WHERE date < TO_CHAR(CURRENT_DATE - INTERVAL '7 days', 'YYYY-MM-DD')"
     );
 
     // Exam-Specific Sprints (compete with peers in same exam)
