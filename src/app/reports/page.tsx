@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useLocale } from "@/context/locale-context";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { getExamIcon } from "@/lib/professional-icons";
@@ -92,8 +92,17 @@ export default function ReportsPage() {
 
   const { stats, subjectBreakdown, dailyActivity, difficultyBreakdown, timeTrend, accuracyTrend, strongTopics, weakTopics, mockTestHistory } = data;
 
-  // Calculate max for bar charts
-  const maxDailyQuestions = Math.max(...dailyActivity.map((d: any) => d.questions), 1);
+  // Calculate max for bar charts (memoized to avoid recalculating on every render)
+  const maxDailyQuestions = useMemo(() =>
+    Math.max(...dailyActivity.map((d: any) => d.questions), 1),
+    [dailyActivity]
+  );
+
+  // Calculate total difficulty breakdown once (memoized)
+  const difficultyTotal = useMemo(() =>
+    difficultyBreakdown.reduce((sum: number, d: any) => sum + d.count, 0),
+    [difficultyBreakdown]
+  );
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -182,8 +191,7 @@ export default function ReportsPage() {
               ].map((band) => {
                 const item = difficultyBreakdown.find((d: any) => d.performance_band === band.band);
                 const count = item?.count || 0;
-                const total = difficultyBreakdown.reduce((sum: number, d: any) => sum + d.count, 0);
-                const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+                const pct = difficultyTotal > 0 ? Math.round((count / difficultyTotal) * 100) : 0;
                 return (
                   <div key={band.band}>
                     <div className="flex justify-between items-center mb-1">

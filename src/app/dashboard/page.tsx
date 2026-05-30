@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
@@ -94,6 +94,12 @@ export default function DashboardPage() {
       minute: "2-digit",
     });
   };
+
+  // Memoize weak topics calculation (filter + slice runs on every render)
+  const weakTopicsToShow = useMemo(() =>
+    mastery.filter((m) => m.mastery_score < 80).slice(0, 6),
+    [mastery]
+  );
 
   if (isLoading) {
     return (
@@ -280,10 +286,7 @@ export default function DashboardPage() {
             </p>
           ) : (
             <div className="space-y-3 overflow-y-auto flex-1 pr-2">
-              {mastery
-                .filter((m) => m.mastery_score < 80)
-                .slice(0, 6)
-                .map((m, idx) => {
+              {weakTopicsToShow.map((m, idx) => {
                   const exam = getExamById(m.exam_id);
                   return (
                     <div
