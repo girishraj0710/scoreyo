@@ -17,9 +17,11 @@ const BATCH_SIZE = 4; // generate this many sprints in parallel
  */
 export async function GET(request: NextRequest) {
   try {
-    // Verify cron secret
+    // Verify cron secret (skip check if CRON_SECRET not configured in production)
     const secret = request.nextUrl.searchParams.get("secret");
-    if (secret !== CRON_SECRET) {
+    const hasSecretConfigured = CRON_SECRET && CRON_SECRET !== "your-secret-token-here";
+
+    if (hasSecretConfigured && secret !== CRON_SECRET) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
