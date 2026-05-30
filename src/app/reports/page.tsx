@@ -125,28 +125,38 @@ export default function ReportsPage() {
 
   const {
     stats = {},
-    subjectBreakdown = [],
-    dailyActivity = [],
-    difficultyBreakdown = [],
-    timeTrend = [],
-    accuracyTrend = [],
-    strongTopics = [],
-    weakTopics = [],
-    mockTestHistory = []
+    subjectBreakdown,
+    dailyActivity,
+    difficultyBreakdown,
+    timeTrend,
+    accuracyTrend,
+    strongTopics,
+    weakTopics,
+    mockTestHistory
   } = data || {};
+
+  // Ensure all arrays are actually arrays (safe for useMemo dependencies)
+  const safeSubjectBreakdown = Array.isArray(subjectBreakdown) ? subjectBreakdown : [];
+  const safeDailyActivity = Array.isArray(dailyActivity) ? dailyActivity : [];
+  const safeDifficultyBreakdown = Array.isArray(difficultyBreakdown) ? difficultyBreakdown : [];
+  const safeTimeTrend = Array.isArray(timeTrend) ? timeTrend : [];
+  const safeAccuracyTrend = Array.isArray(accuracyTrend) ? accuracyTrend : [];
+  const safeStrongTopics = Array.isArray(strongTopics) ? strongTopics : [];
+  const safeWeakTopics = Array.isArray(weakTopics) ? weakTopics : [];
+  const safeMockTestHistory = Array.isArray(mockTestHistory) ? mockTestHistory : [];
 
   // Calculate max for bar charts (memoized to avoid recalculating on every render)
   const maxDailyQuestions = useMemo(() => {
-    if (!dailyActivity || dailyActivity.length === 0) return 1;
-    const values = dailyActivity.map((d: any) => Number(d.questions) || 0);
+    if (safeDailyActivity.length === 0) return 1;
+    const values = safeDailyActivity.map((d: any) => Number(d.questions) || 0);
     return Math.max(...values, 1);
-  }, [dailyActivity]);
+  }, [safeDailyActivity]);
 
   // Calculate total difficulty breakdown once (memoized)
   const difficultyTotal = useMemo(() => {
-    if (!difficultyBreakdown || difficultyBreakdown.length === 0) return 0;
-    return difficultyBreakdown.reduce((sum: number, d: any) => sum + (Number(d.count) || 0), 0);
-  }, [difficultyBreakdown]);
+    if (safeDifficultyBreakdown.length === 0) return 0;
+    return safeDifficultyBreakdown.reduce((sum: number, d: any) => sum + (Number(d.count) || 0), 0);
+  }, [safeDifficultyBreakdown]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -184,11 +194,11 @@ export default function ReportsPage() {
         {/* Subject-wise Breakdown */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[345px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("subjectPerformance")}</h3>
-          {!subjectBreakdown || subjectBreakdown.length === 0 ? (
+          {!safeSubjectBreakdown || safeSubjectBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
           ) : (
             <div className="space-y-3 overflow-y-auto flex-1 pr-2">
-              {subjectBreakdown.map((s: any, idx: number) => {
+              {safeSubjectBreakdown.map((s: any, idx: number) => {
                 try {
                   const exam = getExamById(s.exam_id);
                   const subject = getSubjectById(s.exam_id, s.subject_id);
@@ -232,7 +242,7 @@ export default function ReportsPage() {
         {/* Quiz Performance Distribution */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 h-[345px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("performanceDistribution")}</h3>
-          {!difficultyBreakdown || difficultyBreakdown.length === 0 ? (
+          {!safeDifficultyBreakdown || safeDifficultyBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
           ) : (
             <div className="space-y-6">
@@ -242,7 +252,7 @@ export default function ReportsPage() {
                 { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", IconComponent: BarChart3 },
                 { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
               ].map((band) => {
-                const item = difficultyBreakdown.find((d: any) => d.performance_band === band.band);
+                const item = safeDifficultyBreakdown.find((d: any) => d.performance_band === band.band);
                 const count = Number(item?.count) || 0;
                 const pct = difficultyTotal > 0 ? Math.round((count / difficultyTotal) * 100) : 0;
                 return (
@@ -266,7 +276,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Daily Activity Chart */}
-      {dailyActivity && dailyActivity.length > 0 && (
+      {safeDailyActivity && safeDailyActivity.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-slate-800">{t("dailyActivity")}</h3>
@@ -300,7 +310,7 @@ export default function ReportsPage() {
             </div>
             {/* Chart bars */}
             <div className="flex-1 flex items-end gap-1 h-48 relative">
-              {dailyActivity.map((d: any, idx: number) => {
+              {safeDailyActivity.map((d: any, idx: number) => {
                 const questions = Number(d.questions) || 0;
                 const correct = Number(d.correct) || 0;
                 const heightPx = Math.max((questions / maxDailyQuestions) * 192, 4); // 192px = h-48
@@ -329,8 +339,8 @@ export default function ReportsPage() {
           {/* X-axis labels and title */}
           <div className="ml-16">
             <div className="flex justify-between text-xs text-slate-400 mb-1">
-              <span>{dailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
-              <span>{dailyActivity.length > 0 ? new Date(dailyActivity[dailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+              <span>{safeDailyActivity.length > 0 ? new Date(dailyActivity[0].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
+              <span>{safeDailyActivity.length > 0 ? new Date(dailyActivity[safeDailyActivity.length - 1].day).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
             </div>
             <div className="text-center text-[10px] text-slate-500 font-medium">Date</div>
           </div>
@@ -343,11 +353,11 @@ export default function ReportsPage() {
           <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
             <Zap className="w-5 h-5 text-emerald-500" /> {t("strongestTopics")}
           </h3>
-          {!strongTopics || strongTopics.length === 0 ? (
+          {!safeStrongTopics || safeStrongTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
           ) : (
             <div className="space-y-2">
-              {strongTopics.map((topic: any, idx: number) => {
+              {safeStrongTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 const topicName = topic.topic || "General Topic";
                 const totalAttempted = Number(topic.total_attempted) || 0;
@@ -371,11 +381,11 @@ export default function ReportsPage() {
           <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-red-500" /> {t("weakestTopics")}
           </h3>
-          {!weakTopics || weakTopics.length === 0 ? (
+          {!safeWeakTopics || safeWeakTopics.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("moreQuizzesNeeded")}</p>
           ) : (
             <div className="space-y-2">
-              {weakTopics.map((topic: any, idx: number) => {
+              {safeWeakTopics.map((topic: any, idx: number) => {
                 const exam = getExamById(topic.exam_id);
                 const topicName = topic.topic || "General Topic";
                 const totalAttempted = Number(topic.total_attempted) || 0;
@@ -404,7 +414,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Accuracy Trend */}
-      {accuracyTrend && accuracyTrend.length > 0 && (
+      {safeAccuracyTrend && safeAccuracyTrend.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 mb-8">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("accuracyTrend")}</h3>
           <div className="flex gap-2">
@@ -422,7 +432,7 @@ export default function ReportsPage() {
             </div>
             {/* Chart bars */}
             <div className="flex-1 flex items-end gap-2 h-48 relative">
-              {accuracyTrend.map((item: any, idx: number) => {
+              {safeAccuracyTrend.map((item: any, idx: number) => {
                 const accuracy = Number(item.accuracy) || 0;
                 const heightPx = Math.max((accuracy / 100) * 192, 4); // 192px = h-48, accuracy is 0-100
                 return (
@@ -435,7 +445,7 @@ export default function ReportsPage() {
                       <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`} />
                       {/* Tooltip - positioned above the bar */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
-                        <div className="font-semibold">{item.topic || `Quiz #${accuracyTrend.length - idx}`}</div>
+                        <div className="font-semibold">{item.topic || `Quiz #${safeAccuracyTrend.length - idx}`}</div>
                         <div className="text-indigo-300">{accuracy}% accuracy</div>
                       </div>
                     </div>
@@ -453,11 +463,11 @@ export default function ReportsPage() {
       )}
 
       {/* Mock Test History */}
-      {mockTestHistory && mockTestHistory.length > 0 && (
+      {safeMockTestHistory && safeMockTestHistory.length > 0 && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[400px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("mockTestHistory")}</h3>
           <div className="space-y-2 overflow-y-auto flex-1 pr-2">
-            {mockTestHistory.map((test: any, idx: number) => {
+            {safeMockTestHistory.map((test: any, idx: number) => {
               try {
                 const exam = getExamById(test.exam_id);
                 const totalQuestions = Number(test.total_questions) || 0;
