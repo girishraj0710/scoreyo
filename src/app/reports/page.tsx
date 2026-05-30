@@ -96,16 +96,16 @@ export default function ReportsPage() {
   const { stats, subjectBreakdown, dailyActivity, difficultyBreakdown, timeTrend, accuracyTrend, strongTopics, weakTopics, mockTestHistory } = data;
 
   // Calculate max for bar charts (memoized to avoid recalculating on every render)
-  const maxDailyQuestions = useMemo(() =>
-    Math.max(...dailyActivity.map((d: any) => d.questions), 1),
-    [dailyActivity]
-  );
+  const maxDailyQuestions = useMemo(() => {
+    if (!dailyActivity || dailyActivity.length === 0) return 1;
+    return Math.max(...dailyActivity.map((d: any) => Number(d.questions) || 0), 1);
+  }, [dailyActivity]);
 
   // Calculate total difficulty breakdown once (memoized)
-  const difficultyTotal = useMemo(() =>
-    difficultyBreakdown.reduce((sum: number, d: any) => sum + d.count, 0),
-    [difficultyBreakdown]
-  );
+  const difficultyTotal = useMemo(() => {
+    if (!difficultyBreakdown || difficultyBreakdown.length === 0) return 0;
+    return difficultyBreakdown.reduce((sum: number, d: any) => sum + (Number(d.count) || 0), 0);
+  }, [difficultyBreakdown]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -143,7 +143,7 @@ export default function ReportsPage() {
         {/* Subject-wise Breakdown */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col h-[345px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("subjectPerformance")}</h3>
-          {subjectBreakdown.length === 0 ? (
+          {!subjectBreakdown || subjectBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
           ) : (
             <div className="space-y-3 overflow-y-auto flex-1 pr-2">
@@ -182,7 +182,7 @@ export default function ReportsPage() {
         {/* Quiz Performance Distribution */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 h-[345px]">
           <h3 className="text-lg font-semibold text-slate-800 mb-4">{t("performanceDistribution")}</h3>
-          {difficultyBreakdown.length === 0 ? (
+          {!difficultyBreakdown || difficultyBreakdown.length === 0 ? (
             <p className="text-slate-400 text-sm">{t("noExamData")}</p>
           ) : (
             <div className="space-y-6">
