@@ -6,11 +6,15 @@ import { AppHeader } from "@/components/app-header";
 import { AppFooter } from "@/components/app-footer";
 
 // Poppins - Industry standard for education apps (Byju's, Unacademy style)
+// Optimized: preload, subset, display swap, variable font
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
+  preload: true,
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
