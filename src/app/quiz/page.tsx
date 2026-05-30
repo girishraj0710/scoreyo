@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, Suspense } from "react";
+import { useState, useEffect, useCallback, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
@@ -228,26 +228,51 @@ function QuizContent() {
   // Sprint mode state
   const [sprintData, setSprintData] = useState<any>(null);
 
-  // Timer (adaptive in pressure mode)
+  // Calculate max time for pressure mode based on questions and difficulty
+  const calculateMaxTime = (numQuestions: number, difficultyLevel: string) => {
+    // Base time per question by difficulty
+    const timePerQuestion = {
+      easy: 45,      // 45 seconds per easy question
+      medium: 60,    // 1 minute per medium question
+      hard: 90,      // 1.5 minutes per hard question
+      mixed: 60,     // 1 minute per mixed question
+    };
+
+    const baseTime = timePerQuestion[difficultyLevel as keyof typeof timePerQuestion] || 60;
+    return numQuestions * baseTime; // Total time in seconds
+  };
+
+  const maxTime = useMemo(() => {
+    if (!pressureMode || !quizData) return 0;
+    return calculateMaxTime(quizData.questions.length, difficulty);
+  }, [pressureMode, quizData, difficulty]);
+
+  // Timer (counts up in normal mode, counts down in pressure mode)
   useEffect(() => {
     if (isLoading || isSubmitted) return;
 
-    // In pressure mode, timer accelerates based on time elapsed
-    const getTimerInterval = () => {
-      if (!pressureMode) return 1000; // Normal: 1 second
+    const timer = setInterval(() => {
+      setTimeElapsed((t) => {
+        if (pressureMode) {
+          // Countdown mode
+          if (t >= maxTime) {
+            // Time's up!
+            setTimeIsUp(true);
+            return maxTime;
+          }
+          return t + 1;
+        } else {
+          // Normal count-up mode
+          return t + 1;
+        }
+      });
+    }, 1000);
 
-      // Pressure mode: speeds up as time passes
-      if (timeElapsed < 60) return 1000;      // First minute: normal
-      if (timeElapsed < 120) return 900;      // 2nd minute: 10% faster
-      if (timeElapsed < 180) return 800;      // 3rd minute: 20% faster
-      if (timeElapsed < 240) return 700;      // 4th minute: 30% faster
-      return 600;                              // After 4 min: 40% faster (insane!)
-    };
-
-    const interval = getTimerInterval();
-    const timer = setInterval(() => setTimeElapsed((t) => t + 1), interval);
     return () => clearInterval(timer);
-  }, [isLoading, isSubmitted, timeElapsed, pressureMode]);
+  }, [isLoading, isSubmitted, pressureMode, maxTime]);
+
+  // Track if time's up for UI warning
+  const [timeIsUp, setTimeIsUp] = useState(false);
 
   // Load quiz
   useEffect(() => {
@@ -1065,14 +1090,26 @@ function QuizContent() {
             )}
             <span className={`text-sm font-mono px-3 py-1 rounded-lg ${
               pressureMode
-                ? timeElapsed < 120
-                  ? "text-orange-700 bg-orange-100 animate-pulse"
-                  : timeElapsed < 240
-                    ? "text-red-700 bg-red-100 animate-pulse"
-                    : "text-red-900 bg-red-200 animate-bounce font-bold"
+                ? (() => {
+                    const remaining = maxTime - timeElapsed;
+                    const percentage = (remaining / maxTime) * 100;
+                    if (percentage > 50) return "text-green-700 bg-green-100";
+                    if (percentage > 25) return "text-orange-700 bg-orange-100 animate-pulse";
+                    if (percentage > 10) return "text-red-700 bg-red-100 animate-pulse";
+                    return "text-red-900 bg-red-200 animate-bounce font-bold";
+                  })()
                 : "text-slate-600 bg-slate-100"
             }`}>
-              {formatTime(timeElapsed)}
+              {pressureMode ? (
+                <span className="flex items-center gap-1">
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
+                  {formatTime(Math.max(0, maxTime - timeElapsed))}
+                </span>
+              ) : (
+                formatTime(timeElapsed)
+              )}
             </span>
           </div>
         </div>
@@ -1101,6 +1138,30 @@ function QuizContent() {
           </span>
         </div>
       </div>
+
+      {/* Time's Up Warning Banner */}
+      {pressureMode && timeIsUp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-red-600 text-white px-4 py-3 rounded-lg shadow-lg mb-2 flex items-center justify-between"
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
+            <span className="font-bold">Time's Up!</span>
+            <span className="text-red-100">Please submit your quiz now.</span>
+          </div>
+          <button
+            onClick={submitQuiz}
+            disabled={isSubmitting}
+            className="px-4 py-1.5 bg-white text-red-600 font-semibold rounded-lg hover:bg-red-50 disabled:opacity-50"
+          >
+            {isSubmitting ? "Submitting..." : "Submit Now"}
+          </button>
+        </motion.div>
+      )}
 
       {/* Question Card */}
       <motion.div
