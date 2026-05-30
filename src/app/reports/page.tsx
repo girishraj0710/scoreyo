@@ -186,13 +186,14 @@ export default function ReportsPage() {
           ) : (
             <div className="space-y-3 overflow-y-auto flex-1 pr-2">
               {subjectBreakdown.map((s: any, idx: number) => {
-                const exam = getExamById(s.exam_id);
-                const subject = getSubjectById(s.exam_id, s.subject_id);
-                const accuracy = Number(s.accuracy) || 0;
-                const totalCorrect = Number(s.total_correct) || 0;
-                const totalQuestions = Number(s.total_questions) || 0;
-                const totalSessions = Number(s.total_sessions) || 0;
-                return (
+                try {
+                  const exam = getExamById(s.exam_id);
+                  const subject = getSubjectById(s.exam_id, s.subject_id);
+                  const accuracy = Number(s.accuracy) || 0;
+                  const totalCorrect = Number(s.total_correct) || 0;
+                  const totalQuestions = Number(s.total_questions) || 0;
+                  const totalSessions = Number(s.total_sessions) || 0;
+                  return (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-center">
@@ -215,7 +216,11 @@ export default function ReportsPage() {
                       </div>
                     </div>
                   </div>
-                );
+                  );
+                } catch (error) {
+                  console.error('[Reports] Error rendering subject:', error, s);
+                  return null;
+                }
               })}
             </div>
           )}
@@ -450,18 +455,19 @@ export default function ReportsPage() {
           <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">{t("mockTestHistory")}</h3>
           <div className="space-y-2 overflow-y-auto flex-1 pr-2">
             {mockTestHistory.map((test: any, idx: number) => {
-              const exam = getExamById(test.exam_id);
-              const totalQuestions = Number(test.total_questions) || 0;
-              const correctAnswers = Number(test.correct_answers) || 0;
-              const timeTaken = Number(test.time_taken_seconds) || 0;
-              const timeLimit = Number(test.time_limit_seconds) || 1;
-              const acc = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
-              const timeUsed = Math.round((timeTaken / timeLimit) * 100);
-              const ExamIcon = getExamIcon(test.exam_id);
-              return (
-                <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <ExamIcon className="w-5 h-5" style={{ color: exam?.color || "#6366f1" }} />
+              try {
+                const exam = getExamById(test.exam_id);
+                const totalQuestions = Number(test.total_questions) || 0;
+                const correctAnswers = Number(test.correct_answers) || 0;
+                const timeTaken = Number(test.time_taken_seconds) || 0;
+                const timeLimit = Number(test.time_limit_seconds) || 1;
+                const acc = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
+                const timeUsed = Math.round((timeTaken / timeLimit) * 100);
+                const ExamIcon = getExamIcon(test.exam_id);
+                return (
+                  <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
+                    <div className="flex items-center gap-3">
+                      {ExamIcon && <ExamIcon className="w-5 h-5" style={{ color: exam?.color || "#6366f1" }} />}
                     <div>
                       <div className="text-sm font-medium text-slate-700">{exam?.name || test.exam_id}</div>
                       <div className="text-xs text-slate-400">
@@ -471,11 +477,15 @@ export default function ReportsPage() {
                       </div>
                     </div>
                   </div>
-                  <div className={`text-lg font-bold ${acc >= 70 ? "text-slate-500" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
-                    {acc}%
+                    <div className={`text-lg font-bold ${acc >= 70 ? "text-slate-500" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                      {acc}%
+                    </div>
                   </div>
-                </div>
-              );
+                );
+              } catch (error) {
+                console.error('[Reports] Error rendering mock test:', error, test);
+                return null;
+              }
             })}
           </div>
         </div>
