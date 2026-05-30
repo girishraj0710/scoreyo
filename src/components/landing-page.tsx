@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import Image from "next/image";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
 import {
@@ -739,11 +740,27 @@ export function LandingPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <a href="#" className="inline-block">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-12" />
+              <a href="#" className="inline-block relative h-12 w-[135px]">
+                <Image
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                  alt="Get it on Google Play"
+                  width={135}
+                  height={48}
+                  className="h-12 w-auto"
+                  priority={false}
+                  loading="lazy"
+                />
               </a>
-              <a href="#" className="inline-block">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="h-12" />
+              <a href="#" className="inline-block relative h-12 w-[120px]">
+                <Image
+                  src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                  alt="Download on the App Store"
+                  width={120}
+                  height={48}
+                  className="h-12 w-auto"
+                  priority={false}
+                  loading="lazy"
+                />
               </a>
             </div>
 
