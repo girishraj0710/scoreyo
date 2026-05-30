@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLocale } from "@/context/locale-context";
 
 export default function MinimalReportsPage() {
+  const { t } = useLocale();
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,7 +26,7 @@ export default function MinimalReportsPage() {
   }, []);
 
   if (isLoading) {
-    return <div className="p-8">Loading...</div>;
+    return <div className="p-8">{t("loading") || "Loading..."}</div>;
   }
 
   if (!data) {
@@ -33,8 +35,10 @@ export default function MinimalReportsPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl mb-4">Minimal Reports Test</h1>
-      <pre>{JSON.stringify(data.stats, null, 2)}</pre>
+      <h1 className="text-2xl mb-4">{t("reportsTitle")}</h1>
+      <div className="mb-4">Total Sessions: {data.stats.totalSessions}</div>
+      <div className="mb-4">Total Questions: {data.stats.totalQuestions}</div>
+      <div className="mb-4">Accuracy: {data.stats.accuracy}%</div>
     </div>
   );
 }
