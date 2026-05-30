@@ -1,12 +1,18 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, Suspense } from "react";
+import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { examCategories, type Exam } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
-import { LandingPage } from "@/components/landing-page";
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { Zap, Flame } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
+
+// Dynamic import: Only load landing page for non-logged users
+const LandingPage = dynamic(() => import("@/components/landing-page").then(mod => ({ default: mod.LandingPage })), {
+  loading: () => <LoadingSkeleton type="page" />,
+});
 
 function HomePageContent() {
   const { user, isLoading } = useUser();
