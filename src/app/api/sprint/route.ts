@@ -29,8 +29,8 @@ export async function GET() {
       activeSprints.map(async (sprint: any) => {
         // Get leaderboard for this sprint
         const leaderboard = await queryAll(
-          `SELECT sp.user_id, u.name, sp.score, sp.answers, sp.time_taken_seconds, sp.completed_at
-           FROM sprint_participants sp
+          `SELECT sp.user_id, u.name, sp.score, sp.total_questions, sp.time_taken_seconds, sp.completed_at
+           FROM sprint_participations sp
            JOIN users u ON sp.user_id = u.id
            WHERE sp.sprint_id = ?
            ORDER BY sp.score DESC, sp.time_taken_seconds ASC
@@ -40,7 +40,7 @@ export async function GET() {
 
         // Check if user participated in this sprint
         const userParticipation = await queryOne(
-          `SELECT * FROM sprint_participants WHERE sprint_id = ? AND user_id = ?`,
+          `SELECT * FROM sprint_participations WHERE sprint_id = ? AND user_id = ?`,
           [sprint.id, userId]
         );
 
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
 
     // Check if already participated
     const existing = await queryOne(
-      `SELECT id FROM sprint_participants WHERE sprint_id = ? AND user_id = ?`,
+      `SELECT id FROM sprint_participations WHERE sprint_id = ? AND user_id = ?`,
       [sprintId, userId]
     );
 
@@ -111,9 +111,9 @@ export async function POST(request: Request) {
 
     // Record participation
     await execute(
-      `INSERT INTO sprint_participants (sprint_id, user_id, score, time_taken_seconds, answers)
+      `INSERT INTO sprint_participations (sprint_id, user_id, score, total_questions, time_taken_seconds)
        VALUES (?, ?, ?, ?, ?)`,
-      [sprintId, userId, score, timeTaken, JSON.stringify(answers || [])]
+      [sprintId, userId, score, totalQuestions, timeTaken]
     );
 
     return NextResponse.json({ success: true });
