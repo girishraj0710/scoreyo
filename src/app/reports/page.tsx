@@ -124,7 +124,7 @@ export default function ReportsPage() {
   }
 
   const {
-    stats,
+    stats = {},
     subjectBreakdown = [],
     dailyActivity = [],
     difficultyBreakdown = [],
