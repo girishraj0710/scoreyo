@@ -10,7 +10,8 @@ import { Zap, Flame } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
 
 // Dynamic import: Only load landing page for non-logged users
-const LandingPage = dynamic(() => import("@/components/landing-page").then(mod => ({ default: mod.LandingPage })), {
+// Toggle between V1 (old) and V2 (new Quizlet-inspired)
+const LandingPage = dynamic(() => import("@/components/landing-page-v2").then(mod => ({ default: mod.LandingPageV2 })), {
   loading: () => <LoadingSkeleton type="page" />,
 });
 

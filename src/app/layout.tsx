@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { AppHeader } from "@/components/app-header";
-import { AppFooter } from "@/components/app-footer";
+import { ConditionalLayout } from "@/components/conditional-layout";
 
-// Poppins - Industry standard for education apps (Byju's, Unacademy style)
-// Optimized: preload, subset, display swap, variable font
-const poppins = Poppins({
-  variable: "--font-poppins",
+// Inter - Clean geometric sans-serif, closest to Quizlet's Hurmegeo Sans No2
+// Industry standard, highly readable, professional
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -44,13 +43,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-gradient-to-br from-slate-50 via-white to-indigo-50 font-sans">
         <Providers>
-          <AppHeader />
-          <main className="flex-1">{children}</main>
-          <AppFooter />
+          <ConditionalLayout>{children}</ConditionalLayout>
         </Providers>
       </body>
     </html>

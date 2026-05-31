@@ -9,7 +9,11 @@ const MAX_CONNECTIONS = process.env.NODE_ENV === 'production'
   ? parseInt(process.env.DB_POOL_MAX || '100')
   : 10;
 
-function getPool(): Pool {
+/**
+ * Get the PostgreSQL connection pool
+ * Exported for use with transactions and query builders
+ */
+export function getPool(): Pool {
   if (!pool) {
     pool = new Pool({
       connectionString: process.env.POSTGRES_URL,
