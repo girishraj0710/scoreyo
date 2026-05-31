@@ -496,7 +496,7 @@ export function LandingPageV2() {
 
           {/* Feature 1 - Image Left, Text Right */}
           <div
-            ref={(el) => featureRefs.current[0] = el}
+            ref={(el) => { featureRefs.current[0] = el; }}
             className="flex flex-col md:flex-row items-start gap-12 mb-24"
           >
             {/* Image */}
@@ -538,7 +538,7 @@ export function LandingPageV2() {
 
           {/* Feature 2 - Text Left, Image Right */}
           <div
-            ref={(el) => featureRefs.current[1] = el}
+            ref={(el) => { featureRefs.current[1] = el; }}
             className="flex flex-col md:flex-row-reverse items-start gap-12 mb-24"
           >
             {/* Image */}
@@ -580,7 +580,7 @@ export function LandingPageV2() {
 
           {/* Feature 3 - Image Left, Text Right */}
           <div
-            ref={(el) => featureRefs.current[2] = el}
+            ref={(el) => { featureRefs.current[2] = el; }}
             className="flex flex-col md:flex-row items-start gap-12 mb-24"
           >
             {/* Image */}
@@ -622,7 +622,7 @@ export function LandingPageV2() {
 
           {/* Feature 4 - Text Left, Image Right */}
           <div
-            ref={(el) => featureRefs.current[3] = el}
+            ref={(el) => { featureRefs.current[3] = el; }}
             className="flex flex-col md:flex-row-reverse items-start gap-12 mb-24"
           >
             {/* Image */}
