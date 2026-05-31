@@ -1,0 +1,156 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D SRMJEEE - School/Campus theme (from emoji: 🏫) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#DBEAFE" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- School Building (center) -->
+  <g transform="translate(100, 115)">
+    <!-- Main building -->
+    <rect x="-30" y="-20" width="60" height="40" rx="4" fill="#DC2626"/>
+    <rect x="-30" y="-20" width="60" height="40" rx="4" fill="url(#schoolGradient)"/>
+
+    <!-- Clock tower -->
+    <rect x="-8" y="-35" width="16" height="16" fill="#991B1B"/>
+    <circle cy="-27" r="6" fill="white"/>
+    <circle cy="-27" r="1" fill="#991B1B"/>
+    <line x1="0" y1="-27" x2="0" y2="-31" stroke="#991B1B" stroke-width="1.5"/>
+    <line x1="0" y1="-27" x2="3" y2="-27" stroke="#991B1B" stroke-width="1.5"/>
+
+    <!-- Roof -->
+    <path d="M -35 -20 L 0 -40 L 35 -20 Z" fill="#7C2D12"/>
+
+    <!-- Windows (3 rows x 4 columns) -->
+    <rect x="-22" y="-12" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="-9" y="-12" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="4" y="-12" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="17" y="-12" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+
+    <rect x="-22" y="0" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="-9" y="0" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="4" y="0" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="17" y="0" width="8" height="8" rx="1" fill="#FEF3C7" opacity="0.9"/>
+
+    <!-- Main entrance -->
+    <rect x="-10" y="10" width="20" height="10" rx="2" fill="#92400E"/>
+    <path d="M -10 20 L 0 12 L 10 20 Z" fill="#7C2D12"/>
+
+    <!-- School name plate -->
+    <rect x="-20" y="-24" width="40" height="5" rx="1" fill="#0369A1"/>
+    <text y="-20" font-family="Arial, sans-serif" font-size="4" font-weight="bold" fill="white" text-anchor="middle">SRM UNIVERSITY</text>
+  </g>
+
+  <!-- Books stack -->
+  <g transform="translate(55, 95)">
+    <rect x="-14" y="8" width="28" height="8" rx="2" fill="#DC2626"/>
+    <text y="14" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">PHYSICS</text>
+
+    <rect x="-14" y="0" width="28" height="8" rx="2" fill="#3B82F6"/>
+    <text y="6" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">CHEMISTRY</text>
+
+    <rect x="-14" y="-8" width="28" height="8" rx="2" fill="#10B981"/>
+    <text y="-2" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">MATH</text>
+  </g>
+
+  <!-- Graduation cap -->
+  <g transform="translate(145, 95)">
+    <circle r="22" fill="#1E40AF"/>
+    <circle r="22" fill="url(#capGradient)"/>
+
+    <!-- Cap board -->
+    <rect x="-18" y="-6" width="36" height="4" fill="#1E293B"/>
+    <path d="M -18 -6 L -22 -8 L 22 -8 L 18 -6 Z" fill="#475569"/>
+
+    <!-- Cap top -->
+    <circle cy="-8" r="8" fill="#1E40AF"/>
+
+    <!-- Tassel -->
+    <line x1="10" y1="-8" x2="10" y2="2" stroke="#FCD34D" stroke-width="2"/>
+    <circle cx="10" cy="4" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- Chemistry flask -->
+  <g transform="translate(55, 140)">
+    <path d="M -10 -10 L -8 10 Q -8 16 0 18 Q 8 16 8 10 L 10 -10 Z" fill="#DBEAFE" opacity="0.8"/>
+    <rect x="-8" y="-14" width="16" height="5" fill="#8B5CF6" opacity="0.7"/>
+    <ellipse cy="-14" rx="8" ry="2" fill="#A78BFA"/>
+
+    <!-- Bubbles -->
+    <circle cx="-3" cy="8" r="2" fill="white" opacity="0.6"/>
+    <circle cx="2" cy="4" r="2.5" fill="white" opacity="0.6"/>
+    <circle cx="0" cy="0" r="1.5" fill="white" opacity="0.6"/>
+  </g>
+
+  <!-- Calculator -->
+  <g transform="translate(145, 140)">
+    <rect x="-12" y="-16" width="24" height="32" rx="3" fill="#1E293B"/>
+    <rect x="-10" y="-14" width="20" height="8" rx="1" fill="#10B981"/>
+    <text y="-7" font-family="Courier, monospace" font-size="6" fill="white" text-anchor="middle">12345</text>
+
+    <!-- Buttons -->
+    <circle cx="-6" cy="-2" r="2" fill="#64748B"/>
+    <circle cx="0" cy="-2" r="2" fill="#64748B"/>
+    <circle cx="6" cy="-2" r="2" fill="#64748B"/>
+
+    <circle cx="-6" cy="4" r="2" fill="#64748B"/>
+    <circle cx="0" cy="4" r="2" fill="#64748B"/>
+    <circle cx="6" cy="4" r="2" fill="#64748B"/>
+
+    <circle cx="-6" cy="10" r="2" fill="#64748B"/>
+    <circle cx="0" cy="10" r="2" fill="#64748B"/>
+    <circle cx="6" cy="10" r="2" fill="#F59E0B"/>
+  </g>
+
+  <!-- Globe with stand -->
+  <g transform="translate(55, 65)">
+    <circle r="14" fill="#0369A1"/>
+    <circle r="14" fill="url(#globeGradient)"/>
+
+    <!-- Meridians -->
+    <ellipse rx="14" ry="14" fill="none" stroke="#E0F2FE" stroke-width="1.5" opacity="0.6"/>
+    <ellipse rx="7" ry="14" fill="none" stroke="#E0F2FE" stroke-width="1.5" opacity="0.6"/>
+    <ellipse rx="14" ry="7" fill="none" stroke="#E0F2FE" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Stand -->
+    <rect x="-2" y="14" width="4" height="6" fill="#94A3B8"/>
+    <ellipse cy="20" rx="8" ry="3" fill="#CBD5E1"/>
+  </g>
+
+  <!-- Blackboard -->
+  <g transform="translate(145, 65)">
+    <rect x="-16" y="-14" width="32" height="28" rx="2" fill="#1E293B"/>
+
+    <!-- Chalk writing -->
+    <text y="-6" font-family="Georgia, serif" font-size="6" fill="#FCD34D" text-anchor="middle">E=mc²</text>
+    <text y="2" font-family="Georgia, serif" font-size="6" fill="#FCD34D" text-anchor="middle">∫ f(x)dx</text>
+    <text y="10" font-family="Georgia, serif" font-size="6" fill="#FCD34D" text-anchor="middle">a²+b²=c²</text>
+
+    <!-- Chalk tray -->
+    <rect x="-16" y="14" width="32" height="2" fill="#94A3B8"/>
+    <rect x="-12" y="14" width="6" height="1.5" rx="0.5" fill="white"/>
+  </g>
+
+  <!-- SRMJEEE Badge -->
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">SRM</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#FEE2E2" text-anchor="middle">JEEE</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="schoolGradient" x1="100" y1="95" x2="100" y2="135">
+      <stop offset="0%" stop-color="#FCA5A5" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#991B1B" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="capGradient" x1="145" y1="73" x2="145" y2="117">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="globeGradient" x1="55" y1="51" x2="55" y2="79">
+      <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0369A1" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

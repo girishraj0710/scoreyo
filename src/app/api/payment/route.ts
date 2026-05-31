@@ -3,6 +3,7 @@ import Razorpay from "razorpay";
 import crypto from "crypto";
 import { createSubscription, getUserSubscription } from "@/lib/db";
 import { handleApiError, logError, logInfo } from "@/lib/error-handler";
+import { POST as securePOST, PUT as securePUT } from "./route-secure";
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID!,
@@ -16,6 +17,11 @@ const PLANS = {
 
 // POST - Create Razorpay order
 export async function POST(request: NextRequest) {
+  // Feature flag: Use secure route if enabled
+  if (process.env.ENABLE_SECURE_ROUTES === 'true') {
+    return securePOST(request);
+  }
+
   try {
     const userId = request.cookies.get("prepgenie-user-id")?.value;
     if (!userId) {
@@ -57,6 +63,11 @@ export async function POST(request: NextRequest) {
 
 // PUT - Verify payment and activate subscription
 export async function PUT(request: NextRequest) {
+  // Feature flag: Use secure route if enabled
+  if (process.env.ENABLE_SECURE_ROUTES === 'true') {
+    return securePUT(request);
+  }
+
   try {
     const userId = request.cookies.get("prepgenie-user-id")?.value;
     if (!userId) {

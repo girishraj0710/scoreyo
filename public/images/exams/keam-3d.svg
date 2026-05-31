@@ -1,0 +1,213 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D KEAM - Elephant theme for Kerala (from emoji: 🐘) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#DCFCE7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Elephant (center) -->
+  <g transform="translate(100, 115)">
+    <!-- Body -->
+    <ellipse cy="0" rx="30" ry="24" fill="#94A3B8"/>
+    <ellipse cy="0" rx="30" ry="24" fill="url(#elephantGradient)"/>
+
+    <!-- Head -->
+    <circle cx="0" cy="-18" r="18" fill="#94A3B8"/>
+
+    <!-- Ears -->
+    <ellipse cx="-22" cy="-18" rx="12" ry="16" fill="#CBD5E1"/>
+    <ellipse cx="-22" cy="-18" rx="8" ry="12" fill="#E0E7FF" opacity="0.8"/>
+    <ellipse cx="22" cy="-18" rx="12" ry="16" fill="#CBD5E1"/>
+    <ellipse cx="22" cy="-18" rx="8" ry="12" fill="#E0E7FF" opacity="0.8"/>
+
+    <!-- Trunk -->
+    <path d="M 0 -8 Q -4 0 -6 8 Q -8 16 -4 24 Q 0 28 2 24 Q 4 20 2 12 Q 0 4 0 -8" fill="#94A3B8"/>
+    <path d="M 0 -8 Q -4 0 -6 8 Q -8 16 -4 24 Q 0 28 2 24 Q 4 20 2 12 Q 0 4 0 -8" fill="url(#trunkGradient)"/>
+
+    <!-- Trunk tip -->
+    <circle cx="-1" cy="26" r="3" fill="#64748B"/>
+
+    <!-- Eyes -->
+    <circle cx="-8" cy="-20" r="2.5" fill="#1E293B"/>
+    <circle cx="8" cy="-20" r="2.5" fill="#1E293B"/>
+    <circle cx="-7" cy="-21" r="1" fill="white"/>
+    <circle cx="9" cy="-21" r="1" fill="white"/>
+
+    <!-- Tusks -->
+    <ellipse cx="-10" cy="-10" rx="3" ry="12" fill="#F8FAFC" transform="rotate(-20 90 105)"/>
+    <ellipse cx="10" cy="-10" rx="3" ry="12" fill="#F8FAFC" transform="rotate(20 110 105)"/>
+
+    <!-- Legs -->
+    <rect x="-22" y="16" width="8" height="16" rx="2" fill="#64748B"/>
+    <rect x="-8" y="16" width="8" height="16" rx="2" fill="#64748B"/>
+    <rect x="6" y="16" width="8" height="16" rx="2" fill="#64748B"/>
+    <rect x="20" y="16" width="8" height="16" rx="2" fill="#64748B"/>
+
+    <!-- Feet -->
+    <ellipse cx="-18" cy="32" rx="5" ry="2" fill="#475569"/>
+    <ellipse cx="-4" cy="32" rx="5" ry="2" fill="#475569"/>
+    <ellipse cx="10" cy="32" rx="5" ry="2" fill="#475569"/>
+    <ellipse cx="24" cy="32" rx="5" ry="2" fill="#475569"/>
+
+    <!-- Decorative saddle cloth -->
+    <rect x="-20" y="-4" width="40" height="12" rx="2" fill="#DC2626"/>
+    <rect x="-18" y="-2" width="36" height="8" fill="#F59E0B"/>
+
+    <!-- Pattern on cloth -->
+    <circle cx="-12" cy="2" r="2" fill="#FCD34D"/>
+    <circle cx="-4" cy="2" r="2" fill="#FCD34D"/>
+    <circle cx="4" cy="2" r="2" fill="#FCD34D"/>
+    <circle cx="12" cy="2" r="2" fill="#FCD34D"/>
+
+    <!-- Tail -->
+    <path d="M 30 0 Q 34 4 36 10 L 34 10 Q 32 6 30 4" stroke="#64748B" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Coconut tree -->
+  <g transform="translate(55, 100)">
+    <!-- Trunk -->
+    <rect x="-3" y="-10" width="6" height="40" rx="1" fill="#92400E"/>
+    <line x1="-3" y1="0" x2="3" y2="0" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="-3" y1="8" x2="3" y2="8" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="-3" y1="16" x2="3" y2="16" stroke="#7C2D12" stroke-width="1"/>
+
+    <!-- Coconut leaves -->
+    <ellipse cx="-10" cy="-16" rx="14" ry="6" fill="#10B981" transform="rotate(-30 45 84)"/>
+    <ellipse cx="10" cy="-16" rx="14" ry="6" fill="#10B981" transform="rotate(30 65 84)"/>
+    <ellipse cy="-20" rx="14" ry="6" fill="#059669"/>
+    <ellipse cx="-8" cy="-14" rx="12" ry="5" fill="#10B981" transform="rotate(-50 47 86)"/>
+    <ellipse cx="8" cy="-14" rx="12" ry="5" fill="#10B981" transform="rotate(50 63 86)"/>
+
+    <!-- Coconuts -->
+    <circle cx="-4" cy="-10" r="3" fill="#92400E"/>
+    <circle cx="2" cy="-12" r="3" fill="#92400E"/>
+    <circle cy="-10" r="3" fill="#92400E"/>
+  </g>
+
+  <!-- Kathakali mask -->
+  <g transform="translate(145, 95)">
+    <circle r="18" fill="#10B981"/>
+    <circle r="18" fill="url(#maskGradient)"/>
+
+    <!-- Face -->
+    <ellipse cy="0" rx="14" ry="16" fill="#FCD34D"/>
+
+    <!-- Crown/headpiece -->
+    <path d="M -14 -8 L -10 -18 L -4 -16 L 0 -20 L 4 -16 L 10 -18 L 14 -8 Z" fill="#DC2626"/>
+
+    <!-- Eyes (large dramatic) -->
+    <ellipse cx="-6" cy="-2" rx="4" ry="6" fill="white"/>
+    <ellipse cx="6" cy="-2" rx="4" ry="6" fill="white"/>
+    <circle cx="-6" cy="-2" r="2" fill="#1E293B"/>
+    <circle cx="6" cy="-2" r="2" fill="#1E293B"/>
+
+    <!-- Nose -->
+    <path d="M 0 0 L -2 6 L 2 6 Z" fill="#DC2626"/>
+
+    <!-- Smile -->
+    <path d="M -6 8 Q 0 12 6 8" stroke="#DC2626" stroke-width="2" fill="none"/>
+
+    <!-- Decorative dots -->
+    <circle cx="-10" cy="2" r="1.5" fill="#DC2626"/>
+    <circle cx="10" cy="2" r="1.5" fill="#DC2626"/>
+  </g>
+
+  <!-- House boat -->
+  <g transform="translate(55, 145)">
+    <!-- Boat hull -->
+    <path d="M -20 0 L -22 8 Q -20 10 0 10 Q 20 10 22 8 L 20 0 Z" fill="#92400E"/>
+
+    <!-- Roof (canopy) -->
+    <path d="M -18 0 L -20 -8 L 20 -8 L 18 0 Z" fill="#FCD34D"/>
+    <path d="M -18 -8 L -16 -12 L 16 -12 L 18 -8 Z" fill="#F59E0B"/>
+
+    <!-- Windows -->
+    <rect x="-12" y="-4" width="6" height="4" rx="1" fill="#DBEAFE"/>
+    <rect x="-3" y="-4" width="6" height="4" rx="1" fill="#DBEAFE"/>
+    <rect x="6" y="-4" width="6" height="4" rx="1" fill="#DBEAFE"/>
+
+    <!-- Water reflection -->
+    <ellipse cy="12" rx="20" ry="2" fill="#0369A1" opacity="0.3"/>
+  </g>
+
+  <!-- Banana leaf with food (Kerala Sadhya) -->
+  <g transform="translate(145, 145)">
+    <!-- Banana leaf -->
+    <ellipse rx="20" ry="12" fill="#10B981"/>
+    <ellipse rx="18" ry="10" fill="#22C55E"/>
+
+    <!-- Leaf vein -->
+    <line x1="-16" y1="0" x2="16" y2="0" stroke="#059669" stroke-width="1.5"/>
+
+    <!-- Food items (colorful) -->
+    <circle cx="-10" cy="0" r="3" fill="#FCD34D"/>
+    <circle cx="-3" cy="0" r="3" fill="#DC2626"/>
+    <circle cx="4" cy="0" r="3" fill="#F59E0B"/>
+    <circle cx="11" cy="0" r="3" fill="#FEF3C7"/>
+
+    <!-- Rice pile -->
+    <ellipse cx="0" cy="-4" rx="6" ry="4" fill="white"/>
+  </g>
+
+  <!-- Kerala temple lamp -->
+  <g transform="translate(55, 65)">
+    <ellipse cy="12" rx="14" ry="4" fill="#92400E"/>
+
+    <!-- Lamp body -->
+    <path d="M -12 12 L -10 -2 Q -8 -6 0 -8 Q 8 -6 10 -2 L 12 12 Z" fill="#F59E0B"/>
+
+    <!-- Flames (5 wicks) -->
+    <ellipse cx="-8" cy="-8" rx="2" ry="6" fill="#FDE047"/>
+    <ellipse cx="-8" cy="-8" rx="1.5" ry="5" fill="#F59E0B"/>
+
+    <ellipse cx="-4" cy="-10" rx="2" ry="6" fill="#FDE047"/>
+    <ellipse cx="-4" cy="-10" rx="1.5" ry="5" fill="#F59E0B"/>
+
+    <ellipse cy="-12" rx="2" ry="6" fill="#FDE047"/>
+    <ellipse cy="-12" rx="1.5" ry="5" fill="#F59E0B"/>
+
+    <ellipse cx="4" cy="-10" rx="2" ry="6" fill="#FDE047"/>
+    <ellipse cx="4" cy="-10" rx="1.5" ry="5" fill="#F59E0B"/>
+
+    <ellipse cx="8" cy="-8" rx="2" ry="6" fill="#FDE047"/>
+    <ellipse cx="8" cy="-8" rx="1.5" ry="5" fill="#F59E0B"/>
+  </g>
+
+  <!-- Backwater scene -->
+  <g transform="translate(145, 65)">
+    <rect x="-16" y="-10" width="32" height="20" rx="3" fill="#0369A1" opacity="0.3"/>
+
+    <!-- Water -->
+    <rect x="-14" y="0" width="28" height="8" fill="#0284C7" opacity="0.6"/>
+
+    <!-- Sun -->
+    <circle cx="-6" cy="-4" r="4" fill="#FCD34D"/>
+
+    <!-- Palm silhouette -->
+    <line x1="8" y1="8" x2="8" y2="-4" stroke="#059669" stroke-width="2"/>
+    <path d="M 8 -4 L 4 -8 M 8 -4 L 12 -8 M 8 -4 L 6 -6 M 8 -4 L 10 -6" stroke="#10B981" stroke-width="1.5"/>
+  </g>
+
+  <!-- KEAM Badge -->
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="72" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">KEAM</text>
+  <text x="100" y="80" font-family="Arial, sans-serif" font-size="5" fill="#D1FAE5" text-anchor="middle">Kerala</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="elephantGradient" x1="100" y1="91" x2="100" y2="139">
+      <stop offset="0%" stop-color="#CBD5E1" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#64748B" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="trunkGradient" x1="0" y1="-8" x2="0" y2="28">
+      <stop offset="0%" stop-color="#CBD5E1" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#64748B" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="maskGradient" x1="145" y1="77" x2="145" y2="113">
+      <stop offset="0%" stop-color="#6EE7B7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

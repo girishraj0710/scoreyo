@@ -23,6 +23,7 @@ import { v4 as uuidv4 } from "uuid";
 import { getCached, setCached, CacheKeys, incrementCached } from "@/lib/redis";
 import { quizGenerationLimiter } from "@/lib/rate-limit";
 import { logger } from "@/lib/logger";
+import { PUT as securePUT } from "./route-secure";
 
 // Vercel serverless freezes the function when the response is returned, which
 // kills any in-flight `saveCachedQuestions` / background-prefill promises and
@@ -515,6 +516,11 @@ export async function POST(request: NextRequest) {
 
 // PUT - Submit quiz results
 export async function PUT(request: NextRequest) {
+  // Feature flag: Use secure route if enabled
+  if (process.env.ENABLE_SECURE_ROUTES === 'true') {
+    return securePUT(request);
+  }
+
   try {
     const body = await request.json();
     const {

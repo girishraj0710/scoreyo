@@ -1,0 +1,148 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D IIT JAM - Alembic/Chemistry Flask theme (from emoji: ⚗️) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#F0FDF4" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Large Alembic/Chemistry Flask (center) -->
+  <g transform="translate(100, 110)">
+    <!-- Flask body -->
+    <circle r="26" fill="#10B981"/>
+    <circle r="26" fill="url(#alembicGradient)"/>
+
+    <!-- Flask neck -->
+    <rect x="-6" y="-35" width="12" height="10" rx="2" fill="#059669"/>
+
+    <!-- Flask top opening -->
+    <ellipse cy="-35" rx="6" ry="2" fill="#065F46"/>
+    <ellipse cy="-37" rx="6" ry="2" fill="#6EE7B7"/>
+
+    <!-- Liquid inside -->
+    <circle cy="4" r="20" fill="#34D399" opacity="0.8"/>
+
+    <!-- Bubbles -->
+    <circle cx="-8" cy="0" r="3" fill="#D1FAE5" opacity="0.7"/>
+    <circle cx="6" cy="-4" r="4" fill="#D1FAE5" opacity="0.7"/>
+    <circle cx="0" cy="8" r="2.5" fill="#D1FAE5" opacity="0.7"/>
+    <circle cx="-4" cy="12" r="2" fill="#D1FAE5" opacity="0.7"/>
+    <circle cx="8" cy="6" r="2.5" fill="#D1FAE5" opacity="0.7"/>
+
+    <!-- Flask highlight -->
+    <circle cx="-12" cy="-8" r="6" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- Test tube with stopper -->
+  <g transform="translate(55, 95)">
+    <rect x="-5" y="-16" width="10" height="30" rx="2" fill="#DBEAFE" opacity="0.8"/>
+
+    <!-- Liquid -->
+    <rect x="-5" y="8" width="10" height="6" fill="#DC2626" opacity="0.7"/>
+
+    <!-- Stopper -->
+    <rect x="-4" y="-20" width="8" height="5" rx="1" fill="#92400E"/>
+    <circle cy="-20" r="3" fill="#D97706"/>
+
+    <!-- Bottom curve -->
+    <ellipse cy="14" rx="5" ry="2" fill="#DC2626" opacity="0.7"/>
+  </g>
+
+  <!-- Beaker with measurement marks -->
+  <g transform="translate(145, 95)">
+    <path d="M -14 -14 L -12 14 Q -12 18 0 20 Q 12 18 12 14 L 14 -14 Z" fill="#DBEAFE" opacity="0.8"/>
+
+    <!-- Liquid -->
+    <path d="M -11 6 Q -11 10 0 12 Q 11 10 11 6 L 13 -6 L -13 -6 Z" fill="#8B5CF6" opacity="0.7"/>
+
+    <!-- Measurement marks -->
+    <line x1="-10" y1="-8" x2="-7" y2="-8" stroke="#0369A1" stroke-width="1.5"/>
+    <text x="-5" y="-6" font-family="Arial, sans-serif" font-size="4" fill="#0369A1">100</text>
+
+    <line x1="-10" y1="0" x2="-7" y2="0" stroke="#0369A1" stroke-width="1.5"/>
+    <text x="-5" y="2" font-family="Arial, sans-serif" font-size="4" fill="#0369A1">50</text>
+
+    <!-- Top opening -->
+    <ellipse cy="-14" rx="14" ry="3" fill="#93C5FD"/>
+  </g>
+
+  <!-- Petri dish experiment -->
+  <g transform="translate(55, 140)">
+    <ellipse rx="18" ry="16" fill="#DBEAFE" opacity="0.6"/>
+    <ellipse cy="-2" rx="18" ry="14" fill="#FEF3C7" opacity="0.8"/>
+
+    <!-- Chemical reaction -->
+    <circle cx="-6" cy="-4" r="4" fill="#10B981" opacity="0.7"/>
+    <circle cx="5" cy="-6" r="5" fill="#F59E0B" opacity="0.7"/>
+    <circle cx="6" cy="2" r="3.5" fill="#DC2626" opacity="0.7"/>
+    <circle cx="-5" cy="4" r="4" fill="#3B82F6" opacity="0.7"/>
+
+    <!-- Reaction indicator -->
+    <path d="M 0 -8 L -2 -12 L 2 -12 Z" fill="#EF4444"/>
+  </g>
+
+  <!-- Molecular structure -->
+  <g transform="translate(145, 140)">
+    <circle r="4" fill="#DC2626"/>
+    <circle cx="-12" cy="-10" r="4" fill="#3B82F6"/>
+    <circle cx="12" cy="-10" r="4" fill="#10B981"/>
+    <circle cx="-14" cy="8" r="4" fill="#F59E0B"/>
+    <circle cx="14" cy="8" r="4" fill="#8B5CF6"/>
+    <circle cx="0" cy="14" r="4" fill="#EC4899"/>
+
+    <line x1="0" y1="0" x2="-12" y2="-10" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="12" y2="-10" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="-14" y2="8" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="14" y2="8" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="0" y2="14" stroke="#64748B" stroke-width="2.5"/>
+
+    <!-- Double bonds -->
+    <line x1="-2" y1="0" x2="-10" y2="-8" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="2" y1="0" x2="10" y2="-8" stroke="#64748B" stroke-width="1.5"/>
+  </g>
+
+  <!-- Periodic table element -->
+  <g transform="translate(55, 65)">
+    <rect x="-14" y="-14" width="28" height="28" rx="3" fill="#0369A1"/>
+
+    <text y="-4" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">H</text>
+    <text y="10" font-family="Arial, sans-serif" font-size="5" fill="#BAE6FD" text-anchor="middle">Hydrogen</text>
+    <text x="-10" y="-8" font-family="Arial, sans-serif" font-size="4" fill="#BAE6FD">1</text>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="4" fill="#BAE6FD" text-anchor="end">1.008</text>
+  </g>
+
+  <!-- Lab burner -->
+  <g transform="translate(145, 65)">
+    <rect x="-6" y="6" width="12" height="8" fill="#64748B"/>
+    <rect x="-4" y="-8" width="8" height="14" fill="#94A3B8"/>
+
+    <!-- Flame -->
+    <ellipse cy="-8" rx="8" ry="12" fill="#FCD34D" opacity="0.8"/>
+    <ellipse cy="-8" rx="6" ry="10" fill="#F59E0B" opacity="0.8"/>
+    <ellipse cy="-8" rx="4" ry="7" fill="#DC2626" opacity="0.6"/>
+
+    <!-- Base -->
+    <ellipse cy="14" rx="10" ry="3" fill="#CBD5E1"/>
+
+    <!-- Gas control knob -->
+    <circle cx="8" cy="10" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- IIT JAM Badge -->
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="67" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">IIT</text>
+  <text x="100" y="76" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#D1FAE5" text-anchor="middle">JAM</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+
+  <!-- Chemical formula -->
+  <rect x="75" y="145" width="50" height="8" rx="2" fill="#059669"/>
+  <text x="100" y="151" font-family="Georgia, serif" font-size="6" font-weight="bold" fill="#D1FAE5" text-anchor="middle">H₂O + CO₂</text>
+
+  <defs>
+    <linearGradient id="alembicGradient" x1="100" y1="84" x2="100" y2="136">
+      <stop offset="0%" stop-color="#6EE7B7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

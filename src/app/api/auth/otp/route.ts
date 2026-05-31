@@ -4,6 +4,7 @@ import { saveOtp, verifyOtp, getUserByEmail } from "@/lib/db";
 import { otpSendLimiter, otpVerifyLimiter } from "@/lib/rate-limit";
 import { saveOTPToCache, verifyOTPFromCache } from "@/lib/otp-cache";
 import { isEmergencyAuthMode, checkUserExistsInCache } from "@/lib/user-cache";
+import { POST as securePOST, PUT as securePUT } from "./route-secure";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,6 +14,11 @@ function generateOtp(): string {
 
 // POST - Send OTP to email
 export async function POST(request: NextRequest) {
+  // Feature flag: Use secure route if enabled
+  if (process.env.ENABLE_SECURE_ROUTES === 'true') {
+    return securePOST(request);
+  }
+
   try {
     const { email, action } = await request.json();
 
@@ -143,6 +149,11 @@ export async function POST(request: NextRequest) {
 
 // PUT - Verify OTP
 export async function PUT(request: NextRequest) {
+  // Feature flag: Use secure route if enabled
+  if (process.env.ENABLE_SECURE_ROUTES === 'true') {
+    return securePUT(request);
+  }
+
   try {
     const { email, code } = await request.json();
 

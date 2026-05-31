@@ -1,0 +1,199 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D MHT CET - Factory/Industrial theme for Maharashtra (from emoji: 🏭) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#E0E7EB" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Factory building (center) -->
+  <g transform="translate(100, 115)">
+    <!-- Main factory building -->
+    <rect x="-30" y="-15" width="60" height="35" rx="3" fill="#64748B"/>
+    <rect x="-30" y="-15" width="60" height="35" rx="3" fill="url(#factoryGradient)"/>
+
+    <!-- Windows -->
+    <rect x="-22" y="-8" width="8" height="10" rx="1" fill="#FCD34D" opacity="0.9"/>
+    <rect x="-10" y="-8" width="8" height="10" rx="1" fill="#FCD34D" opacity="0.9"/>
+    <rect x="2" y="-8" width="8" height="10" rx="1" fill="#FCD34D" opacity="0.9"/>
+    <rect x="14" y="-8" width="8" height="10" rx="1" fill="#FCD34D" opacity="0.9"/>
+
+    <!-- Loading bay door -->
+    <rect x="-8" y="8" width="16" height="12" rx="1" fill="#1E293B"/>
+    <line x1="-8" y1="12" x2="8" y2="12" stroke="#475569" stroke-width="1"/>
+    <line x1="-8" y1="16" x2="8" y2="16" stroke="#475569" stroke-width="1"/>
+
+    <!-- Factory sign -->
+    <rect x="-20" y="-20" width="40" height="6" rx="1" fill="#DC2626"/>
+    <text y="-15" font-family="Arial, sans-serif" font-size="4" font-weight="bold" fill="white" text-anchor="middle">MAHARASHTRA MFG</text>
+  </g>
+
+  <!-- Smoke stacks with smoke -->
+  <g transform="translate(80, 85)">
+    <rect x="-6" y="0" width="12" height="30" fill="#475569"/>
+    <rect x="-6" y="0" width="12" height="30" fill="url(#stackGradient)"/>
+    <ellipse cy="30" rx="6" ry="2" fill="#1E293B"/>
+
+    <!-- Smoke clouds -->
+    <circle cy="-8" r="6" fill="#94A3B8" opacity="0.7"/>
+    <circle cx="-6" cy="-12" r="5" fill="#94A3B8" opacity="0.6"/>
+    <circle cx="6" cy="-12" r="5" fill="#94A3B8" opacity="0.6"/>
+    <circle cx="-4" cy="-18" r="4" fill="#CBD5E1" opacity="0.5"/>
+    <circle cx="4" cy="-18" r="4" fill="#CBD5E1" opacity="0.5"/>
+  </g>
+
+  <g transform="translate(120, 90)">
+    <rect x="-5" y="0" width="10" height="25" fill="#475569"/>
+    <rect x="-5" y="0" width="10" height="25" fill="url(#stackGradient)"/>
+    <ellipse cy="25" rx="5" ry="2" fill="#1E293B"/>
+
+    <!-- Smoke clouds -->
+    <circle cy="-6" r="5" fill="#94A3B8" opacity="0.7"/>
+    <circle cx="-5" cy="-10" r="4" fill="#94A3B8" opacity="0.6"/>
+    <circle cx="5" cy="-10" r="4" fill="#94A3B8" opacity="0.6"/>
+    <circle cx="0" cy="-15" r="3.5" fill="#CBD5E1" opacity="0.5"/>
+  </g>
+
+  <!-- Gear/Machinery -->
+  <g transform="translate(55, 95)">
+    <circle r="18" fill="#F59E0B"/>
+    <circle r="18" fill="url(#gearGradient)"/>
+    <circle r="10" fill="#D97706"/>
+    <circle r="5" fill="#92400E"/>
+
+    <!-- Gear teeth -->
+    <rect x="-2" y="-18" width="4" height="6" fill="#F59E0B"/>
+    <rect x="-2" y="12" width="4" height="6" fill="#F59E0B"/>
+    <rect x="-18" y="-2" width="6" height="4" fill="#F59E0B"/>
+    <rect x="12" y="-2" width="6" height="4" fill="#F59E0B"/>
+
+    <rect x="-14" y="-14" width="5" height="5" fill="#F59E0B" transform="rotate(45 55 95)"/>
+    <rect x="9" y="-14" width="5" height="5" fill="#F59E0B" transform="rotate(-45 55 95)"/>
+    <rect x="-14" y="9" width="5" height="5" fill="#F59E0B" transform="rotate(-45 55 95)"/>
+    <rect x="9" y="9" width="5" height="5" fill="#F59E0B" transform="rotate(45 55 95)"/>
+
+    <!-- Center bolt -->
+    <circle r="3" fill="#1E293B"/>
+  </g>
+
+  <!-- Industrial robot arm -->
+  <g transform="translate(145, 95)">
+    <rect x="-4" y="8" width="8" height="12" fill="#64748B"/>
+
+    <!-- Arm segments -->
+    <rect x="-3" y="-8" width="6" height="16" fill="#475569"/>
+    <circle cy="-8" r="4" fill="#F59E0B"/>
+
+    <!-- Gripper -->
+    <path d="M -6 -8 L -8 -14 L -6 -16 L -4 -14 Z" fill="#DC2626"/>
+    <path d="M 6 -8 L 8 -14 L 6 -16 L 4 -14 Z" fill="#DC2626"/>
+
+    <!-- Base -->
+    <rect x="-6" y="20" width="12" height="3" fill="#94A3B8"/>
+
+    <!-- Joint -->
+    <circle cy="8" r="3" fill="#FCD34D"/>
+  </g>
+
+  <!-- Conveyor belt -->
+  <g transform="translate(55, 140)">
+    <rect x="-20" y="-4" width="40" height="8" rx="2" fill="#1E293B"/>
+
+    <!-- Belt surface -->
+    <rect x="-20" y="-4" width="40" height="4" fill="#475569"/>
+
+    <!-- Belt pattern -->
+    <line x1="-18" y1="-2" x2="-14" y2="0" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="-10" y1="-2" x2="-6" y2="0" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="-2" y1="-2" x2="2" y2="0" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="6" y1="-2" x2="10" y2="0" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="14" y1="-2" x2="18" y2="0" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Rollers -->
+    <circle cx="-18" r="5" fill="#94A3B8"/>
+    <circle cx="18" r="5" fill="#94A3B8"/>
+
+    <!-- Product on belt -->
+    <rect x="-8" y="-12" width="16" height="8" rx="2" fill="#F59E0B"/>
+  </g>
+
+  <!-- Forklift -->
+  <g transform="translate(145, 140)">
+    <!-- Body -->
+    <rect x="-12" y="4" width="24" height="12" rx="2" fill="#F59E0B"/>
+
+    <!-- Cabin -->
+    <rect x="-8" y="-4" width="12" height="8" rx="1" fill="#FCD34D"/>
+    <rect x="-6" y="-2" width="8" height="4" rx="0.5" fill="#DBEAFE" opacity="0.7"/>
+
+    <!-- Forks -->
+    <rect x="-10" y="8" width="4" height="12" fill="#64748B"/>
+    <rect x="-4" y="8" width="4" height="12" fill="#64748B"/>
+
+    <!-- Wheels -->
+    <circle cx="-8" cy="16" r="3" fill="#1E293B"/>
+    <circle cx="8" cy="16" r="3" fill="#1E293B"/>
+
+    <!-- Driver -->
+    <circle cx="0" cy="0" r="2.5" fill="#FBBF24"/>
+  </g>
+
+  <!-- Tool box -->
+  <g transform="translate(55, 65)">
+    <rect x="-14" y="-8" width="28" height="16" rx="2" fill="#DC2626"/>
+    <rect x="-14" y="-8" width="28" height="4" fill="#991B1B"/>
+
+    <!-- Handle -->
+    <path d="M -6 -8 Q 0 -14 6 -8" stroke="#1E293B" stroke-width="3" fill="none"/>
+
+    <!-- Lock -->
+    <rect x="-3" y="-2" width="6" height="4" rx="1" fill="#FCD34D"/>
+    <circle cy="-2" r="2" fill="#F59E0B"/>
+
+    <!-- Compartments -->
+    <line x1="-14" y1="-2" x2="14" y2="-2" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="0" y1="-2" x2="0" y2="8" stroke="#7C2D12" stroke-width="1"/>
+  </g>
+
+  <!-- Industrial gauge/meter -->
+  <g transform="translate(145, 65)">
+    <circle r="16" fill="#1E293B"/>
+    <circle r="14" fill="#E0E7EB"/>
+
+    <!-- Gauge markings -->
+    <path d="M -10 0 A 10 10 0 1 1 10 0" stroke="#64748B" stroke-width="2" fill="none"/>
+
+    <!-- Numbers -->
+    <text x="-8" y="2" font-family="Arial, sans-serif" font-size="4" fill="#475569">0</text>
+    <text x="6" y="2" font-family="Arial, sans-serif" font-size="4" fill="#475569">100</text>
+
+    <!-- Needle -->
+    <line x1="0" y1="0" x2="6" y2="-6" stroke="#DC2626" stroke-width="2.5"/>
+    <circle r="2" fill="#DC2626"/>
+
+    <!-- Warning light -->
+    <circle cy="-10" r="2" fill="#10B981"/>
+  </g>
+
+  <!-- MHT CET Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">MHT</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#FEF3C7" text-anchor="middle">CET</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="factoryGradient" x1="100" y1="100" x2="100" y2="135">
+      <stop offset="0%" stop-color="#94A3B8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#475569" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="stackGradient" x1="0" y1="0" x2="0" y2="30">
+      <stop offset="0%" stop-color="#64748B" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#334155" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="gearGradient" x1="55" y1="77" x2="55" y2="113">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>
