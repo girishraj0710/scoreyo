@@ -229,6 +229,6 @@ export async function combineValidations<T extends readonly any[]>(
 
   return {
     success: true,
-    data: results as T,
+    data: results as unknown as T,
   };
 }
