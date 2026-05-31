@@ -1,0 +1,83 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Banking illustration with bank building, coins, and rupee -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#D1FAE5" opacity="0.4"/>
+
+  <!-- Bank building shadow -->
+  <ellipse cx="100" cy="155" rx="52" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Bank building -->
+  <rect x="75" y="105" width="50" height="45" rx="4" fill="#10B981"/>
+  <rect x="75" y="105" width="50" height="45" rx="4" fill="url(#bankGradient)"/>
+
+  <!-- Bank pillars -->
+  <rect x="80" y="115" width="6" height="35" rx="1" fill="#D1FAE5" opacity="0.9"/>
+  <rect x="97" y="115" width="6" height="35" rx="1" fill="#D1FAE5" opacity="0.9"/>
+  <rect x="114" y="115" width="6" height="35" rx="1" fill="#D1FAE5" opacity="0.9"/>
+
+  <!-- Bank roof/pediment -->
+  <path d="M 70 105 L 100 85 L 130 105 Z" fill="#047857"/>
+  <path d="M 73 105 L 100 88 L 127 105 Z" fill="#059669"/>
+
+  <!-- Bank entrance -->
+  <rect x="92" y="130" width="16" height="20" rx="2" fill="#064E3B"/>
+
+  <!-- Rupee coin (large) -->
+  <circle cx="145" cy="85" r="24" fill="#FBBF24"/>
+  <circle cx="145" cy="85" r="24" fill="url(#coinGradient)"/>
+  <circle cx="145" cy="85" r="18" fill="none" stroke="#FEF3C7" stroke-width="2"/>
+  <text x="145" y="92" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#78350F" text-anchor="middle">₹</text>
+
+  <!-- Rupee coin (small) -->
+  <circle cx="155" cy="120" r="14" fill="#FCD34D"/>
+  <circle cx="155" cy="120" r="11" fill="none" stroke="#FEF3C7" stroke-width="1.5"/>
+  <text x="155" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#78350F" text-anchor="middle">₹</text>
+
+  <!-- Safe/vault -->
+  <g transform="translate(55, 85)">
+    <rect x="-18" y="-18" width="36" height="36" rx="4" fill="#1E293B"/>
+    <rect x="-18" y="-18" width="36" height="36" rx="4" fill="url(#safeGradient)"/>
+    <circle r="10" fill="#64748B"/>
+    <circle r="8" fill="#475569"/>
+    <circle r="2" fill="#CBD5E1"/>
+    <line x1="-6" y1="0" x2="-10" y2="0" stroke="#CBD5E1" stroke-width="2"/>
+    <rect x="-14" y="-14" width="4" height="4" rx="1" fill="#94A3B8"/>
+    <rect x="10" y="-14" width="4" height="4" rx="1" fill="#94A3B8"/>
+    <rect x="-14" y="10" width="4" height="4" rx="1" fill="#94A3B8"/>
+    <rect x="10" y="10" width="4" height="4" rx="1" fill="#94A3B8"/>
+  </g>
+
+  <!-- Credit card -->
+  <rect x="135" y="135" width="32" height="20" rx="3" fill="#3B82F6"/>
+  <rect x="135" y="135" width="32" height="20" rx="3" fill="url(#cardGradient)"/>
+  <rect x="135" y="140" width="32" height="5" fill="#1E40AF"/>
+  <rect x="138" y="148" width="10" height="3" rx="1" fill="#DBEAFE"/>
+  <rect x="150" y="148" width="8" height="3" rx="1" fill="#DBEAFE"/>
+
+  <!-- Money stack -->
+  <rect x="45" y="125" width="20" height="25" rx="2" fill="#10B981"/>
+  <rect x="43" y="128" width="20" height="25" rx="2" fill="#10B981"/>
+  <rect x="41" y="131" width="20" height="25" rx="2" fill="#059669"/>
+  <rect x="46" y="140" width="10" height="8" rx="1" fill="#D1FAE5"/>
+  <text x="51" y="146" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#047857" text-anchor="middle">₹</text>
+
+  <defs>
+    <linearGradient id="bankGradient" x1="100" y1="105" x2="100" y2="150">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="coinGradient" x1="145" y1="61" x2="145" y2="109">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#CA8A04" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="safeGradient" x1="55" y1="67" x2="55" y2="103">
+      <stop offset="0%" stop-color="#475569" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="151" y1="135" x2="151" y2="155">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

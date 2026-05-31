@@ -1,0 +1,146 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Commerce/CA illustration with ledger, calculator, and rupee -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#DBEAFE" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Ledger/Account book -->
+  <rect x="75" y="95" width="50" height="45" rx="4" fill="#059669"/>
+  <rect x="75" y="95" width="50" height="45" rx="4" fill="url(#ledgerGradient)"/>
+
+  <!-- Book spine -->
+  <rect x="73" y="95" width="4" height="45" rx="2" fill="#047857"/>
+
+  <!-- Book pages -->
+  <rect x="78" y="98" width="44" height="39" rx="2" fill="#F0FDF4"/>
+
+  <!-- Ledger lines -->
+  <line x1="82" y1="105" x2="118" y2="105" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+  <line x1="82" y1="110" x2="118" y2="110" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+  <line x1="82" y1="115" x2="118" y2="115" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+  <line x1="82" y1="120" x2="118" y2="120" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+  <line x1="82" y1="125" x2="118" y2="125" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+  <line x1="82" y1="130" x2="118" y2="130" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+
+  <!-- Column divider -->
+  <line x1="100" y1="103" x2="100" y2="133" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Debit Credit labels -->
+  <text x="90" y="103" font-family="Georgia, serif" font-size="5" font-weight="bold" fill="#047857" text-anchor="middle">Debit</text>
+  <text x="110" y="103" font-family="Georgia, serif" font-size="5" font-weight="bold" fill="#047857" text-anchor="middle">Credit</text>
+
+  <!-- Calculator -->
+  <g transform="translate(145, 110)">
+    <rect x="-16" y="-18" width="32" height="36" rx="4" fill="#1E293B"/>
+    <rect x="-16" y="-18" width="32" height="36" rx="4" fill="url(#calcGradient)"/>
+
+    <!-- Screen -->
+    <rect x="-13" y="-14" width="26" height="10" rx="2" fill="#10B981"/>
+    <text x="0" y="-7" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">888888</text>
+
+    <!-- Buttons grid -->
+    <circle cx="-8" cy="2" r="3" fill="#64748B"/>
+    <circle cx="0" cy="2" r="3" fill="#64748B"/>
+    <circle cx="8" cy="2" r="3" fill="#64748B"/>
+
+    <circle cx="-8" cy="9" r="3" fill="#64748B"/>
+    <circle cx="0" cy="9" r="3" fill="#64748B"/>
+    <circle cx="8" cy="9" r="3" fill="#64748B"/>
+
+    <circle cx="-8" cy="16" r="3" fill="#64748B"/>
+    <circle cx="0" cy="16" r="3" fill="#10B981"/>
+    <circle cx="8" cy="16" r="3" fill="#64748B"/>
+  </g>
+
+  <!-- Rupee coins stack -->
+  <g transform="translate(55, 110)">
+    <!-- Coin 1 (bottom) -->
+    <ellipse cy="12" rx="16" ry="5" fill="#D97706"/>
+    <ellipse cy="12" rx="14" ry="4" fill="#F59E0B"/>
+    <text y="15" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#78350F" text-anchor="middle">₹</text>
+
+    <!-- Coin 2 -->
+    <ellipse cy="5" rx="16" ry="5" fill="#D97706"/>
+    <ellipse cy="5" rx="14" ry="4" fill="#FBBF24"/>
+    <text y="8" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#78350F" text-anchor="middle">₹</text>
+
+    <!-- Coin 3 (top) -->
+    <ellipse cy="-2" rx="16" ry="5" fill="#D97706"/>
+    <ellipse cy="-2" rx="14" ry="4" fill="#FCD34D"/>
+    <text y="1" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#78350F" text-anchor="middle">₹</text>
+  </g>
+
+  <!-- Abacus -->
+  <g transform="translate(55, 135)">
+    <rect x="-18" y="-12" width="36" height="24" rx="3" fill="#DC2626"/>
+    <rect x="-16" y="-10" width="32" height="20" rx="2" fill="#FEE2E2"/>
+
+    <!-- Rods -->
+    <line x1="-10" y1="-8" x2="-10" y2="8" stroke="#DC2626" stroke-width="1.5"/>
+    <line x1="-3" y1="-8" x2="-3" y2="8" stroke="#DC2626" stroke-width="1.5"/>
+    <line x1="4" y1="-8" x2="4" y2="8" stroke="#DC2626" stroke-width="1.5"/>
+    <line x1="11" y1="-8" x2="11" y2="8" stroke="#DC2626" stroke-width="1.5"/>
+
+    <!-- Beads -->
+    <circle cx="-10" cy="-5" r="2.5" fill="#1E293B"/>
+    <circle cx="-10" cy="2" r="2.5" fill="#1E293B"/>
+    <circle cx="-3" cy="-2" r="2.5" fill="#1E293B"/>
+    <circle cx="-3" cy="5" r="2.5" fill="#1E293B"/>
+    <circle cx="4" cy="-4" r="2.5" fill="#1E293B"/>
+    <circle cx="4" cy="3" r="2.5" fill="#1E293B"/>
+    <circle cx="11" cy="0" r="2.5" fill="#1E293B"/>
+    <circle cx="11" cy="6" r="2.5" fill="#1E293B"/>
+  </g>
+
+  <!-- CA/CS Badge -->
+  <circle cx="145" cy="75" r="18" fill="#3B82F6"/>
+  <circle cx="145" cy="75" r="18" fill="url(#badgeGradient)"/>
+  <text x="145" y="78" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">CA</text>
+  <circle cx="145" cy="75" r="15" fill="none" stroke="#DBEAFE" stroke-width="2"/>
+
+  <!-- Chart/Graph -->
+  <g transform="translate(145, 145)">
+    <rect x="-14" y="-14" width="28" height="28" rx="3" fill="#F3F4F6"/>
+
+    <!-- Bar chart -->
+    <rect x="-10" y="4" width="4" height="8" fill="#10B981"/>
+    <rect x="-4" y="-2" width="4" height="14" fill="#3B82F6"/>
+    <rect x="2" y="0" width="4" height="12" fill="#F59E0B"/>
+    <rect x="8" y="-6" width="4" height="18" fill="#DC2626"/>
+
+    <!-- Axis -->
+    <line x1="-12" y1="12" x2="12" y2="12" stroke="#9CA3AF" stroke-width="1"/>
+  </g>
+
+  <!-- Pen/Quill -->
+  <g transform="translate(48, 95) rotate(-25)">
+    <rect x="-2" y="-20" width="4" height="28" fill="#1E40AF"/>
+    <rect x="-2" y="-20" width="4" height="25" fill="#3B82F6"/>
+    <path d="M -2 8 L 0 12 L 2 8 Z" fill="#1E293B"/>
+    <circle cy="-20" r="2" fill="#60A5FA"/>
+  </g>
+
+  <!-- Documents/Invoice -->
+  <rect x="40" y="80" width="20" height="25" rx="2" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <line x1="43" y1="85" x2="57" y2="85" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="43" y1="90" x2="57" y2="90" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="43" y1="95" x2="53" y2="95" stroke="#9CA3AF" stroke-width="1"/>
+
+  <defs>
+    <linearGradient id="ledgerGradient" x1="100" y1="95" x2="100" y2="140">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#065F46" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="calcGradient" x1="145" y1="92" x2="145" y2="128">
+      <stop offset="0%" stop-color="#475569" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="badgeGradient" x1="145" y1="57" x2="145" y2="93">
+      <stop offset="0%" stop-color="#93C5FD" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

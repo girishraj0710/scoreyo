@@ -1,0 +1,120 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Teaching illustration with blackboard, books, and apple -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#DBEAFE" opacity="0.4"/>
+
+  <!-- Blackboard shadow -->
+  <ellipse cx="100" cy="155" rx="52" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Blackboard -->
+  <rect x="70" y="85" width="60" height="50" rx="4" fill="#1E293B"/>
+  <rect x="70" y="85" width="60" height="50" rx="4" fill="url(#boardGradient)"/>
+
+  <!-- Chalk writing on board -->
+  <text x="100" y="105" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FBBF24" text-anchor="middle">ABC</text>
+  <text x="100" y="118" font-family="Arial, sans-serif" font-size="10" fill="#FCD34D" text-anchor="middle">1 + 1 = 2</text>
+  <line x1="78" y1="123" x2="122" y2="123" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="100" y="132" font-family="Arial, sans-serif" font-size="9" fill="#FEF3C7" text-anchor="middle">Teacher</text>
+
+  <!-- Blackboard frame -->
+  <rect x="68" y="83" width="64" height="54" rx="4" fill="none" stroke="#92400E" stroke-width="3"/>
+
+  <!-- Chalk -->
+  <rect x="75" y="140" width="4" height="15" rx="2" fill="#FEF3C7"/>
+  <rect x="75" y="140" width="4" height="12" rx="2" fill="white"/>
+
+  <!-- Eraser -->
+  <rect x="118" y="140" width="12" height="8" rx="2" fill="#78350F"/>
+  <rect x="118" y="140" width="12" height="5" rx="1" fill="#FEF3C7"/>
+
+  <!-- Books stack -->
+  <g transform="translate(145, 110)">
+    <!-- Book 1 -->
+    <rect x="-18" y="12" width="36" height="10" rx="2" fill="#DC2626"/>
+    <rect x="-16" y="14" width="32" height="6" rx="1" fill="#FEE2E2" opacity="0.3"/>
+
+    <!-- Book 2 -->
+    <rect x="-18" y="2" width="36" height="10" rx="2" fill="#3B82F6"/>
+    <rect x="-16" y="4" width="32" height="6" rx="1" fill="#DBEAFE" opacity="0.3"/>
+
+    <!-- Book 3 -->
+    <rect x="-18" y="-8" width="36" height="10" rx="2" fill="#10B981"/>
+    <rect x="-16" y="-6" width="32" height="6" rx="1" fill="#D1FAE5" opacity="0.3"/>
+
+    <text x="0" y="19" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">MATH</text>
+    <text x="0" y="9" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">SCIENCE</text>
+    <text x="0" y="-1" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">ENGLISH</text>
+  </g>
+
+  <!-- Apple (teacher's apple) -->
+  <circle cx="55" cy="105" r="18" fill="#DC2626"/>
+  <circle cx="55" cy="105" r="18" fill="url(#appleGradient)"/>
+  <circle cx="50" cy="100" r="5" fill="#FCA5A5" opacity="0.6"/>
+
+  <!-- Apple stem -->
+  <rect x="53" y="87" width="3" height="8" rx="1" fill="#78350F"/>
+
+  <!-- Apple leaf -->
+  <ellipse cx="59" cy="91" rx="6" ry="3" fill="#10B981" transform="rotate(-30 59 91)"/>
+
+  <!-- Graduation cap -->
+  <g transform="translate(55, 140)">
+    <!-- Cap board -->
+    <path d="M -20 0 L 0 -8 L 20 0 L 0 8 Z" fill="#1E293B"/>
+    <path d="M -20 0 L 0 -8 L 20 0 L 0 8 Z" fill="url(#capGradient)"/>
+    <!-- Cap top -->
+    <circle r="6" fill="#475569"/>
+    <!-- Tassel -->
+    <rect x="-1.5" y="-6" width="3" height="12" fill="#FBBF24"/>
+    <circle cy="6" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- Globe -->
+  <g transform="translate(145, 145)">
+    <circle r="16" fill="#3B82F6"/>
+    <circle r="16" fill="url(#globeGradient)"/>
+
+    <!-- Globe lines -->
+    <ellipse rx="16" ry="6" fill="none" stroke="#DBEAFE" stroke-width="1.5" opacity="0.7"/>
+    <ellipse rx="16" ry="10" fill="none" stroke="#DBEAFE" stroke-width="1.5" opacity="0.7"/>
+    <path d="M -10 -12 Q 0 -8 10 -12 M -10 12 Q 0 8 10 12" stroke="#DBEAFE" stroke-width="1.5" opacity="0.7" fill="none"/>
+
+    <!-- Continents -->
+    <path d="M -5 -2 L -3 0 L -5 3 L -8 2 Z" fill="#1E40AF"/>
+    <path d="M 3 -4 L 6 -3 L 7 0 L 5 2 L 2 1 Z" fill="#1E40AF"/>
+  </g>
+
+  <!-- Ruler -->
+  <rect x="40" y="125" width="35" height="8" rx="2" fill="#FCD34D"/>
+  <rect x="42" y="127" width="2" height="4" fill="#78350F"/>
+  <rect x="47" y="127" width="2" height="4" fill="#78350F"/>
+  <rect x="52" y="127" width="2" height="4" fill="#78350F"/>
+  <rect x="57" y="127" width="2" height="4" fill="#78350F"/>
+  <rect x="62" y="127" width="2" height="4" fill="#78350F"/>
+  <rect x="67" y="127" width="2" height="4" fill="#78350F"/>
+
+  <!-- CTET Badge -->
+  <circle cx="55" cy="70" r="14" fill="#8B5CF6"/>
+  <text x="55" y="73" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">TET</text>
+  <circle cx="55" cy="70" r="11" fill="none" stroke="#F3E8FF" stroke-width="1.5"/>
+
+  <defs>
+    <linearGradient id="boardGradient" x1="100" y1="85" x2="100" y2="135">
+      <stop offset="0%" stop-color="#475569" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="appleGradient" x1="55" y1="87" x2="55" y2="123">
+      <stop offset="0%" stop-color="#FCA5A5" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#991B1B" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="capGradient" x1="0" y1="-8" x2="0" y2="8">
+      <stop offset="0%" stop-color="#64748B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="globeGradient" x1="0" y1="-16" x2="0" y2="16">
+      <stop offset="0%" stop-color="#93C5FD" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+</svg>

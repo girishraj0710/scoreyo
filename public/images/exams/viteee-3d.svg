@@ -1,0 +1,114 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D VITEEE - DNA/Biotech theme (from emoji: 🧬) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#F3E8FF" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- DNA Double Helix (center) -->
+  <g transform="translate(100, 105)">
+    <circle r="28" fill="#8B5CF6"/>
+    <circle r="28" fill="url(#dnaGradient)"/>
+
+    <!-- DNA Strands -->
+    <path d="M -18 -20 Q -15 -10 -12 0 Q -15 10 -18 20" stroke="#F3E8FF" stroke-width="3" fill="none"/>
+    <path d="M 18 -20 Q 15 -10 12 0 Q 15 10 18 20" stroke="#F3E8FF" stroke-width="3" fill="none"/>
+
+    <!-- Base pairs -->
+    <line x1="-18" y1="-20" x2="18" y2="-20" stroke="#C4B5FD" stroke-width="2.5"/>
+    <line x1="-15" y1="-10" x2="15" y2="-10" stroke="#C4B5FD" stroke-width="2.5"/>
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#C4B5FD" stroke-width="2.5"/>
+    <line x1="-15" y1="10" x2="15" y2="10" stroke="#C4B5FD" stroke-width="2.5"/>
+    <line x1="-18" y1="20" x2="18" y2="20" stroke="#C4B5FD" stroke-width="2.5"/>
+
+    <!-- Base molecules -->
+    <circle cx="-18" cy="-20" r="3" fill="#FCD34D"/>
+    <circle cx="18" cy="-20" r="3" fill="#3B82F6"/>
+    <circle cx="-15" cy="-10" r="3" fill="#3B82F6"/>
+    <circle cx="15" cy="-10" r="3" fill="#FCD34D"/>
+    <circle cx="-12" cy="0" r="3" fill="#FCD34D"/>
+    <circle cx="12" cy="0" r="3" fill="#3B82F6"/>
+    <circle cx="-15" cy="10" r="3" fill="#3B82F6"/>
+    <circle cx="15" cy="10" r="3" fill="#FCD34D"/>
+    <circle cx="-18" cy="20" r="3" fill="#FCD34D"/>
+    <circle cx="18" cy="20" r="3" fill="#3B82F6"/>
+  </g>
+
+  <!-- Microscope -->
+  <g transform="translate(55, 95)">
+    <ellipse cy="15" rx="14" ry="4" fill="#94A3B8"/>
+    <rect x="-7" y="11" width="14" height="4" fill="#64748B"/>
+    <rect x="-4" y="-12" width="8" height="23" fill="#475569"/>
+    <rect x="-5" y="-16" width="10" height="5" rx="2" fill="#1E293B"/>
+    <path d="M -3 11 L -5 15 L 5 15 L 3 11 Z" fill="#3B82F6"/>
+    <rect x="-6" y="13" width="12" height="2" fill="#DBEAFE"/>
+  </g>
+
+  <!-- Petri dish with cells -->
+  <g transform="translate(145, 95)">
+    <ellipse rx="18" ry="16" fill="#DBEAFE" opacity="0.6"/>
+    <ellipse cy="-2" rx="18" ry="14" fill="#E0E7FF" opacity="0.8"/>
+    <circle cx="-6" cy="-4" r="4" fill="#8B5CF6" opacity="0.7"/>
+    <circle cx="4" cy="-6" r="5" fill="#A78BFA" opacity="0.7"/>
+    <circle cx="6" cy="2" r="3" fill="#C4B5FD" opacity="0.7"/>
+    <circle cx="-4" cy="4" r="3.5" fill="#8B5CF6" opacity="0.7"/>
+  </g>
+
+  <!-- Test tube with liquid -->
+  <g transform="translate(55, 140)">
+    <rect x="-6" y="-18" width="12" height="28" rx="2" fill="#DBEAFE" opacity="0.8"/>
+    <rect x="-6" y="5" width="12" height="5" fill="#8B5CF6" opacity="0.7"/>
+    <ellipse cy="-18" rx="6" ry="2" fill="#93C5FD"/>
+    <ellipse cy="10" rx="6" ry="2" fill="#7C3AED"/>
+  </g>
+
+  <!-- Cell structure -->
+  <g transform="translate(145, 140)">
+    <circle r="16" fill="#10B981" opacity="0.3"/>
+    <circle r="13" fill="#D1FAE5" opacity="0.6"/>
+    <circle r="5" fill="#059669"/>
+    <ellipse cx="-4" cy="-6" rx="3" ry="5" fill="#10B981" opacity="0.5"/>
+    <ellipse cx="5" cy="-4" rx="4" ry="3" fill="#10B981" opacity="0.5"/>
+    <ellipse cx="6" cy="5" rx="3" ry="4" fill="#10B981" opacity="0.5"/>
+  </g>
+
+  <!-- Lab flask -->
+  <g transform="translate(55, 65)">
+    <path d="M -8 -8 L -6 8 Q -6 14 0 16 Q 6 14 6 8 L 8 -8 Z" fill="#DBEAFE" opacity="0.8"/>
+    <rect x="-6" y="-12" width="12" height="5" fill="#3B82F6" opacity="0.6"/>
+    <ellipse cy="-12" rx="6" ry="2" fill="#60A5FA"/>
+    <path d="M -4 6 Q -2 10 0 12 Q 2 10 4 6" fill="#8B5CF6" opacity="0.7"/>
+  </g>
+
+  <!-- Molecular structure -->
+  <g transform="translate(145, 65)">
+    <circle r="3" fill="#DC2626"/>
+    <circle cx="-10" cy="-8" r="3" fill="#3B82F6"/>
+    <circle cx="10" cy="-8" r="3" fill="#10B981"/>
+    <circle cx="-8" cy="10" r="3" fill="#F59E0B"/>
+    <circle cx="8" cy="10" r="3" fill="#8B5CF6"/>
+    <line x1="0" y1="0" x2="-10" y2="-8" stroke="#64748B" stroke-width="2"/>
+    <line x1="0" y1="0" x2="10" y2="-8" stroke="#64748B" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-8" y2="10" stroke="#64748B" stroke-width="2"/>
+    <line x1="0" y1="0" x2="8" y2="10" stroke="#64748B" stroke-width="2"/>
+  </g>
+
+  <!-- VIT logo badge -->
+  <circle cx="100" cy="70" r="18" fill="#8B5CF6"/>
+  <text x="100" y="73" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">VIT</text>
+  <text x="100" y="82" font-family="Arial, sans-serif" font-size="7" fill="#F3E8FF" text-anchor="middle">EEE</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#C4B5FD" stroke-width="2"/>
+
+  <!-- Gene symbol -->
+  <rect x="75" y="145" width="50" height="8" rx="2" fill="#7C3AED"/>
+  <text x="100" y="151" font-family="Courier, monospace" font-size="6" font-weight="bold" fill="#F3E8FF" text-anchor="middle">ATCG GCTA</text>
+
+  <defs>
+    <linearGradient id="dnaGradient" x1="100" y1="77" x2="100" y2="133">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+</svg>

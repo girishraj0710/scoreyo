@@ -1,12 +1,18 @@
 "use client";
-
+// v81 - Removed unused imports to fix module error
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
+import Image from "next/image";
 import {
-  Sparkles, Zap, Target, Brain, TrendingUp, CheckCircle2,
-  Search, ArrowRight, Star, BookOpen, Timer, Flame,
-  MessageSquare, Calendar, Clock, Users, Trophy, Award, ChevronDown, ChevronLeft, ChevronRight
+  Sparkles,
+  Search,
+  ArrowRight,
+  Star,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  User
 } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
@@ -16,10 +22,14 @@ export function LandingPageV2() {
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
   const [showExamsDropdown, setShowExamsDropdown] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [carouselIndex, setCarouselIndex] = useState(4); // Start at position 4 (first real card for 4-card layout)
+  const [carouselIndex, setCarouselIndex] = useState(4); // Start at position 4 (first real card after clones)
   const [isTransitioning, setIsTransitioning] = useState(true);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const examsDropdownRef = useRef<HTMLDivElement>(null);
+  const carouselTrackRef = useRef<HTMLDivElement>(null);
+  const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set());
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [scrollY, setScrollY] = useState(0);
 
   // Search logic
   const searchResults = useMemo(() => {
@@ -92,6 +102,39 @@ export function LandingPageV2() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Scroll tracking for parallax
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = featureRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) {
+              setVisibleFeatures((prev) => new Set(prev).add(index));
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px' }
+    );
+
+    featureRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   // Handle infinite loop seamlessly with cloned cards (4-card layout)
   useEffect(() => {
     // After sliding to last clone (index 10), jump to first real card (index 4)
@@ -112,14 +155,15 @@ export function LandingPageV2() {
     }
   }, [carouselIndex, isTransitioning]);
 
-  // Study modes data - Quizlet style with exact pastel colors
+  // Study modes data - 3D illustrations style with visible colors
   const studyModes = [
-    { id: 1, emoji: "📝", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-orange-200", cta: "Start Learning" },
-    { id: 2, emoji: "⏱️", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-emerald-200", cta: "Take Mock Test" },
-    { id: 3, emoji: "🧠", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-sky-200", cta: "Review Now" },
-    { id: 4, emoji: "🎮", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-purple-200", cta: "Play Levels" },
-    { id: 5, emoji: "⚡", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-rose-200", cta: "Start Training" },
-    { id: 6, emoji: "🔥", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-cyan-200", cta: "Start Challenge" },
+    { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-orange-200", cta: "Start Learning" },
+    { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-emerald-200", cta: "Take Mock Test" },
+    { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-sky-200", cta: "Review Now" },
+    { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-purple-200", cta: "Play Levels" },
+    { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-rose-200", cta: "Start Training" },
+    { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-cyan-200", cta: "Start Challenge" },
+    { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-sky-300", cta: "Learn English" },
   ];
 
   // Create infinite loop by cloning last 4 cards at start and first 4 cards at end (for 4-card display)
@@ -130,7 +174,7 @@ export function LandingPageV2() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans" data-version="v16-unified-background">
+    <div className="min-h-screen bg-white font-sans" data-version="v101-varied-icons">
       {/* Header with Exams Dropdown - Quizlet Style */}
       <header className="border-b border-slate-200 bg-white sticky top-0 z-50">
         {/* Top Bar - Badge */}
@@ -144,12 +188,12 @@ export function LandingPageV2() {
         </div>
 
         {/* Main Header */}
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-6">
+        <div className="max-w-[1400px] mx-auto w-full px-8 py-3 flex items-center gap-4 justify-between">
           {/* Left side: Logo + Exams Dropdown */}
-          <div className="flex items-center gap-4 flex-shrink-0">
+          <div className="flex items-center gap-4">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-500 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#00A1E0' }}>
                 <span className="text-white font-semibold text-xl">P</span>
               </div>
               <span className="font-semibold text-xl text-slate-900">PrepGenie</span>
@@ -165,65 +209,45 @@ export function LandingPageV2() {
                 <ChevronDown className={`w-4 h-4 transition-transform ${showExamsDropdown ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Two-Level Dropdown */}
+              {/* Mega Menu Dropdown */}
               {showExamsDropdown && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex">
-                  {/* Left Panel - Categories */}
+                <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex" style={{ width: '720px' }}>
+                  {/* Left Panel - Category List */}
                   <div className="w-64 bg-slate-50 border-r border-slate-200">
-                    <div className="p-2">
+                    <div className="py-2">
                       {examCategories.map((category) => (
                         <button
                           key={category.id}
                           onMouseEnter={() => setSelectedCategory(category.id)}
                           onClick={() => setSelectedCategory(category.id)}
-                          className={`w-full text-left px-3 py-2.5 rounded-lg transition-colors flex items-center justify-between group ${
+                          className={`w-full text-left px-4 py-3 transition-colors flex items-start justify-between group ${
                             selectedCategory === category.id
-                              ? 'bg-white text-slate-900 shadow-sm'
-                              : 'text-slate-700 hover:bg-white hover:text-slate-900'
+                              ? 'bg-white text-slate-900 border-l-4 border-blue-500'
+                              : 'text-slate-700 hover:bg-white border-l-4 border-transparent'
                           }`}
                         >
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 flex items-center justify-center">
-                              {category.id === 'engineering' && <span className="text-xl">⚙️</span>}
-                              {category.id === 'medical' && <span className="text-xl">🩺</span>}
-                              {category.id === 'civil-services' && <span className="text-xl">🏛️</span>}
-                              {category.id === 'ssc' && <span className="text-xl">📋</span>}
-                              {category.id === 'banking' && <span className="text-xl">🏦</span>}
-                              {category.id === 'defense' && <span className="text-xl">🎖️</span>}
-                              {category.id === 'law' && <span className="text-xl">⚖️</span>}
-                              {category.id === 'management' && <span className="text-xl">💼</span>}
+                          <div className="flex-1">
+                            <div className="font-semibold text-sm mb-0.5">{category.name}</div>
+                            <div className="text-xs text-slate-500 line-clamp-1">
+                              {category.exams.map(e => e.name).slice(0, 3).join(', ')}
                             </div>
-                            <span className="font-semibold text-sm">{category.name}</span>
                           </div>
-                          <ArrowRight className={`w-4 h-4 transition-transform ${
+                          <ArrowRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ml-2 ${
                             selectedCategory === category.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
                           }`} />
                         </button>
                       ))}
                     </div>
-
-                    {/* View All at Bottom */}
-                    <div className="p-3 border-t border-slate-200 bg-slate-50">
-                      <button
-                        onClick={() => {
-                          setShowExamsDropdown(false);
-                          setShowLoginModal(true);
-                        }}
-                        className="w-full text-center px-3 py-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors"
-                      >
-                        View all 60 exams
-                      </button>
-                    </div>
                   </div>
 
-                  {/* Right Panel - Exams */}
-                  <div className="w-80 bg-white p-4 max-h-[420px] overflow-y-auto">
+                  {/* Right Panel - Exam Grid */}
+                  <div className="flex-1 bg-white p-5 overflow-y-auto max-h-[500px]">
                     {selectedCategory ? (
                       <>
-                        <h3 className="font-semibold text-slate-900 mb-3 text-sm">
+                        <h3 className="font-bold text-slate-900 mb-4 text-base">
                           {examCategories.find(c => c.id === selectedCategory)?.name}
                         </h3>
-                        <div className="space-y-1">
+                        <div className="grid grid-cols-2 gap-3">
                           {examCategories
                             .find(c => c.id === selectedCategory)
                             ?.exams.map((exam) => (
@@ -233,21 +257,19 @@ export function LandingPageV2() {
                                   setShowExamsDropdown(false);
                                   setShowLoginModal(true);
                                 }}
-                                className="w-full text-left px-3 py-2 text-sm text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors flex items-center gap-2.5 group"
+                                className="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 hover:border-blue-400 hover:bg-blue-50 transition-all group"
                               >
-                                <ColorfulExamIcon examId={exam.id} size={20} />
-                                <div className="flex-1">
-                                  <div className="font-medium">{exam.name}</div>
-                                  <div className="text-xs text-slate-500 line-clamp-1">{exam.description}</div>
+                                <ColorfulExamIcon examId={exam.id} size={44} />
+                                <div className="flex-1 text-left">
+                                  <div className="font-semibold text-sm text-slate-900 group-hover:text-blue-600">{exam.name}</div>
                                 </div>
-                                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                               </button>
                             ))}
                         </div>
                       </>
                     ) : (
                       <div className="flex items-center justify-center h-full text-slate-500 text-sm">
-                        Hover over a category to see exams
+                        Hover over a category
                       </div>
                     )}
                   </div>
@@ -257,7 +279,7 @@ export function LandingPageV2() {
           </div>
 
           {/* Center: Search Bar - Quizlet Style */}
-          <div ref={searchContainerRef} className="flex-1 max-w-2xl mx-auto relative hidden md:block">
+          <div ref={searchContainerRef} className="flex-1 max-w-2xl relative hidden md:block">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
@@ -283,7 +305,7 @@ export function LandingPageV2() {
                     className="w-full px-4 py-3 hover:bg-slate-50 transition-colors text-left border-b border-slate-100 last:border-b-0 group"
                   >
                     <div className="flex items-center gap-3">
-                      <ColorfulExamIcon examId={result.examId} size={32} />
+                      <ColorfulExamIcon examId={result.examId} size={64} />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">
                           <span className="font-semibold text-sm text-slate-900">{result.examName}</span>
@@ -311,99 +333,143 @@ export function LandingPageV2() {
           {/* Right side: Login Button */}
           <button
             onClick={() => setShowLoginModal(true)}
-            className="px-5 py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors flex-shrink-0 text-sm"
+            className="flex items-center gap-2 px-6 py-3 text-slate-700 font-semibold rounded-lg transition-colors text-lg whitespace-nowrap group"
+            style={{
+              '--hover-bg': '#E6F4F9',
+              '--hover-text': '#00A1E0'
+            } as React.CSSProperties}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#E6F4F9';
+              e.currentTarget.style.color = '#00A1E0';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = '#475569';
+            }}
           >
-            Log in
+            <User className="w-6 h-6" />
+            <span>Login</span>
           </button>
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Hero Section - Quizlet Style */}
-        <section className="pt-8 pb-4 text-center bg-slate-50 relative -mx-6 px-6">
+      {/* Hero Section - Quizlet Style - Full Width Background */}
+      <section className="bg-slate-50 pt-6">
+        <div className="max-w-7xl mx-auto px-6 pt-2 pb-3 text-center">
           {/* Main Heading - Simple & Direct */}
-          <h1 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-3 leading-tight">
-            Master Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">Competitive Exams</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2 leading-tight">
+            Master Your <span className="text-slate-900">Competitive Exams</span>
           </h1>
 
-          <p className="text-base md:text-lg text-slate-600 mb-5 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 mb-3 max-w-3xl mx-auto leading-relaxed">
             Master JEE, NEET, UPSC, SSC, Banking & 50+ competitive exams with AI-powered practice, smart explanations, and personalized learning.
           </p>
 
           {/* CTA */}
           <button
             onClick={() => setShowLoginModal(true)}
-            className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-base rounded-xl hover:shadow-2xl hover:scale-105 transition-all shadow-lg"
+            className="px-8 py-3 text-white font-semibold text-base rounded-xl hover:shadow-2xl hover:scale-105 transition-all shadow-lg"
+            style={{ backgroundColor: '#00A1E0' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0070A8';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#00A1E0';
+            }}
           >
             Start Practicing Free
           </button>
-          <p className="text-sm text-slate-500 mt-2">No credit card • 3 free quizzes daily • Join 50,000+ students</p>
 
           {/* Trust Stats */}
-          <div className="mt-6 flex flex-wrap justify-center gap-6 text-center">
+          <div className="mt-3 flex flex-wrap justify-center gap-6 text-center">
             <div>
-              <div className="text-2xl font-semibold text-indigo-600 mb-1">60+</div>
+              <div className="text-2xl font-semibold mb-1" style={{ color: '#085893' }}>60+</div>
               <div className="text-xs text-slate-600">Exams Covered</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold text-purple-600 mb-1">1,870+</div>
-              <div className="text-xs text-slate-600">Practice Topics</div>
+              <div className="text-2xl font-semibold mb-1" style={{ color: '#085893' }}>200+</div>
+              <div className="text-xs text-slate-600">Subjects Covered</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold text-violet-600 mb-1">50K+</div>
-              <div className="text-xs text-slate-600">Active Students</div>
+              <div className="text-2xl font-semibold mb-1" style={{ color: '#085893' }}>1,870+</div>
+              <div className="text-xs text-slate-600">Practice Topics</div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Study Modes - Carousel (Quizlet Style) */}
-        <section className="pt-4 pb-10 bg-slate-50 relative -mx-6 px-6">
-          <div className="max-w-7xl mx-auto relative">
-            {/* Left Arrow - Overlapping */}
-            <button
-              onClick={() => setCarouselIndex(carouselIndex - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
-              style={{ transform: 'translate(-25%, -50%)' }}
-            >
-              <ChevronLeft className="w-6 h-6 text-slate-800" />
-            </button>
-
-            {/* Right Arrow - Overlapping */}
-            <button
-              onClick={() => setCarouselIndex(carouselIndex + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
-              style={{ transform: 'translate(25%, -50%)' }}
-            >
-              <ChevronRight className="w-6 h-6 text-slate-800" />
-            </button>
-
-            <div className="overflow-hidden px-4">
-              <div
-                className="flex gap-6"
-                style={{
-                  transform: `translateX(-${(carouselIndex * 100) / 4}%)`,
-                  transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
-                }}
+      {/* Study Modes - Carousel (Quizlet Style) - Full Width Background */}
+      <section className="bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 pt-2 pb-40 relative overflow-visible">
+              {/* Left Arrow - 1/3 merged with cards, 2/3 outside */}
+              <button
+                onClick={() => setCarouselIndex(carouselIndex - 1)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
-                {infiniteModes.map((mode, index) => (
-                  <div key={`${mode.id}-${index}`} className="flex-shrink-0" style={{ width: 'calc(25% - 18px)' }}>
+                <ChevronLeft className="w-6 h-6 text-slate-800" />
+              </button>
+
+              {/* Right Arrow - 1/3 merged with cards, 2/3 outside */}
+              <button
+                onClick={() => setCarouselIndex(carouselIndex + 1)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+              >
+                <ChevronRight className="w-6 h-6 text-slate-800" />
+              </button>
+
+              <div className="overflow-hidden px-4">
+                <div
+                  className="flex gap-6"
+                  style={{
+                    transform: `translateX(calc(-${carouselIndex * 25}% - ${carouselIndex * 6}px))`,
+                    transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+                    paddingTop: '24px',
+                    paddingBottom: '24px'
+                  }}
+                >
+                  {infiniteModes.map((mode, index) => (
+                    <div
+                      key={`${mode.id}-${index}`}
+                      className="flex-shrink-0"
+                      style={{
+                        width: 'calc(25% - 18px)'
+                      }}
+                    >
                     <button
                       onClick={() => setShowLoginModal(true)}
-                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group text-left w-full flex flex-col"
-                      style={{ minHeight: '360px' }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
+                      style={{
+                        minHeight: '380px',
+                        transform: 'translateY(0) scale(1)',
+                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      }}
                     >
-                      {/* Colored Header - Rounded corners inside */}
-                      <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden`}>
-                        <span className="text-5xl relative z-10 group-hover:scale-105 transition-transform duration-300">{mode.emoji}</span>
+                      {/* Large illustration on top with cream background */}
+                      <div className={`${mode.headerColor} h-52 flex items-center justify-center relative overflow-hidden pt-4`}>
+                        <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                          <Image
+                            src={mode.image}
+                            alt={mode.title}
+                            width={160}
+                            height={160}
+                            className="object-contain"
+                          />
+                        </div>
                       </div>
 
-                      {/* White Content Area */}
+                      {/* Content below illustration */}
                       <div className="p-5 flex-1 flex flex-col bg-white">
-                        <h3 className="text-lg font-bold text-slate-900 mb-2">{mode.title}</h3>
-                        <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2 text-center" style={{ letterSpacing: '0.02em' }}>{mode.title}</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1 text-center" style={{ letterSpacing: '0.01em' }}>
                           {mode.desc}
                         </p>
-                        <div className="text-indigo-600 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                        <div className="text-indigo-600 font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
                           {mode.cta}
                           <ArrowRight className="w-4 h-4" />
                         </div>
@@ -413,90 +479,189 @@ export function LandingPageV2() {
                 ))}
               </div>
             </div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-6">
+        {/* What Makes PrepGenie Different - Snake Pattern */}
+        <section className="pt-16 pb-20">
+          <div className="text-center mb-32">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              What makes PrepGenie different
+            </h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              Intelligent AI features designed specifically for Indian competitive exams
+            </p>
           </div>
-        </section>
 
-
-        {/* What Makes PrepGenie Different */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50 -mx-6 px-6 my-16 rounded-3xl">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">
-                What makes PrepGenie <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">different</span>
-              </h2>
-              <p className="text-slate-600 text-lg">
-                India's first exam prep platform with intelligent AI features that actually help you learn
+          {/* Feature 1 - Image Left, Text Right */}
+          <div
+            ref={(el) => featureRefs.current[0] = el}
+            className="flex flex-col md:flex-row items-start gap-12 mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                className="rounded-2xl overflow-hidden shadow-2xl bg-indigo-200 p-6 max-w-md"
+                style={{
+                  transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
+                  opacity: visibleFeatures.has(0) ? 1 : 0,
+                  transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/rich-explanations.svg"
+                  alt="Rich Explanations"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.03}px)` : 'translateY(30px)',
+                opacity: visibleFeatures.has(0) ? 1 : 0,
+                transition: visibleFeatures.has(0) ? 'opacity 0.8s ease-out' : 'none',
+              }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                Rich Explanations
+              </h3>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                Understand the WHY behind every answer. Get step-by-step breakdowns, trap alerts, formulas, and common
+                mistakes highlighted for each question. Never just memorize—learn concepts deeply with visual diagrams
+                and shortcut methods used by toppers.
               </p>
             </div>
+          </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                  <Sparkles className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Rich Explanations</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Understand the WHY behind every answer with step-by-step breakdowns, trap alerts, and common mistakes to avoid.
-                </p>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Mistake Tracker</h3>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  AI identifies your weakness patterns: calculation errors, concept gaps, time pressure issues, and careless mistakes.
-                </p>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                  <MessageSquare className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">24/7 AI Tutor</h3>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  Stuck at 2 AM? Ask our AI tutor anything. Get instant explanations in simple language, anytime.
-                </p>
-              </div>
-
-              {/* Feature 4 */}
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                  <Flame className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Pressure Mode</h3>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  Build exam toughness with adaptive timers that simulate real exam stress conditions and time pressure.
-                </p>
-              </div>
-
-              {/* Feature 5 */}
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                  <Calendar className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Daily Streaks</h3>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  Build consistency with auto-generated daily practice problems. 10 questions, 10 minutes. Make it a habit.
-                </p>
-              </div>
-
-              {/* Feature 6 */}
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                  <BookOpen className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">8 Languages</h3>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  Practice in Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada or English. Learn in your mother tongue.
-                </p>
+          {/* Feature 2 - Text Left, Image Right */}
+          <div
+            ref={(el) => featureRefs.current[1] = el}
+            className="flex flex-col md:flex-row-reverse items-start gap-12 mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                className="rounded-2xl overflow-hidden shadow-2xl bg-purple-200 p-6 max-w-md"
+                style={{
+                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.12}px)` : 'translateY(50px)',
+                  opacity: visibleFeatures.has(1) ? 1 : 0,
+                  transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/mistake-tracker.svg"
+                  alt="Mistake Tracker"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.04}px)` : 'translateY(30px)',
+                opacity: visibleFeatures.has(1) ? 1 : 0,
+                transition: visibleFeatures.has(1) ? 'opacity 0.8s ease-out' : 'none',
+              }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                Mistake Map
+              </h3>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                AI identifies your weakness patterns—calculation errors, concept gaps, time pressure issues, and careless
+                mistakes. Our smart algorithm categorizes every wrong answer and reveals patterns with visual charts and
+                topic-wise breakdowns. Focus your revision strategically instead of studying blindly.
+              </p>
+            </div>
           </div>
+
+          {/* Feature 3 - Image Left, Text Right */}
+          <div
+            ref={(el) => featureRefs.current[2] = el}
+            className="flex flex-col md:flex-row items-start gap-12 mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                className="rounded-2xl overflow-hidden shadow-2xl bg-sky-200 p-6 max-w-md"
+                style={{
+                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.11}px)` : 'translateY(50px)',
+                  opacity: visibleFeatures.has(2) ? 1 : 0,
+                  transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/ai-tutor.svg"
+                  alt="24/7 AI Tutor"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.035}px)` : 'translateY(30px)',
+                opacity: visibleFeatures.has(2) ? 1 : 0,
+                transition: visibleFeatures.has(2) ? 'opacity 0.8s ease-out' : 'none',
+              }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                Midnight Doubt AI
+              </h3>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                Stuck at 2 AM? Ask our AI tutor anything, anytime. Get instant clarifications in simple language—English
+                or Hindi. The AI breaks down complex concepts with examples, adapts to your learning level, and is perfect
+                for late-night study sessions when no teacher is available.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 4 - Text Left, Image Right */}
+          <div
+            ref={(el) => featureRefs.current[3] = el}
+            className="flex flex-col md:flex-row-reverse items-start gap-12 mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                className="rounded-2xl overflow-hidden shadow-2xl bg-emerald-200 p-6 max-w-md"
+                style={{
+                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.13}px)` : 'translateY(50px)',
+                  opacity: visibleFeatures.has(3) ? 1 : 0,
+                  transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/dashboard.svg"
+                  alt="Smart Dashboard"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.045}px)` : 'translateY(30px)',
+                opacity: visibleFeatures.has(3) ? 1 : 0,
+                transition: visibleFeatures.has(3) ? 'opacity 0.8s ease-out' : 'none',
+              }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                Smart Dashboard
+              </h3>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                Track your progress with beautiful stats and charts—questions solved, accuracy trends, daily streaks,
+                study hours, and achievement badges all in one place. Visual progress bars show how close you are to
+                weekly goals. Celebrate milestones and get personalized insights on where to focus next.
+              </p>
+            </div>
+          </div>
+
         </section>
 
         {/* Upcoming Exam Calendar */}

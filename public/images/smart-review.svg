@@ -1,0 +1,30 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brain with AI network - detailed illustration -->
+  <!-- Shadow -->
+  <ellipse cx="60" cy="90" rx="30" ry="4" fill="#000000" opacity="0.1"/>
+
+  <!-- Brain outline -->
+  <path d="M45 40 C38 42 35 48 35 55 C35 58 33 62 33 65 C33 72 38 76 43 78 C45 82 48 85 53 85 C56 85 58 84 60 83 C62 84 64 85 67 85 C72 85 75 82 77 78 C82 76 87 72 87 65 C87 62 85 58 85 55 C85 48 82 42 75 40 C72 38 68 38 65 39 C63 37 61 37 60 37 C59 37 57 37 55 39 C52 38 48 38 45 40 Z"
+        fill="#0EA5E9"/>
+
+  <!-- Inner brain structure -->
+  <ellipse cx="50" cy="55" rx="8" ry="12" fill="#BAE6FD" opacity="0.8"/>
+  <ellipse cx="70" cy="55" rx="8" ry="12" fill="#BAE6FD" opacity="0.8"/>
+
+  <!-- Brain segments -->
+  <path d="M60 45 Q58 55 60 65 Q62 75 60 80" stroke="#0284C7" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M48 50 Q50 58 48 66" stroke="#0284C7" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M72 50 Q70 58 72 66" stroke="#0284C7" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Neural connections -->
+  <circle cx="50" cy="48" r="2" fill="#0284C7"/>
+  <circle cx="70" cy="48" r="2" fill="#0284C7"/>
+  <circle cx="60" cy="70" r="2" fill="#0284C7"/>
+  <circle cx="48" cy="62" r="2" fill="#0284C7"/>
+  <circle cx="72" cy="62" r="2" fill="#0284C7"/>
+
+  <!-- Light rays/sparkles -->
+  <path d="M40 35 L42 40 M38 38 L43 38" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+  <path d="M78 33 L80 38 M76 36 L81 36" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+  <path d="M85 50 L88 52 M85 54 L88 52" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+</svg>

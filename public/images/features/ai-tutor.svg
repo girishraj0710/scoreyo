@@ -1,0 +1,61 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA"/>
+
+  <!-- Chat Interface Card -->
+  <rect x="40" y="40" width="720" height="520" rx="16" fill="white"/>
+  <rect x="40" y="40" width="720" height="520" rx="16" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Header -->
+  <rect x="40" y="40" width="720" height="70" rx="16" fill="#0EA5E9"/>
+  <circle cx="80" cy="75" r="20" fill="white"/>
+  <text x="80" y="83" font-family="Arial, sans-serif" font-size="20" fill="#0EA5E9" text-anchor="middle">🤖</text>
+  <text x="115" y="80" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">PrepGenie AI Tutor</text>
+  <text x="115" y="98" font-family="Arial, sans-serif" font-size="12" fill="#BAE6FD">Online • Available 24/7</text>
+
+  <!-- Chat Messages -->
+  <g>
+    <!-- User Message 1 -->
+    <rect x="520" y="130" width="200" height="60" rx="12" fill="#0EA5E9"/>
+    <text x="530" y="150" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">Can you explain what</text>
+    <text x="530" y="168" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">is derivative in simple</text>
+    <text x="530" y="186" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">terms?</text>
+
+    <!-- AI Message 1 -->
+    <rect x="80" y="210" width="500" height="110" rx="12" fill="#EFF6FF"/>
+    <rect x="80" y="210" width="500" height="110" rx="12" stroke="#DBEAFE" stroke-width="2"/>
+    <text x="95" y="232" font-family="Arial, sans-serif" font-size="13" fill="#1E293B">Think of derivative as "how fast something is changing".</text>
+    <text x="95" y="252" font-family="Arial, sans-serif" font-size="13" fill="#1E293B">For example:</text>
+    <text x="95" y="272" font-family="Arial, sans-serif" font-size="13" fill="#3B82F6">• If you're driving, speed is the derivative of distance</text>
+    <text x="95" y="292" font-family="Arial, sans-serif" font-size="13" fill="#3B82F6">• If water fills a tank, rate is the derivative of volume</text>
+    <text x="95" y="312" font-family="Arial, sans-serif" font-size="13" fill="#1E293B">It tells you: How much does Y change when X changes a tiny bit?</text>
+
+    <!-- User Message 2 -->
+    <rect x="460" y="340" width="260" height="80" rx="12" fill="#0EA5E9"/>
+    <text x="470" y="360" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">Got it! But how do I find</text>
+    <text x="470" y="378" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">derivative of x²? I keep</text>
+    <text x="470" y="396" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">forgetting the formula</text>
+    <text x="470" y="414" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="600">💭</text>
+
+    <!-- AI Message 2 -->
+    <rect x="80" y="440" width="540" height="90" rx="12" fill="#EFF6FF"/>
+    <rect x="80" y="440" width="540" height="90" rx="12" stroke="#DBEAFE" stroke-width="2"/>
+    <text x="95" y="462" font-family="Arial, sans-serif" font-size="13" fill="#1E293B">Easy trick! For xⁿ, the derivative is:</text>
+    <rect x="95" y="472" width="220" height="40" rx="8" fill="#DBEAFE"/>
+    <text x="205" y="490" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E40AF" text-anchor="middle">d/dx(xⁿ) = n × xⁿ⁻¹</text>
+    <text x="95" y="528" font-family="Arial, sans-serif" font-size="13" fill="#3B82F6">So for x²: bring down the 2, reduce power by 1 → 2x¹ = 2x ✨</text>
+  </g>
+
+  <!-- Input Box at Bottom -->
+  <rect x="70" y="485" width="590" height="50" rx="25" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="100" y="515" font-family="Arial, sans-serif" font-size="14" fill="#94A3B8">Ask anything... (in English or Hindi)</text>
+
+  <!-- Send Button -->
+  <circle cx="690" cy="510" r="20" fill="#0EA5E9"/>
+  <path d="M685 510 L695 510 L690 505 Z" fill="white"/>
+  <path d="M690 505 L695 510 L690 515 Z" fill="white"/>
+
+  <!-- Timestamp -->
+  <text x="680" y="325" font-family="Arial, sans-serif" font-size="10" fill="#94A3B8">2:47 AM</text>
+  <text x="65" y="435" font-family="Arial, sans-serif" font-size="10" fill="#94A3B8">2:47 AM</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA"/>
+
+  <!-- Dashboard Card -->
+  <rect x="40" y="40" width="720" height="520" rx="16" fill="white"/>
+  <rect x="40" y="40" width="720" height="520" rx="16" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="70" y="80" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1E293B">Your Mistake Pattern</text>
+  <text x="70" y="110" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Last 100 questions analyzed</text>
+
+  <!-- Error Categories - 4 Boxes -->
+  <g>
+    <!-- Calculation Errors -->
+    <rect x="70" y="140" width="150" height="100" rx="12" fill="#FEF2F2"/>
+    <circle cx="145" cy="170" r="20" fill="#DC2626"/>
+    <text x="145" y="178" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">23</text>
+    <text x="145" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#991B1B" text-anchor="middle">Calculation</text>
+    <text x="145" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#991B1B" text-anchor="middle">Errors</text>
+
+    <!-- Concept Gaps -->
+    <rect x="240" y="140" width="150" height="100" rx="12" fill="#FEF3C7"/>
+    <circle cx="315" cy="170" r="20" fill="#F59E0B"/>
+    <text x="315" y="178" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">18</text>
+    <text x="315" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">Concept</text>
+    <text x="315" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">Gaps</text>
+
+    <!-- Time Pressure -->
+    <rect x="410" y="140" width="150" height="100" rx="12" fill="#EDE9FE"/>
+    <circle cx="485" cy="170" r="20" fill="#8B5CF6"/>
+    <text x="485" y="178" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">12</text>
+    <text x="485" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#6B21A8" text-anchor="middle">Time</text>
+    <text x="485" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#6B21A8" text-anchor="middle">Pressure</text>
+
+    <!-- Careless -->
+    <rect x="580" y="140" width="150" height="100" rx="12" fill="#DBEAFE"/>
+    <circle cx="655" cy="170" r="20" fill="#3B82F6"/>
+    <text x="655" y="178" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">9</text>
+    <text x="655" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#1E40AF" text-anchor="middle">Careless</text>
+    <text x="655" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#1E40AF" text-anchor="middle">Mistakes</text>
+  </g>
+
+  <!-- Bar Chart Section -->
+  <text x="70" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E293B">Mistakes by Topic</text>
+
+  <!-- Chart Bars -->
+  <g>
+    <!-- Physics -->
+    <text x="70" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Physics</text>
+    <rect x="160" y="305" width="380" height="24" rx="4" fill="#FEE2E2"/>
+    <rect x="160" y="305" width="300" height="24" rx="4" fill="#DC2626"/>
+    <text x="550" y="322" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#991B1B">25 errors</text>
+
+    <!-- Chemistry -->
+    <text x="70" y="360" font-family="Arial, sans-serif" font-size="14" fill="#475569">Chemistry</text>
+    <rect x="160" y="345" width="380" height="24" rx="4" fill="#FED7AA"/>
+    <rect x="160" y="345" width="240" height="24" rx="4" fill="#F59E0B"/>
+    <text x="550" y="362" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#B45309">20 errors</text>
+
+    <!-- Maths -->
+    <text x="70" y="400" font-family="Arial, sans-serif" font-size="14" fill="#475569">Maths</text>
+    <rect x="160" y="385" width="380" height="24" rx="4" fill="#DDD6FE"/>
+    <rect x="160" y="385" width="180" height="24" rx="4" fill="#8B5CF6"/>
+    <text x="550" y="402" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6B21A8">15 errors</text>
+
+    <!-- Biology -->
+    <text x="70" y="440" font-family="Arial, sans-serif" font-size="14" fill="#475569">Biology</text>
+    <rect x="160" y="425" width="380" height="24" rx="4" fill="#BFDBFE"/>
+    <rect x="160" y="425" width="120" height="24" rx="4" fill="#3B82F6"/>
+    <text x="550" y="442" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E40AF">10 errors</text>
+  </g>
+
+  <!-- AI Insights Box -->
+  <rect x="70" y="480" width="660" height="70" rx="12" fill="#F0FDF4"/>
+  <rect x="70" y="480" width="660" height="70" rx="12" stroke="#10B981" stroke-width="2"/>
+
+  <!-- AI Icon -->
+  <circle cx="105" cy="515" r="18" fill="#10B981"/>
+  <text x="105" y="523" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">🤖</text>
+
+  <!-- Insight Text -->
+  <text x="140" y="505" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#047857">AI Recommendation:</text>
+  <text x="140" y="527" font-family="Arial, sans-serif" font-size="13" fill="#065F46">You're making most calculation errors in Physics kinematics. Practice 20 more questions</text>
+  <text x="140" y="545" font-family="Arial, sans-serif" font-size="13" fill="#065F46">with step-by-step breakdowns to build accuracy. Focus on unit conversions.</text>
+</svg>

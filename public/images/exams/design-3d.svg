@@ -1,0 +1,121 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Design illustration with palette, brush, and canvas -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FCE7F3" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="52" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Canvas/Easel -->
+  <rect x="75" y="80" width="50" height="60" rx="3" fill="white" stroke="#E5E7EB" stroke-width="3"/>
+
+  <!-- Artwork on canvas -->
+  <rect x="80" y="85" width="40" height="50" rx="2" fill="#FECDD3"/>
+
+  <!-- Abstract art elements -->
+  <circle cx="95" cy="100" r="8" fill="#EC4899"/>
+  <circle cx="110" cy="105" r="6" fill="#F59E0B"/>
+  <rect x="88" y="115" width="25" height="3" rx="1" fill="#8B5CF6"/>
+  <path d="M 85 125 Q 100 130 115 125" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Easel stand -->
+  <rect x="98" y="140" width="4" height="20" fill="#92400E"/>
+  <line x1="85" y1="160" x2="100" y2="140" stroke="#92400E" stroke-width="3"/>
+  <line x1="115" y1="160" x2="100" y2="140" stroke="#92400E" stroke-width="3"/>
+
+  <!-- Artist palette -->
+  <g transform="translate(55, 110)">
+    <ellipse rx="22" ry="18" fill="#FCD34D"/>
+    <ellipse rx="22" ry="18" fill="url(#paletteGradient)"/>
+
+    <!-- Thumb hole -->
+    <ellipse cx="12" cy="8" rx="5" ry="4" fill="#92400E"/>
+
+    <!-- Paint blobs -->
+    <circle cx="-8" cy="-5" r="4" fill="#DC2626"/>
+    <circle cx="0" cy="-8" r="4" fill="#3B82F6"/>
+    <circle cx="8" cy="-5" r="4" fill="#10B981"/>
+    <circle cx="-5" cy="3" r="4" fill="#F59E0B"/>
+    <circle cx="3" cy="3" r="4" fill="#8B5CF6"/>
+  </g>
+
+  <!-- Paintbrush -->
+  <g transform="translate(145, 100) rotate(25)">
+    <!-- Brush handle -->
+    <rect x="-3" y="-25" width="6" height="35" rx="2" fill="#92400E"/>
+    <rect x="-3" y="-25" width="6" height="30" rx="2" fill="#D97706"/>
+
+    <!-- Ferrule (metal part) -->
+    <rect x="-4" y="10" width="8" height="6" fill="#94A3B8"/>
+
+    <!-- Bristles -->
+    <path d="M -4 16 L -3 22 L -2 24 L -1 25 L 0 26 L 1 25 L 2 24 L 3 22 L 4 16 Z" fill="#475569"/>
+
+    <!-- Paint on brush -->
+    <ellipse cy="20" rx="5" ry="3" fill="#EC4899" opacity="0.8"/>
+  </g>
+
+  <!-- Color pencils -->
+  <g transform="translate(145, 130)">
+    <!-- Pencil 1 (Red) -->
+    <rect x="-15" y="-2" width="4" height="25" rx="1" fill="#DC2626" transform="rotate(-15 -13 10)"/>
+    <path d="M -15 23 L -13 28 L -11 23 Z" fill="#7C2D12" transform="rotate(-15 -13 25)"/>
+
+    <!-- Pencil 2 (Blue) -->
+    <rect x="-8" y="-2" width="4" height="25" rx="1" fill="#3B82F6" transform="rotate(0 -6 10)"/>
+    <path d="M -8 23 L -6 28 L -4 23 Z" fill="#1E40AF" transform="rotate(0 -6 25)"/>
+
+    <!-- Pencil 3 (Yellow) -->
+    <rect x="-1" y="-2" width="4" height="25" rx="1" fill="#FBBF24" transform="rotate(15 1 10)"/>
+    <path d="M -1 23 L 1 28 L 3 23 Z" fill="#92400E" transform="rotate(15 1 25)"/>
+  </g>
+
+  <!-- Ruler -->
+  <rect x="40" y="135" width="40" height="8" rx="2" fill="#F3E8FF"/>
+  <rect x="42" y="137" width="2" height="4" fill="#8B5CF6"/>
+  <rect x="47" y="137" width="2" height="4" fill="#8B5CF6"/>
+  <rect x="52" y="137" width="2" height="4" fill="#8B5CF6"/>
+  <rect x="57" y="137" width="2" height="4" fill="#8B5CF6"/>
+  <rect x="62" y="137" width="2" height="4" fill="#8B5CF6"/>
+  <rect x="67" y="137" width="2" height="4" fill="#8B5CF6"/>
+  <rect x="72" y="137" width="2" height="4" fill="#8B5CF6"/>
+
+  <!-- Color swatch book -->
+  <g transform="translate(55, 85)">
+    <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#DC2626"/>
+    <rect x="-10" y="-6" width="20" height="5" fill="#FECDD3"/>
+    <rect x="-12" y="-10" width="24" height="16" rx="2" fill="#3B82F6" transform="rotate(-5)"/>
+    <rect x="-10" y="-8" width="20" height="5" fill="#DBEAFE" transform="rotate(-5)"/>
+    <rect x="-12" y="-12" width="24" height="16" rx="2" fill="#10B981" transform="rotate(-10)"/>
+    <rect x="-10" y="-10" width="20" height="5" fill="#D1FAE5" transform="rotate(-10)"/>
+  </g>
+
+  <!-- NIFT/Design badge -->
+  <circle cx="145" cy="70" r="16" fill="#EC4899"/>
+  <text x="145" y="74" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">ART</text>
+  <circle cx="145" cy="70" r="13" fill="none" stroke="#FCE7F3" stroke-width="2"/>
+
+  <!-- Pen tool icon -->
+  <g transform="translate(45, 145)">
+    <path d="M 0 -10 L 3 -5 L 3 5 L 0 10 L -3 5 L -3 -5 Z" fill="#1E293B"/>
+    <circle cy="-10" r="2" fill="#64748B"/>
+    <circle cy="10" r="2" fill="#64748B"/>
+  </g>
+
+  <!-- Gradient mesh icon -->
+  <rect x="130" y="145" width="20" height="20" rx="2" fill="#F3F4F6"/>
+  <line x1="132" y1="150" x2="148" y2="150" stroke="#EC4899" stroke-width="1"/>
+  <line x1="132" y1="155" x2="148" y2="155" stroke="#3B82F6" stroke-width="1"/>
+  <line x1="132" y1="160" x2="148" y2="160" stroke="#F59E0B" stroke-width="1"/>
+  <line x1="135" y1="147" x2="135" y2="163" stroke="#10B981" stroke-width="1"/>
+  <line x1="140" y1="147" x2="140" y2="163" stroke="#8B5CF6" stroke-width="1"/>
+  <line x1="145" y1="147" x2="145" y2="163" stroke="#EC4899" stroke-width="1"/>
+
+  <defs>
+    <linearGradient id="paletteGradient" x1="55" y1="92" x2="55" y2="128">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#CA8A04" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

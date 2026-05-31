@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fredoka } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ConditionalLayout } from "@/components/conditional-layout";
 
-// Inter - Clean geometric sans-serif, closest to Quizlet's Hurmegeo Sans No2
-// Industry standard, highly readable, professional
-const inter = Inter({
-  variable: "--font-inter",
+// Fredoka - Rounded, friendly, playful sans-serif
+// Perfect for modern, approachable educational platforms
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full antialiased`}
+      className={`${fredoka.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-gradient-to-br from-slate-50 via-white to-indigo-50 font-sans">
         <Providers>

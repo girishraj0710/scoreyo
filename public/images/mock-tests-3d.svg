@@ -1,0 +1,70 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Mock Tests with stopwatch and timer elements -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#D1FAE5" opacity="0.3"/>
+
+  <!-- Stopwatch shadow -->
+  <ellipse cx="100" cy="155" rx="40" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Stopwatch button/crown -->
+  <rect x="94" y="35" width="12" height="10" rx="3" fill="#059669"/>
+  <circle cx="100" cy="35" r="4" fill="#10B981"/>
+  <line x1="88" y1="40" x2="92" y2="35" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="112" y1="40" x2="108" y2="35" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Stopwatch body outer ring -->
+  <circle cx="100" cy="100" r="45" fill="#10B981"/>
+  <circle cx="100" cy="100" r="42" fill="#D1FAE5"/>
+
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#10B981" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Hour markers (3D effect) -->
+  <circle cx="100" cy="62" r="4" fill="#059669"/>
+  <circle cx="100" cy="61" r="3" fill="#10B981"/>
+
+  <circle cx="128" cy="77" r="4" fill="#059669"/>
+  <circle cx="128" cy="76" r="3" fill="#10B981"/>
+
+  <circle cx="138" cy="100" r="4" fill="#059669"/>
+  <circle cx="138" cy="99" r="3" fill="#10B981"/>
+
+  <circle cx="128" cy="123" r="4" fill="#059669"/>
+  <circle cx="128" cy="122" r="3" fill="#10B981"/>
+
+  <circle cx="100" cy="138" r="4" fill="#059669"/>
+  <circle cx="100" cy="137" r="3" fill="#10B981"/>
+
+  <circle cx="72" cy="123" r="4" fill="#059669"/>
+  <circle cx="72" cy="122" r="3" fill="#10B981"/>
+
+  <circle cx="62" cy="100" r="4" fill="#059669"/>
+  <circle cx="62" cy="99" r="3" fill="#10B981"/>
+
+  <circle cx="72" cy="77" r="4" fill="#059669"/>
+  <circle cx="72" cy="76" r="3" fill="#10B981"/>
+
+  <!-- Clock hands with 3D effect -->
+  <line x1="100" y1="100" x2="100" y2="72" stroke="#047857" stroke-width="5" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="100" y2="75" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+
+  <line x1="100" y1="100" x2="118" y2="110" stroke="#059669" stroke-width="4" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="116" y2="109" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Center dot with 3D effect -->
+  <circle cx="100" cy="100" r="7" fill="#047857"/>
+  <circle cx="100" cy="100" r="5" fill="#10B981"/>
+  <circle cx="99" cy="99" r="3" fill="#D1FAE5"/>
+
+  <!-- Side timer indicators -->
+  <circle cx="40" cy="90" r="12" fill="#34D399"/>
+  <text x="40" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">3</text>
+
+  <circle cx="160" cy="110" r="12" fill="#34D399"/>
+  <text x="160" y="115" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">2</text>
+
+  <!-- Checkmark badge -->
+  <circle cx="145" cy="55" r="14" fill="#10B981"/>
+  <path d="M140 55 L143 58 L150 51" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

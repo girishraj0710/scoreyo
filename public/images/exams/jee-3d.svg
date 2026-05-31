@@ -1,0 +1,67 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D JEE illustration with calculator, formula, and atom -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FFEDD5" opacity="0.4"/>
+
+  <!-- Calculator shadow -->
+  <ellipse cx="100" cy="155" rx="45" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Calculator body -->
+  <rect x="65" y="85" width="70" height="90" rx="8" fill="#F97316"/>
+  <rect x="65" y="85" width="70" height="90" rx="8" fill="url(#calcGradient)"/>
+
+  <!-- Calculator screen -->
+  <rect x="75" y="95" width="50" height="20" rx="4" fill="#1E293B"/>
+  <text x="95" y="110" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981" text-anchor="middle">2026</text>
+
+  <!-- Calculator buttons -->
+  <circle cx="85" cy="130" r="5" fill="#FFF7ED"/>
+  <circle cx="100" cy="130" r="5" fill="#FFF7ED"/>
+  <circle cx="115" cy="130" r="5" fill="#FFF7ED"/>
+
+  <circle cx="85" cy="145" r="5" fill="#FFF7ED"/>
+  <circle cx="100" cy="145" r="5" fill="#FFF7ED"/>
+  <circle cx="115" cy="145" r="5" fill="#FFF7ED"/>
+
+  <circle cx="85" cy="160" r="5" fill="#FFF7ED"/>
+  <circle cx="100" cy="160" r="5" fill="#10B981"/>
+  <circle cx="115" cy="160" r="5" fill="#FFF7ED"/>
+
+  <!-- Atom symbol floating -->
+  <circle cx="140" cy="60" r="22" fill="#3B82F6"/>
+  <circle cx="140" cy="60" r="22" fill="url(#atomGradient)"/>
+
+  <!-- Atom nucleus -->
+  <circle cx="140" cy="60" r="6" fill="#FFF7ED"/>
+
+  <!-- Electron orbits -->
+  <ellipse cx="140" cy="60" rx="18" ry="8" fill="none" stroke="#FFF7ED" stroke-width="2" opacity="0.8"/>
+  <ellipse cx="140" cy="60" rx="8" ry="18" fill="none" stroke="#FFF7ED" stroke-width="2" opacity="0.8"/>
+
+  <!-- Electrons -->
+  <circle cx="158" cy="60" r="3" fill="#FFF7ED"/>
+  <circle cx="140" cy="78" r="3" fill="#FFF7ED"/>
+
+  <!-- Formula badge -->
+  <circle cx="55" cy="65" r="16" fill="#8B5CF6"/>
+  <text x="55" y="68" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">E</text>
+  <text x="55" y="75" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">=mc²</text>
+
+  <!-- Trophy icon -->
+  <circle cx="155" cy="130" r="14" fill="#FBBF24"/>
+  <path d="M150 125 L160 125 L158 132 L152 132 Z" fill="#FCD34D"/>
+  <rect x="153" y="132" width="4" height="6" fill="#F59E0B"/>
+  <text x="155" y="131" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">🏆</text>
+
+  <defs>
+    <linearGradient id="calcGradient" x1="100" y1="85" x2="100" y2="175">
+      <stop offset="0%" stop-color="#FB923C" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#C2410C" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="atomGradient" x1="140" y1="38" x2="140" y2="82">
+      <stop offset="0%" stop-color="#93C5FD" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+</svg>

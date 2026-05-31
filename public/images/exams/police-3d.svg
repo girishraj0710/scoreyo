@@ -1,0 +1,117 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Police illustration with badge, cap, and whistle -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#DBEAFE" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Police badge (star) -->
+  <g transform="translate(100, 100)">
+    <circle r="35" fill="#FBBF24"/>
+    <circle r="35" fill="url(#badgeGradient)"/>
+
+    <!-- Star shape -->
+    <path d="M 0 -28 L 6 -8 L 28 -8 L 10 5 L 16 25 L 0 12 L -16 25 L -10 5 L -28 -8 L -6 -8 Z" fill="#FCD34D"/>
+
+    <!-- Inner circle -->
+    <circle r="16" fill="#92400E"/>
+    <circle r="13" fill="#A16207"/>
+
+    <!-- Badge text -->
+    <text y="-2" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#FEF3C7" text-anchor="middle">POLICE</text>
+    <text y="8" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FEF3C7" text-anchor="middle">IPS</text>
+  </g>
+
+  <!-- Police cap -->
+  <g transform="translate(55, 85)">
+    <!-- Cap peak/visor -->
+    <ellipse cy="8" rx="20" ry="6" fill="#1E293B"/>
+
+    <!-- Cap body -->
+    <ellipse cy="0" rx="18" ry="10" fill="#1E40AF"/>
+    <ellipse cy="0" rx="18" ry="10" fill="url(#capGradient)"/>
+
+    <!-- Cap top -->
+    <ellipse cy="-8" rx="14" ry="6" fill="#3B82F6"/>
+
+    <!-- Badge on cap -->
+    <circle cy="-2" r="5" fill="#FBBF24"/>
+    <text y="1" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#1E293B" text-anchor="middle">★</text>
+  </g>
+
+  <!-- Whistle -->
+  <g transform="translate(145, 95)">
+    <ellipse rx="14" ry="10" fill="#94A3B8"/>
+    <ellipse rx="12" ry="8" fill="#CBD5E1"/>
+
+    <!-- Whistle holes -->
+    <circle cx="-4" cy="0" r="2" fill="#64748B"/>
+    <circle cx="4" cy="0" r="2" fill="#64748B"/>
+
+    <!-- Whistle mouthpiece -->
+    <rect x="12" y="-2" width="6" height="4" rx="2" fill="#94A3B8"/>
+
+    <!-- Chain/string -->
+    <path d="M 0 10 Q 5 15 8 20" stroke="#64748B" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Handcuffs -->
+  <g transform="translate(55, 130)">
+    <!-- Left cuff -->
+    <circle cx="-8" cy="0" r="10" fill="none" stroke="#94A3B8" stroke-width="4"/>
+    <circle cx="-8" cy="0" r="7" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+
+    <!-- Right cuff -->
+    <circle cx="8" cy="0" r="10" fill="none" stroke="#94A3B8" stroke-width="4"/>
+    <circle cx="8" cy="0" r="7" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+
+    <!-- Chain -->
+    <line x1="-3" y1="-8" x2="3" y2="-8" stroke="#94A3B8" stroke-width="3"/>
+    <line x1="-3" y1="8" x2="3" y2="8" stroke="#94A3B8" stroke-width="3"/>
+  </g>
+
+  <!-- Police car light -->
+  <g transform="translate(145, 130)">
+    <rect x="-12" y="-6" width="24" height="12" rx="2" fill="#1E293B"/>
+
+    <!-- Red light -->
+    <ellipse cx="-6" cy="0" rx="5" ry="4" fill="#DC2626"/>
+    <ellipse cx="-6" cy="-1" rx="4" ry="3" fill="#FCA5A5" opacity="0.8"/>
+
+    <!-- Blue light -->
+    <ellipse cx="6" cy="0" rx="5" ry="4" fill="#3B82F6"/>
+    <ellipse cx="6" cy="-1" rx="4" ry="3" fill="#93C5FD" opacity="0.8"/>
+  </g>
+
+  <!-- Indian flag -->
+  <rect x="130" y="75" width="25" height="35" rx="2" fill="white"/>
+  <rect x="130" y="75" width="25" height="12" fill="#FF9933"/>
+  <rect x="130" y="98" width="25" height="12" fill="#138808"/>
+  <circle cx="142.5" cy="92.5" r="4" fill="#000080"/>
+  <circle cx="142.5" cy="92.5" r="3" fill="none" stroke="#000080" stroke-width="0.5"/>
+
+  <!-- Baton/Stick -->
+  <g transform="translate(48, 110) rotate(-30)">
+    <rect x="-3" y="-25" width="6" height="40" rx="2" fill="#78350F"/>
+    <rect x="-3" y="-25" width="6" height="35" rx="2" fill="#92400E"/>
+    <rect x="-4" y="-28" width="8" height="5" rx="2" fill="#64748B"/>
+  </g>
+
+  <!-- Shield emblem -->
+  <path d="M 145 55 L 160 62 L 160 72 Q 160 82 145 88 Q 130 82 130 72 L 130 62 Z" fill="#DC2626"/>
+  <path d="M 145 57 L 158 63 L 158 72 Q 158 80 145 85 Q 132 80 132 72 L 132 63 Z" fill="#FCA5A5" opacity="0.6"/>
+  <text x="145" y="75" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">★</text>
+
+  <defs>
+    <linearGradient id="badgeGradient" x1="100" y1="65" x2="100" y2="135">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#CA8A04" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="capGradient" x1="55" y1="-10" x2="55" y2="10">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+</svg>

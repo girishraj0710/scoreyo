@@ -1,0 +1,53 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Calendar with streak - detailed illustration -->
+  <!-- Shadow -->
+  <ellipse cx="60" cy="90" rx="28" ry="4" fill="#000000" opacity="0.1"/>
+
+  <!-- Calendar body -->
+  <rect x="32" y="30" width="56" height="52" rx="4" fill="#06B6D4"/>
+  <rect x="35" y="38" width="50" height="41" rx="2" fill="#CFFAFE"/>
+
+  <!-- Calendar header -->
+  <rect x="32" y="30" width="56" height="12" rx="4" fill="#0891B2"/>
+
+  <!-- Binding rings -->
+  <circle cx="42" cy="32" r="2.5" fill="#CFFAFE"/>
+  <circle cx="52" cy="32" r="2.5" fill="#CFFAFE"/>
+  <circle cx="60" cy="32" r="2.5" fill="#CFFAFE"/>
+  <circle cx="68" cy="32" r="2.5" fill="#CFFAFE"/>
+  <circle cx="78" cy="32" r="2.5" fill="#CFFAFE"/>
+
+  <!-- Week labels (small dots) -->
+  <circle cx="42" cy="46" r="1.5" fill="#0891B2" opacity="0.5"/>
+  <circle cx="50" cy="46" r="1.5" fill="#0891B2" opacity="0.5"/>
+  <circle cx="60" cy="46" r="1.5" fill="#0891B2" opacity="0.5"/>
+  <circle cx="70" cy="46" r="1.5" fill="#0891B2" opacity="0.5"/>
+  <circle cx="78" cy="46" r="1.5" fill="#0891B2" opacity="0.5"/>
+
+  <!-- Date numbers -->
+  <circle cx="42" cy="54" r="3" fill="#06B6D4"/>
+  <circle cx="50" cy="54" r="3" fill="#06B6D4"/>
+  <circle cx="60" cy="54" r="3" fill="#06B6D4"/>
+  <circle cx="70" cy="54" r="3" fill="#06B6D4"/>
+  <circle cx="78" cy="54" r="3" fill="#06B6D4"/>
+
+  <circle cx="42" cy="63" r="3" fill="#06B6D4"/>
+  <circle cx="50" cy="63" r="3" fill="#06B6D4"/>
+  <circle cx="70" cy="63" r="3" fill="#06B6D4"/>
+  <circle cx="78" cy="63" r="3" fill="#06B6D4"/>
+
+  <!-- Today with checkmark -->
+  <circle cx="60" cy="63" r="5" fill="#0891B2"/>
+  <path d="M57.5 63 L59.5 65.5 L63 61" stroke="#CFFAFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="42" cy="72" r="3" fill="#06B6D4" opacity="0.4"/>
+  <circle cx="50" cy="72" r="3" fill="#06B6D4" opacity="0.4"/>
+  <circle cx="60" cy="72" r="3" fill="#06B6D4" opacity="0.4"/>
+
+  <!-- Streak badge -->
+  <circle cx="78" cy="75" r="8" fill="#F59E0B"/>
+  <text x="78" y="78" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">7</text>
+
+  <!-- Flame icon on badge -->
+  <path d="M76 70 L78 68 L80 70" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+</svg>

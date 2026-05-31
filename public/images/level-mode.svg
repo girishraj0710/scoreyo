@@ -1,0 +1,43 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trophy with stars - detailed illustration -->
+  <!-- Shadow -->
+  <ellipse cx="60" cy="90" rx="28" ry="4" fill="#000000" opacity="0.1"/>
+
+  <!-- Trophy base -->
+  <rect x="50" y="75" width="20" height="6" rx="2" fill="#7C3AED"/>
+  <path d="M48 81 L48 83 C48 84 49 85 50 85 L70 85 C71 85 72 84 72 83 L72 81 Z" fill="#6D28D9"/>
+
+  <!-- Trophy stem -->
+  <rect x="56" y="68" width="8" height="8" rx="1" fill="#9333EA"/>
+
+  <!-- Trophy cup -->
+  <path d="M47 42 L47 55 C47 62 52 66 60 67 C68 66 73 62 73 55 L73 42 Z"
+        fill="#A855F7"/>
+  <path d="M47 42 L47 55 C47 62 52 66 60 67 C68 66 73 62 73 55 L73 42 Z"
+        fill="url(#trophy-gradient)"/>
+
+  <!-- Trophy handles -->
+  <path d="M47 44 L40 44 C37 44 35 46 35 49 C35 52 37 54 40 54 L47 54"
+        stroke="#9333EA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M73 44 L80 44 C83 44 85 46 85 49 C85 52 83 54 80 54 L73 54"
+        stroke="#9333EA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Trophy rim -->
+  <ellipse cx="60" cy="42" rx="13" ry="3" fill="#C084FC"/>
+
+  <!-- Star on trophy -->
+  <path d="M60 48 L61.5 52 L65.5 52 L62.5 54.5 L63.5 58.5 L60 56 L56.5 58.5 L57.5 54.5 L54.5 52 L58.5 52 Z"
+        fill="#FDE047"/>
+  <path d="M60 48 L61.5 52 L65.5 52 L62.5 54.5 L63.5 58.5 L60 56 L56.5 58.5 L57.5 54.5 L54.5 52 L58.5 52 Z"
+        stroke="#FACC15" stroke-width="1"/>
+
+  <!-- Shine effect -->
+  <path d="M52 47 Q54 50 52 53" stroke="#E9D5FF" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <defs>
+    <linearGradient id="trophy-gradient" x1="60" y1="42" x2="60" y2="67">
+      <stop offset="0%" stop-color="#C084FC" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

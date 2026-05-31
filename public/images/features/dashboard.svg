@@ -1,0 +1,111 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA"/>
+
+  <!-- Dashboard Container -->
+  <rect x="40" y="40" width="720" height="520" rx="16" fill="white"/>
+  <rect x="40" y="40" width="720" height="520" rx="16" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="70" y="80" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1E293B">Your Dashboard</text>
+  <text x="70" y="110" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Track your progress and stay motivated</text>
+
+  <!-- Stats Row - 4 Cards -->
+  <g>
+    <!-- Total Questions -->
+    <rect x="70" y="140" width="150" height="100" rx="12" fill="#EEF2FF"/>
+    <text x="145" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#6366F1" text-anchor="middle">342</text>
+    <text x="145" y="195" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Questions</text>
+    <text x="145" y="212" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Solved</text>
+    <circle cx="90" cy="225" r="3" fill="#10B981"/>
+    <text x="98" y="229" font-family="Arial, sans-serif" font-size="11" fill="#10B981">+12 today</text>
+
+    <!-- Accuracy -->
+    <rect x="240" y="140" width="150" height="100" rx="12" fill="#D1FAE5"/>
+    <text x="315" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#10B981" text-anchor="middle">78%</text>
+    <text x="315" y="195" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Overall</text>
+    <text x="315" y="212" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Accuracy</text>
+    <circle cx="260" cy="225" r="3" fill="#10B981"/>
+    <text x="268" y="229" font-family="Arial, sans-serif" font-size="11" fill="#10B981">+3% this week</text>
+
+    <!-- Current Streak -->
+    <rect x="410" y="140" width="150" height="100" rx="12" fill="#FEF3C7"/>
+    <text x="485" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#F59E0B" text-anchor="middle">7</text>
+    <text x="485" y="195" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Day</text>
+    <text x="485" y="212" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Streak 🔥</text>
+    <text x="485" y="229" font-family="Arial, sans-serif" font-size="11" fill="#B45309" text-anchor="middle">Best: 12 days</text>
+
+    <!-- Hours Studied -->
+    <rect x="580" y="140" width="150" height="100" rx="12" fill="#FEE2E2"/>
+    <text x="655" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#DC2626" text-anchor="middle">23</text>
+    <text x="655" y="195" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Hours</text>
+    <text x="655" y="212" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">This Week</text>
+    <text x="655" y="229" font-family="Arial, sans-serif" font-size="11" fill="#991B1B" text-anchor="middle">Goal: 30 hrs/week</text>
+  </g>
+
+  <!-- Progress Chart -->
+  <text x="70" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E293B">Weekly Progress</text>
+
+  <!-- Bar Chart -->
+  <g>
+    <!-- Days -->
+    <text x="115" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Mon</text>
+    <text x="190" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Tue</text>
+    <text x="265" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Wed</text>
+    <text x="340" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Thu</text>
+    <text x="415" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Fri</text>
+    <text x="490" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Sat</text>
+    <text x="565" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Sun</text>
+
+    <!-- Bars -->
+    <rect x="95" y="380" width="40" height="100" rx="6" fill="#6366F1"/>
+    <text x="115" y="370" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366F1" text-anchor="middle">15</text>
+
+    <rect x="170" y="350" width="40" height="130" rx="6" fill="#6366F1"/>
+    <text x="190" y="340" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366F1" text-anchor="middle">20</text>
+
+    <rect x="245" y="400" width="40" height="80" rx="6" fill="#6366F1"/>
+    <text x="265" y="390" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366F1" text-anchor="middle">12</text>
+
+    <rect x="320" y="360" width="40" height="120" rx="6" fill="#6366F1"/>
+    <text x="340" y="350" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366F1" text-anchor="middle">18</text>
+
+    <rect x="395" y="330" width="40" height="150" rx="6" fill="#10B981"/>
+    <text x="415" y="320" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981" text-anchor="middle">25</text>
+    <circle cx="415" cy="305" r="8" fill="#FCD34D"/>
+    <text x="415" y="310" font-family="Arial, sans-serif" font-size="12" fill="#78350F" text-anchor="middle">★</text>
+
+    <rect x="470" y="370" width="40" height="110" rx="6" fill="#6366F1"/>
+    <text x="490" y="360" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366F1" text-anchor="middle">16</text>
+
+    <rect x="545" y="420" width="40" height="60" rx="6" fill="#94A3B8"/>
+    <text x="565" y="410" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">8</text>
+  </g>
+
+  <!-- Recent Activity -->
+  <rect x="600" y="290" width="130" height="190" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="665" y="315" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Achievements</text>
+
+  <!-- Achievement badges -->
+  <circle cx="625" cy="350" r="18" fill="#FCD34D"/>
+  <text x="625" y="356" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">🏆</text>
+  <text x="625" y="378" font-family="Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">100 Qs</text>
+
+  <circle cx="680" cy="350" r="18" fill="#A78BFA"/>
+  <text x="680" y="356" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">⚡</text>
+  <text x="680" y="378" font-family="Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">7 Days</text>
+
+  <circle cx="625" cy="420" r="18" fill="#34D399"/>
+  <text x="625" y="426" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">🎯</text>
+  <text x="625" y="448" font-family="Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">80%</text>
+
+  <circle cx="680" cy="420" r="18" fill="#FB923C"/>
+  <text x="680" y="426" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">🔥</text>
+  <text x="680" y="448" font-family="Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Streak</text>
+
+  <text x="665" y="470" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle">+2 more badges</text>
+
+  <!-- Bottom Motivational Quote -->
+  <rect x="70" y="520" width="520" height="30" rx="8" fill="#EFF6FF"/>
+  <text x="330" y="541" font-family="Arial, sans-serif" font-size="13" fill="#1E40AF" text-anchor="middle">💪 You're on track! Keep practicing to reach your weekly goal.</text>
+</svg>

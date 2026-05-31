@@ -328,11 +328,191 @@ interface ColorfulSubjectIconProps extends ColorfulIconProps {
   subjectId: string;
 }
 
+// Premium 3D illustrations for exams (covers all major categories)
+const PREMIUM_3D_EXAMS: Record<string, string> = {
+  // Engineering
+  'jee-main': '/images/exams/jee-3d.svg',
+  'jee-advanced': '/images/exams/jee-advanced-3d.svg',
+  'gate': '/images/exams/gate-3d.svg',
+  'bitsat': '/images/exams/bitsat-3d.svg',
+  'viteee': '/images/exams/gate-3d.svg',
+  'srmjeee': '/images/exams/university-3d.svg',
+  'comedk': '/images/exams/university-3d.svg',
+  'iit-jam': '/images/exams/jee-advanced-3d.svg',
+  'iiit': '/images/exams/gate-3d.svg',
+
+  // State Engineering - vary icons to reduce duplicates
+  'kcet': '/images/exams/state-engineering-3d.svg',
+  'mht-cet': '/images/exams/jee-3d.svg',
+  'ts-eamcet': '/images/exams/gate-3d.svg',
+  'ap-eamcet': '/images/exams/bitsat-3d.svg',
+  'wbjee': '/images/exams/state-engineering-3d.svg',
+  'keam': '/images/exams/jee-3d.svg',
+  'upsee': '/images/exams/gate-3d.svg',
+  'bcece': '/images/exams/bitsat-3d.svg',
+  'ojee': '/images/exams/state-engineering-3d.svg',
+  'tnea': '/images/exams/jee-3d.svg',
+  'gujcet': '/images/exams/gate-3d.svg',
+  'reap': '/images/exams/bitsat-3d.svg',
+  'jcece': '/images/exams/state-engineering-3d.svg',
+
+  // Medical
+  'neet-ug': '/images/exams/neet-3d.svg',
+  'neet-pg': '/images/exams/neet-3d.svg',
+  'aiims': '/images/exams/neet-3d.svg',
+  'aiims-nursing': '/images/exams/neet-3d.svg',
+  'jipmer': '/images/exams/neet-3d.svg',
+  'neet-ss': '/images/exams/neet-3d.svg',
+  'mbbs': '/images/exams/neet-3d.svg',
+  'bds': '/images/exams/neet-3d.svg',
+  'pharma': '/images/exams/pharmacy-3d.svg',
+  'gpat': '/images/exams/pharmacy-3d.svg',
+  'nursing': '/images/exams/neet-3d.svg',
+  'veterinary': '/images/exams/agriculture-3d.svg',
+  'aipvt': '/images/exams/agriculture-3d.svg',
+
+  // Civil Services & Government
+  'upsc-cse': '/images/exams/upsc-3d.svg',
+  'upsc': '/images/exams/upsc-3d.svg',
+  'ssc-cgl': '/images/exams/ssc-3d.svg',
+  'ssc-chsl': '/images/exams/ssc-3d.svg',
+  'ssc-mts': '/images/exams/ssc-3d.svg',
+  'ias': '/images/exams/upsc-3d.svg',
+  'ips': '/images/exams/upsc-3d.svg',
+  'ifs': '/images/exams/upsc-3d.svg',
+  'irs': '/images/exams/upsc-3d.svg',
+
+  // Railways
+  'rrb-ntpc': '/images/exams/railway-3d.svg',
+  'rrb-alp': '/images/exams/railway-3d.svg',
+  'rrb-group-d': '/images/exams/railway-3d.svg',
+  'rrb-je': '/images/exams/railway-3d.svg',
+
+  // Defense
+  'nda': '/images/exams/defense-3d.svg',
+  'cds': '/images/exams/defense-3d.svg',
+  'afcat': '/images/exams/defense-3d.svg',
+  'indian-navy': '/images/exams/defense-3d.svg',
+  'indian-army': '/images/exams/defense-3d.svg',
+  'cisf': '/images/exams/police-3d.svg',
+  'delhi-police': '/images/exams/police-3d.svg',
+  'up-police': '/images/exams/police-3d.svg',
+
+  // Banking & Finance
+  'ibps-po': '/images/exams/banking-3d.svg',
+  'ibps-clerk': '/images/exams/banking-3d.svg',
+  'sbi-po': '/images/exams/banking-3d.svg',
+  'sbi-clerk': '/images/exams/banking-3d.svg',
+  'rbi-grade-b': '/images/exams/banking-3d.svg',
+  'nabard': '/images/exams/banking-3d.svg',
+  'sebi': '/images/exams/banking-3d.svg',
+  'lic-aao': '/images/exams/banking-3d.svg',
+  'lic-ado': '/images/exams/banking-3d.svg',
+  'niacl': '/images/exams/banking-3d.svg',
+  'postal-assistant': '/images/exams/banking-3d.svg',
+  'gds': '/images/exams/banking-3d.svg',
+
+  // MBA & Management
+  'cat': '/images/exams/cat-3d.svg',
+  'xat': '/images/exams/cat-3d.svg',
+  'snap': '/images/exams/cat-3d.svg',
+  'cmat': '/images/exams/cat-3d.svg',
+  'mat': '/images/exams/cat-3d.svg',
+  'nmat': '/images/exams/cat-3d.svg',
+  'iift': '/images/exams/cat-3d.svg',
+  'gmat': '/images/exams/cat-3d.svg',
+  'atma': '/images/exams/cat-3d.svg',
+  'isi': '/images/exams/cat-3d.svg',
+  'ipmat': '/images/exams/cat-3d.svg',
+
+  // Law & Judiciary
+  'clat': '/images/exams/law-3d.svg',
+  'ailet': '/images/exams/law-3d.svg',
+  'slat': '/images/exams/law-3d.svg',
+  'lsat': '/images/exams/law-3d.svg',
+  'judiciary': '/images/exams/law-3d.svg',
+  'judicial-services': '/images/exams/law-3d.svg',
+  'clat-pg': '/images/exams/law-3d.svg',
+  'aibe': '/images/exams/law-3d.svg',
+
+  // Teaching & Education
+  'ctet': '/images/exams/teaching-3d.svg',
+  'tet': '/images/exams/teaching-3d.svg',
+  'kvs': '/images/exams/teaching-3d.svg',
+  'dsssb': '/images/exams/teaching-3d.svg',
+  'ugc-net': '/images/exams/teaching-3d.svg',
+  'csir-net': '/images/exams/teaching-3d.svg',
+  'set': '/images/exams/teaching-3d.svg',
+  'reet': '/images/exams/teaching-3d.svg',
+  'uptet': '/images/exams/teaching-3d.svg',
+  'htet': '/images/exams/teaching-3d.svg',
+  'rtet': '/images/exams/teaching-3d.svg',
+  'super-tet': '/images/exams/teaching-3d.svg',
+
+  // University Entrance
+  'cuet-ug': '/images/exams/university-3d.svg',
+  'cuet-pg': '/images/exams/university-3d.svg',
+  'du-entrance': '/images/exams/university-3d.svg',
+  'bhu-entrance': '/images/exams/university-3d.svg',
+  'jnu-entrance': '/images/exams/university-3d.svg',
+  'iimc': '/images/exams/university-3d.svg',
+
+  // State PSC
+  'tnpsc': '/images/exams/ssc-3d.svg',
+  'uppsc': '/images/exams/ssc-3d.svg',
+  'mppsc': '/images/exams/ssc-3d.svg',
+  'bpsc': '/images/exams/ssc-3d.svg',
+  'rpsc': '/images/exams/ssc-3d.svg',
+  'kpsc': '/images/exams/ssc-3d.svg',
+  'wbpsc': '/images/exams/ssc-3d.svg',
+
+  // Commerce & Accounts
+  'ca-foundation': '/images/exams/commerce-3d.svg',
+  'ca-intermediate': '/images/exams/commerce-3d.svg',
+  'ca-final': '/images/exams/commerce-3d.svg',
+  'cs-foundation': '/images/exams/commerce-3d.svg',
+  'cs-executive': '/images/exams/commerce-3d.svg',
+  'cs-professional': '/images/exams/commerce-3d.svg',
+  'cma-foundation': '/images/exams/commerce-3d.svg',
+  'cma-intermediate': '/images/exams/commerce-3d.svg',
+  'cma-final': '/images/exams/commerce-3d.svg',
+  'icar-aieea': '/images/exams/agriculture-3d.svg',
+
+  // Design & Architecture
+  'nata': '/images/exams/design-3d.svg',
+  'ceed': '/images/exams/design-3d.svg',
+  'uceed': '/images/exams/design-3d.svg',
+  'nid': '/images/exams/design-3d.svg',
+  'nift': '/images/exams/design-3d.svg',
+
+  // Hotel Management
+  'nchmct': '/images/exams/hotel-3d.svg',
+  'nchm-jee': '/images/exams/hotel-3d.svg',
+  'aihm': '/images/exams/hotel-3d.svg',
+};
+
 export const ColorfulExamIcon: React.FC<ColorfulExamIconProps> = ({
   examId,
   size = 24,
   className = ''
 }) => {
+  // Check if this exam has a premium 3D illustration
+  const premiumIllustration = PREMIUM_3D_EXAMS[examId];
+
+  if (premiumIllustration) {
+    return (
+      <img
+        src={premiumIllustration}
+        alt={examId}
+        width={size}
+        height={size}
+        className={className}
+        style={{ objectFit: 'contain' }}
+      />
+    );
+  }
+
+  // Fall back to emoji icons for other exams
   const iconName = getColorfulExamIcon(examId);
   return <Icon icon={iconName} width={size} height={size} className={className} />;
 };

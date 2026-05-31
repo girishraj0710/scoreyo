@@ -1,0 +1,122 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Hotel Management illustration with hotel building, chef hat, and service -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="52" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Hotel building -->
+  <rect x="75" y="85" width="50" height="55" rx="4" fill="#F59E0B"/>
+  <rect x="75" y="85" width="50" height="55" rx="4" fill="url(#hotelGradient)"/>
+
+  <!-- Hotel windows (grid) -->
+  <rect x="82" y="92" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+  <rect x="97" y="92" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+  <rect x="112" y="92" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+
+  <rect x="82" y="107" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+  <rect x="97" y="107" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+  <rect x="112" y="107" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+
+  <rect x="82" y="122" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+  <rect x="97" y="122" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+  <rect x="112" y="122" width="8" height="10" rx="1" fill="#FEF3C7" opacity="0.9"/>
+
+  <!-- Hotel entrance -->
+  <rect x="92" y="130" width="16" height="10" rx="1" fill="#92400E"/>
+
+  <!-- Hotel sign -->
+  <rect x="85" y="78" width="30" height="8" rx="2" fill="#DC2626"/>
+  <text x="100" y="84" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">HOTEL</text>
+
+  <!-- Stars rating -->
+  <text x="82" y="73" font-size="6" fill="#FBBF24">★★★★★</text>
+
+  <!-- Chef hat -->
+  <g transform="translate(55, 100)">
+    <ellipse cx="0" cy="5" rx="16" ry="4" fill="#F3F4F6"/>
+    <rect x="-12" y="-5" width="24" height="10" rx="2" fill="white"/>
+    <path d="M -12 -5 Q -10 -15 0 -12 Q 10 -15 12 -5" fill="white"/>
+    <ellipse cy="-10" rx="14" ry="8" fill="white"/>
+
+    <!-- Chef hat fold lines -->
+    <path d="M -8 -8 Q -6 -12 -4 -8" stroke="#E5E7EB" stroke-width="1" fill="none"/>
+    <path d="M 0 -10 Q 2 -13 4 -10" stroke="#E5E7EB" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- Cloche (food cover) -->
+  <g transform="translate(145, 105)">
+    <ellipse cy="10" rx="18" ry="5" fill="#CBD5E1"/>
+    <path d="M -18 10 Q -18 -5 0 -10 Q 18 -5 18 10 Z" fill="#E5E7EB"/>
+    <path d="M -16 8 Q -16 -4 0 -8 Q 16 -4 16 8 Z" fill="#F3F4F6"/>
+
+    <!-- Handle -->
+    <circle cy="-10" r="3" fill="#FCD34D"/>
+    <rect x="-1.5" y="-10" width="3" height="3" fill="#FBBF24"/>
+  </g>
+
+  <!-- Coffee cup -->
+  <g transform="translate(55, 135)">
+    <rect x="-8" y="-8" width="16" height="16" rx="2" fill="#7C2D12"/>
+    <rect x="-7" y="-7" width="14" height="12" rx="1" fill="#92400E"/>
+    <ellipse cy="-8" rx="8" ry="2" fill="#A16207"/>
+
+    <!-- Steam -->
+    <path d="M -3 -12 Q -3 -16 -1 -18" stroke="#D1D5DB" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M 3 -12 Q 3 -16 5 -18" stroke="#D1D5DB" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+    <!-- Handle -->
+    <path d="M 8 -3 Q 14 0 14 4 Q 14 7 10 7" stroke="#7C2D12" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Wine glass -->
+  <g transform="translate(145, 140)">
+    <path d="M -5 -10 L -3 5 L 3 5 L 5 -10 Z" fill="#DBEAFE"/>
+    <ellipse cy="-10" rx="5" ry="2" fill="#93C5FD"/>
+    <ellipse cy="5" rx="3" ry="1" fill="#BFDBFE"/>
+    <rect x="-1" y="5" width="2" height="8" fill="#D1D5DB"/>
+    <ellipse cy="13" rx="5" ry="2" fill="#E5E7EB"/>
+
+    <!-- Wine -->
+    <path d="M -4 -8 L -2 0 L 2 0 L 4 -8 Z" fill="#DC2626" opacity="0.7"/>
+  </g>
+
+  <!-- Fork and Knife -->
+  <g transform="translate(45, 115)">
+    <!-- Fork -->
+    <rect x="-6" y="-10" width="2" height="20" rx="1" fill="#94A3B8"/>
+    <rect x="-7" y="-10" width="1" height="8" fill="#94A3B8"/>
+    <rect x="-3" y="-10" width="1" height="8" fill="#94A3B8"/>
+
+    <!-- Knife -->
+    <rect x="2" y="-10" width="2" height="20" rx="1" fill="#94A3B8"/>
+    <path d="M 2 -10 L 4 -10 L 4 -6 L 3 -6 Z" fill="#64748B"/>
+  </g>
+
+  <!-- Service bell -->
+  <g transform="translate(145, 70)">
+    <ellipse cy="3" rx="12" ry="3" fill="#D1D5DB"/>
+    <path d="M -12 3 Q -12 -5 0 -8 Q 12 -5 12 3 Z" fill="#FBBF24"/>
+    <path d="M -10 2 Q -10 -4 0 -6 Q 10 -4 10 2 Z" fill="#FCD34D"/>
+
+    <!-- Bell button -->
+    <circle cy="-8" r="2" fill="#DC2626"/>
+  </g>
+
+  <!-- NCHMCT badge -->
+  <rect x="40" y="80" width="22" height="22" rx="3" fill="#10B981"/>
+  <text x="51" y="93" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">HM</text>
+
+  <!-- Star rating badge -->
+  <circle cx="51" cy="75" r="8" fill="#FBBF24"/>
+  <text x="51" y="79" font-size="10" fill="white" text-anchor="middle">★</text>
+
+  <defs>
+    <linearGradient id="hotelGradient" x1="100" y1="85" x2="100" y2="140">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+</svg>
