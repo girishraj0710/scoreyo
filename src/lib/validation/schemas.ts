@@ -98,7 +98,7 @@ export const quizLevelCompleteSchema = z.object({
 
 export const paymentCreateSchema = z.object({
   plan: z.enum(['monthly', 'quarterly'], {
-    errorMap: () => ({ message: 'Plan must be either monthly or quarterly' })
+    message: 'Plan must be either monthly or quarterly'
   }),
   couponCode: z.string().optional(),
 });
