@@ -81,7 +81,7 @@ export const POST = withValidation(
           otpVerified = parsed.verified === true;
         }
       } catch (error) {
-        logger.warn('Redis OTP check failed', { email: cleanEmail }, error as Error);
+        logger.warn('Redis OTP check failed', { email: cleanEmail, error: error instanceof Error ? error.message : String(error) });
       }
 
       // Fallback to database if Redis fails
