@@ -20,32 +20,41 @@ interface RichExplanationProps {
 }
 
 export function RichExplanation({ explanation, correctAnswer, userAnswer, options, questionId, examId, subjectId }: RichExplanationProps) {
+  const showAIChat = userAnswer !== correctAnswer && userAnswer !== -1;
+
   // Handle legacy string explanations
   if (typeof explanation === 'string') {
     return (
-      <div className="mt-6 space-y-4">
-        <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-[#4255FF] font-semibold text-sm">💡 Explanation</span>
+      <div className="mt-6">
+        <div className={showAIChat ? "grid grid-cols-1 lg:grid-cols-2 gap-6" : ""}>
+          {/* Left: Explanation */}
+          <div className="space-y-4">
+            <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[#4255FF] font-semibold text-sm">💡 Explanation</span>
+              </div>
+              <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
+            </div>
+
+            {/* Report Question Button */}
+            {questionId && (
+              <div className="flex justify-center pt-2">
+                <ReportQuestionButton questionId={questionId} examId={examId} subjectId={subjectId} />
+              </div>
+            )}
           </div>
-          <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
+
+          {/* Right: AI Chat */}
+          {showAIChat && (
+            <div className="lg:sticky lg:top-4 lg:self-start">
+              <AIClarificationChat
+                questionText={explanation}
+                correctAnswer={options[correctAnswer]}
+                userAnswer={options[userAnswer]}
+              />
+            </div>
+          )}
         </div>
-
-        {/* AI Clarification Chat - Show for wrong answers even with string explanations */}
-        {userAnswer !== correctAnswer && userAnswer !== -1 && (
-          <AIClarificationChat
-            questionText={explanation}
-            correctAnswer={options[correctAnswer]}
-            userAnswer={options[userAnswer]}
-          />
-        )}
-
-        {/* Report Question Button */}
-        {questionId && (
-          <div className="flex justify-center pt-2">
-            <ReportQuestionButton questionId={questionId} examId={examId} subjectId={subjectId} />
-          </div>
-        )}
       </div>
     );
   }
@@ -54,7 +63,8 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   const wrongOptions = [0, 1, 2, 3].filter(i => i !== correctAnswer);
 
   return (
-    <div className="mt-6 space-y-4">
+    <div className="mt-6">
+      <div className={showAIChat ? "grid grid-cols-1 lg:grid-cols-2 gap-6" : ""}>
       {/* Core Logic */}
       <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
         <div className="flex items-center gap-2 mb-2">
