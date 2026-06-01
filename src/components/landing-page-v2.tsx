@@ -708,9 +708,20 @@ export function LandingPageV2() {
                   key={`exam-1-${exam.id}`}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
+                    {/* External Link - Top Right */}
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-indigo-600 hover:text-white transition-colors z-10"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
                     {/* Compact Header */}
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-4 pr-10">
                       <ColorfulExamIcon examId={exam.examId} size={48} className="drop-shadow-md flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
@@ -721,28 +732,12 @@ export function LandingPageV2() {
                     </div>
 
                     {/* Date Display */}
-                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100 mb-3">
-                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1">📅 Exam Date</div>
+                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100">
+                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        Exam Date
+                      </div>
                       <div className="text-sm font-bold text-slate-900">{exam.date}</div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setShowLoginModal(true)}
-                        className="flex-1 px-3 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
-                      >
-                        Start Prep
-                      </button>
-                      <a
-                        href={exam.officialWebsite}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center px-3 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
-                        title="Official Website"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -753,9 +748,20 @@ export function LandingPageV2() {
                   key={`exam-2-${exam.id}`}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
+                    {/* External Link - Top Right */}
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-indigo-600 hover:text-white transition-colors z-10"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
                     {/* Compact Header */}
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-4 pr-10">
                       <ColorfulExamIcon examId={exam.examId} size={48} className="drop-shadow-md flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
@@ -766,28 +772,12 @@ export function LandingPageV2() {
                     </div>
 
                     {/* Date Display */}
-                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100 mb-3">
-                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1">📅 Exam Date</div>
+                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100">
+                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        Exam Date
+                      </div>
                       <div className="text-sm font-bold text-slate-900">{exam.date}</div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setShowLoginModal(true)}
-                        className="flex-1 px-3 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
-                      >
-                        Start Prep
-                      </button>
-                      <a
-                        href={exam.officialWebsite}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center px-3 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
-                        title="Official Website"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
                     </div>
                   </div>
                 </div>
