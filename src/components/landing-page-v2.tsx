@@ -407,7 +407,7 @@ export function LandingPageV2() {
               {/* Left Arrow - 1/3 merged with cards, 2/3 outside */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex - 1)}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+                className="absolute left-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-800" />
               </button>
@@ -415,7 +415,7 @@ export function LandingPageV2() {
               {/* Right Arrow - 1/3 merged with cards, 2/3 outside */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex + 1)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+                className="absolute right-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
