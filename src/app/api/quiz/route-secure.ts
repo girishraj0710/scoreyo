@@ -255,7 +255,7 @@ export async function PUT(request: NextRequest) {
         if (accuracy === 100) badgeUpdates.perfectQuizzes = 1;
 
         // Speed badges (< 3 minutes for 5 questions = fast)
-        if (timeTakenSeconds > 0 && timeTakenSeconds < 180 && totalQuestions >= 5) {
+        if (timeTaken > 0 && timeTaken < 180 && totalQuestions >= 5) {
           badgeUpdates.fastQuizzes = 1;
         }
 
@@ -300,7 +300,7 @@ export async function PUT(request: NextRequest) {
       totalQuestions,
       correctAnswers: correctCount,
       accuracy,
-      timeTaken: timeTakenSeconds,
+      timeTaken: timeTaken,
       newBadges: [], // Badges shown on next page load
       results: attempts.map((a, i) => ({
         question: a.questionText,
