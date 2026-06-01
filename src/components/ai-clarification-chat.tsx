@@ -32,7 +32,7 @@ export function AIClarificationChat({
     setUserQuestion("");
 
     // Add user message to chat
-    const updatedMessages = [...messages, { type: 'user', text: currentQuestion }];
+    const updatedMessages: Message[] = [...messages, { type: 'user', text: currentQuestion }];
     setMessages(updatedMessages);
     setIsLoading(true);
 
