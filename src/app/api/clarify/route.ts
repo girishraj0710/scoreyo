@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { generateText } from "ai";
-import { openrouter } from "@openrouter/ai-sdk-provider";
+import Anthropic from "@anthropic-ai/sdk";
 import { execute } from "@/lib/db";
+
+// Initialize Anthropic client
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY || process.env.OPENROUTER_API_KEY,
+});
 
 export async function POST(request: Request) {
   try {
@@ -17,44 +21,70 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Build conversation context from history
-    let conversationContext = '';
-    if (conversationHistory && conversationHistory.length > 1) {
-      const previousMessages = conversationHistory.slice(0, -1);
-      conversationContext = '\n\nPREVIOUS CONVERSATION:\n' + previousMessages.map((msg: any) =>
-        `${msg.type === 'user' ? 'Student' : 'Tutor'}: ${msg.text}`
-      ).join('\n') + '\n';
-    }
+    console.log('[Clarify] Processing request...');
+    console.log('[Clarify] Question:', questionText.substring(0, 100));
+    console.log('[Clarify] User asks:', userQuestion);
 
-    // Create a focused, clear prompt
-    const prompt = `You are a helpful tutor assisting a student with a quiz question.
+    // Build conversation messages for Claude
+    const messages: Array<{ role: 'user' | 'assistant'; content: string }> = [];
 
-QUIZ QUESTION:
-${questionText}
+    // System context as first user message
+    const contextMessage = `I'm a student who got a quiz question wrong. Here's the context:
 
+QUESTION: ${questionText}
+
+MY ANSWER: ${wrongAnswer} (incorrect)
 CORRECT ANSWER: ${correctAnswer}
-STUDENT'S ANSWER: ${wrongAnswer}
-${conversationContext}
-STUDENT ASKS: "${userQuestion}"
 
-Provide a clear, concise answer (2-4 sentences). Be encouraging and explain the concept simply.
+Please help me understand this.`;
 
-Your response:`;
-
-    console.log('[Clarify] Sending request to AI...');
-    console.log('[Clarify] Question:', userQuestion);
-
-    try {
-      // Use the most reliable model directly
-      const { text } = await generateText({
-        model: openrouter("google/gemini-2.0-flash-exp:free"),
-        prompt,
-        maxOutputTokens: 400,
-        temperature: 0.7,
+    // Add conversation history if exists
+    if (conversationHistory && conversationHistory.length > 0) {
+      // Add context as first message
+      messages.push({
+        role: 'user',
+        content: contextMessage
       });
 
-      const result = text.trim();
-      console.log('[Clarify] AI response received:', result.substring(0, 100) + '...');
+      // Add dummy assistant acknowledgment
+      messages.push({
+        role: 'assistant',
+        content: 'I understand. I can see the question and your answer. What would you like to know?'
+      });
+
+      // Add conversation history
+      conversationHistory.forEach((msg: any) => {
+        if (msg.type === 'user') {
+          messages.push({ role: 'user', content: msg.text });
+        } else if (msg.type === 'ai') {
+          messages.push({ role: 'assistant', content: msg.text });
+        }
+      });
+    } else {
+      // First question - just add context and current question
+      messages.push({
+        role: 'user',
+        content: `${contextMessage}
+
+${userQuestion}`
+      });
+    }
+
+    console.log('[Clarify] Sending to Claude API with', messages.length, 'messages');
+
+    try {
+      const response = await anthropic.messages.create({
+        model: "claude-3-5-haiku-20241022", // Fast and cheap ($1 per 1M tokens)
+        max_tokens: 500,
+        system: "You are a patient, encouraging tutor helping students understand quiz questions they got wrong. Provide clear, concise explanations in 2-4 sentences. Focus on the key concept and be supportive.",
+        messages: messages,
+      });
+
+      const result = response.content[0].type === 'text'
+        ? response.content[0].text
+        : "I can help explain this concept. Could you be more specific about what you'd like to understand?";
+
+      console.log('[Clarify] Claude response received:', result.substring(0, 100) + '...');
 
       // Store for analytics (non-blocking)
       execute(
@@ -65,11 +95,20 @@ Your response:`;
 
       return NextResponse.json({
         response: result,
-        source: 'ai'
+        source: 'claude'
       });
 
-    } catch (aiError: any) {
-      console.error("[Clarify] AI Error:", aiError?.message || aiError);
+    } catch (apiError: any) {
+      console.error("[Clarify] Claude API Error:", apiError?.message || apiError);
+      console.error("[Clarify] Error details:", JSON.stringify(apiError, null, 2));
+
+      // Check if API key is missing
+      if (apiError?.status === 401 || apiError?.message?.includes('api_key')) {
+        return NextResponse.json({
+          response: "AI service configuration issue. Please contact support.",
+          source: 'error'
+        });
+      }
 
       // Intelligent fallback based on the actual question
       const fallback = generateIntelligentFallback(questionText, userQuestion, correctAnswer, wrongAnswer);
@@ -80,9 +119,12 @@ Your response:`;
       });
     }
 
-  } catch (error) {
-    console.error("[Clarify API] Error:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  } catch (error: any) {
+    console.error("[Clarify API] Error:", error?.message || error);
+    return NextResponse.json({
+      error: "Internal server error",
+      details: error?.message
+    }, { status: 500 });
   }
 }
 
@@ -92,27 +134,25 @@ function generateIntelligentFallback(
   correctAnswer: string,
   wrongAnswer: string
 ): string {
-  // Try to extract key information from the question
-  const lowerQuestion = questionText.toLowerCase();
   const lowerUserQ = userQuestion.toLowerCase();
 
-  // Check if user is asking for explanation of the logic
+  // Check if user is asking for explanation
   if (lowerUserQ.includes('explain') || lowerUserQ.includes('why') || lowerUserQ.includes('how')) {
-    return `The correct answer is ${correctAnswer}. I understand you want to understand the reasoning. The key is to break down the problem step by step. Look at the given information carefully and identify the relationship between the values. Would you like me to walk through the calculation?`;
+    return `The correct answer is ${correctAnswer}. To understand why, let's break it down: look at what the question is asking, identify the key information given, and apply the relevant concept or formula. Your answer of ${wrongAnswer} likely came from a different interpretation. Would you like me to walk through the specific steps?`;
   }
 
   // Check if user wants an example
   if (lowerUserQ.includes('example')) {
-    return `Sure! Let me give you an example similar to this problem. The correct answer is ${correctAnswer}. Think about situations in real life where you encounter similar problems - this can help make the concept clearer. What specific aspect would you like me to demonstrate?`;
+    return `Sure! For a problem like this, the correct answer is ${correctAnswer}. Let me give you a similar example: think about the same concept but with simpler numbers. For instance, if the question involved percentages, try working with 10% or 50% first to understand the pattern. Would you like a specific type of example?`;
   }
 
-  // Check if user wants more detail
-  if (lowerUserQ.includes('more') || lowerUserQ.includes('detail')) {
-    return `The correct answer is ${correctAnswer}. To understand this better, focus on the fundamental principle involved. You selected ${wrongAnswer}, which is a common mistake. The difference lies in how you approach the problem. Would you like me to explain a specific step?`;
+  // Check for calculation help
+  if (lowerUserQ.includes('calculat') || lowerUserQ.includes('step')) {
+    return `The correct answer is ${correctAnswer}. Let me help with the calculation: First, identify what you know. Second, determine what you need to find. Third, choose the right formula or method. Fourth, substitute values and solve. You got ${wrongAnswer}, which suggests a different approach. Want me to show the detailed steps?`;
   }
 
-  // Generic but helpful fallback
-  return `Good question! The correct answer is ${correctAnswer}. The key concept here involves understanding the relationship between the given values. Try breaking the problem into smaller steps: identify what you know, what you need to find, and the formula or method to connect them. Feel free to ask about any specific part that's unclear!`;
+  // Generic helpful response
+  return `Good question! The correct answer is ${correctAnswer}. The key is understanding the relationship in the problem. You selected ${wrongAnswer}, which is close - the difference is in how we interpret the given information. Break it down step by step: what's given, what's asked, and how they connect. What specific part would help to clarify?`;
 }
 
 // Mark clarification as helpful/not helpful

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
-import pdf from "pdf-parse";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_TYPES = [
@@ -74,6 +73,8 @@ export async function POST(request: NextRequest) {
       } else if (file.type === 'application/pdf') {
         // PDF - extract text using pdf-parse
         console.log('[Custom Quiz] Processing PDF file...');
+        const pdfParse = await import('pdf-parse');
+        const pdf = (pdfParse as any).default || pdfParse;
         const pdfData = await pdf(Buffer.from(uint8Array));
         extractedText = pdfData.text;
         console.log('[Custom Quiz] PDF text extracted:', extractedText.length, 'characters');
