@@ -145,7 +145,7 @@ export const POST = withValidation(
 export const PUT = withValidation(
   otpVerifySchema,
   async (request, validatedData) => {
-    const { email, otp } = validatedData;
+    const { email, code } = validatedData;
     const cleanEmail = email.toLowerCase().trim();
 
     try {
@@ -183,7 +183,7 @@ export const PUT = withValidation(
         }
 
         // Verify OTP
-        if (otpData.code === otp) {
+        if (otpData.code === code) {
           // Mark as verified in Redis
           await redis.set(
             `otp:${cleanEmail}`,
@@ -197,7 +197,7 @@ export const PUT = withValidation(
             `UPDATE otp_codes
              SET verified = true
              WHERE email = $1 AND code = $2`,
-            [cleanEmail, otp]
+            [cleanEmail, code]
           );
 
           logger.info('OTP verified successfully', { email: cleanEmail });
@@ -266,7 +266,7 @@ export const PUT = withValidation(
         );
       }
 
-      if (dbOtp.code !== otp) {
+      if (dbOtp.code !== code) {
         return NextResponse.json(
           {
             error: "Invalid OTP",
@@ -279,12 +279,12 @@ export const PUT = withValidation(
       // Mark as verified
       await pool.query(
         `UPDATE otp_codes SET verified = true WHERE email = $1 AND code = $2`,
-        [cleanEmail, otp]
+        [cleanEmail, code]
       );
 
       await redis.set(
         `otp:${cleanEmail}`,
-        JSON.stringify({ code: otp, verified: true }),
+        JSON.stringify({ code: code, verified: true }),
         { ex: 3600 }
       );
 
