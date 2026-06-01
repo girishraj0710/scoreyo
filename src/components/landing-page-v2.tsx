@@ -686,9 +686,10 @@ export function LandingPageV2() {
             </p>
           </div>
         </section>
+      </div>
 
-        {/* Upcoming Exam Calendar - Infinite Marquee */}
-        <section className="bg-slate-50 py-16">
+      {/* Upcoming Exam Calendar - Infinite Marquee */}
+      <section className="bg-slate-50 py-16">
           {/* Header */}
           <div className="mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -820,8 +821,9 @@ export function LandingPageV2() {
               animation-play-state: paused;
             }
           `}</style>
-        </section>
+      </section>
 
+      <div className="max-w-7xl mx-auto px-6">
         {/* Social Proof */}
         <section className="py-16">
           <div className="max-w-6xl mx-auto">
