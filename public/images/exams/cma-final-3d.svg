@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#F3E8FF" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <g transform="translate(100, 115)">
+    <circle r="16" fill="#9333EA"/>
+    <path d="M -6 -2 L -2 2 L 6 -6" stroke="#E9D5FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle r="12" fill="none" stroke="#E9D5FF" stroke-width="2"/>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#9333EA"/>
+  <text x="100" y="76" font-family="Arial" font-size="6" font-weight="bold" fill="white" text-anchor="middle">CMA FINAL</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#C084FC" stroke-width="2"/>
+</svg>

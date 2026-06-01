@@ -1,0 +1,145 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D MBBS - Anatomical Heart theme (from emoji: ❤️) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEE2E2" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Anatomical Heart (center) -->
+  <g transform="translate(100, 105)">
+    <!-- Main heart body -->
+    <path d="M 0 -20 Q -10 -28 -20 -20 Q -24 -12 -20 0 L 0 24 L 20 0 Q 24 -12 20 -20 Q 10 -28 0 -20" fill="#DC2626"/>
+    <path d="M 0 -20 Q -10 -28 -20 -20 Q -24 -12 -20 0 L 0 24 L 20 0 Q 24 -12 20 -20 Q 10 -28 0 -20" fill="url(#heartGradient)"/>
+
+    <!-- Anatomical details - ventricles -->
+    <ellipse cx="-8" cy="4" rx="8" ry="10" fill="#991B1B" opacity="0.6"/>
+    <ellipse cx="8" cy="4" rx="8" ry="10" fill="#991B1B" opacity="0.6"/>
+
+    <!-- Arteries/veins -->
+    <path d="M -8 -20 Q -12 -24 -16 -26" stroke="#DC2626" stroke-width="4" fill="none"/>
+    <path d="M 8 -20 Q 12 -24 16 -26" stroke="#DC2626" stroke-width="4" fill="none"/>
+    <path d="M -4 -22 L -4 -28" stroke="#EF4444" stroke-width="3" fill="none"/>
+    <path d="M 4 -22 L 4 -28" stroke="#EF4444" stroke-width="3" fill="none"/>
+
+    <!-- Highlight -->
+    <circle cx="-10" cy="-10" r="6" fill="#FCA5A5" opacity="0.5"/>
+
+    <!-- Heart valves detail -->
+    <circle cy="-4" r="4" fill="#7C2D12" opacity="0.4"/>
+  </g>
+
+  <!-- ECG heartbeat line -->
+  <g transform="translate(100, 145)">
+    <path d="M -40 0 L -28 0 L -24 -12 L -20 12 L -16 0 L -8 0 L -4 -8 L 0 8 L 4 0 L 16 0 L 20 -10 L 24 10 L 28 0 L 40 0"
+          stroke="#DC2626" stroke-width="3" fill="none"/>
+
+    <!-- Baseline -->
+    <line x1="-45" y1="0" x2="45" y2="0" stroke="#FCA5A5" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Blood cells -->
+  <g transform="translate(55, 95)">
+    <circle r="14" fill="#DC2626" opacity="0.3"/>
+
+    <!-- Red blood cells -->
+    <circle cx="-6" cy="-6" r="5" fill="#DC2626"/>
+    <circle cx="-6" cy="-6" r="3" fill="#991B1B"/>
+
+    <circle cx="6" cy="-4" r="5" fill="#EF4444"/>
+    <circle cx="6" cy="-4" r="3" fill="#DC2626"/>
+
+    <circle cx="-4" cy="6" r="5" fill="#DC2626"/>
+    <circle cx="-4" cy="6" r="3" fill="#991B1B"/>
+
+    <circle cx="6" cy="6" r="5" fill="#EF4444"/>
+    <circle cx="6" cy="6" r="3" fill="#DC2626"/>
+  </g>
+
+  <!-- Blood pressure monitor -->
+  <g transform="translate(145, 95)">
+    <!-- Cuff -->
+    <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#64748B"/>
+    <rect x="-10" y="-6" width="20" height="12" fill="#94A3B8"/>
+
+    <!-- Velcro pattern -->
+    <line x1="-8" y1="-4" x2="8" y2="-4" stroke="#475569" stroke-width="1"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#475569" stroke-width="1"/>
+    <line x1="-8" y1="4" x2="8" y2="4" stroke="#475569" stroke-width="1"/>
+
+    <!-- Tube -->
+    <path d="M 12 0 Q 16 -4 20 -6" stroke="#1E293B" stroke-width="3" fill="none"/>
+
+    <!-- Bulb -->
+    <circle cx="22" cy="-8" r="4" fill="#DC2626"/>
+  </g>
+
+  <!-- Pulse oximeter -->
+  <g transform="translate(55, 140)">
+    <rect x="-12" y="-8" width="24" height="16" rx="3" fill="white" stroke="#94A3B8" stroke-width="2"/>
+
+    <!-- Screen -->
+    <rect x="-10" y="-6" width="20" height="8" rx="1" fill="#1E293B"/>
+
+    <!-- Display readings -->
+    <text y="-2" font-family="Arial, sans-serif" font-size="6" fill="#10B981" text-anchor="middle">98</text>
+    <text y="4" font-family="Arial, sans-serif" font-size="4" fill="#3B82F6" text-anchor="middle">SpO₂</text>
+
+    <!-- Clip opening -->
+    <rect x="-10" y="2" width="20" height="6" fill="#FEF3C7"/>
+  </g>
+
+  <!-- Medical caduceus -->
+  <g transform="translate(145, 140)">
+    <!-- Staff -->
+    <rect x="-2" y="-12" width="4" height="24" fill="#F59E0B"/>
+
+    <!-- Serpents -->
+    <path d="M -2 -8 Q -8 -4 -2 0 Q 4 4 -2 8" stroke="#10B981" stroke-width="3" fill="none"/>
+    <path d="M 2 -8 Q 8 -4 2 0 Q -4 4 2 8" stroke="#10B981" stroke-width="3" fill="none"/>
+
+    <!-- Wings -->
+    <ellipse cx="-8" cy="-10" rx="6" ry="4" fill="#DBEAFE"/>
+    <ellipse cx="8" cy="-10" rx="6" ry="4" fill="#DBEAFE"/>
+  </g>
+
+  <!-- Medical textbook -->
+  <g transform="translate(55, 65)">
+    <rect x="-12" y="-10" width="24" height="20" rx="2" fill="#DC2626"/>
+    <rect x="-10" y="-8" width="20" height="16" rx="1" fill="#FEE2E2"/>
+
+    <!-- Heart diagram -->
+    <path d="M 0 -4 Q -4 -8 -8 -4 Q -10 -2 -8 2 L 0 8 L 8 2 Q 10 -2 8 -4 Q 4 -8 0 -4"
+          fill="none" stroke="#DC2626" stroke-width="1.5"/>
+
+    <!-- Text -->
+    <text y="4" font-family="Arial, sans-serif" font-size="3" fill="#991B1B" text-anchor="middle">ANATOMY</text>
+  </g>
+
+  <!-- Medical badge/emblem -->
+  <g transform="translate(145, 65)">
+    <circle r="14" fill="#1E40AF"/>
+    <circle r="12" fill="white"/>
+
+    <!-- Red cross -->
+    <rect x="-2" y="-8" width="4" height="16" fill="#DC2626"/>
+    <rect x="-8" y="-2" width="16" height="4" fill="#DC2626"/>
+
+    <!-- Border -->
+    <circle r="10" fill="none" stroke="#1E40AF" stroke-width="2"/>
+  </g>
+
+  <!-- MBBS Badge -->
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">MBBS</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="6" fill="#FEE2E2" text-anchor="middle">Medicine</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="heartGradient" x1="100" y1="85" x2="100" y2="129">
+      <stop offset="0%" stop-color="#FCA5A5" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#991B1B" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg>

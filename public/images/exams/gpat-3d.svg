@@ -1,0 +1,38 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D GPAT - Test tube rack theme -->
+  <circle cx="100" cy="100" r="65" fill="#E0F2FE" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Test tube rack -->
+  <g transform="translate(100, 120)">
+    <rect x="-30" y="8" width="60" height="6" rx="2" fill="#94A3B8"/>
+
+    <!-- Test tubes -->
+    <rect x="-24" y="-16" width="8" height="24" rx="2" fill="#DBEAFE"/>
+    <rect x="-24" y="4" width="8" height="4" fill="#DC2626" opacity="0.7"/>
+
+    <rect x="-12" y="-16" width="8" height="24" rx="2" fill="#DBEAFE"/>
+    <rect x="-12" y="2" width="8" height="6" fill="#10B981" opacity="0.7"/>
+
+    <rect x="0" y="-16" width="8" height="24" rx="2" fill="#DBEAFE"/>
+    <rect x="0" y="6" width="8" height="2" fill="#8B5CF6" opacity="0.7"/>
+
+    <rect x="12" y="-16" width="8" height="24" rx="2" fill="#DBEAFE"/>
+    <rect x="12" y="0" width="8" height="8" fill="#F59E0B" opacity="0.7"/>
+  </g>
+
+  <!-- Mortar and pestle -->
+  <g transform="translate(100, 85)">
+    <ellipse cy="4" rx="12" ry="4" fill="#64748B"/>
+    <path d="M -12 4 L -10 -6 Q -8 -10 0 -10 Q 8 -10 10 -6 L 12 4" fill="#94A3B8"/>
+
+    <!-- Pestle -->
+    <rect x="-2" y="-18" width="4" height="14" rx="1" fill="#475569"/>
+    <ellipse cy="-18" rx="3" ry="2" fill="#64748B"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="60" r="18" fill="#10B981"/>
+  <text x="100" y="63" font-family="Arial" font-size="9" font-weight="bold" fill="white" text-anchor="middle">GPAT</text>
+  <circle cx="100" cy="60" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+</svg>

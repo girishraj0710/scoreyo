@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#E0F2FE" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <!-- Law book open -->
+  <g transform="translate(100, 115)">
+    <path d="M -24 -16 L -24 16 Q -20 20 0 20 L 0 -16 Z" fill="#FEF3C7"/>
+    <path d="M 0 -16 L 0 20 Q 20 20 24 16 L 24 -16 Z" fill="#FEF3C7"/>
+    <line x1="-18" y1="-8" x2="-6" y2="-8" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="-18" y1="0" x2="-6" y2="0" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="6" y1="-8" x2="18" y2="-8" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="6" y1="0" x2="18" y2="0" stroke="#7C2D12" stroke-width="1"/>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#3B82F6"/>
+  <text x="100" y="72" font-family="Arial" font-size="9" font-weight="bold" fill="white" text-anchor="middle">LSAT</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#93C5FD" stroke-width="2"/>
+</svg>

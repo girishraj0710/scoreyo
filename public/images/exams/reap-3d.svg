@@ -1,0 +1,177 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D REAP - Camel theme for Rajasthan (from emoji: 🐫) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Desert Camel (center) -->
+  <g transform="translate(100, 115)">
+    <!-- Body -->
+    <ellipse cy="0" rx="28" ry="20" fill="#D97706"/>
+    <ellipse cy="0" rx="28" ry="20" fill="url(#camelGradient)"/>
+
+    <!-- Humps -->
+    <ellipse cx="-8" cy="-10" rx="12" ry="14" fill="#F59E0B"/>
+    <ellipse cx="8" cy="-12" rx="10" ry="12" fill="#F59E0B"/>
+
+    <!-- Neck -->
+    <path d="M -20 -4 Q -24 -8 -24 -18 L -20 -28 L -16 -18 Q -16 -8 -18 -4" fill="#D97706"/>
+
+    <!-- Head -->
+    <ellipse cx="-22" cy="-30" rx="6" ry="8" fill="#F59E0B"/>
+
+    <!-- Ears -->
+    <ellipse cx="-26" cy="-34" rx="3" ry="5" fill="#D97706"/>
+    <ellipse cx="-18" cy="-34" rx="3" ry="5" fill="#D97706"/>
+
+    <!-- Eye -->
+    <circle cx="-22" cy="-32" r="2" fill="#1E293B"/>
+    <circle cx="-21" cy="-33" r="0.8" fill="white"/>
+
+    <!-- Snout -->
+    <ellipse cx="-22" cy="-26" rx="4" ry="3" fill="#E0E7EB"/>
+
+    <!-- Nostril -->
+    <circle cx="-24" cy="-26" r="1" fill="#92400E"/>
+
+    <!-- Legs -->
+    <rect x="-22" y="14" width="6" height="20" rx="1" fill="#D97706"/>
+    <rect x="-10" y="14" width="6" height="20" rx="1" fill="#D97706"/>
+    <rect x="4" y="14" width="6" height="20" rx="1" fill="#D97706"/>
+    <rect x="16" y="14" width="6" height="20" rx="1" fill="#D97706"/>
+
+    <!-- Hooves -->
+    <ellipse cx="-19" cy="34" rx="4" ry="2" fill="#92400E"/>
+    <ellipse cx="-7" cy="34" rx="4" ry="2" fill="#92400E"/>
+    <ellipse cx="7" cy="34" rx="4" ry="2" fill="#92400E"/>
+    <ellipse cx="19" cy="34" rx="4" ry="2" fill="#92400E"/>
+
+    <!-- Tail -->
+    <path d="M 26 2 Q 30 4 32 8 L 34 14" stroke="#D97706" stroke-width="3" fill="none"/>
+    <path d="M 34 14 L 32 18 L 36 18 L 34 14" fill="#92400E"/>
+
+    <!-- Saddle/blanket -->
+    <rect x="-12" y="-8" width="24" height="10" rx="2" fill="#DC2626"/>
+    <rect x="-10" y="-6" width="20" height="6" fill="#F59E0B" opacity="0.7"/>
+
+    <!-- Decorative tassels -->
+    <line x1="-12" y1="2" x2="-12" y2="8" stroke="#FCD34D" stroke-width="2"/>
+    <line x1="12" y1="2" x2="12" y2="8" stroke="#FCD34D" stroke-width="2"/>
+  </g>
+
+  <!-- Sand dunes -->
+  <g transform="translate(100, 145)">
+    <path d="M -50 0 Q -40 -6 -25 0 Q -10 6 0 0 Q 10 -6 25 0 Q 40 6 50 0 L 50 10 L -50 10 Z" fill="#F59E0B" opacity="0.3"/>
+    <path d="M -50 4 Q -35 -2 -20 4 Q -5 10 10 4 Q 25 -2 40 4 Q 50 8 50 10 L -50 10 Z" fill="#FCD34D" opacity="0.4"/>
+  </g>
+
+  <!-- Desert fort -->
+  <g transform="translate(55, 95)">
+    <rect x="-14" y="-10" width="28" height="20" rx="2" fill="#D97706"/>
+
+    <!-- Battlements -->
+    <rect x="-14" y="-14" width="5" height="4" fill="#F59E0B"/>
+    <rect x="-4" y="-14" width="5" height="4" fill="#F59E0B"/>
+    <rect x="6" y="-14" width="5" height="4" fill="#F59E0B"/>
+
+    <!-- Windows -->
+    <rect x="-8" y="-4" width="4" height="5" rx="0.5" fill="#1E293B"/>
+    <rect x="4" y="-4" width="4" height="5" rx="0.5" fill="#1E293B"/>
+
+    <!-- Gate -->
+    <path d="M -4 4 Q -4 0 0 0 Q 4 0 4 4 L 4 10 L -4 10 Z" fill="#92400E"/>
+  </g>
+
+  <!-- Rajasthani turban -->
+  <g transform="translate(145, 95)">
+    <ellipse cy="-4" rx="14" ry="10" fill="#DC2626"/>
+    <ellipse cy="-6" rx="12" ry="8" fill="#F59E0B"/>
+
+    <!-- Turban folds -->
+    <path d="M -10 -6 Q -6 -10 0 -10 Q 6 -10 10 -6" stroke="#FCD34D" stroke-width="2" fill="none"/>
+
+    <!-- Ornament -->
+    <circle cy="-8" r="3" fill="#FCD34D"/>
+    <circle cy="-8" r="1.5" fill="#DC2626"/>
+  </g>
+
+  <!-- Traditional Rajasthani pot (Matka) -->
+  <g transform="translate(55, 140)">
+    <ellipse cy="12" rx="10" ry="4" fill="#92400E"/>
+    <path d="M -10 12 L -8 -4 Q -6 -10 0 -12 Q 6 -10 8 -4 L 10 12 Z" fill="#D97706"/>
+
+    <!-- Neck -->
+    <ellipse cy="-12" rx="4" ry="2" fill="#F59E0B"/>
+
+    <!-- Decorative pattern -->
+    <circle cy="0" r="2" fill="#DC2626"/>
+    <circle cy="6" r="2" fill="#FCD34D"/>
+  </g>
+
+  <!-- Peacock (state bird) -->
+  <g transform="translate(145, 140)">
+    <circle cy="0" r="4" fill="#3B82F6"/>
+
+    <!-- Body -->
+    <ellipse cy="6" rx="4" ry="6" fill="#10B981"/>
+
+    <!-- Tail feathers -->
+    <ellipse cx="-8" cy="8" rx="6" ry="10" fill="#3B82F6" opacity="0.6" transform="rotate(-30 137 148)"/>
+    <ellipse cy="10" rx="5" ry="12" fill="#10B981" opacity="0.6"/>
+    <ellipse cx="8" cy="8" rx="6" ry="10" fill="#8B5CF6" opacity="0.6" transform="rotate(30 153 148)"/>
+
+    <!-- Eye spots on feathers -->
+    <circle cx="-8" cy="12" r="2" fill="#FCD34D"/>
+    <circle cy="14" r="2" fill="#FCD34D"/>
+    <circle cx="8" cy="12" r="2" fill="#FCD34D"/>
+
+    <!-- Crest -->
+    <line x1="0" y1="-4" x2="-2" y2="-8" stroke="#3B82F6" stroke-width="1.5"/>
+    <line x1="0" y1="-4" x2="0" y2="-8" stroke="#3B82F6" stroke-width="1.5"/>
+    <line x1="0" y1="-4" x2="2" y2="-8" stroke="#3B82F6" stroke-width="1.5"/>
+    <circle cx="-2" cy="-8" r="1" fill="#10B981"/>
+    <circle cy="-8" r="1" fill="#10B981"/>
+    <circle cx="2" cy="-8" r="1" fill="#10B981"/>
+  </g>
+
+  <!-- Hawa Mahal window pattern -->
+  <g transform="translate(55, 65)">
+    <rect x="-14" y="-14" width="28" height="28" rx="2" fill="#DC2626"/>
+
+    <!-- Jharokha windows -->
+    <path d="M -8 -8 Q -8 -4 -4 -4 Q 0 -4 0 -8 Z" fill="#FCD34D"/>
+    <path d="M 0 -8 Q 0 -4 4 -4 Q 8 -4 8 -8 Z" fill="#FCD34D"/>
+
+    <path d="M -8 2 Q -8 6 -4 6 Q 0 6 0 2 Z" fill="#FCD34D"/>
+    <path d="M 0 2 Q 0 6 4 6 Q 8 6 8 2 Z" fill="#FCD34D"/>
+  </g>
+
+  <!-- Ghoomar dance figure -->
+  <g transform="translate(145, 65)">
+    <circle cy="-8" r="4" fill="#FBBF24"/>
+
+    <!-- Spinning skirt -->
+    <circle cy="2" r="10" fill="#EC4899" opacity="0.6"/>
+    <circle cy="2" r="8" fill="#DC2626" opacity="0.7"/>
+
+    <!-- Arms in dance pose -->
+    <line x1="-4" y1="-6" x2="-10" y2="-4" stroke="#F59E0B" stroke-width="2"/>
+    <line x1="4" y1="-6" x2="10" y2="-4" stroke="#F59E0B" stroke-width="2"/>
+  </g>
+
+  <!-- REAP Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="72" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">REAP</text>
+  <text x="100" y="80" font-family="Arial, sans-serif" font-size="5" fill="#FEF3C7" text-anchor="middle">Rajasthan</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="camelGradient" x1="100" y1="95" x2="100" y2="135">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

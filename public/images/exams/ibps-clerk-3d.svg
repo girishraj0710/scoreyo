@@ -1,0 +1,17 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <!-- Money with wings -->
+  <g transform="translate(100, 110)">
+    <rect x="-20" y="-10" width="40" height="20" rx="2" fill="#10B981"/>
+    <text y="4" font-family="Arial" font-size="16" fill="white" text-anchor="middle">₹</text>
+    <path d="M -20 0 Q -28 -6 -30 -10" stroke="#22C55E" stroke-width="3" fill="none"/>
+    <path d="M -20 0 Q -28 6 -30 10" stroke="#22C55E" stroke-width="3" fill="none"/>
+    <path d="M 20 0 Q 28 -6 30 -10" stroke="#22C55E" stroke-width="3" fill="none"/>
+    <path d="M 20 0 Q 28 6 30 10" stroke="#22C55E" stroke-width="3" fill="none"/>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="68" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">IBPS</text>
+  <text x="100" y="77" font-family="Arial" font-size="6" fill="#D1FAE5" text-anchor="middle">Clerk</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+</svg>

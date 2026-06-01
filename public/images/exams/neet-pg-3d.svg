@@ -1,0 +1,44 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D NEET PG - Doctor with stethoscope theme -->
+  <circle cx="100" cy="100" r="65" fill="#FEE2E2" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Doctor coat -->
+  <g transform="translate(100, 115)">
+    <rect x="-20" y="-15" width="40" height="45" rx="4" fill="white"/>
+    <rect x="-20" y="-15" width="40" height="45" rx="4" fill="url(#coatGradient)"/>
+
+    <!-- Collar -->
+    <path d="M -10 -15 L -8 -10 L 8 -10 L 10 -15" fill="#E0E7EB"/>
+
+    <!-- Buttons -->
+    <circle cy="0" r="2" fill="#3B82F6"/>
+    <circle cy="8" r="2" fill="#3B82F6"/>
+    <circle cy="16" r="2" fill="#3B82F6"/>
+
+    <!-- Pocket with pen -->
+    <rect x="-12" y="-6" width="10" height="8" rx="1" fill="#E0E7EB"/>
+    <rect x="-9" y="-6" width="2" height="6" fill="#DC2626"/>
+  </g>
+
+  <!-- Stethoscope -->
+  <g transform="translate(100, 95)">
+    <circle r="8" fill="#DC2626"/>
+    <circle r="6" fill="#EF4444"/>
+    <path d="M -5 6 Q -10 15 -8 25" stroke="#DC2626" stroke-width="4" fill="none"/>
+    <path d="M 5 6 Q 10 15 8 25" stroke="#DC2626" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="67" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">NEET</text>
+  <text x="100" y="76" font-family="Arial" font-size="6" fill="#FEE2E2" text-anchor="middle">PG</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="coatGradient" x1="100" y1="100" x2="100" y2="145">
+      <stop offset="0%" stop-color="white"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+  </defs>
+</svg>

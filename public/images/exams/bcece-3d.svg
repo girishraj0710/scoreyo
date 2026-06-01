@@ -1,0 +1,151 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D BCECE - Bell theme for Bihar (from emoji: 🔔) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Large Temple Bell (center) -->
+  <g transform="translate(100, 110)">
+    <!-- Bell body -->
+    <path d="M -24 -10 L -28 20 Q -28 24 -24 26 L 24 26 Q 28 24 28 20 L 24 -10 Z" fill="#F59E0B"/>
+    <path d="M -24 -10 L -28 20 Q -28 24 -24 26 L 24 26 Q 28 24 28 20 L 24 -10 Z" fill="url(#bellGradient)"/>
+
+    <!-- Bell top -->
+    <ellipse cy="-10" rx="24" ry="6" fill="#FCD34D"/>
+
+    <!-- Bell decorative patterns -->
+    <circle cx="-12" cy="8" r="3" fill="#FCD34D" opacity="0.6"/>
+    <circle cy="8" r="3" fill="#FCD34D" opacity="0.6"/>
+    <circle cx="12" cy="8" r="3" fill="#FCD34D" opacity="0.6"/>
+
+    <!-- Horizontal bands -->
+    <ellipse cy="0" rx="22" ry="2" fill="#D97706"/>
+    <ellipse cy="12" rx="24" ry="2" fill="#D97706"/>
+
+    <!-- Bell rim -->
+    <ellipse cy="26" rx="24" ry="4" fill="#92400E"/>
+
+    <!-- Clapper -->
+    <line x1="0" y1="-6" x2="0" y2="22" stroke="#7C2D12" stroke-width="2"/>
+    <circle cy="24" r="4" fill="#1E293B"/>
+
+    <!-- Crown/handle at top -->
+    <rect x="-4" y="-18" width="8" height="9" rx="2" fill="#D97706"/>
+    <ellipse cy="-18" rx="4" ry="2" fill="#FCD34D"/>
+
+    <!-- Hook -->
+    <circle cy="-22" r="3" fill="#92400E"/>
+    <line x1="0" y1="-22" x2="0" y2="-28" stroke="#92400E" stroke-width="2.5"/>
+
+    <!-- Sound waves -->
+    <path d="M -32 10 Q -36 10 -40 10" stroke="#FDE047" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M 32 10 Q 36 10 40 10" stroke="#FDE047" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M -36 4 Q -42 4 -46 4" stroke="#FDE047" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M 36 4 Q 42 4 46 4" stroke="#FDE047" stroke-width="1.5" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Small bells hanging -->
+  <g transform="translate(55, 95)">
+    <path d="M -8 -4 L -10 6 Q -10 8 -8 8 L -4 8 Q -2 8 -2 6 L 0 -4 Z" fill="#F59E0B"/>
+    <ellipse cx="-6" cy="-4" rx="4" ry="2" fill="#FCD34D"/>
+    <line x1="-6" y1="8" x2="-6" y2="12" stroke="#7C2D12" stroke-width="1.5"/>
+    <circle cx="-6" cy="12" r="2" fill="#1E293B"/>
+
+    <!-- Rope -->
+    <line x1="-6" y1="-6" x2="-6" y2="-12" stroke="#92400E" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(145, 95)">
+    <path d="M -8 -4 L -10 6 Q -10 8 -8 8 L -4 8 Q -2 8 -2 6 L 0 -4 Z" fill="#F59E0B"/>
+    <ellipse cx="-6" cy="-4" rx="4" ry="2" fill="#FCD34D"/>
+    <line x1="-6" y1="8" x2="-6" y2="12" stroke="#7C2D12" stroke-width="1.5"/>
+    <circle cx="-6" cy="12" r="2" fill="#1E293B"/>
+
+    <!-- Rope -->
+    <line x1="-6" y1="-6" x2="-6" y2="-12" stroke="#92400E" stroke-width="2"/>
+  </g>
+
+  <!-- Temple/Monastery -->
+  <g transform="translate(55, 140)">
+    <rect x="-14" y="-10" width="28" height="20" rx="2" fill="#DC2626"/>
+
+    <!-- Dome -->
+    <ellipse cy="-10" rx="14" ry="8" fill="#F59E0B"/>
+
+    <!-- Windows -->
+    <rect x="-8" y="-4" width="5" height="6" rx="1" fill="#FEF3C7"/>
+    <rect x="3" y="-4" width="5" height="6" rx="1" fill="#FEF3C7"/>
+
+    <!-- Door -->
+    <path d="M -4 4 Q -4 0 0 0 Q 4 0 4 4 L 4 10 L -4 10 Z" fill="#92400E"/>
+  </g>
+
+  <!-- Prayer wheel -->
+  <g transform="translate(145, 140)">
+    <circle r="16" fill="#D97706"/>
+    <circle r="16" fill="url(#wheelGradient)"/>
+    <circle r="12" fill="#FCD34D"/>
+    <circle r="8" fill="#F59E0B"/>
+
+    <!-- Om symbol -->
+    <text y="4" font-family="Georgia, serif" font-size="8" font-weight="bold" fill="#92400E" text-anchor="middle">ॐ</text>
+
+    <!-- Handle -->
+    <rect x="14" y="-2" width="8" height="4" rx="2" fill="#7C2D12"/>
+  </g>
+
+  <!-- Book/Scripture -->
+  <g transform="translate(55, 65)">
+    <rect x="-12" y="-10" width="24" height="20" rx="2" fill="#10B981"/>
+    <rect x="-10" y="-8" width="20" height="16" rx="1" fill="#D1FAE5"/>
+
+    <!-- Text lines -->
+    <line x1="-6" y1="-4" x2="6" y2="-4" stroke="#059669" stroke-width="1"/>
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#059669" stroke-width="1"/>
+    <line x1="-6" y1="4" x2="4" y2="4" stroke="#059669" stroke-width="1"/>
+
+    <!-- Bihar emblem -->
+    <circle cx="0" cy="-6" r="2" fill="#10B981"/>
+  </g>
+
+  <!-- Bodhi tree -->
+  <g transform="translate(145, 65)">
+    <!-- Trunk -->
+    <rect x="-3" y="0" width="6" height="14" rx="1" fill="#92400E"/>
+
+    <!-- Leaves (heart-shaped bodhi leaves) -->
+    <circle cx="-10" cy="-4" r="6" fill="#10B981"/>
+    <circle cx="-6" cy="-10" r="6" fill="#10B981"/>
+    <circle cx="0" cy="-12" r="6" fill="#059669"/>
+    <circle cx="6" cy="-10" r="6" fill="#10B981"/>
+    <circle cx="10" cy="-4" r="6" fill="#10B981"/>
+
+    <!-- Pointed tips -->
+    <path d="M -10 -10 L -10 -14 L -8 -10" fill="#10B981"/>
+    <path d="M 0 -18 L 0 -22 L 2 -18" fill="#059669"/>
+    <path d="M 10 -10 L 10 -14 L 8 -10" fill="#10B981"/>
+  </g>
+
+  <!-- BCECE Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">BCECE</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="5" fill="#FEF3C7" text-anchor="middle">Bihar</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <!-- Bell rope at top -->
+  <line x1="100" y1="82" x2="100" y2="88" stroke="#92400E" stroke-width="3"/>
+
+  <defs>
+    <linearGradient id="bellGradient" x1="100" y1="100" x2="100" y2="136">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="wheelGradient" x1="145" y1="124" x2="145" y2="156">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

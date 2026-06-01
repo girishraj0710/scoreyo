@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#FEE2E2" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <g transform="translate(100, 115)">
+    <path d="M 0 -18 L -10 -6 L -6 8 L 6 8 L 10 -6 Z" fill="#DC2626"/>
+    <path d="M -6 -2 L 0 -12 L 6 -2 Z" fill="#FCD34D"/>
+    <circle cy="0" r="4" fill="#FBBF24"/>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="76" font-family="Arial" font-size="6" font-weight="bold" fill="white" text-anchor="middle">AGNIVEER</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+</svg>

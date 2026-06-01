@@ -1,0 +1,150 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D UPSEE - Diya Lamp theme for Uttar Pradesh (from emoji: 🪔) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Large Diya Lamp (center) -->
+  <g transform="translate(100, 110)">
+    <!-- Diya bowl -->
+    <ellipse cy="8" rx="28" ry="8" fill="#92400E"/>
+    <path d="M -28 8 L -24 0 Q -20 -4 0 -6 Q 20 -4 24 0 L 28 8 Z" fill="#D97706"/>
+    <path d="M -28 8 L -24 0 Q -20 -4 0 -6 Q 20 -4 24 0 L 28 8 Z" fill="url(#diyaGradient)"/>
+
+    <!-- Oil surface -->
+    <ellipse cy="2" rx="24" ry="6" fill="#F59E0B" opacity="0.8"/>
+
+    <!-- Wick -->
+    <rect x="-2" y="-8" width="4" height="10" fill="#7C2D12"/>
+
+    <!-- Flame -->
+    <ellipse cy="-12" rx="8" ry="14" fill="#FDE047"/>
+    <ellipse cy="-12" rx="6" ry="12" fill="#FCD34D"/>
+    <ellipse cy="-12" rx="4" ry="9" fill="#F59E0B"/>
+    <ellipse cy="-14" rx="2" ry="6" fill="#DC2626" opacity="0.6"/>
+
+    <!-- Glow around flame -->
+    <circle cy="-12" r="18" fill="#FDE047" opacity="0.3"/>
+
+    <!-- Spout/lip for oil -->
+    <ellipse cx="30" cy="6" rx="4" ry="3" fill="#D97706"/>
+    <path d="M 28 6 Q 30 4 32 6" fill="#F59E0B"/>
+  </g>
+
+  <!-- Decorative diyas (smaller) -->
+  <g transform="translate(55, 95)">
+    <ellipse cy="6" rx="14" ry="4" fill="#92400E"/>
+    <path d="M -14 6 L -12 2 Q -10 0 0 -1 Q 10 0 12 2 L 14 6 Z" fill="#F59E0B"/>
+
+    <!-- Flame -->
+    <ellipse cy="-4" rx="4" ry="7" fill="#FDE047"/>
+    <ellipse cy="-4" rx="3" ry="6" fill="#FCD34D"/>
+    <ellipse cy="-5" rx="1.5" ry="4" fill="#DC2626" opacity="0.6"/>
+
+    <!-- Glow -->
+    <circle cy="-4" r="10" fill="#FDE047" opacity="0.2"/>
+  </g>
+
+  <g transform="translate(145, 95)">
+    <ellipse cy="6" rx="14" ry="4" fill="#92400E"/>
+    <path d="M -14 6 L -12 2 Q -10 0 0 -1 Q 10 0 12 2 L 14 6 Z" fill="#F59E0B"/>
+
+    <!-- Flame -->
+    <ellipse cy="-4" rx="4" ry="7" fill="#FDE047"/>
+    <ellipse cy="-4" rx="3" ry="6" fill="#FCD34D"/>
+    <ellipse cy="-5" rx="1.5" ry="4" fill="#DC2626" opacity="0.6"/>
+
+    <!-- Glow -->
+    <circle cy="-4" r="10" fill="#FDE047" opacity="0.2"/>
+  </g>
+
+  <!-- Rangoli pattern -->
+  <g transform="translate(55, 140)">
+    <circle r="16" fill="#DC2626" opacity="0.3"/>
+    <circle r="12" fill="#F59E0B" opacity="0.4"/>
+    <circle r="8" fill="#FCD34D" opacity="0.5"/>
+
+    <!-- Petals -->
+    <ellipse cx="0" cy="-12" rx="4" ry="8" fill="#DC2626" opacity="0.6"/>
+    <ellipse cx="0" cy="12" rx="4" ry="8" fill="#DC2626" opacity="0.6"/>
+    <ellipse cx="-12" cy="0" rx="8" ry="4" fill="#F59E0B" opacity="0.6"/>
+    <ellipse cx="12" cy="0" rx="8" ry="4" fill="#F59E0B" opacity="0.6"/>
+
+    <!-- Diagonal petals -->
+    <ellipse cx="-8" cy="-8" rx="6" ry="4" fill="#FCD34D" opacity="0.6" transform="rotate(-45 47 132)"/>
+    <ellipse cx="8" cy="-8" rx="6" ry="4" fill="#FCD34D" opacity="0.6" transform="rotate(45 63 132)"/>
+    <ellipse cx="-8" cy="8" rx="6" ry="4" fill="#FCD34D" opacity="0.6" transform="rotate(45 47 148)"/>
+    <ellipse cx="8" cy="8" rx="6" ry="4" fill="#FCD34D" opacity="0.6" transform="rotate(-45 63 148)"/>
+
+    <!-- Center dot -->
+    <circle r="3" fill="white"/>
+  </g>
+
+  <!-- Toran/Garland -->
+  <g transform="translate(145, 140)">
+    <path d="M -16 0 Q -12 -6 -8 0 Q -4 -6 0 0 Q 4 -6 8 0 Q 12 -6 16 0" stroke="#10B981" stroke-width="3" fill="none"/>
+
+    <!-- Flowers on garland -->
+    <circle cx="-12" cy="-4" r="3" fill="#DC2626"/>
+    <circle cx="-4" cy="-4" r="3" fill="#F59E0B"/>
+    <circle cx="4" cy="-4" r="3" fill="#EC4899"/>
+    <circle cx="12" cy="-4" r="3" fill="#8B5CF6"/>
+
+    <!-- Leaves -->
+    <ellipse cx="-8" cy="-2" rx="2" ry="4" fill="#10B981"/>
+    <ellipse cy="-2" rx="2" ry="4" fill="#10B981"/>
+    <ellipse cx="8" cy="-2" rx="2" ry="4" fill="#10B981"/>
+  </g>
+
+  <!-- Prayer/Knowledge book -->
+  <g transform="translate(55, 65)">
+    <rect x="-12" y="-10" width="24" height="20" rx="2" fill="#DC2626"/>
+    <rect x="-10" y="-8" width="20" height="16" rx="1" fill="#FEF3C7"/>
+
+    <!-- Om symbol style -->
+    <text y="2" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#D97706" text-anchor="middle">ॐ</text>
+  </g>
+
+  <!-- Temple bells -->
+  <g transform="translate(145, 65)">
+    <!-- Left bell -->
+    <path d="M -8 -8 L -10 4 Q -10 6 -8 6 L -4 6 Q -2 6 -2 4 L 0 -8 Z" fill="#F59E0B"/>
+    <ellipse cx="-6" cy="-8" rx="4" ry="2" fill="#FCD34D"/>
+    <line x1="-6" y1="6" x2="-6" y2="10" stroke="#92400E" stroke-width="1.5"/>
+    <circle cx="-6" cy="10" r="2" fill="#92400E"/>
+
+    <!-- Right bell -->
+    <path d="M 0 -8 L -2 4 Q -2 6 0 6 L 4 6 Q 6 6 6 4 L 8 -8 Z" fill="#F59E0B"/>
+    <ellipse cx="2" cy="-8" rx="4" ry="2" fill="#FCD34D"/>
+    <line x1="2" y1="6" x2="2" y2="10" stroke="#92400E" stroke-width="1.5"/>
+    <circle cx="2" cy="10" r="2" fill="#92400E"/>
+
+    <!-- Rope -->
+    <line x1="-6" y1="-10" x2="-6" y2="-14" stroke="#7C2D12" stroke-width="2"/>
+    <line x1="2" y1="-10" x2="2" y2="-14" stroke="#7C2D12" stroke-width="2"/>
+  </g>
+
+  <!-- UPSEE Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">UP</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#FEF3C7" text-anchor="middle">SEE</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <!-- Light rays from center -->
+  <g transform="translate(100, 110)">
+    <line x1="-40" y1="-20" x2="-48" y2="-26" stroke="#FDE047" stroke-width="2" opacity="0.4"/>
+    <line x1="40" y1="-20" x2="48" y2="-26" stroke="#FDE047" stroke-width="2" opacity="0.4"/>
+    <line x1="-35" y1="20" x2="-42" y2="26" stroke="#FDE047" stroke-width="2" opacity="0.4"/>
+    <line x1="35" y1="20" x2="42" y2="26" stroke="#FDE047" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <defs>
+    <linearGradient id="diyaGradient" x1="100" y1="104" x2="100" y2="118">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+</svg>

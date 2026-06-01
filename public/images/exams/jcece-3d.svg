@@ -1,0 +1,109 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D JCECE - Mountain theme for Jharkhand (from emoji: ⛰️) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#E0F2FE" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Large Mountain (center) -->
+  <g transform="translate(100, 130)">
+    <!-- Main mountain peak -->
+    <path d="M 0 -50 L -35 10 L 35 10 Z" fill="#64748B"/>
+    <path d="M 0 -50 L -35 10 L 35 10 Z" fill="url(#mountainGradient)"/>
+
+    <!-- Snow cap -->
+    <path d="M 0 -50 L -12 -30 L 12 -30 Z" fill="white"/>
+    <path d="M -12 -30 L -8 -26 L 8 -26 L 12 -30 Z" fill="#E0F2FE" opacity="0.8"/>
+
+    <!-- Shadow side -->
+    <path d="M 0 -50 L 35 10 L 20 10 Z" fill="#475569" opacity="0.5"/>
+  </g>
+
+  <!-- Side mountains -->
+  <g transform="translate(55, 135)">
+    <path d="M 0 -35 L -25 10 L 25 10 Z" fill="#94A3B8"/>
+    <path d="M 0 -35 L -8 -20 L 8 -20 Z" fill="white"/>
+  </g>
+
+  <g transform="translate(145, 135)">
+    <path d="M 0 -30 L -20 10 L 20 10 Z" fill="#94A3B8"/>
+    <path d="M 0 -30 L -6 -18 L 6 -18 Z" fill="white"/>
+  </g>
+
+  <!-- Pine trees -->
+  <g transform="translate(70, 125)">
+    <path d="M 0 -12 L -5 -4 L 5 -4 Z" fill="#059669"/>
+    <path d="M 0 -8 L -6 2 L 6 2 Z" fill="#10B981"/>
+    <rect x="-1.5" y="2" width="3" height="6" fill="#92400E"/>
+  </g>
+
+  <g transform="translate(130, 128)">
+    <path d="M 0 -10 L -4 -3 L 4 -3 Z" fill="#059669"/>
+    <path d="M 0 -6 L -5 2 L 5 2 Z" fill="#10B981"/>
+    <rect x="-1" y="2" width="2" height="5" fill="#92400E"/>
+  </g>
+
+  <!-- Waterfall -->
+  <g transform="translate(55, 100)">
+    <path d="M 0 0 Q -2 8 0 16 Q 2 24 0 32" stroke="#0EA5E9" stroke-width="4" fill="none"/>
+    <path d="M -2 0 Q -4 8 -2 16 Q 0 24 -2 32" stroke="#7DD3FC" stroke-width="2" fill="none" opacity="0.7"/>
+
+    <!-- Splash at bottom -->
+    <circle cy="32" r="4" fill="#BAE6FD" opacity="0.6"/>
+  </g>
+
+  <!-- Mining/Coal (Jharkhand minerals) -->
+  <g transform="translate(145, 100)">
+    <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#1E293B"/>
+
+    <!-- Coal chunks -->
+    <path d="M -8 -4 L -10 0 L -6 2 L -4 -2 Z" fill="#475569"/>
+    <path d="M 0 -2 L -2 2 L 2 4 L 4 0 Z" fill="#475569"/>
+    <path d="M 6 -4 L 4 0 L 8 2 L 10 -2 Z" fill="#475569"/>
+
+    <!-- Pickaxe -->
+    <line x1="-10" y1="-12" x2="10" y2="8" stroke="#94A3B8" stroke-width="3"/>
+    <path d="M -12 -10 L -14 -8 L -8 -14 Z" fill="#64748B"/>
+  </g>
+
+  <!-- Tribal art pattern -->
+  <g transform="translate(55, 65)">
+    <rect x="-14" y="-14" width="28" height="28" rx="2" fill="#D97706"/>
+
+    <!-- Warli-style figures -->
+    <circle cy="-6" r="3" fill="white"/>
+    <line x1="0" y1="-3" x2="0" y2="4" stroke="white" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-5" y2="-2" stroke="white" stroke-width="2"/>
+    <line x1="0" y1="0" x2="5" y2="-2" stroke="white" stroke-width="2"/>
+    <line x1="0" y1="4" x2="-4" y2="10" stroke="white" stroke-width="2"/>
+    <line x1="0" y1="4" x2="4" y2="10" stroke="white" stroke-width="2"/>
+  </g>
+
+  <!-- Engineering gear with mountain -->
+  <g transform="translate(145, 65)">
+    <circle r="14" fill="#DC2626"/>
+    <circle r="10" fill="#7C2D12"/>
+    <circle r="4" fill="#92400E"/>
+
+    <!-- Gear teeth -->
+    <rect x="-2" y="-14" width="4" height="5" fill="#DC2626"/>
+    <rect x="-2" y="9" width="4" height="5" fill="#DC2626"/>
+    <rect x="-14" y="-2" width="5" height="4" fill="#DC2626"/>
+    <rect x="9" y="-2" width="5" height="4" fill="#DC2626"/>
+  </g>
+
+  <!-- JCECE Badge -->
+  <circle cx="100" cy="70" r="18" fill="#64748B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">JCECE</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="5" fill="#E0E7EB" text-anchor="middle">Jharkhand</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="mountainGradient" x1="100" y1="80" x2="100" y2="140">
+      <stop offset="0%" stop-color="#CBD5E1" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#475569" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg>

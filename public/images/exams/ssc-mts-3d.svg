@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D SSC MTS - Office building theme -->
+  <circle cx="100" cy="100" r="65" fill="#E0E7EB" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Office building -->
+  <g transform="translate(100, 115)">
+    <rect x="-25" y="-25" width="50" height="45" rx="3" fill="#64748B"/>
+
+    <!-- Windows grid -->
+    <rect x="-18" y="-18" width="6" height="6" rx="1" fill="#FCD34D"/>
+    <rect x="-8" y="-18" width="6" height="6" rx="1" fill="#FCD34D"/>
+    <rect x="2" y="-18" width="6" height="6" rx="1" fill="#FCD34D"/>
+    <rect x="12" y="-18" width="6" height="6" rx="1" fill="#FCD34D"/>
+
+    <rect x="-18" y="-8" width="6" height="6" rx="1" fill="#FCD34D"/>
+    <rect x="-8" y="-8" width="6" height="6" rx="1" fill="#FCD34D"/>
+    <rect x="2" y="-8" width="6" height="6" rx="1" fill="#FCD34D"/>
+    <rect x="12" y="-8" width="6" height="6" rx="1" fill="#FCD34D"/>
+
+    <!-- Entrance -->
+    <rect x="-10" y="8" width="20" height="12" rx="2" fill="#1E293B"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#64748B"/>
+  <text x="100" y="68" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">SSC</text>
+  <text x="100" y="77" font-family="Arial" font-size="6" fill="#E0E7EB" text-anchor="middle">MTS</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+</svg>

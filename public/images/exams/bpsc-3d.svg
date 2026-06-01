@@ -1,0 +1,121 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D BPSC - Herb/Bodhi tree theme for Bihar (from emoji: 🌿) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#F0FDF4" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Bodhi Tree (center) -->
+  <g transform="translate(100, 120)">
+    <!-- Trunk -->
+    <rect x="-6" y="-10" width="12" height="30" rx="2" fill="#92400E"/>
+
+    <!-- Large heart-shaped leaves -->
+    <path d="M -20 -18 Q -24 -22 -20 -28 Q -16 -32 -12 -28 L -10 -20 Z" fill="#10B981"/>
+    <path d="M -10 -24 Q -14 -28 -10 -34 Q -6 -38 -2 -34 L 0 -26 Z" fill="#059669"/>
+    <path d="M 0 -28 Q -4 -32 0 -38 Q 4 -42 8 -38 L 10 -30 Z" fill="#10B981"/>
+    <path d="M 10 -24 Q 6 -28 10 -34 Q 14 -38 18 -34 L 20 -26 Z" fill="#059669"/>
+    <path d="M 20 -18 Q 16 -22 20 -28 Q 24 -32 28 -28 L 30 -20 Z" fill="#10B981"/>
+
+    <!-- Lower leaves -->
+    <path d="M -18 -10 Q -22 -14 -18 -20 Q -14 -24 -10 -20 L -8 -12 Z" fill="#22C55E"/>
+    <path d="M 18 -10 Q 22 -14 18 -20 Q 14 -24 10 -20 L 8 -12 Z" fill="#22C55E"/>
+
+    <!-- Pointed tips on leaves -->
+    <path d="M -12 -28 L -12 -32 L -10 -28" fill="#10B981"/>
+    <path d="M -2 -34 L -2 -38 L 0 -34" fill="#059669"/>
+    <path d="M 8 -38 L 8 -42 L 10 -38" fill="#10B981"/>
+
+    <!-- Roots visible -->
+    <path d="M -6 20 Q -10 24 -14 26" stroke="#7C2D12" stroke-width="3" fill="none"/>
+    <path d="M 6 20 Q 10 24 14 26" stroke="#7C2D12" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Nalanda University ruins -->
+  <g transform="translate(55, 95)">
+    <rect x="-14" y="-8" width="28" height="16" rx="2" fill="#D97706"/>
+
+    <!-- Ruins/broken walls -->
+    <rect x="-12" y="-12" width="4" height="8" fill="#92400E"/>
+    <rect x="-4" y="-10" width="4" height="6" fill="#92400E"/>
+    <rect x="4" y="-12" width="4" height="8" fill="#92400E"/>
+
+    <!-- Windows -->
+    <rect x="-8" y="-2" width="4" height="5" rx="0.5" fill="#1E293B"/>
+    <rect x="4" y="-2" width="4" height="5" rx="0.5" fill="#1E293B"/>
+  </g>
+
+  <!-- PSC emblem -->
+  <g transform="translate(145, 95)">
+    <circle r="14" fill="#1E40AF"/>
+    <circle r="12" fill="white"/>
+    <text y="2" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="#1E40AF" text-anchor="middle">BPSC</text>
+    <circle r="10" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+  </g>
+
+  <!-- Buddhist wheel -->
+  <g transform="translate(55, 140)">
+    <circle r="14" fill="#F59E0B"/>
+    <circle r="12" fill="none" stroke="white" stroke-width="2"/>
+
+    <!-- Spokes -->
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="white" stroke-width="2"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="white" stroke-width="2"/>
+    <line x1="-7" y1="-7" x2="7" y2="7" stroke="white" stroke-width="2"/>
+    <line x1="7" y1="-7" x2="-7" y2="7" stroke="white" stroke-width="2"/>
+
+    <!-- Center -->
+    <circle r="3" fill="white"/>
+  </g>
+
+  <!-- Ancient manuscript -->
+  <g transform="translate(145, 140)">
+    <rect x="-14" y="-10" width="28" height="20" rx="2" fill="#FEF3C7"/>
+
+    <!-- Scroll handles -->
+    <rect x="-16" y="-10" width="2" height="20" fill="#92400E"/>
+    <rect x="14" y="-10" width="2" height="20" fill="#92400E"/>
+
+    <!-- Ancient text -->
+    <line x1="-10" y1="-5" x2="10" y2="-5" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#7C2D12" stroke-width="1"/>
+    <line x1="-10" y1="5" x2="6" y2="5" stroke="#7C2D12" stroke-width="1"/>
+  </g>
+
+  <!-- Mahabodhi Temple -->
+  <g transform="translate(55, 65)">
+    <rect x="-8" y="-8" width="16" height="16" rx="2" fill="#DC2626"/>
+
+    <!-- Pyramid top -->
+    <path d="M -10 -8 L 0 -18 L 10 -8 Z" fill="#F59E0B"/>
+
+    <!-- Windows -->
+    <rect x="-4" y="-2" width="3" height="4" rx="0.5" fill="#FEF3C7"/>
+    <rect x="1" y="-2" width="3" height="4" rx="0.5" fill="#FEF3C7"/>
+
+    <!-- Finial -->
+    <circle cy="-18" r="2" fill="#FCD34D"/>
+  </g>
+
+  <!-- Government stamp -->
+  <g transform="translate(145, 65)">
+    <circle r="14" fill="#DC2626" opacity="0.7"/>
+
+    <!-- Stamp text -->
+    <circle r="10" fill="none" stroke="white" stroke-width="1.5"/>
+    <text y="-2" font-family="Arial, sans-serif" font-size="4" font-weight="bold" fill="white" text-anchor="middle">GOVT</text>
+    <text y="4" font-family="Arial, sans-serif" font-size="4" font-weight="bold" fill="white" text-anchor="middle">BIHAR</text>
+  </g>
+
+  <!-- BPSC Badge -->
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">BPSC</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="5" fill="#D1FAE5" text-anchor="middle">Bihar</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+
+  <!-- Ashoka pillar base -->
+  <rect x="85" y="148" width="30" height="7" rx="2" fill="#F59E0B"/>
+  <text x="100" y="153.5" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">बिहार</text>
+</svg>

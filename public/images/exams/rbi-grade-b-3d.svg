@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <!-- Money bag -->
+  <g transform="translate(100, 115)">
+    <ellipse cy="16" rx="20" ry="8" fill="#92400E"/>
+    <path d="M -20 16 L -16 -8 Q -12 -16 0 -16 Q 12 -16 16 -8 L 20 16" fill="#D97706"/>
+    <rect x="-6" y="-20" width="12" height="6" rx="2" fill="#7C2D12"/>
+    <text y="12" font-family="Arial" font-size="18" font-weight="bold" fill="#FCD34D" text-anchor="middle">₹</text>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#D97706"/>
+  <text x="100" y="68" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">RBI</text>
+  <text x="100" y="77" font-family="Arial" font-size="6" fill="#FEF3C7" text-anchor="middle">Grade B</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+</svg>

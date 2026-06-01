@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Indian Army - Shield with star theme -->
+  <circle cx="100" cy="100" r="65" fill="#D1FAE5" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Shield -->
+  <g transform="translate(100, 110)">
+    <path d="M -25 -20 L -25 10 Q -25 25 0 35 Q 25 25 25 10 L 25 -20 Z" fill="#10B981"/>
+    <path d="M -25 -20 L -25 10 Q -25 25 0 35 Q 25 25 25 10 L 25 -20 Z" fill="url(#shieldGradient)"/>
+
+    <!-- Star -->
+    <text y="8" font-size="28" fill="#FCD34D" text-anchor="middle">★</text>
+
+    <!-- Stripes -->
+    <rect x="-22" y="-15" width="44" height="3" fill="#F59E0B" opacity="0.3"/>
+    <rect x="-22" y="15" width="44" height="3" fill="#F59E0B" opacity="0.3"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="70" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">ARMY</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="shieldGradient" x1="100" y1="90" x2="100" y2="145">
+      <stop offset="0%" stop-color="#6EE7B7"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,155 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D TNEA - Temple/Architecture theme for Tamil Nadu (from emoji: 🛕) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- South Indian Temple (center) -->
+  <g transform="translate(100, 115)">
+    <!-- Base platform -->
+    <rect x="-32" y="18" width="64" height="6" rx="2" fill="#94A3B8"/>
+
+    <!-- Main gopuram tower -->
+    <rect x="-24" y="-20" width="48" height="38" rx="3" fill="#D97706"/>
+    <rect x="-24" y="-20" width="48" height="38" rx="3" fill="url(#gopuramGradient)"/>
+
+    <!-- Temple tiers (reducing size going up) -->
+    <rect x="-26" y="-22" width="52" height="4" fill="#DC2626"/>
+    <rect x="-24" y="-26" width="48" height="4" fill="#F59E0B"/>
+    <rect x="-22" y="-30" width="44" height="4" fill="#DC2626"/>
+    <rect x="-20" y="-34" width="40" height="4" fill="#F59E0B"/>
+
+    <!-- Kalasam (top pot) -->
+    <path d="M -6 -34 L -8 -38 L -6 -42 L 6 -42 L 8 -38 L 6 -34 Z" fill="#FCD34D"/>
+    <circle cy="-44" r="3" fill="#F59E0B"/>
+
+    <!-- Sculptural details -->
+    <rect x="-18" y="-12" width="6" height="8" rx="1" fill="#FEF3C7" opacity="0.8"/>
+    <rect x="-6" y="-12" width="6" height="8" rx="1" fill="#FEF3C7" opacity="0.8"/>
+    <rect x="6" y="-12" width="6" height="8" rx="1" fill="#FEF3C7" opacity="0.8"/>
+    <rect x="14" y="-12" width="6" height="8" rx="1" fill="#FEF3C7" opacity="0.8"/>
+
+    <!-- Deity figures (simplified) -->
+    <circle cx="-12" cy="6" r="3" fill="#DC2626"/>
+    <circle cy="6" r="3" fill="#DC2626"/>
+    <circle cx="12" cy="6" r="3" fill="#DC2626"/>
+
+    <!-- Main entrance -->
+    <path d="M -10 10 Q -10 2 0 0 Q 10 2 10 10 L 10 18 L -10 18 Z" fill="#92400E"/>
+
+    <!-- Decorative carvings on tiers -->
+    <circle cx="-16" cy="-24" r="2" fill="#FCD34D"/>
+    <circle cx="-8" cy="-24" r="2" fill="#FCD34D"/>
+    <circle cy="-24" r="2" fill="#FCD34D"/>
+    <circle cx="8" cy="-24" r="2" fill="#FCD34D"/>
+    <circle cx="16" cy="-24" r="2" fill="#FCD34D"/>
+  </g>
+
+  <!-- Side temple structures -->
+  <g transform="translate(55, 110)">
+    <rect x="-10" y="-10" width="20" height="24" rx="2" fill="#F59E0B"/>
+
+    <!-- Mini gopuram -->
+    <rect x="-12" y="-14" width="24" height="4" fill="#DC2626"/>
+    <rect x="-10" y="-18" width="20" height="4" fill="#F59E0B"/>
+
+    <!-- Kalasam -->
+    <circle cy="-20" r="2" fill="#FCD34D"/>
+
+    <!-- Entrance -->
+    <path d="M -6 6 Q -6 0 0 -2 Q 6 0 6 6 L 6 14 L -6 14 Z" fill="#92400E"/>
+  </g>
+
+  <g transform="translate(145, 110)">
+    <rect x="-10" y="-10" width="20" height="24" rx="2" fill="#F59E0B"/>
+
+    <!-- Mini gopuram -->
+    <rect x="-12" y="-14" width="24" height="4" fill="#DC2626"/>
+    <rect x="-10" y="-18" width="20" height="4" fill="#F59E0B"/>
+
+    <!-- Kalasam -->
+    <circle cy="-20" r="2" fill="#FCD34D"/>
+
+    <!-- Entrance -->
+    <path d="M -6 6 Q -6 0 0 -2 Q 6 0 6 6 L 6 14 L -6 14 Z" fill="#92400E"/>
+  </g>
+
+  <!-- Oil lamp (Kuthu vilakku) -->
+  <g transform="translate(55, 65)">
+    <ellipse cy="10" rx="12" ry="4" fill="#92400E"/>
+
+    <!-- Lamp stand -->
+    <path d="M -10 10 L -8 -6 Q -6 -10 0 -10 Q 6 -10 8 -6 L 10 10 Z" fill="#F59E0B"/>
+
+    <!-- Flame -->
+    <ellipse cy="-12" rx="4" ry="8" fill="#FDE047"/>
+    <ellipse cy="-12" rx="3" ry="6" fill="#FCD34D"/>
+    <ellipse cy="-14" rx="1.5" ry="4" fill="#DC2626" opacity="0.6"/>
+  </g>
+
+  <!-- Kolam (rangoli pattern) -->
+  <g transform="translate(145, 65)">
+    <circle r="14" fill="#DC2626" opacity="0.3"/>
+
+    <!-- Geometric kolam pattern -->
+    <circle r="10" fill="none" stroke="#F59E0B" stroke-width="2"/>
+    <circle r="6" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+    <!-- Dots -->
+    <circle cy="-10" r="2" fill="#DC2626"/>
+    <circle cy="10" r="2" fill="#DC2626"/>
+    <circle cx="-10" r="2" fill="#F59E0B"/>
+    <circle cx="10" r="2" fill="#F59E0B"/>
+
+    <circle cx="-7" cy="-7" r="1.5" fill="#FCD34D"/>
+    <circle cx="7" cy="-7" r="1.5" fill="#FCD34D"/>
+    <circle cx="-7" cy="7" r="1.5" fill="#FCD34D"/>
+    <circle cx="7" cy="7" r="1.5" fill="#FCD34D"/>
+  </g>
+
+  <!-- Traditional drum (Mridangam) -->
+  <g transform="translate(55, 145)">
+    <ellipse rx="18" ry="8" fill="#92400E"/>
+    <rect x="-18" y="-8" width="36" height="16" fill="#D97706"/>
+    <ellipse cy="-8" rx="18" ry="8" fill="#F59E0B"/>
+
+    <!-- Drum heads -->
+    <ellipse cy="-8" rx="14" ry="6" fill="#FEF3C7"/>
+    <ellipse cy="8" rx="14" ry="6" fill="#FEF3C7"/>
+
+    <!-- Straps -->
+    <line x1="-14" y1="-6" x2="-14" y2="6" stroke="#7C2D12" stroke-width="2"/>
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#7C2D12" stroke-width="2"/>
+    <line x1="14" y1="-6" x2="14" y2="6" stroke="#7C2D12" stroke-width="2"/>
+  </g>
+
+  <!-- Banana leaf -->
+  <g transform="translate(145, 145)">
+    <ellipse rx="20" ry="10" fill="#10B981"/>
+    <ellipse rx="18" ry="8" fill="#22C55E"/>
+
+    <!-- Leaf vein -->
+    <line x1="-16" y1="0" x2="16" y2="0" stroke="#059669" stroke-width="1.5"/>
+
+    <!-- Food items -->
+    <circle cx="-8" cy="0" r="2" fill="#FCD34D"/>
+    <circle cx="0" cy="0" r="2" fill="#DC2626"/>
+    <circle cx="8" cy="0" r="2" fill="#F59E0B"/>
+  </g>
+
+  <!-- TNEA Badge -->
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="72" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">TNEA</text>
+  <text x="100" y="80" font-family="Arial, sans-serif" font-size="5" fill="#FEE2E2" text-anchor="middle">Tamil Nadu</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="gopuramGradient" x1="100" y1="95" x2="100" y2="133">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

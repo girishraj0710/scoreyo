@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D SNAP - Bar chart theme -->
+  <circle cx="100" cy="100" r="65" fill="#E0F2FE" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Bar chart -->
+  <g transform="translate(100, 125)">
+    <!-- Bars -->
+    <rect x="-25" y="-15" width="10" height="15" rx="2" fill="#10B981"/>
+    <rect x="-10" y="-25" width="10" height="25" rx="2" fill="#3B82F6"/>
+    <rect x="5" y="-20" width="10" height="20" rx="2" fill="#F59E0B"/>
+    <rect x="20" y="-10" width="10" height="10" rx="2" fill="#8B5CF6"/>
+
+    <!-- Base line -->
+    <line x1="-30" y1="2" x2="35" y2="2" stroke="#64748B" stroke-width="2"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#3B82F6"/>
+  <text x="100" y="72" font-family="Arial" font-size="9" font-weight="bold" fill="white" text-anchor="middle">SNAP</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#93C5FD" stroke-width="2"/>
+</svg>

@@ -1,0 +1,128 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D RPSC - Desert/Fort theme for Rajasthan (from emoji: 🏜️) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Desert Fort (center) -->
+  <g transform="translate(100, 120)">
+    <!-- Main fort -->
+    <rect x="-28" y="-20" width="56" height="40" rx="3" fill="#D97706"/>
+    <rect x="-28" y="-20" width="56" height="40" rx="3" fill="url(#fortGradient)"/>
+
+    <!-- Battlements -->
+    <rect x="-28" y="-24" width="6" height="4" fill="#F59E0B"/>
+    <rect x="-16" y="-24" width="6" height="4" fill="#F59E0B"/>
+    <rect x="-4" y="-24" width="6" height="4" fill="#F59E0B"/>
+    <rect x="8" y="-24" width="6" height="4" fill="#F59E0B"/>
+    <rect x="20" y="-24" width="6" height="4" fill="#F59E0B"/>
+
+    <!-- Windows -->
+    <rect x="-20" y="-12" width="5" height="6" rx="0.5" fill="#1E293B"/>
+    <rect x="-8" y="-12" width="5" height="6" rx="0.5" fill="#1E293B"/>
+    <rect x="4" y="-12" width="5" height="6" rx="0.5" fill="#1E293B"/>
+    <rect x="16" y="-12" width="5" height="6" rx="0.5" fill="#1E293B"/>
+
+    <!-- Main gate -->
+    <path d="M -10 10 Q -10 4 0 2 Q 10 4 10 10 L 10 20 L -10 20 Z" fill="#92400E"/>
+
+    <!-- Decorative arch -->
+    <path d="M -10 10 Q -10 4 0 2 Q 10 4 10 10" stroke="#FCD34D" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Sand dunes -->
+  <g transform="translate(100, 145)">
+    <path d="M -50 0 Q -40 -6 -25 0 Q -10 6 0 0 Q 10 -6 25 0 Q 40 6 50 0" fill="#F59E0B" opacity="0.3"/>
+    <path d="M -50 4 Q -35 -2 -20 4 Q -5 10 10 4 Q 25 -2 40 4" fill="#FCD34D" opacity="0.4"/>
+  </g>
+
+  <!-- Desert tower -->
+  <g transform="translate(55, 95)">
+    <rect x="-8" y="-16" width="16" height="24" rx="2" fill="#D97706"/>
+
+    <!-- Battlements -->
+    <rect x="-8" y="-20" width="4" height="4" fill="#F59E0B"/>
+    <rect x="4" y="-20" width="4" height="4" fill="#F59E0B"/>
+
+    <!-- Windows -->
+    <rect x="-3" y="-10" width="3" height="4" rx="0.5" fill="#1E293B"/>
+    <rect x="-3" y="0" width="3" height="4" rx="0.5" fill="#1E293B"/>
+  </g>
+
+  <!-- PSC emblem -->
+  <g transform="translate(145, 95)">
+    <circle r="14" fill="#1E40AF"/>
+    <circle r="12" fill="white"/>
+    <text y="2" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="#1E40AF" text-anchor="middle">RPSC</text>
+    <circle r="10" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+  </g>
+
+  <!-- Hawa Mahal windows -->
+  <g transform="translate(55, 140)">
+    <rect x="-14" y="-12" width="28" height="24" rx="2" fill="#DC2626"/>
+
+    <!-- Jharokha windows -->
+    <path d="M -8 -8 Q -8 -4 -4 -4 Q 0 -4 0 -8" fill="#FCD34D"/>
+    <path d="M 0 -8 Q 0 -4 4 -4 Q 8 -4 8 -8" fill="#FCD34D"/>
+
+    <path d="M -8 2 Q -8 6 -4 6 Q 0 6 0 2" fill="#FCD34D"/>
+    <path d="M 0 2 Q 0 6 4 6 Q 8 6 8 2" fill="#FCD34D"/>
+  </g>
+
+  <!-- Jal Mahal (Water Palace) -->
+  <g transform="translate(145, 140)">
+    <!-- Water -->
+    <rect x="-14" y="6" width="28" height="6" rx="1" fill="#0369A1" opacity="0.6"/>
+
+    <!-- Palace -->
+    <rect x="-12" y="-8" width="24" height="14" rx="2" fill="#F59E0B"/>
+
+    <!-- Dome -->
+    <ellipse cy="-10" rx="8" ry="6" fill="#FCD34D"/>
+
+    <!-- Windows -->
+    <rect x="-8" y="-2" width="4" height="4" rx="0.5" fill="#1E293B"/>
+    <rect x="4" y="-2" width="4" height="4" rx="0.5" fill="#1E293B"/>
+
+    <!-- Reflection -->
+    <ellipse cy="9" rx="12" ry="2" fill="#0369A1" opacity="0.3"/>
+  </g>
+
+  <!-- Rajasthani turban -->
+  <g transform="translate(55, 65)">
+    <ellipse cy="-4" rx="14" ry="10" fill="#DC2626"/>
+    <ellipse cy="-6" rx="12" ry="8" fill="#F59E0B"/>
+
+    <!-- Folds -->
+    <path d="M -10 -6 Q -6 -10 0 -10 Q 6 -10 10 -6" stroke="#FCD34D" stroke-width="2" fill="none"/>
+
+    <!-- Ornament -->
+    <circle cy="-8" r="3" fill="#FCD34D"/>
+  </g>
+
+  <!-- Government seal -->
+  <g transform="translate(145, 65)">
+    <circle r="14" fill="#DC2626" opacity="0.7"/>
+
+    <!-- Stamp text -->
+    <circle r="10" fill="none" stroke="white" stroke-width="1.5"/>
+    <text y="-2" font-family="Arial, sans-serif" font-size="3" font-weight="bold" fill="white" text-anchor="middle">GOVT</text>
+    <text y="4" font-family="Arial, sans-serif" font-size="3" font-weight="bold" fill="white" text-anchor="middle">RAJASTHAN</text>
+  </g>
+
+  <!-- RPSC Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">RPSC</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="5" fill="#FEF3C7" text-anchor="middle">Rajasthan</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="fortGradient" x1="100" y1="100" x2="100" y2="140">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,36 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D CISF - Guard theme -->
+  <circle cx="100" cy="100" r="65" fill="#FEE2E2" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Guard figure -->
+  <g transform="translate(100, 110)">
+    <!-- Cap -->
+    <ellipse cy="-20" rx="10" ry="6" fill="#DC2626"/>
+    <rect x="-12" y="-22" width="24" height="4" fill="#1E293B"/>
+
+    <!-- Head -->
+    <circle cy="-12" r="8" fill="#FBBF24"/>
+
+    <!-- Body/uniform -->
+    <rect x="-12" y="-4" width="24" height="30" rx="3" fill="#1E293B"/>
+
+    <!-- Badge -->
+    <circle cy="6" r="4" fill="#F59E0B"/>
+
+    <!-- Belt -->
+    <rect x="-12" y="14" width="24" height="3" fill="#92400E"/>
+
+    <!-- Arms -->
+    <rect x="-16" y="0" width="4" height="20" rx="1" fill="#1E293B"/>
+    <rect x="12" y="0" width="4" height="20" rx="1" fill="#1E293B"/>
+
+    <!-- Baton -->
+    <rect x="12" y="16" width="3" height="12" rx="1" fill="#64748B"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="72" font-family="Arial" font-size="8" font-weight="bold" fill="white" text-anchor="middle">CISF</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+</svg>

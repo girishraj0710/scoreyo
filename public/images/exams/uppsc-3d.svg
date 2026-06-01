@@ -1,0 +1,119 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D UPPSC - Administrative theme for Uttar Pradesh -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Government Building (center) -->
+  <g transform="translate(100, 115)">
+    <rect x="-28" y="-18" width="56" height="36" rx="3" fill="#D97706"/>
+    <rect x="-28" y="-18" width="56" height="36" rx="3" fill="url(#buildingGradient)"/>
+
+    <!-- Pillars -->
+    <rect x="-22" y="-10" width="5" height="20" fill="#FEF3C7"/>
+    <rect x="-10" y="-10" width="5" height="20" fill="#FEF3C7"/>
+    <rect x="2" y="-10" width="5" height="20" fill="#FEF3C7"/>
+    <rect x="14" y="-10" width="5" height="20" fill="#FEF3C7"/>
+
+    <!-- Dome -->
+    <path d="M -30 -18 L 0 -32 L 30 -18 Z" fill="#DC2626"/>
+    <ellipse cy="-18" rx="30" ry="6" fill="#F59E0B"/>
+    <circle cy="-32" r="4" fill="#FCD34D"/>
+
+    <!-- Entrance -->
+    <path d="M -12 8 Q -12 0 0 -2 Q 12 0 12 8 L 12 18 L -12 18 Z" fill="#92400E"/>
+
+    <!-- Windows -->
+    <rect x="-24" y="-12" width="6" height="6" rx="1" fill="#FEF3C7" opacity="0.9"/>
+    <rect x="18" y="-12" width="6" height="6" rx="1" fill="#FEF3C7" opacity="0.9"/>
+
+    <!-- UP State emblem -->
+    <circle cy="-4" r="6" fill="#1E40AF"/>
+    <text y="-1" font-family="Arial, sans-serif" font-size="4" font-weight="bold" fill="white" text-anchor="middle">UP</text>
+  </g>
+
+  <!-- File folders -->
+  <g transform="translate(55, 95)">
+    <path d="M -12 -8 L -12 8 L 12 8 L 12 -4 L 6 -8 Z" fill="#F59E0B"/>
+    <rect x="-12" y="-10" width="8" height="4" rx="1" fill="#DC2626"/>
+  </g>
+
+  <!-- Stamp/Seal -->
+  <g transform="translate(145, 95)">
+    <circle r="14" fill="#DC2626"/>
+    <circle r="12" fill="#EF4444" opacity="0.8"/>
+
+    <!-- Circular text -->
+    <circle r="10" fill="none" stroke="white" stroke-width="1.5"/>
+    <text y="2" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">UPPSC</text>
+  </g>
+
+  <!-- Taj Mahal (UP landmark) -->
+  <g transform="translate(55, 140)">
+    <rect x="-14" y="-6" width="28" height="12" rx="2" fill="white" stroke="#E0E7EB" stroke-width="2"/>
+
+    <!-- Central dome -->
+    <ellipse cy="-10" rx="8" ry="10" fill="white" stroke="#E0E7EB" stroke-width="2"/>
+
+    <!-- Minarets -->
+    <rect x="-16" y="-14" width="3" height="20" fill="white" stroke="#E0E7EB" stroke-width="1"/>
+    <ellipse cx="-14.5" cy="-14" rx="1.5" ry="2" fill="white" stroke="#E0E7EB" stroke-width="1"/>
+
+    <rect x="13" y="-14" width="3" height="20" fill="white" stroke="#E0E7EB" stroke-width="1"/>
+    <ellipse cx="14.5" cy="-14" rx="1.5" ry="2" fill="white" stroke="#E0E7EB" stroke-width="1"/>
+  </g>
+
+  <!-- Pen and inkwell -->
+  <g transform="translate(145, 140)">
+    <ellipse cy="8" rx="10" ry="4" fill="#1E293B"/>
+    <path d="M -10 8 L -8 -2 Q -6 -6 0 -6 Q 6 -6 8 -2 L 10 8 Z" fill="#475569"/>
+
+    <!-- Ink -->
+    <ellipse cy="4" rx="8" ry="3" fill="#1E40AF"/>
+
+    <!-- Quill pen -->
+    <line x1="0" y1="-6" x2="-8" y2="-16" stroke="#F59E0B" stroke-width="3"/>
+    <ellipse cx="-8" cy="-16" rx="4" ry="10" fill="#FCD34D" transform="rotate(-30 137 124)"/>
+  </g>
+
+  <!-- Ganga river (UP landmark) -->
+  <g transform="translate(55, 65)">
+    <path d="M -14 0 Q -7 -4 0 0 Q 7 4 14 0" stroke="#0369A1" stroke-width="4" fill="none"/>
+    <path d="M -14 6 Q -7 2 0 6 Q 7 10 14 6" stroke="#0EA5E9" stroke-width="3" fill="none" opacity="0.7"/>
+
+    <!-- Ghats -->
+    <rect x="-14" y="10" width="28" height="4" fill="#D97706"/>
+  </g>
+
+  <!-- Administrative badge -->
+  <g transform="translate(145, 65)">
+    <circle r="14" fill="#1E40AF"/>
+    <circle r="12" fill="white"/>
+
+    <!-- Ashoka Chakra style -->
+    <circle r="8" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+    <circle r="2" fill="#1E40AF"/>
+
+    <!-- Spokes -->
+    <line x1="0" y1="-8" x2="0" y2="-4" stroke="#1E40AF" stroke-width="1"/>
+    <line x1="0" y1="8" x2="0" y2="4" stroke="#1E40AF" stroke-width="1"/>
+    <line x1="-8" y1="0" x2="-4" y2="0" stroke="#1E40AF" stroke-width="1"/>
+    <line x1="8" y1="0" x2="4" y2="0" stroke="#1E40AF" stroke-width="1"/>
+  </g>
+
+  <!-- UPPSC Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">UPPSC</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="5" fill="#FEF3C7" text-anchor="middle">Uttar Pradesh</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="buildingGradient" x1="100" y1="97" x2="100" y2="133">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

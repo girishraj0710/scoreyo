@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#F0FDF4" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <!-- Wheat/Rice sheaf -->
+  <g transform="translate(100, 115)">
+    <rect x="-3" y="8" width="6" height="16" fill="#92400E"/>
+    <ellipse cx="-6" cy="-6" rx="4" ry="14" fill="#F59E0B" transform="rotate(-15 94 109)"/>
+    <ellipse cx="-2" cy="-8" rx="4" ry="16" fill="#FCD34D" transform="rotate(-5 98 107)"/>
+    <ellipse cy="-10" rx="4" ry="18" fill="#F59E0B"/>
+    <ellipse cx="2" cy="-8" rx="4" ry="16" fill="#FCD34D" transform="rotate(5 102 107)"/>
+    <ellipse cx="6" cy="-6" rx="4" ry="14" fill="#F59E0B" transform="rotate(15 106 109)"/>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="67" font-family="Arial" font-size="6" font-weight="bold" fill="white" text-anchor="middle">NABARD</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+</svg>

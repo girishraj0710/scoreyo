@@ -1,0 +1,153 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D AP EAMCET - Sunset/Sunrise theme for Andhra Pradesh (from emoji: 🌅) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Large Sun (center) -->
+  <g transform="translate(100, 100)">
+    <circle r="32" fill="#F59E0B"/>
+    <circle r="32" fill="url(#sunGradient)"/>
+
+    <!-- Inner glow -->
+    <circle r="26" fill="#FCD34D" opacity="0.8"/>
+    <circle r="20" fill="#FDE047" opacity="0.7"/>
+
+    <!-- Sun rays (long) -->
+    <line x1="0" y1="-40" x2="0" y2="-48" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="40" x2="0" y2="48" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-40" y1="0" x2="-48" y2="0" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+    <line x1="40" y1="0" x2="48" y2="0" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Diagonal rays -->
+    <line x1="-28" y1="-28" x2="-34" y2="-34" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+    <line x1="28" y1="-28" x2="34" y2="-34" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-28" y1="28" x2="-34" y2="34" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+    <line x1="28" y1="28" x2="34" y2="34" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Shorter rays (alternating) -->
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(22.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(67.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(112.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(157.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(202.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(247.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(292.5)"/>
+    <line x1="0" y1="-36" x2="0" y2="-42" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" transform="rotate(337.5)"/>
+  </g>
+
+  <!-- Water horizon waves -->
+  <g transform="translate(100, 140)">
+    <path d="M -60 0 Q -45 -4 -30 0 Q -15 4 0 0 Q 15 -4 30 0 Q 45 4 60 0" stroke="#0369A1" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M -60 6 Q -45 2 -30 6 Q -15 10 0 6 Q 15 2 30 6 Q 45 10 60 6" stroke="#0284C7" stroke-width="3" fill="none" opacity="0.6"/>
+    <path d="M -60 12 Q -45 8 -30 12 Q -15 16 0 12 Q 15 8 30 12 Q 45 16 60 12" stroke="#0EA5E9" stroke-width="3" fill="none" opacity="0.5"/>
+  </g>
+
+  <!-- Clouds -->
+  <g transform="translate(55, 75)">
+    <circle cx="-8" r="6" fill="#FEF3C7" opacity="0.8"/>
+    <circle r="8" fill="#FEF3C7" opacity="0.8"/>
+    <circle cx="8" r="6" fill="#FEF3C7" opacity="0.8"/>
+  </g>
+
+  <g transform="translate(145, 80)">
+    <circle cx="-6" r="5" fill="#FEF3C7" opacity="0.7"/>
+    <circle r="7" fill="#FEF3C7" opacity="0.7"/>
+    <circle cx="6" r="5" fill="#FEF3C7" opacity="0.7"/>
+  </g>
+
+  <!-- Birds flying -->
+  <g transform="translate(60, 90)">
+    <path d="M -4 0 Q 0 -2 4 0" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+    <path d="M 8 2 Q 12 0 16 2" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <g transform="translate(140, 95)">
+    <path d="M -4 0 Q 0 -2 4 0" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Engineering elements -->
+  <!-- Gear with sunrise motif -->
+  <g transform="translate(55, 130)">
+    <circle r="14" fill="#DC2626"/>
+    <circle r="14" fill="url(#gearSunriseGradient)"/>
+    <circle r="8" fill="#7C2D12"/>
+    <circle r="4" fill="#92400E"/>
+
+    <!-- Gear teeth -->
+    <rect x="-2" y="-14" width="4" height="5" fill="#DC2626"/>
+    <rect x="-2" y="9" width="4" height="5" fill="#DC2626"/>
+    <rect x="-14" y="-2" width="5" height="4" fill="#DC2626"/>
+    <rect x="9" y="-2" width="5" height="4" fill="#DC2626"/>
+
+    <rect x="-11" y="-11" width="4" height="4" fill="#DC2626" transform="rotate(45 55 130)"/>
+    <rect x="7" y="-11" width="4" height="4" fill="#DC2626" transform="rotate(-45 55 130)"/>
+  </g>
+
+  <!-- Blueprint/compass -->
+  <g transform="translate(145, 130)">
+    <circle r="14" fill="#3B82F6" opacity="0.3"/>
+    <circle r="10" fill="none" stroke="#3B82F6" stroke-width="2"/>
+    <circle r="6" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+
+    <!-- Compass needle -->
+    <line x1="0" y1="0" x2="0" y2="-10" stroke="#DC2626" stroke-width="2.5"/>
+    <circle r="2" fill="#DC2626"/>
+
+    <!-- Cross hairs -->
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#60A5FA" stroke-width="1"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#60A5FA" stroke-width="1"/>
+  </g>
+
+  <!-- Book with sunrise -->
+  <g transform="translate(55, 60)">
+    <rect x="-12" y="-10" width="24" height="20" rx="2" fill="#DC2626"/>
+    <rect x="-10" y="-8" width="20" height="16" rx="1" fill="#FEF3C7"/>
+
+    <!-- Sun icon on book -->
+    <circle cy="0" r="5" fill="#F59E0B"/>
+    <line x1="0" y1="-7" x2="0" y2="-9" stroke="#F59E0B" stroke-width="1.5"/>
+    <line x1="0" y1="7" x2="0" y2="9" stroke="#F59E0B" stroke-width="1.5"/>
+    <line x1="-7" y1="0" x2="-9" y2="0" stroke="#F59E0B" stroke-width="1.5"/>
+    <line x1="7" y1="0" x2="9" y2="0" stroke="#F59E0B" stroke-width="1.5"/>
+
+    <!-- Text -->
+    <text y="-4" font-family="Arial, sans-serif" font-size="4" fill="#7C2D12" text-anchor="middle">ANDHRA</text>
+  </g>
+
+  <!-- Trophy with rays -->
+  <g transform="translate(145, 60)">
+    <circle r="14" fill="#FCD34D" opacity="0.4"/>
+    <path d="M -8 -4 L -10 4 L -8 8 L 8 8 L 10 4 L 8 -4 Z" fill="#F59E0B"/>
+
+    <!-- Handles -->
+    <path d="M -8 -2 Q -12 0 -12 4 Q -12 6 -10 6" stroke="#FCD34D" stroke-width="2" fill="none"/>
+    <path d="M 8 -2 Q 12 0 12 4 Q 12 6 10 6" stroke="#FCD34D" stroke-width="2" fill="none"/>
+
+    <!-- Base -->
+    <rect x="-6" y="8" width="12" height="4" fill="#D97706"/>
+
+    <!-- Star -->
+    <text y="-6" font-size="10" fill="#FDE047" text-anchor="middle">★</text>
+  </g>
+
+  <!-- AP EAMCET Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">AP</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#FEF3C7" text-anchor="middle">EAMCET</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="sunGradient" x1="100" y1="68" x2="100" y2="132">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="gearSunriseGradient" x1="55" y1="116" x2="55" y2="144">
+      <stop offset="0%" stop-color="#FCA5A5" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#991B1B" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

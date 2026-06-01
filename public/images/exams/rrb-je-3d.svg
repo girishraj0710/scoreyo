@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D RRB JE - Wrench and hammer theme -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Crossed tools -->
+  <g transform="translate(100, 110)">
+    <!-- Wrench -->
+    <rect x="-20" y="-8" width="40" height="8" rx="2" fill="#64748B" transform="rotate(-45 100 110)"/>
+    <circle cx="-16" cy="0" r="6" fill="#94A3B8" transform="rotate(-45 100 110)"/>
+    <rect x="-20" y="-3" width="4" height="3" fill="#475569" transform="rotate(-45 100 110)"/>
+
+    <!-- Hammer -->
+    <rect x="-20" y="-4" width="40" height="8" rx="1" fill="#92400E" transform="rotate(45 100 110)"/>
+    <rect x="14" y="-8" width="10" height="16" rx="2" fill="#7C2D12" transform="rotate(45 100 110)"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">RRB</text>
+  <text x="100" y="77" font-family="Arial" font-size="6" fill="#FEF3C7" text-anchor="middle">JE</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+</svg>

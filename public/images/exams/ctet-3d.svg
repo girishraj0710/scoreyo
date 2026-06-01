@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="65" fill="#D1FAE5" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <g transform="translate(100, 110)">
+    <circle cy="-12" r="8" fill="#FBBF24"/>
+    <rect x="-14" y="-4" width="28" height="32" rx="2" fill="#10B981"/>
+    <rect x="-10" y="8" width="8" height="12" fill="#D1FAE5"/>
+    <rect x="2" y="8" width="8" height="12" fill="#D1FAE5"/>
+    <rect x="-14" y="2" width="28" height="4" fill="#FEF3C7"/>
+    <text y="5" font-family="Arial" font-size="4" fill="#059669" text-anchor="middle">TEACHER</text>
+  </g>
+  <circle cx="100" cy="70" r="18" fill="#10B981"/>
+  <text x="100" y="72" font-family="Arial" font-size="8" font-weight="bold" fill="white" text-anchor="middle">CTET</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#6EE7B7" stroke-width="2"/>
+</svg>

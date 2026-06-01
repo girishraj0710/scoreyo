@@ -1,5 +1,5 @@
 "use client";
-// v81 - Removed unused imports to fix module error
+// v82 - Updated exam calendar with premium 3D icons and external links
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
@@ -12,9 +12,12 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  User
+  User,
+  ExternalLink,
+  Calendar
 } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
+import { getUpcomingExams } from "@/lib/exam-calendar";
 
 export function LandingPageV2() {
   const { setShowLoginModal } = useUser();
@@ -665,92 +668,83 @@ export function LandingPageV2() {
         </section>
 
         {/* Upcoming Exam Calendar */}
-        <section className="py-16">
-          <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4 text-center">Upcoming exam calendar</h2>
-          <p className="text-slate-600 text-center mb-12 text-lg">Mark your dates and start preparing today</p>
+        <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Calendar className="w-8 h-8 text-indigo-600" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 text-center">Upcoming Exam Calendar</h2>
+            </div>
+            <p className="text-slate-600 text-center mb-12 text-lg">Mark your dates and start preparing today</p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Exam Card 1 */}
-            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-8 border-2 border-orange-200 hover:border-orange-400 hover:shadow-xl transition-all">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  📅
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {getUpcomingExams(6).map((exam, idx) => (
+                <div
+                  key={exam.id}
+                  className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 group"
+                >
+                  {/* Header with icon and name */}
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="flex-shrink-0">
+                      <ColorfulExamIcon examId={exam.examId} size={56} className="drop-shadow-md" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-semibold text-slate-900 mb-1 truncate">{exam.examName}</h3>
+                      {exam.phase && (
+                        <p className="text-sm text-indigo-600 font-medium">{exam.phase}</p>
+                      )}
+                      <p className="text-xs text-slate-500 mt-1 line-clamp-1">{exam.examFullName}</p>
+                    </div>
+                  </div>
+
+                  {/* Date Display */}
+                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 text-center border border-indigo-100 mb-4">
+                    <div className="text-xs text-indigo-700 font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      Exam Date
+                    </div>
+                    <div className="text-base font-bold text-slate-900">{exam.date}</div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setShowLoginModal(true)}
+                      className="flex-1 px-4 py-2.5 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+                    >
+                      Start Preparing
+                    </button>
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center px-3 py-2.5 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors group"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  {/* Additional Info */}
+                  {exam.registrationEnd && (
+                    <div className="mt-3 pt-3 border-t border-slate-100">
+                      <p className="text-xs text-slate-500 flex items-center gap-1">
+                        <span className="font-semibold">Registration ends:</span> {exam.registrationEnd}
+                      </p>
+                    </div>
+                  )}
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900">JEE Main</h3>
-                  <p className="text-sm text-orange-700 font-semibold">Session 1</p>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 text-center border-2 border-orange-300">
-                <div className="text-xs text-orange-700 font-semibold uppercase mb-2">Exam Date</div>
-                <div className="text-lg font-semibold text-orange-900">22nd Jan</div>
-                <div className="text-lg font-semibold text-orange-700">2026</div>
-              </div>
-              <button
-                onClick={() => setShowLoginModal(true)}
-                className="w-full mt-6 px-6 py-3 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-colors"
-              >
-                Start Preparing
-              </button>
+              ))}
             </div>
 
-            {/* Exam Card 2 */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border-2 border-green-200 hover:border-green-400 hover:shadow-xl transition-all">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  🩺
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900">NEET UG</h3>
-                  <p className="text-sm text-green-700 font-semibold">Medical Entrance</p>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 text-center border-2 border-green-300">
-                <div className="text-xs text-green-700 font-semibold uppercase mb-2">Exam Date</div>
-                <div className="text-lg font-semibold text-green-900">5th May</div>
-                <div className="text-lg font-semibold text-green-700">2026</div>
-              </div>
+            <div className="text-center mt-10">
               <button
-                onClick={() => setShowLoginModal(true)}
-                className="w-full mt-6 px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-colors"
+                onClick={() => window.open('https://www.google.com/search?q=india+exam+calendar+2026', '_blank')}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 font-semibold text-lg rounded-xl border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300"
               >
-                Start Preparing
+                View Full Exam Calendar
+                <ArrowRight className="w-5 h-5" />
               </button>
             </div>
-
-            {/* Exam Card 3 */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  📋
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900">SSC CGL</h3>
-                  <p className="text-sm text-blue-700 font-semibold">Tier 1</p>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 text-center border-2 border-blue-300">
-                <div className="text-xs text-blue-700 font-semibold uppercase mb-2">Exam Date</div>
-                <div className="text-lg font-semibold text-blue-900">June</div>
-                <div className="text-lg font-semibold text-blue-700">2026</div>
-              </div>
-              <button
-                onClick={() => setShowLoginModal(true)}
-                className="w-full mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors"
-              >
-                Start Preparing
-              </button>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <button
-              onClick={() => setShowLoginModal(true)}
-              className="text-indigo-600 font-semibold text-lg hover:text-indigo-700 flex items-center gap-2 mx-auto"
-            >
-              View full exam calendar
-              <ArrowRight className="w-5 h-5" />
-            </button>
           </div>
         </section>
 

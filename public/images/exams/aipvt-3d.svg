@@ -1,0 +1,165 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D AIPVT - Dog/Veterinary theme (from emoji: 🐶) -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.4"/>
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Cute Dog (center) -->
+  <g transform="translate(100, 115)">
+    <!-- Body -->
+    <ellipse cy="6" rx="24" ry="18" fill="#F59E0B"/>
+    <ellipse cy="6" rx="24" ry="18" fill="url(#dogGradient)"/>
+
+    <!-- Head -->
+    <circle cy="-14" r="16" fill="#F59E0B"/>
+
+    <!-- Ears -->
+    <ellipse cx="-14" cy="-18" rx="8" ry="14" fill="#D97706" transform="rotate(-20 86 97)"/>
+    <ellipse cx="14" cy="-18" rx="8" ry="14" fill="#D97706" transform="rotate(20 114 97)"/>
+
+    <!-- Snout -->
+    <ellipse cy="-8" rx="10" ry="8" fill="#FCD34D"/>
+
+    <!-- Nose -->
+    <ellipse cy="-4" rx="4" ry="3" fill="#1E293B"/>
+
+    <!-- Eyes -->
+    <circle cx="-6" cy="-16" r="3" fill="#1E293B"/>
+    <circle cx="6" cy="-16" r="3" fill="#1E293B"/>
+    <circle cx="-5" cy="-17" r="1.5" fill="white"/>
+    <circle cx="7" cy="-17" r="1.5" fill="white"/>
+
+    <!-- Tongue -->
+    <ellipse cy="-2" rx="3" ry="4" fill="#EC4899"/>
+
+    <!-- Spots -->
+    <circle cx="-10" cy="-10" r="4" fill="#92400E" opacity="0.6"/>
+    <circle cx="8" cy="-6" r="3" fill="#92400E" opacity="0.6"/>
+
+    <!-- Legs -->
+    <rect x="-16" y="18" width="6" height="14" rx="2" fill="#F59E0B"/>
+    <rect x="-6" y="18" width="6" height="14" rx="2" fill="#F59E0B"/>
+    <rect x="4" y="18" width="6" height="14" rx="2" fill="#FCD34D"/>
+    <rect x="14" y="18" width="6" height="14" rx="2" fill="#FCD34D"/>
+
+    <!-- Paws -->
+    <ellipse cx="-13" cy="32" rx="4" ry="2" fill="#D97706"/>
+    <ellipse cx="-3" cy="32" rx="4" ry="2" fill="#D97706"/>
+    <ellipse cx="7" cy="32" rx="4" ry="2" fill="#D97706"/>
+    <ellipse cx="17" cy="32" rx="4" ry="2" fill="#D97706"/>
+
+    <!-- Tail -->
+    <path d="M 24 8 Q 30 6 34 10 Q 36 14 34 18" stroke="#F59E0B" stroke-width="5" fill="none"/>
+  </g>
+
+  <!-- Veterinary stethoscope -->
+  <g transform="translate(55, 95)">
+    <circle cy="-8" r="6" fill="#3B82F6"/>
+    <circle cy="-8" r="4" fill="#60A5FA"/>
+
+    <!-- Tubes -->
+    <path d="M -4 -6 Q -8 0 -6 10" stroke="#3B82F6" stroke-width="3" fill="none"/>
+    <path d="M 4 -6 Q 8 0 6 10" stroke="#3B82F6" stroke-width="3" fill="none"/>
+
+    <!-- Ear pieces -->
+    <ellipse cx="-6" cy="10" rx="3" ry="4" fill="#1E293B"/>
+    <ellipse cx="6" cy="10" rx="3" ry="4" fill="#1E293B"/>
+  </g>
+
+  <!-- Paw print -->
+  <g transform="translate(145, 95)">
+    <circle r="16" fill="#F59E0B" opacity="0.3"/>
+
+    <!-- Main pad -->
+    <ellipse cy="4" rx="8" ry="10" fill="#F59E0B"/>
+
+    <!-- Toe pads -->
+    <ellipse cx="-8" cy="-6" rx="4" ry="5" fill="#F59E0B"/>
+    <ellipse cx="-2" cy="-8" rx="4" ry="5" fill="#F59E0B"/>
+    <ellipse cx="4" cy="-8" rx="4" ry="5" fill="#F59E0B"/>
+    <ellipse cx="10" cy="-6" rx="4" ry="5" fill="#F59E0B"/>
+  </g>
+
+  <!-- Medicine bottle for animals -->
+  <g transform="translate(55, 140)">
+    <rect x="-8" y="-12" width="16" height="20" rx="3" fill="white" stroke="#10B981" stroke-width="2"/>
+
+    <!-- Label -->
+    <rect x="-6" y="-4" width="12" height="10" rx="1" fill="#D1FAE5"/>
+    <text y="0" font-family="Arial, sans-serif" font-size="3" fill="#059669" text-anchor="middle">VET</text>
+    <text y="4" font-family="Arial, sans-serif" font-size="3" fill="#059669" text-anchor="middle">MED</text>
+
+    <!-- Cap -->
+    <rect x="-6" y="-16" width="12" height="4" rx="1" fill="#10B981"/>
+    <ellipse cy="-16" rx="6" ry="2" fill="#22C55E"/>
+
+    <!-- Paw icon -->
+    <circle cx="0" cy="-8" r="2" fill="#10B981" opacity="0.6"/>
+  </g>
+
+  <!-- Syringe for animals -->
+  <g transform="translate(145, 140)">
+    <rect x="-10" y="-3" width="20" height="6" rx="1.5" fill="#DBEAFE" opacity="0.8"/>
+    <rect x="-10" y="-1" width="14" height="2" fill="#3B82F6" opacity="0.6"/>
+
+    <!-- Needle -->
+    <rect x="10" y="-0.5" width="6" height="1" fill="#94A3B8"/>
+    <path d="M 16 -0.5 L 18 0 L 16 0.5 Z" fill="#64748B"/>
+
+    <!-- Plunger -->
+    <rect x="-14" y="-2" width="4" height="4" fill="#DC2626"/>
+    <circle cx="-14" r="2" fill="#EF4444"/>
+  </g>
+
+  <!-- Dog bowl -->
+  <g transform="translate(55, 65)">
+    <ellipse cy="8" rx="14" ry="4" fill="#DC2626"/>
+    <path d="M -14 8 L -12 -2 Q -10 -6 0 -6 Q 10 -6 12 -2 L 14 8 Z" fill="#EF4444"/>
+
+    <!-- Food -->
+    <ellipse cy="2" rx="10" ry="3" fill="#92400E"/>
+
+    <!-- Bone decoration -->
+    <path d="M -8 -4 L -4 -4 M 4 -4 L 8 -4" stroke="white" stroke-width="2"/>
+    <circle cx="-8" cy="-4" r="2" fill="white"/>
+    <circle cx="8" cy="-4" r="2" fill="white"/>
+  </g>
+
+  <!-- Cat silhouette (also veterinary) -->
+  <g transform="translate(145, 65)">
+    <circle cy="0" r="8" fill="#64748B"/>
+
+    <!-- Ears -->
+    <path d="M -8 -6 L -10 -12 L -6 -8" fill="#64748B"/>
+    <path d="M 8 -6 L 10 -12 L 6 -8" fill="#64748B"/>
+
+    <!-- Body -->
+    <ellipse cy="8" rx="6" ry="8" fill="#64748B"/>
+
+    <!-- Tail -->
+    <path d="M 6 12 Q 12 10 14 4" stroke="#64748B" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- AIPVT Badge -->
+  <circle cx="100" cy="70" r="18" fill="#F59E0B"/>
+  <text x="100" y="68" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">AIPVT</text>
+  <text x="100" y="77" font-family="Arial, sans-serif" font-size="5" fill="#FEF3C7" text-anchor="middle">Veterinary</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCD34D" stroke-width="2"/>
+
+  <!-- Heart with paw -->
+  <g transform="translate(100, 150)">
+    <path d="M 0 -4 Q -4 -8 -8 -4 Q -10 -2 -8 2 L 0 8 L 8 2 Q 10 -2 8 -4 Q 4 -8 0 -4"
+          fill="#DC2626" opacity="0.6"/>
+    <circle cy="0" r="2" fill="white"/>
+  </g>
+
+  <defs>
+    <linearGradient id="dogGradient" x1="100" y1="97" x2="100" y2="133">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+</svg>

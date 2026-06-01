@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D RRB ALP - Railway car theme -->
+  <circle cx="100" cy="100" r="65" fill="#DBEAFE" opacity="0.4"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Railway car -->
+  <g transform="translate(100, 110)">
+    <rect x="-30" y="-15" width="60" height="30" rx="4" fill="#DC2626"/>
+
+    <!-- Windows -->
+    <rect x="-22" y="-8" width="12" height="10" rx="2" fill="#DBEAFE"/>
+    <rect x="-6" y="-8" width="12" height="10" rx="2" fill="#DBEAFE"/>
+    <rect x="10" y="-8" width="12" height="10" rx="2" fill="#DBEAFE"/>
+
+    <!-- Wheels -->
+    <circle cx="-18" cy="20" r="6" fill="#1E293B"/>
+    <circle cx="-18" cy="20" r="3" fill="#64748B"/>
+    <circle cx="18" cy="20" r="6" fill="#1E293B"/>
+    <circle cx="18" cy="20" r="3" fill="#64748B"/>
+
+    <!-- Stripe -->
+    <rect x="-30" y="8" width="60" height="3" fill="#FCD34D"/>
+  </g>
+
+  <!-- Badge -->
+  <circle cx="100" cy="70" r="18" fill="#DC2626"/>
+  <text x="100" y="68" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">RRB</text>
+  <text x="100" y="77" font-family="Arial" font-size="6" fill="#FEE2E2" text-anchor="middle">ALP</text>
+  <circle cx="100" cy="70" r="15" fill="none" stroke="#FCA5A5" stroke-width="2"/>
+</svg>
