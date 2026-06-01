@@ -136,26 +136,85 @@ export default function CustomQuizPage() {
             }`}
           >
             <div className="flex flex-col items-center gap-4">
-              {/* 3D File Type Icons */}
+              {/* 3D File Type Icons - Quizlet Style */}
               {!file && (
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="6" width="28" height="36" rx="2" fill="#4A90E2"/>
-                    <path d="M36 10L32 6H10C8.9 6 8 6.9 8 8V40C8 41.1 8.9 42 10 42H38C39.1 42 40 41.1 40 40V14L36 10Z" fill="#7DB3E8"/>
-                    <path d="M36 10H40L36 14V10Z" fill="#4A90E2"/>
-                    <text x="19" y="28" fill="white" fontSize="10" fontWeight="bold">DOCX</text>
+                <div className="flex items-center justify-center gap-4 mb-2">
+                  {/* DOCX Icon */}
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <defs>
+                      <linearGradient id="docxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style={{ stopColor: '#6B9FD6', stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: '#4A7FB8', stopOpacity: 1 }} />
+                      </linearGradient>
+                      <filter id="docxShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                        <feOffset dx="0" dy="2" result="offsetblur"/>
+                        <feComponentTransfer>
+                          <feFuncA type="linear" slope="0.3"/>
+                        </feComponentTransfer>
+                        <feMerge>
+                          <feMergeNode/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <rect x="10" y="6" width="32" height="42" rx="3" fill="url(#docxGrad)" filter="url(#docxShadow)"/>
+                    <path d="M38 6h-4l8 8v-4c0-2.2-1.8-4-4-4z" fill="#5A8FC7" opacity="0.7"/>
+                    <rect x="14" y="26" width="6" height="2" rx="1" fill="white" opacity="0.9"/>
+                    <rect x="14" y="30" width="24" height="1.5" rx="0.75" fill="white" opacity="0.7"/>
+                    <rect x="14" y="33" width="24" height="1.5" rx="0.75" fill="white" opacity="0.7"/>
+                    <rect x="14" y="36" width="18" height="1.5" rx="0.75" fill="white" opacity="0.7"/>
                   </svg>
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="6" width="28" height="36" rx="2" fill="#E74C3C"/>
-                    <path d="M36 10L32 6H10C8.9 6 8 6.9 8 8V40C8 41.1 8.9 42 10 42H38C39.1 42 40 41.1 40 40V14L36 10Z" fill="#EC7063"/>
-                    <path d="M36 10H40L36 14V10Z" fill="#E74C3C"/>
-                    <text x="20" y="28" fill="white" fontSize="10" fontWeight="bold">PDF</text>
+
+                  {/* PDF Icon */}
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <defs>
+                      <linearGradient id="pdfGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style={{ stopColor: '#E57373', stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: '#C62828', stopOpacity: 1 }} />
+                      </linearGradient>
+                      <filter id="pdfShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                        <feOffset dx="0" dy="2" result="offsetblur"/>
+                        <feComponentTransfer>
+                          <feFuncA type="linear" slope="0.3"/>
+                        </feComponentTransfer>
+                        <feMerge>
+                          <feMergeNode/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <rect x="10" y="6" width="32" height="42" rx="3" fill="url(#pdfGrad)" filter="url(#pdfShadow)"/>
+                    <path d="M38 6h-4l8 8v-4c0-2.2-1.8-4-4-4z" fill="#D45D5D" opacity="0.7"/>
+                    <text x="19" y="32" fill="white" fontSize="11" fontWeight="bold" fontFamily="system-ui">PDF</text>
                   </svg>
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="6" width="28" height="36" rx="2" fill="#E67E22"/>
-                    <path d="M36 10L32 6H10C8.9 6 8 6.9 8 8V40C8 41.1 8.9 42 10 42H38C39.1 42 40 41.1 40 40V14L36 10Z" fill="#F39C12"/>
-                    <path d="M36 10H40L36 14V10Z" fill="#E67E22"/>
-                    <text x="19" y="28" fill="white" fontSize="10" fontWeight="bold">PPTX</text>
+
+                  {/* PPTX Icon */}
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <defs>
+                      <linearGradient id="pptGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style={{ stopColor: '#FFB74D', stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: '#F57C00', stopOpacity: 1 }} />
+                      </linearGradient>
+                      <filter id="pptShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                        <feOffset dx="0" dy="2" result="offsetblur"/>
+                        <feComponentTransfer>
+                          <feFuncA type="linear" slope="0.3"/>
+                        </feComponentTransfer>
+                        <feMerge>
+                          <feMergeNode/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <rect x="10" y="6" width="32" height="42" rx="3" fill="url(#pptGrad)" filter="url(#pptShadow)"/>
+                    <path d="M38 6h-4l8 8v-4c0-2.2-1.8-4-4-4z" fill="#F39C3C" opacity="0.7"/>
+                    <rect x="16" y="20" width="20" height="14" rx="1" fill="white" opacity="0.9"/>
+                    <rect x="18" y="22" width="16" height="2" fill="#F57C00" opacity="0.7"/>
+                    <rect x="18" y="26" width="12" height="1" fill="#F57C00" opacity="0.5"/>
+                    <rect x="18" y="29" width="10" height="1" fill="#F57C00" opacity="0.5"/>
                   </svg>
                 </div>
               )}
@@ -305,12 +364,29 @@ export default function CustomQuizPage() {
 
         {/* Info Cards */}
         <div className="grid md:grid-cols-3 gap-4 mt-8">
-          <div className="bg-white rounded-xl p-6 text-center">
+          <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-slate-100">
             <div className="flex justify-center mb-3">
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                <circle cx="32" cy="32" r="28" fill="#FEF3C7"/>
-                <path d="M32 12L36 24L48 26L40 34L42 46L32 40L22 46L24 34L16 26L28 24L32 12Z" fill="#F59E0B" stroke="#D97706" strokeWidth="2"/>
-                <circle cx="32" cy="32" r="4" fill="#FBBF24"/>
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+                <defs>
+                  <linearGradient id="boltGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#FCD34D', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#F59E0B', stopOpacity: 1 }} />
+                  </linearGradient>
+                  <filter id="boltShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                    <feOffset dx="0" dy="4" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.25"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <circle cx="36" cy="36" r="32" fill="#FEF3C7"/>
+                <path d="M40 10L28 38H36L32 62L44 34H36L40 10Z" fill="url(#boltGrad)" filter="url(#boltShadow)"/>
+                <path d="M40 10L28 38H36L32 62L44 34H36L40 10Z" fill="none" stroke="#D97706" strokeWidth="1.5" opacity="0.5"/>
               </svg>
             </div>
             <h3 className="font-semibold text-slate-900 mb-1">Fast Generation</h3>
@@ -319,14 +395,29 @@ export default function CustomQuizPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-xl p-6 text-center">
+          <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-slate-100">
             <div className="flex justify-center mb-3">
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                <circle cx="32" cy="32" r="28" fill="#DBEAFE"/>
-                <circle cx="32" cy="32" r="20" fill="#3B82F6" stroke="#2563EB" strokeWidth="3"/>
-                <circle cx="32" cy="32" r="12" fill="#60A5FA" stroke="#2563EB" strokeWidth="2"/>
-                <circle cx="32" cy="32" r="4" fill="#1D4ED8"/>
-                <path d="M32 12V22M32 42V52M52 32H42M22 32H12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round"/>
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+                <defs>
+                  <linearGradient id="brainGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#A78BFA', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#7C3AED', stopOpacity: 1 }} />
+                  </linearGradient>
+                  <filter id="brainShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                    <feOffset dx="0" dy="4" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.25"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <circle cx="36" cy="36" r="32" fill="#EDE9FE"/>
+                <path d="M24 28C24 24 26 22 28 22C30 22 31 23 32 24C33 23 34 22 36 22C38 22 40 23 41 25C42 23 44 22 46 22C48 22 50 24 50 28C50 30 49 31 48 33C49 34 50 36 50 38C50 42 48 44 46 44C44 44 43 43 42 42C41 43 40 44 38 44C36 44 34 43 33 41C32 43 30 44 28 44C26 44 24 42 24 38C24 36 25 34 26 33C25 31 24 30 24 28Z" fill="url(#brainGrad)" filter="url(#brainShadow)"/>
+                <path d="M30 30C30 30 32 32 34 30M38 30C38 30 40 32 42 30M32 38C32 40 34 41 36 41C38 41 40 40 40 38" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"/>
               </svg>
             </div>
             <h3 className="font-semibold text-slate-900 mb-1">Smart Questions</h3>
@@ -335,12 +426,37 @@ export default function CustomQuizPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-xl p-6 text-center">
+          <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-slate-100">
             <div className="flex justify-center mb-3">
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                <circle cx="32" cy="36" r="24" fill="#FEF3C7"/>
-                <path d="M32 10L28 24C28 24 22 24 22 28C22 32 26 34 26 38C26 42 32 48 32 48C32 48 38 42 38 38C38 34 42 32 42 28C42 24 36 24 36 24L32 10Z" fill="#FBBF24" stroke="#F59E0B" strokeWidth="2"/>
-                <ellipse cx="32" cy="52" rx="10" ry="3" fill="#D97706" opacity="0.3"/>
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+                <defs>
+                  <linearGradient id="bulbGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#FDE68A', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#FBBF24', stopOpacity: 1 }} />
+                  </linearGradient>
+                  <filter id="bulbShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                    <feOffset dx="0" dy="4" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.25"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <circle cx="36" cy="38" r="32" fill="#FEF3C7"/>
+                <circle cx="36" cy="30" r="12" fill="url(#bulbGrad)" filter="url(#bulbShadow)"/>
+                <path d="M30 42C30 42 31 46 36 46C41 46 42 42 42 42" fill="#D97706"/>
+                <rect x="33" y="46" width="6" height="4" rx="1" fill="#92400E"/>
+                <rect x="32" y="50" width="8" height="3" rx="1.5" fill="#78350F"/>
+                <circle cx="36" cy="30" r="8" fill="#FEF3C7" opacity="0.6"/>
+                <line x1="36" y1="10" x2="36" y2="16" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="50" y1="16" x2="46" y2="20" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="56" y1="30" x2="50" y2="30" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="22" y1="16" x2="26" y2="20" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="16" y1="30" x2="22" y2="30" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </div>
             <h3 className="font-semibold text-slate-900 mb-1">Detailed Explanations</h3>
