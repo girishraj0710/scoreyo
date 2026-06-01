@@ -41,6 +41,7 @@ export function proxy(request: NextRequest) {
     "/api/clarify",
     "/api/dpp",
     "/api/sprint",
+    "/api/custom-quiz", // Custom quiz from uploaded documents
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
   ];
