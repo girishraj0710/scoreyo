@@ -666,9 +666,8 @@ export function LandingPageV2() {
           </div>
 
         </section>
-
         {/* Final CTA */}
-        <section className="pb-8 -mt-56">
+        <section className="pb-8 -mt-72">
           <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
             <h2 className="text-3xl md:text-5xl font-semibold mb-6">
               Ready to ace your exam?
