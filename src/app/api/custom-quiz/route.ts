@@ -72,12 +72,34 @@ export async function POST(request: NextRequest) {
         extractedText = new TextDecoder().decode(uint8Array);
       } else if (file.type === 'application/pdf') {
         // PDF - extract text using pdf-parse
-        console.log('[Custom Quiz] Processing PDF file...');
-        const pdfParse = await import('pdf-parse');
-        const pdf = (pdfParse as any).default || pdfParse;
-        const pdfData = await pdf(Buffer.from(uint8Array));
-        extractedText = pdfData.text;
-        console.log('[Custom Quiz] PDF text extracted:', extractedText.length, 'characters');
+        console.log('[Custom Quiz] Processing PDF file...', file.name, file.size);
+
+        try {
+          const pdfParse = await import('pdf-parse');
+          console.log('[Custom Quiz] pdf-parse module loaded:', typeof pdfParse);
+
+          // Try different ways to get the function
+          const pdf = (pdfParse as any).default || pdfParse;
+          console.log('[Custom Quiz] pdf function type:', typeof pdf);
+
+          const pdfData = await pdf(Buffer.from(uint8Array));
+          extractedText = pdfData.text;
+          console.log('[Custom Quiz] PDF text extracted:', extractedText.length, 'characters');
+
+          // Check if PDF is scanned/image-based
+          if (!extractedText || extractedText.trim().length < 50) {
+            throw new Error('PDF appears to be scanned or has no extractable text');
+          }
+        } catch (pdfError: any) {
+          console.error('[Custom Quiz] PDF parsing error:', pdfError?.message || pdfError);
+          return NextResponse.json(
+            {
+              error: "Could not extract text from PDF. This might be a scanned/image-based PDF. Please try a text-based PDF or paste the content directly.",
+              details: pdfError?.message
+            },
+            { status: 400 }
+          );
+        }
       } else {
         // DOCX/PPTX - for now, return error
         return NextResponse.json(
@@ -88,10 +110,13 @@ export async function POST(request: NextRequest) {
           { status: 400 }
         );
       }
-    } catch (extractError) {
-      console.error('Text extraction error:', extractError);
+    } catch (extractError: any) {
+      console.error('[Custom Quiz] Text extraction error:', extractError?.message || extractError);
       return NextResponse.json(
-        { error: "Could not extract text from file. Please ensure the file is not corrupted." },
+        {
+          error: "Could not extract text from file. Please ensure the file is not corrupted.",
+          details: extractError?.message
+        },
         { status: 400 }
       );
     }
