@@ -13,48 +13,37 @@ export default function RefundPage() {
 
         <div className="prose prose-slate max-w-none">
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">1. 7-Day Money-Back Guarantee</h2>
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">1. No Refund Policy</h2>
+            <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 mb-4">
+              <p className="text-amber-900 font-semibold mb-3">⚠️ Important Notice</p>
+              <p className="text-amber-800">
+                PrepGenie operates on a <strong>no-refund policy</strong>. All payments for Pro subscriptions
+                (Monthly and Quarterly plans) are final and non-refundable.
+              </p>
+            </div>
             <p className="text-slate-600 mb-4">
-              We offer a <strong>7-day money-back guarantee</strong> for all new Pro subscriptions
-              (Monthly and Quarterly plans). If you&apos;re not satisfied with PrepGenie, you can request a
-              full refund within 7 days of your initial purchase.
+              We encourage you to try our <strong>Free plan</strong> (10 quizzes per day) before upgrading
+              to Pro. This allows you to experience the platform and ensure it meets your needs.
             </p>
-            <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 mb-4">
-              <p className="text-emerald-800 font-semibold mb-2">✅ Eligible for Full Refund:</p>
-              <ul className="list-disc list-inside text-emerald-700 ml-4">
-                <li>First-time Pro subscribers only</li>
-                <li>Request submitted within 7 days of payment</li>
-                <li>Used less than 10 quizzes or mock tests</li>
-              </ul>
-            </div>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">2. Refund Eligibility Criteria</h2>
-
-            <h3 className="text-xl font-semibold text-slate-800 mb-3 mt-6">2.1 Eligible Cases</h3>
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">2. Exceptions</h2>
+            <p className="text-slate-600 mb-3">
+              Refunds will <strong>only</strong> be considered in the following exceptional cases:
+            </p>
             <ul className="list-disc list-inside text-slate-600 mb-4 ml-4">
-              <li><strong>Not Satisfied:</strong> You tried the service but it didn&apos;t meet your expectations</li>
-              <li><strong>Technical Issues:</strong> Service was not accessible due to technical problems on our end</li>
               <li><strong>Duplicate Payment:</strong> You were accidentally charged twice for the same subscription</li>
-              <li><strong>Changed Mind:</strong> You decided not to continue within the 7-day window</li>
+              <li><strong>Technical Error:</strong> Payment was processed but subscription was not activated due to system error</li>
+              <li><strong>Unauthorized Charge:</strong> Someone else used your payment method without your permission</li>
             </ul>
-
-            <h3 className="text-xl font-semibold text-slate-800 mb-3">2.2 Non-Eligible Cases</h3>
-            <div className="p-4 bg-red-50 rounded-xl border border-red-200 mb-4">
-              <p className="text-red-800 font-semibold mb-2">❌ NOT Eligible for Refund:</p>
-              <ul className="list-disc list-inside text-red-700 ml-4">
-                <li>Request made after 7 days of purchase</li>
-                <li>Used more than 10 quizzes or mock tests</li>
-                <li>Subscription renewals (only first purchase eligible)</li>
-                <li>Account suspended for violating Terms of Service</li>
-                <li>Partial month refunds (subscriptions are not pro-rated)</li>
-              </ul>
-            </div>
+            <p className="text-slate-600">
+              These cases will be reviewed individually and require proof of the issue.
+            </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">3. How to Request a Refund</h2>
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">3. How to Report Payment Issues</h2>
 
             <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 mb-4">
               <h3 className="text-lg font-bold text-slate-800 mb-3">Step-by-Step Process:</h3>
@@ -66,54 +55,29 @@ export default function RefundPage() {
                   </a>
                 </li>
                 <li>
-                  <strong>Subject Line:</strong> &quot;Refund Request - [Your Email]&quot;
+                  <strong>Subject Line:</strong> &quot;Payment Issue - [Your Email]&quot;
                 </li>
                 <li>
                   <strong>Include Details:</strong>
                   <ul className="list-disc list-inside ml-6 mt-2">
                     <li>Your registered email address</li>
                     <li>Transaction ID or payment receipt</li>
-                    <li>Reason for refund (optional but helpful)</li>
+                    <li>Description of the issue</li>
+                    <li>Supporting evidence (screenshots, bank statements)</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Verification:</strong> We&apos;ll verify your usage and eligibility within 24-48 hours
+                  <strong>Review:</strong> We&apos;ll investigate the issue within 24-48 hours
                 </li>
                 <li>
-                  <strong>Approval:</strong> If eligible, your refund will be processed within 7-10 business days
+                  <strong>Resolution:</strong> If approved, refund will be processed within 7-10 business days
                 </li>
               </ol>
             </div>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">4. Refund Processing</h2>
-
-            <h3 className="text-xl font-semibold text-slate-800 mb-3 mt-6">4.1 Processing Time</h3>
-            <ul className="list-disc list-inside text-slate-600 mb-4 ml-4">
-              <li><strong>Approval:</strong> 1-2 business days for review</li>
-              <li><strong>Razorpay Processing:</strong> 5-7 business days</li>
-              <li><strong>Bank Credit:</strong> Additional 2-3 days depending on your bank</li>
-              <li><strong>Total Time:</strong> 7-10 business days from approval</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-slate-800 mb-3">4.2 Refund Method</h3>
-            <p className="text-slate-600 mb-4">
-              All refunds are credited back to the <strong>original payment method</strong> used for the purchase:
-            </p>
-            <ul className="list-disc list-inside text-slate-600 mb-4 ml-4">
-              <li>Credit/Debit Card → Refunded to the same card</li>
-              <li>UPI → Refunded to the same UPI ID</li>
-              <li>Net Banking → Refunded to the same bank account</li>
-              <li>Wallet → Refunded to the same wallet</li>
-            </ul>
-            <p className="text-slate-600">
-              We cannot process refunds to a different payment method or account.
-            </p>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">5. Subscription Cancellation</h2>
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">4. Subscription Cancellation</h2>
 
             <h3 className="text-xl font-semibold text-slate-800 mb-3 mt-6">5.1 Cancel Anytime</h3>
             <p className="text-slate-600 mb-4">

@@ -592,7 +592,7 @@ function QuizContent() {
             Daily Limit Reached
           </h2>
           <p className="text-slate-500 mb-6">
-            Free users can take 3 quizzes per day. Upgrade to Pro for unlimited practice!
+            Free users can take 10 quizzes per day. Upgrade to Pro for unlimited practice!
           </p>
           <div className="flex gap-3 justify-center">
             <a

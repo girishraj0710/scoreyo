@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(
           {
             error: "Daily quiz limit reached",
-            message: "Free users can generate 3 quizzes per day. Upgrade to Pro for unlimited access.",
+            message: "Free users can generate 10 quizzes per day. Upgrade to Pro for unlimited access.",
             limitReached: true,
             todayCount: todayCount - 1, // Don't count this failed attempt
             limit: FREE_QUIZ_LIMIT,

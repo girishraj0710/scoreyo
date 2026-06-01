@@ -43,7 +43,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-slate-800 mb-4">3. Subscription Plans</h2>
             <p className="text-slate-600 mb-3">
-              <strong>3.1 Free Plan:</strong> Limited to 3 quizzes per day with basic features.
+              <strong>3.1 Free Plan:</strong> Limited to 10 quizzes per day with basic features.
             </p>
             <p className="text-slate-600 mb-3">
               <strong>3.2 Pro Plans:</strong>

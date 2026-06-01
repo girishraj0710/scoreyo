@@ -116,7 +116,7 @@ export function TermsContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">3. Subscription Plans</h2>
         <ul className="list-disc list-inside text-slate-600 mb-3 ml-4 space-y-1">
-          <li><strong>Free Plan:</strong> 3 quizzes per day, basic features</li>
+          <li><strong>Free Plan:</strong> 10 quizzes per day, basic features</li>
           <li><strong>Pro Monthly:</strong> ₹79/month - unlimited quizzes, mock tests</li>
           <li><strong>Pro Quarterly:</strong> ₹149/quarter - save 37%</li>
         </ul>
@@ -175,51 +175,42 @@ export function RefundPolicyContent() {
       <p className="text-slate-500 mb-6">Last updated: May 16, 2026</p>
 
       <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">1. 7-Day Money-Back Guarantee</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-3">1. No Refund Policy</h2>
+        <div className="p-3 bg-amber-50 rounded-lg border border-amber-200 mb-3">
+          <p className="text-amber-900 font-semibold mb-2">⚠️ Important Notice</p>
+          <p className="text-amber-800 text-sm">
+            PrepGenie operates on a <strong>no-refund policy</strong>. All payments for Pro subscriptions
+            are final and non-refundable.
+          </p>
+        </div>
         <p className="text-slate-600 mb-3">
-          We offer a <strong>7-day money-back guarantee</strong> for all new Pro subscriptions.
-          If you&apos;re not satisfied, request a full refund within 7 days of your initial purchase.
+          Try our <strong>Free plan</strong> (10 quizzes per day) before upgrading to Pro.
         </p>
-        <div className="p-3 bg-emerald-50 rounded-lg border border-emerald-200 mb-3">
-          <p className="text-emerald-800 font-semibold mb-2">✅ Eligible for Full Refund:</p>
-          <ul className="list-disc list-inside text-emerald-700 ml-4 space-y-1">
-            <li>First-time Pro subscribers only</li>
-            <li>Request within 7 days of payment</li>
-            <li>Used less than 10 quizzes or mock tests</li>
-          </ul>
-        </div>
       </section>
 
       <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">2. Refund Eligibility</h2>
-
-        <h3 className="text-lg font-semibold text-slate-800 mb-2 mt-4">Eligible Cases:</h3>
+        <h2 className="text-xl font-bold text-slate-800 mb-3">2. Exceptions</h2>
+        <p className="text-slate-600 mb-3">
+          Refunds will <strong>only</strong> be considered for:
+        </p>
         <ul className="list-disc list-inside text-slate-600 mb-3 ml-4 space-y-1">
-          <li>Not satisfied with the service</li>
-          <li>Technical issues preventing access</li>
-          <li>Duplicate payment</li>
-          <li>Changed mind within 7 days</li>
+          <li><strong>Duplicate Payment:</strong> Charged twice for same subscription</li>
+          <li><strong>Technical Error:</strong> Payment processed but subscription not activated</li>
+          <li><strong>Unauthorized Charge:</strong> Payment made without your permission</li>
         </ul>
-
-        <h3 className="text-lg font-semibold text-slate-800 mb-2">NOT Eligible:</h3>
-        <div className="p-3 bg-red-50 rounded-lg border border-red-200 mb-3">
-          <ul className="list-disc list-inside text-red-700 ml-4 space-y-1">
-            <li>Request after 7 days</li>
-            <li>Used more than 10 quizzes/tests</li>
-            <li>Subscription renewals</li>
-            <li>Account suspended for TOS violations</li>
-            <li>Partial month refunds</li>
-          </ul>
-        </div>
+        <p className="text-slate-600 text-xs">
+          These cases require proof and will be reviewed individually.
+        </p>
       </section>
 
       <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">3. How to Request a Refund</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-3">3. How to Report Payment Issues</h2>
         <ol className="list-decimal list-inside text-slate-600 mb-3 ml-4 space-y-2">
           <li>Email us at <a href="mailto:support@prepgenie.co.in" className="text-indigo-600 hover:underline">support@prepgenie.co.in</a></li>
-          <li>Include your email, order ID, and reason</li>
-          <li>We'll review within 1-2 business days</li>
-          <li>Approved refunds processed in 5-7 business days</li>
+          <li>Subject: "Payment Issue - [Your Email]"</li>
+          <li>Include transaction ID, issue description, and proof</li>
+          <li>We'll investigate within 24-48 hours</li>
+          <li>If approved, refund processed in 7-10 business days</li>
         </ol>
       </section>
 
@@ -228,7 +219,7 @@ export function RefundPolicyContent() {
         <ul className="list-disc list-inside text-slate-600 mb-3 ml-4 space-y-1">
           <li>Cancel anytime from account settings</li>
           <li>Access continues until end of billing period</li>
-          <li>No refund for remaining days after cancellation</li>
+          <li><strong>No refund</strong> for remaining days after cancellation</li>
         </ul>
       </section>
 
