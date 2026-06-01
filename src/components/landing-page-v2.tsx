@@ -371,8 +371,8 @@ export function LandingPageV2() {
       </header>
 
       {/* Hero Section - Quizlet Style - Full Width Background */}
-      <section className="bg-slate-50 pt-6">
-        <div className="max-w-7xl mx-auto px-6 pt-2 pb-3 text-center">
+      <section className="bg-slate-50 pt-4">
+        <div className="max-w-7xl mx-auto px-6 pb-2 text-center">
           {/* Main Heading - Simple & Direct */}
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2 leading-tight">
             Master Your <span className="text-slate-900">Competitive Exams</span>
@@ -417,7 +417,7 @@ export function LandingPageV2() {
 
       {/* Study Modes - Carousel (Quizlet Style) - Full Width Background */}
       <section className="bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 pt-2 pb-40 relative overflow-visible">
+        <div className="max-w-7xl mx-auto px-6 pb-16 relative overflow-visible">
               {/* Left Arrow - 1/3 merged with cards, 2/3 outside */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex - 1)}
