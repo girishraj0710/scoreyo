@@ -660,7 +660,6 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'rtet-science': '/images/subjects/science-3d.svg',
   'kvs-science': '/images/subjects/science-3d.svg',
   'dsssb-science': '/images/subjects/science-3d.svg',
-  'environmental-studies': '/images/subjects/science-3d.svg',
   'evs': '/images/subjects/science-3d.svg',
 
   // Languages
