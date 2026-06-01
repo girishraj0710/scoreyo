@@ -869,6 +869,94 @@ export function LandingPageV2() {
             </div>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="bg-slate-900 text-white py-12 mt-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-4 gap-8 mb-8">
+              {/* Brand */}
+              <div>
+                <h3 className="text-2xl font-bold mb-3">PrepGenie</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Smart exam preparation for 20+ Indian competitive exams with AI-powered learning.
+                </p>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4 className="font-semibold mb-4">Quick Links</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <a href="/dashboard" className="text-slate-400 hover:text-white transition-colors">
+                      Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/quiz" className="text-slate-400 hover:text-white transition-colors">
+                      Practice Quiz
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/mock-test" className="text-slate-400 hover:text-white transition-colors">
+                      Mock Tests
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/pricing" className="text-slate-400 hover:text-white transition-colors">
+                      Pricing
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Legal */}
+              <div>
+                <h4 className="font-semibold mb-4">Legal</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <a href="/privacy" className="text-slate-400 hover:text-white transition-colors">
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/terms" className="text-slate-400 hover:text-white transition-colors">
+                      Terms & Conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/refund" className="text-slate-400 hover:text-white transition-colors">
+                      Refund Policy
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <h4 className="font-semibold mb-4">Contact</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <a href="/contact" className="text-slate-400 hover:text-white transition-colors">
+                      Contact Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:support@prepgenie.co.in" className="text-slate-400 hover:text-white transition-colors">
+                      support@prepgenie.co.in
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-slate-800 pt-6 text-center">
+              <p className="text-slate-400 text-sm">
+                © {new Date().getFullYear()} PrepGenie. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
