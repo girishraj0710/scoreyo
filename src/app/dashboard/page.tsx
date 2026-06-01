@@ -123,7 +123,7 @@ export default function DashboardPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BookOpen className="w-20 h-20 text-indigo-600" />
+            <BookOpen className="w-20 h-20 text-#00A1E0" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
             No Quiz Data Yet
@@ -134,7 +134,7 @@ export default function DashboardPage() {
           </p>
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-semibold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg"
           >
             Start Your First Quiz
           </a>
@@ -160,7 +160,7 @@ export default function DashboardPage() {
           />
           <a
             href="/"
-            className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700"
+            className="px-4 py-2 bg-#00A1E0 text-white text-sm font-medium rounded-lg hover:bg-#0070A8"
           >
             New Quiz
           </a>
@@ -313,7 +313,7 @@ export default function DashboardPage() {
                         </div>
                         <a
                           href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
-                          className="text-xs text-indigo-600 hover:underline"
+                          className="text-xs text-#00A1E0 hover:underline"
                         >
                           Practice
                         </a>

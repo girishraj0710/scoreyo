@@ -189,25 +189,36 @@ export const POST = withValidation(
       ).then(res => res.rows[0]);
 
       // ── STEP 5: Set Cookies ─────────────────────────────────
+      const csrfToken = generateCsrfToken();
+
       const response = NextResponse.json({
         success: true,
         user,
-        message: "Login successful"
+        message: "Login successful",
+        csrfToken, // Send to client for X-CSRF-Token header
       });
 
       // Set auth cookie (secure in production)
       response.cookies.set(COOKIE_NAME, userId, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
+        sameSite: 'strict',
         maxAge: 365 * 24 * 60 * 60, // 1 year
         path: '/',
       });
 
-      // Set CSRF token
-      const csrfToken = generateCsrfToken();
+      // Set CSRF token in TWO cookies:
+      // 1. httpOnly for server-side validation
       response.cookies.set(CSRF_COOKIE_NAME, csrfToken, {
         httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 365 * 24 * 60 * 60,
+        path: '/',
+      });
+      // 2. Non-httpOnly for client-side reading (to send in X-CSRF-Token header)
+      response.cookies.set(`${CSRF_COOKIE_NAME}-client`, csrfToken, {
+        httpOnly: false, // Client can read this
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
         maxAge: 365 * 24 * 60 * 60,

@@ -214,7 +214,7 @@ export function LandingPageV2() {
           <div className="flex items-center gap-4">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#00A1E0' }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#4F46E5' }}>
                 <span className="text-white font-semibold text-xl">P</span>
               </div>
               <span className="font-semibold text-xl text-slate-900">PrepGenie</span>
@@ -356,12 +356,12 @@ export function LandingPageV2() {
             onClick={() => setShowLoginModal(true)}
             className="flex items-center gap-2 px-6 py-3 text-slate-700 font-semibold rounded-lg transition-colors text-lg whitespace-nowrap group"
             style={{
-              '--hover-bg': '#E6F4F9',
-              '--hover-text': '#00A1E0'
+              '--hover-bg': '#EEF2FF',
+              '--hover-text': '#4F46E5'
             } as React.CSSProperties}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#E6F4F9';
-              e.currentTarget.style.color = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#EEF2FF';
+              e.currentTarget.style.color = '#4F46E5';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
@@ -390,12 +390,12 @@ export function LandingPageV2() {
           <button
             onClick={() => setShowLoginModal(true)}
             className="px-8 py-3 text-white font-semibold text-base rounded-xl hover:shadow-2xl hover:scale-105 transition-all shadow-lg"
-            style={{ backgroundColor: '#00A1E0' }}
+            style={{ backgroundColor: '#4F46E5' }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0070A8';
+              e.currentTarget.style.backgroundColor = '#4338CA';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#4F46E5';
             }}
           >
             Start Practicing Free

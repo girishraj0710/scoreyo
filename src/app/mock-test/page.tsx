@@ -369,7 +369,7 @@ export default function MockTestPage() {
           <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("mockTestProOnly")}</h2>
           <p className="text-slate-500 mb-6">{t("mockTestProDesc")}</p>
           <div className="flex gap-3 justify-center">
-            <a href="/pricing" className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg">
+            <a href="/pricing" className="px-6 py-3 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-semibold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg">
               {t("upgradeToPro")}
             </a>
             <button onClick={() => setPageState("select")} className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
@@ -390,12 +390,12 @@ export default function MockTestPage() {
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-indigo-600 to-violet-500 p-6 text-white">
+          <div className="bg-gradient-to-r from-#00A1E0 to-violet-500 p-6 text-white">
             <div className="flex items-center gap-3 mb-2">
               {exam && <ColorfulExamIcon examId={exam.id} size={32} className="text-white" />}
               <h1 className="text-2xl font-bold">{examName}</h1>
             </div>
-            <p className="text-indigo-100">
+            <p className="text-#B3E0F2">
               {instructionsIsFullLength ? "Full Length" : "Short"} Mock Test {instructionsTestNumber}
             </p>
             {config && (
@@ -448,8 +448,8 @@ export default function MockTestPage() {
                 </ul>
               </div>
 
-              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
-                <p className="font-semibold text-indigo-900">💡 Pro Tips:</p>
+              <div className="bg-#E6F4F9 border border-#80CFED rounded-lg p-4">
+                <p className="font-semibold text-#005A7A">💡 Pro Tips:</p>
                 <ul className="text-sm mt-2 space-y-1 list-disc list-inside">
                   <li>Attempt all questions - there's no negative marking</li>
                   <li>Manage your time wisely across all questions</li>
@@ -471,7 +471,7 @@ export default function MockTestPage() {
 
             <div className="flex items-center gap-4">
               {isGeneratingInBackground && (
-                <div className="flex items-center gap-2 text-sm text-indigo-600">
+                <div className="flex items-center gap-2 text-sm text-#00A1E0">
                   <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -483,7 +483,7 @@ export default function MockTestPage() {
               <button
                 onClick={startTestFromInstructions}
                 disabled={isGeneratingInBackground}
-                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="px-8 py-3 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-bold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 {isGeneratingInBackground ? "Please wait..." : "Start Test →"}
               </button>
@@ -499,8 +499,8 @@ export default function MockTestPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-100 flex items-center justify-center">
-            <svg className="animate-spin h-8 w-8 text-indigo-600" viewBox="0 0 24 24" fill="none">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-#B3E0F2 flex items-center justify-center">
+            <svg className="animate-spin h-8 w-8 text-#00A1E0" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
@@ -527,7 +527,7 @@ export default function MockTestPage() {
     const percentage = results.accuracy;
     const grade =
       percentage >= 90 ? { label: t("excellent"), color: "text-slate-500", bg: "bg-slate-50" }
-      : percentage >= 70 ? { label: t("goodJob"), color: "text-indigo-600", bg: "bg-slate-50" }
+      : percentage >= 70 ? { label: t("goodJob"), color: "text-#00A1E0", bg: "bg-slate-50" }
       : percentage >= 50 ? { label: t("keepPracticing"), color: "text-amber-600", bg: "bg-amber-50" }
       : { label: t("needsImprovement"), color: "text-red-600", bg: "bg-red-50" };
 
@@ -535,7 +535,7 @@ export default function MockTestPage() {
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Score Card */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center mb-8">
-          <div className="text-sm text-indigo-600 font-medium mb-2">{t("mockTestResult")}</div>
+          <div className="text-sm text-#00A1E0 font-medium mb-2">{t("mockTestResult")}</div>
           <h2 className={`text-2xl font-bold ${grade.color} mb-2`}>{grade.label}</h2>
           <div className="text-6xl font-bold text-slate-800 mb-2">{percentage}%</div>
           <p className="text-slate-500 mb-6">
@@ -559,7 +559,7 @@ export default function MockTestPage() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium">
+            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 bg-#00A1E0 text-white rounded-lg hover:bg-#0070A8 font-medium">
               {t("takeAnotherTest")}
             </button>
             <a href="/reports" className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium">
@@ -599,14 +599,14 @@ export default function MockTestPage() {
                       {globalIdx + 1}
                     </span>
                     <div className="flex-1">
-                      <span className="text-xs text-indigo-600 font-medium">{r.subjectName}</span>
+                      <span className="text-xs text-#00A1E0 font-medium">{r.subjectName}</span>
                       <p className="text-slate-800 font-medium mt-1">{r.question}</p>
                     </div>
                   </div>
                   <div className="ml-10 space-y-2">
                     {r.options.map((opt: string, optIdx: number) => (
                       <div key={optIdx} className={`px-3 py-2 rounded-lg text-sm ${
-                        optIdx === r.correctAnswer ? "bg-slate-50 border border-indigo-300 text-slate-800 font-medium"
+                        optIdx === r.correctAnswer ? "bg-slate-50 border border-#66C7EA text-slate-800 font-medium"
                         : optIdx === r.userAnswer && !r.isCorrect ? "bg-red-50 border border-red-300 text-red-800"
                         : "bg-slate-50 text-slate-600"
                       }`}>
@@ -618,7 +618,7 @@ export default function MockTestPage() {
                     ))}
                   </div>
                   {r.explanation && (
-                    <div className="ml-10 mt-3 p-3 bg-slate-50 rounded-lg text-sm text-blue-800">
+                    <div className="ml-10 mt-3 p-3 bg-slate-50 rounded-lg text-sm text-#0070A8">
                       <strong>{t("explanation")}:</strong> {r.explanation}
                     </div>
                   )}
@@ -662,7 +662,7 @@ export default function MockTestPage() {
         <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4 sticky top-16 z-40">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <span className="text-sm font-semibold text-indigo-600">{examName}</span>
+              <span className="text-sm font-semibold text-#00A1E0">{examName}</span>
               <span className="text-slate-300 mx-2">|</span>
               <span className="text-sm text-slate-500">{t("mockTest")}</span>
             </div>
@@ -673,7 +673,7 @@ export default function MockTestPage() {
 
           <div className="flex gap-0.5">
             {questions.map((_, idx) => (
-              <div key={idx} className={`h-1.5 flex-1 rounded-full ${idx === currentQuestion ? "bg-slate-500" : answers[idx] !== null ? "bg-blue-300" : "bg-slate-200"}`} />
+              <div key={idx} className={`h-1.5 flex-1 rounded-full ${idx === currentQuestion ? "bg-slate-500" : answers[idx] !== null ? "bg-#80CFED" : "bg-slate-200"}`} />
             ))}
           </div>
           <div className="flex justify-between mt-1 text-xs text-slate-400">
@@ -685,7 +685,7 @@ export default function MockTestPage() {
         {/* Question */}
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-4">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-#B3E0F2 text-#0070A8">
               {question.subjectName}
             </span>
             <span className="text-xs text-slate-400">Q{currentQuestion + 1}</span>
@@ -704,12 +704,12 @@ export default function MockTestPage() {
                 }}
                 className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
                   answers[currentQuestion] === idx
-                    ? "border-indigo-500 bg-slate-50"
+                    ? "border-#E6F4F90 bg-slate-50"
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50/50"
                 }`}
               >
                 <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
-                  answers[currentQuestion] === idx ? "bg-slate-500 border-indigo-500 text-white" : "border-slate-300 text-slate-400"
+                  answers[currentQuestion] === idx ? "bg-slate-500 border-#E6F4F90 text-white" : "border-slate-300 text-slate-400"
                 }`}>
                   {String.fromCharCode(65 + idx)}
                 </span>
@@ -732,7 +732,7 @@ export default function MockTestPage() {
             {currentQuestion < questions.length - 1 ? (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
-                className="px-5 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+                className="px-5 py-2 text-sm font-medium bg-#00A1E0 text-white rounded-lg hover:bg-#0070A8"
               >
                 {t("next")}
               </button>
@@ -767,7 +767,7 @@ export default function MockTestPage() {
                 onClick={() => setCurrentQuestion(idx)}
                 className={`w-8 h-8 rounded-lg text-xs font-medium ${
                   idx === currentQuestion ? "bg-slate-500 text-white"
-                  : answers[idx] !== null ? "bg-indigo-100 text-indigo-600"
+                  : answers[idx] !== null ? "bg-#B3E0F2 text-#00A1E0"
                   : "bg-slate-100 text-slate-400"
                 }`}
                 title={q.subjectName}
@@ -778,7 +778,7 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-4 mt-3 text-xs text-slate-400">
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-500 inline-block" /> {t("current")}</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-indigo-100 inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-#B3E0F2 inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-100 inline-block" /> {t("notAnswered")}</span>
           </div>
         </div>
@@ -806,13 +806,13 @@ export default function MockTestPage() {
         <div className="max-w-6xl mx-auto px-4 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-600 to-violet-500 rounded-2xl mb-6 shadow-lg">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-#00A1E0 to-violet-500 rounded-2xl mb-6 shadow-lg">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
             <h1 className="text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-#00A1E0 to-violet-500 bg-clip-text text-transparent">
                 Full-Length Mock Tests
               </span>
             </h1>
@@ -821,7 +821,7 @@ export default function MockTestPage() {
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-semibold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
             >
               Start Mock Tests Now
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -833,8 +833,8 @@ export default function MockTestPage() {
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-#B3E0F2 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-#00A1E0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -898,8 +898,8 @@ export default function MockTestPage() {
             <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">What's Included in Mock Tests</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-16 h-16 bg-#B3E0F2 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 text-#00A1E0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -933,7 +933,7 @@ export default function MockTestPage() {
             <p className="text-slate-600 mb-8">JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-semibold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all"
             >
               Get Started - It's Free
             </button>
@@ -949,7 +949,7 @@ export default function MockTestPage() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-#00A1E0 to-violet-500 bg-clip-text text-transparent">
             Mock Tests
           </span>
         </h1>
@@ -965,7 +965,7 @@ export default function MockTestPage() {
             onClick={() => setTestType("short")}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               testType === "short"
-                ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                ? "bg-gradient-to-r from-#00A1E0 to-violet-500 text-white shadow-lg"
                 : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
             }`}
           >
@@ -982,7 +982,7 @@ export default function MockTestPage() {
             onClick={() => setTestType("full")}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               testType === "full"
-                ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                ? "bg-gradient-to-r from-#00A1E0 to-violet-500 text-white shadow-lg"
                 : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
             }`}
           >
@@ -1020,7 +1020,7 @@ export default function MockTestPage() {
               setShowSearchDropdown(true);
             }}
             onFocus={() => setShowSearchDropdown(true)}
-            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-#E6F4F90 focus:ring-2 focus:ring-#80CFED outline-none transition-all"
           />
           <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -1077,7 +1077,7 @@ export default function MockTestPage() {
                   setModalTestType(testType);
                   setShowExamModal(true);
                 }}
-                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-#66C7EA hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-4">
@@ -1096,7 +1096,7 @@ export default function MockTestPage() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <div className="bg-slate-50 rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-indigo-600">{firstConfig.totalQuestions}</div>
+                    <div className="text-lg font-bold text-#00A1E0">{firstConfig.totalQuestions}</div>
                     <div className="text-xs text-slate-500">Questions</div>
                   </div>
                   <div className="bg-purple-50 rounded-lg p-2 text-center">
@@ -1215,8 +1215,8 @@ export default function MockTestPage() {
             <div className="p-6 space-y-6">
               {/* Test Stats */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-indigo-50 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-indigo-600">{statsQuestions}</div>
+                <div className="bg-#E6F4F9 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-#00A1E0">{statsQuestions}</div>
                   <div className="text-xs text-slate-600 mt-1">Questions</div>
                 </div>
                 <div className="bg-purple-50 rounded-xl p-4 text-center">
@@ -1237,7 +1237,7 @@ export default function MockTestPage() {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
                     <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
-                      <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+                      <div className="w-2 h-2 rounded-full bg-#E6F4F90"></div>
                       <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
                       <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
                     </div>
@@ -1267,8 +1267,8 @@ export default function MockTestPage() {
                         onClick={() => setSelectedTestNumber(num)}
                         className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
                           selectedTestNumber === num
-                            ? "bg-indigo-600 text-white shadow-lg scale-110"
-                            : "bg-white text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 border-2 border-slate-200 hover:border-indigo-300"
+                            ? "bg-#00A1E0 text-white shadow-lg scale-110"
+                            : "bg-white text-slate-700 hover:bg-#E6F4F9 hover:text-#00A1E0 border-2 border-slate-200 hover:border-#66C7EA"
                         }`}
                       >
                         {num}
@@ -1293,7 +1293,7 @@ export default function MockTestPage() {
                               setSelectedTestNumber(num);
                             }
                           }}
-                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none"
+                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-#E6F4F90 focus:ring-2 focus:ring-#80CFED outline-none"
                         />
                         <span className="text-sm text-slate-500">of {testCapacity[selectedExam]}</span>
                       </div>
@@ -1323,7 +1323,7 @@ export default function MockTestPage() {
                       onClick={() => setModalTestType("short")}
                       className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
                         modalTestType === "short"
-                          ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                          ? "bg-gradient-to-r from-#00A1E0 to-violet-500 text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -1340,7 +1340,7 @@ export default function MockTestPage() {
                       onClick={() => setModalTestType("full")}
                       className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
                         modalTestType === "full"
-                          ? "bg-gradient-to-r from-indigo-600 to-violet-500 text-white shadow-lg"
+                          ? "bg-gradient-to-r from-#00A1E0 to-violet-500 text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -1372,7 +1372,7 @@ export default function MockTestPage() {
                   setShowExamModal(false);
                   startTest(selectedExam, selectedTestNumber, modalTestType === "full");
                 }}
-                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+                className="px-8 py-3 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-bold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
               >
                 <span>Start Test {selectedTestNumber}</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
