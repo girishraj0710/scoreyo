@@ -1,17 +1,12 @@
 /**
  * SECURE QUIZ SUBMISSION ROUTE
  *
- * This is the refactored version with:
+ * Security improvements:
  * ✅ Transaction safety (all DB operations in single transaction)
  * ✅ Request validation (Zod schemas)
  * ✅ No SQL injection (parameterized queries)
  * ✅ Proper error handling
- *
- * MIGRATION PLAN:
- * 1. Test this version thoroughly
- * 2. Run A/B test (50% traffic to new route)
- * 3. Monitor for errors
- * 4. Replace original route.ts when stable
+ * ✅ Badge processing in background
  */
 
 import { NextRequest, NextResponse, after } from "next/server";
@@ -306,7 +301,7 @@ export async function PUT(request: NextRequest) {
         question: a.questionText,
         options: JSON.parse(a.options),
         correctAnswer: a.correctAnswer,
-        userAnswer: userAnswers[i] ?? null,
+        userAnswer: answers[i] ?? null,
         isCorrect: a.isCorrect,
         explanation: a.explanation,
         difficulty: a.difficulty,
