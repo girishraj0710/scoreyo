@@ -689,7 +689,7 @@ export function LandingPageV2() {
 
         {/* Upcoming Exam Calendar - Infinite Marquee */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50 overflow-hidden">
-          <div className="mb-8">
+          <div className="mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Calendar className="w-8 h-8 text-indigo-600" />
               <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 text-center">Upcoming Exam Calendar</h2>
@@ -697,14 +697,14 @@ export function LandingPageV2() {
             <p className="text-slate-600 text-center text-lg">Mark your dates and start preparing today</p>
           </div>
 
-          {/* Infinite Scrolling Marquee */}
-          <div className="relative">
-            <div className="flex animate-marquee hover:pause-animation">
+          {/* Infinite Scrolling Marquee - Full Width */}
+          <div className="relative w-full">
+            <div className="flex animate-marquee-fast gap-6 hover:pause-animation">
               {/* First set of exams */}
               {getUpcomingExams(15).map((exam, idx) => (
                 <div
                   key={`exam-1-${exam.id}`}
-                  className="flex-shrink-0 w-80 mx-3"
+                  className="flex-shrink-0 w-80"
                 >
                   <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full">
                     {/* Compact Header */}
@@ -749,7 +749,7 @@ export function LandingPageV2() {
               {getUpcomingExams(15).map((exam, idx) => (
                 <div
                   key={`exam-2-${exam.id}`}
-                  className="flex-shrink-0 w-80 mx-3"
+                  className="flex-shrink-0 w-80"
                 >
                   <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full">
                     {/* Compact Header */}
@@ -812,8 +812,8 @@ export function LandingPageV2() {
                 transform: translateX(-50%);
               }
             }
-            .animate-marquee {
-              animation: marquee 60s linear infinite;
+            .animate-marquee-fast {
+              animation: marquee 30s linear infinite;
             }
             .pause-animation:hover {
               animation-play-state: paused;
