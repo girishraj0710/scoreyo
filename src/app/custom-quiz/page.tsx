@@ -117,7 +117,7 @@ export default function CustomQuizPage() {
             📚 Generate Quiz from Your Notes
           </h1>
           <p className="text-lg text-slate-600">
-            Upload your study material and get instant practice questions
+            Choose or upload materials to generate practice questions designed for you
           </p>
         </div>
 
@@ -136,6 +136,29 @@ export default function CustomQuizPage() {
             }`}
           >
             <div className="flex flex-col items-center gap-4">
+              {/* 3D File Type Icons */}
+              {!file && (
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <rect x="8" y="6" width="28" height="36" rx="2" fill="#4A90E2"/>
+                    <path d="M36 10L32 6H10C8.9 6 8 6.9 8 8V40C8 41.1 8.9 42 10 42H38C39.1 42 40 41.1 40 40V14L36 10Z" fill="#7DB3E8"/>
+                    <path d="M36 10H40L36 14V10Z" fill="#4A90E2"/>
+                    <text x="19" y="28" fill="white" fontSize="10" fontWeight="bold">DOCX</text>
+                  </svg>
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <rect x="8" y="6" width="28" height="36" rx="2" fill="#E74C3C"/>
+                    <path d="M36 10L32 6H10C8.9 6 8 6.9 8 8V40C8 41.1 8.9 42 10 42H38C39.1 42 40 41.1 40 40V14L36 10Z" fill="#EC7063"/>
+                    <path d="M36 10H40L36 14V10Z" fill="#E74C3C"/>
+                    <text x="20" y="28" fill="white" fontSize="10" fontWeight="bold">PDF</text>
+                  </svg>
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <rect x="8" y="6" width="28" height="36" rx="2" fill="#E67E22"/>
+                    <path d="M36 10L32 6H10C8.9 6 8 6.9 8 8V40C8 41.1 8.9 42 10 42H38C39.1 42 40 41.1 40 40V14L36 10Z" fill="#F39C12"/>
+                    <path d="M36 10H40L36 14V10Z" fill="#E67E22"/>
+                    <text x="19" y="28" fill="white" fontSize="10" fontWeight="bold">PPTX</text>
+                  </svg>
+                </div>
+              )}
               <div className="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center">
                 {file ? (
                   <CheckCircle className="w-10 h-10 text-indigo-600" />
@@ -148,10 +171,10 @@ export default function CustomQuizPage() {
                 <>
                   <div>
                     <p className="text-lg font-semibold text-slate-900 mb-1">
-                      Drag and drop your file here
+                      Drag and drop notes, readings, lecture slides, etc.
                     </p>
                     <p className="text-sm text-slate-500">
-                      or click to browse
+                      Supported file types are .docx, .pdf, .pptx
                     </p>
                   </div>
 
@@ -164,14 +187,10 @@ export default function CustomQuizPage() {
                   />
                   <label
                     htmlFor="file-upload"
-                    className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 cursor-pointer transition-colors font-medium"
+                    className="px-6 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 cursor-pointer transition-colors font-medium"
                   >
-                    Browse Files
+                    Browse files
                   </label>
-
-                  <p className="text-xs text-slate-400">
-                    Supported: TXT, PDF, DOCX, PPTX • Max 10MB
-                  </p>
                 </>
               ) : (
                 <>
@@ -287,7 +306,13 @@ export default function CustomQuizPage() {
         {/* Info Cards */}
         <div className="grid md:grid-cols-3 gap-4 mt-8">
           <div className="bg-white rounded-xl p-6 text-center">
-            <div className="text-3xl mb-2">⚡</div>
+            <div className="flex justify-center mb-3">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="28" fill="#FEF3C7"/>
+                <path d="M32 12L36 24L48 26L40 34L42 46L32 40L22 46L24 34L16 26L28 24L32 12Z" fill="#F59E0B" stroke="#D97706" strokeWidth="2"/>
+                <circle cx="32" cy="32" r="4" fill="#FBBF24"/>
+              </svg>
+            </div>
             <h3 className="font-semibold text-slate-900 mb-1">Fast Generation</h3>
             <p className="text-sm text-slate-600">
               Get your quiz in under 60 seconds
@@ -295,7 +320,15 @@ export default function CustomQuizPage() {
           </div>
 
           <div className="bg-white rounded-xl p-6 text-center">
-            <div className="text-3xl mb-2">🎯</div>
+            <div className="flex justify-center mb-3">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="28" fill="#DBEAFE"/>
+                <circle cx="32" cy="32" r="20" fill="#3B82F6" stroke="#2563EB" strokeWidth="3"/>
+                <circle cx="32" cy="32" r="12" fill="#60A5FA" stroke="#2563EB" strokeWidth="2"/>
+                <circle cx="32" cy="32" r="4" fill="#1D4ED8"/>
+                <path d="M32 12V22M32 42V52M52 32H42M22 32H12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
             <h3 className="font-semibold text-slate-900 mb-1">Smart Questions</h3>
             <p className="text-sm text-slate-600">
               AI focuses on key concepts from your material
@@ -303,7 +336,13 @@ export default function CustomQuizPage() {
           </div>
 
           <div className="bg-white rounded-xl p-6 text-center">
-            <div className="text-3xl mb-2">💡</div>
+            <div className="flex justify-center mb-3">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="36" r="24" fill="#FEF3C7"/>
+                <path d="M32 10L28 24C28 24 22 24 22 28C22 32 26 34 26 38C26 42 32 48 32 48C32 48 38 42 38 38C38 34 42 32 42 28C42 24 36 24 36 24L32 10Z" fill="#FBBF24" stroke="#F59E0B" strokeWidth="2"/>
+                <ellipse cx="32" cy="52" rx="10" ry="3" fill="#D97706" opacity="0.3"/>
+              </svg>
+            </div>
             <h3 className="font-semibold text-slate-900 mb-1">Detailed Explanations</h3>
             <p className="text-sm text-slate-600">
               Learn why each answer is correct
