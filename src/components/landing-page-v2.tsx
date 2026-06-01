@@ -668,7 +668,7 @@ export function LandingPageV2() {
         </section>
         {/* Final CTA */}
         <section className="pb-8 -mt-72">
-          <div className="bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
+          <div className="bg-sky-400 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
             <h2 className="text-3xl md:text-5xl font-semibold mb-6">
               Ready to ace your exam?
             </h2>
