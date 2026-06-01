@@ -117,23 +117,53 @@ export const POST = withValidation(
       let userId: string;
 
       if (user) {
-        // ── STEP 3a: Update Existing User ─────────────────────
+        // ── STEP 3a: Existing User Login ─────────────────────
         userId = user.id;
 
-        await pool.query(
-          `UPDATE users
-           SET name = $1,
-               phone_number = $2,
-               exam_preparing_for = $3,
-               updated_at = CURRENT_TIMESTAMP
-           WHERE id = $4`,
-          [name, phoneNumber || null, examPreparingFor || null, userId]
-        );
+        // Only update fields if provided (optional update)
+        if (name || phoneNumber || examPreparingFor) {
+          const updates: string[] = [];
+          const values: any[] = [];
+          let paramIndex = 1;
+
+          if (name) {
+            updates.push(`name = $${paramIndex++}`);
+            values.push(name);
+          }
+          if (phoneNumber !== undefined) {
+            updates.push(`phone_number = $${paramIndex++}`);
+            values.push(phoneNumber || null);
+          }
+          if (examPreparingFor !== undefined) {
+            updates.push(`exam_preparing_for = $${paramIndex++}`);
+            values.push(examPreparingFor || null);
+          }
+
+          if (updates.length > 0) {
+            updates.push(`updated_at = CURRENT_TIMESTAMP`);
+            values.push(userId);
+            await pool.query(
+              `UPDATE users SET ${updates.join(', ')} WHERE id = $${paramIndex}`,
+              values
+            );
+          }
+        }
 
         logger.info('User logged in', { userId, email: cleanEmail });
 
       } else {
-        // ── STEP 3b: Create New User ──────────────────────────
+        // ── STEP 3b: New User Registration ──────────────────────
+        // Name is required for new users
+        if (!name || !name.trim()) {
+          return NextResponse.json(
+            {
+              error: "Name required",
+              message: "Please provide your name to complete registration"
+            },
+            { status: 400 }
+          );
+        }
+
         userId = uuidv4();
         const avatarColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
 
@@ -142,7 +172,7 @@ export const POST = withValidation(
             id, name, email, phone_number, exam_preparing_for,
             avatar_color, created_at, updated_at
           ) VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`,
-          [userId, name, cleanEmail, phoneNumber || null, examPreparingFor || null, avatarColor]
+          [userId, name.trim(), cleanEmail, phoneNumber || null, examPreparingFor || null, avatarColor]
         );
 
         logger.info('New user registered', { userId, email: cleanEmail });

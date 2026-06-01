@@ -29,9 +29,11 @@ export const subjectIdSchema = z.string().min(1, 'Subject ID is required');
 
 export const loginSchema = z.object({
   email: emailSchema,
-  name: z.string().min(2, 'Name must be at least 2 characters').max(100),
+  name: z.string().min(2, 'Name must be at least 2 characters').max(100).optional(),
   phoneNumber: phoneSchema.optional(),
   examPreparingFor: z.string().optional(),
+  age: z.number().int().min(10).max(100).optional(),
+  location: z.string().max(200).optional(),
 });
 
 export const otpRequestSchema = z.object({
