@@ -1,0 +1,50 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#6C3483"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#F5EAD8"/>
+
+  <!-- Ancient scroll/column on cover -->
+  <g transform="translate(32, 34)">
+    <!-- Scroll rolled edges -->
+    <rect x="-10" y="-8" width="20" height="16" rx="1" fill="#D4AC0D" opacity="0.3"/>
+
+    <!-- Scroll paper -->
+    <rect x="-8" y="-6" width="16" height="12" fill="#F9E79F"/>
+
+    <!-- Ancient text lines -->
+    <line x1="-6" y1="-3" x2="6" y2="-3" stroke="#8E44AD" stroke-width="0.5"/>
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#8E44AD" stroke-width="0.5"/>
+    <line x1="-6" y1="3" x2="6" y2="3" stroke="#8E44AD" stroke-width="0.5"/>
+
+    <!-- Rolled edges -->
+    <ellipse cx="-8" cy="0" rx="2" ry="6" fill="#D4AC0D"/>
+    <ellipse cx="8" cy="0" rx="2" ry="6" fill="#D4AC0D"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#8E44AD"/>
+  <text x="32" y="25" text-anchor="middle" font-size="2.5" fill="white" font-weight="bold">HISTORY</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+
+  <!-- Ancient artifact decoration -->
+  <g transform="translate(28, 46) scale(0.6)">
+    <path d="M 0 0 L 3 6 L -3 6 Z" fill="#D4AC0D"/>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

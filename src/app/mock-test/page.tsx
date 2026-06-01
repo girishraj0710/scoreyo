@@ -413,7 +413,7 @@ export default function MockTestPage() {
               e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
             <div className="flex items-center gap-3 mb-2">
-              {exam && <ColorfulExamIcon examId={exam.id} size={32} className="text-white" />}
+              {exam && <ColorfulExamIcon examId={exam.id} size={48} className="text-white" />}
               <h1 className="text-2xl font-bold">{examName}</h1>
             </div>
             <p className="text-indigo-100">
@@ -1131,7 +1131,7 @@ export default function MockTestPage() {
                   <div className="w-12 h-12 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <ColorfulExamIcon
                       examId={examId}
-                      size={40}
+                      size={56}
                     />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -1191,7 +1191,7 @@ export default function MockTestPage() {
                     <div className="w-10 h-10 flex items-center justify-center">
                       <ColorfulExamIcon
                         examId={h.exam_id}
-                        size={32}
+                        size={48}
                       />
                     </div>
                     <div>
@@ -1219,7 +1219,7 @@ export default function MockTestPage() {
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 flex items-center justify-center">
-                  <ColorfulExamIcon examId={selectedExam} size={40} />
+                  <ColorfulExamIcon examId={selectedExam} size={56} />
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-slate-800">{groupedConfigs[selectedExam][0].examName}</h2>

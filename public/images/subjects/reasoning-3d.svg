@@ -1,0 +1,57 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#C0392B"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECF0F1"/>
+
+  <!-- Brain icon on cover -->
+  <g transform="translate(32, 34)">
+    <!-- Brain outline -->
+    <path d="M -6 -6 Q -10 -6 -10 -2 Q -10 2 -8 4 Q -6 6 -4 6 L -2 6 Q 0 8 2 6 L 4 6 Q 6 6 8 4 Q 10 2 10 -2 Q 10 -6 6 -6 Q 4 -8 0 -8 Q -4 -8 -6 -6 Z"
+          fill="url(#brain-gradient)" stroke="#E74C3C" stroke-width="1"/>
+
+    <!-- Brain folds/details -->
+    <path d="M -6 -2 Q -4 0 -6 2" stroke="#C0392B" stroke-width="1" fill="none"/>
+    <path d="M -2 -4 Q 0 -2 -2 0" stroke="#C0392B" stroke-width="1" fill="none"/>
+    <path d="M 2 -4 Q 4 -2 2 0" stroke="#C0392B" stroke-width="1" fill="none"/>
+    <path d="M 6 -2 Q 4 0 6 2" stroke="#C0392B" stroke-width="1" fill="none"/>
+
+    <!-- Center division -->
+    <line x1="0" y1="-6" x2="0" y2="4" stroke="#C0392B" stroke-width="1"/>
+
+    <!-- Highlight -->
+    <ellipse cx="-4" cy="-3" rx="2" ry="1.5" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- Puzzle piece decoration -->
+  <g transform="translate(26, 44) scale(0.8)">
+    <path d="M 0 0 L 6 0 L 6 2 Q 8 2 8 4 Q 8 6 6 6 L 6 8 L 2 8 Q 2 10 0 10 Q -2 10 -2 8 L -2 0 Z"
+          fill="#F39C12" stroke="#E67E22" stroke-width="0.5"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#E74C3C"/>
+  <text x="32" y="25" text-anchor="middle" font-size="2.2" fill="white" font-weight="bold">REASONING</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#D5DBDB" stroke-width="0.5"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="brain-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC7063;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E74C3C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

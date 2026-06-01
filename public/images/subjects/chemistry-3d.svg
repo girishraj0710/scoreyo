@@ -1,0 +1,55 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#C0392B"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECF0F1"/>
+
+  <!-- Flask/Beaker on cover -->
+  <g transform="translate(32, 36)">
+    <!-- Flask body -->
+    <path d="M -6 -8 L -6 -4 L -8 4 Q -8 8 0 8 Q 8 8 8 4 L 6 -4 L 6 -8 Z" fill="url(#flask-gradient)"/>
+
+    <!-- Flask neck -->
+    <rect x="-3" y="-12" width="6" height="4" fill="#85C1E9"/>
+
+    <!-- Liquid inside -->
+    <path d="M -7 2 Q -7 6 0 6 Q 7 6 7 2 L 5 -2 L -5 -2 Z" fill="#F39C12" opacity="0.7"/>
+
+    <!-- Bubbles -->
+    <circle cx="-3" cy="0" r="1.5" fill="white" opacity="0.4"/>
+    <circle cx="2" cy="-1" r="1" fill="white" opacity="0.4"/>
+    <circle cx="0" cy="2" r="1.2" fill="white" opacity="0.4"/>
+
+    <!-- Highlight -->
+    <ellipse cx="-4" cy="-2" rx="2" ry="3" fill="white" opacity="0.2"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#E74C3C"/>
+  <text x="32" y="25" text-anchor="middle" font-size="2.3" fill="white" font-weight="bold">CHEMISTRY</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#D5DBDB" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 34 16 L 34 28 L 36 26 L 38 28 L 38 16 Z" fill="#F39C12"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="flask-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5DADE2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3498DB;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -426,10 +426,10 @@ function HomePageContent() {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 flex items-center justify-center shrink-0">
                       <ColorfulExamIcon
                         examId={exam.id}
-                        size={32}
+                        size={44}
                       />
                     </div>
                     <div className="min-w-0">
@@ -479,10 +479,10 @@ function HomePageContent() {
                       : "border-slate-200 bg-white hover:border-slate-300"
                   }`}
                 >
-                  <div className="flex justify-center mb-1">
+                  <div className="flex justify-center mb-2">
                     <ColorfulSubjectIcon
                       subjectId={subject.id}
-                      size={36}
+                      size={44}
                     />
                   </div>
                   <div className="text-sm font-medium text-slate-700">

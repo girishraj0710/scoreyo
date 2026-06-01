@@ -1,0 +1,58 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#27AE60"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECF0F1"/>
+
+  <!-- DNA double helix on cover -->
+  <g transform="translate(32, 34)">
+    <!-- Left strand -->
+    <path d="M -8 -10 Q -6 -5 -8 0 Q -10 5 -8 10" stroke="#2ECC71" stroke-width="2" fill="none"/>
+
+    <!-- Right strand -->
+    <path d="M 8 -10 Q 6 -5 8 0 Q 10 5 8 10" stroke="#27AE60" stroke-width="2" fill="none"/>
+
+    <!-- Base pairs (connecting lines) -->
+    <line x1="-8" y1="-8" x2="8" y2="-8" stroke="#E74C3C" stroke-width="1.5"/>
+    <line x1="-8" y1="-4" x2="8" y2="-4" stroke="#3498DB" stroke-width="1.5"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#F39C12" stroke-width="1.5"/>
+    <line x1="-8" y1="4" x2="8" y2="4" stroke="#9B59B6" stroke-width="1.5"/>
+    <line x1="-8" y1="8" x2="8" y2="8" stroke="#E74C3C" stroke-width="1.5"/>
+
+    <!-- Base dots -->
+    <circle cx="-8" cy="-8" r="1.5" fill="#2ECC71"/>
+    <circle cx="8" cy="-8" r="1.5" fill="#27AE60"/>
+    <circle cx="-8" cy="0" r="1.5" fill="#2ECC71"/>
+    <circle cx="8" cy="0" r="1.5" fill="#27AE60"/>
+    <circle cx="-8" cy="8" r="1.5" fill="#2ECC71"/>
+    <circle cx="8" cy="8" r="1.5" fill="#27AE60"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#2ECC71"/>
+  <text x="32" y="25" text-anchor="middle" font-size="2.5" fill="white" font-weight="bold">BIOLOGY</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#D5DBDB" stroke-width="0.5"/>
+
+  <!-- Leaf bookmark -->
+  <g transform="translate(30, 16)">
+    <path d="M 0 0 Q 2 4 0 8 Q -2 4 0 0" fill="#27AE60"/>
+    <line x1="0" y1="0" x2="0" y2="8" stroke="#1E8449" stroke-width="0.5"/>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ECC71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

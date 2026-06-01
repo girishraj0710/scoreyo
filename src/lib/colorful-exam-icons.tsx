@@ -613,11 +613,71 @@ export const ColorfulCategoryIcon: React.FC<ColorfulCategoryIconProps> = ({
   return <Icon icon={iconName} width={size} height={size} className={className} />;
 };
 
+// Premium 3D illustrations for subjects
+const PREMIUM_3D_SUBJECTS: Record<string, string> = {
+  // Core subjects
+  'physics': '/images/subjects/physics-3d.svg',
+  'jee-physics': '/images/subjects/physics-3d.svg',
+  'jee-adv-physics': '/images/subjects/physics-3d.svg',
+  'neet-physics': '/images/subjects/physics-3d.svg',
+  'gate-physics': '/images/subjects/physics-3d.svg',
+
+  'chemistry': '/images/subjects/chemistry-3d.svg',
+  'jee-chemistry': '/images/subjects/chemistry-3d.svg',
+  'jee-adv-chemistry': '/images/subjects/chemistry-3d.svg',
+  'neet-chemistry': '/images/subjects/chemistry-3d.svg',
+
+  'maths': '/images/subjects/maths-3d.svg',
+  'mathematics': '/images/subjects/maths-3d.svg',
+  'jee-maths': '/images/subjects/maths-3d.svg',
+  'jee-adv-maths': '/images/subjects/maths-3d.svg',
+  'gate-engineering-math': '/images/subjects/maths-3d.svg',
+
+  'biology': '/images/subjects/biology-3d.svg',
+  'neet-biology': '/images/subjects/biology-3d.svg',
+  'botany': '/images/subjects/biology-3d.svg',
+  'zoology': '/images/subjects/biology-3d.svg',
+
+  'english': '/images/subjects/english-3d.svg',
+  'sbi-english': '/images/subjects/english-3d.svg',
+  'ibps-english': '/images/subjects/english-3d.svg',
+  'verbal': '/images/subjects/english-3d.svg',
+
+  'reasoning': '/images/subjects/reasoning-3d.svg',
+  'aptitude': '/images/subjects/reasoning-3d.svg',
+  'logical': '/images/subjects/reasoning-3d.svg',
+  'sbi-reasoning': '/images/subjects/reasoning-3d.svg',
+  'ibps-reasoning': '/images/subjects/reasoning-3d.svg',
+
+  'history': '/images/subjects/history-3d.svg',
+  'upsc-history': '/images/subjects/history-3d.svg',
+
+  'geography': '/images/subjects/geography-3d.svg',
+  'upsc-geography': '/images/subjects/geography-3d.svg',
+};
+
 export const ColorfulSubjectIcon: React.FC<ColorfulSubjectIconProps> = ({
   subjectId,
   size = 24,
   className = ''
 }) => {
+  // Check if this subject has a premium 3D illustration
+  const premiumIllustration = PREMIUM_3D_SUBJECTS[subjectId];
+
+  if (premiumIllustration) {
+    return (
+      <img
+        src={premiumIllustration}
+        alt={subjectId}
+        width={size}
+        height={size}
+        className={className}
+        style={{ objectFit: 'contain' }}
+      />
+    );
+  }
+
+  // Fall back to emoji icons for other subjects
   const iconName = getColorfulSubjectIcon(subjectId);
   return <Icon icon={iconName} width={size} height={size} className={className} />;
 };
