@@ -360,7 +360,7 @@ export default function MockTestPage() {
   // Pro required screen
   if (pageState === "pro-required") {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-amber-200">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-amber-100 flex items-center justify-center">
             <svg className="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
@@ -398,7 +398,7 @@ export default function MockTestPage() {
     const config = configs.find(c => c.examId === instructionsExamId && c.testNumber === instructionsTestNumber);
 
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
           {/* Header */}
           <div className="p-6 text-white"
@@ -528,7 +528,7 @@ export default function MockTestPage() {
   // Loading screen
   if (pageState === "loading") {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
             <svg className="animate-spin h-8 w-8 [#4255FF]" viewBox="0 0 24 24" fill="none">
@@ -563,7 +563,7 @@ export default function MockTestPage() {
       : { label: t("needsImprovement"), color: "text-red-600", bg: "bg-red-50" };
 
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Score Card */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center mb-8">
           <div className="text-sm [#4255FF] font-medium mb-2">{t("mockTestResult")}</div>
@@ -669,7 +669,7 @@ export default function MockTestPage() {
     const isCriticalTime = timeRemaining < 60;
 
     return (
-      <div className="max-w-4xl mx-auto px-4 py-4">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         {/* Back Button */}
         <button
           onClick={() => {
@@ -834,7 +834,7 @@ export default function MockTestPage() {
   if (!user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
-        <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-[#4255FF] rounded-2xl mb-6 shadow-lg">
@@ -994,7 +994,7 @@ export default function MockTestPage() {
 
   // Selection screen - NEW REDESIGNED UI
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-3 text-slate-800">

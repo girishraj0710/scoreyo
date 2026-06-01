@@ -51,7 +51,7 @@ export default function RootLayout({
       lang="en"
       className={`${fredoka.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-gradient-to-br from-slate-50 via-white to-indigo-50 font-sans">
+      <body className="min-h-full min-w-[320px] flex flex-col bg-gradient-to-br from-slate-50 via-white to-indigo-50 font-sans">
         <Providers>
           <ConditionalLayout>{children}</ConditionalLayout>
         </Providers>
