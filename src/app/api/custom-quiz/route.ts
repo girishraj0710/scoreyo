@@ -71,19 +71,36 @@ export async function POST(request: NextRequest) {
         // Text file - simple conversion
         extractedText = new TextDecoder().decode(uint8Array);
       } else if (file.type === 'application/pdf') {
-        // PDF - extract text using pdf-parse
+        // PDF - extract text using pdfjs-dist (better serverless support)
         console.log('[Custom Quiz] Processing PDF file...', file.name, file.size);
 
         try {
-          const pdfParse = await import('pdf-parse');
-          console.log('[Custom Quiz] pdf-parse module loaded:', typeof pdfParse);
+          // Use pdfjs-dist which works in serverless environments
+          const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');
 
-          // Try different ways to get the function
-          const pdf = (pdfParse as any).default || pdfParse;
-          console.log('[Custom Quiz] pdf function type:', typeof pdf);
+          const loadingTask = pdfjsLib.getDocument({
+            data: uint8Array,
+            useSystemFonts: true,
+            standardFontDataUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@latest/standard_fonts/',
+          });
 
-          const pdfData = await pdf(Buffer.from(uint8Array));
-          extractedText = pdfData.text;
+          const pdfDocument = await loadingTask.promise;
+          const numPages = pdfDocument.numPages;
+          console.log('[Custom Quiz] PDF has', numPages, 'pages');
+
+          const textParts: string[] = [];
+
+          // Extract text from each page
+          for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+            const page = await pdfDocument.getPage(pageNum);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items
+              .map((item: any) => item.str)
+              .join(' ');
+            textParts.push(pageText);
+          }
+
+          extractedText = textParts.join('\n\n');
           console.log('[Custom Quiz] PDF text extracted:', extractedText.length, 'characters');
 
           // Check if PDF is scanned/image-based
