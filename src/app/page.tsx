@@ -221,7 +221,7 @@ function HomePageContent() {
       {/* Hero Section */}
       <section className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-violet-500 bg-clip-text text-transparent">
+          <span className="text-[#4255FF]">
             Smart Exam Prep
           </span>
         </h1>
