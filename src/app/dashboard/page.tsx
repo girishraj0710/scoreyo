@@ -150,7 +150,7 @@ export default function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Version Badge - Remove after testing */}
-      <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#4F9CF9' }}>
+      <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#4255FF' }}>
         AGENTFORCE-BLUE
       </div>
 
@@ -170,9 +170,9 @@ export default function DashboardPage() {
           <a
             href="/"
             className="px-4 py-2 text-white text-sm font-medium rounded-lg"
-            style={{ backgroundColor: '#4F9CF9', transition: 'background-color 0.2s' }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3B7FD9'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4F9CF9'}
+            style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
           >
             New Quiz
           </a>
@@ -326,7 +326,7 @@ export default function DashboardPage() {
                         <a
                           href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
                           className="text-xs hover:underline"
-                          style={{ color: '#4F9CF9' }}
+                          style={{ color: '#4255FF' }}
                         >
                           Practice
                         </a>

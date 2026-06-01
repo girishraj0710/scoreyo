@@ -69,7 +69,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
 
           <a
             href="/quiz/levels?examId=jee-main&subjectId=jee-physics"
-            className="block w-full py-3 bg-[#4F9CF9] text-white text-center font-semibold rounded-lg transition-all"
+            className="block w-full py-3 bg-[#4255FF] text-white text-center font-semibold rounded-lg transition-all"
           >
             Start Level 1
           </a>
@@ -119,10 +119,10 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
       <div className="grid grid-cols-2 gap-3 mb-6">
         <div className="bg-white rounded-lg p-4 border border-indigo-100">
           <div className="flex items-center gap-2 mb-1">
-            <Target className="w-4 h-4 text-[#4F9CF9]" />
+            <Target className="w-4 h-4 text-[#4255FF]" />
             <span className="text-xs text-slate-500">Levels</span>
           </div>
-          <div className="text-2xl font-bold text-[#4F9CF9]">
+          <div className="text-2xl font-bold text-[#4255FF]">
             {progress.totalLevelsCompleted}
           </div>
         </div>
@@ -145,13 +145,13 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
             <span className="text-sm font-medium text-slate-700">
               Next Milestone: Level {nextMilestone}
             </span>
-            <span className="text-sm font-bold text-[#4F9CF9]">
+            <span className="text-sm font-bold text-[#4255FF]">
               {progress.totalLevelsCompleted}/{nextMilestone}
             </span>
           </div>
           <div className="w-full bg-slate-100 rounded-full h-3">
             <div
-              className="bg-gradient-to-r from-[#4F9CF9] to-violet-500 h-3 rounded-full transition-all duration-500 animate-progress"
+              className="bg-gradient-to-r from-[#4255FF] to-violet-500 h-3 rounded-full transition-all duration-500 animate-progress"
               style={{ width: `${milestoneProgress}%` }}
             />
           </div>
@@ -191,7 +191,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
 
           <a
             href="/achievements"
-            className="block w-full mt-4 py-2 bg-white border-2 border-[#90CAF9] text-[#4F9CF9] text-center text-sm font-semibold rounded-lg hover:bg-[#E3F2FD] transition-all"
+            className="block w-full mt-4 py-2 bg-white border-2 border-[#90CAF9] text-[#4255FF] text-center text-sm font-semibold rounded-lg hover:bg-[#E8EAFF] transition-all"
           >
             View All Badges
           </a>

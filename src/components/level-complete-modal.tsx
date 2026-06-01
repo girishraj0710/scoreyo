@@ -91,7 +91,7 @@ export function LevelCompleteModal({
   const getColor = () => {
     if (stars === 3) return "from-amber-500 to-orange-500";
     if (stars === 2) return "from-emerald-500 to-cyan-500";
-    return "from-[#4F9CF9] to-violet-500";
+    return "from-[#4255FF] to-violet-500";
   };
 
   const formatTime = (seconds: number) => {
@@ -163,7 +163,7 @@ export function LevelCompleteModal({
               </div>
               <div>
                 <div className="font-semibold text-[#005A7A]">Level Unlocked!</div>
-                <div className="text-sm text-[#3B7FD9]">You can now access Level {levelNumber + 1}</div>
+                <div className="text-sm text-[#3242CC]">You can now access Level {levelNumber + 1}</div>
               </div>
             </div>
           )}

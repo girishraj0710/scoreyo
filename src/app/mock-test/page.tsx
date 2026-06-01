@@ -376,10 +376,10 @@ export default function MockTestPage() {
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
               {t("upgradeToPro")}
             </a>
@@ -403,14 +403,14 @@ export default function MockTestPage() {
           {/* Header */}
           <div className="p-6 text-white"
             style={{
-              backgroundColor: '#4F9CF9',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
             <div className="flex items-center gap-3 mb-2">
               {exam && <ColorfulExamIcon examId={exam.id} size={32} className="text-white" />}
@@ -469,7 +469,7 @@ export default function MockTestPage() {
                 </ul>
               </div>
 
-              <div className="[#E3F2FD] border border-[#90CAF9] rounded-lg p-4">
+              <div className="[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
                 <p className="font-semibold text-[#005A7A]">💡 Pro Tips:</p>
                 <ul className="text-sm mt-2 space-y-1 list-disc list-inside">
                   <li>Attempt all questions - there's no negative marking</li>
@@ -492,7 +492,7 @@ export default function MockTestPage() {
 
             <div className="flex items-center gap-4">
               {isGeneratingInBackground && (
-                <div className="flex items-center gap-2 text-sm [#4F9CF9]">
+                <div className="flex items-center gap-2 text-sm [#4255FF]">
                   <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -510,10 +510,10 @@ export default function MockTestPage() {
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
               >
                 {isGeneratingInBackground ? "Please wait..." : "Start Test →"}
@@ -530,7 +530,7 @@ export default function MockTestPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E3F2FD] flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
             <svg className="animate-spin h-8 w-8 [#00A1E0]" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -558,7 +558,7 @@ export default function MockTestPage() {
     const percentage = results.accuracy;
     const grade =
       percentage >= 90 ? { label: t("excellent"), color: "text-slate-500", bg: "bg-slate-50" }
-      : percentage >= 70 ? { label: t("goodJob"), color: "[#4F9CF9]", bg: "bg-slate-50" }
+      : percentage >= 70 ? { label: t("goodJob"), color: "[#4255FF]", bg: "bg-slate-50" }
       : percentage >= 50 ? { label: t("keepPracticing"), color: "text-amber-600", bg: "bg-amber-50" }
       : { label: t("needsImprovement"), color: "text-red-600", bg: "bg-red-50" };
 
@@ -590,7 +590,7 @@ export default function MockTestPage() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 [#4F9CF9] text-white rounded-lg hover:[#3B7FD9] font-medium">
+            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 [#4255FF] text-white rounded-lg hover:[#3242CC] font-medium">
               {t("takeAnotherTest")}
             </button>
             <a href="/reports" className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium">
@@ -630,7 +630,7 @@ export default function MockTestPage() {
                       {globalIdx + 1}
                     </span>
                     <div className="flex-1">
-                      <span className="text-xs [#4F9CF9] font-medium">{r.subjectName}</span>
+                      <span className="text-xs [#4255FF] font-medium">{r.subjectName}</span>
                       <p className="text-slate-800 font-medium mt-1">{r.question}</p>
                     </div>
                   </div>
@@ -716,7 +716,7 @@ export default function MockTestPage() {
         {/* Question */}
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-4">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E3F2FD] [#0070A8]">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E8EAFF] [#0070A8]">
               {question.subjectName}
             </span>
             <span className="text-xs text-slate-400">Q{currentQuestion + 1}</span>
@@ -740,7 +740,7 @@ export default function MockTestPage() {
                 }`}
               >
                 <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
-                  answers[currentQuestion] === idx ? "bg-slate-500 border-[#4F9CF9] text-white" : "border-slate-300 text-slate-400"
+                  answers[currentQuestion] === idx ? "bg-slate-500 border-[#4255FF] text-white" : "border-slate-300 text-slate-400"
                 }`}>
                   {String.fromCharCode(65 + idx)}
                 </span>
@@ -763,7 +763,7 @@ export default function MockTestPage() {
             {currentQuestion < questions.length - 1 ? (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
-                className="px-5 py-2 text-sm font-medium [#4F9CF9] text-white rounded-lg hover:[#3B7FD9]"
+                className="px-5 py-2 text-sm font-medium [#4255FF] text-white rounded-lg hover:[#3242CC]"
               >
                 {t("next")}
               </button>
@@ -798,7 +798,7 @@ export default function MockTestPage() {
                 onClick={() => setCurrentQuestion(idx)}
                 className={`w-8 h-8 rounded-lg text-xs font-medium ${
                   idx === currentQuestion ? "bg-slate-500 text-white"
-                  : answers[idx] !== null ? "bg-[#E3F2FD] [#4F9CF9]"
+                  : answers[idx] !== null ? "bg-[#E8EAFF] [#4255FF]"
                   : "bg-slate-100 text-slate-400"
                 }`}
                 title={q.subjectName}
@@ -809,7 +809,7 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-4 mt-3 text-xs text-slate-400">
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-500 inline-block" /> {t("current")}</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E3F2FD] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8EAFF] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-100 inline-block" /> {t("notAnswered")}</span>
           </div>
         </div>
@@ -845,14 +845,14 @@ export default function MockTestPage() {
             <h1 className="text-5xl font-bold mb-4">
               <span className="bg-clip-text text-transparent"
             style={{
-              backgroundColor: '#4F9CF9',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
                 Full-Length Mock Tests
               </span>
@@ -868,10 +868,10 @@ export default function MockTestPage() {
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
             >
               Start Mock Tests Now
@@ -884,7 +884,7 @@ export default function MockTestPage() {
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <div className="w-12 h-12 bg-[#E3F2FD] rounded-xl flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 [#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -949,8 +949,8 @@ export default function MockTestPage() {
             <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">What's Included in Mock Tests</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#E3F2FD] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 [#4F9CF9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-16 h-16 bg-[#E8EAFF] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 [#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -990,10 +990,10 @@ export default function MockTestPage() {
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
             >
               Get Started - It's Free
@@ -1012,14 +1012,14 @@ export default function MockTestPage() {
         <h1 className="text-4xl font-bold mb-3">
           <span className="bg-clip-text text-transparent"
             style={{
-              backgroundColor: '#4F9CF9',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
             Mock Tests
           </span>
@@ -1167,7 +1167,7 @@ export default function MockTestPage() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <div className="bg-slate-50 rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold [#4F9CF9]">{firstConfig.totalQuestions}</div>
+                    <div className="text-lg font-bold [#4255FF]">{firstConfig.totalQuestions}</div>
                     <div className="text-xs text-slate-500">Questions</div>
                   </div>
                   <div className="bg-purple-50 rounded-lg p-2 text-center">
@@ -1286,7 +1286,7 @@ export default function MockTestPage() {
             <div className="p-6 space-y-6">
               {/* Test Stats */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="[#E3F2FD] rounded-xl p-4 text-center">
+                <div className="[#E8EAFF] rounded-xl p-4 text-center">
                   <div className="text-2xl font-bold [#00A1E0]">{statsQuestions}</div>
                   <div className="text-xs text-slate-600 mt-1">Questions</div>
                 </div>
@@ -1308,7 +1308,7 @@ export default function MockTestPage() {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
                     <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
-                      <div className="w-2 h-2 rounded-full [#E3F2FD]0"></div>
+                      <div className="w-2 h-2 rounded-full [#E8EAFF]0"></div>
                       <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
                       <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
                     </div>
@@ -1339,7 +1339,7 @@ export default function MockTestPage() {
                         className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
                           selectedTestNumber === num
                             ? "[#00A1E0] text-white shadow-lg scale-110"
-                            : "bg-white text-slate-700 hover:[#E3F2FD] hover:[#00A1E0] border-2 border-slate-200 hover:border-[#90CAF9]"
+                            : "bg-white text-slate-700 hover:[#E8EAFF] hover:[#00A1E0] border-2 border-slate-200 hover:border-[#90CAF9]"
                         }`}
                       >
                         {num}
@@ -1364,7 +1364,7 @@ export default function MockTestPage() {
                               setSelectedTestNumber(num);
                             }
                           }}
-                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-[#4F9CF9] focus:ring-2 focus:ring-indigo-200 outline-none"
+                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none"
                         />
                         <span className="text-sm text-slate-500">of {testCapacity[selectedExam]}</span>
                       </div>
@@ -1449,10 +1449,10 @@ export default function MockTestPage() {
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3B7FD9';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F9CF9';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
               >
                 <span>Start Test {selectedTestNumber}</span>

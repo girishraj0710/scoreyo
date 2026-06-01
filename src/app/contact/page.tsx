@@ -133,7 +133,7 @@ export default function ContactPage() {
           {/* Email Support */}
           <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-[#E3F2FD] rounded-xl flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -178,13 +178,13 @@ export default function ContactPage() {
                 <h3 className="text-lg font-bold text-slate-800 mb-2">Quick Help</h3>
                 <p className="text-slate-600 mb-3">Check our help resources</p>
                 <div className="space-y-2">
-                  <a href="/terms" className="block text-[#4F9CF9] hover:underline text-sm">
+                  <a href="/terms" className="block text-[#4255FF] hover:underline text-sm">
                     → Terms of Service
                   </a>
-                  <a href="/privacy" className="block text-[#4F9CF9] hover:underline text-sm">
+                  <a href="/privacy" className="block text-[#4255FF] hover:underline text-sm">
                     → Privacy Policy
                   </a>
-                  <a href="/refund" className="block text-[#4F9CF9] hover:underline text-sm">
+                  <a href="/refund" className="block text-[#4255FF] hover:underline text-sm">
                     → Refund Policy
                   </a>
                 </div>
@@ -232,7 +232,7 @@ export default function ContactPage() {
             <h3 className="text-lg font-bold text-slate-800 mb-2">Can I get a refund?</h3>
             <p className="text-slate-600 text-sm">
               Yes! We offer a 7-day money-back guarantee for new Pro subscribers. See our{" "}
-              <a href="/refund" className="text-[#4F9CF9] hover:underline">Refund Policy</a> for details.
+              <a href="/refund" className="text-[#4255FF] hover:underline">Refund Policy</a> for details.
             </p>
           </div>
 

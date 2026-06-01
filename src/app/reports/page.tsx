@@ -163,7 +163,7 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2">
-          <span className="bg-[#4F9CF9] bg-clip-text text-transparent">
+          <span className="bg-[#4255FF] bg-clip-text text-transparent">
             {t("reportsTitle")}
           </span>
         </h1>
@@ -248,7 +248,7 @@ export default function ReportsPage() {
             <div className="space-y-6">
               {[
                 { band: "excellent", label: t("excellentRange"), color: "bg-cyan-400", textColor: "text-slate-500", IconComponent: Star },
-                { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-[#4F9CF9]", IconComponent: TrendingUp },
+                { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-[#4255FF]", IconComponent: TrendingUp },
                 { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", IconComponent: BarChart3 },
                 { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
               ].map((band) => {
@@ -400,7 +400,7 @@ export default function ReportsPage() {
                       <span className="text-lg font-bold text-red-600">{Math.round(masteryScore)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
-                        className="text-xs text-[#4F9CF9] bg-slate-50 px-3 py-2 rounded hover:bg-[#E3F2FD]"
+                        className="text-xs text-[#4255FF] bg-slate-50 px-3 py-2 rounded hover:bg-[#E8EAFF]"
                       >
                         {t("practice")}
                       </a>

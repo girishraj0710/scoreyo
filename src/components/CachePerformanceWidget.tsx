@@ -78,7 +78,7 @@ export default function CachePerformanceWidget() {
     cacheHitRate >= 80
       ? "bg-green-500/10 border-green-500/20"
       : cacheHitRate >= 60
-      ? "bg-[#E3F2FD]0/10 border-blue-500/20"
+      ? "bg-[#E8EAFF]0/10 border-blue-500/20"
       : cacheHitRate >= 40
       ? "bg-yellow-500/10 border-yellow-500/20"
       : "bg-orange-500/10 border-orange-500/20";
@@ -149,7 +149,7 @@ export default function CachePerformanceWidget() {
               style={{ width: `${verifiedPercent}%` }}
             ></div>
             <div
-              className="bg-[#E3F2FD]0"
+              className="bg-[#E8EAFF]0"
               style={{ width: `${aiPercent}%` }}
             ></div>
           </div>

@@ -72,7 +72,7 @@ export default function ReviewPage() {
                 examId={topic.exam_id}
                 size={28}
               />
-              <span className="text-sm font-medium text-[#4F9CF9]">{exam?.name || topic.exam_id}</span>
+              <span className="text-sm font-medium text-[#4255FF]">{exam?.name || topic.exam_id}</span>
             </div>
             <h3 className="font-semibold text-slate-800 truncate">{topic.topic}</h3>
             <div className="flex items-center gap-3 mt-1 text-xs text-slate-400">
@@ -100,7 +100,7 @@ export default function ReviewPage() {
                   ? "bg-red-500 hover:bg-red-600"
                   : urgency === "today"
                     ? "bg-amber-500 hover:bg-amber-600"
-                    : "bg-slate-500 hover:bg-[#4F9CF9]"
+                    : "bg-slate-500 hover:bg-[#4255FF]"
               }`}
             >
               {t("reviewNow")}

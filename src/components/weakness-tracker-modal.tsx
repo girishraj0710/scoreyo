@@ -41,8 +41,8 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       IconComponent: AlertCircle,
       title: 'Careless Mistake',
       description: 'Misread question or clicked wrong option',
-      color: 'bg-slate-50 border-slate-300 hover:bg-[#E3F2FD]',
-      iconColor: 'text-[#4F9CF9]'
+      color: 'bg-slate-50 border-slate-300 hover:bg-[#E8EAFF]',
+      iconColor: 'text-[#4255FF]'
     }
   ];
 

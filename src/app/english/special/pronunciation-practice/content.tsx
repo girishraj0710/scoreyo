@@ -410,7 +410,7 @@ export default function PronunciationPracticePage() {
             </div>
 
             {/* Example Sentence */}
-            <div className="bg-[#E3F2FD] border border-blue-200 rounded-lg p-4">
+            <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">📝 Example Sentence:</h4>
               <p className="text-gray-700 italic">"{selectedWord.exampleSentence}"</p>
             </div>

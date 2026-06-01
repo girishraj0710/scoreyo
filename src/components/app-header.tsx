@@ -25,14 +25,14 @@ export function AppHeader() {
   const navLinkClass = (href: string) =>
     `relative px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
       isActive(href)
-        ? "text-[#4F9CF9] bg-[#E3F2FD]"
-        : "text-slate-600 hover:text-[#4F9CF9] hover:bg-slate-50"
+        ? "text-[#4255FF] bg-[#E8EAFF]"
+        : "text-slate-600 hover:text-[#4255FF] hover:bg-slate-50"
     }`;
 
   const mobileNavLinkClass = (href: string) =>
     `block px-4 py-2 text-sm transition-colors ${
       isActive(href)
-        ? "text-[#4F9CF9] bg-[#E3F2FD] font-semibold border-l-2 border-[#4F9CF9]"
+        ? "text-[#4255FF] bg-[#E8EAFF] font-semibold border-l-2 border-[#4255FF]"
         : "text-slate-600 hover:bg-slate-50"
     }`;
 
@@ -119,7 +119,7 @@ export function AppHeader() {
               </button>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 bg-[#4F9CF9] text-white font-medium rounded-lg hover:bg-[#3B7FD9] border border-[#4F9CF9] hover:border-[#3B7FD9] transition-colors"
+                className="w-24 px-4 py-2 bg-[#4255FF] text-white font-medium rounded-lg hover:bg-[#3242CC] border border-[#4255FF] hover:border-[#3242CC] transition-colors"
               >
                 Sign up
               </button>

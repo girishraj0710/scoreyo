@@ -266,7 +266,7 @@ export default function TOEFLIntegratedPage() {
                 }}
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedTask.id === task.id
-                    ? "bg-gradient-to-r from-blue-600 to-[#4F9CF9] text-white"
+                    ? "bg-gradient-to-r from-blue-600 to-[#4255FF] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -282,7 +282,7 @@ export default function TOEFLIntegratedPage() {
             {/* Task Info */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-3 py-1 bg-[#E3F2FD] text-[#0070A8] rounded-full text-sm font-semibold">
+                <span className="px-3 py-1 bg-[#E8EAFF] text-[#0070A8] rounded-full text-sm font-semibold">
                   {selectedTask.type}
                 </span>
               </div>
@@ -296,7 +296,7 @@ export default function TOEFLIntegratedPage() {
               <ul className="space-y-2">
                 {selectedTask.tips.map((tip, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="text-[#4F9CF9] font-bold">•</span>
+                    <span className="text-[#4255FF] font-bold">•</span>
                     <span>{tip}</span>
                   </li>
                 ))}
@@ -304,18 +304,18 @@ export default function TOEFLIntegratedPage() {
             </div>
 
             {/* Stage Progress */}
-            <div className="bg-[#E3F2FD] border border-[#90CAF9] rounded-lg p-4">
+            <div className="bg-[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-3">Task Stages:</h4>
               <div className="space-y-2">
-                <div className={`flex items-center gap-2 ${stage === "reading" ? "text-[#4F9CF9] font-semibold" : "text-gray-500"}`}>
+                <div className={`flex items-center gap-2 ${stage === "reading" ? "text-[#4255FF] font-semibold" : "text-gray-500"}`}>
                   <BookOpen className="w-4 h-4" />
                   <span className="text-sm">1. Reading ({selectedTask.readingTime / 60} min)</span>
                 </div>
-                <div className={`flex items-center gap-2 ${stage === "listening" ? "text-[#4F9CF9] font-semibold" : "text-gray-500"}`}>
+                <div className={`flex items-center gap-2 ${stage === "listening" ? "text-[#4255FF] font-semibold" : "text-gray-500"}`}>
                   <Volume2 className="w-4 h-4" />
                   <span className="text-sm">2. Listening (~{Math.round(selectedTask.audioLength / 60)} min)</span>
                 </div>
-                <div className={`flex items-center gap-2 ${stage === "response" ? "text-[#4F9CF9] font-semibold" : "text-gray-500"}`}>
+                <div className={`flex items-center gap-2 ${stage === "response" ? "text-[#4255FF] font-semibold" : "text-gray-500"}`}>
                   {selectedTask.type === "Integrated Writing" ? <FileText className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                   <span className="text-sm">3. Response ({selectedTask.responseTime / 60} min)</span>
                 </div>
@@ -330,8 +330,8 @@ export default function TOEFLIntegratedPage() {
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Reading Passage</h3>
-                  <div className="flex items-center gap-2 bg-[#E3F2FD] px-4 py-2 rounded-lg">
-                    <Clock className="w-5 h-5 text-[#4F9CF9]" />
+                  <div className="flex items-center gap-2 bg-[#E8EAFF] px-4 py-2 rounded-lg">
+                    <Clock className="w-5 h-5 text-[#4255FF]" />
                     <span className="font-semibold text-[#005A7A]">{formatTime(readingTimeLeft)}</span>
                   </div>
                 </div>
@@ -340,7 +340,7 @@ export default function TOEFLIntegratedPage() {
                 </div>
                 <button
                   onClick={startReadingTimer}
-                  className="w-full bg-gradient-to-r from-blue-600 to-[#4F9CF9] text-white py-4 px-6 rounded-lg font-semibold transition"
+                  className="w-full bg-gradient-to-r from-blue-600 to-[#4255FF] text-white py-4 px-6 rounded-lg font-semibold transition"
                 >
                   Start Reading Timer
                 </button>
@@ -368,7 +368,7 @@ export default function TOEFLIntegratedPage() {
                   <button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="bg-[#4F9CF9] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#3B7FD9] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="bg-[#4255FF] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#3242CC] transition disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isAudioPlaying ? "Playing..." : "Play Audio"}
                   </button>
@@ -384,8 +384,8 @@ export default function TOEFLIntegratedPage() {
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Your Response</h3>
-                  <div className="flex items-center gap-2 bg-[#E3F2FD] px-4 py-2 rounded-lg">
-                    <Clock className="w-5 h-5 text-[#4F9CF9]" />
+                  <div className="flex items-center gap-2 bg-[#E8EAFF] px-4 py-2 rounded-lg">
+                    <Clock className="w-5 h-5 text-[#4255FF]" />
                     <span className="font-semibold text-[#005A7A]">{formatTime(responseTimeLeft)}</span>
                   </div>
                 </div>
@@ -396,7 +396,7 @@ export default function TOEFLIntegratedPage() {
                       value={userResponse}
                       onChange={(e) => setUserResponse(e.target.value)}
                       placeholder="Write your response here..."
-                      className="w-full h-96 p-4 border-2 border-gray-300 rounded-lg focus:border-[#4F9CF9] focus:outline-none"
+                      className="w-full h-96 p-4 border-2 border-gray-300 rounded-lg focus:border-[#4255FF] focus:outline-none"
                     />
                     <div className="flex justify-between text-sm text-gray-600">
                       <span>Word count: {wordCount}</span>
@@ -409,8 +409,8 @@ export default function TOEFLIntegratedPage() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    <div className="bg-[#E3F2FD] border border-blue-200 rounded-lg p-6 text-center">
-                      <Mic className="w-12 h-12 text-[#4F9CF9] mx-auto mb-3" />
+                    <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-6 text-center">
+                      <Mic className="w-12 h-12 text-[#4255FF] mx-auto mb-3" />
                       <p className="text-gray-700 mb-4">Record your spoken response (60 seconds)</p>
                       {!isRecording && !audioBlob && (
                         <button
@@ -458,7 +458,7 @@ export default function TOEFLIntegratedPage() {
                   {selectedTask.sampleResponse && (
                     <button
                       onClick={() => setShowSample(!showSample)}
-                      className="flex-1 bg-[#4F9CF9] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#3B7FD9] transition"
+                      className="flex-1 bg-[#4255FF] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#3242CC] transition"
                     >
                       {showSample ? "Hide" : "Show"} Sample Response
                     </button>

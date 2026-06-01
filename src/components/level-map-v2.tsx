@@ -133,7 +133,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
                                 : 'bg-gradient-to-br from-emerald-400 to-cyan-400 hover:scale-110 cursor-pointer'
                               : isBoss
                                 ? 'bg-gradient-to-br from-violet-500 to-purple-500 hover:scale-110 animate-pulse cursor-pointer'
-                                : 'bg-gradient-to-br from-[#4F9CF9] to-blue-500 hover:scale-110 animate-pulse cursor-pointer'
+                                : 'bg-gradient-to-br from-[#4255FF] to-blue-500 hover:scale-110 animate-pulse cursor-pointer'
                           }
                         `}
                       >

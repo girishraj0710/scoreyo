@@ -74,32 +74,32 @@ export default function EnglishHubPage() {
           <div className="grid md:grid-cols-3 gap-6 mb-16 items-stretch">
             {/* Foundation Builder - First Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
-              <div className="w-12 h-12 bg-[#E3F2FD] rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+              <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
                 <BookOpen className="w-6 h-6 text-[#00A1E0]" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Foundation Builder</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Build strong foundations from A1 to B1 level</p>
               <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Start from scratch - complete beginner friendly</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Essential grammar rules with examples</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Common vocabulary for daily communication</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Pronunciation & conversation practice</span>
@@ -116,25 +116,25 @@ export default function EnglishHubPage() {
               <p className="text-slate-600 mb-4 min-h-[3rem]">Master English for SSC, Banking, Railways, state exams</p>
               <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Grammar fundamentals & advanced topics</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Vocabulary building with exam patterns</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Reading comprehension strategies</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Error spotting & sentence correction</span>
@@ -151,25 +151,25 @@ export default function EnglishHubPage() {
               <p className="text-slate-600 mb-4 min-h-[3rem]">Achieve your target band score for study abroad</p>
               <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Academic writing techniques & templates</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Speaking fluency & pronunciation drills</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Listening practice with native speakers</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-[#4F9CF9] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Test-taking strategies & time management</span>
@@ -184,23 +184,23 @@ export default function EnglishHubPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <TrendingUp className="w-8 h-8 text-[#4F9CF9]" />
+                  <TrendingUp className="w-8 h-8 text-[#4255FF]" />
                 </div>
-                <h3 className="font-semibold text-[#3B7FD9] mb-2">AI-Powered Learning</h3>
+                <h3 className="font-semibold text-[#3242CC] mb-2">AI-Powered Learning</h3>
                 <p className="text-sm text-slate-600">Personalized recommendations based on your performance and goals</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Calendar className="w-8 h-8 text-amber-600" />
                 </div>
-                <h3 className="font-semibold text-[#3B7FD9] mb-2">Daily Practice Streaks</h3>
+                <h3 className="font-semibold text-[#3242CC] mb-2">Daily Practice Streaks</h3>
                 <p className="text-sm text-slate-600">10-minute daily sessions to build habits and maintain learning momentum</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Zap className="w-8 h-8 text-[#4F9CF9]" />
+                  <Zap className="w-8 h-8 text-[#4255FF]" />
                 </div>
-                <h3 className="font-semibold text-[#3B7FD9] mb-2">Rich Explanations</h3>
+                <h3 className="font-semibold text-[#3242CC] mb-2">Rich Explanations</h3>
                 <p className="text-sm text-slate-600">Detailed explanations with examples, grammar rules, and common mistakes</p>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function EnglishHubPage() {
 
           {/* CTA */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-[#3B7FD9] mb-4">Ready to Master English?</h2>
+            <h2 className="text-2xl font-bold text-[#3242CC] mb-4">Ready to Master English?</h2>
             <p className="text-slate-600 mb-8">Join thousands of students improving their English skills every day</p>
             <button
               onClick={() => setShowLoginModal(true)}
@@ -310,7 +310,7 @@ export default function EnglishHubPage() {
                 Take a 10-minute test with 20 questions to accurately find your English level and get a personalized learning path
               </p>
               <Link href="/english/assessment">
-                <button className="bg-white text-[#4F9CF9] px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-all">
+                <button className="bg-white text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-all">
                   Start Assessment →
                 </button>
               </Link>
@@ -341,17 +341,17 @@ export default function EnglishHubPage() {
                       <PathIcon className="w-8 h-8" style={{ color: path.color }} />
                     </div>
                     <div className="flex-1 flex flex-col">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#4F9CF9] transition-colors min-h-[3.5rem]">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#4255FF] transition-colors min-h-[3.5rem]">
                         {path.name}
                       </h3>
                       <p className="text-sm text-slate-600 mb-3 min-h-[2.5rem]">
                         {path.description}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="px-3 py-1 bg-slate-100 text-[#3B7FD9] text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-slate-100 text-[#3242CC] text-xs font-medium rounded-full">
                           {getLevelBadge(path)}
                         </span>
-                        <span className="px-3 py-1 bg-slate-100 text-[#3B7FD9] text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-slate-100 text-[#3242CC] text-xs font-medium rounded-full">
                           {path.totalQuestions}+ questions
                         </span>
                         <span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
