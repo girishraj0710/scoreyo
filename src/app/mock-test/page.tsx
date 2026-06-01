@@ -413,7 +413,7 @@ export default function MockTestPage() {
               e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
             <div className="flex items-center gap-3 mb-2">
-              {exam && <ColorfulExamIcon examId={exam.id} size={48} className="text-white" />}
+              {exam && <ColorfulExamIcon examId={exam.id} size={64} className="text-white" />}
               <h1 className="text-2xl font-bold">{examName}</h1>
             </div>
             <p className="text-indigo-100">
@@ -1128,10 +1128,10 @@ export default function MockTestPage() {
               >
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <ColorfulExamIcon
                       examId={examId}
-                      size={56}
+                      size={64}
                     />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -1188,10 +1188,10 @@ export default function MockTestPage() {
               return (
                 <div key={h.id} className="bg-white rounded-xl p-4 border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center">
+                    <div className="w-14 h-14 flex items-center justify-center">
                       <ColorfulExamIcon
                         examId={h.exam_id}
-                        size={48}
+                        size={56}
                       />
                     </div>
                     <div>
@@ -1218,8 +1218,8 @@ export default function MockTestPage() {
             {/* Header */}
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 flex items-center justify-center">
-                  <ColorfulExamIcon examId={selectedExam} size={56} />
+                <div className="w-16 h-16 flex items-center justify-center">
+                  <ColorfulExamIcon examId={selectedExam} size={64} />
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-slate-800">{groupedConfigs[selectedExam][0].examName}</h2>

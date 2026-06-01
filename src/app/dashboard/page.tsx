@@ -249,10 +249,10 @@ export default function DashboardPage() {
                     : 0;
                 return (
                   <div key={eb.exam_id} className="flex items-center gap-3">
-                    <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                    <div className="w-16 h-16 flex items-center justify-center shrink-0">
                       <ColorfulExamIcon
                         examId={eb.exam_id}
-                        size={44}
+                        size={56}
                       />
                     </div>
                     <div className="flex-1 min-w-0">

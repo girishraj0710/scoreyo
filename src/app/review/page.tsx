@@ -70,7 +70,7 @@ export default function ReviewPage() {
             <div className="flex items-center gap-2 mb-1">
               <ColorfulExamIcon
                 examId={topic.exam_id}
-                size={28}
+                size={40}
               />
               <span className="text-sm font-medium text-[#4255FF]">{exam?.name || topic.exam_id}</span>
             </div>

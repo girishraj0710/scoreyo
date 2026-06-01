@@ -120,10 +120,10 @@ export default function LeaderboardPage() {
                 const accuracy = Math.round(pb.best_accuracy);
                 return (
                   <div key={pb.exam_id} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
-                    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 flex items-center justify-center shrink-0">
                       <ColorfulExamIcon
                         examId={pb.exam_id}
-                        size={32}
+                        size={48}
                       />
                     </div>
                     <div className="flex-1 min-w-0">
