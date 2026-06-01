@@ -14,7 +14,8 @@ import {
   ChevronRight,
   User,
   ExternalLink,
-  Calendar
+  Calendar,
+  X
 } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { getUpcomingExams } from "@/lib/exam-calendar";
@@ -47,6 +48,9 @@ export function LandingPageV2() {
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [scrollY, setScrollY] = useState(0);
   const [reviewsPage, setReviewsPage] = useState(0);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showRefundModal, setShowRefundModal] = useState(false);
 
   // Search logic
   const searchResults = useMemo(() => {
@@ -915,19 +919,19 @@ export function LandingPageV2() {
               <h4 className="font-semibold mb-4 text-slate-900">Legal</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="/privacy" className="text-slate-600 hover:text-slate-900 transition-colors">
+                  <button onClick={() => setShowPrivacyModal(true)} className="text-slate-600 hover:text-slate-900 transition-colors text-left">
                     Privacy Policy
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="/terms" className="text-slate-600 hover:text-slate-900 transition-colors">
+                  <button onClick={() => setShowTermsModal(true)} className="text-slate-600 hover:text-slate-900 transition-colors text-left">
                     Terms & Conditions
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="/refund" className="text-slate-600 hover:text-slate-900 transition-colors">
+                  <button onClick={() => setShowRefundModal(true)} className="text-slate-600 hover:text-slate-900 transition-colors text-left">
                     Refund Policy
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -958,6 +962,57 @@ export function LandingPageV2() {
           </div>
         </div>
       </footer>
+
+      {/* Privacy Policy Modal */}
+      {showPrivacyModal && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowPrivacyModal(false)}>
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-slate-900">Privacy Policy</h2>
+              <button onClick={() => setShowPrivacyModal(false)} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                <X className="w-6 h-6 text-slate-600" />
+              </button>
+            </div>
+            <div className="overflow-y-auto p-6 max-h-[calc(85vh-80px)]">
+              <iframe src="/privacy" className="w-full h-[600px] border-0" title="Privacy Policy" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Terms & Conditions Modal */}
+      {showTermsModal && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowTermsModal(false)}>
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-slate-900">Terms & Conditions</h2>
+              <button onClick={() => setShowTermsModal(false)} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                <X className="w-6 h-6 text-slate-600" />
+              </button>
+            </div>
+            <div className="overflow-y-auto p-6 max-h-[calc(85vh-80px)]">
+              <iframe src="/terms" className="w-full h-[600px] border-0" title="Terms & Conditions" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Refund Policy Modal */}
+      {showRefundModal && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowRefundModal(false)}>
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-slate-900">Refund Policy</h2>
+              <button onClick={() => setShowRefundModal(false)} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                <X className="w-6 h-6 text-slate-600" />
+              </button>
+            </div>
+            <div className="overflow-y-auto p-6 max-h-[calc(85vh-80px)]">
+              <iframe src="/refund" className="w-full h-[600px] border-0" title="Refund Policy" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
