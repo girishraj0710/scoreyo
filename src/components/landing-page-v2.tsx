@@ -700,8 +700,8 @@ export function LandingPageV2() {
           </div>
 
           {/* Infinite Scrolling Marquee - Edge to Edge */}
-          <div className="relative w-screen ml-[calc(-50vw+50%)] overflow-hidden">
-            <div className="flex animate-marquee-fast gap-6 hover:pause-animation">
+          <div className="relative w-screen ml-[calc(-50vw+50%)] overflow-hidden group">
+            <div className="flex animate-marquee-fast gap-6 group-hover:pause-marquee">
               {/* First set of exams */}
               {getUpcomingExams(15).map((exam, idx) => (
                 <div
@@ -807,7 +807,7 @@ export function LandingPageV2() {
             .animate-marquee-fast {
               animation: marquee 30s linear infinite;
             }
-            .pause-animation:hover {
+            .group:hover .group-hover\:pause-marquee {
               animation-play-state: paused;
             }
           `}</style>
