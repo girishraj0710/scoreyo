@@ -365,10 +365,10 @@ function HomePageContent() {
                 }}
               className="card-hover p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-slate-300"
               >
-                <div className="flex justify-center mb-1">
+                <div className="flex justify-center mb-2">
                   <ColorfulCategoryIcon
                     categoryId={category.id}
-                    size={32}
+                    size={48}
                   />
                 </div>
                 <div className="text-sm font-medium text-slate-700">
