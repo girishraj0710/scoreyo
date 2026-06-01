@@ -147,7 +147,7 @@ export default function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Version Badge - Remove after testing */}
-      <div className="fixed top-4 right-4 z-50 bg-#00A1E0 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg">
+      <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#00A1E0' }}>
         SF-BLUE v17:05
       </div>
 

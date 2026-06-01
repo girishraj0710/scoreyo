@@ -28,6 +28,7 @@ function shuffle<T>(array: T[]): T[] {
 // POST - Generate level quiz (with retry consistency)
 export async function POST(request: NextRequest) {
   try {
+    console.log('[Level Quiz] Starting request');
     const body = await request.json();
     const {
       examId,
@@ -37,6 +38,8 @@ export async function POST(request: NextRequest) {
       numberOfQuestions = 10,
       difficulty = "mixed",
     } = body;
+
+    console.log('[Level Quiz] Request body:', { examId, subjectId, levelNumber, topic });
 
     if (!examId || !subjectId || !levelNumber) {
       return NextResponse.json(
@@ -51,34 +54,56 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    console.log('[Level Quiz] Checking user quota');
+
     // Check quiz limit for free users
-    if (!(await isProUser(userId))) {
-      const todayCount = await getTodayQuizCount(userId);
-      if (todayCount >= FREE_QUIZ_LIMIT) {
-        return NextResponse.json(
-          {
-            error: "Daily quiz limit reached",
-            limitReached: true,
-            todayCount,
-            limit: FREE_QUIZ_LIMIT,
-          },
-          { status: 403 }
-        );
+    try {
+      const isPro = await isProUser(userId);
+      console.log('[Level Quiz] User is pro:', isPro);
+
+      if (!isPro) {
+        const todayCount = await getTodayQuizCount(userId);
+        console.log('[Level Quiz] Today quiz count:', todayCount);
+
+        if (todayCount >= FREE_QUIZ_LIMIT) {
+          return NextResponse.json(
+            {
+              error: "Daily quiz limit reached",
+              limitReached: true,
+              todayCount,
+              limit: FREE_QUIZ_LIMIT,
+            },
+            { status: 403 }
+          );
+        }
       }
+    } catch (quotaError) {
+      console.error('[Level Quiz] Quota check failed:', quotaError);
+      // Continue anyway - don't block on quota check
     }
 
+    console.log('[Level Quiz] Getting exam and subject info');
     const exam = getExamById(examId);
     const subject = getSubjectById(examId, subjectId);
 
     if (!exam || !subject) {
+      console.error('[Level Quiz] Invalid exam or subject');
       return NextResponse.json(
         { error: "Invalid exam or subject" },
         { status: 400 }
       );
     }
 
+    console.log('[Level Quiz] Checking level cache');
     // ── Check if this level has cached questions (for retry consistency) ──
-    const levelCache = await getLevelQuestionCache(userId, examId, subjectId, levelNumber);
+    let levelCache;
+    try {
+      levelCache = await getLevelQuestionCache(userId, examId, subjectId, levelNumber);
+      console.log('[Level Quiz] Level cache result:', levelCache ? 'found' : 'not found');
+    } catch (cacheError) {
+      console.error('[Level Quiz] Cache check failed:', cacheError);
+      levelCache = null;
+    }
 
     if (levelCache && !levelCache.isPassed) {
       // User is retrying a failed level - return THE SAME questions
@@ -158,7 +183,10 @@ export async function POST(request: NextRequest) {
       aiCount = aiQuestions.length;
 
       if (aiQuestions.length > 0 && !aiQuestions[0].question.includes("[Service Unavailable]")) {
-        saveVerifiedQuestions(examId, subjectId, topic, aiQuestions);
+        // Save in background (don't await to avoid blocking response)
+        saveVerifiedQuestions(examId, subjectId, topic, aiQuestions).catch(err => {
+          console.error('Background save failed:', err);
+        });
       }
     }
 
@@ -188,8 +216,15 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Level quiz generation error:", error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
+
     return NextResponse.json(
-      { error: "Failed to generate level quiz" },
+      {
+        error: "Failed to generate level quiz",
+        message: errorMessage,
+        details: process.env.NODE_ENV === 'development' ? errorStack : undefined
+      },
       { status: 500 }
     );
   }
