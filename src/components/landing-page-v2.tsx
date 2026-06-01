@@ -384,7 +384,7 @@ export function LandingPageV2() {
           </h1>
 
           <p className="text-base md:text-lg text-slate-600 mb-3 max-w-3xl mx-auto leading-relaxed">
-            Master JEE, NEET, UPSC, SSC, Banking & 50+ competitive exams with AI-powered practice, smart explanations, and personalized learning.
+            Master JEE, NEET, UPSC, SSC, Banking & 60+ competitive exams with AI-powered practice, smart explanations, and personalized learning.
           </p>
 
           {/* CTA */}
@@ -884,7 +884,7 @@ export function LandingPageV2() {
             <div>
               <h3 className="text-2xl font-bold mb-3 text-slate-900">PrepGenie</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Smart exam preparation for 20+ Indian competitive exams with AI-powered learning.
+                Smart exam preparation for 60+ Indian competitive exams with AI-powered learning.
               </p>
             </div>
 
