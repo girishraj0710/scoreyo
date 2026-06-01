@@ -703,7 +703,7 @@ export function LandingPageV2() {
 
             {/* App Store Badges */}
             <div className="mt-8">
-              <p className="text-white text-sm font-semibold mb-4">Learn anytime, anywhere</p>
+              <p className="text-white text-lg font-bold mb-5">Learn anytime, anywhere</p>
               <div className="flex items-center justify-center gap-4">
                 {/* Google Play Store */}
                 <button className="bg-black rounded-lg px-5 py-3 flex items-center gap-3 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
@@ -730,7 +730,6 @@ export function LandingPageV2() {
                   </div>
                 </button>
               </div>
-              <p className="text-blue-100 text-xs mt-3 italic">Coming soon</p>
             </div>
           </div>
         </section>
