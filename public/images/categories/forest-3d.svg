@@ -1,0 +1,70 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="22" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Tree 1 (left) - Pine tree -->
+  <g transform="translate(18, 20)">
+    <!-- Trunk -->
+    <rect x="-2" y="20" width="4" height="12" fill="#8D6E63"/>
+
+    <!-- Foliage layers -->
+    <path d="M 0 0 L -10 10 L -6 10 L -12 18 L -6 18 L -10 24 L 10 24 L 6 18 L 12 18 L 6 10 L 10 10 Z" fill="url(#tree-gradient1)"/>
+
+    <!-- Highlights -->
+    <path d="M -4 12 L 0 8 L 4 12" fill="url(#highlight1)" opacity="0.4"/>
+  </g>
+
+  <!-- Tree 2 (center) - Taller pine -->
+  <g transform="translate(32, 14)">
+    <!-- Trunk -->
+    <rect x="-2.5" y="24" width="5" height="14" fill="#8D6E63"/>
+
+    <!-- Foliage layers -->
+    <path d="M 0 0 L -12 12 L -8 12 L -14 20 L -8 20 L -12 28 L 12 28 L 8 20 L 14 20 L 8 12 L 12 12 Z" fill="url(#tree-gradient2)"/>
+
+    <!-- Highlights -->
+    <path d="M -5 14 L 0 10 L 5 14" fill="url(#highlight2)" opacity="0.4"/>
+  </g>
+
+  <!-- Tree 3 (right) - Medium pine -->
+  <g transform="translate(46, 22)">
+    <!-- Trunk -->
+    <rect x="-2" y="18" width="4" height="10" fill="#8D6E63"/>
+
+    <!-- Foliage layers -->
+    <path d="M 0 0 L -9 9 L -6 9 L -11 16 L -6 16 L -9 22 L 9 22 L 6 16 L 11 16 L 6 9 L 9 9 Z" fill="url(#tree-gradient3)"/>
+
+    <!-- Highlights -->
+    <path d="M -3 10 L 0 7 L 3 10" fill="url(#highlight3)" opacity="0.4"/>
+  </g>
+
+  <!-- Forest floor/grass -->
+  <ellipse cx="32" cy="54" rx="26" ry="4" fill="#27AE60" opacity="0.3"/>
+
+  <defs>
+    <linearGradient id="tree-gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tree-gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ECC71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tree-gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#229954;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D8348;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="highlight1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A9DFBF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="highlight2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A9DFBF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ECC71;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="highlight3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A9DFBF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+</svg>

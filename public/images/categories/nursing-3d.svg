@@ -1,0 +1,57 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Nurse cap base -->
+  <ellipse cx="32" cy="28" rx="16" ry="4" fill="url(#cap-gradient)"/>
+
+  <!-- Nurse cap top -->
+  <path d="M 16 28 Q 16 20 32 18 Q 48 20 48 28 Z" fill="url(#cap-top-gradient)"/>
+
+  <!-- Red cross on cap -->
+  <g transform="translate(32, 24)">
+    <rect x="-1" y="-4" width="2" height="8" fill="#E74C3C"/>
+    <rect x="-4" y="-1" width="8" height="2" fill="#E74C3C"/>
+  </g>
+
+  <!-- Medical kit -->
+  <g transform="translate(32, 42)">
+    <!-- Kit body -->
+    <rect x="-12" y="0" width="24" height="14" rx="2" fill="url(#kit-gradient)"/>
+
+    <!-- Handle -->
+    <path d="M -6 0 Q -6 -4 0 -4 Q 6 -4 6 0" stroke="#C0392B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- White cross -->
+    <rect x="-1.5" y="3" width="3" height="8" fill="white"/>
+    <rect x="-6" y="5.5" width="12" height="3" fill="white"/>
+
+    <!-- Clasps -->
+    <circle cx="-8" cy="7" r="1.5" fill="#95A5A6"/>
+    <circle cx="8" cy="7" r="1.5" fill="#95A5A6"/>
+  </g>
+
+  <!-- Heart decoration -->
+  <g transform="translate(14, 36) scale(0.6)">
+    <path d="M 0 2 Q -3 -2 -6 0 Q -8 2 -6 6 L 0 10 L 6 6 Q 8 2 6 0 Q 3 -2 0 2 Z" fill="#E74C3C"/>
+  </g>
+
+  <g transform="translate(50, 38) scale(0.6)">
+    <path d="M 0 2 Q -3 -2 -6 0 Q -8 2 -6 6 L 0 10 L 6 6 Q 8 2 6 0 Q 3 -2 0 2 Z" fill="#E74C3C"/>
+  </g>
+
+  <defs>
+    <linearGradient id="cap-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ECF0F1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cap-top-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECF0F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BDC3C7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="kit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

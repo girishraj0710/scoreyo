@@ -1,0 +1,52 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="20" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Police car body -->
+  <rect x="14" y="32" width="36" height="14" rx="2" fill="url(#car-gradient)"/>
+
+  <!-- Windshield -->
+  <path d="M 20 32 L 24 24 L 40 24 L 44 32 Z" fill="url(#windshield-gradient)"/>
+
+  <!-- Roof light bar -->
+  <rect x="26" y="18" width="12" height="4" rx="2" fill="#2C3E50"/>
+  <ellipse cx="29" cy="20" rx="2" ry="1.5" fill="#E74C3C"/>
+  <ellipse cx="35" cy="20" rx="2" ry="1.5" fill="#3498DB"/>
+
+  <!-- Windows -->
+  <path d="M 21 32 L 24.5 25 L 30 25 L 30 32 Z" fill="#5DADE2" opacity="0.6"/>
+  <path d="M 43 32 L 39.5 25 L 34 25 L 34 32 Z" fill="#5DADE2" opacity="0.6"/>
+
+  <!-- Wheels -->
+  <g>
+    <circle cx="22" cy="48" r="5" fill="#34495E"/>
+    <circle cx="22" cy="48" r="3" fill="#7F8C8D"/>
+    <circle cx="22" cy="48" r="1.5" fill="#2C3E50"/>
+
+    <circle cx="42" cy="48" r="5" fill="#34495E"/>
+    <circle cx="42" cy="48" r="3" fill="#7F8C8D"/>
+    <circle cx="42" cy="48" r="1.5" fill="#2C3E50"/>
+  </g>
+
+  <!-- Headlights -->
+  <circle cx="16" cy="36" r="2" fill="#F39C12" opacity="0.8"/>
+  <circle cx="48" cy="36" r="2" fill="#F39C12" opacity="0.8"/>
+
+  <!-- Door line -->
+  <line x1="32" y1="32" x2="32" y2="46" stroke="#1F3A93" stroke-width="1"/>
+
+  <!-- Badge/POLICE text -->
+  <ellipse cx="32" cy="38" rx="6" ry="4" fill="white" opacity="0.9"/>
+  <text x="32" y="39.5" text-anchor="middle" font-size="3" fill="#2874A6" font-weight="bold">POLICE</text>
+
+  <defs>
+    <linearGradient id="car-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2874A6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="windshield-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#85C1E9;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#5DADE2;stop-opacity:0.4" />
+    </linearGradient>
+  </defs>
+</svg>

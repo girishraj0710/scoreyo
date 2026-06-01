@@ -1,0 +1,50 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Paw print pad -->
+  <ellipse cx="32" cy="36" rx="10" ry="12" fill="url(#paw-gradient)"/>
+
+  <!-- Toe beans -->
+  <g>
+    <!-- Top left toe -->
+    <ellipse cx="22" cy="22" rx="4" ry="5" fill="url(#toe-gradient)" transform="rotate(-20 22 22)"/>
+
+    <!-- Top center-left toe -->
+    <ellipse cx="28" cy="18" rx="4" ry="5" fill="url(#toe-gradient)" transform="rotate(-5 28 18)"/>
+
+    <!-- Top center-right toe -->
+    <ellipse cx="36" cy="18" rx="4" ry="5" fill="url(#toe-gradient)" transform="rotate(5 36 18)"/>
+
+    <!-- Top right toe -->
+    <ellipse cx="42" cy="22" rx="4" ry="5" fill="url(#toe-gradient)" transform="rotate(20 42 22)"/>
+  </g>
+
+  <!-- Highlights -->
+  <ellipse cx="28" cy="32" rx="4" ry="5" fill="white" opacity="0.2"/>
+  <ellipse cx="20" cy="21" rx="2" ry="2.5" fill="white" opacity="0.25"/>
+  <ellipse cx="26" cy="17" rx="2" ry="2.5" fill="white" opacity="0.25"/>
+  <ellipse cx="34" cy="17" rx="2" ry="2.5" fill="white" opacity="0.25"/>
+  <ellipse cx="40" cy="21" rx="2" ry="2.5" fill="white" opacity="0.25"/>
+
+  <!-- Stethoscope overlay (veterinary medical symbol) -->
+  <g opacity="0.9">
+    <path d="M 16 44 Q 16 52 24 52" stroke="#E74C3C" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M 48 44 Q 48 52 40 52" stroke="#E74C3C" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="16" cy="42" r="2.5" fill="#C0392B"/>
+    <circle cx="48" cy="42" r="2.5" fill="#C0392B"/>
+    <circle cx="32" cy="52" r="4" fill="#E74C3C"/>
+    <circle cx="32" cy="52" r="2.5" fill="#C0392B"/>
+  </g>
+
+  <defs>
+    <linearGradient id="paw-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8E44AD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7D3C98;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="toe-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

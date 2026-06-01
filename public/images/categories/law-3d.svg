@@ -1,0 +1,50 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Balance scale pole -->
+  <rect x="30" y="15" width="4" height="35" fill="url(#pole-gradient)" rx="2"/>
+
+  <!-- Base -->
+  <ellipse cx="32" cy="52" rx="12" ry="3" fill="#34495E"/>
+  <ellipse cx="32" cy="51" rx="12" ry="3" fill="url(#base-gradient)"/>
+
+  <!-- Cross bar -->
+  <rect x="14" y="18" width="36" height="3" fill="url(#bar-gradient)" rx="1.5"/>
+
+  <!-- Left pan -->
+  <line x1="18" y1="21" x2="16" y2="28" stroke="#D4AF37" stroke-width="1.5"/>
+  <line x1="26" y1="21" x2="28" y2="28" stroke="#D4AF37" stroke-width="1.5"/>
+  <ellipse cx="22" cy="30" rx="8" ry="2" fill="url(#pan-gradient)"/>
+  <path d="M 14 30 Q 14 32 22 32 Q 30 32 30 30" fill="#C9A02A"/>
+
+  <!-- Right pan -->
+  <line x1="38" y1="21" x2="36" y2="28" stroke="#D4AF37" stroke-width="1.5"/>
+  <line x1="46" y1="21" x2="48" y2="28" stroke="#D4AF37" stroke-width="1.5"/>
+  <ellipse cx="42" cy="30" rx="8" ry="2" fill="url(#pan-gradient)"/>
+  <path d="M 34 30 Q 34 32 42 32 Q 50 32 50 30" fill="#C9A02A"/>
+
+  <!-- Center ornament -->
+  <circle cx="32" cy="16" r="3" fill="#D4AF37"/>
+  <circle cx="32" cy="16" r="2" fill="#F1C40F"/>
+
+  <defs>
+    <linearGradient id="pole-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F1C40F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="base-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F8C8D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D6D7E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F1C40F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F1C40F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pan-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F1C40F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

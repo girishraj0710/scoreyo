@@ -1,0 +1,37 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Stethoscope tube -->
+  <path d="M 20 25 Q 20 40 32 40" stroke="url(#steth-gradient)" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M 44 25 Q 44 40 32 40" stroke="url(#steth-gradient)" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Earpieces -->
+  <circle cx="20" cy="20" r="5" fill="url(#ear-gradient)"/>
+  <circle cx="44" cy="20" r="5" fill="url(#ear-gradient)"/>
+
+  <!-- Chest piece -->
+  <circle cx="32" cy="42" r="10" fill="url(#chest-gradient)"/>
+  <circle cx="32" cy="42" r="7" fill="#C0392B"/>
+  <circle cx="32" cy="42" r="4" fill="#E74C3C"/>
+
+  <!-- Highlights -->
+  <circle cx="30" cy="40" r="2" fill="white" opacity="0.4"/>
+  <circle cx="19" cy="19" r="2" fill="white" opacity="0.3"/>
+  <circle cx="43" cy="19" r="2" fill="white" opacity="0.3"/>
+
+  <defs>
+    <linearGradient id="steth-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ear-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC7063;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E74C3C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chest-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

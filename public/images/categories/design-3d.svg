@@ -1,0 +1,51 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Palette -->
+  <ellipse cx="28" cy="32" rx="20" ry="16" fill="url(#palette-gradient)"/>
+
+  <!-- Thumb hole -->
+  <ellipse cx="38" cy="38" rx="4" ry="5" fill="#34495E"/>
+  <ellipse cx="38" cy="37" rx="3" ry="4" fill="#2C3E50"/>
+
+  <!-- Paint dabs -->
+  <circle cx="20" cy="24" r="3.5" fill="#E74C3C"/>
+  <circle cx="20" cy="24" r="2.5" fill="#C0392B"/>
+
+  <circle cx="28" cy="20" r="3.5" fill="#F39C12"/>
+  <circle cx="28" cy="20" r="2.5" fill="#D68910"/>
+
+  <circle cx="36" cy="22" r="3.5" fill="#F1C40F"/>
+  <circle cx="36" cy="22" r="2.5" fill="#D4AC0D"/>
+
+  <circle cx="18" cy="34" r="3.5" fill="#3498DB"/>
+  <circle cx="18" cy="34" r="2.5" fill="#2874A6"/>
+
+  <circle cx="26" cy="38" r="3.5" fill="#9B59B6"/>
+  <circle cx="26" cy="38" r="2.5" fill="#7D3C98"/>
+
+  <!-- Brush -->
+  <g transform="translate(44, 18) rotate(45)">
+    <!-- Handle -->
+    <rect x="0" y="0" width="3" height="16" rx="1.5" fill="url(#brush-handle)"/>
+    <!-- Ferrule -->
+    <rect x="-0.5" y="14" width="4" height="4" fill="#95A5A6"/>
+    <!-- Bristles -->
+    <path d="M 0.5 18 L 0 24 L 1.5 23 L 3 24 L 2.5 18 Z" fill="#34495E"/>
+  </g>
+
+  <!-- Highlights on palette -->
+  <ellipse cx="24" cy="26" rx="8" ry="4" fill="white" opacity="0.15"/>
+
+  <defs>
+    <linearGradient id="palette-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECF0F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BDC3C7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="brush-handle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

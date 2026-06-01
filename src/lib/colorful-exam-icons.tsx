@@ -547,11 +547,64 @@ export const ColorfulExamIcon: React.FC<ColorfulExamIconProps> = ({
   return <Icon icon={iconName} width={size} height={size} className={className} />;
 };
 
+// Premium 3D illustrations for categories
+const PREMIUM_3D_CATEGORIES: Record<string, string> = {
+  'engineering': '/images/categories/engineering-3d.svg',
+  'medical': '/images/categories/medical-3d.svg',
+  'civil-services': '/images/categories/civil-services-3d.svg',
+  'government': '/images/categories/civil-services-3d.svg',
+  'banking': '/images/categories/banking-3d.svg',
+  'banking-ssc': '/images/categories/banking-3d.svg',
+  'law': '/images/categories/law-3d.svg',
+  'mba': '/images/categories/mba-3d.svg',
+  'management': '/images/categories/mba-3d.svg',
+  'defence': '/images/categories/defence-3d.svg',
+  'defense': '/images/categories/defence-3d.svg',
+  'teaching': '/images/categories/teaching-3d.svg',
+  'more-teaching': '/images/categories/state-teaching-3d.svg',
+  'design': '/images/categories/design-3d.svg',
+  'railways': '/images/categories/railways-3d.svg',
+  'more-railways': '/images/categories/railways-3d.svg',
+  'insurance': '/images/categories/insurance-3d.svg',
+  'police': '/images/categories/police-3d.svg',
+  'state': '/images/categories/state-psc-3d.svg',
+  'state-psc': '/images/categories/state-psc-3d.svg',
+  'more-state-exams': '/images/categories/state-psc-3d.svg',
+  'hotel-management': '/images/categories/hotel-management-3d.svg',
+  'architecture': '/images/categories/architecture-3d.svg',
+  'commerce': '/images/categories/commerce-3d.svg',
+  'agriculture': '/images/categories/agriculture-3d.svg',
+  'veterinary': '/images/categories/veterinary-3d.svg',
+  'pharmacy': '/images/categories/pharmacy-3d.svg',
+  'nursing': '/images/categories/nursing-3d.svg',
+  'more-defense': '/images/categories/defence-3d.svg',
+  'forest': '/images/categories/forest-3d.svg',
+  'judiciary': '/images/categories/judiciary-3d.svg',
+  'judicial-services': '/images/categories/judiciary-3d.svg',
+};
+
 export const ColorfulCategoryIcon: React.FC<ColorfulCategoryIconProps> = ({
   categoryId,
   size = 24,
   className = ''
 }) => {
+  // Check if this category has a premium 3D illustration
+  const premiumIllustration = PREMIUM_3D_CATEGORIES[categoryId];
+
+  if (premiumIllustration) {
+    return (
+      <img
+        src={premiumIllustration}
+        alt={categoryId}
+        width={size}
+        height={size}
+        className={className}
+        style={{ objectFit: 'contain' }}
+      />
+    );
+  }
+
+  // Fall back to emoji icons for other categories
   const iconName = getColorfulCategoryIcon(categoryId);
   return <Icon icon={iconName} width={size} height={size} className={className} />;
 };

@@ -1,0 +1,46 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="20" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Blackboard/book base -->
+  <rect x="12" y="18" width="40" height="30" rx="2" fill="url(#board-gradient)"/>
+  <rect x="14" y="20" width="36" height="26" rx="1" fill="#1C2833"/>
+
+  <!-- Teacher stick/pointer -->
+  <line x1="48" y1="44" x2="56" y2="50" stroke="#8D6E63" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="57" cy="51" r="1.5" fill="#6D4C41"/>
+
+  <!-- Writing on board - ABC -->
+  <text x="20" y="30" font-family="Arial" font-size="8" font-weight="bold" fill="#FFFFFF">ABC</text>
+
+  <!-- Apple -->
+  <circle cx="24" cy="40" r="4" fill="url(#apple-gradient)"/>
+  <path d="M 24 36 Q 25 34 26 35" stroke="#8D6E63" stroke-width="1" fill="none"/>
+  <ellipse cx="25.5" cy="38" rx="1" ry="1.5" fill="white" opacity="0.3"/>
+
+  <!-- Book -->
+  <g transform="translate(36, 38)">
+    <rect x="0" y="0" width="10" height="8" rx="1" fill="url(#book-gradient)"/>
+    <line x1="5" y1="0" x2="5" y2="8" stroke="#C0392B" stroke-width="0.5"/>
+    <rect x="0.5" y="0.5" width="9" height="1" fill="white" opacity="0.2"/>
+  </g>
+
+  <!-- Stand legs -->
+  <line x1="18" y1="48" x2="14" y2="54" stroke="#7F8C8D" stroke-width="2"/>
+  <line x1="46" y1="48" x2="50" y2="54" stroke="#7F8C8D" stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="board-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="apple-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

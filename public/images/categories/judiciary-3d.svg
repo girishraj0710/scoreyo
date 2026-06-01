@@ -1,0 +1,62 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Gavel handle -->
+  <rect x="38" y="38" width="18" height="4" rx="2" fill="url(#handle-gradient)" transform="rotate(45 38 38)"/>
+
+  <!-- Gavel head -->
+  <g transform="translate(26, 26) rotate(-45)">
+    <rect x="-8" y="-5" width="16" height="10" rx="2" fill="url(#gavel-gradient)"/>
+    <!-- Metal band -->
+    <rect x="-8" y="-1" width="16" height="2" fill="#95A5A6"/>
+    <rect x="-8" y="-1" width="16" height="1" fill="#BDC3C7"/>
+  </g>
+
+  <!-- Sound block base -->
+  <g transform="translate(32, 46)">
+    <!-- Base -->
+    <ellipse cx="0" cy="6" rx="14" ry="3" fill="#7F8C8D"/>
+
+    <!-- Block layers (showing wood grain) -->
+    <rect x="-12" y="0" width="24" height="6" rx="1" fill="url(#block-gradient)"/>
+    <line x1="-10" y1="2" x2="10" y2="2" stroke="#A0826D" stroke-width="0.5" opacity="0.5"/>
+    <line x1="-10" y1="4" x2="10" y2="4" stroke="#A0826D" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- Top surface -->
+    <ellipse cx="0" cy="0" rx="12" ry="2.5" fill="#C19A6B"/>
+  </g>
+
+  <!-- Law book -->
+  <g transform="translate(48, 40)">
+    <rect x="0" y="0" width="10" height="14" rx="1" fill="url(#book-law-gradient)"/>
+    <!-- Spine -->
+    <rect x="0" y="0" width="2" height="14" fill="#5B2C6F"/>
+    <!-- Pages -->
+    <rect x="2" y="1" width="7" height="12" fill="#F8F9F9"/>
+    <line x1="3" y1="3" x2="8" y2="3" stroke="#BDC3C7" stroke-width="0.3"/>
+    <line x1="3" y1="5" x2="8" y2="5" stroke="#BDC3C7" stroke-width="0.3"/>
+    <line x1="3" y1="7" x2="8" y2="7" stroke="#BDC3C7" stroke-width="0.3"/>
+    <!-- Title -->
+    <text x="5" y="9" font-size="2.5" fill="#7D3C98" text-anchor="middle" font-weight="bold">LAW</text>
+  </g>
+
+  <defs>
+    <linearGradient id="handle-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8D6E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D4C41;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gavel-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0826D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8D6E63;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="block-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0826D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8D6E63;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="book-law-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8E44AD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7D3C98;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

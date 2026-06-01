@@ -1,0 +1,30 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="20" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Shield outline -->
+  <path d="M 32 10 L 48 18 L 48 32 Q 48 48 32 54 Q 16 48 16 32 L 16 18 Z" fill="url(#shield-gradient)"/>
+
+  <!-- Inner shield -->
+  <path d="M 32 14 L 44 20 L 44 32 Q 44 44 32 50 Q 20 44 20 32 L 20 20 Z" fill="url(#inner-gradient)"/>
+
+  <!-- Star emblem -->
+  <g transform="translate(32, 30)">
+    <path d="M 0 -8 L 2 -2 L 8 -2 L 3 2 L 5 8 L 0 4 L -5 8 L -3 2 L -8 -2 L -2 -2 Z" fill="#F1C40F"/>
+    <path d="M 0 -6 L 1.5 -1.5 L 6 -1.5 L 2.3 1.5 L 3.8 6 L 0 3 L -3.8 6 L -2.3 1.5 L -6 -1.5 L -1.5 -1.5 Z" fill="#F39C12"/>
+  </g>
+
+  <!-- Highlights -->
+  <path d="M 24 22 Q 26 20 32 18" stroke="white" stroke-width="2" opacity="0.3" fill="none"/>
+
+  <defs>
+    <linearGradient id="shield-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ECC71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="inner-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#229954;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
