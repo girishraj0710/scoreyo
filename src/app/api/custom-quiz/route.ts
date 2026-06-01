@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
-
-// File processing will be added after installing libraries
-// For now, we'll handle text extraction inline
+import pdf from "pdf-parse";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_TYPES = [
@@ -74,19 +72,16 @@ export async function POST(request: NextRequest) {
         // Text file - simple conversion
         extractedText = new TextDecoder().decode(uint8Array);
       } else if (file.type === 'application/pdf') {
-        // PDF - for now, return error asking for text
-        return NextResponse.json(
-          {
-            error: "PDF processing coming soon! For now, please copy-paste text or upload TXT file",
-            temporaryWorkaround: true
-          },
-          { status: 400 }
-        );
+        // PDF - extract text using pdf-parse
+        console.log('[Custom Quiz] Processing PDF file...');
+        const pdfData = await pdf(Buffer.from(uint8Array));
+        extractedText = pdfData.text;
+        console.log('[Custom Quiz] PDF text extracted:', extractedText.length, 'characters');
       } else {
         // DOCX/PPTX - for now, return error
         return NextResponse.json(
           {
-            error: "Document processing coming soon! For now, please copy-paste text or upload TXT file",
+            error: "DOCX/PPTX processing coming soon! For now, please use PDF or paste text",
             temporaryWorkaround: true
           },
           { status: 400 }
