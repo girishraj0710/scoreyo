@@ -1,5 +1,5 @@
 "use client";
-// v82 - Updated exam calendar with premium 3D icons and external links
+// v83 - Repositioned CTA with -mt-72 for zero gap between sections
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
