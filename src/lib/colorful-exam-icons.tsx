@@ -689,6 +689,9 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'rtet-hindi': '/images/subjects/hindi-3d.svg',
   'uptet-hindi': '/images/subjects/hindi-3d.svg',
   'dsssb-hindi': '/images/subjects/hindi-3d.svg',
+  'up-hindi': '/images/subjects/hindi-3d.svg',
+  'kvs-hindi': '/images/subjects/hindi-3d.svg',
+  'hindi-language': '/images/subjects/hindi-3d.svg',
 
   // Aptitude & Reasoning
   'reasoning': '/images/subjects/reasoning-3d.svg',
@@ -710,6 +713,10 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'ibps-quant': '/images/subjects/maths-3d.svg',
   'pa-quant': '/images/subjects/maths-3d.svg',
   'gds-maths': '/images/subjects/maths-3d.svg',
+  'up-numerical': '/images/subjects/maths-3d.svg',
+  'numerical-ability': '/images/subjects/maths-3d.svg',
+  'mental-ability': '/images/subjects/reasoning-3d.svg',
+  'up-reasoning': '/images/subjects/reasoning-3d.svg',
 
   // Social Sciences
   'history': '/images/subjects/history-3d.svg',
@@ -747,6 +754,9 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'iimc-ga': '/images/subjects/gk-3d.svg',
   'current-affairs': '/images/subjects/gk-3d.svg',
   'upsc-current': '/images/subjects/gk-3d.svg',
+  'dp-gk': '/images/subjects/gk-3d.svg',
+  'up-gk': '/images/subjects/gk-3d.svg',
+  'nursing-gk': '/images/subjects/gk-3d.svg',
 
   // Computer Science
   'computer': '/images/subjects/computer-3d.svg',
