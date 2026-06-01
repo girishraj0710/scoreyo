@@ -14,6 +14,11 @@ const RichExplanation = dynamic(
   { loading: () => <LoadingSpinner /> }
 );
 
+const AIClarificationChat = dynamic(
+  () => import("@/components/ai-clarification-chat").then((mod) => ({ default: mod.AIClarificationChat })),
+  { loading: () => <LoadingSpinner /> }
+);
+
 const WeaknessTrackerModal = dynamic(
   () => import("@/components/weakness-tracker-modal").then((mod) => ({ default: mod.WeaknessTrackerModal })),
   { loading: () => <LoadingSpinner /> }
@@ -1173,15 +1178,19 @@ function QuizContent() {
         </motion.div>
       )}
 
-      {/* Question Card */}
-      <motion.div
-        key={currentQuestion}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.3 }}
-        className="bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-lg border border-slate-200 overflow-hidden mb-2 shrink-0"
-      >
+      {/* Main Content Area - Two Column Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1">
+        {/* Left Column: Question & Explanation */}
+        <div className="flex flex-col">
+          {/* Question Card */}
+          <motion.div
+            key={currentQuestion}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-lg border border-slate-200 overflow-hidden mb-2 shrink-0"
+          >
         {/* Colored Header Strip */}
         <div className={`h-1 bg-gradient-to-r ${
           (question?.difficulty || "medium") === "easy"
@@ -1400,7 +1409,22 @@ function QuizContent() {
               {isSubmitting ? "Submitting..." : "Submit Quiz"}
             </motion.button>
           )}
+        </div>
+        </div>
+        {/* End Left Column */}
+
+        {/* Right Column: AI Chat Panel (Sticky) */}
+        {showExplanation && answers[currentQuestion] !== question.correctAnswer && answers[currentQuestion] !== null && (
+          <div className="lg:sticky lg:top-4 lg:self-start hidden lg:block">
+            <AIClarificationChat
+              questionText={typeof question.explanation === 'string' ? question.explanation : question.explanation}
+              correctAnswer={question.options[question.correctAnswer]}
+              userAnswer={question.options[answers[currentQuestion]!]}
+            />
+          </div>
+        )}
       </div>
+      {/* End Two Column Layout */}
 
       {/* Quick navigation dots - Always visible at bottom */}
       <div className="flex justify-center gap-1.5 mt-4 shrink-0 pb-4">
