@@ -114,7 +114,7 @@ export default function CustomQuizPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-3">
-            📚 Generate Quiz from Your Notes
+            Generate Quiz from Your Notes
           </h1>
           <p className="text-lg text-slate-600">
             Choose or upload materials to generate practice questions designed for you

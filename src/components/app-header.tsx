@@ -91,7 +91,7 @@ export function AppHeader() {
               Learn English
             </Link>
             <Link href="/custom-quiz" className={navLinkClass("/custom-quiz")}>
-              📚 Custom Quiz
+              Custom Quiz
             </Link>
             <Link href="/pricing" className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50" : "text-amber-600 hover:text-amber-700 hover:bg-amber-50"}`}>
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -169,7 +169,7 @@ export function AppHeader() {
                       Learn English
                     </Link>
                     <Link href="/custom-quiz" className={mobileNavLinkClass("/custom-quiz")} onClick={() => setShowMenu(false)}>
-                      📚 Custom Quiz
+                      Custom Quiz
                     </Link>
                     <Link href="/pricing" className={`block px-4 py-2 text-sm font-medium transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50 border-l-2 border-amber-600" : "text-amber-600 hover:bg-amber-50"}`} onClick={() => setShowMenu(false)}>{t("pricing")}</Link>
                   </div>
