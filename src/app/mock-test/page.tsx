@@ -842,20 +842,8 @@ export default function MockTestPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h1 className="text-5xl font-bold mb-4">
-              <span className="bg-clip-text text-transparent"
-            style={{
-              backgroundColor: '#4255FF',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3242CC';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4255FF';
-            }}>
-                Full-Length Mock Tests
-              </span>
+            <h1 className="text-5xl font-bold mb-4 text-slate-800">
+              Full-Length Mock Tests
             </h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
               Practice with realistic exam simulations for JEE, NEET, UPSC, Banking, SSC, and 55+ other competitive exams

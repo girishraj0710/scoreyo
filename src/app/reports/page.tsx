@@ -162,10 +162,8 @@ export default function ReportsPage() {
     <div className="max-w-5xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">
-          <span className="bg-[#4255FF] bg-clip-text text-transparent">
-            {t("reportsTitle")}
-          </span>
+        <h1 className="text-3xl font-bold mb-2 text-slate-800">
+          {t("reportsTitle")}
         </h1>
         <p className="text-slate-500">{t("reportsSubtitle")}</p>
       </div>
