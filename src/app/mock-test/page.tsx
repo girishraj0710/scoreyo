@@ -805,6 +805,11 @@ export default function MockTestPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
         <div className="max-w-6xl mx-auto px-4 py-16">
+          {/* Version Badge - Remove after testing */}
+          <div className="fixed top-4 right-4 z-50 bg-#00A1E0 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg">
+            SF-BLUE v17:05
+          </div>
+
           {/* Hero Section */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-#00A1E0 to-violet-500 rounded-2xl mb-6 shadow-lg">

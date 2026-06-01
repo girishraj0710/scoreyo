@@ -36,6 +36,11 @@ export function proxy(request: NextRequest) {
     "/api/reports",
     "/api/payment",
     "/api/subscription",
+    "/api/report",
+    "/api/weakness",
+    "/api/clarify",
+    "/api/dpp",
+    "/api/sprint",
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
   ];
