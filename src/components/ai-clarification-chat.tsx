@@ -32,7 +32,8 @@ export function AIClarificationChat({
     setUserQuestion("");
 
     // Add user message to chat
-    setMessages(prev => [...prev, { type: 'user', text: currentQuestion }]);
+    const updatedMessages = [...messages, { type: 'user', text: currentQuestion }];
+    setMessages(updatedMessages);
     setIsLoading(true);
 
     try {
@@ -43,7 +44,8 @@ export function AIClarificationChat({
           questionText,
           userQuestion: currentQuestion,
           correctAnswer,
-          wrongAnswer: userAnswer
+          wrongAnswer: userAnswer,
+          conversationHistory: updatedMessages // Send full conversation history
         })
       });
 

@@ -23,45 +23,41 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { questionText, userQuestion, correctAnswer, wrongAnswer } = await request.json();
+    const { questionText, userQuestion, correctAnswer, wrongAnswer, conversationHistory } = await request.json();
 
     if (!questionText || !userQuestion) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Check for exact match clarifications in database (avoid fuzzy matching)
-    const existingClarification = await queryOne(
-      `SELECT ai_response FROM clarifications
-       WHERE question_text = ? AND user_question = ?
-       AND helpful = true
-       LIMIT 1`,
-      [questionText, userQuestion.trim().toLowerCase()]
-    );
-
-    if (existingClarification) {
-      return NextResponse.json({
-        response: existingClarification.ai_response,
-        source: 'cached'
-      });
+    // Build conversation context from history
+    let conversationContext = '';
+    if (conversationHistory && conversationHistory.length > 1) {
+      // Exclude the last message (current question) as it's already in userQuestion
+      const previousMessages = conversationHistory.slice(0, -1);
+      conversationContext = '\n\nPREVIOUS CONVERSATION:\n' + previousMessages.map((msg: any) =>
+        `${msg.type === 'user' ? 'Student' : 'Tutor'}: ${msg.text}`
+      ).join('\n') + '\n';
     }
 
-    // Generate new clarification using fastest model
-    const prompt = `You are a patient, expert tutor helping a student who got a question wrong.
+    // Generate new clarification using fastest model with conversation context
+    const prompt = `You are a patient, expert tutor helping a student who got a quiz question wrong. You're having a conversation with them.
 
-QUESTION: ${questionText}
+QUIZ QUESTION CONTEXT:
+${questionText}
 
 CORRECT ANSWER: ${correctAnswer}
 STUDENT'S WRONG ANSWER: ${wrongAnswer}
-
-STUDENT'S CONFUSION:
+${conversationContext}
+STUDENT'S CURRENT QUESTION:
 "${userQuestion}"
 
 Your task:
-1. Answer their specific question in 2-3 simple sentences
+1. Answer their specific question naturally, considering the conversation history
 2. Be conversational and encouraging
-3. Focus on WHY, not just restating the answer
+3. Focus on WHY, not just restating facts
 4. Use analogies or examples if helpful
-5. Keep it concise - this is a quick clarification, not a lecture
+5. If they're asking a follow-up, reference your previous explanation
+6. Keep it concise but complete (2-4 sentences)
 
 Response:`;
 
@@ -79,12 +75,17 @@ Response:`;
         })
       );
 
-      // Store clarification for future reference (normalize user question)
-      await execute(
-        `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
-         VALUES (?, ?, ?, ?)`,
-        [userId, questionText, userQuestion.trim().toLowerCase(), result]
-      );
+      // Store clarification for analytics (optional - can be disabled for pure chat experience)
+      try {
+        await execute(
+          `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
+           VALUES (?, ?, ?, ?)`,
+          [userId, questionText, userQuestion.trim(), result]
+        );
+      } catch (dbError) {
+        // Non-critical - continue even if logging fails
+        console.error("[Clarify] Failed to log clarification:", dbError);
+      }
 
       return NextResponse.json({
         response: result,
