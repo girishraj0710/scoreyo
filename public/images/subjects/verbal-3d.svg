@@ -1,0 +1,92 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#6A1B9A"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#F5F5FF"/>
+
+  <!-- Speech bubbles and text on cover -->
+  <g transform="translate(32, 30)">
+    <!-- Large speech bubble -->
+    <ellipse cx="-2" cy="-4" rx="8" ry="6" fill="url(#bubble1-gradient)"/>
+    <path d="M -6 1 L -8 4 L -4 2 Z" fill="url(#bubble1-gradient)"/>
+
+    <!-- Text lines in speech bubble -->
+    <g opacity="0.7">
+      <line x1="-8" y1="-6" x2="4" y2="-6" stroke="#6A1B9A" stroke-width="0.5"/>
+      <line x1="-7" y1="-4" x2="3" y2="-4" stroke="#6A1B9A" stroke-width="0.5"/>
+      <line x1="-8" y1="-2" x2="2" y2="-2" stroke="#6A1B9A" stroke-width="0.5"/>
+      <line x1="-6" y1="0" x2="4" y2="0" stroke="#6A1B9A" stroke-width="0.5"/>
+    </g>
+
+    <!-- Smaller speech bubble -->
+    <ellipse cx="6" cy="2" rx="5" ry="4" fill="url(#bubble2-gradient)"/>
+    <path d="M 8 5 L 10 7 L 7 6 Z" fill="url(#bubble2-gradient)"/>
+
+    <!-- Text in small bubble -->
+    <g opacity="0.7">
+      <line x1="2" y1="1" x2="9" y2="1" stroke="#8E24AA" stroke-width="0.4"/>
+      <line x1="3" y1="3" x2="9" y2="3" stroke="#8E24AA" stroke-width="0.4"/>
+    </g>
+
+    <!-- Reading/comprehension icon -->
+    <g transform="translate(-6, 8)">
+      <!-- Book icon -->
+      <rect x="0" y="0" width="8" height="6" rx="0.5" fill="url(#mini-book-gradient)"/>
+      <line x1="4" y1="0" x2="4" y2="6" stroke="#6A1B9A" stroke-width="0.5"/>
+      <g opacity="0.5">
+        <line x1="1" y1="2" x2="3" y2="2" stroke="white" stroke-width="0.3"/>
+        <line x1="5" y1="2" x2="7" y2="2" stroke="white" stroke-width="0.3"/>
+        <line x1="1" y1="3.5" x2="3" y2="3.5" stroke="white" stroke-width="0.3"/>
+        <line x1="5" y1="3.5" x2="7" y2="3.5" stroke="white" stroke-width="0.3"/>
+      </g>
+    </g>
+
+    <!-- Quote marks -->
+    <g fill="#E1BEE7" opacity="0.6">
+      <text x="8" y="-8" font-family="serif" font-size="5" font-weight="bold">"</text>
+      <text x="-12" y="12" font-family="serif" font-size="5" font-weight="bold">"</text>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#8E24AA"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.8" fill="white" text-anchor="middle" font-weight="bold">VERBAL</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#E1BEE7" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#CE93D8" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#AB47BC"/>
+
+  <!-- Word decoration -->
+  <g opacity="0.15" font-family="Arial" font-size="2" fill="#6A1B9A" font-style="italic">
+    <text x="24" y="47">comprehend</text>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B1FA2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bubble1-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E1BEE7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bubble2-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CE93D8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mini-book-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#BA68C8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#AB47BC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

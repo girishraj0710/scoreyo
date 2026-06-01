@@ -1,0 +1,162 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#37474F"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECEFF1"/>
+
+  <!-- Lightbulb, gears, and innovation symbols on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Light bulb (innovation) -->
+    <g transform="translate(0, -6)">
+      <!-- Bulb glass -->
+      <ellipse cx="0" cy="-2" rx="4" ry="5" fill="url(#bulb-gradient)"/>
+
+      <!-- Filament -->
+      <g opacity="0.8">
+        <path d="M -1 -3 Q 0 -1 1 -3" stroke="#FF6F00" stroke-width="0.8" fill="none"/>
+        <line x1="0" y1="-1" x2="0" y2="0" stroke="#FF6F00" stroke-width="0.6"/>
+      </g>
+
+      <!-- Light rays -->
+      <g stroke="#FDD835" stroke-width="1" opacity="0.7">
+        <line x1="-5" y1="-4" x2="-6.5" y2="-5"/>
+        <line x1="5" y1="-4" x2="6.5" y2="-5"/>
+        <line x1="-4.5" y1="-1" x2="-6" y2="-1"/>
+        <line x1="4.5" y1="-1" x2="6" y2="-1"/>
+        <line x1="-4" y1="1" x2="-5.5" y2="2"/>
+        <line x1="4" y1="1" x2="5.5" y2="2"/>
+      </g>
+
+      <!-- Base/socket -->
+      <rect x="-2" y="2" width="4" height="1" fill="#B0BEC5"/>
+      <rect x="-2" y="3" width="4" height="0.5" fill="#90A4AE"/>
+      <rect x="-2" y="3.5" width="4" height="0.5" fill="#B0BEC5"/>
+      <rect x="-2" y="4" width="4" height="0.5" fill="#90A4AE"/>
+      <rect x="-1.5" y="4.5" width="3" height="1" fill="#78909C"/>
+    </g>
+
+    <!-- Gears (mechanism/technology) -->
+    <g transform="translate(-7, 4)">
+      <!-- Large gear -->
+      <circle cx="0" cy="0" r="4" fill="url(#gear-gradient)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#37474F"/>
+
+      <!-- Gear teeth -->
+      <g fill="#78909C">
+        <rect x="-0.5" y="-4.5" width="1" height="1"/>
+        <rect x="-0.5" y="3.5" width="1" height="1"/>
+        <rect x="-4.5" y="-0.5" width="1" height="1"/>
+        <rect x="3.5" y="-0.5" width="1" height="1"/>
+        <rect x="-3" y="-3" width="0.8" height="0.8" transform="rotate(45 -3 -3)"/>
+        <rect x="3" y="-3" width="0.8" height="0.8" transform="rotate(-45 3 -3)"/>
+        <rect x="-3" y="3" width="0.8" height="0.8" transform="rotate(-45 -3 3)"/>
+        <rect x="3" y="3" width="0.8" height="0.8" transform="rotate(45 3 3)"/>
+      </g>
+
+      <!-- Center hole -->
+      <circle cx="0" cy="0" r="1" fill="#263238"/>
+    </g>
+
+    <!-- Small gear -->
+    <g transform="translate(5, 7)">
+      <circle cx="0" cy="0" r="3" fill="url(#gear-gradient)"/>
+      <circle cx="0" cy="0" r="2" fill="#455A64"/>
+
+      <!-- Gear teeth -->
+      <g fill="#90A4AE">
+        <rect x="-0.4" y="-3.3" width="0.8" height="0.8"/>
+        <rect x="-0.4" y="2.5" width="0.8" height="0.8"/>
+        <rect x="-3.3" y="-0.4" width="0.8" height="0.8"/>
+        <rect x="2.5" y="-0.4" width="0.8" height="0.8"/>
+      </g>
+
+      <!-- Center hole -->
+      <circle cx="0" cy="0" r="0.7" fill="#263238"/>
+    </g>
+
+    <!-- Circuit/chip icon -->
+    <g transform="translate(7, -6)">
+      <!-- Chip body -->
+      <rect x="-2" y="-2" width="4" height="4" rx="0.3" fill="url(#chip-gradient)"/>
+
+      <!-- Circuit pins -->
+      <g fill="#B0BEC5">
+        <rect x="-3" y="-1.5" width="1" height="0.5"/>
+        <rect x="-3" y="-0.3" width="1" height="0.5"/>
+        <rect x="-3" y="0.8" width="1" height="0.5"/>
+
+        <rect x="2" y="-1.5" width="1" height="0.5"/>
+        <rect x="2" y="-0.3" width="1" height="0.5"/>
+        <rect x="2" y="0.8" width="1" height="0.5"/>
+      </g>
+
+      <!-- Circuit lines -->
+      <g stroke="#4FC3F7" stroke-width="0.3" opacity="0.7">
+        <line x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5"/>
+        <line x1="-1.5" y1="0" x2="1.5" y2="0"/>
+        <line x1="-1.5" y1="1.5" x2="1.5" y2="1.5"/>
+        <line x1="-1" y1="-1.5" x2="-1" y2="1.5"/>
+        <line x1="1" y1="-1.5" x2="1" y2="1.5"/>
+      </g>
+    </g>
+
+    <!-- Rocket (innovation/future) -->
+    <g transform="translate(-8, -8)" opacity="0.6">
+      <!-- Body -->
+      <path d="M 0 -3 L -1 1 L 1 1 Z" fill="url(#rocket-gradient)"/>
+      <circle cx="0" cy="-2" r="0.5" fill="#80DEEA"/>
+      <!-- Fins -->
+      <path d="M -1 0 L -2 2 L -1 1 Z" fill="#E91E63"/>
+      <path d="M 1 0 L 2 2 L 1 1 Z" fill="#E91E63"/>
+      <!-- Flame -->
+      <path d="M -0.5 1 L 0 3 L 0.5 1 Z" fill="#FF6F00" opacity="0.8"/>
+    </g>
+
+    <!-- Binary code -->
+    <g opacity="0.3" font-family="monospace" font-size="1.5" fill="#37474F">
+      <text x="-10" y="11">01</text>
+      <text x="8" y="11">10</text>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#546E7A"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.5" fill="white" text-anchor="middle" font-weight="bold">TECHNOLOGY</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#CFD8DC" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#B0BEC5" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#607D8B"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78909C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#607D8B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bulb-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF9C4;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#FFF59D;stop-opacity:0.7" />
+    </linearGradient>
+    <linearGradient id="gear-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#90A4AE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#78909C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chip-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#263238;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#37474F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rocket-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E88E5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

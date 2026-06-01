@@ -1,0 +1,112 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#1565C0"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#FAFAFA"/>
+
+  <!-- Handshake and moral compass on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Handshake -->
+    <g transform="translate(0, -4)">
+      <!-- Left hand -->
+      <path d="M -8 2 L -6 0 L -5 1 L -4 0 L -3 1 L -2 0 L -1 2 L -2 4 L -4 3 L -6 4 Z" fill="url(#hand1-gradient)"/>
+      <rect x="-8" y="2" width="3" height="5" rx="1" fill="url(#sleeve1-gradient)"/>
+
+      <!-- Right hand -->
+      <path d="M 8 2 L 6 0 L 5 1 L 4 0 L 3 1 L 2 0 L 1 2 L 2 4 L 4 3 L 6 4 Z" fill="url(#hand2-gradient)"/>
+      <rect x="5" y="2" width="3" height="5" rx="1" fill="url(#sleeve2-gradient)"/>
+
+      <!-- Interlocked fingers -->
+      <ellipse cx="0" cy="2" rx="2" ry="1.5" fill="url(#hand1-gradient)"/>
+    </g>
+
+    <!-- Moral compass -->
+    <g transform="translate(0, 8)">
+      <!-- Compass circle -->
+      <circle cx="0" cy="0" r="6" fill="url(#compass-gradient)"/>
+      <circle cx="0" cy="0" r="5" fill="none" stroke="#1565C0" stroke-width="0.5"/>
+
+      <!-- Cardinal directions -->
+      <text x="0" y="-3" font-family="Arial" font-size="2" fill="#1565C0" text-anchor="middle" font-weight="bold">T</text>
+      <text x="0" y="4.5" font-family="Arial" font-size="2" fill="#1565C0" text-anchor="middle" font-weight="bold">F</text>
+      <text x="-4" y="1" font-family="Arial" font-size="2" fill="#1565C0" text-anchor="middle" font-weight="bold">H</text>
+      <text x="4" y="1" font-family="Arial" font-size="2" fill="#1565C0" text-anchor="middle" font-weight="bold">I</text>
+
+      <!-- Compass needle -->
+      <path d="M 0 -3 L -0.5 1 L 0.5 1 Z" fill="#E74C3C"/>
+      <path d="M 0 3 L -0.5 -1 L 0.5 -1 Z" fill="#ECF0F1"/>
+      <circle cx="0" cy="0" r="0.8" fill="#1565C0"/>
+    </g>
+
+    <!-- Heart symbol (values) -->
+    <g transform="translate(-10, -8)">
+      <path d="M 0 1.5 L -2 -0.5 Q -2.5 -1.5 -1.5 -2 Q 0 -2 0 -0.5 Q 0 -2 1.5 -2 Q 2.5 -1.5 2 -0.5 Z" fill="url(#heart-gradient)" opacity="0.8"/>
+    </g>
+
+    <!-- Scale/balance symbol (justice) -->
+    <g transform="translate(9, -9)" opacity="0.7">
+      <line x1="0" y1="-2" x2="0" y2="2" stroke="#1976D2" stroke-width="0.5"/>
+      <line x1="-2" y1="-2" x2="2" y2="-2" stroke="#1976D2" stroke-width="0.5"/>
+      <circle cx="0" cy="-2" r="0.5" fill="#1976D2"/>
+    </g>
+
+    <!-- Integrity shield -->
+    <g transform="translate(10, 4)" opacity="0.6">
+      <path d="M 0 -2 L -1.5 -1 L -1.5 1 L 0 2.5 L 1.5 1 L 1.5 -1 Z" fill="url(#shield-gradient)"/>
+      <text x="0" y="0.5" font-family="Arial" font-size="1.5" fill="white" text-anchor="middle" font-weight="bold">✓</text>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#1976D2"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.7" fill="white" text-anchor="middle" font-weight="bold">ETHICS</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#E3F2FD" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#BBDEFB" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#42A5F5"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E88E5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hand1-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFCC80;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFB74D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hand2-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#BCAAA4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A1887F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sleeve1-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1565C0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sleeve2-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BDBDBD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="compass-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E3F2FD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heart-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF5350;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E53935;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shield-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66BB6A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#43A047;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

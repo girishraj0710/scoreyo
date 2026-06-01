@@ -1,0 +1,116 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#558B2F"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#F1F8E9"/>
+
+  <!-- Crops, farming equipment, and plants on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Wheat/crop stalks -->
+    <g transform="translate(-6, -8)">
+      <!-- Left stalk -->
+      <line x1="0" y1="12" x2="0" y2="0" stroke="#827717" stroke-width="0.8"/>
+      <!-- Wheat grains -->
+      <ellipse cx="-1" cy="2" rx="1" ry="1.5" fill="#FDD835"/>
+      <ellipse cx="1" cy="2" rx="1" ry="1.5" fill="#FBC02D"/>
+      <ellipse cx="-1" cy="4" rx="1" ry="1.5" fill="#F9A825"/>
+      <ellipse cx="1" cy="4" rx="1" ry="1.5" fill="#FDD835"/>
+      <ellipse cx="-1" cy="6" rx="1" ry="1.5" fill="#FBC02D"/>
+      <ellipse cx="1" cy="6" rx="1" ry="1.5" fill="#F9A825"/>
+      <ellipse cx="0" cy="1" rx="0.8" ry="1.2" fill="#FDD835"/>
+    </g>
+
+    <g transform="translate(-2, -8)">
+      <!-- Middle stalk -->
+      <line x1="0" y1="14" x2="0" y2="0" stroke="#827717" stroke-width="0.8"/>
+      <ellipse cx="-1" cy="1" rx="1" ry="1.5" fill="#FBC02D"/>
+      <ellipse cx="1" cy="1" rx="1" ry="1.5" fill="#FDD835"/>
+      <ellipse cx="-1" cy="3" rx="1" ry="1.5" fill="#F9A825"/>
+      <ellipse cx="1" cy="3" rx="1" ry="1.5" fill="#FBC02D"/>
+      <ellipse cx="-1" cy="5" rx="1" ry="1.5" fill="#FDD835"/>
+      <ellipse cx="1" cy="5" rx="1" ry="1.5" fill="#F9A825"/>
+      <ellipse cx="0" cy="7" rx="1" ry="1.5" fill="#FBC02D"/>
+    </g>
+
+    <!-- Growing plant -->
+    <g transform="translate(5, -4)">
+      <!-- Stem -->
+      <line x1="0" y1="10" x2="0" y2="0" stroke="#558B2F" stroke-width="1"/>
+      <!-- Leaves -->
+      <path d="M 0 8 Q -2 7 -3 6" stroke="#7CB342" stroke-width="1" fill="none"/>
+      <path d="M 0 8 Q 2 7 3 6" stroke="#7CB342" stroke-width="1" fill="none"/>
+      <ellipse cx="-2.5" cy="6" rx="1.5" ry="2.5" fill="url(#leaf-gradient)" transform="rotate(-30 -2.5 6)"/>
+      <ellipse cx="2.5" cy="6" rx="1.5" ry="2.5" fill="url(#leaf-gradient)" transform="rotate(30 2.5 6)"/>
+
+      <!-- Flower/bud -->
+      <circle cx="0" cy="0" r="1.5" fill="#FF6F00"/>
+      <g fill="#FFEB3B">
+        <ellipse cx="0" cy="-1.5" rx="0.7" ry="1.2"/>
+        <ellipse cx="-1.5" cy="0" rx="1.2" ry="0.7"/>
+        <ellipse cx="1.5" cy="0" rx="1.2" ry="0.7"/>
+        <ellipse cx="0" cy="1.5" rx="0.7" ry="1.2"/>
+      </g>
+    </g>
+
+    <!-- Tractor/farming equipment -->
+    <g transform="translate(-8, 6)">
+      <!-- Tractor body -->
+      <rect x="0" y="0" width="6" height="3" rx="0.5" fill="url(#tractor-gradient)"/>
+      <!-- Cabin -->
+      <rect x="3" y="-2" width="2.5" height="2" rx="0.3" fill="#EF6C00"/>
+      <!-- Big wheel -->
+      <circle cx="1.5" cy="3.5" r="1.5" fill="#424242"/>
+      <circle cx="1.5" cy="3.5" r="0.8" fill="#757575"/>
+      <!-- Small wheel -->
+      <circle cx="5" cy="3" r="1" fill="#424242"/>
+      <circle cx="5" cy="3" r="0.5" fill="#757575"/>
+    </g>
+
+    <!-- Sun -->
+    <g transform="translate(9, -10)" opacity="0.7">
+      <circle cx="0" cy="0" r="2" fill="#FFD54F"/>
+      <g stroke="#FFD54F" stroke-width="0.5">
+        <line x1="0" y1="-3" x2="0" y2="-4"/>
+        <line x1="2.1" y1="-2.1" x2="2.8" y2="-2.8"/>
+        <line x1="3" y1="0" x2="4" y2="0"/>
+        <line x1="2.1" y1="2.1" x2="2.8" y2="2.8"/>
+      </g>
+    </g>
+
+    <!-- Soil/ground line -->
+    <line x1="-12" y1="6" x2="12" y2="6" stroke="#795548" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#689F38"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.5" fill="white" text-anchor="middle" font-weight="bold">AGRICULTURE</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#DCEDC8" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#C5E1A5" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#8BC34A"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7CB342;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#689F38;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="leaf-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9CCC65;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7CB342;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tractor-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FB8C00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,141 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#C62828"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#FFFEF7"/>
+
+  <!-- Medicine bottle, pills, and medical cross on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Medical cross (Red Cross) -->
+    <g transform="translate(0, -6)">
+      <rect x="-1.5" y="-5" width="3" height="10" rx="0.5" fill="url(#cross-gradient)"/>
+      <rect x="-5" y="-1.5" width="10" height="3" rx="0.5" fill="url(#cross-gradient)"/>
+      <circle cx="0" cy="0" r="6.5" fill="none" stroke="#E53935" stroke-width="1"/>
+    </g>
+
+    <!-- Medicine bottle -->
+    <g transform="translate(-7, 4)">
+      <!-- Bottle cap -->
+      <rect x="-1.5" y="0" width="3" height="1.5" rx="0.5" fill="#1976D2"/>
+      <!-- Bottle neck -->
+      <rect x="-1" y="1.5" width="2" height="1" fill="url(#bottle-neck-gradient)"/>
+      <!-- Bottle body -->
+      <rect x="-2.5" y="2.5" width="5" height="7" rx="0.8" fill="url(#bottle-gradient)"/>
+
+      <!-- Label on bottle -->
+      <rect x="-2" y="4" width="4" height="3" rx="0.3" fill="white" opacity="0.9"/>
+      <line x1="-1.5" y1="5" x2="1.5" y2="5" stroke="#E53935" stroke-width="0.3"/>
+      <line x1="-1.5" y1="6" x2="1.5" y2="6" stroke="#999" stroke-width="0.2"/>
+
+      <!-- Plus symbol on label -->
+      <g fill="#E53935">
+        <rect x="-0.3" y="5.5" width="0.6" height="1.5"/>
+        <rect x="-0.75" y="5.95" width="1.5" height="0.6"/>
+      </g>
+    </g>
+
+    <!-- Pills/Capsules -->
+    <g transform="translate(6, 2)">
+      <!-- Capsule 1 -->
+      <g>
+        <ellipse cx="0" cy="0" rx="1.5" ry="3" fill="url(#capsule1-gradient)" transform="rotate(25)"/>
+        <rect x="-1.5" y="-0.2" width="3" height="0.4" fill="#C62828"/>
+      </g>
+
+      <!-- Capsule 2 -->
+      <g transform="translate(3, 4)">
+        <ellipse cx="0" cy="0" rx="1.5" ry="3" fill="url(#capsule2-gradient)" transform="rotate(-15)"/>
+        <rect x="-1.5" y="-0.2" width="3" height="0.4" fill="#1565C0"/>
+      </g>
+
+      <!-- Round pill -->
+      <g transform="translate(-2, 6)">
+        <circle cx="0" cy="0" r="1.5" fill="url(#pill-gradient)"/>
+        <line x1="-1" y1="0" x2="1" y2="0" stroke="white" stroke-width="0.4"/>
+      </g>
+
+      <!-- Tablet -->
+      <g transform="translate(1, 8)">
+        <ellipse cx="0" cy="0" rx="1.2" ry="1.8" fill="#FFEB3B"/>
+        <line x1="0" y1="-1.5" x2="0" y2="1.5" stroke="#F9A825" stroke-width="0.3"/>
+      </g>
+    </g>
+
+    <!-- Mortar and pestle (pharmacy symbol) -->
+    <g transform="translate(-8, -8)" opacity="0.6">
+      <!-- Mortar bowl -->
+      <path d="M -2 0 L -2.5 2 Q -2.5 3 0 3 Q 2.5 3 2.5 2 L 2 0 Z" fill="url(#mortar-gradient)"/>
+      <!-- Pestle -->
+      <ellipse cx="2" cy="-1" rx="0.5" ry="1.5" fill="#757575" transform="rotate(45 2 -1)"/>
+    </g>
+
+    <!-- Caduceus snake (small) -->
+    <g transform="translate(9, -8)" opacity="0.5">
+      <line x1="0" y1="-2" x2="0" y2="2" stroke="#1976D2" stroke-width="0.5"/>
+      <path d="M 0 -1 Q 1 -0.5 1 0 Q 1 0.5 0 1" stroke="#43A047" stroke-width="0.5" fill="none"/>
+      <path d="M 0 -1 Q -1 -0.5 -1 0 Q -1 0.5 0 1" stroke="#43A047" stroke-width="0.5" fill="none"/>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#E53935"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.5" fill="white" text-anchor="middle" font-weight="bold">PHARMACY</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#FFEBEE" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#FFCDD2" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#EF5350"/>
+
+  <!-- Rx symbol decoration -->
+  <g opacity="0.15">
+    <text x="25" y="48" font-family="serif" font-size="4" fill="#C62828" font-weight="bold" font-style="italic">Rx</text>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F5F5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cross-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF5350;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E53935;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bottle-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#64B5F6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#42A5F5;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="bottle-neck-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#90CAF9;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#64B5F6;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="capsule1-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF5350;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#EF5350;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFEB3B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEB3B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="capsule2-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pill-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7043;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mortar-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BDBDBD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,101 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#455A64"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#FAFAFA"/>
+
+  <!-- Bell curve and statistical symbols on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Normal distribution bell curve -->
+    <g transform="translate(0, -2)">
+      <!-- Bell curve path -->
+      <path d="M -10 8 Q -8 6 -6 3 Q -4 0 -2 -2 Q 0 -3 2 -2 Q 4 0 6 3 Q 8 6 10 8"
+            stroke="url(#curve-gradient)" stroke-width="1.5" fill="none"/>
+
+      <!-- Area under curve (shaded) -->
+      <path d="M -10 8 Q -8 6 -6 3 Q -4 0 -2 -2 Q 0 -3 2 -2 Q 4 0 6 3 Q 8 6 10 8 L 10 9 L -10 9 Z"
+            fill="url(#area-gradient)" opacity="0.3"/>
+
+      <!-- X-axis -->
+      <line x1="-11" y1="9" x2="11" y2="9" stroke="#455A64" stroke-width="0.5"/>
+
+      <!-- Mean line (μ) -->
+      <line x1="0" y1="-3" x2="0" y2="9" stroke="#E74C3C" stroke-width="0.8" stroke-dasharray="1,1"/>
+      <text x="0" y="-4" font-family="serif" font-size="2.5" fill="#E74C3C" text-anchor="middle" font-style="italic">μ</text>
+
+      <!-- Standard deviation markers -->
+      <line x1="-4" y1="0" x2="-4" y2="9" stroke="#607D8B" stroke-width="0.5" opacity="0.5"/>
+      <line x1="4" y1="0" x2="4" y2="9" stroke="#607D8B" stroke-width="0.5" opacity="0.5"/>
+      <text x="-4" y="11" font-family="serif" font-size="1.5" fill="#607D8B" text-anchor="middle" font-style="italic">-σ</text>
+      <text x="4" y="11" font-family="serif" font-size="1.5" fill="#607D8B" text-anchor="middle" font-style="italic">+σ</text>
+    </g>
+
+    <!-- Statistical formulas -->
+    <g transform="translate(-9, -10)" opacity="0.7">
+      <text font-family="serif" font-size="2" fill="#37474F" font-style="italic">Σx</text>
+    </g>
+
+    <g transform="translate(7, -10)" opacity="0.7">
+      <text font-family="serif" font-size="2" fill="#37474F" font-style="italic">σ²</text>
+    </g>
+
+    <!-- Probability notation -->
+    <g transform="translate(-10, 6)" opacity="0.6">
+      <text font-family="serif" font-size="1.8" fill="#546E7A" font-style="italic">P(x)</text>
+    </g>
+
+    <!-- Correlation coefficient -->
+    <g transform="translate(8, 6)" opacity="0.6">
+      <text font-family="serif" font-size="1.8" fill="#546E7A" font-style="italic">r</text>
+    </g>
+
+    <!-- Scatter plot dots -->
+    <g opacity="0.5">
+      <circle cx="-8" cy="-8" r="0.5" fill="#42A5F5"/>
+      <circle cx="-6" cy="-7" r="0.5" fill="#42A5F5"/>
+      <circle cx="-7" cy="-9" r="0.5" fill="#42A5F5"/>
+      <circle cx="9" cy="-7" r="0.5" fill="#42A5F5"/>
+      <circle cx="10" cy="-8" r="0.5" fill="#42A5F5"/>
+      <circle cx="8" cy="-9" r="0.5" fill="#42A5F5"/>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#607D8B"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.6" fill="white" text-anchor="middle" font-weight="bold">STATS</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#ECEFF1" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#CFD8DC" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#78909C"/>
+
+  <!-- Greek symbols decoration -->
+  <g opacity="0.15" font-family="serif" font-size="2.5" fill="#455A64" font-style="italic">
+    <text x="24" y="48">α β γ</text>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78909C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#607D8B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="curve-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="area-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#42A5F5;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+</svg>

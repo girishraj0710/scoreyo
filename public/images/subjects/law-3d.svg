@@ -1,0 +1,74 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#1A237E"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#FFFACD"/>
+
+  <!-- Scales of justice on cover -->
+  <g transform="translate(32, 30)">
+    <!-- Scale stand -->
+    <rect x="-0.5" y="-8" width="1" height="20" fill="#D4AF37"/>
+    <rect x="-5" y="12" width="10" height="1" fill="#D4AF37"/>
+
+    <!-- Scale beam -->
+    <rect x="-10" y="-8" width="20" height="0.8" fill="#D4AF37"/>
+
+    <!-- Left scale pan -->
+    <g transform="translate(-8, -8)">
+      <line x1="-2" y1="0" x2="0" y2="3" stroke="#D4AF37" stroke-width="0.5"/>
+      <line x1="2" y1="0" x2="0" y2="3" stroke="#D4AF37" stroke-width="0.5"/>
+      <ellipse cx="0" cy="3" rx="3" ry="0.8" fill="url(#pan-gradient)"/>
+      <path d="M -3 3 Q -3 4 -2.5 4.5 L 2.5 4.5 Q 3 4 3 3 Z" fill="url(#pan-gradient)" opacity="0.8"/>
+    </g>
+
+    <!-- Right scale pan -->
+    <g transform="translate(8, -8)">
+      <line x1="-2" y1="0" x2="0" y2="3" stroke="#D4AF37" stroke-width="0.5"/>
+      <line x1="2" y1="0" x2="0" y2="3" stroke="#D4AF37" stroke-width="0.5"/>
+      <ellipse cx="0" cy="3" rx="3" ry="0.8" fill="url(#pan-gradient)"/>
+      <path d="M -3 3 Q -3 4 -2.5 4.5 L 2.5 4.5 Q 3 4 3 3 Z" fill="url(#pan-gradient)" opacity="0.8"/>
+    </g>
+
+    <!-- Gavel decoration -->
+    <g transform="translate(8, 8)">
+      <rect x="-1" y="0" width="2" height="6" rx="0.5" fill="#8B4513"/>
+      <rect x="-2.5" y="-1.5" width="5" height="2.5" rx="0.5" fill="#A0522D"/>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#D4AF37"/>
+  <text x="32" y="25" font-family="Arial" font-size="2" fill="#1A237E" text-anchor="middle" font-weight="bold">LAW</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#C5CAE9" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#D1D5E8" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#D4AF37"/>
+
+  <!-- Legal paragraph symbols -->
+  <g opacity="0.2">
+    <text x="25" y="45" font-family="serif" font-size="3" fill="#1A237E">§</text>
+    <text x="29" y="45" font-family="serif" font-size="3" fill="#1A237E">§</text>
+    <text x="37" y="48" font-family="serif" font-size="3" fill="#1A237E">§</text>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3949AB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#283593;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pan-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

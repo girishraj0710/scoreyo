@@ -1,0 +1,154 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#E64A19"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#FFF8E1"/>
+
+  <!-- Palette, monuments, and cultural symbols on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Artist palette -->
+    <g transform="translate(-6, -4)">
+      <!-- Palette shape -->
+      <path d="M -5 -2 Q -6 -5 -3 -6 Q 0 -7 3 -6 Q 6 -5 5 -2 Q 5 2 3 4 Q 1 5 -1 5 Q -2 4.5 -2.5 3.5 Q -3 2.5 -3.5 2 Q -4 1 -4.5 0 Q -5 -1 -5 -2 Z" fill="url(#palette-gradient)"/>
+
+      <!-- Paint colors on palette -->
+      <circle cx="-3" cy="-3" r="1" fill="#E53935"/>
+      <circle cx="0" cy="-4" r="1" fill="#FDD835"/>
+      <circle cx="3" cy="-3" r="1" fill="#1E88E5"/>
+      <circle cx="-2" cy="0" r="1" fill="#43A047"/>
+      <circle cx="2" cy="0" r="1" fill="#8E24AA"/>
+
+      <!-- Thumb hole -->
+      <ellipse cx="0" cy="2" rx="1" ry="1.5" fill="#D84315"/>
+    </g>
+
+    <!-- Taj Mahal (Indian monument) -->
+    <g transform="translate(6, -4)">
+      <!-- Main dome -->
+      <ellipse cx="0" cy="-2" rx="3" ry="2.5" fill="url(#dome-gradient)"/>
+      <path d="M 0 -4.5 L -0.5 -2 L 0.5 -2 Z" fill="#FFC107"/>
+
+      <!-- Building base -->
+      <rect x="-3" y="0" width="6" height="4" fill="#FAFAFA"/>
+
+      <!-- Side minarets -->
+      <rect x="-4.5" y="1" width="1" height="3" fill="#E0E0E0"/>
+      <ellipse cx="-4" cy="0.5" rx="0.7" ry="0.5" fill="#FFB74D"/>
+
+      <rect x="3.5" y="1" width="1" height="3" fill="#E0E0E0"/>
+      <ellipse cx="4" cy="0.5" rx="0.7" ry="0.5" fill="#FFB74D"/>
+
+      <!-- Arch -->
+      <path d="M -1.5 4 L -1.5 2 Q -1.5 1 0 1 Q 1.5 1 1.5 2 L 1.5 4" fill="#1565C0" opacity="0.3"/>
+    </g>
+
+    <!-- Dance/Nataraja pose silhouette -->
+    <g transform="translate(-8, 6)" opacity="0.7">
+      <!-- Simplified classical dance pose -->
+      <circle cx="0" cy="0" r="1" fill="#8D6E63"/>
+      <path d="M 0 1 L -1 2.5 L -2 4" stroke="#8D6E63" stroke-width="0.8" fill="none"/>
+      <path d="M 0 1 L 1 2.5 L 2 4" stroke="#8D6E63" stroke-width="0.8" fill="none"/>
+      <path d="M -0.5 1.5 L -2 1" stroke="#8D6E63" stroke-width="0.8"/>
+      <path d="M 0.5 1.5 L 2 2.5" stroke="#8D6E63" stroke-width="0.8"/>
+    </g>
+
+    <!-- Paintbrush -->
+    <g transform="translate(7, 5)">
+      <!-- Handle -->
+      <rect x="-0.5" y="2" width="1" height="6" rx="0.3" fill="url(#brush-handle-gradient)"/>
+
+      <!-- Ferrule (metal part) -->
+      <rect x="-0.7" y="1" width="1.4" height="1.5" fill="#B0BEC5"/>
+
+      <!-- Bristles -->
+      <path d="M -0.7 0.5 L -1 -1 L -0.5 -1.5 L 0 -1 L 0.5 -1.5 L 1 -1 L 0.7 0.5 Z" fill="url(#bristles-gradient)"/>
+
+      <!-- Paint on brush -->
+      <ellipse cx="0" cy="-1" rx="0.8" ry="0.5" fill="#E91E63" opacity="0.8"/>
+    </g>
+
+    <!-- Peacock feather (Indian cultural symbol) -->
+    <g transform="translate(9, -8)" opacity="0.6">
+      <!-- Eye of feather -->
+      <ellipse cx="0" cy="0" rx="1.5" ry="2" fill="url(#feather-gradient)"/>
+      <ellipse cx="0" cy="0" rx="1" ry="1.3" fill="#1E88E5"/>
+      <ellipse cx="0" cy="0" rx="0.5" ry="0.7" fill="#FDD835"/>
+
+      <!-- Stem -->
+      <line x1="0" y1="2" x2="0.5" y2="5" stroke="#795548" stroke-width="0.5"/>
+    </g>
+
+    <!-- Music notes (sangeet/performing arts) -->
+    <g transform="translate(-9, -8)" opacity="0.5">
+      <ellipse cx="0" cy="1" rx="0.8" ry="0.6" fill="#E91E63" transform="rotate(-20)"/>
+      <line x1="0.6" y1="0.8" x2="0.6" y2="-2" stroke="#E91E63" stroke-width="0.5"/>
+      <ellipse cx="2" cy="0" rx="0.8" ry="0.6" fill="#E91E63" transform="rotate(-20)"/>
+      <line x1="2.6" y1="-0.2" x2="2.6" y2="-3" stroke="#E91E63" stroke-width="0.5"/>
+    </g>
+
+    <!-- Mandala pattern -->
+    <g transform="translate(0, 8)" opacity="0.4">
+      <circle cx="0" cy="0" r="3" fill="none" stroke="#FF6F00" stroke-width="0.3"/>
+      <circle cx="0" cy="0" r="2" fill="none" stroke="#FF6F00" stroke-width="0.3"/>
+      <circle cx="0" cy="0" r="1" fill="none" stroke="#FF6F00" stroke-width="0.3"/>
+      <g stroke="#FF6F00" stroke-width="0.2">
+        <line x1="0" y1="-3" x2="0" y2="3"/>
+        <line x1="-3" y1="0" x2="3" y2="0"/>
+        <line x1="-2.1" y1="-2.1" x2="2.1" y2="2.1"/>
+        <line x1="-2.1" y1="2.1" x2="2.1" y2="-2.1"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#FF6F00"/>
+  <text x="32" y="25" font-family="Arial" font-size="1.4" fill="white" text-anchor="middle" font-weight="bold">ART & CULTURE</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#FFF3E0" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#FFE0B2" stroke-width="0.5"/>
+
+  <!-- Bookmark with Indian flag colors -->
+  <g>
+    <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="url(#bookmark-gradient)"/>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7043;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="palette-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#BCAAA4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A1887F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dome-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAFAFA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0E0E0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="brush-handle-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6F00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E65100;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bristles-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9E9E9E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="feather-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1B5E20;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bookmark-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9933;stop-opacity:1" />
+      <stop offset="33%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="66%" style="stop-color:#138808;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

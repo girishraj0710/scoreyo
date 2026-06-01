@@ -729,10 +729,6 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'tnpsc-gs': '/images/subjects/gk-3d.svg',
   'wbpsc-gs': '/images/subjects/gk-3d.svg',
   'ifs-gs': '/images/subjects/gk-3d.svg',
-  'polity': '/images/subjects/social-studies-3d.svg',
-  'upsc-polity': '/images/subjects/social-studies-3d.svg',
-  'ethics': '/images/subjects/social-studies-3d.svg',
-  'upsc-ethics': '/images/subjects/social-studies-3d.svg',
 
   'economics': '/images/subjects/economics-3d.svg',
   'economy': '/images/subjects/economics-3d.svg',
@@ -746,8 +742,6 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'pa-gk': '/images/subjects/gk-3d.svg',
   'gds-gk': '/images/subjects/gk-3d.svg',
   'iimc-ga': '/images/subjects/gk-3d.svg',
-  'current-affairs': '/images/subjects/gk-3d.svg',
-  'upsc-current': '/images/subjects/gk-3d.svg',
   'dp-gk': '/images/subjects/gk-3d.svg',
   'up-gk': '/images/subjects/gk-3d.svg',
   'nursing-gk': '/images/subjects/gk-3d.svg',
@@ -767,26 +761,145 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'rtet-social': '/images/subjects/social-studies-3d.svg',
   'kvs-social': '/images/subjects/social-studies-3d.svg',
 
-  // Child Development & Pedagogy (Teaching exams)
-  'cdp': '/images/subjects/social-studies-3d.svg',
-  'child-development': '/images/subjects/social-studies-3d.svg',
-  'htet-cdp': '/images/subjects/social-studies-3d.svg',
-  'ctet-cdp': '/images/subjects/social-studies-3d.svg',
-  'uptet-cdp': '/images/subjects/social-studies-3d.svg',
-  'rtet-cdp': '/images/subjects/social-studies-3d.svg',
-
-  // Law subjects
-  'law': '/images/subjects/history-3d.svg',
-  'jud-law': '/images/subjects/history-3d.svg',
-  'clat-legal': '/images/subjects/history-3d.svg',
-
-  // Statistics
-  'statistics': '/images/subjects/maths-3d.svg',
-  'isi-stats': '/images/subjects/maths-3d.svg',
-
   // Pedagogy subjects (use appropriate book)
-  'pedagogy': '/images/subjects/english-3d.svg',
-  'teaching-methodology': '/images/subjects/english-3d.svg',
+  'pedagogy': '/images/subjects/cdp-3d.svg',
+  'teaching-methodology': '/images/subjects/cdp-3d.svg',
+
+  // Accounting & Finance - NEW DISTINCTIVE ICON
+  'accounting': '/images/subjects/accounting-3d.svg',
+  'finance': '/images/subjects/accounting-3d.svg',
+  'banking-awareness': '/images/subjects/accounting-3d.svg',
+  'ca-accounting': '/images/subjects/accounting-3d.svg',
+  'ca-paper1-accounting': '/images/subjects/accounting-3d.svg',
+  'ca-foundation-accounting': '/images/subjects/accounting-3d.svg',
+  'ca-intermediate-accounting': '/images/subjects/accounting-3d.svg',
+  'ca-final-accounting': '/images/subjects/accounting-3d.svg',
+  'cs-accounting': '/images/subjects/accounting-3d.svg',
+  'cma-accounting': '/images/subjects/accounting-3d.svg',
+  'financial-accounting': '/images/subjects/accounting-3d.svg',
+  'cost-accounting': '/images/subjects/accounting-3d.svg',
+
+  // Child Development & Pedagogy - NEW DISTINCTIVE ICON
+  'cdp': '/images/subjects/cdp-3d.svg',
+  'child-development': '/images/subjects/cdp-3d.svg',
+  'htet-cdp': '/images/subjects/cdp-3d.svg',
+  'ctet-cdp': '/images/subjects/cdp-3d.svg',
+  'uptet-cdp': '/images/subjects/cdp-3d.svg',
+  'rtet-cdp': '/images/subjects/cdp-3d.svg',
+  'kvs-cdp': '/images/subjects/cdp-3d.svg',
+  'dsssb-cdp': '/images/subjects/cdp-3d.svg',
+  'child-psychology': '/images/subjects/cdp-3d.svg',
+
+  // Law & Legal Reasoning - NEW DISTINCTIVE ICON
+  'law': '/images/subjects/law-3d.svg',
+  'legal-reasoning': '/images/subjects/law-3d.svg',
+  'jud-law': '/images/subjects/law-3d.svg',
+  'clat-legal': '/images/subjects/law-3d.svg',
+  'ailet-legal': '/images/subjects/law-3d.svg',
+  'slat-legal': '/images/subjects/law-3d.svg',
+  'constitutional-law': '/images/subjects/law-3d.svg',
+  'judiciary-law': '/images/subjects/law-3d.svg',
+  'legal-aptitude': '/images/subjects/law-3d.svg',
+
+  // Polity & Government - NEW DISTINCTIVE ICON
+  'polity': '/images/subjects/polity-3d.svg',
+  'upsc-polity': '/images/subjects/polity-3d.svg',
+  'indian-polity': '/images/subjects/polity-3d.svg',
+  'governance': '/images/subjects/polity-3d.svg',
+  'constitution': '/images/subjects/polity-3d.svg',
+  'political-science': '/images/subjects/polity-3d.svg',
+
+  // Data Interpretation & Logical Reasoning - NEW DISTINCTIVE ICON
+  'dilr': '/images/subjects/data-interpretation-3d.svg',
+  'data-interpretation': '/images/subjects/data-interpretation-3d.svg',
+  'cat-dilr': '/images/subjects/data-interpretation-3d.svg',
+  'xat-dilr': '/images/subjects/data-interpretation-3d.svg',
+  'snap-dilr': '/images/subjects/data-interpretation-3d.svg',
+  'cmat-dilr': '/images/subjects/data-interpretation-3d.svg',
+  'di': '/images/subjects/data-interpretation-3d.svg',
+  'lr': '/images/subjects/data-interpretation-3d.svg',
+
+  // Verbal Ability & Comprehension - NEW DISTINCTIVE ICON
+  'verbal': '/images/subjects/verbal-3d.svg',
+  'verbal-ability': '/images/subjects/verbal-3d.svg',
+  'cat-verbal': '/images/subjects/verbal-3d.svg',
+  'xat-verbal': '/images/subjects/verbal-3d.svg',
+  'snap-verbal': '/images/subjects/verbal-3d.svg',
+  'cmat-verbal': '/images/subjects/verbal-3d.svg',
+  'varc': '/images/subjects/verbal-3d.svg',
+  'comprehension': '/images/subjects/verbal-3d.svg',
+  'reading-comprehension': '/images/subjects/verbal-3d.svg',
+
+  // Quantitative Aptitude - NEW DISTINCTIVE ICON
+  'quantitative': '/images/subjects/quantitative-3d.svg',
+  'quantitative-aptitude': '/images/subjects/quantitative-3d.svg',
+  'cat-quant': '/images/subjects/quantitative-3d.svg',
+  'xat-quant': '/images/subjects/quantitative-3d.svg',
+  'snap-quant': '/images/subjects/quantitative-3d.svg',
+  'cmat-quant': '/images/subjects/quantitative-3d.svg',
+  'qa': '/images/subjects/quantitative-3d.svg',
+  'quant': '/images/subjects/quantitative-3d.svg',
+
+  // Current Affairs - NEW DISTINCTIVE ICON
+  'current-affairs': '/images/subjects/current-affairs-3d.svg',
+  'upsc-current': '/images/subjects/current-affairs-3d.svg',
+  'current-events': '/images/subjects/current-affairs-3d.svg',
+  'news': '/images/subjects/current-affairs-3d.svg',
+  'daily-current-affairs': '/images/subjects/current-affairs-3d.svg',
+
+  // Agriculture - NEW DISTINCTIVE ICON
+  'agriculture': '/images/subjects/agriculture-3d.svg',
+  'icar-agriculture': '/images/subjects/agriculture-3d.svg',
+  'nabard-agriculture': '/images/subjects/agriculture-3d.svg',
+  'agricultural-sciences': '/images/subjects/agriculture-3d.svg',
+  'farming': '/images/subjects/agriculture-3d.svg',
+
+  // Pharmacy & Medical Sciences - NEW DISTINCTIVE ICON
+  'pharmacy': '/images/subjects/pharmacy-3d.svg',
+  'pharma': '/images/subjects/pharmacy-3d.svg',
+  'gpat-pharmacy': '/images/subjects/pharmacy-3d.svg',
+  'pharmaceutics': '/images/subjects/pharmacy-3d.svg',
+  'pharmacology': '/images/subjects/pharmacy-3d.svg',
+  'pharmaceutical-chemistry': '/images/subjects/pharmacy-3d.svg',
+  'nursing-anatomy': '/images/subjects/pharmacy-3d.svg',
+  'nursing-physiology': '/images/subjects/pharmacy-3d.svg',
+
+  // Ethics & Integrity - NEW DISTINCTIVE ICON
+  'ethics': '/images/subjects/ethics-3d.svg',
+  'upsc-ethics': '/images/subjects/ethics-3d.svg',
+  'ethics-integrity': '/images/subjects/ethics-3d.svg',
+  'moral-philosophy': '/images/subjects/ethics-3d.svg',
+  'case-studies': '/images/subjects/ethics-3d.svg',
+
+  // Environment & Ecology - NEW DISTINCTIVE ICON
+  'environment': '/images/subjects/environment-3d.svg',
+  'ecology': '/images/subjects/environment-3d.svg',
+  'upsc-environment': '/images/subjects/environment-3d.svg',
+  'environmental-studies': '/images/subjects/environment-3d.svg',
+  'biodiversity': '/images/subjects/environment-3d.svg',
+  'climate-change': '/images/subjects/environment-3d.svg',
+
+  // Technology & Innovation - NEW DISTINCTIVE ICON
+  'technology': '/images/subjects/technology-3d.svg',
+  'science-technology': '/images/subjects/technology-3d.svg',
+  'upsc-science-tech': '/images/subjects/technology-3d.svg',
+  'innovation': '/images/subjects/technology-3d.svg',
+  'emerging-tech': '/images/subjects/technology-3d.svg',
+
+  // Art & Culture - NEW DISTINCTIVE ICON
+  'art-culture': '/images/subjects/art-culture-3d.svg',
+  'indian-culture': '/images/subjects/art-culture-3d.svg',
+  'upsc-art-culture': '/images/subjects/art-culture-3d.svg',
+  'heritage': '/images/subjects/art-culture-3d.svg',
+  'cultural-studies': '/images/subjects/art-culture-3d.svg',
+  'indian-art': '/images/subjects/art-culture-3d.svg',
+
+  // Statistics & Data Analysis - NEW DISTINCTIVE ICON
+  'statistics': '/images/subjects/statistics-3d.svg',
+  'isi-stats': '/images/subjects/statistics-3d.svg',
+  'data-analysis': '/images/subjects/statistics-3d.svg',
+  'probability': '/images/subjects/statistics-3d.svg',
+  'statistical-methods': '/images/subjects/statistics-3d.svg',
 };
 
 export const ColorfulSubjectIcon: React.FC<ColorfulSubjectIconProps> = ({
