@@ -687,85 +687,138 @@ export function LandingPageV2() {
           </div>
         </section>
 
-        {/* Upcoming Exam Calendar */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50">
-          <div className="max-w-6xl mx-auto px-4">
+        {/* Upcoming Exam Calendar - Infinite Marquee */}
+        <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50 overflow-hidden">
+          <div className="mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Calendar className="w-8 h-8 text-indigo-600" />
               <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 text-center">Upcoming Exam Calendar</h2>
             </div>
-            <p className="text-slate-600 text-center mb-12 text-lg">Mark your dates and start preparing today</p>
+            <p className="text-slate-600 text-center text-lg">Mark your dates and start preparing today</p>
+          </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {getUpcomingExams(6).map((exam, idx) => (
+          {/* Infinite Scrolling Marquee */}
+          <div className="relative">
+            <div className="flex animate-marquee hover:pause-animation">
+              {/* First set of exams */}
+              {getUpcomingExams(15).map((exam, idx) => (
                 <div
-                  key={exam.id}
-                  className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 group"
+                  key={`exam-1-${exam.id}`}
+                  className="flex-shrink-0 w-80 mx-3"
                 >
-                  {/* Header with icon and name */}
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className="flex-shrink-0">
-                      <ColorfulExamIcon examId={exam.examId} size={56} className="drop-shadow-md" />
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full">
+                    {/* Compact Header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <ColorfulExamIcon examId={exam.examId} size={48} className="drop-shadow-md flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
+                        {exam.phase && (
+                          <p className="text-xs text-indigo-600 font-medium truncate">{exam.phase}</p>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-semibold text-slate-900 mb-1 truncate">{exam.examName}</h3>
-                      {exam.phase && (
-                        <p className="text-sm text-indigo-600 font-medium">{exam.phase}</p>
-                      )}
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-1">{exam.examFullName}</p>
+
+                    {/* Date Display */}
+                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100 mb-3">
+                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1">📅 Exam Date</div>
+                      <div className="text-sm font-bold text-slate-900">{exam.date}</div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setShowLoginModal(true)}
+                        className="flex-1 px-3 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+                      >
+                        Start Prep
+                      </button>
+                      <a
+                        href={exam.officialWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center px-3 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
+                        title="Official Website"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
                     </div>
                   </div>
-
-                  {/* Date Display */}
-                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 text-center border border-indigo-100 mb-4">
-                    <div className="text-xs text-indigo-700 font-semibold uppercase mb-1 flex items-center justify-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      Exam Date
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {getUpcomingExams(15).map((exam, idx) => (
+                <div
+                  key={`exam-2-${exam.id}`}
+                  className="flex-shrink-0 w-80 mx-3"
+                >
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full">
+                    {/* Compact Header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <ColorfulExamIcon examId={exam.examId} size={48} className="drop-shadow-md flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
+                        {exam.phase && (
+                          <p className="text-xs text-indigo-600 font-medium truncate">{exam.phase}</p>
+                        )}
+                      </div>
                     </div>
-                    <div className="text-base font-bold text-slate-900">{exam.date}</div>
-                  </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setShowLoginModal(true)}
-                      className="flex-1 px-4 py-2.5 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
-                    >
-                      Start Preparing
-                    </button>
-                    <a
-                      href={exam.officialWebsite}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center px-3 py-2.5 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors group"
-                      title="Official Website"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-
-                  {/* Additional Info */}
-                  {exam.registrationEnd && (
-                    <div className="mt-3 pt-3 border-t border-slate-100">
-                      <p className="text-xs text-slate-500 flex items-center gap-1">
-                        <span className="font-semibold">Registration ends:</span> {exam.registrationEnd}
-                      </p>
+                    {/* Date Display */}
+                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100 mb-3">
+                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1">📅 Exam Date</div>
+                      <div className="text-sm font-bold text-slate-900">{exam.date}</div>
                     </div>
-                  )}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setShowLoginModal(true)}
+                        className="flex-1 px-3 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+                      >
+                        Start Prep
+                      </button>
+                      <a
+                        href={exam.officialWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center px-3 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
+                        title="Official Website"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-
-            <div className="text-center mt-10">
-              <button
-                onClick={() => window.open('https://www.google.com/search?q=india+exam+calendar+2026', '_blank')}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 font-semibold text-lg rounded-xl border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300"
-              >
-                View Full Exam Calendar
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
+
+          <div className="text-center mt-10">
+            <button
+              onClick={() => window.open('https://www.google.com/search?q=india+exam+calendar+2026', '_blank')}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 font-semibold text-lg rounded-xl border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300"
+            >
+              View Full Exam Calendar
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          <style jsx>{`
+            @keyframes marquee {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .animate-marquee {
+              animation: marquee 60s linear infinite;
+            }
+            .pause-animation:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </section>
 
         {/* Social Proof */}
