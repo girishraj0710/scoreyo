@@ -688,7 +688,7 @@ export function LandingPageV2() {
         </section>
 
         {/* Upcoming Exam Calendar - Infinite Marquee */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50 overflow-hidden">
+        <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50">
           <div className="mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Calendar className="w-8 h-8 text-indigo-600" />
@@ -697,8 +697,8 @@ export function LandingPageV2() {
             <p className="text-slate-600 text-center text-lg">Mark your dates and start preparing today</p>
           </div>
 
-          {/* Infinite Scrolling Marquee - Full Width */}
-          <div className="relative w-full">
+          {/* Infinite Scrolling Marquee - True Full Width Edge-to-Edge */}
+          <div className="relative w-screen -mx-[50vw] left-[50%] overflow-hidden">
             <div className="flex animate-marquee-fast gap-6 hover:pause-animation">
               {/* First set of exams */}
               {getUpcomingExams(15).map((exam, idx) => (
