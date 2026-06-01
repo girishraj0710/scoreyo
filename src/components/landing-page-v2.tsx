@@ -276,7 +276,7 @@ export function LandingPageV2() {
                                 }}
                                 className="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 hover:border-blue-400 hover:bg-blue-50 transition-all group"
                               >
-                                <ColorfulExamIcon examId={exam.id} size={44} />
+                                <ColorfulExamIcon examId={exam.id} size={56} />
                                 <div className="flex-1 text-left">
                                   <div className="font-semibold text-sm text-slate-900 group-hover:text-blue-600">{exam.name}</div>
                                 </div>
@@ -736,7 +736,7 @@ export function LandingPageV2() {
 
                     {/* Compact Header */}
                     <div className="flex items-center gap-3 mb-4 pr-10">
-                      <ColorfulExamIcon examId={exam.examId} size={48} className="drop-shadow-md flex-shrink-0" />
+                      <ColorfulExamIcon examId={exam.examId} size={64} className="drop-shadow-md flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
                         {exam.phase && (
@@ -776,7 +776,7 @@ export function LandingPageV2() {
 
                     {/* Compact Header */}
                     <div className="flex items-center gap-3 mb-4 pr-10">
-                      <ColorfulExamIcon examId={exam.examId} size={48} className="drop-shadow-md flex-shrink-0" />
+                      <ColorfulExamIcon examId={exam.examId} size={64} className="drop-shadow-md flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
                         {exam.phase && (
