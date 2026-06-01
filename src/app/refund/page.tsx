@@ -5,8 +5,9 @@ export const metadata = {
 
 export default function RefundPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 md:p-12">
+    <div className="min-h-screen bg-slate-100">
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 md:p-12">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Refund Policy</h1>
         <p className="text-slate-500 mb-8">Last updated: May 16, 2026</p>
 
@@ -210,6 +211,7 @@ export default function RefundPage() {
               you to be completely satisfied from the start.
             </p>
           </div>
+        </div>
         </div>
       </div>
     </div>

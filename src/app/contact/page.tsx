@@ -28,8 +28,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <div className="text-center mb-12">
+    <div className="min-h-screen bg-slate-100">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Contact & Support</h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Have questions or need help? We&apos;re here to assist you. Get in touch with us through any of the channels below.
@@ -248,6 +249,7 @@ export default function ContactPage() {
               We support 20+ exams including JEE Main, NEET, UPSC CSE, SSC CGL, IBPS PO, CAT, GATE, and many state-level exams. Check the homepage for the full list.
             </p>
           </div>
+        </div>
         </div>
       </div>
     </div>
