@@ -180,7 +180,7 @@ export default function AdminQuestionReviewPage() {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00A1E0] mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4F9CF9] mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading reported questions...</p>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function AdminQuestionReviewPage() {
                 }}
                 className={`px-6 py-2 rounded-lg font-medium transition-colors ${
                   statusFilter === status
-                    ? "bg-[#00A1E0] text-white"
+                    ? "bg-[#4F9CF9] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -253,7 +253,7 @@ export default function AdminQuestionReviewPage() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEdit(report)}
-                      className="px-4 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors"
+                      className="px-4 py-2 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors"
                     >
                       ✏️ Edit Question
                     </button>
@@ -311,7 +311,7 @@ export default function AdminQuestionReviewPage() {
                     ))}
                   </div>
 
-                  <div className="p-3 bg-[#E6F4F9] rounded">
+                  <div className="p-3 bg-[#E3F2FD] rounded">
                     <p className="text-sm text-gray-700">
                       <strong>Explanation:</strong> {report.question.explanation}
                     </p>
@@ -461,7 +461,7 @@ export default function AdminQuestionReviewPage() {
               <button
                 onClick={handleSaveQuestion}
                 disabled={saving}
-                className="px-6 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors disabled:opacity-50"
+                className="px-6 py-2 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors disabled:opacity-50"
               >
                 {saving ? "Saving..." : "💾 Save Changes"}
               </button>

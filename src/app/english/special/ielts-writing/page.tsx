@@ -177,7 +177,7 @@ export default function IELTSWritingPage() {
               }}
               className={`flex-1 py-3 px-4 rounded-lg font-semibold transition ${
                 selectedTask === 2
-                  ? "bg-[#00A1E0] text-white"
+                  ? "bg-[#4F9CF9] text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
@@ -222,7 +222,7 @@ export default function IELTSWritingPage() {
                 <h3 className="text-xl font-bold text-gray-900">{selectedPrompt.title}</h3>
               </div>
 
-              <div className="bg-gray-50 border-l-4 border-[#00A1E0] p-4 rounded-lg mb-4">
+              <div className="bg-gray-50 border-l-4 border-[#4F9CF9] p-4 rounded-lg mb-4">
                 <pre className="whitespace-pre-wrap text-gray-700 font-sans">
                   {selectedPrompt.prompt}
                 </pre>
@@ -249,7 +249,7 @@ export default function IELTSWritingPage() {
               <ul className="space-y-2">
                 {selectedPrompt.tips.map((tip, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#00A1E0] font-bold">•</span>
+                    <span className="text-[#4F9CF9] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
                 ))}

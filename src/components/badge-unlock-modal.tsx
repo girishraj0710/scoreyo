@@ -156,7 +156,7 @@ export function BadgeUnlockModal({ badges, onClose }: BadgeUnlockModalProps) {
                     key={index}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "w-8 bg-[#00A1E0]"
+                        ? "w-8 bg-[#4F9CF9]"
                         : index < currentIndex
                         ? "w-2 bg-indigo-400"
                         : "w-2 bg-slate-700"

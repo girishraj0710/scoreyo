@@ -194,7 +194,7 @@ export default function LeaderboardPage() {
                       </div>
                       <div className="w-full bg-slate-100 rounded-full h-2">
                         <div
-                          className="bg-[#00A1E0] h-2 rounded-full transition-all"
+                          className="bg-[#4F9CF9] h-2 rounded-full transition-all"
                           style={{ width: `${m.progress}%` }}
                         />
                       </div>
@@ -232,7 +232,7 @@ export default function LeaderboardPage() {
                   {leaderboard.map((entry, idx) => (
                     <tr
                       key={entry.id}
-                      className={`border-b border-slate-50 ${entry.id === currentUserId ? "bg-[#E6F4F9]" : "hover:bg-slate-50"}`}
+                      className={`border-b border-slate-50 ${entry.id === currentUserId ? "bg-[#E3F2FD]" : "hover:bg-slate-50"}`}
                     >
                       <td className="py-3">
                         <span className={`w-7 h-7 inline-flex items-center justify-center rounded-full text-xs font-bold ${
@@ -252,7 +252,7 @@ export default function LeaderboardPage() {
                           <span className="font-medium text-slate-700">
                             {entry.name}
                             {entry.id === currentUserId && (
-                              <span className="ml-1 text-xs text-[#00A1E0]">(You)</span>
+                              <span className="ml-1 text-xs text-[#4F9CF9]">(You)</span>
                             )}
                           </span>
                         </div>
@@ -274,7 +274,7 @@ export default function LeaderboardPage() {
           )}
 
           {/* Coming Soon */}
-          <div className="mt-4 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-[#80CFED] text-center">
+          <div className="mt-4 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-[#90CAF9] text-center">
             <p className="text-sm font-medium text-[#0070A8]">{t("comingSoon")}</p>
           </div>
         </div>

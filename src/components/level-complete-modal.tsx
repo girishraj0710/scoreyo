@@ -91,7 +91,7 @@ export function LevelCompleteModal({
   const getColor = () => {
     if (stars === 3) return "from-amber-500 to-orange-500";
     if (stars === 2) return "from-emerald-500 to-cyan-500";
-    return "from-[#00A1E0] to-violet-500";
+    return "from-[#4F9CF9] to-violet-500";
   };
 
   const formatTime = (seconds: number) => {
@@ -157,13 +157,13 @@ export function LevelCompleteModal({
 
           {/* Unlock Message */}
           {isNewLevel && stars >= 1 && (
-            <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border-2 border-[#80CFED] rounded-xl p-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border-2 border-[#90CAF9] rounded-xl p-4 flex items-center gap-3">
               <div className="w-10 h-10 bg-[#00A1E0] rounded-full flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="font-semibold text-[#005A7A]">Level Unlocked!</div>
-                <div className="text-sm text-[#0070A8]">You can now access Level {levelNumber + 1}</div>
+                <div className="text-sm text-[#3B7FD9]">You can now access Level {levelNumber + 1}</div>
               </div>
             </div>
           )}

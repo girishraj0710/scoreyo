@@ -257,7 +257,7 @@ export default function PresentationsPage() {
                 }}
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedTopic.id === topic.id
-                    ? "bg-gradient-to-r from-blue-600 to-[#00A1E0] text-white"
+                    ? "bg-gradient-to-r from-blue-600 to-[#4F9CF9] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -295,7 +295,7 @@ export default function PresentationsPage() {
               <ol className="space-y-2">
                 {selectedTopic.outline.map((point, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-[#00A1E0] flex items-center justify-center text-sm font-semibold">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-[#4F9CF9] flex items-center justify-center text-sm font-semibold">
                       {idx + 1}
                     </span>
                     <span>{point}</span>
@@ -310,7 +310,7 @@ export default function PresentationsPage() {
               <ul className="space-y-2">
                 {selectedTopic.tips.map((tip, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#00A1E0] font-bold">•</span>
+                    <span className="text-[#4F9CF9] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
                 ))}
@@ -323,7 +323,7 @@ export default function PresentationsPage() {
                 {!showScript ? (
                   <button
                     onClick={() => setShowScript(true)}
-                    className="w-full bg-gradient-to-r from-blue-600 to-[#00A1E0] text-white py-3 px-6 rounded-lg font-semibold transition"
+                    className="w-full bg-gradient-to-r from-blue-600 to-[#4F9CF9] text-white py-3 px-6 rounded-lg font-semibold transition"
                   >
                     Show Sample Script
                   </button>
@@ -407,7 +407,7 @@ export default function PresentationsPage() {
                     <div className="flex gap-3">
                       <button
                         onClick={downloadRecording}
-                        className="flex-1 bg-[#00A1E0] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#0070A8] transition flex items-center justify-center gap-2"
+                        className="flex-1 bg-[#4F9CF9] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#3B7FD9] transition flex items-center justify-center gap-2"
                       >
                         <Download className="w-4 h-4" />
                         Download
@@ -429,7 +429,7 @@ export default function PresentationsPage() {
             </div>
 
             {/* Instructions */}
-            <div className="bg-[#E6F4F9] border border-blue-200 rounded-lg p-4">
+            <div className="bg-[#E3F2FD] border border-blue-200 rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">📋 Instructions:</h4>
               <ol className="text-sm text-gray-700 space-y-1 list-decimal list-inside">
                 <li>Review the outline and tips</li>

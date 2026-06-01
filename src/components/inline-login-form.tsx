@@ -212,7 +212,7 @@ export function InlineLoginForm() {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
-                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#00A1E0]"
+                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#4F9CF9]"
                 autoFocus
                 required
               />
@@ -223,7 +223,7 @@ export function InlineLoginForm() {
             <button
               type="submit"
               disabled={!email.trim() || isSubmitting}
-              className="w-full py-2.5 bg-[#00A1E0] text-white font-semibold rounded-lg hover:bg-[#0070A8] transition-colors disabled:opacity-50 text-sm"
+              className="w-full py-2.5 bg-[#4F9CF9] text-white font-semibold rounded-lg hover:bg-[#3B7FD9] transition-colors disabled:opacity-50 text-sm"
             >
               {isSubmitting ? "Sending..." : "Continue"}
             </button>
@@ -246,7 +246,7 @@ export function InlineLoginForm() {
           <p className="text-xs text-slate-600 mb-1">
             We sent a code to
           </p>
-          <p className="text-sm text-[#00A1E0] font-medium mb-4">{email}</p>
+          <p className="text-sm text-[#4F9CF9] font-medium mb-4">{email}</p>
 
           {/* OTP Input Boxes */}
           <div className="flex justify-center gap-1.5 mb-3" onPaste={handleOtpPaste}>
@@ -262,8 +262,8 @@ export function InlineLoginForm() {
                 onKeyDown={(e) => handleOtpKeyDown(idx, e)}
                 className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none transition-all ${
                   digit
-                    ? "border-[#00A1E0] bg-slate-50 text-[#0070A8]"
-                    : "border-slate-200 text-slate-800 focus:border-[#00A1E0]"
+                    ? "border-[#4F9CF9] bg-slate-50 text-[#3B7FD9]"
+                    : "border-slate-200 text-slate-800 focus:border-[#4F9CF9]"
                 }`}
               />
             ))}
@@ -274,7 +274,7 @@ export function InlineLoginForm() {
           )}
 
           {isSubmitting && (
-            <p className="text-[#00A1E0] text-xs text-center mb-3">Verifying...</p>
+            <p className="text-[#4F9CF9] text-xs text-center mb-3">Verifying...</p>
           )}
 
           {/* Resend */}
@@ -287,7 +287,7 @@ export function InlineLoginForm() {
               <button
                 onClick={handleResend}
                 disabled={isSubmitting}
-                className="text-xs text-[#00A1E0] hover:text-[#0070A8] font-medium disabled:opacity-50"
+                className="text-xs text-[#4F9CF9] hover:text-[#3B7FD9] font-medium disabled:opacity-50"
               >
                 Resend code
               </button>
@@ -322,7 +322,7 @@ export function InlineLoginForm() {
                 value={name}
                 onChange={(e) => { setName(e.target.value); setError(""); }}
                 placeholder="Enter your name"
-                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#00A1E0]"
+                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#4F9CF9]"
                 autoFocus
                 required
               />
@@ -333,7 +333,7 @@ export function InlineLoginForm() {
             <button
               type="submit"
               disabled={!name.trim() || isSubmitting}
-              className="w-full py-2.5 bg-[#00A1E0] text-white font-semibold rounded-lg hover:bg-[#0070A8] transition-colors disabled:opacity-50 text-sm"
+              className="w-full py-2.5 bg-[#4F9CF9] text-white font-semibold rounded-lg hover:bg-[#3B7FD9] transition-colors disabled:opacity-50 text-sm"
             >
               {isSubmitting ? "Creating account..." : "Start learning"}
             </button>

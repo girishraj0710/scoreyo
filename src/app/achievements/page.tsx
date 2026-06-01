@@ -144,7 +144,7 @@ export default function AchievementsPage() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
               selectedCategory === cat
-                ? "bg-[#00A1E0] text-white shadow-lg"
+                ? "bg-[#4F9CF9] text-white shadow-lg"
                 : "bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
             }`}
           >

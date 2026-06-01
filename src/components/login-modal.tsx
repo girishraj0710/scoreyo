@@ -271,7 +271,7 @@ export function LoginModal() {
             <div className="space-y-3">
               <button
                 onClick={() => setStep("signin-email")}
-                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 bg-slate-50 rounded-xl hover:border-slate-300 hover:bg-[#E6F4F9] transition-all text-left group"
+                className="w-full flex items-center gap-4 px-6 py-4 border-2 border-slate-200 bg-slate-50 rounded-xl hover:border-slate-300 hover:bg-[#E3F2FD] transition-all text-left group"
               >
                 <Mail className="w-5 h-5 text-[#00A1E0] group-hover:text-[#0070A8]" />
                 <div>
@@ -482,7 +482,7 @@ export function LoginModal() {
             <p className="text-slate-600 mb-1">
               We sent a code to
             </p>
-            <p className="text-[#00A1E0] font-medium mb-6">{email}</p>
+            <p className="text-[#4F9CF9] font-medium mb-6">{email}</p>
 
             <div className="flex justify-center gap-2 mb-4" onPaste={handleOtpPaste}>
               {otp.map((digit, idx) => (
@@ -505,7 +505,7 @@ export function LoginModal() {
             </div>
 
             {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
-            {isSubmitting && <p className="text-[#00A1E0] text-sm text-center mb-4">Verifying...</p>}
+            {isSubmitting && <p className="text-[#4F9CF9] text-sm text-center mb-4">Verifying...</p>}
 
             <div className="text-center mt-6">
               {countdown > 0 ? (
@@ -516,7 +516,7 @@ export function LoginModal() {
                 <button
                   onClick={handleResend}
                   disabled={isSubmitting}
-                  className="text-sm text-[#00A1E0] hover:text-[#0070A8] font-medium disabled:opacity-50"
+                  className="text-sm text-[#4F9CF9] hover:text-[#3B7FD9] font-medium disabled:opacity-50"
                 >
                   Resend code
                 </button>
@@ -531,7 +531,7 @@ export function LoginModal() {
                   </svg>
                   <span><strong>Signing up as:</strong> {name}</span>
                 </p>
-                <p className="text-xs text-[#00A1E0] mt-1">
+                <p className="text-xs text-[#4F9CF9] mt-1">
                   Verify your email to complete registration
                 </p>
               </div>

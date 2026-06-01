@@ -68,7 +68,7 @@ export function DailyProgressCard({
                 isGoalReached
                   ? "text-green-500"
                   : progress > 70
-                  ? "text-[#00A1E0]"
+                  ? "text-[#4F9CF9]"
                   : "text-blue-400"
               }
             />
@@ -126,7 +126,7 @@ export function DailyProgressCard({
           className={`h-full rounded-full ${
             isGoalReached
               ? "bg-gradient-to-r from-green-500 to-emerald-500"
-              : "bg-gradient-to-r from-blue-500 to-[#00A1E0]"
+              : "bg-gradient-to-r from-blue-500 to-[#4F9CF9]"
           }`}
         />
       </div>

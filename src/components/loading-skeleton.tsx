@@ -44,14 +44,14 @@ export function LoadingSkeleton({ type = 'page', className = '' }: LoadingSkelet
           {/* Action buttons */}
           <div className="flex justify-between">
             <div className="h-10 bg-slate-200 rounded w-24 animate-pulse"></div>
-            <div className="h-10 bg-[#80CFED] rounded w-24 animate-pulse"></div>
+            <div className="h-10 bg-[#90CAF9] rounded w-24 animate-pulse"></div>
           </div>
         </div>
 
         {/* Loading text */}
         <div className="text-center mt-6">
           <div className="inline-flex items-center gap-2 text-slate-600">
-            <div className="w-5 h-5 border-2 border-[#00A1E0] border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-5 h-5 border-2 border-[#4F9CF9] border-t-transparent rounded-full animate-spin"></div>
             <span className="text-sm">Loading {type}...</span>
           </div>
         </div>
@@ -104,7 +104,7 @@ export function LoadingSkeleton({ type = 'page', className = '' }: LoadingSkelet
                 <div className="h-4 bg-slate-200 rounded w-full animate-pulse"></div>
                 <div className="h-4 bg-slate-200 rounded w-5/6 animate-pulse"></div>
               </div>
-              <div className="h-10 bg-[#80CFED] rounded animate-pulse"></div>
+              <div className="h-10 bg-[#90CAF9] rounded animate-pulse"></div>
             </div>
           ))}
         </div>
@@ -125,7 +125,7 @@ export function LoadingSpinner({ size = 'md', className = '' }: { size?: 'sm' | 
 
   return (
     <div className={`flex items-center justify-center ${className}`}>
-      <div className={`${sizeClasses[size]} border-[#00A1E0] border-t-transparent rounded-full animate-spin`}></div>
+      <div className={`${sizeClasses[size]} border-[#4F9CF9] border-t-transparent rounded-full animate-spin`}></div>
     </div>
   );
 }

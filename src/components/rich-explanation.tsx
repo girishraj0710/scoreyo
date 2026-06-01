@@ -76,7 +76,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
           </div>
           {explanation.calculation && (
             <>
-              <div className="text-[#0070A8] font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
+              <div className="text-[#3B7FD9] font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
               <pre className="text-xs text-[#005A7A] leading-relaxed whitespace-pre-wrap font-mono bg-white px-3 py-2 rounded-lg border border-slate-200">
                 {explanation.calculation}
               </pre>

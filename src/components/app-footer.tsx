@@ -18,17 +18,17 @@ export function AppFooter() {
           <div>
             <h3 className="font-semibold text-slate-800 mb-3 text-sm">Product</h3>
             <ul className="space-y-2 text-xs text-slate-600">
-              <li><a href="/" className="hover:text-[#00A1E0] transition-colors">Home</a></li>
-              <li><a href="/mock-test" className="hover:text-[#00A1E0] transition-colors">Mock Tests</a></li>
-              <li><a href="/pricing" className="hover:text-[#00A1E0] transition-colors">Pricing</a></li>
+              <li><a href="/" className="hover:text-[#4F9CF9] transition-colors">Home</a></li>
+              <li><a href="/mock-test" className="hover:text-[#4F9CF9] transition-colors">Mock Tests</a></li>
+              <li><a href="/pricing" className="hover:text-[#4F9CF9] transition-colors">Pricing</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-slate-800 mb-3 text-sm">Legal</h3>
             <ul className="space-y-2 text-xs text-slate-600">
-              <li><a href="/terms" className="hover:text-[#00A1E0] transition-colors">Terms of Service</a></li>
-              <li><a href="/privacy" className="hover:text-[#00A1E0] transition-colors">Privacy Policy</a></li>
-              <li><a href="/refund" className="hover:text-[#00A1E0] transition-colors">Refund Policy</a></li>
+              <li><a href="/terms" className="hover:text-[#4F9CF9] transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-[#4F9CF9] transition-colors">Privacy Policy</a></li>
+              <li><a href="/refund" className="hover:text-[#4F9CF9] transition-colors">Refund Policy</a></li>
             </ul>
           </div>
           <div>
@@ -62,7 +62,7 @@ export function AppFooter() {
                   href="https://wordlevel.net"
                   target="_blank"
                   rel="dofollow noopener noreferrer"
-                  className="text-blue-500 hover:text-[#00A1E0] underline"
+                  className="text-blue-500 hover:text-[#4F9CF9] underline"
                 >
                   WordLevel.net
                 </a>

@@ -112,7 +112,7 @@ function ReportModal({
           </p>
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8]"
+            className="px-6 py-2 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9]"
           >
             Close
           </button>
@@ -569,7 +569,7 @@ function QuizContent() {
     // Expert Curated: AI-generated with quality standards (blue badge)
     // Includes: expert-curated, validated-ai, ai, or any other source
     return (
-      <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-[#E6F4F9] text-[#0070A8]">
+      <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-[#E3F2FD] text-[#3B7FD9]">
         <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
         </svg>
@@ -618,8 +618,8 @@ function QuizContent() {
   if (error && (error as any) === "AI_BUSY") {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-[#80CFED]">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E6F4F9] flex items-center justify-center">
+        <div className="bg-white rounded-2xl p-12 shadow-lg border border-[#90CAF9]">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E3F2FD] flex items-center justify-center">
             <svg className="w-8 h-8 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
@@ -663,7 +663,7 @@ function QuizContent() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E6F4F9] flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E3F2FD] flex items-center justify-center">
             <svg
               className="animate-spin h-8 w-8 text-[#00A1E0]"
               viewBox="0 0 24 24"
@@ -717,7 +717,7 @@ function QuizContent() {
           <div className="flex gap-3 justify-center">
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8]"
+              className="px-6 py-2 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9]"
             >
               Try Again
             </button>
@@ -784,7 +784,7 @@ function QuizContent() {
             bg: "bg-slate-50",
           }
         : percentage >= 70
-          ? { label: "Good Job!", color: "text-[#00A1E0]", bg: "bg-slate-50" }
+          ? { label: "Good Job!", color: "text-[#4F9CF9]", bg: "bg-slate-50" }
           : percentage >= 50
             ? {
                 label: "Keep Practicing!",
@@ -865,7 +865,7 @@ function QuizContent() {
               <>
                 <button
                   onClick={() => window.location.reload()}
-                  className="px-6 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] font-medium"
+                  className="px-6 py-2 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] font-medium"
                 >
                   Retry Same Topic
                 </button>
@@ -1021,7 +1021,7 @@ function QuizContent() {
           <p className="text-slate-600 mb-6">Unable to load question data. Please try starting a new quiz.</p>
           <button
             onClick={() => window.location.href = '/quiz/levels'}
-            className="px-6 py-3 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors"
+            className="px-6 py-3 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors"
           >
             Start New Quiz
           </button>
@@ -1046,7 +1046,7 @@ function QuizContent() {
       {/* Back Button - Standalone Floating */}
       <button
         onClick={handleBack}
-        className="inline-flex items-center gap-1.5 mb-3 px-3 py-2 text-sm font-medium text-slate-600 hover:text-[#00A1E0] bg-white hover:bg-[#E6F4F9] border border-slate-200 rounded-lg transition-colors shadow-sm shrink-0 self-start"
+        className="inline-flex items-center gap-1.5 mb-3 px-3 py-2 text-sm font-medium text-slate-600 hover:text-[#4F9CF9] bg-white hover:bg-[#E3F2FD] border border-slate-200 rounded-lg transition-colors shadow-sm shrink-0 self-start"
         aria-label="Back"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1067,7 +1067,7 @@ function QuizContent() {
                 Level {levelNumber}
               </span>
             )}
-            <span className="text-sm font-medium text-[#00A1E0]">
+            <span className="text-sm font-medium text-[#4F9CF9]">
               {quizData.examName}
             </span>
             <span className="text-slate-300">|</span>
@@ -1196,7 +1196,7 @@ function QuizContent() {
           <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
             <div className="flex items-center gap-2 flex-wrap">
               {/* Question Number Badge */}
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#E6F4F9] text-[#0070A8] text-xs font-semibold">
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#E3F2FD] text-[#3B7FD9] text-xs font-semibold">
                 Q {currentQuestion + 1}/{quizData.questions.length}
               </span>
 
@@ -1239,10 +1239,10 @@ function QuizContent() {
           {question.passage && (
             <div className="mb-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
               <div className="flex items-center gap-2 mb-2">
-                <svg className="w-4 h-4 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[#4F9CF9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                <span className="text-xs font-semibold text-[#00A1E0] uppercase">Passage</span>
+                <span className="text-xs font-semibold text-[#4F9CF9] uppercase">Passage</span>
               </div>
               <div className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap max-h-64 overflow-y-auto">
                 {question.passage}
@@ -1279,8 +1279,8 @@ function QuizContent() {
                         : isWrong
                         ? "border-red-400 bg-red-50 shadow-lg shadow-red-100"
                         : isSelected
-                        ? "border-[#00A1E0] bg-[#E6F4F9] shadow-lg shadow-indigo-100"
-                        : "border-slate-200 bg-white hover:border-[#80CFED] hover:bg-slate-50 shadow-sm"
+                        ? "border-[#4F9CF9] bg-[#E3F2FD] shadow-lg shadow-indigo-100"
+                        : "border-slate-200 bg-white hover:border-[#90CAF9] hover:bg-slate-50 shadow-sm"
                     }
                     ${showExplanation ? "cursor-default" : "cursor-pointer"}
                   `}
@@ -1295,7 +1295,7 @@ function QuizContent() {
                           : isWrong
                           ? "bg-gradient-to-br from-red-500 to-pink-500 text-white shadow-md"
                           : isSelected
-                          ? "bg-gradient-to-br from-[#00A1E0] to-purple-500 text-white shadow-md"
+                          ? "bg-gradient-to-br from-[#4F9CF9] to-purple-500 text-white shadow-md"
                           : "bg-slate-100 text-slate-600 border border-slate-200"
                       }
                     `}
@@ -1374,7 +1374,7 @@ function QuizContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={nextQuestion}
-              className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all"
+              className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-[#4F9CF9] to-purple-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all"
             >
               Next Question →
             </motion.button>
@@ -1415,7 +1415,7 @@ function QuizContent() {
               idx === currentQuestion
                 ? "bg-slate-500 text-white"
                 : answers[idx] !== null
-                  ? "bg-[#E6F4F9] text-[#00A1E0]"
+                  ? "bg-[#E3F2FD] text-[#4F9CF9]"
                   : "bg-slate-100 text-slate-400"
             }`}
           >
@@ -1441,7 +1441,7 @@ export default function QuizPage() {
       fallback={
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
           <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E6F4F9] flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E3F2FD] flex items-center justify-center">
               <svg
                 className="animate-spin h-8 w-8 text-[#00A1E0]"
                 viewBox="0 0 24 24"

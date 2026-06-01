@@ -55,7 +55,7 @@ export default function EnglishPathPage() {
   if (isLoading || !user || loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#80CFED] border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -66,7 +66,7 @@ export default function EnglishPathPage() {
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Path not found</h1>
           <Link href="/english">
-            <button className="text-[#00A1E0] hover:underline">← Back to English Hub</button>
+            <button className="text-[#4F9CF9] hover:underline">← Back to English Hub</button>
           </Link>
         </div>
       </div>
@@ -128,8 +128,8 @@ export default function EnglishPathPage() {
               <h1 className="text-3xl font-bold text-slate-900 mb-2">{path.name}</h1>
               <p className="text-slate-600 mb-4">{path.description}</p>
               <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 bg-[#E6F4F9] rounded-lg">
-                  <BookOpen className="w-4 h-4 text-[#00A1E0]" />
+                <div className="flex items-center gap-2 px-4 py-2 bg-[#E3F2FD] rounded-lg">
+                  <BookOpen className="w-4 h-4 text-[#4F9CF9]" />
                   <span className="text-sm font-medium text-slate-700">
                     {path.topics.length} topics
                   </span>
@@ -165,7 +165,7 @@ export default function EnglishPathPage() {
                 <div className="bg-white rounded-xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="w-14 h-14 bg-[#E6F4F9] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#E6F4F9] transition-colors">
+                    <div className="w-14 h-14 bg-[#E3F2FD] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#E3F2FD] transition-colors">
                       <TopicIcon className="w-7 h-7 text-[#00A1E0]" />
                     </div>
 
@@ -173,7 +173,7 @@ export default function EnglishPathPage() {
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#00A1E0] transition-colors">
+                          <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#4F9CF9] transition-colors">
                             {topic.name}
                           </h3>
                           <p className="text-sm text-slate-600">{topic.description}</p>
@@ -205,7 +205,7 @@ export default function EnglishPathPage() {
                           </div>
                           <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
                             <div
-                              className="h-full bg-gradient-to-r from-[#00A1E0] to-purple-500 transition-all"
+                              className="h-full bg-gradient-to-r from-[#4F9CF9] to-purple-500 transition-all"
                               style={{ width: `${(topicProgress.completed / topic.questionCount) * 100}%` }}
                             />
                           </div>

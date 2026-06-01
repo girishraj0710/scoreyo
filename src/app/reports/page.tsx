@@ -163,7 +163,7 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2">
-          <span className="bg-[#00A1E0] bg-clip-text text-transparent">
+          <span className="bg-[#4F9CF9] bg-clip-text text-transparent">
             {t("reportsTitle")}
           </span>
         </h1>
@@ -248,7 +248,7 @@ export default function ReportsPage() {
             <div className="space-y-6">
               {[
                 { band: "excellent", label: t("excellentRange"), color: "bg-cyan-400", textColor: "text-slate-500", IconComponent: Star },
-                { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-[#00A1E0]", IconComponent: TrendingUp },
+                { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-[#4F9CF9]", IconComponent: TrendingUp },
                 { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", IconComponent: BarChart3 },
                 { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
               ].map((band) => {
@@ -400,7 +400,7 @@ export default function ReportsPage() {
                       <span className="text-lg font-bold text-red-600">{Math.round(masteryScore)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
-                        className="text-xs text-[#00A1E0] bg-slate-50 px-3 py-2 rounded hover:bg-[#E6F4F9]"
+                        className="text-xs text-[#4F9CF9] bg-slate-50 px-3 py-2 rounded hover:bg-[#E3F2FD]"
                       >
                         {t("practice")}
                       </a>
@@ -442,7 +442,7 @@ export default function ReportsPage() {
                       style={{ height: `${heightPx}px` }}
                     >
                       {/* Bar color */}
-                      <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-[#80CFED]"}`} />
+                      <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-[#90CAF9]"}`} />
                       {/* Tooltip - positioned above the bar */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
                         <div className="font-semibold">{item.topic || `Quiz #${safeAccuracyTrend.length - idx}`}</div>

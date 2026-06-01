@@ -153,7 +153,7 @@ export default function WritingPracticeInterface({
               <ul className="space-y-2">
                 {selectedPrompt.tips.map((tip, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#00A1E0] font-bold">•</span>
+                    <span className="text-[#4F9CF9] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
                 ))}

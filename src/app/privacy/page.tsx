@@ -251,7 +251,7 @@ export default function PrivacyPage() {
             </ul>
           </section>
 
-          <div className="mt-12 p-6 bg-[#E6F4F9] rounded-xl border border-[#80CFED]">
+          <div className="mt-12 p-6 bg-[#E3F2FD] rounded-xl border border-[#90CAF9]">
             <h3 className="text-lg font-bold text-slate-800 mb-2">Your Privacy Matters</h3>
             <p className="text-sm text-slate-600">
               We are committed to protecting your privacy and being transparent about how we use your data.

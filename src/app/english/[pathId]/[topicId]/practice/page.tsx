@@ -167,7 +167,7 @@ export default function EnglishPracticePage() {
   if (isLoading || !user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#80CFED] border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -179,7 +179,7 @@ export default function EnglishPracticePage() {
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Topic not found</h1>
           <button
             onClick={() => router.push('/english')}
-            className="text-[#00A1E0] hover:underline"
+            className="text-[#4F9CF9] hover:underline"
           >
             ← Back to English Hub
           </button>
@@ -208,14 +208,14 @@ export default function EnglishPracticePage() {
                 <p className="text-slate-600 mb-6">{error}</p>
                 <button
                   onClick={() => router.push(`/english/${pathId}/${topicId}`)}
-                  className="px-6 py-3 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors"
+                  className="px-6 py-3 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors"
                 >
                   Go Back
                 </button>
               </div>
             ) : (
               <div>
-                <Loader2 className="w-12 h-12 mx-auto mb-4 text-[#00A1E0] animate-spin" />
+                <Loader2 className="w-12 h-12 mx-auto mb-4 text-[#4F9CF9] animate-spin" />
                 <p className="text-slate-600">Loading questions...</p>
               </div>
             )}
@@ -248,7 +248,7 @@ export default function EnglishPracticePage() {
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
                   <div
-                    className="bg-gradient-to-r from-[#00A1E0] to-purple-500 h-2 rounded-full transition-all"
+                    className="bg-gradient-to-r from-[#4F9CF9] to-purple-500 h-2 rounded-full transition-all"
                     style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
                   />
                 </div>
@@ -268,7 +268,7 @@ export default function EnglishPracticePage() {
             {/* Question */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 mb-6">
               <div className="mb-2">
-                <span className="px-3 py-1 bg-[#E6F4F9] text-[#0070A8] text-xs font-medium rounded-full">
+                <span className="px-3 py-1 bg-[#E3F2FD] text-[#0070A8] text-xs font-medium rounded-full">
                   {currentQuestion.difficulty}
                 </span>
               </div>
@@ -284,7 +284,7 @@ export default function EnglishPracticePage() {
                     onClick={() => handleAnswerSelect(idx)}
                     className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                       userAnswers[currentIndex] === idx
-                        ? "border-[#00A1E0] bg-[#E6F4F9]"
+                        ? "border-[#00A1E0] bg-[#E3F2FD]"
                         : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
@@ -292,7 +292,7 @@ export default function EnglishPracticePage() {
                       <div
                         className={`w-8 h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                           userAnswers[currentIndex] === idx
-                            ? "border-[#00A1E0] bg-[#00A1E0] text-white"
+                            ? "border-[#4F9CF9] bg-[#4F9CF9] text-white"
                             : "border-slate-300"
                         }`}
                       >
@@ -319,14 +319,14 @@ export default function EnglishPracticePage() {
                 <button
                   onClick={handleSubmit}
                   disabled={userAnswers.some(a => a === null)}
-                  className="px-6 py-3 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Submit Quiz
                 </button>
               ) : (
                 <button
                   onClick={handleNext}
-                  className="px-6 py-3 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors"
+                  className="px-6 py-3 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors"
                 >
                   Next
                 </button>
@@ -403,7 +403,7 @@ export default function EnglishPracticePage() {
                             </div>
                           ))}
                         </div>
-                        <div className="bg-[#E6F4F9] border-l-4 border-blue-500 p-3 text-sm text-slate-700">
+                        <div className="bg-[#E3F2FD] border-l-4 border-blue-500 p-3 text-sm text-slate-700">
                           <strong>Explanation:</strong> {q.explanation}
                         </div>
                       </div>
@@ -428,7 +428,7 @@ export default function EnglishPracticePage() {
                   setUserAnswers([]);
                   fetchQuestions();
                 }}
-                className="flex-1 px-6 py-3 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-colors"
+                className="flex-1 px-6 py-3 bg-[#4F9CF9] text-white rounded-lg hover:bg-[#3B7FD9] transition-colors"
               >
                 Practice Again
               </button>

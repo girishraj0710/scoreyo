@@ -49,7 +49,7 @@ export function MistakeMapWidget() {
           Your Mistake Pattern
         </h3>
         <div className="flex items-center justify-center h-48">
-          <div className="animate-spin h-8 w-8 border-4 border-[#00A1E0] border-t-transparent rounded-full"></div>
+          <div className="animate-spin h-8 w-8 border-4 border-[#4F9CF9] border-t-transparent rounded-full"></div>
         </div>
       </div>
     );
@@ -119,8 +119,8 @@ export function MistakeMapWidget() {
       label: 'Careless',
       color: 'bg-slate-500',
       lightColor: 'bg-slate-50',
-      textColor: 'text-[#0070A8]',
-      iconColor: 'text-[#00A1E0]',
+      textColor: 'text-[#3B7FD9]',
+      iconColor: 'text-[#4F9CF9]',
       percentage: data.breakdown.careless,
       count: data.summary.careless
     }

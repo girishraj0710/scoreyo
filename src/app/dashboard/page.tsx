@@ -1,5 +1,5 @@
 "use client";
-// VERSION: SALESFORCE-BLUE-THEME-2026-06-01-GLOBAL
+// VERSION: AGENTFORCE-BLUE-THEME-2026-06-01
 
 import { useState, useEffect, useMemo } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
@@ -150,8 +150,8 @@ export default function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Version Badge - Remove after testing */}
-      <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#00A1E0' }}>
-        SF-THEME-GLOBAL
+      <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#4F9CF9' }}>
+        AGENTFORCE-BLUE
       </div>
 
       <div className="flex items-center justify-between mb-8">
@@ -170,9 +170,9 @@ export default function DashboardPage() {
           <a
             href="/"
             className="px-4 py-2 text-white text-sm font-medium rounded-lg"
-            style={{ backgroundColor: '#00A1E0', transition: 'background-color 0.2s' }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0070A8'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00A1E0'}
+            style={{ backgroundColor: '#4F9CF9', transition: 'background-color 0.2s' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3B7FD9'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4F9CF9'}
           >
             New Quiz
           </a>
@@ -326,7 +326,7 @@ export default function DashboardPage() {
                         <a
                           href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
                           className="text-xs hover:underline"
-                          style={{ color: '#00A1E0' }}
+                          style={{ color: '#4F9CF9' }}
                         >
                           Practice
                         </a>
