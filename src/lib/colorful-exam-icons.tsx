@@ -667,7 +667,6 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'english': '/images/subjects/english-3d.svg',
   'sbi-english': '/images/subjects/english-3d.svg',
   'ibps-english': '/images/subjects/english-3d.svg',
-  'verbal': '/images/subjects/english-3d.svg',
   'pa-english': '/images/subjects/english-3d.svg',
   'iimc-english': '/images/subjects/english-3d.svg',
   'htet-english': '/images/subjects/english-3d.svg',
