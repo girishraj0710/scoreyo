@@ -161,7 +161,7 @@ export default function PricingPage() {
           <div className="flex gap-3 justify-center">
             <a
               href="/"
-              className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 shadow-lg"
+              className="px-6 py-3 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white font-semibold rounded-xl shadow-lg"
             >
               {t("startQuiz")}
             </a>
@@ -184,7 +184,7 @@ export default function PricingPage() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#00A1E0] to-purple-600 bg-clip-text text-transparent">
             {t("pricingTitle")}
           </span>
         </h1>
@@ -195,9 +195,9 @@ export default function PricingPage() {
 
       {/* Current Plan Status */}
       {isPro && subData?.subscription && (
-        <div className="max-w-md mx-auto mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-5 border border-indigo-200">
+        <div className="max-w-md mx-auto mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-5 border border-[#80CFED]">
           <div className="flex items-center gap-3 mb-2">
-            <span className="px-3 py-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-bold rounded-full">
+            <span className="px-3 py-1 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white text-xs font-bold rounded-full">
               PRO
             </span>
             <span className="text-sm font-semibold text-slate-800">
@@ -282,14 +282,14 @@ export default function PricingPage() {
           {/* Show badge when selected */}
           {!isPro && selectedPlan === "monthly" && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="px-4 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full shadow-md whitespace-nowrap">
+              <span className="px-4 py-1 bg-[#00A1E0] text-white text-xs font-bold rounded-full shadow-md whitespace-nowrap">
                 SELECTED
               </span>
             </div>
           )}
           {isPro && subData?.subscription?.plan === "monthly" && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="px-4 py-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-bold rounded-full shadow-md whitespace-nowrap">
+              <span className="px-4 py-1 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white text-xs font-bold rounded-full shadow-md whitespace-nowrap">
                 ACTIVE
               </span>
             </div>
@@ -313,7 +313,7 @@ export default function PricingPage() {
               t("proPriority"),
             ].map((feature, idx) => (
               <li key={idx} className="flex items-center gap-2 text-sm text-slate-600">
-                <svg className="w-4 h-4 text-indigo-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-[#00A1E0] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 {feature}
@@ -321,7 +321,7 @@ export default function PricingPage() {
             ))}
           </ul>
           {isPro && subData?.subscription?.plan === "monthly" ? (
-            <div className="py-3 text-center text-sm font-semibold text-indigo-600 bg-white rounded-xl border border-indigo-200">
+            <div className="py-3 text-center text-sm font-semibold text-[#00A1E0] bg-white rounded-xl border border-[#80CFED]">
               {t("activePlan")}
             </div>
           ) : isPro ? (
@@ -338,8 +338,8 @@ export default function PricingPage() {
               disabled={isProcessing}
               className={`w-full py-3 font-semibold rounded-xl disabled:opacity-50 text-sm transition-all ${
                 selectedPlan === "monthly"
-                  ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl"
-                  : "bg-white text-indigo-600 border-2 border-indigo-200 hover:bg-indigo-50 hover:border-indigo-400"
+                  ? "bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white shadow-lg hover:shadow-xl"
+                  : "bg-white text-[#00A1E0] border-2 border-[#80CFED] hover:bg-[#E6F4F9] hover:border-indigo-400"
               }`}
             >
               {isProcessing && processingPlan === "monthly" ? t("processing") : t("upgradeToPro")}
@@ -362,7 +362,7 @@ export default function PricingPage() {
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className={`px-4 py-1 text-white text-xs font-bold rounded-full shadow-md whitespace-nowrap ${
               selectedPlan === "quarterly" || (isPro && subData?.subscription?.plan === "quarterly")
-                ? "bg-gradient-to-r from-indigo-600 to-purple-600"
+                ? "bg-gradient-to-r from-[#00A1E0] to-purple-600"
                 : "bg-slate-400"
             }`}>
               {isPro && subData?.subscription?.plan === "quarterly" ? "ACTIVE" : t("mostPopular")}
@@ -393,7 +393,7 @@ export default function PricingPage() {
               t("proPriority"),
             ].map((feature, idx) => (
               <li key={idx} className="flex items-center gap-2 text-sm text-slate-700">
-                <svg className="w-4 h-4 text-indigo-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-[#00A1E0] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 {feature}
@@ -401,7 +401,7 @@ export default function PricingPage() {
             ))}
           </ul>
           {isPro && subData?.subscription?.plan === "quarterly" ? (
-            <div className="py-3 text-center text-sm font-semibold text-indigo-600 bg-white rounded-xl border border-indigo-200">
+            <div className="py-3 text-center text-sm font-semibold text-[#00A1E0] bg-white rounded-xl border border-[#80CFED]">
               {t("activePlan")}
             </div>
           ) : isPro ? (
@@ -418,8 +418,8 @@ export default function PricingPage() {
               disabled={isProcessing}
               className={`w-full py-3 font-semibold rounded-xl disabled:opacity-50 text-sm transition-all ${
                 selectedPlan === "quarterly"
-                  ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl"
-                  : "bg-white text-indigo-600 border-2 border-indigo-200 hover:bg-indigo-50 hover:border-indigo-400"
+                  ? "bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white shadow-lg hover:shadow-xl"
+                  : "bg-white text-[#00A1E0] border-2 border-[#80CFED] hover:bg-[#E6F4F9] hover:border-indigo-400"
               }`}
             >
               {isProcessing && processingPlan === "quarterly" ? t("processing") : t("upgradeToPro")}

@@ -59,7 +59,7 @@ export default function EnglishTopicPage() {
   if (isLoading || !user || loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#80CFED] border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -70,7 +70,7 @@ export default function EnglishTopicPage() {
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Topic not found</h1>
           <Link href="/english">
-            <button className="text-indigo-600 hover:underline">← Back to English Hub</button>
+            <button className="text-[#00A1E0] hover:underline">← Back to English Hub</button>
           </Link>
         </div>
       </div>
@@ -104,8 +104,8 @@ export default function EnglishTopicPage() {
             {(() => {
               const TopicIcon = getTopicIcon(topic.id);
               return (
-                <div className="w-20 h-20 bg-indigo-50 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <TopicIcon className="w-10 h-10 text-indigo-600" />
+                <div className="w-20 h-20 bg-[#E6F4F9] rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <TopicIcon className="w-10 h-10 text-[#00A1E0]" />
                 </div>
               );
             })()}
@@ -118,8 +118,8 @@ export default function EnglishTopicPage() {
               </div>
               <p className="text-slate-600 mb-4">{topic.description}</p>
               <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 rounded-lg">
-                  <BookOpen className="w-4 h-4 text-indigo-600" />
+                <div className="flex items-center gap-2 px-4 py-2 bg-[#E6F4F9] rounded-lg">
+                  <BookOpen className="w-4 h-4 text-[#00A1E0]" />
                   <span className="text-sm font-medium text-slate-700">
                     {topic.questionCount} questions
                   </span>
@@ -137,7 +137,7 @@ export default function EnglishTopicPage() {
 
         {/* Progress Stats */}
         {progress.completed > 0 && (
-          <div className="mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="mb-8 bg-gradient-to-r from-[#00A1E0] to-purple-600 rounded-2xl p-6 text-white shadow-lg">
             <h2 className="text-lg font-semibold mb-4">Your Progress</h2>
             <div className="grid grid-cols-3 gap-4">
               <div>
@@ -159,14 +159,14 @@ export default function EnglishTopicPage() {
         {/* Subtopics */}
         <div className="mb-8 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
           <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-            <Target className="w-5 h-5 text-indigo-600" />
+            <Target className="w-5 h-5 text-[#00A1E0]" />
             What You'll Learn
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {topic.subtopics.map((subtopic, idx) => (
               <div key={idx} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
-                <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-indigo-600 font-semibold text-sm">{idx + 1}</span>
+                <div className="w-8 h-8 bg-[#E6F4F9] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#00A1E0] font-semibold text-sm">{idx + 1}</span>
                 </div>
                 <span className="text-slate-700">{subtopic}</span>
               </div>
@@ -180,9 +180,9 @@ export default function EnglishTopicPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               onClick={() => handleStartPractice(5)}
-              className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-indigo-50 transition-all group"
+              className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-[#E6F4F9] transition-all group"
             >
-              <Play className="w-8 h-8 text-indigo-600 mb-2" />
+              <Play className="w-8 h-8 text-[#00A1E0] mb-2" />
               <div className="font-bold text-slate-900 mb-1">Quick Practice</div>
               <div className="text-sm text-slate-600">5 questions</div>
               <div className="text-xs text-slate-500 mt-2">~5 minutes</div>
@@ -190,9 +190,9 @@ export default function EnglishTopicPage() {
 
             <button
               onClick={() => handleStartPractice(10)}
-              className="p-6 border-2 border-indigo-300 bg-indigo-50 rounded-xl hover:border-indigo-500 hover:bg-indigo-100 transition-all group"
+              className="p-6 border-2 border-[#80CFED] bg-[#E6F4F9] rounded-xl hover:border-[#00A1E0] hover:bg-[#E6F4F9] transition-all group"
             >
-              <Play className="w-8 h-8 text-indigo-600 mb-2" />
+              <Play className="w-8 h-8 text-[#00A1E0] mb-2" />
               <div className="font-bold text-slate-900 mb-1">Standard Practice</div>
               <div className="text-sm text-slate-600">10 questions</div>
               <div className="text-xs text-slate-500 mt-2">~10 minutes</div>
@@ -200,9 +200,9 @@ export default function EnglishTopicPage() {
 
             <button
               onClick={() => handleStartPractice(20)}
-              className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-indigo-50 transition-all group"
+              className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-[#E6F4F9] transition-all group"
             >
-              <Play className="w-8 h-8 text-indigo-600 mb-2" />
+              <Play className="w-8 h-8 text-[#00A1E0] mb-2" />
               <div className="font-bold text-slate-900 mb-1">Deep Practice</div>
               <div className="text-sm text-slate-600">20 questions</div>
               <div className="text-xs text-slate-500 mt-2">~20 minutes</div>

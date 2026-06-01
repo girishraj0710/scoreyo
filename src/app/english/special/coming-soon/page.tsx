@@ -39,7 +39,7 @@ function ComingSoonContent() {
   };
 
   const icons = {
-    listening: <Headphones className="w-16 h-16 text-blue-600" />,
+    listening: <Headphones className="w-16 h-16 text-[#00A1E0]" />,
     pronunciation: <Mic className="w-16 h-16 text-purple-600" />,
     speaking: <MessageSquare className="w-16 h-16 text-green-600" />,
     writing: <Pen className="w-16 h-16 text-orange-600" />,
@@ -147,7 +147,7 @@ function ComingSoonContent() {
           </div>
 
           {/* Current Alternative */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="bg-[#E6F4F9] border border-blue-200 rounded-lg p-4">
             <div className="flex items-start gap-3">
               <span className="text-2xl">💡</span>
               <div>
@@ -160,7 +160,7 @@ function ComingSoonContent() {
                     <>
                       <button
                         onClick={() => router.push('/english/foundation/reading-comprehension/practice')}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                        className="px-4 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition"
                       >
                         Reading Comprehension
                       </button>
@@ -176,7 +176,7 @@ function ComingSoonContent() {
                     <>
                       <button
                         onClick={() => router.push('/english/foundation/phonics-vowels/practice')}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                        className="px-4 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition"
                       >
                         Phonics & Vowels
                       </button>
@@ -192,7 +192,7 @@ function ComingSoonContent() {
                     <>
                       <button
                         onClick={() => router.push('/english/foundation/ielts-speaking/practice')}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                        className="px-4 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition"
                       >
                         IELTS Speaking
                       </button>
@@ -208,7 +208,7 @@ function ComingSoonContent() {
                     <>
                       <button
                         onClick={() => router.push('/english/foundation/sentence-types/practice')}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                        className="px-4 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition"
                       >
                         Sentence Structure
                       </button>
@@ -236,7 +236,7 @@ function ComingSoonContent() {
           </button>
           <button
             onClick={() => router.push('/english')}
-            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition font-semibold"
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg transition font-semibold"
           >
             Explore Other Topics
           </button>

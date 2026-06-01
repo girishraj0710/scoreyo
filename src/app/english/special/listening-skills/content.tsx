@@ -377,7 +377,7 @@ export default function ListeningSkillsPage() {
                 onClick={() => setFilterLevel(level)}
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   filterLevel === level
-                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
+                    ? "bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -397,7 +397,7 @@ export default function ListeningSkillsPage() {
                 }}
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedExercise.id === exercise.id
-                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
+                    ? "bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -417,16 +417,16 @@ export default function ListeningSkillsPage() {
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getLevelColor(selectedExercise.level)}`}>
                   {selectedExercise.level}
                 </span>
-                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">
+                <span className="px-3 py-1 bg-[#E6F4F9] text-[#0070A8] rounded-full text-xs font-semibold">
                   {selectedExercise.category}
                 </span>
                 <span className="text-sm text-gray-600">⏱️ {selectedExercise.duration}</span>
               </div>
 
               {/* Audio Player */}
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-lg p-6">
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-[#80CFED] rounded-lg p-6">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <Volume2 className="w-6 h-6 text-indigo-600" />
+                  <Volume2 className="w-6 h-6 text-[#00A1E0]" />
                   <h3 className="font-semibold text-gray-900">Audio Player</h3>
                 </div>
 
@@ -445,7 +445,7 @@ export default function ListeningSkillsPage() {
                   </div>
                   <div className="w-full bg-gray-300 rounded-full h-2">
                     <div
-                      className="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full transition-all"
+                      className="bg-gradient-to-r from-[#00A1E0] to-purple-600 h-2 rounded-full transition-all"
                       style={{ width: `${(currentTime / duration) * 100 || 0}%` }}
                     />
                   </div>
@@ -454,7 +454,7 @@ export default function ListeningSkillsPage() {
                 <div className="flex gap-3">
                   <button
                     onClick={togglePlayPause}
-                    className="flex-1 bg-indigo-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2"
+                    className="flex-1 bg-[#00A1E0] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#0070A8] transition flex items-center justify-center gap-2"
                   >
                     {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                     {isPlaying ? "Pause" : "Play"}
@@ -471,7 +471,7 @@ export default function ListeningSkillsPage() {
             </div>
 
             {/* Instructions */}
-            <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+            <div className="bg-[#E6F4F9] border border-[#80CFED] rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">📋 Instructions:</h4>
               <ol className="text-sm text-gray-700 space-y-1 list-decimal list-inside">
                 <li>Listen to the audio carefully (you can replay)</li>
@@ -486,7 +486,7 @@ export default function ListeningSkillsPage() {
               {!showTranscript ? (
                 <button
                   onClick={() => setShowTranscript(true)}
-                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white py-3 px-6 rounded-lg font-semibold transition flex items-center justify-center gap-2"
                 >
                   <FileText className="w-5 h-5" />
                   Show Transcript
@@ -494,7 +494,7 @@ export default function ListeningSkillsPage() {
               ) : (
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-indigo-600" />
+                    <FileText className="w-5 h-5 text-[#00A1E0]" />
                     Transcript
                   </h3>
                   <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 max-h-96 overflow-y-auto">
@@ -519,8 +519,8 @@ export default function ListeningSkillsPage() {
             {showResults && (
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">📊 Your Results</h3>
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-lg p-6 text-center">
-                  <p className="text-5xl font-bold text-indigo-600 mb-2">
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-[#80CFED] rounded-lg p-6 text-center">
+                  <p className="text-5xl font-bold text-[#00A1E0] mb-2">
                     {calculateScore()}/{selectedExercise.questions.length}
                   </p>
                   <p className="text-gray-700 font-semibold">
@@ -563,7 +563,7 @@ export default function ListeningSkillsPage() {
                               optionClass = "border-red-500 bg-red-50";
                             }
                           } else if (isSelected) {
-                            optionClass = "border-indigo-500 bg-indigo-50";
+                            optionClass = "border-[#00A1E0] bg-[#E6F4F9]";
                           }
 
                           return (
@@ -590,7 +590,7 @@ export default function ListeningSkillsPage() {
                       </div>
 
                       {showResults && (
-                        <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                        <div className="mt-3 bg-[#E6F4F9] border border-blue-200 rounded-lg p-3">
                           <p className="text-sm text-blue-900">
                             <strong>Explanation:</strong> {question.explanation}
                           </p>
@@ -604,7 +604,7 @@ export default function ListeningSkillsPage() {
               {!showResults && (
                 <button
                   onClick={submitAnswers}
-                  className="w-full mt-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-6 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition"
+                  className="w-full mt-6 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white py-4 px-6 rounded-lg font-semibold transition"
                 >
                   Submit Answers
                 </button>

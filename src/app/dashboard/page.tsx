@@ -1,5 +1,5 @@
 "use client";
-// VERSION: SALESFORCE-BLUE-2024-06-01-17:05
+// VERSION: SALESFORCE-BLUE-THEME-2026-06-01-GLOBAL
 
 import { useState, useEffect, useMemo } from "react";
 import { getAllExams, getExamById } from "@/lib/exams";
@@ -124,7 +124,7 @@ export default function DashboardPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BookOpen className="w-20 h-20 text-#00A1E0" />
+            <BookOpen className="w-20 h-20" style={{ color: '#00A1E0' }} />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
             No Quiz Data Yet
@@ -135,7 +135,10 @@ export default function DashboardPage() {
           </p>
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-#00A1E0 to-violet-500 text-white font-semibold rounded-xl hover:from-#0070A8 hover:to-violet-600 shadow-lg"
+            className="inline-block px-8 py-3 text-white font-semibold rounded-xl shadow-lg"
+            style={{ backgroundColor: '#00A1E0', transition: 'background-color 0.2s' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0070A8'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00A1E0'}
           >
             Start Your First Quiz
           </a>
@@ -148,7 +151,7 @@ export default function DashboardPage() {
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Version Badge - Remove after testing */}
       <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#00A1E0' }}>
-        SF-BLUE v17:05
+        SF-THEME-GLOBAL
       </div>
 
       <div className="flex items-center justify-between mb-8">
@@ -166,7 +169,10 @@ export default function DashboardPage() {
           />
           <a
             href="/"
-            className="px-4 py-2 bg-#00A1E0 text-white text-sm font-medium rounded-lg hover:bg-#0070A8"
+            className="px-4 py-2 text-white text-sm font-medium rounded-lg"
+            style={{ backgroundColor: '#00A1E0', transition: 'background-color 0.2s' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0070A8'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00A1E0'}
           >
             New Quiz
           </a>
@@ -319,7 +325,8 @@ export default function DashboardPage() {
                         </div>
                         <a
                           href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
-                          className="text-xs text-#00A1E0 hover:underline"
+                          className="text-xs hover:underline"
+                          style={{ color: '#00A1E0' }}
                         >
                           Practice
                         </a>

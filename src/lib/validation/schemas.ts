@@ -67,6 +67,7 @@ export const quizRequestSchema = z.object({
 });
 
 export const quizSubmissionSchema = z.object({
+  sessionId: z.string().uuid(),
   examId: examIdSchema,
   subjectId: subjectIdSchema,
   topic: z.string().min(1),
@@ -74,15 +75,12 @@ export const quizSubmissionSchema = z.object({
     question: z.string(),
     options: z.array(z.string()).min(2).max(6),
     correctAnswer: z.number().int().min(0),
-    explanation: z.string().optional(),
+    explanation: z.union([z.string(), z.any()]).optional(), // Can be string or rich object
     difficulty: z.enum(['easy', 'medium', 'hard']).optional(),
+    source: z.string().optional(),
   })).min(1).max(100),
-  userAnswers: z.array(z.number().int().min(0)).min(1).max(100),
-  timeTakenSeconds: z.number().int().min(0).max(86400), // Max 24 hours
-  correctCount: z.number().int().min(0),
-  totalQuestions: z.number().int().min(1),
-  pressureMode: z.boolean().optional(),
-  isSprintMode: z.boolean().optional(),
+  answers: z.array(z.union([z.number().int(), z.null()])).min(1).max(100), // Frontend sends 'answers', not 'userAnswers'
+  timeTaken: z.number().int().min(0).max(86400).optional(), // Frontend sends 'timeTaken', not 'timeTakenSeconds'
   sprintId: z.string().optional(),
 });
 

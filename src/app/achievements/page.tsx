@@ -90,7 +90,7 @@ export default function AchievementsPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-600 to-violet-500 rounded-2xl p-8 mb-8 text-white">
+      <div className="bg-[#00A1E0] rounded-2xl p-8 mb-8 text-white">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
             <Trophy className="w-8 h-8 text-white" />
@@ -144,7 +144,7 @@ export default function AchievementsPage() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
               selectedCategory === cat
-                ? "bg-indigo-600 text-white shadow-lg"
+                ? "bg-[#00A1E0] text-white shadow-lg"
                 : "bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
             }`}
           >

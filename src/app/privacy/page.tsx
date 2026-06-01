@@ -245,13 +245,13 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy or wish to exercise your data rights, contact us:
             </p>
             <ul className="list-none text-slate-600 ml-0">
-              <li className="mb-2">📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-indigo-600 hover:underline">support@prepgenie.co.in</a></li>
-              <li className="mb-2">🌐 Website: <a href="https://prepgenie.co.in" className="text-indigo-600 hover:underline">prepgenie.co.in</a></li>
+              <li className="mb-2">📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline">support@prepgenie.co.in</a></li>
+              <li className="mb-2">🌐 Website: <a href="https://prepgenie.co.in" className="text-[#00A1E0] hover:underline">prepgenie.co.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
             </ul>
           </section>
 
-          <div className="mt-12 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+          <div className="mt-12 p-6 bg-[#E6F4F9] rounded-xl border border-[#80CFED]">
             <h3 className="text-lg font-bold text-slate-800 mb-2">Your Privacy Matters</h3>
             <p className="text-sm text-slate-600">
               We are committed to protecting your privacy and being transparent about how we use your data.

@@ -54,7 +54,7 @@ export default function ReportsPage() {
           <h2 className="text-xl font-semibold text-slate-800 mb-2">Error Loading Reports</h2>
           <p className="text-slate-500 mb-4">{error}</p>
           <div className="flex gap-3 justify-center">
-            <button onClick={() => window.location.reload()} className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg">
+            <button onClick={() => window.location.reload()} className="px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg">
               Retry
             </button>
             <a href="/dashboard" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
@@ -90,7 +90,7 @@ export default function ReportsPage() {
           <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("reportsProOnly")}</h2>
           <p className="text-slate-500 mb-6">{t("reportsProDesc")}</p>
           <div className="flex gap-3 justify-center">
-            <a href="/pricing" className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg">
+            <a href="/pricing" className="px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg">
               {t("upgradeToPro")}
             </a>
             <a href="/dashboard" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
@@ -111,11 +111,11 @@ export default function ReportsPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BarChart3 className="w-20 h-20 text-indigo-600" />
+            <BarChart3 className="w-20 h-20 text-[#00A1E0]" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">{t("noReportData")}</h2>
           <p className="text-slate-500 mb-6">{t("noReportDataDesc")}</p>
-          <a href="/" className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl shadow-lg">
+          <a href="/" className="inline-block px-8 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg">
             {t("startQuiz")}
           </a>
         </div>
@@ -163,7 +163,7 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2">
-          <span className="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">
+          <span className="bg-[#00A1E0] bg-clip-text text-transparent">
             {t("reportsTitle")}
           </span>
         </h1>
@@ -248,7 +248,7 @@ export default function ReportsPage() {
             <div className="space-y-6">
               {[
                 { band: "excellent", label: t("excellentRange"), color: "bg-cyan-400", textColor: "text-slate-500", IconComponent: Star },
-                { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-indigo-600", IconComponent: TrendingUp },
+                { band: "good", label: t("goodRange"), color: "bg-slate-500", textColor: "text-[#00A1E0]", IconComponent: TrendingUp },
                 { band: "average", label: t("averageRange"), color: "bg-amber-500", textColor: "text-amber-600", IconComponent: BarChart3 },
                 { band: "needs_work", label: t("needsWorkRange"), color: "bg-red-500", textColor: "text-red-600", IconComponent: Target },
               ].map((band) => {
@@ -400,7 +400,7 @@ export default function ReportsPage() {
                       <span className="text-lg font-bold text-red-600">{Math.round(masteryScore)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
-                        className="text-xs text-indigo-600 bg-slate-50 px-3 py-2 rounded hover:bg-indigo-100"
+                        className="text-xs text-[#00A1E0] bg-slate-50 px-3 py-2 rounded hover:bg-[#E6F4F9]"
                       >
                         {t("practice")}
                       </a>
@@ -442,7 +442,7 @@ export default function ReportsPage() {
                       style={{ height: `${heightPx}px` }}
                     >
                       {/* Bar color */}
-                      <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-indigo-200"}`} />
+                      <div className={`w-full h-full rounded-t-sm ${heightPx >= 134 ? "bg-indigo-400" : heightPx >= 96 ? "bg-indigo-300" : "bg-[#80CFED]"}`} />
                       {/* Tooltip - positioned above the bar */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-20 pointer-events-none shadow-lg">
                         <div className="font-semibold">{item.topic || `Quiz #${safeAccuracyTrend.length - idx}`}</div>

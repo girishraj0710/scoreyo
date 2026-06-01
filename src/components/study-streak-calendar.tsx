@@ -192,7 +192,7 @@ export function StudyStreakCalendar() {
       )}
 
       {streakData.currentStreak === 0 && (
-        <div className="mt-3 p-2.5 bg-blue-50 border border-blue-200 rounded-lg shrink-0">
+        <div className="mt-3 p-2.5 bg-[#E6F4F9] border border-blue-200 rounded-lg shrink-0">
           <p className="text-xs text-blue-800 font-medium text-center">
             🎯 Start your streak today! Complete any quiz to begin.
           </p>

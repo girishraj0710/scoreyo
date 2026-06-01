@@ -440,7 +440,7 @@ export default function DailyConversationsPage() {
             </div>
 
             {/* Progress */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-[#E6F4F9] border border-blue-200 rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">Progress</h4>
               <div className="flex items-center gap-2">
                 <div className="flex-1 bg-gray-200 rounded-full h-2">
@@ -469,7 +469,7 @@ export default function DailyConversationsPage() {
               </h3>
 
               <div className="space-y-4">
-                <div className={`p-4 rounded-lg ${currentDialogue?.speaker === "You" ? "bg-blue-50 border-2 border-blue-200" : "bg-gray-50"}`}>
+                <div className={`p-4 rounded-lg ${currentDialogue?.speaker === "You" ? "bg-[#E6F4F9] border-2 border-blue-200" : "bg-gray-50"}`}>
                   <p className="text-xs font-semibold text-gray-600 mb-1">{currentDialogue?.speaker}</p>
                   <p className="text-gray-800">{currentDialogue?.text}</p>
                 </div>
@@ -572,7 +572,7 @@ export default function DailyConversationsPage() {
                 <div className="space-y-3">
                   <button
                     onClick={downloadAllRecordings}
-                    className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2"
+                    className="w-full bg-[#00A1E0] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#0070A8] transition flex items-center justify-center gap-2"
                   >
                     <Download className="w-4 h-4" />
                     Download All Recordings

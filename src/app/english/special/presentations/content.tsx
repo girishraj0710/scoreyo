@@ -257,7 +257,7 @@ export default function PresentationsPage() {
                 }}
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedTopic.id === topic.id
-                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white"
+                    ? "bg-gradient-to-r from-blue-600 to-[#00A1E0] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -289,13 +289,13 @@ export default function PresentationsPage() {
             {/* Outline */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-blue-600" />
+                <FileText className="w-5 h-5 text-[#00A1E0]" />
                 Presentation Outline
               </h3>
               <ol className="space-y-2">
                 {selectedTopic.outline.map((point, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-semibold">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-[#00A1E0] flex items-center justify-center text-sm font-semibold">
                       {idx + 1}
                     </span>
                     <span>{point}</span>
@@ -310,7 +310,7 @@ export default function PresentationsPage() {
               <ul className="space-y-2">
                 {selectedTopic.tips.map((tip, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-gray-700">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-[#00A1E0] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
                 ))}
@@ -323,7 +323,7 @@ export default function PresentationsPage() {
                 {!showScript ? (
                   <button
                     onClick={() => setShowScript(true)}
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition"
+                    className="w-full bg-gradient-to-r from-blue-600 to-[#00A1E0] text-white py-3 px-6 rounded-lg font-semibold transition"
                   >
                     Show Sample Script
                   </button>
@@ -366,7 +366,7 @@ export default function PresentationsPage() {
             {/* Recording Controls */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Mic className="w-5 h-5 text-blue-600" />
+                <Mic className="w-5 h-5 text-[#00A1E0]" />
                 Record Your Presentation
               </h3>
 
@@ -407,7 +407,7 @@ export default function PresentationsPage() {
                     <div className="flex gap-3">
                       <button
                         onClick={downloadRecording}
-                        className="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2"
+                        className="flex-1 bg-[#00A1E0] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#0070A8] transition flex items-center justify-center gap-2"
                       >
                         <Download className="w-4 h-4" />
                         Download
@@ -429,7 +429,7 @@ export default function PresentationsPage() {
             </div>
 
             {/* Instructions */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-[#E6F4F9] border border-blue-200 rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">📋 Instructions:</h4>
               <ol className="text-sm text-gray-700 space-y-1 list-decimal list-inside">
                 <li>Review the outline and tips</li>

@@ -204,18 +204,18 @@ export default function IELTSSpeakingPracticePage() {
             {question.part === 2 && question.cueCard && (
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-blue-100 text-[#0070A8] px-3 py-1 rounded-full text-sm font-semibold">
                     Part 2: Long Turn
                   </span>
                   <span className="text-gray-600 text-sm">Topic: {question.topic}</span>
                 </div>
-                <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg mb-6">
+                <div className="bg-[#E6F4F9] border-l-4 border-[#00A1E0] p-6 rounded-lg mb-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{question.cueCard.title}</h3>
                   <p className="text-gray-700 mb-3 font-semibold">You should say:</p>
                   <ul className="space-y-2 mb-4">
                     {question.cueCard.points.map((point, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-gray-700">
-                        <span className="text-blue-600 font-bold">•</span>
+                        <span className="text-[#00A1E0] font-bold">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
@@ -235,7 +235,7 @@ export default function IELTSSpeakingPracticePage() {
                   <button
                     onClick={() => startTimer(question.cueCard!.prepTime, "prep")}
                     disabled={timerType !== null}
-                    className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+                    className="flex-1 bg-[#00A1E0] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#0070A8] disabled:bg-gray-300 disabled:cursor-not-allowed transition"
                   >
                     Start Preparation Timer
                   </button>
@@ -332,7 +332,7 @@ export default function IELTSSpeakingPracticePage() {
             </div>
 
             {/* Keywords */}
-            <div className="bg-blue-50 rounded-lg p-6 mb-6">
+            <div className="bg-[#E6F4F9] rounded-lg p-6 mb-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <span>🔑</span>
                 Useful Keywords

@@ -59,7 +59,7 @@ export function ModernQuizCard({
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             {/* Question Number Badge */}
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#E6F4F9] text-[#0070A8] text-sm font-semibold">
               Question {currentQuestion + 1}/{totalQuestions}
             </span>
 
@@ -119,8 +119,8 @@ export function ModernQuizCard({
                       : isWrong
                       ? "border-red-400 bg-red-50 shadow-lg shadow-red-100"
                       : isSelected
-                      ? "border-indigo-500 bg-indigo-50 shadow-lg shadow-indigo-100"
-                      : "border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 shadow-sm"
+                      ? "border-[#00A1E0] bg-[#E6F4F9] shadow-lg shadow-indigo-100"
+                      : "border-slate-200 bg-white hover:border-[#80CFED] hover:bg-slate-50 shadow-sm"
                   }
                   ${showExplanation ? "cursor-default" : "cursor-pointer"}
                 `}
@@ -135,7 +135,7 @@ export function ModernQuizCard({
                         : isWrong
                         ? "bg-gradient-to-br from-red-500 to-pink-500 text-white shadow-md"
                         : isSelected
-                        ? "bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-md"
+                        ? "bg-gradient-to-br from-[#00A1E0] to-purple-500 text-white shadow-md"
                         : "bg-slate-100 text-slate-600 border border-slate-200"
                     }
                   `}

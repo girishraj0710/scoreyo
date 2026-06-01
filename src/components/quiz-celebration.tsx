@@ -90,7 +90,7 @@ export function QuizCelebration({
   const getGrade = () => {
     if (accuracy === 100) return { label: "Perfect!", emoji: "🏆", color: "text-yellow-500" };
     if (accuracy >= 90) return { label: "Excellent!", emoji: "🌟", color: "text-purple-600" };
-    if (accuracy >= 75) return { label: "Great Job!", emoji: "🎉", color: "text-blue-600" };
+    if (accuracy >= 75) return { label: "Great Job!", emoji: "🎉", color: "text-[#00A1E0]" };
     if (accuracy >= 60) return { label: "Good!", emoji: "👍", color: "text-green-600" };
     if (accuracy >= 50) return { label: "Keep Practicing!", emoji: "💪", color: "text-orange-600" };
     return { label: "Needs Work", emoji: "📚", color: "text-red-600" };

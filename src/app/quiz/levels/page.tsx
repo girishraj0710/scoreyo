@@ -70,7 +70,7 @@ function LevelSelectionContent() {
   if (isLoading || loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#80CFED] border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -83,7 +83,7 @@ function LevelSelectionContent() {
           <p className="text-slate-600 mb-6">Please login to access level mode</p>
           <a
             href="/"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600"
+            className="inline-block px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl"
           >
             Go to Home
           </a>
@@ -100,7 +100,7 @@ function LevelSelectionContent() {
           <p className="text-slate-600 mb-6">Please select an exam and subject</p>
           <a
             href="/"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600"
+            className="inline-block px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl"
           >
             Go to Home
           </a>
@@ -135,7 +135,7 @@ function LevelSelectionContent() {
               </p>
               <a
                 href="/"
-                className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600"
+                className="inline-block px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl"
               >
                 Try Random Mode Instead
               </a>
@@ -151,7 +151,7 @@ export default function LevelSelectionPage() {
     <Suspense
       fallback={
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
-          <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-[#80CFED] border-t-indigo-600 rounded-full animate-spin"></div>
         </div>
       }
     >

@@ -56,7 +56,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
   return (
     <div className="relative w-full max-w-5xl mx-auto">
       {/* Progress Header */}
-      <div className="mb-8 bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 rounded-2xl p-6 shadow-xl text-white">
+      <div className="mb-8 bg-gradient-to-r from-[#00A1E0] via-violet-500 to-purple-500 rounded-2xl p-6 shadow-xl text-white">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
             <div className="flex items-center justify-center gap-2 mb-1">
@@ -113,7 +113,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
                     <div key={level.levelNumber} className="relative flex flex-col items-center">
                       {/* Connecting Line to Next Level */}
                       {actualIndex < row.length - 1 && (
-                        <div className={`absolute top-1/2 ${isReversed ? 'right-full' : 'left-full'} w-4 h-1 bg-indigo-200 -translate-y-1/2`} />
+                        <div className={`absolute top-1/2 ${isReversed ? 'right-full' : 'left-full'} w-4 h-1 bg-[#80CFED] -translate-y-1/2`} />
                       )}
 
                       {/* Level Node */}
@@ -133,7 +133,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
                                 : 'bg-gradient-to-br from-emerald-400 to-cyan-400 hover:scale-110 cursor-pointer'
                               : isBoss
                                 ? 'bg-gradient-to-br from-violet-500 to-purple-500 hover:scale-110 animate-pulse cursor-pointer'
-                                : 'bg-gradient-to-br from-indigo-500 to-blue-500 hover:scale-110 animate-pulse cursor-pointer'
+                                : 'bg-gradient-to-br from-[#00A1E0] to-blue-500 hover:scale-110 animate-pulse cursor-pointer'
                           }
                         `}
                       >

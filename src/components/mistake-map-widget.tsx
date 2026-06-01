@@ -45,11 +45,11 @@ export function MistakeMapWidget() {
     return (
       <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
         <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-indigo-600" />
+          <Brain className="w-6 h-6 text-[#00A1E0]" />
           Your Mistake Pattern
         </h3>
         <div className="flex items-center justify-center h-48">
-          <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full"></div>
+          <div className="animate-spin h-8 w-8 border-4 border-[#00A1E0] border-t-transparent rounded-full"></div>
         </div>
       </div>
     );
@@ -59,7 +59,7 @@ export function MistakeMapWidget() {
     return (
       <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
         <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-indigo-600" />
+          <Brain className="w-6 h-6 text-[#00A1E0]" />
           Your Mistake Pattern
         </h3>
         <div className="text-center py-8">
@@ -119,8 +119,8 @@ export function MistakeMapWidget() {
       label: 'Careless',
       color: 'bg-slate-500',
       lightColor: 'bg-slate-50',
-      textColor: 'text-indigo-700',
-      iconColor: 'text-indigo-600',
+      textColor: 'text-[#0070A8]',
+      iconColor: 'text-[#00A1E0]',
       percentage: data.breakdown.careless,
       count: data.summary.careless
     }
@@ -141,7 +141,7 @@ export function MistakeMapWidget() {
     <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 h-[400px]">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-indigo-600" />
+          <Brain className="w-6 h-6 text-[#00A1E0]" />
           Your Mistake Pattern
         </h3>
         <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">

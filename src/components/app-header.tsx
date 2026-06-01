@@ -25,14 +25,14 @@ export function AppHeader() {
   const navLinkClass = (href: string) =>
     `relative px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
       isActive(href)
-        ? "text-indigo-600 bg-indigo-50"
-        : "text-slate-600 hover:text-indigo-600 hover:bg-slate-50"
+        ? "text-[#00A1E0] bg-[#E6F4F9]"
+        : "text-slate-600 hover:text-[#00A1E0] hover:bg-slate-50"
     }`;
 
   const mobileNavLinkClass = (href: string) =>
     `block px-4 py-2 text-sm transition-colors ${
       isActive(href)
-        ? "text-indigo-600 bg-indigo-50 font-semibold border-l-2 border-indigo-600"
+        ? "text-[#00A1E0] bg-[#E6F4F9] font-semibold border-l-2 border-[#00A1E0]"
         : "text-slate-600 hover:bg-slate-50"
     }`;
 
@@ -55,10 +55,10 @@ export function AppHeader() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 mr-8 lg:mr-12">
-          <div className="w-9 h-9 bg-gradient-to-br from-indigo-600 to-violet-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
+          <div className="w-9 h-9 bg-[#00A1E0] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
             P
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-[#00A1E0] bg-clip-text text-transparent">
             PrepGenie
           </span>
         </a>
@@ -119,7 +119,7 @@ export function AppHeader() {
               </button>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 transition-colors"
+                className="w-24 px-4 py-2 bg-[#00A1E0] text-white font-medium rounded-lg hover:bg-[#0070A8] border border-[#00A1E0] hover:border-[#0070A8] transition-colors"
               >
                 Sign up
               </button>

@@ -91,7 +91,7 @@ export function LevelCompleteModal({
   const getColor = () => {
     if (stars === 3) return "from-amber-500 to-orange-500";
     if (stars === 2) return "from-emerald-500 to-cyan-500";
-    return "from-indigo-500 to-violet-500";
+    return "from-[#00A1E0] to-violet-500";
   };
 
   const formatTime = (seconds: number) => {
@@ -133,7 +133,7 @@ export function LevelCompleteModal({
         <div className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-slate-50 rounded-xl p-4 text-center">
-              <Target className="w-6 h-6 text-indigo-600 mx-auto mb-2" />
+              <Target className="w-6 h-6 text-[#00A1E0] mx-auto mb-2" />
               <div className="text-2xl font-bold text-slate-800">{accuracy}%</div>
               <div className="text-xs text-slate-500">Accuracy</div>
             </div>
@@ -157,13 +157,13 @@ export function LevelCompleteModal({
 
           {/* Unlock Message */}
           {isNewLevel && stars >= 1 && (
-            <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border-2 border-indigo-200 rounded-xl p-4 flex items-center gap-3">
-              <div className="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+            <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border-2 border-[#80CFED] rounded-xl p-4 flex items-center gap-3">
+              <div className="w-10 h-10 bg-[#00A1E0] rounded-full flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="font-semibold text-indigo-900">Level Unlocked!</div>
-                <div className="text-sm text-indigo-700">You can now access Level {levelNumber + 1}</div>
+                <div className="font-semibold text-[#005A7A]">Level Unlocked!</div>
+                <div className="text-sm text-[#0070A8]">You can now access Level {levelNumber + 1}</div>
               </div>
             </div>
           )}
@@ -206,7 +206,7 @@ export function LevelCompleteModal({
             {stars >= 1 ? (
               <button
                 onClick={onNextLevel}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white rounded-xl hover:from-indigo-700 hover:to-violet-600 font-semibold shadow-lg transition-all"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#00A1E0] text-white rounded-xl font-semibold shadow-lg transition-all"
               >
                 Next Level
                 <ChevronRight className="w-5 h-5" />

@@ -25,7 +25,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
     return (
       <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-indigo-600 font-semibold text-sm">💡 Explanation</span>
+          <span className="text-[#00A1E0] font-semibold text-sm">💡 Explanation</span>
         </div>
         <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
       </div>
@@ -51,15 +51,15 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
         <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-lg">📐</span>
-            <span className="text-indigo-700 font-semibold text-sm">Formula</span>
+            <span className="text-[#0070A8] font-semibold text-sm">Formula</span>
           </div>
-          <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 font-mono text-sm text-indigo-900 mb-2">
+          <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 font-mono text-sm text-[#005A7A] mb-2">
             {explanation.formula}
           </div>
           {explanation.calculation && (
             <>
-              <div className="text-indigo-700 font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
-              <pre className="text-xs text-indigo-800 leading-relaxed whitespace-pre-wrap font-mono bg-white px-3 py-2 rounded-lg border border-slate-200">
+              <div className="text-[#0070A8] font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
+              <pre className="text-xs text-[#005A7A] leading-relaxed whitespace-pre-wrap font-mono bg-white px-3 py-2 rounded-lg border border-slate-200">
                 {explanation.calculation}
               </pre>
             </>

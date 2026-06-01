@@ -64,18 +64,19 @@ export async function PUT(request: NextRequest) {
     }
 
     const {
+      sessionId,
       examId,
       subjectId,
       topic,
       questions,
-      userAnswers,
-      timeTakenSeconds,
-      correctCount,
-      totalQuestions,
-      pressureMode = false,
-      isSprintMode = false,
+      answers, // Frontend sends 'answers'
+      timeTaken = 0, // Frontend sends 'timeTaken'
       sprintId = null,
     } = validatedData;
+
+    // Calculate correct count from answers
+    const correctCount = questions.filter((q, i) => answers[i] === q.correctAnswer).length;
+    const totalQuestions = questions.length;
 
     // ── STEP 2: Authenticate User ──────────────────────────────
     const userId = request.cookies.get("prepgenie-user-id")?.value;
@@ -86,9 +87,6 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    // Generate session ID
-    const sessionId = `session-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-
     logger.info('Quiz submission started', {
       userId,
       sessionId,
@@ -97,9 +95,7 @@ export async function PUT(request: NextRequest) {
       topic,
       questionCount: totalQuestions,
       correctCount,
-      timeTaken: timeTakenSeconds,
-      pressureMode,
-      isSprintMode,
+      timeTaken,
     });
 
     // ── STEP 3: Ensure User Exists ──────────────────────────────
@@ -108,7 +104,7 @@ export async function PUT(request: NextRequest) {
 
     // ── STEP 4: Prepare Question Attempts ──────────────────────
     const attempts = questions.map((q, i) => {
-      const userAnswer = userAnswers[i] ?? null;
+      const userAnswer = answers[i] ?? null;
       const isCorrect = userAnswer === q.correctAnswer;
 
       return {
@@ -159,10 +155,10 @@ export async function PUT(request: NextRequest) {
             topic,
             totalQuestions,
             correctCount,
-            timeTakenSeconds,
+            timeTaken,
             JSON.stringify(sourceStats),
             sprintId,
-            pressureMode,
+            false, // pressureMode not used anymore
           ]
         );
 

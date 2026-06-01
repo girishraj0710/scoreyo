@@ -73,7 +73,7 @@ export default function EnglishAssessmentPage() {
   if (isLoading || !user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#80CFED] border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -130,7 +130,7 @@ export default function EnglishAssessmentPage() {
             </Link>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#00A1E0] to-purple-600 rounded-full flex items-center justify-center">
                 <Target className="w-10 h-10 text-white" />
               </div>
 
@@ -141,23 +141,23 @@ export default function EnglishAssessmentPage() {
                 Take our 10-minute test with 20 questions to accurately discover your English level and get personalized learning recommendations
               </p>
 
-              <div className="bg-indigo-50 rounded-xl p-6 mb-8">
+              <div className="bg-[#E6F4F9] rounded-xl p-6 mb-8">
                 <h3 className="font-semibold text-slate-900 mb-3">What to expect:</h3>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00A1E0] flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">20 questions covering grammar, vocabulary, tenses, and more</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00A1E0] flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">Progressive difficulty from beginner to advanced</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00A1E0] flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">Detailed results with topic-wise performance analysis</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00A1E0] flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">Takes ~10 minutes - 100% free, no strings attached</span>
                   </li>
                 </ul>
@@ -165,7 +165,7 @@ export default function EnglishAssessmentPage() {
 
               <button
                 onClick={handleStart}
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
+                className="px-8 py-4 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
               >
                 Start Assessment
                 <ArrowRight className="w-5 h-5" />
@@ -183,7 +183,7 @@ export default function EnglishAssessmentPage() {
               </span>
               <div className="mt-2 w-full bg-slate-200 rounded-full h-2">
                 <div
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+                  className="bg-gradient-to-r from-[#00A1E0] to-purple-500 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${((currentIndex + 1) / levelAssessmentQuestions.length) * 100}%` }}
                 />
               </div>
@@ -191,7 +191,7 @@ export default function EnglishAssessmentPage() {
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
               <div className="mb-2">
-                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">
+                <span className="px-3 py-1 bg-[#E6F4F9] text-[#0070A8] text-xs font-medium rounded-full">
                   {currentQuestion.level}
                 </span>
               </div>
@@ -205,10 +205,10 @@ export default function EnglishAssessmentPage() {
                   <button
                     key={idx}
                     onClick={() => handleAnswerSelect(idx)}
-                    className="w-full text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all group"
+                    className="w-full text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-[#E6F4F9] transition-all group"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full border-2 border-slate-300 group-hover:border-indigo-500 group-hover:bg-indigo-500 flex items-center justify-center flex-shrink-0 transition-all">
+                      <div className="w-10 h-10 rounded-full border-2 border-slate-300 group-hover:border-[#00A1E0] group-hover:bg-[#00A1E0] flex items-center justify-center flex-shrink-0 transition-all">
                         <span className="font-semibold text-slate-700 group-hover:text-white">
                           {String.fromCharCode(65 + idx)}
                         </span>
@@ -225,7 +225,7 @@ export default function EnglishAssessmentPage() {
         {/* Results State */}
         {state === "results" && (
           <div>
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white mb-6 shadow-xl">
+            <div className="bg-gradient-to-r from-[#00A1E0] to-purple-600 rounded-2xl p-8 text-white mb-6 shadow-xl">
               <div className="text-center">
                 <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
                   <Sparkles className="w-10 h-10" />
@@ -267,7 +267,7 @@ export default function EnglishAssessmentPage() {
                       {getPathDetails(recommendedPath).description}
                     </p>
                     <Link href={`/english/${recommendedPath}`}>
-                      <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all font-semibold">
+                      <button className="px-6 py-3 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] transition-all font-semibold">
                         Start Learning →
                       </button>
                     </Link>
@@ -276,7 +276,7 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 mb-6">
+            <div className="bg-[#E6F4F9] rounded-xl p-6 border border-blue-200 mb-6">
               <h3 className="font-semibold text-slate-900 mb-3">💡 What your level means:</h3>
               <div className="text-slate-700">
                 {detectedLevel === "beginner" && (

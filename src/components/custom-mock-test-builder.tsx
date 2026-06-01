@@ -111,7 +111,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Sparkles className="w-6 h-6" />
             <div>
@@ -150,7 +150,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   <button
                     key={exam.id}
                     onClick={() => handleExamSelect(exam.id)}
-                    className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-lg transition-all text-left group"
+                    className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#00A1E0] dark:hover:border-indigo-400 hover:shadow-lg transition-all text-left group"
                   >
                     <div className="flex items-center gap-3">
                       <div
@@ -160,7 +160,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                         {exam.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 truncate">
+                        <div className="font-semibold text-gray-900 dark:text-white group-hover:text-[#00A1E0] dark:group-hover:text-indigo-400 truncate">
                           {exam.name}
                         </div>
                         <div className="text-sm text-gray-500 dark:text-gray-400 truncate" title={exam.description}>
@@ -184,7 +184,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
             <div className="space-y-6">
               {/* Exam Info */}
               {exam && (
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 p-4 rounded-xl border border-indigo-200 dark:border-gray-600">
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 p-4 rounded-xl border border-[#80CFED] dark:border-gray-600">
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3 min-w-0 flex-1">
                       <div
@@ -200,7 +200,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     </div>
                     <button
                       onClick={() => setStep(1)}
-                      className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline whitespace-nowrap flex-shrink-0"
+                      className="text-sm text-[#00A1E0] dark:text-indigo-400 hover:underline whitespace-nowrap flex-shrink-0"
                     >
                       Change Exam
                     </button>
@@ -288,7 +288,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                         {/* Topic Selection */}
                         {subject && (
                           <details className="text-sm">
-                            <summary className="cursor-pointer text-indigo-600 dark:text-indigo-400 hover:underline">
+                            <summary className="cursor-pointer text-[#00A1E0] dark:text-indigo-400 hover:underline">
                               Select specific topics (optional)
                             </summary>
                             <div className="mt-2 grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
@@ -368,14 +368,14 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                 <>
                   <button
                     onClick={() => setStep(1)}
-                    className="px-6 py-2 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors"
+                    className="px-6 py-2 text-[#00A1E0] dark:text-indigo-400 hover:bg-[#E6F4F9] dark:hover:bg-indigo-900/20 rounded-lg transition-colors"
                   >
                     Back
                   </button>
                   <button
                     onClick={handleCreate}
                     disabled={sections.length === 0 || totalQuestions === 0}
-                    className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg"
+                    className="px-8 py-3 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg"
                   >
                     Create Test ({totalQuestions} Questions)
                   </button>

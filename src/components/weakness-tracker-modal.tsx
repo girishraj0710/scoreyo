@@ -41,8 +41,8 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       IconComponent: AlertCircle,
       title: 'Careless Mistake',
       description: 'Misread question or clicked wrong option',
-      color: 'bg-slate-50 border-slate-300 hover:bg-indigo-100',
-      iconColor: 'text-indigo-600'
+      color: 'bg-slate-50 border-slate-300 hover:bg-[#E6F4F9]',
+      iconColor: 'text-[#00A1E0]'
     }
   ];
 
@@ -58,7 +58,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       <div className="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300">
         <div className="text-center mb-6">
           <div className="flex justify-center mb-3">
-            <svg className="w-16 h-16 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-16 h-16 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>

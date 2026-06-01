@@ -49,7 +49,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
     return (
       <div className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl p-6 shadow-lg border border-indigo-100 h-[400px]">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-[#00A1E0] to-violet-500 rounded-xl flex items-center justify-center">
             <Trophy className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -69,7 +69,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
 
           <a
             href="/quiz/levels?examId=jee-main&subjectId=jee-physics"
-            className="block w-full py-3 bg-gradient-to-r from-indigo-600 to-violet-500 text-white text-center font-semibold rounded-lg hover:from-indigo-700 hover:to-violet-600 transition-all"
+            className="block w-full py-3 bg-[#00A1E0] text-white text-center font-semibold rounded-lg transition-all"
           >
             Start Level 1
           </a>
@@ -96,7 +96,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-[#00A1E0] to-violet-500 rounded-xl flex items-center justify-center">
             <Trophy className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -119,10 +119,10 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
       <div className="grid grid-cols-2 gap-3 mb-6">
         <div className="bg-white rounded-lg p-4 border border-indigo-100">
           <div className="flex items-center gap-2 mb-1">
-            <Target className="w-4 h-4 text-indigo-600" />
+            <Target className="w-4 h-4 text-[#00A1E0]" />
             <span className="text-xs text-slate-500">Levels</span>
           </div>
-          <div className="text-2xl font-bold text-indigo-600">
+          <div className="text-2xl font-bold text-[#00A1E0]">
             {progress.totalLevelsCompleted}
           </div>
         </div>
@@ -145,13 +145,13 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
             <span className="text-sm font-medium text-slate-700">
               Next Milestone: Level {nextMilestone}
             </span>
-            <span className="text-sm font-bold text-indigo-600">
+            <span className="text-sm font-bold text-[#00A1E0]">
               {progress.totalLevelsCompleted}/{nextMilestone}
             </span>
           </div>
           <div className="w-full bg-slate-100 rounded-full h-3">
             <div
-              className="bg-gradient-to-r from-indigo-500 to-violet-500 h-3 rounded-full transition-all duration-500 animate-progress"
+              className="bg-gradient-to-r from-[#00A1E0] to-violet-500 h-3 rounded-full transition-all duration-500 animate-progress"
               style={{ width: `${milestoneProgress}%` }}
             />
           </div>
@@ -191,7 +191,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
 
           <a
             href="/achievements"
-            className="block w-full mt-4 py-2 bg-white border-2 border-indigo-200 text-indigo-600 text-center text-sm font-semibold rounded-lg hover:bg-indigo-50 transition-all"
+            className="block w-full mt-4 py-2 bg-white border-2 border-[#80CFED] text-[#00A1E0] text-center text-sm font-semibold rounded-lg hover:bg-[#E6F4F9] transition-all"
           >
             View All Badges
           </a>

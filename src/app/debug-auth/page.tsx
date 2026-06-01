@@ -107,7 +107,7 @@ export default function DebugAuthPage() {
         </div>
 
         {/* Recommendations */}
-        <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+        <div className="bg-[#E6F4F9] rounded-lg p-6 border border-blue-200">
           <h2 className="text-lg font-semibold mb-4 text-blue-900">Troubleshooting Steps</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm text-blue-800">
             <li>Verify deployment is complete on Vercel</li>
@@ -122,7 +122,7 @@ export default function DebugAuthPage() {
         <div className="flex gap-3">
           <a
             href="/login"
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium"
+            className="px-6 py-2 bg-[#00A1E0] text-white rounded-lg hover:bg-[#0070A8] font-medium"
           >
             Go to Login
           </a>
