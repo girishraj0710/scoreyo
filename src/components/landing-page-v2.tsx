@@ -668,20 +668,20 @@ export function LandingPageV2() {
         </section>
         {/* Final CTA */}
         <section className="pb-8 -mt-72">
-          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
+          <div className="bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
             <h2 className="text-3xl md:text-5xl font-semibold mb-6">
               Ready to ace your exam?
             </h2>
-            <p className="text-lg md:text-xl text-indigo-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-blue-50 mb-10 max-w-3xl mx-auto leading-relaxed">
               Join 50,000+ students who are already mastering their competitive exams with PrepGenie
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-10 py-4 bg-white text-indigo-700 font-semibold text-lg rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
+              className="px-10 py-4 bg-white text-blue-600 font-semibold text-lg rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
             >
               Start Free Today
             </button>
-            <p className="text-indigo-100 text-sm mt-6">
+            <p className="text-blue-50 text-sm mt-6">
               No credit card required • 3 free quizzes daily • Cancel anytime
             </p>
           </div>
