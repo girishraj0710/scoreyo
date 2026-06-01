@@ -997,20 +997,8 @@ export default function MockTestPage() {
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-3">
-          <span className="bg-clip-text text-transparent"
-            style={{
-              backgroundColor: '#4255FF',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3242CC';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4255FF';
-            }}>
-            Mock Tests
-          </span>
+        <h1 className="text-4xl font-bold mb-3 text-slate-800">
+          Mock Tests
         </h1>
         <p className="text-slate-600 max-w-2xl mx-auto">
           Practice with full-length mock tests or take short practice tests to prepare for your exams
