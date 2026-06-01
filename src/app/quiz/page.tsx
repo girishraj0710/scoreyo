@@ -1439,9 +1439,16 @@ function QuizContent() {
       )}
       </div>
 
-      {/* AI Chat Sidebar - Fixed on Right Side */}
+      {/* AI Chat Sidebar - Fixed on Right Side, Aligned with Question */}
       {showExplanation && answers[currentQuestion] !== question.correctAnswer && answers[currentQuestion] !== null && (
-        <div className="hidden xl:block fixed right-4 top-24 w-96 max-h-[calc(100vh-120px)] overflow-y-auto">
+        <div
+          className="hidden xl:block fixed w-96 overflow-y-auto"
+          style={{
+            right: '1rem',
+            top: 'calc(72px + 2rem)', // Header height (72px) + padding
+            maxHeight: 'calc(100vh - 88px)',
+          }}
+        >
           <AIClarificationChat
             questionText={typeof question.explanation === 'string' ? question.explanation : question.explanation}
             correctAnswer={question.options[question.correctAnswer]}
