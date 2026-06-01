@@ -29,16 +29,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Check for similar clarifications in database (crowd-sourced wisdom)
-    // Escape wildcards to prevent LIKE injection
-    const escapedQuestion = escapeLikePattern(userQuestion);
-
+    // Check for exact match clarifications in database (avoid fuzzy matching)
     const existingClarification = await queryOne(
       `SELECT ai_response FROM clarifications
-       WHERE question_text = ? AND user_question LIKE ? ESCAPE '\\'
+       WHERE question_text = ? AND user_question = ?
        AND helpful = true
        LIMIT 1`,
-      [questionText, `%${escapedQuestion}%`]
+      [questionText, userQuestion.trim().toLowerCase()]
     );
 
     if (existingClarification) {
@@ -82,11 +79,11 @@ Response:`;
         })
       );
 
-      // Store clarification for future reference
+      // Store clarification for future reference (normalize user question)
       await execute(
         `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
          VALUES (?, ?, ?, ?)`,
-        [userId, questionText, userQuestion, result]
+        [userId, questionText, userQuestion.trim().toLowerCase(), result]
       );
 
       return NextResponse.json({
