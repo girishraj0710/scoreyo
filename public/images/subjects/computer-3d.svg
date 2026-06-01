@@ -1,0 +1,64 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#1F618D"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECF0F1"/>
+
+  <!-- Laptop/Computer on cover -->
+  <g transform="translate(32, 34)">
+    <!-- Screen -->
+    <rect x="-10" y="-8" width="20" height="12" rx="1" fill="url(#screen-gradient)"/>
+
+    <!-- Screen display -->
+    <rect x="-9" y="-7" width="18" height="10" fill="#1ABC9C"/>
+
+    <!-- Code lines on screen -->
+    <line x1="-7" y1="-5" x2="-2" y2="-5" stroke="white" stroke-width="0.5"/>
+    <line x1="-7" y1="-3" x2="2" y2="-3" stroke="white" stroke-width="0.5"/>
+    <line x1="-7" y1="-1" x2="0" y2="-1" stroke="white" stroke-width="0.5"/>
+    <line x1="-7" y1="1" x2="4" y2="1" stroke="white" stroke-width="0.5"/>
+
+    <!-- Keyboard base -->
+    <path d="M -12 4 L -10 6 L 10 6 L 12 4 Z" fill="#34495E"/>
+
+    <!-- Keys -->
+    <g fill="#7F8C8D">
+      <rect x="-8" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="-6" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="-4" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="-2" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="0" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="2" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="4" y="4.5" width="1.5" height="1" rx="0.2"/>
+      <rect x="6" y="4.5" width="1.5" height="1" rx="0.2"/>
+    </g>
+
+    <!-- Highlight -->
+    <rect x="-8" y="-6" width="6" height="3" fill="white" opacity="0.15"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#2874A6"/>
+  <text x="32" y="25" text-anchor="middle" font-size="2.2" fill="white" font-weight="bold">COMPUTER</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2E86C1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2874A6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screen-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5D6D7E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34495E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

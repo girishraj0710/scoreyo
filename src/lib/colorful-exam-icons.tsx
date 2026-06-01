@@ -615,45 +615,103 @@ export const ColorfulCategoryIcon: React.FC<ColorfulCategoryIconProps> = ({
 
 // Premium 3D illustrations for subjects
 const PREMIUM_3D_SUBJECTS: Record<string, string> = {
-  // Core subjects
+  // Core Science subjects
   'physics': '/images/subjects/physics-3d.svg',
   'jee-physics': '/images/subjects/physics-3d.svg',
   'jee-adv-physics': '/images/subjects/physics-3d.svg',
   'neet-physics': '/images/subjects/physics-3d.svg',
   'gate-physics': '/images/subjects/physics-3d.svg',
+  'kcet-physics': '/images/subjects/physics-3d.svg',
+  'mht-physics': '/images/subjects/physics-3d.svg',
+  'ts-physics': '/images/subjects/physics-3d.svg',
+  'ap-physics': '/images/subjects/physics-3d.svg',
 
   'chemistry': '/images/subjects/chemistry-3d.svg',
   'jee-chemistry': '/images/subjects/chemistry-3d.svg',
   'jee-adv-chemistry': '/images/subjects/chemistry-3d.svg',
   'neet-chemistry': '/images/subjects/chemistry-3d.svg',
+  'kcet-chemistry': '/images/subjects/chemistry-3d.svg',
+  'mht-chemistry': '/images/subjects/chemistry-3d.svg',
+  'ts-chemistry': '/images/subjects/chemistry-3d.svg',
+  'ap-chemistry': '/images/subjects/chemistry-3d.svg',
 
   'maths': '/images/subjects/maths-3d.svg',
   'mathematics': '/images/subjects/maths-3d.svg',
   'jee-maths': '/images/subjects/maths-3d.svg',
   'jee-adv-maths': '/images/subjects/maths-3d.svg',
   'gate-engineering-math': '/images/subjects/maths-3d.svg',
+  'kcet-maths': '/images/subjects/maths-3d.svg',
+  'mht-maths': '/images/subjects/maths-3d.svg',
+  'ts-maths': '/images/subjects/maths-3d.svg',
+  'ap-maths': '/images/subjects/maths-3d.svg',
 
   'biology': '/images/subjects/biology-3d.svg',
   'neet-biology': '/images/subjects/biology-3d.svg',
   'botany': '/images/subjects/biology-3d.svg',
   'zoology': '/images/subjects/biology-3d.svg',
 
+  'science': '/images/subjects/science-3d.svg',
+  'general-science': '/images/subjects/science-3d.svg',
+  'upsc-science': '/images/subjects/science-3d.svg',
+
+  // Languages
   'english': '/images/subjects/english-3d.svg',
   'sbi-english': '/images/subjects/english-3d.svg',
   'ibps-english': '/images/subjects/english-3d.svg',
   'verbal': '/images/subjects/english-3d.svg',
+  'pa-english': '/images/subjects/english-3d.svg',
+  'iimc-english': '/images/subjects/english-3d.svg',
+  'htet-english': '/images/subjects/english-3d.svg',
 
+  'hindi': '/images/subjects/hindi-3d.svg',
+  'htet-hindi': '/images/subjects/hindi-3d.svg',
+
+  // Aptitude & Reasoning
   'reasoning': '/images/subjects/reasoning-3d.svg',
   'aptitude': '/images/subjects/reasoning-3d.svg',
   'logical': '/images/subjects/reasoning-3d.svg',
   'sbi-reasoning': '/images/subjects/reasoning-3d.svg',
   'ibps-reasoning': '/images/subjects/reasoning-3d.svg',
+  'pa-reasoning': '/images/subjects/reasoning-3d.svg',
+  'gds-reasoning': '/images/subjects/reasoning-3d.svg',
+  'iimc-reasoning': '/images/subjects/reasoning-3d.svg',
+  'quantitative': '/images/subjects/maths-3d.svg',
+  'sbi-quant': '/images/subjects/maths-3d.svg',
+  'ibps-quant': '/images/subjects/maths-3d.svg',
+  'pa-quant': '/images/subjects/maths-3d.svg',
 
+  // Social Sciences
   'history': '/images/subjects/history-3d.svg',
   'upsc-history': '/images/subjects/history-3d.svg',
 
   'geography': '/images/subjects/geography-3d.svg',
   'upsc-geography': '/images/subjects/geography-3d.svg',
+
+  'economics': '/images/subjects/economics-3d.svg',
+  'economy': '/images/subjects/economics-3d.svg',
+  'upsc-economy': '/images/subjects/economics-3d.svg',
+
+  // General Knowledge
+  'gk': '/images/subjects/gk-3d.svg',
+  'general-knowledge': '/images/subjects/gk-3d.svg',
+  'sbi-ga': '/images/subjects/gk-3d.svg',
+  'ibps-ga': '/images/subjects/gk-3d.svg',
+  'pa-gk': '/images/subjects/gk-3d.svg',
+  'gds-gk': '/images/subjects/gk-3d.svg',
+  'iimc-ga': '/images/subjects/gk-3d.svg',
+  'current-affairs': '/images/subjects/gk-3d.svg',
+  'upsc-current': '/images/subjects/gk-3d.svg',
+
+  // Computer Science
+  'computer': '/images/subjects/computer-3d.svg',
+  'cs': '/images/subjects/computer-3d.svg',
+  'gate-cs': '/images/subjects/computer-3d.svg',
+  'it': '/images/subjects/computer-3d.svg',
+  'ibps-computer': '/images/subjects/computer-3d.svg',
+
+  // Social Studies (Teaching exams)
+  'social-studies': '/images/subjects/social-studies-3d.svg',
+  'htet-social': '/images/subjects/social-studies-3d.svg',
 };
 
 export const ColorfulSubjectIcon: React.FC<ColorfulSubjectIconProps> = ({

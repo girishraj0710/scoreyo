@@ -1,0 +1,58 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#D68910"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECF0F1"/>
+
+  <!-- Globe/World icon on cover -->
+  <g transform="translate(32, 32)">
+    <!-- Globe -->
+    <circle cx="0" cy="0" r="10" fill="url(#globe-gradient)"/>
+
+    <!-- Latitude/longitude lines -->
+    <ellipse cx="0" cy="-5" rx="8" ry="2" stroke="#F39C12" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="10" ry="3" stroke="#F39C12" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <ellipse cx="0" cy="5" rx="8" ry="2" stroke="#F39C12" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="3" ry="10" stroke="#F39C12" stroke-width="0.8" fill="none" opacity="0.5"/>
+
+    <!-- Book icon overlay -->
+    <g transform="translate(0, 14)">
+      <rect x="-4" y="0" width="8" height="6" rx="0.5" fill="#F39C12"/>
+      <line x1="-2" y1="2" x2="2" y2="2" stroke="white" stroke-width="0.5"/>
+      <line x1="-2" y1="4" x2="2" y2="4" stroke="white" stroke-width="0.5"/>
+    </g>
+
+    <!-- Highlight -->
+    <ellipse cx="-3" cy="-3" rx="2" ry="3" fill="white" opacity="0.2"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#F39C12"/>
+  <text x="32" y="25" text-anchor="middle" font-size="3" fill="white" font-weight="bold">GK</text>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+
+  <!-- Star decoration (knowledge symbol) -->
+  <g transform="translate(40, 20) scale(0.6)">
+    <path d="M 0 -4 L 1 -1 L 4 -1 L 2 1 L 3 4 L 0 2 L -3 4 L -2 1 L -4 -1 L -1 -1 Z" fill="#F1C40F"/>
+  </g>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="globe-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#85C1E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5DADE2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
