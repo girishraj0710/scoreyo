@@ -1170,15 +1170,7 @@ export default function MockTestPage() {
                   )}
                 </div>
 
-                {/* Available tests badge */}
-                {testCapacity[examId] > 3 && (
-                  <div className="mt-4 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-lg border border-emerald-200">
-                    <span className="text-lg">🚀</span>
-                    <span className="text-xs font-semibold text-emerald-700">
-                      {testCapacity[examId]}+ Tests Available
-                    </span>
-                  </div>
-                )}
+                {/* Available tests badge - removed */}
               </div>
             );
           })}
@@ -1294,14 +1286,7 @@ export default function MockTestPage() {
               </div>
 
               {/* Available Tests Badge */}
-              {testCapacity[selectedExam] > 3 && (
-                <div className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-xl border border-emerald-200">
-                  <span className="text-2xl">🚀</span>
-                  <span className="text-sm font-bold text-emerald-700">
-                    {testCapacity[selectedExam]}+ Unique Tests Available
-                  </span>
-                </div>
-              )}
+              {/* Unique tests badge - removed */}
 
               {/* Test Selector */}
               <div>
