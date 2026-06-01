@@ -24,9 +24,18 @@ export function proxy(request: NextRequest) {
   }
 
   // Exclude authentication endpoints (they generate the CSRF token)
+  // and endpoints that use cookie-based auth verification
   const csrfExemptPaths = [
     "/api/auth",
     "/api/auth/otp",
+    "/api/quiz", // Uses cookie-based auth, not CSRF tokens
+    "/api/stats",
+    "/api/review",
+    "/api/leaderboard",
+    "/api/mock-test",
+    "/api/reports",
+    "/api/payment",
+    "/api/subscription",
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
   ];
