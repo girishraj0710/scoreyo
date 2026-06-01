@@ -19,6 +19,19 @@ import {
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { getUpcomingExams } from "@/lib/exam-calendar";
 
+// Student testimonials data
+const testimonials = [
+  { name: "Priya S.", exam: "JEE Main 2026", review: "Finally understand WHY I got questions wrong, not just WHAT the answer is. Game changer for JEE prep!" },
+  { name: "Rahul M.", exam: "NEET UG 2026", review: "The mistake tracker helped me realize I was making the same careless errors. Fixed it in 2 weeks!" },
+  { name: "Anjali K.", exam: "UPSC CSE 2026", review: "Best ₹79 I've spent on exam prep. Better than coaching classes charging ₹50,000!" },
+  { name: "Arjun P.", exam: "CAT 2026", review: "Mock tests feel exactly like the real exam. The performance analytics helped me identify weak areas quickly!" },
+  { name: "Sneha R.", exam: "SSC CGL 2026", review: "The spaced repetition feature is brilliant. I remember topics for months now, not just till the exam!" },
+  { name: "Karthik V.", exam: "GATE 2026", review: "AI-generated questions are so diverse. Never felt like I was practicing the same type over and over." },
+  { name: "Meera D.", exam: "NEET PG 2026", review: "The detailed explanations after each question saved me hours of googling. Everything is right there!" },
+  { name: "Vikram S.", exam: "Banking PO 2026", review: "Daily practice problems keep me consistent. The streak feature is surprisingly motivating!" },
+  { name: "Divya L.", exam: "CLAT 2026", review: "Exactly what I needed for law prep. Questions are up-to-date with current affairs and legal reasoning." },
+];
+
 export function LandingPageV2() {
   const { setShowLoginModal } = useUser();
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,6 +46,7 @@ export function LandingPageV2() {
   const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set());
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [scrollY, setScrollY] = useState(0);
+  const [reviewsPage, setReviewsPage] = useState(0);
 
   // Search logic
   const searchResults = useMemo(() => {
@@ -815,51 +829,43 @@ export function LandingPageV2() {
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Social Proof */}
-        <section className="py-16">
+        <section className="py-16 relative">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 text-center">
               Trusted by 50,000+ students
             </h2>
 
+            {/* Arrow Navigation */}
+            <button
+              onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
+              disabled={reviewsPage === 0}
+              className="absolute left-0 top-[240px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+            >
+              <ChevronLeft className="w-6 h-6 text-slate-700" />
+            </button>
+            <button
+              onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
+              disabled={reviewsPage === 2}
+              className="absolute right-0 top-[240px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+            >
+              <ChevronRight className="w-6 h-6 text-slate-700" />
+            </button>
+
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
-                  ))}
+              {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
+                <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
+                    "{testimonial.review}"
+                  </p>
+                  <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                  <div className="text-sm text-slate-500">{testimonial.exam}</div>
                 </div>
-                <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
-                  "Finally understand WHY I got questions wrong, not just WHAT the answer is. Game changer for JEE prep!"
-                </p>
-                <div className="font-semibold text-slate-900">Priya S.</div>
-                <div className="text-sm text-slate-500">JEE Main 2026</div>
-              </div>
-
-              <div className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
-                  "The mistake tracker helped me realize I was making the same careless errors. Fixed it in 2 weeks!"
-                </p>
-                <div className="font-semibold text-slate-900">Rahul M.</div>
-                <div className="text-sm text-slate-500 font-semibold">NEET UG 2026</div>
-              </div>
-
-              <div className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
-                  "Best ₹79 I've spent on exam prep. Better than coaching classes charging ₹50,000!"
-                </p>
-                <div className="font-semibold text-slate-900">Anjali K.</div>
-                <div className="text-sm text-slate-500 font-semibold">UPSC CSE 2026</div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
