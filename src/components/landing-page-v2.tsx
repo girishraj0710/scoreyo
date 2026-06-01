@@ -667,6 +667,27 @@ export function LandingPageV2() {
 
         </section>
 
+        {/* Final CTA */}
+        <section className="py-16">
+          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
+            <h2 className="text-3xl md:text-5xl font-semibold mb-6">
+              Ready to ace your exam?
+            </h2>
+            <p className="text-lg md:text-xl text-indigo-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Join 50,000+ students who are already mastering their competitive exams with PrepGenie
+            </p>
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="px-10 py-4 bg-white text-indigo-700 font-semibold text-lg rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
+            >
+              Start Free Today
+            </button>
+            <p className="text-indigo-100 text-sm mt-6">
+              No credit card required • 3 free quizzes daily • Cancel anytime
+            </p>
+          </div>
+        </section>
+
         {/* Upcoming Exam Calendar */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-indigo-50">
           <div className="max-w-6xl mx-auto px-4">
@@ -795,27 +816,6 @@ export function LandingPageV2() {
                 <div className="text-sm text-slate-500 font-semibold">UPSC CSE 2026</div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="py-16">
-          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6">
-              Ready to ace your exam?
-            </h2>
-            <p className="text-lg md:text-xl text-indigo-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Join 50,000+ students who are already mastering their competitive exams with PrepGenie
-            </p>
-            <button
-              onClick={() => setShowLoginModal(true)}
-              className="px-10 py-4 bg-white text-indigo-700 font-semibold text-lg rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
-            >
-              Start Free Today
-            </button>
-            <p className="text-indigo-100 text-sm mt-6">
-              No credit card required • 3 free quizzes daily • Cancel anytime
-            </p>
           </div>
         </section>
       </div>
