@@ -1,0 +1,96 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="20" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Chart background/paper -->
+  <rect x="14" y="16" width="36" height="34" rx="2" fill="url(#paper-gradient)"/>
+
+  <!-- Grid lines -->
+  <g stroke="#BDC3C7" stroke-width="0.5" opacity="0.4">
+    <line x1="16" y1="22" x2="48" y2="22"/>
+    <line x1="16" y1="28" x2="48" y2="28"/>
+    <line x1="16" y1="34" x2="48" y2="34"/>
+    <line x1="16" y1="40" x2="48" y2="40"/>
+    <line x1="16" y1="46" x2="48" y2="46"/>
+  </g>
+
+  <!-- Bar chart bars -->
+  <g>
+    <!-- Bar 1 (tallest) -->
+    <rect x="18" y="28" width="6" height="18" rx="1" fill="url(#bar1-gradient)"/>
+
+    <!-- Bar 2 (medium) -->
+    <rect x="26" y="34" width="6" height="12" rx="1" fill="url(#bar2-gradient)"/>
+
+    <!-- Bar 3 (tall) -->
+    <rect x="34" y="24" width="6" height="22" rx="1" fill="url(#bar3-gradient)"/>
+
+    <!-- Bar 4 (short) -->
+    <rect x="42" y="38" width="6" height="8" rx="1" fill="url(#bar4-gradient)"/>
+  </g>
+
+  <!-- Axis lines -->
+  <line x1="16" y1="46" x2="48" y2="46" stroke="#34495E" stroke-width="1.5"/>
+  <line x1="16" y1="20" x2="16" y2="46" stroke="#34495E" stroke-width="1.5"/>
+
+  <!-- Line graph overlay -->
+  <g>
+    <!-- Line connecting points -->
+    <path d="M 21 30 L 29 36 L 37 26 L 45 40" stroke="#E74C3C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Data points -->
+    <circle cx="21" cy="30" r="2" fill="#E74C3C"/>
+    <circle cx="29" cy="36" r="2" fill="#E74C3C"/>
+    <circle cx="37" cy="26" r="2" fill="#E74C3C"/>
+    <circle cx="45" cy="40" r="2" fill="#E74C3C"/>
+
+    <!-- Point highlights -->
+    <circle cx="21" cy="30" r="1" fill="white" opacity="0.6"/>
+    <circle cx="29" cy="36" r="1" fill="white" opacity="0.6"/>
+    <circle cx="37" cy="26" r="1" fill="white" opacity="0.6"/>
+    <circle cx="45" cy="40" r="1" fill="white" opacity="0.6"/>
+  </g>
+
+  <!-- Calculator/ruler decoration -->
+  <g transform="translate(12, 48)">
+    <rect x="0" y="0" width="8" height="6" rx="0.5" fill="url(#calc-gradient)"/>
+    <rect x="0.5" y="0.5" width="7" height="2" fill="#85C1E9"/>
+    <rect x="1" y="3" width="2" height="2" rx="0.3" fill="#34495E"/>
+    <rect x="3.5" y="3" width="2" height="2" rx="0.3" fill="#34495E"/>
+    <rect x="6" y="3" width="1.5" height="2" rx="0.3" fill="#34495E"/>
+  </g>
+
+  <!-- Percentage symbol -->
+  <g transform="translate(48, 18) scale(0.8)">
+    <circle cx="0" cy="0" r="1.5" fill="#7D3C98"/>
+    <line x1="0" y1="0" x2="4" y2="6" stroke="#7D3C98" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="4" cy="6" r="1.5" fill="#7D3C98"/>
+  </g>
+
+  <defs>
+    <linearGradient id="paper-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F8F9FA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar1-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar2-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar3-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1ABC9C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16A085;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar4-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="calc-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2874A6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

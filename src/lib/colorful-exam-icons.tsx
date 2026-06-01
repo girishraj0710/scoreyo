@@ -569,7 +569,7 @@ const PREMIUM_3D_CATEGORIES: Record<string, string> = {
   'police': '/images/categories/police-3d.svg',
   'state': '/images/categories/state-psc-3d.svg',
   'state-psc': '/images/categories/state-psc-3d.svg',
-  'more-state-exams': '/images/categories/state-psc-3d.svg',
+  'more-state-exams': '/images/categories/more-state-exams-3d.svg',
   'hotel-management': '/images/categories/hotel-management-3d.svg',
   'architecture': '/images/categories/architecture-3d.svg',
   'commerce': '/images/categories/commerce-3d.svg',
@@ -581,6 +581,10 @@ const PREMIUM_3D_CATEGORIES: Record<string, string> = {
   'forest': '/images/categories/forest-3d.svg',
   'judiciary': '/images/categories/judiciary-3d.svg',
   'judicial-services': '/images/categories/judiciary-3d.svg',
+  'post-office': '/images/categories/postal-3d.svg',
+  'postal-assistant': '/images/categories/postal-3d.svg',
+  'statistics': '/images/categories/statistics-3d.svg',
+  'mass-comm': '/images/categories/mass-comm-3d.svg',
 };
 
 export const ColorfulCategoryIcon: React.FC<ColorfulCategoryIconProps> = ({
