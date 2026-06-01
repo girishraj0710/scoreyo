@@ -214,9 +214,9 @@ export function LandingPageV2() {
 
               {/* Mega Menu Dropdown */}
               {showExamsDropdown && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex" style={{ width: '720px' }}>
+                <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex" style={{ width: '720px', maxHeight: '500px' }}>
                   {/* Left Panel - Category List */}
-                  <div className="w-64 bg-slate-50 border-r border-slate-200">
+                  <div className="w-64 bg-slate-50 border-r border-slate-200 overflow-y-auto">
                     <div className="py-2">
                       {examCategories.map((category) => (
                         <button
