@@ -2,19 +2,7 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
-import { queryOne, execute } from "@/lib/db";
-
-// Fast, lightweight models for instant responses
-const FAST_MODELS = [
-  "google/gemini-2.0-flash-exp:free",
-  "google/gemma-3-27b-it:free",
-  "meta-llama/llama-3.3-70b-instruct:free",
-];
-
-// Escape SQL LIKE wildcards to prevent LIKE injection
-function escapeLikePattern(str: string): string {
-  return str.replace(/[%_\\]/g, '\\$&');
-}
+import { execute } from "@/lib/db";
 
 export async function POST(request: Request) {
   try {
@@ -32,88 +20,59 @@ export async function POST(request: Request) {
     // Build conversation context from history
     let conversationContext = '';
     if (conversationHistory && conversationHistory.length > 1) {
-      // Exclude the last message (current question) as it's already in userQuestion
       const previousMessages = conversationHistory.slice(0, -1);
       conversationContext = '\n\nPREVIOUS CONVERSATION:\n' + previousMessages.map((msg: any) =>
         `${msg.type === 'user' ? 'Student' : 'Tutor'}: ${msg.text}`
       ).join('\n') + '\n';
     }
 
-    // Generate new clarification using fastest model with conversation context
-    const prompt = `You are a patient, expert tutor helping a student who got a quiz question wrong. You're having a conversation with them.
+    // Create a focused, clear prompt
+    const prompt = `You are a helpful tutor assisting a student with a quiz question.
 
-QUIZ QUESTION CONTEXT:
+QUIZ QUESTION:
 ${questionText}
 
 CORRECT ANSWER: ${correctAnswer}
-STUDENT'S WRONG ANSWER: ${wrongAnswer}
+STUDENT'S ANSWER: ${wrongAnswer}
 ${conversationContext}
-STUDENT'S CURRENT QUESTION:
-"${userQuestion}"
+STUDENT ASKS: "${userQuestion}"
 
-Your task:
-1. Answer their specific question naturally, considering the conversation history
-2. Be conversational and encouraging
-3. Focus on WHY, not just restating facts
-4. Use analogies or examples if helpful
-5. If they're asking a follow-up, reference your previous explanation
-6. Keep it concise but complete (2-4 sentences)
+Provide a clear, concise answer (2-4 sentences). Be encouraging and explain the concept simply.
 
-Response:`;
+Your response:`;
+
+    console.log('[Clarify] Sending request to AI...');
+    console.log('[Clarify] Question:', userQuestion);
 
     try {
-      // Try models one by one with better error handling
-      let result: string | null = null;
-      let lastError: any = null;
+      // Use the most reliable model directly
+      const { text } = await generateText({
+        model: openrouter("google/gemini-2.0-flash-exp:free"),
+        prompt,
+        maxOutputTokens: 400,
+        temperature: 0.7,
+      });
 
-      for (const modelId of FAST_MODELS) {
-        try {
-          const { text } = await generateText({
-            model: openrouter(modelId),
-            prompt,
-            maxOutputTokens: 300,
-            temperature: 0.7,
-          });
-          result = text.trim();
-          console.log(`[Clarify] Success with model: ${modelId}`);
-          break; // Success - exit loop
-        } catch (modelError) {
-          console.error(`[Clarify] Model ${modelId} failed:`, modelError);
-          lastError = modelError;
-          // Continue to next model
-        }
-      }
+      const result = text.trim();
+      console.log('[Clarify] AI response received:', result.substring(0, 100) + '...');
 
-      if (!result) {
-        throw new Error(`All models failed. Last error: ${lastError?.message || 'Unknown'}`);
-      }
-
-      // Store clarification for analytics (optional - can be disabled for pure chat experience)
-      try {
-        await execute(
-          `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
-           VALUES (?, ?, ?, ?)`,
-          [userId, questionText, userQuestion.trim(), result]
-        );
-      } catch (dbError) {
-        // Non-critical - continue even if logging fails
-        console.error("[Clarify] Failed to log clarification:", dbError);
-      }
+      // Store for analytics (non-blocking)
+      execute(
+        `INSERT INTO clarifications (user_id, question_text, user_question, ai_response)
+         VALUES (?, ?, ?, ?)`,
+        [userId, questionText, userQuestion.trim(), result]
+      ).catch(err => console.error('[Clarify] DB error:', err));
 
       return NextResponse.json({
         response: result,
         source: 'ai'
       });
 
-    } catch (modelError) {
-      console.error("[Clarify API] All models failed:", modelError);
+    } catch (aiError: any) {
+      console.error("[Clarify] AI Error:", aiError?.message || aiError);
 
-      // Fallback response with actual helpful content
-      const fallback = `Great question! For this problem, the correct answer is ${correctAnswer}.
-
-The key is to understand the relationship: if 75% = 150 marks, then we need to find what 100% equals.
-
-Think of it as: 75% is to 150, as 100% is to X. Using proportion: (150 ÷ 75) × 100 = 200 marks total.`;
+      // Intelligent fallback based on the actual question
+      const fallback = generateIntelligentFallback(questionText, userQuestion, correctAnswer, wrongAnswer);
 
       return NextResponse.json({
         response: fallback,
@@ -127,6 +86,35 @@ Think of it as: 75% is to 150, as 100% is to X. Using proportion: (150 ÷ 75) ×
   }
 }
 
+function generateIntelligentFallback(
+  questionText: string,
+  userQuestion: string,
+  correctAnswer: string,
+  wrongAnswer: string
+): string {
+  // Try to extract key information from the question
+  const lowerQuestion = questionText.toLowerCase();
+  const lowerUserQ = userQuestion.toLowerCase();
+
+  // Check if user is asking for explanation of the logic
+  if (lowerUserQ.includes('explain') || lowerUserQ.includes('why') || lowerUserQ.includes('how')) {
+    return `The correct answer is ${correctAnswer}. I understand you want to understand the reasoning. The key is to break down the problem step by step. Look at the given information carefully and identify the relationship between the values. Would you like me to walk through the calculation?`;
+  }
+
+  // Check if user wants an example
+  if (lowerUserQ.includes('example')) {
+    return `Sure! Let me give you an example similar to this problem. The correct answer is ${correctAnswer}. Think about situations in real life where you encounter similar problems - this can help make the concept clearer. What specific aspect would you like me to demonstrate?`;
+  }
+
+  // Check if user wants more detail
+  if (lowerUserQ.includes('more') || lowerUserQ.includes('detail')) {
+    return `The correct answer is ${correctAnswer}. To understand this better, focus on the fundamental principle involved. You selected ${wrongAnswer}, which is a common mistake. The difference lies in how you approach the problem. Would you like me to explain a specific step?`;
+  }
+
+  // Generic but helpful fallback
+  return `Good question! The correct answer is ${correctAnswer}. The key concept here involves understanding the relationship between the given values. Try breaking the problem into smaller steps: identify what you know, what you need to find, and the formula or method to connect them. Feel free to ask about any specific part that's unclear!`;
+}
+
 // Mark clarification as helpful/not helpful
 export async function PATCH(request: Request) {
   try {
@@ -137,7 +125,6 @@ export async function PATCH(request: Request) {
 
     const { questionText, helpful } = await request.json();
 
-    // PostgreSQL UPDATE with LIMIT requires subquery
     await execute(
       `UPDATE clarifications
        SET helpful = ?
