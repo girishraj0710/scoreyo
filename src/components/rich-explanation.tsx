@@ -23,11 +23,29 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   // Handle legacy string explanations
   if (typeof explanation === 'string') {
     return (
-      <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-[#00A1E0] font-semibold text-sm">💡 Explanation</span>
+      <div className="mt-6 space-y-4">
+        <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[#00A1E0] font-semibold text-sm">💡 Explanation</span>
+          </div>
+          <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
         </div>
-        <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
+
+        {/* AI Clarification Chat - Show for wrong answers even with string explanations */}
+        {userAnswer !== correctAnswer && userAnswer !== -1 && (
+          <AIClarificationChat
+            questionText={explanation}
+            correctAnswer={options[correctAnswer]}
+            userAnswer={options[userAnswer]}
+          />
+        )}
+
+        {/* Report Question Button */}
+        {questionId && (
+          <div className="flex justify-center pt-2">
+            <ReportQuestionButton questionId={questionId} examId={examId} subjectId={subjectId} />
+          </div>
+        )}
       </div>
     );
   }
