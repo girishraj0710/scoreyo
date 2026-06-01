@@ -289,7 +289,7 @@ export default function PresentationsPage() {
             {/* Outline */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#00A1E0]" />
+                <FileText className="w-5 h-5 text-[#4255FF]" />
                 Presentation Outline
               </h3>
               <ol className="space-y-2">
@@ -366,7 +366,7 @@ export default function PresentationsPage() {
             {/* Recording Controls */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Mic className="w-5 h-5 text-[#00A1E0]" />
+                <Mic className="w-5 h-5 text-[#4255FF]" />
                 Record Your Presentation
               </h3>
 

@@ -56,7 +56,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
   return (
     <div className="relative w-full max-w-5xl mx-auto">
       {/* Progress Header */}
-      <div className="mb-8 bg-gradient-to-r from-[#00A1E0] via-violet-500 to-purple-500 rounded-2xl p-6 shadow-xl text-white">
+      <div className="mb-8 bg-gradient-to-r from-[#4255FF] via-violet-500 to-purple-500 rounded-2xl p-6 shadow-xl text-white">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
             <div className="flex items-center justify-center gap-2 mb-1">

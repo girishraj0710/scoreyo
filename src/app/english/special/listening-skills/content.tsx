@@ -520,7 +520,7 @@ export default function ListeningSkillsPage() {
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">📊 Your Results</h3>
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-[#90CAF9] rounded-lg p-6 text-center">
-                  <p className="text-5xl font-bold text-[#00A1E0] mb-2">
+                  <p className="text-5xl font-bold text-[#4255FF] mb-2">
                     {calculateScore()}/{selectedExercise.questions.length}
                   </p>
                   <p className="text-gray-700 font-semibold">

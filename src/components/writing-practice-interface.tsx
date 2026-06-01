@@ -147,7 +147,7 @@ export default function WritingPracticeInterface({
             {/* Tips Card */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-[#00A1E0]" />
+                <BookOpen className="w-5 h-5 text-[#4255FF]" />
                 Writing Tips
               </h3>
               <ul className="space-y-2">

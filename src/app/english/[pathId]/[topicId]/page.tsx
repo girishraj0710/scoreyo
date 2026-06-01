@@ -105,7 +105,7 @@ export default function EnglishTopicPage() {
               const TopicIcon = getTopicIcon(topic.id);
               return (
                 <div className="w-20 h-20 bg-[#E8EAFF] rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <TopicIcon className="w-10 h-10 text-[#00A1E0]" />
+                  <TopicIcon className="w-10 h-10 text-[#4255FF]" />
                 </div>
               );
             })()}
@@ -137,7 +137,7 @@ export default function EnglishTopicPage() {
 
         {/* Progress Stats */}
         {progress.completed > 0 && (
-          <div className="mb-8 bg-gradient-to-r from-[#00A1E0] to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="mb-8 bg-gradient-to-r from-[#4255FF] to-purple-600 rounded-2xl p-6 text-white shadow-lg">
             <h2 className="text-lg font-semibold mb-4">Your Progress</h2>
             <div className="grid grid-cols-3 gap-4">
               <div>
@@ -159,7 +159,7 @@ export default function EnglishTopicPage() {
         {/* Subtopics */}
         <div className="mb-8 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
           <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-            <Target className="w-5 h-5 text-[#00A1E0]" />
+            <Target className="w-5 h-5 text-[#4255FF]" />
             What You'll Learn
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -182,7 +182,7 @@ export default function EnglishTopicPage() {
               onClick={() => handleStartPractice(5)}
               className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-[#E8EAFF] transition-all group"
             >
-              <Play className="w-8 h-8 text-[#00A1E0] mb-2" />
+              <Play className="w-8 h-8 text-[#4255FF] mb-2" />
               <div className="font-bold text-slate-900 mb-1">Quick Practice</div>
               <div className="text-sm text-slate-600">5 questions</div>
               <div className="text-xs text-slate-500 mt-2">~5 minutes</div>
@@ -190,9 +190,9 @@ export default function EnglishTopicPage() {
 
             <button
               onClick={() => handleStartPractice(10)}
-              className="p-6 border-2 border-[#90CAF9] bg-[#E8EAFF] rounded-xl hover:border-[#00A1E0] hover:bg-[#E8EAFF] transition-all group"
+              className="p-6 border-2 border-[#90CAF9] bg-[#E8EAFF] rounded-xl hover:border-[#4255FF] hover:bg-[#E8EAFF] transition-all group"
             >
-              <Play className="w-8 h-8 text-[#00A1E0] mb-2" />
+              <Play className="w-8 h-8 text-[#4255FF] mb-2" />
               <div className="font-bold text-slate-900 mb-1">Standard Practice</div>
               <div className="text-sm text-slate-600">10 questions</div>
               <div className="text-xs text-slate-500 mt-2">~10 minutes</div>
@@ -202,7 +202,7 @@ export default function EnglishTopicPage() {
               onClick={() => handleStartPractice(20)}
               className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-[#E8EAFF] transition-all group"
             >
-              <Play className="w-8 h-8 text-[#00A1E0] mb-2" />
+              <Play className="w-8 h-8 text-[#4255FF] mb-2" />
               <div className="font-bold text-slate-900 mb-1">Deep Practice</div>
               <div className="text-sm text-slate-600">20 questions</div>
               <div className="text-xs text-slate-500 mt-2">~20 minutes</div>

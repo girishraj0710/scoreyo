@@ -54,7 +54,7 @@ export default function ReportsPage() {
           <h2 className="text-xl font-semibold text-slate-800 mb-2">Error Loading Reports</h2>
           <p className="text-slate-500 mb-4">{error}</p>
           <div className="flex gap-3 justify-center">
-            <button onClick={() => window.location.reload()} className="px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg">
+            <button onClick={() => window.location.reload()} className="px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg">
               Retry
             </button>
             <a href="/dashboard" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
@@ -90,7 +90,7 @@ export default function ReportsPage() {
           <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("reportsProOnly")}</h2>
           <p className="text-slate-500 mb-6">{t("reportsProDesc")}</p>
           <div className="flex gap-3 justify-center">
-            <a href="/pricing" className="px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg">
+            <a href="/pricing" className="px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg">
               {t("upgradeToPro")}
             </a>
             <a href="/dashboard" className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
@@ -111,11 +111,11 @@ export default function ReportsPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BarChart3 className="w-20 h-20 text-[#00A1E0]" />
+            <BarChart3 className="w-20 h-20 text-[#4255FF]" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">{t("noReportData")}</h2>
           <p className="text-slate-500 mb-6">{t("noReportDataDesc")}</p>
-          <a href="/" className="inline-block px-8 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg">
+          <a href="/" className="inline-block px-8 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg">
             {t("startQuiz")}
           </a>
         </div>

@@ -83,7 +83,7 @@ function LevelSelectionContent() {
           <p className="text-slate-600 mb-6">Please login to access level mode</p>
           <a
             href="/"
-            className="inline-block px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl"
+            className="inline-block px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl"
           >
             Go to Home
           </a>
@@ -100,7 +100,7 @@ function LevelSelectionContent() {
           <p className="text-slate-600 mb-6">Please select an exam and subject</p>
           <a
             href="/"
-            className="inline-block px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl"
+            className="inline-block px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl"
           >
             Go to Home
           </a>
@@ -135,7 +135,7 @@ function LevelSelectionContent() {
               </p>
               <a
                 href="/"
-                className="inline-block px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl"
+                className="inline-block px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl"
               >
                 Try Random Mode Instead
               </a>

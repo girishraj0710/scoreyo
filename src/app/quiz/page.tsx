@@ -597,7 +597,7 @@ function QuizContent() {
           <div className="flex gap-3 justify-center">
             <a
               href="/pricing"
-              className="px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg"
+              className="px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg"
             >
               Upgrade to Pro
             </a>
@@ -620,7 +620,7 @@ function QuizContent() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-[#90CAF9]">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
-            <svg className="w-8 h-8 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
@@ -642,7 +642,7 @@ function QuizContent() {
                 // Re-trigger the load effect by updating a dummy state via reload
                 window.location.reload();
               }}
-              className="px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg"
+              className="px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg"
             >
               Retry
             </button>
@@ -665,7 +665,7 @@ function QuizContent() {
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
             <svg
-              className="animate-spin h-8 w-8 text-[#00A1E0]"
+              className="animate-spin h-8 w-8 text-[#4255FF]"
               viewBox="0 0 24 24"
               fill="none"
             >
@@ -1443,7 +1443,7 @@ export default function QuizPage() {
           <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
               <svg
-                className="animate-spin h-8 w-8 text-[#00A1E0]"
+                className="animate-spin h-8 w-8 text-[#4255FF]"
                 viewBox="0 0 24 24"
                 fill="none"
               >

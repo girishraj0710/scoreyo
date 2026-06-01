@@ -130,7 +130,7 @@ export default function EnglishAssessmentPage() {
             </Link>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#00A1E0] to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#4255FF] to-purple-600 rounded-full flex items-center justify-center">
                 <Target className="w-10 h-10 text-white" />
               </div>
 
@@ -165,7 +165,7 @@ export default function EnglishAssessmentPage() {
 
               <button
                 onClick={handleStart}
-                className="px-8 py-4 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
+                className="px-8 py-4 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
               >
                 Start Assessment
                 <ArrowRight className="w-5 h-5" />
@@ -191,7 +191,7 @@ export default function EnglishAssessmentPage() {
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
               <div className="mb-2">
-                <span className="px-3 py-1 bg-[#E8EAFF] text-[#0070A8] text-xs font-medium rounded-full">
+                <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] text-xs font-medium rounded-full">
                   {currentQuestion.level}
                 </span>
               </div>
@@ -208,7 +208,7 @@ export default function EnglishAssessmentPage() {
                     className="w-full text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-[#E8EAFF] transition-all group"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full border-2 border-slate-300 group-hover:border-[#00A1E0] group-hover:bg-[#00A1E0] flex items-center justify-center flex-shrink-0 transition-all">
+                      <div className="w-10 h-10 rounded-full border-2 border-slate-300 group-hover:border-[#4255FF] group-hover:bg-[#4255FF] flex items-center justify-center flex-shrink-0 transition-all">
                         <span className="font-semibold text-slate-700 group-hover:text-white">
                           {String.fromCharCode(65 + idx)}
                         </span>
@@ -225,7 +225,7 @@ export default function EnglishAssessmentPage() {
         {/* Results State */}
         {state === "results" && (
           <div>
-            <div className="bg-gradient-to-r from-[#00A1E0] to-purple-600 rounded-2xl p-8 text-white mb-6 shadow-xl">
+            <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 rounded-2xl p-8 text-white mb-6 shadow-xl">
               <div className="text-center">
                 <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
                   <Sparkles className="w-10 h-10" />

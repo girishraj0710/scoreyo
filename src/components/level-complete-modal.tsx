@@ -133,7 +133,7 @@ export function LevelCompleteModal({
         <div className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-slate-50 rounded-xl p-4 text-center">
-              <Target className="w-6 h-6 text-[#00A1E0] mx-auto mb-2" />
+              <Target className="w-6 h-6 text-[#4255FF] mx-auto mb-2" />
               <div className="text-2xl font-bold text-slate-800">{accuracy}%</div>
               <div className="text-xs text-slate-500">Accuracy</div>
             </div>
@@ -158,7 +158,7 @@ export function LevelCompleteModal({
           {/* Unlock Message */}
           {isNewLevel && stars >= 1 && (
             <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border-2 border-[#90CAF9] rounded-xl p-4 flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#00A1E0] rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#4255FF] rounded-full flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -206,7 +206,7 @@ export function LevelCompleteModal({
             {stars >= 1 ? (
               <button
                 onClick={onNextLevel}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#00A1E0] text-white rounded-xl font-semibold shadow-lg transition-all"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#4255FF] text-white rounded-xl font-semibold shadow-lg transition-all"
               >
                 Next Level
                 <ChevronRight className="w-5 h-5" />

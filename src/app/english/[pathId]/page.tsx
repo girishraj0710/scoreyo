@@ -166,7 +166,7 @@ export default function EnglishPathPage() {
                   <div className="flex items-start gap-4">
                     {/* Icon */}
                     <div className="w-14 h-14 bg-[#E8EAFF] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#E8EAFF] transition-colors">
-                      <TopicIcon className="w-7 h-7 text-[#00A1E0]" />
+                      <TopicIcon className="w-7 h-7 text-[#4255FF]" />
                     </div>
 
                     {/* Content */}

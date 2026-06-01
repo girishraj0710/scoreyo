@@ -90,7 +90,7 @@ export default function AchievementsPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className="bg-[#00A1E0] rounded-2xl p-8 mb-8 text-white">
+      <div className="bg-[#4255FF] rounded-2xl p-8 mb-8 text-white">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
             <Trophy className="w-8 h-8 text-white" />

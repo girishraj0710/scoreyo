@@ -34,8 +34,8 @@ export function AppFooter() {
           <div>
             <h3 className="font-semibold text-slate-800 mb-3 text-sm">Support</h3>
             <ul className="space-y-2 text-xs text-slate-600">
-              <li><a href="/contact" className="hover:text-[#00A1E0] transition-colors">Contact Us</a></li>
-              <li><a href="mailto:support@prepgenie.co.in" className="hover:text-[#00A1E0] transition-colors">Email Support</a></li>
+              <li><a href="/contact" className="hover:text-[#4255FF] transition-colors">Contact Us</a></li>
+              <li><a href="mailto:support@prepgenie.co.in" className="hover:text-[#4255FF] transition-colors">Email Support</a></li>
             </ul>
           </div>
           <div>

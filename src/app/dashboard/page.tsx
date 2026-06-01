@@ -124,7 +124,7 @@ export default function DashboardPage() {
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
           <div className="flex justify-center mb-6">
-            <BookOpen className="w-20 h-20" style={{ color: '#00A1E0' }} />
+            <BookOpen className="w-20 h-20" style={{ color: '#4255FF' }} />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
             No Quiz Data Yet
@@ -136,9 +136,9 @@ export default function DashboardPage() {
           <a
             href="/"
             className="inline-block px-8 py-3 text-white font-semibold rounded-xl shadow-lg"
-            style={{ backgroundColor: '#00A1E0', transition: 'background-color 0.2s' }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0070A8'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00A1E0'}
+            style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
           >
             Start Your First Quiz
           </a>

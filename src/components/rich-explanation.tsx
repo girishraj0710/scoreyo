@@ -26,7 +26,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
       <div className="mt-6 space-y-4">
         <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[#00A1E0] font-semibold text-sm">💡 Explanation</span>
+            <span className="text-[#4255FF] font-semibold text-sm">💡 Explanation</span>
           </div>
           <p className="text-sm text-blue-800 leading-relaxed">{explanation}</p>
         </div>
@@ -69,7 +69,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
         <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-lg">📐</span>
-            <span className="text-[#0070A8] font-semibold text-sm">Formula</span>
+            <span className="text-[#3242CC] font-semibold text-sm">Formula</span>
           </div>
           <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 font-mono text-sm text-[#005A7A] mb-2">
             {explanation.formula}

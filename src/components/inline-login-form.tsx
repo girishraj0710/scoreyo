@@ -182,8 +182,8 @@ export function InlineLoginForm() {
           <div className="pt-4 border-t border-slate-200">
             <p className="text-xs text-slate-500 text-center">
               By continuing, you agree to PrepGenie's{" "}
-              <a href="/terms" className="text-[#00A1E0] hover:underline">Terms</a> & {" "}
-              <a href="/privacy" className="text-[#00A1E0] hover:underline">Privacy Policy</a>.
+              <a href="/terms" className="text-[#4255FF] hover:underline">Terms</a> & {" "}
+              <a href="/privacy" className="text-[#4255FF] hover:underline">Privacy Policy</a>.
             </p>
           </div>
         </div>

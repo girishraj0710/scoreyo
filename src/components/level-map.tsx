@@ -96,7 +96,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                 >
                   {/* Icon */}
                   {state === "locked" && <Lock className="w-8 h-8 text-slate-400 mb-1" />}
-                  {state === "unlocked" && !isBoss && <Play className="w-8 h-8 text-[#00A1E0] mb-1" />}
+                  {state === "unlocked" && !isBoss && <Play className="w-8 h-8 text-[#4255FF] mb-1" />}
                   {state === "unlocked" && isBoss && <Crown className="w-10 h-10 text-violet-600 mb-1" />}
                   {state === "completed" && <Check className="w-8 h-8 text-emerald-600 mb-1" />}
 

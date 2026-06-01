@@ -161,7 +161,7 @@ export default function PricingPage() {
           <div className="flex gap-3 justify-center">
             <a
               href="/"
-              className="px-6 py-3 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white font-semibold rounded-xl shadow-lg"
+              className="px-6 py-3 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white font-semibold rounded-xl shadow-lg"
             >
               {t("startQuiz")}
             </a>
@@ -197,7 +197,7 @@ export default function PricingPage() {
       {isPro && subData?.subscription && (
         <div className="max-w-md mx-auto mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-5 border border-[#90CAF9]">
           <div className="flex items-center gap-3 mb-2">
-            <span className="px-3 py-1 bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white text-xs font-bold rounded-full">
+            <span className="px-3 py-1 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white text-xs font-bold rounded-full">
               PRO
             </span>
             <span className="text-sm font-semibold text-slate-800">
@@ -321,7 +321,7 @@ export default function PricingPage() {
             ))}
           </ul>
           {isPro && subData?.subscription?.plan === "monthly" ? (
-            <div className="py-3 text-center text-sm font-semibold text-[#00A1E0] bg-white rounded-xl border border-[#90CAF9]">
+            <div className="py-3 text-center text-sm font-semibold text-[#4255FF] bg-white rounded-xl border border-[#90CAF9]">
               {t("activePlan")}
             </div>
           ) : isPro ? (
@@ -338,8 +338,8 @@ export default function PricingPage() {
               disabled={isProcessing}
               className={`w-full py-3 font-semibold rounded-xl disabled:opacity-50 text-sm transition-all ${
                 selectedPlan === "monthly"
-                  ? "bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white shadow-lg hover:shadow-xl"
-                  : "bg-white text-[#00A1E0] border-2 border-[#90CAF9] hover:bg-[#E8EAFF] hover:border-indigo-400"
+                  ? "bg-gradient-to-r from-[#4255FF] to-purple-600 text-white shadow-lg hover:shadow-xl"
+                  : "bg-white text-[#4255FF] border-2 border-[#90CAF9] hover:bg-[#E8EAFF] hover:border-indigo-400"
               }`}
             >
               {isProcessing && processingPlan === "monthly" ? t("processing") : t("upgradeToPro")}
@@ -401,7 +401,7 @@ export default function PricingPage() {
             ))}
           </ul>
           {isPro && subData?.subscription?.plan === "quarterly" ? (
-            <div className="py-3 text-center text-sm font-semibold text-[#00A1E0] bg-white rounded-xl border border-[#90CAF9]">
+            <div className="py-3 text-center text-sm font-semibold text-[#4255FF] bg-white rounded-xl border border-[#90CAF9]">
               {t("activePlan")}
             </div>
           ) : isPro ? (
@@ -418,8 +418,8 @@ export default function PricingPage() {
               disabled={isProcessing}
               className={`w-full py-3 font-semibold rounded-xl disabled:opacity-50 text-sm transition-all ${
                 selectedPlan === "quarterly"
-                  ? "bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white shadow-lg hover:shadow-xl"
-                  : "bg-white text-[#00A1E0] border-2 border-[#90CAF9] hover:bg-[#E8EAFF] hover:border-indigo-400"
+                  ? "bg-gradient-to-r from-[#4255FF] to-purple-600 text-white shadow-lg hover:shadow-xl"
+                  : "bg-white text-[#4255FF] border-2 border-[#90CAF9] hover:bg-[#E8EAFF] hover:border-indigo-400"
               }`}
             >
               {isProcessing && processingPlan === "quarterly" ? t("processing") : t("upgradeToPro")}

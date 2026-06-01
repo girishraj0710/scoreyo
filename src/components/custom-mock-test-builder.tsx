@@ -111,7 +111,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#00A1E0] to-purple-600 text-white p-6 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 text-white p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Sparkles className="w-6 h-6" />
             <div>
@@ -150,7 +150,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   <button
                     key={exam.id}
                     onClick={() => handleExamSelect(exam.id)}
-                    className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#00A1E0] dark:hover:border-indigo-400 hover:shadow-lg transition-all text-left group"
+                    className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#4255FF] dark:hover:border-indigo-400 hover:shadow-lg transition-all text-left group"
                   >
                     <div className="flex items-center gap-3">
                       <div

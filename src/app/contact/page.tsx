@@ -60,7 +60,7 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A1E0] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 placeholder="Enter your name"
               />
             </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A1E0] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 placeholder="your.email@example.com"
               />
             </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                 required
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A1E0] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
               >
                 <option value="">Select a subject</option>
                 <option value="general">General Inquiry</option>
@@ -113,7 +113,7 @@ export default function ContactPage() {
                 rows={6}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#00A1E0] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
                 placeholder="Describe your question or issue in detail..."
               />
             </div>
@@ -121,7 +121,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
@@ -134,14 +134,14 @@ export default function ContactPage() {
           <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center shrink-0">
-                <svg className="w-6 h-6 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-800 mb-2">Email Support</h3>
                 <p className="text-slate-600 mb-2">Get help via email</p>
-                <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline font-medium">
+                <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline font-medium">
                   support@prepgenie.co.in
                 </a>
                 <p className="text-sm text-slate-500 mt-2">Response time: Within 24 hours</p>

@@ -82,7 +82,7 @@ export function PrivacyPolicyContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">7. Contact Us</h2>
         <p className="text-slate-600">
-          📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline">support@prepgenie.co.in</a><br />
+          📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a><br />
           🌐 Website: prepgenie.co.in<br />
           📍 Address: Bangalore, Karnataka, India
         </p>
@@ -162,7 +162,7 @@ export function TermsContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">8. Contact</h2>
         <p className="text-slate-600">
-          📧 <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline">support@prepgenie.co.in</a>
+          📧 <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a>
         </p>
       </section>
     </div>
@@ -206,7 +206,7 @@ export function RefundPolicyContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">3. How to Report Payment Issues</h2>
         <ol className="list-decimal list-inside text-slate-600 mb-3 ml-4 space-y-2">
-          <li>Email us at <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline">support@prepgenie.co.in</a></li>
+          <li>Email us at <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a></li>
           <li>Subject: "Payment Issue - [Your Email]"</li>
           <li>Include transaction ID, issue description, and proof</li>
           <li>We'll investigate within 24-48 hours</li>
@@ -226,7 +226,7 @@ export function RefundPolicyContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">5. Contact</h2>
         <p className="text-slate-600">
-          📧 <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline">support@prepgenie.co.in</a><br />
+          📧 <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a><br />
           🕐 Response time: 1-2 business days
         </p>
       </section>

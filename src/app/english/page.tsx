@@ -48,11 +48,11 @@ export default function EnglishHubPage() {
         <div className="max-w-6xl mx-auto px-4 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#00A1E0] rounded-2xl mb-6 shadow-lg">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#4255FF] rounded-2xl mb-6 shadow-lg">
               <BookOpen className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-[#00A1E0] via-violet-600 to-violet-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#4255FF] via-violet-600 to-violet-500 bg-clip-text text-transparent">
                 Master English Language
               </span>
             </h1>
@@ -61,7 +61,7 @@ export default function EnglishHubPage() {
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               Start Learning English
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function EnglishHubPage() {
             {/* Foundation Builder - First Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
               <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
-                <BookOpen className="w-6 h-6 text-[#00A1E0]" />
+                <BookOpen className="w-6 h-6 text-[#4255FF]" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Foundation Builder</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Build strong foundations from A1 to B1 level</p>
@@ -110,7 +110,7 @@ export default function EnglishHubPage() {
             {/* Competitive Exams - Second Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
               <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
-                <Target className="w-6 h-6 text-[#00A1E0]" />
+                <Target className="w-6 h-6 text-[#4255FF]" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Competitive Exams</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Master English for SSC, Banking, Railways, state exams</p>
@@ -145,7 +145,7 @@ export default function EnglishHubPage() {
             {/* IELTS/TOEFL - Third Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
               <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
-                <Award className="w-6 h-6 text-[#00A1E0]" />
+                <Award className="w-6 h-6 text-[#4255FF]" />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">IELTS/TOEFL</h3>
               <p className="text-slate-600 mb-4 min-h-[3rem]">Achieve your target band score for study abroad</p>
@@ -180,7 +180,7 @@ export default function EnglishHubPage() {
 
           {/* Features */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-16">
-            <h2 className="text-2xl font-bold text-[#0070A8] mb-6 text-center">Why Choose Our English Hub?</h2>
+            <h2 className="text-2xl font-bold text-[#3242CC] mb-6 text-center">Why Choose Our English Hub?</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -207,7 +207,7 @@ export default function EnglishHubPage() {
           </div>
 
           {/* Learning Topics */}
-          <div className="bg-gradient-to-r from-[#00A1E0] via-violet-600 to-violet-500 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-[#4255FF] via-violet-600 to-violet-500 rounded-2xl p-8 text-white mb-16">
             <h2 className="text-2xl font-bold mb-6 text-center">What You'll Learn</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
@@ -255,7 +255,7 @@ export default function EnglishHubPage() {
             <p className="text-slate-600 mb-8">Join thousands of students improving their English skills every day</p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-4 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-4 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               Get Started - It's Free
             </button>
@@ -297,7 +297,7 @@ export default function EnglishHubPage() {
         </div>
 
         {/* Quick Assessment */}
-        <div className="mb-8 bg-gradient-to-r from-[#00A1E0] via-violet-600 to-violet-500 rounded-2xl p-6 text-white shadow-lg">
+        <div className="mb-8 bg-gradient-to-r from-[#4255FF] via-violet-600 to-violet-500 rounded-2xl p-6 text-white shadow-lg">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
@@ -377,7 +377,7 @@ export default function EnglishHubPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <TrendingUp className="w-5 h-5 text-[#00A1E0]" />
+                <TrendingUp className="w-5 h-5 text-[#4255FF]" />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-1">AI-Powered Learning</h3>
@@ -399,7 +399,7 @@ export default function EnglishHubPage() {
             </div>
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Award className="w-5 h-5 text-[#00A1E0]" />
+                <Award className="w-5 h-5 text-[#4255FF]" />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-1">Rich Explanations</h3>

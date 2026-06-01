@@ -139,7 +139,7 @@ export default function ReviewPage() {
           <p className="text-slate-500 mb-6">{t("noReviewsDesc")}</p>
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg"
+            className="inline-block px-8 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg"
           >
             {t("startQuiz")} →
           </a>

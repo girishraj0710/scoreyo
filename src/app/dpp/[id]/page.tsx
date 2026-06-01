@@ -234,7 +234,7 @@ export default function DPPPage() {
               <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <div>
-                    <span className="text-sm font-semibold text-[#00A1E0]">
+                    <span className="text-sm font-semibold text-[#4255FF]">
                       {data.dpp.title}
                     </span>
                     {data.streak > 0 && (
@@ -272,7 +272,7 @@ export default function DPPPage() {
             {/* Question */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 mb-6">
               <div className="mb-2">
-                <span className="px-3 py-1 bg-[#E8EAFF] text-[#0070A8] text-xs font-medium rounded-full">
+                <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] text-xs font-medium rounded-full">
                   {currentQuestion.difficulty}
                 </span>
               </div>
@@ -288,7 +288,7 @@ export default function DPPPage() {
                     onClick={() => handleAnswerSelect(idx)}
                     className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                       userAnswers[currentIndex] === idx
-                        ? "border-[#00A1E0] bg-[#E8EAFF]"
+                        ? "border-[#4255FF] bg-[#E8EAFF]"
                         : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
@@ -343,7 +343,7 @@ export default function DPPPage() {
         {state === "results" && (
           <div>
             {/* Results Header */}
-            <div className="bg-gradient-to-r from-[#00A1E0] to-purple-600 rounded-2xl p-8 text-white mb-6">
+            <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 rounded-2xl p-8 text-white mb-6">
               <div className="text-center mb-6">
                 <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-10 h-10" />

@@ -219,8 +219,8 @@ export default function TermsPage() {
               For questions about these Terms, please contact us:
             </p>
             <ul className="list-none text-slate-600 ml-0">
-              <li className="mb-2">📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#00A1E0] hover:underline">support@prepgenie.co.in</a></li>
-              <li className="mb-2">🌐 Website: <a href="https://prepgenie.co.in" className="text-[#00A1E0] hover:underline">prepgenie.co.in</a></li>
+              <li className="mb-2">📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a></li>
+              <li className="mb-2">🌐 Website: <a href="https://prepgenie.co.in" className="text-[#4255FF] hover:underline">prepgenie.co.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
             </ul>
           </section>
