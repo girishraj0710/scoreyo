@@ -2377,26 +2377,38 @@ export async function saveLevelQuestionCache(
 ) {
   await ensureInitialized();
 
-  // Check if already exists
-  const existing = await queryOne(
-    "SELECT id FROM level_question_cache WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?",
-    [userId, examId, subjectId, levelNumber]
-  );
-
   const questionsJson = JSON.stringify(questions);
 
-  if (existing) {
-    // Update existing cache (keep same questions)
-    await execute(
-      "UPDATE level_question_cache SET questions_json = ? WHERE id = ?",
-      [questionsJson, existing.id]
-    );
-  } else {
-    // Create new cache
-    await execute(
-      "INSERT INTO level_question_cache (user_id, exam_id, subject_id, level_number, questions_json, is_passed) VALUES (?, ?, ?, ?, ?, 0)",
-      [userId, examId, subjectId, levelNumber, questionsJson]
-    );
+  // First, try to update existing record
+  const result = await execute(
+    `UPDATE level_question_cache
+     SET questions_json = ?, created_at = CURRENT_TIMESTAMP
+     WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?`,
+    [questionsJson, userId, examId, subjectId, levelNumber]
+  );
+
+  // If no rows were updated, insert new record
+  if (result.rowCount === 0) {
+    try {
+      await execute(
+        `INSERT INTO level_question_cache (user_id, exam_id, subject_id, level_number, questions_json, is_passed, created_at)
+         VALUES (?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP)`,
+        [userId, examId, subjectId, levelNumber, questionsJson]
+      );
+    } catch (insertError: any) {
+      // Handle race condition: another request already inserted
+      if (insertError.code === '23505') {
+        // Duplicate key - try update again
+        await execute(
+          `UPDATE level_question_cache
+           SET questions_json = ?, created_at = CURRENT_TIMESTAMP
+           WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND level_number = ?`,
+          [questionsJson, userId, examId, subjectId, levelNumber]
+        );
+      } else {
+        throw insertError;
+      }
+    }
   }
 }
 
