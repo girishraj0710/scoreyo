@@ -1450,7 +1450,11 @@ function QuizContent() {
           }}
         >
           <AIClarificationChat
-            questionText={typeof question.explanation === 'string' ? question.explanation : question.explanation}
+            questionText={
+              typeof question.explanation === 'string'
+                ? question.explanation
+                : (question.explanation as any).logic || question.question
+            }
             correctAnswer={question.options[question.correctAnswer]}
             userAnswer={question.options[answers[currentQuestion]!]}
           />

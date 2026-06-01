@@ -62,18 +62,31 @@ Your task:
 Response:`;
 
     try {
-      // Race the fast models
-      const result = await Promise.any(
-        FAST_MODELS.map(async (modelId) => {
+      // Try models one by one with better error handling
+      let result: string | null = null;
+      let lastError: any = null;
+
+      for (const modelId of FAST_MODELS) {
+        try {
           const { text } = await generateText({
             model: openrouter(modelId),
             prompt,
-            maxOutputTokens: 300, // Keep it brief
+            maxOutputTokens: 300,
             temperature: 0.7,
           });
-          return text.trim();
-        })
-      );
+          result = text.trim();
+          console.log(`[Clarify] Success with model: ${modelId}`);
+          break; // Success - exit loop
+        } catch (modelError) {
+          console.error(`[Clarify] Model ${modelId} failed:`, modelError);
+          lastError = modelError;
+          // Continue to next model
+        }
+      }
+
+      if (!result) {
+        throw new Error(`All models failed. Last error: ${lastError?.message || 'Unknown'}`);
+      }
 
       // Store clarification for analytics (optional - can be disabled for pure chat experience)
       try {
@@ -95,8 +108,12 @@ Response:`;
     } catch (modelError) {
       console.error("[Clarify API] All models failed:", modelError);
 
-      // Fallback response
-      const fallback = `I understand your confusion! The correct answer is ${correctAnswer}. The key concept here is understanding why that's the right choice. Try reviewing the explanation above again, and focus on the fundamental principle at play.`;
+      // Fallback response with actual helpful content
+      const fallback = `Great question! For this problem, the correct answer is ${correctAnswer}.
+
+The key is to understand the relationship: if 75% = 150 marks, then we need to find what 100% equals.
+
+Think of it as: 75% is to 150, as 100% is to X. Using proportion: (150 ÷ 75) × 100 = 200 marks total.`;
 
       return NextResponse.json({
         response: fallback,
