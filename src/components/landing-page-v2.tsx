@@ -687,46 +687,46 @@ export function LandingPageV2() {
         </section>
         {/* Final CTA */}
         <section className="pb-8 -mt-72">
-          <div className="bg-sky-400 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl">
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6">
+          <div className="bg-sky-400 rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl">
+            <h2 className="text-2xl md:text-4xl font-semibold mb-4">
               Ready to ace your exam?
             </h2>
-            <p className="text-lg md:text-xl text-blue-50 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-blue-50 mb-6 max-w-2xl mx-auto">
               Join 50,000+ students who are already mastering their competitive exams with PrepGenie
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-10 py-4 bg-white text-blue-600 font-semibold text-lg rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
+              className="px-8 py-3 bg-white text-blue-600 font-semibold text-base rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
             >
               Start Free Today
             </button>
 
             {/* App Store Badges */}
-            <div className="mt-8">
-              <p className="text-white text-lg font-bold mb-5">Learn anytime, anywhere</p>
-              <div className="flex items-center justify-center gap-4">
+            <div className="mt-6">
+              <p className="text-white text-base font-bold mb-3">Learn anytime, anywhere</p>
+              <div className="flex items-center justify-center gap-3">
                 {/* Google Play Store */}
-                <button className="bg-black rounded-lg px-5 py-3 flex items-center gap-3 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
-                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button className="bg-black rounded-lg px-4 py-2.5 flex items-center gap-2.5 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a1.978 1.978 0 01-.61-1.423V3.237c0-.534.212-1.043.609-1.423z" fill="#32BBFF"/>
                     <path d="M13.792 12l3.896 3.896-11.52 6.581a2.006 2.006 0 01-.559.137L13.792 12z" fill="#32BBFF"/>
                     <path d="M20.405 10.812l-2.717 1.552L13.792 12l3.896-3.896 2.717 1.552c.752.43 1.196 1.198 1.196 2.078s-.444 1.648-1.196 2.078z" fill="#32BBFF"/>
                     <path d="M6.168 1.386l11.52 6.581L13.792 12 5.609 3.813c.16-.128.347-.225.559-.29.212-.064.44-.105.677-.137h-.677z" fill="#32BBFF"/>
                   </svg>
                   <div className="text-left">
-                    <div className="text-[10px] text-slate-300 leading-tight">GET IT ON</div>
-                    <div className="text-sm font-semibold text-white leading-tight">Google Play</div>
+                    <div className="text-[9px] text-slate-300 leading-tight">GET IT ON</div>
+                    <div className="text-xs font-semibold text-white leading-tight">Google Play</div>
                   </div>
                 </button>
 
                 {/* Apple App Store */}
-                <button className="bg-black rounded-lg px-5 py-3 flex items-center gap-3 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
-                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <button className="bg-black rounded-lg px-4 py-2.5 flex items-center gap-2.5 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                   </svg>
                   <div className="text-left">
-                    <div className="text-[10px] text-slate-300 leading-tight">Download on the</div>
-                    <div className="text-sm font-semibold text-white leading-tight">App Store</div>
+                    <div className="text-[9px] text-slate-300 leading-tight">Download on the</div>
+                    <div className="text-xs font-semibold text-white leading-tight">App Store</div>
                   </div>
                 </button>
               </div>
