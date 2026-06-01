@@ -1,0 +1,56 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Book body -->
+  <rect x="18" y="16" width="28" height="36" rx="2" fill="url(#book-gradient)"/>
+
+  <!-- Book spine -->
+  <rect x="18" y="16" width="4" height="36" rx="1" fill="#5D6D7E"/>
+
+  <!-- Pages -->
+  <rect x="22" y="17" width="23" height="34" fill="#ECF0F1"/>
+
+  <!-- Generic book icon on cover -->
+  <g transform="translate(32, 34)">
+    <!-- Stacked books illustration -->
+    <rect x="-8" y="2" width="16" height="6" rx="0.5" fill="url(#book1-gradient)"/>
+    <rect x="-7" y="-2" width="14" height="5" rx="0.5" fill="url(#book2-gradient)"/>
+    <rect x="-6" y="-6" width="12" height="5" rx="0.5" fill="url(#book3-gradient)"/>
+
+    <!-- Page edges -->
+    <line x1="8" y1="3" x2="8" y2="7" stroke="#BDC3C7" stroke-width="0.5"/>
+    <line x1="7" y1="-1" x2="7" y2="2" stroke="#D5DBDB" stroke-width="0.5"/>
+    <line x1="6" y1="-5" x2="6" y2="-2" stroke="#BDC3C7" stroke-width="0.5"/>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="22" y="22" width="20" height="3" rx="1" fill="#7F8C8D"/>
+  <line x1="24" y1="24" x2="40" y2="24" stroke="white" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Page edge effect -->
+  <line x1="45" y1="17" x2="45" y2="51" stroke="#BDC3C7" stroke-width="0.5"/>
+  <line x1="44" y1="17" x2="44" y2="51" stroke="#D5DBDB" stroke-width="0.5"/>
+
+  <!-- Bookmark -->
+  <path d="M 30 16 L 30 28 L 32 26 L 34 28 L 34 16 Z" fill="#7F8C8D"/>
+
+  <defs>
+    <linearGradient id="book-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F8C8D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D6D7E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="book1-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="book2-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="book3-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ECC71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

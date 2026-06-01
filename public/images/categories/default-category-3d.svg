@@ -1,0 +1,40 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#000000" opacity="0.1"/>
+
+  <!-- Folder/Category icon -->
+  <g transform="translate(32, 32)">
+    <!-- Folder back -->
+    <path d="M -18 -8 L -18 12 Q -18 14 -16 14 L 16 14 Q 18 14 18 12 L 18 -8 Z" fill="url(#folder-gradient)"/>
+
+    <!-- Folder tab -->
+    <path d="M -18 -8 L -8 -8 L -6 -12 L 6 -12 L 8 -8 L 18 -8 L 18 -10 Q 18 -12 16 -12 L 8 -12 L 6 -16 L -6 -16 L -8 -12 L -16 -12 Q -18 -12 -18 -10 Z" fill="url(#tab-gradient)"/>
+
+    <!-- Documents inside folder -->
+    <g opacity="0.6">
+      <rect x="-10" y="0" width="12" height="10" rx="0.5" fill="white"/>
+      <line x1="-8" y1="3" x2="-2" y2="3" stroke="#7F8C8D" stroke-width="0.5"/>
+      <line x1="-8" y1="5" x2="-2" y2="5" stroke="#7F8C8D" stroke-width="0.5"/>
+      <line x1="-8" y1="7" x2="-4" y2="7" stroke="#7F8C8D" stroke-width="0.5"/>
+
+      <rect x="0" y="2" width="10" height="8" rx="0.5" fill="white"/>
+      <line x1="2" y1="4" x2="8" y2="4" stroke="#7F8C8D" stroke-width="0.5"/>
+      <line x1="2" y1="6" x2="8" y2="6" stroke="#7F8C8D" stroke-width="0.5"/>
+      <line x1="2" y1="8" x2="6" y2="8" stroke="#7F8C8D" stroke-width="0.5"/>
+    </g>
+
+    <!-- Highlight -->
+    <ellipse cx="-8" cy="-4" rx="4" ry="2" fill="white" opacity="0.2"/>
+  </g>
+
+  <defs>
+    <linearGradient id="folder-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tab-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E67E22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D35400;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

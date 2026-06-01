@@ -526,25 +526,22 @@ export const ColorfulExamIcon: React.FC<ColorfulExamIconProps> = ({
   size = 24,
   className = ''
 }) => {
-  // Check if this exam has a premium 3D illustration
+  // Check if this exam has a specific 3D illustration
   const premiumIllustration = PREMIUM_3D_EXAMS[examId];
 
-  if (premiumIllustration) {
-    return (
-      <img
-        src={premiumIllustration}
-        alt={examId}
-        width={size}
-        height={size}
-        className={className}
-        style={{ objectFit: 'contain' }}
-      />
-    );
-  }
+  // Always use 3D icons - use specific icon or default exam icon
+  const iconPath = premiumIllustration || '/images/exams/default-exam-3d.svg';
 
-  // Fall back to emoji icons for other exams
-  const iconName = getColorfulExamIcon(examId);
-  return <Icon icon={iconName} width={size} height={size} className={className} />;
+  return (
+    <img
+      src={iconPath}
+      alt={examId}
+      width={size}
+      height={size}
+      className={className}
+      style={{ objectFit: 'contain' }}
+    />
+  );
 };
 
 // Premium 3D illustrations for categories
@@ -592,25 +589,22 @@ export const ColorfulCategoryIcon: React.FC<ColorfulCategoryIconProps> = ({
   size = 24,
   className = ''
 }) => {
-  // Check if this category has a premium 3D illustration
+  // Check if this category has a specific 3D illustration
   const premiumIllustration = PREMIUM_3D_CATEGORIES[categoryId];
 
-  if (premiumIllustration) {
-    return (
-      <img
-        src={premiumIllustration}
-        alt={categoryId}
-        width={size}
-        height={size}
-        className={className}
-        style={{ objectFit: 'contain' }}
-      />
-    );
-  }
+  // Always use 3D icons - use specific icon or default category icon
+  const iconPath = premiumIllustration || '/images/categories/default-category-3d.svg';
 
-  // Fall back to emoji icons for other categories
-  const iconName = getColorfulCategoryIcon(categoryId);
-  return <Icon icon={iconName} width={size} height={size} className={className} />;
+  return (
+    <img
+      src={iconPath}
+      alt={categoryId}
+      width={size}
+      height={size}
+      className={className}
+      style={{ objectFit: 'contain' }}
+    />
+  );
 };
 
 // Premium 3D illustrations for subjects
@@ -800,23 +794,20 @@ export const ColorfulSubjectIcon: React.FC<ColorfulSubjectIconProps> = ({
   size = 24,
   className = ''
 }) => {
-  // Check if this subject has a premium 3D illustration
+  // Check if this subject has a specific 3D illustration
   const premiumIllustration = PREMIUM_3D_SUBJECTS[subjectId];
 
-  if (premiumIllustration) {
-    return (
-      <img
-        src={premiumIllustration}
-        alt={subjectId}
-        width={size}
-        height={size}
-        className={className}
-        style={{ objectFit: 'contain' }}
-      />
-    );
-  }
+  // Always use 3D icons - use specific icon or default book icon
+  const iconPath = premiumIllustration || '/images/subjects/default-book-3d.svg';
 
-  // Fall back to emoji icons for other subjects
-  const iconName = getColorfulSubjectIcon(subjectId);
-  return <Icon icon={iconName} width={size} height={size} className={className} />;
+  return (
+    <img
+      src={iconPath}
+      alt={subjectId}
+      width={size}
+      height={size}
+      className={className}
+      style={{ objectFit: 'contain' }}
+    />
+  );
 };
