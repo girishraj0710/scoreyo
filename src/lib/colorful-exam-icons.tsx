@@ -644,6 +644,13 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'mht-maths': '/images/subjects/maths-3d.svg',
   'ts-maths': '/images/subjects/maths-3d.svg',
   'ap-maths': '/images/subjects/maths-3d.svg',
+  'htet-maths': '/images/subjects/maths-3d.svg',
+  'ctet-maths': '/images/subjects/maths-3d.svg',
+  'uptet-maths': '/images/subjects/maths-3d.svg',
+  'rtet-maths': '/images/subjects/maths-3d.svg',
+  'kvs-maths': '/images/subjects/maths-3d.svg',
+  'dsssb-maths': '/images/subjects/maths-3d.svg',
+  'isi-maths': '/images/subjects/maths-3d.svg',
 
   'biology': '/images/subjects/biology-3d.svg',
   'neet-biology': '/images/subjects/biology-3d.svg',
@@ -653,6 +660,14 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'science': '/images/subjects/science-3d.svg',
   'general-science': '/images/subjects/science-3d.svg',
   'upsc-science': '/images/subjects/science-3d.svg',
+  'htet-science': '/images/subjects/science-3d.svg',
+  'ctet-science': '/images/subjects/science-3d.svg',
+  'uptet-science': '/images/subjects/science-3d.svg',
+  'rtet-science': '/images/subjects/science-3d.svg',
+  'kvs-science': '/images/subjects/science-3d.svg',
+  'dsssb-science': '/images/subjects/science-3d.svg',
+  'environmental-studies': '/images/subjects/science-3d.svg',
+  'evs': '/images/subjects/science-3d.svg',
 
   // Languages
   'english': '/images/subjects/english-3d.svg',
@@ -662,9 +677,18 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'pa-english': '/images/subjects/english-3d.svg',
   'iimc-english': '/images/subjects/english-3d.svg',
   'htet-english': '/images/subjects/english-3d.svg',
+  'ctet-english': '/images/subjects/english-3d.svg',
+  'rtet-english': '/images/subjects/english-3d.svg',
+  'uptet-english': '/images/subjects/english-3d.svg',
+  'dsssb-english': '/images/subjects/english-3d.svg',
+  'kvs-english': '/images/subjects/english-3d.svg',
 
   'hindi': '/images/subjects/hindi-3d.svg',
   'htet-hindi': '/images/subjects/hindi-3d.svg',
+  'ctet-hindi': '/images/subjects/hindi-3d.svg',
+  'rtet-hindi': '/images/subjects/hindi-3d.svg',
+  'uptet-hindi': '/images/subjects/hindi-3d.svg',
+  'dsssb-hindi': '/images/subjects/hindi-3d.svg',
 
   // Aptitude & Reasoning
   'reasoning': '/images/subjects/reasoning-3d.svg',
@@ -675,10 +699,17 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'pa-reasoning': '/images/subjects/reasoning-3d.svg',
   'gds-reasoning': '/images/subjects/reasoning-3d.svg',
   'iimc-reasoning': '/images/subjects/reasoning-3d.svg',
+  'gate-aptitude': '/images/subjects/reasoning-3d.svg',
+  'nda-gat': '/images/subjects/reasoning-3d.svg',
+  'nift-gat': '/images/subjects/reasoning-3d.svg',
+  'ca-paper3b-logical': '/images/subjects/reasoning-3d.svg',
+  'general-ability': '/images/subjects/reasoning-3d.svg',
+  'general-intelligence': '/images/subjects/reasoning-3d.svg',
   'quantitative': '/images/subjects/maths-3d.svg',
   'sbi-quant': '/images/subjects/maths-3d.svg',
   'ibps-quant': '/images/subjects/maths-3d.svg',
   'pa-quant': '/images/subjects/maths-3d.svg',
+  'gds-maths': '/images/subjects/maths-3d.svg',
 
   // Social Sciences
   'history': '/images/subjects/history-3d.svg',
@@ -686,6 +717,21 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
 
   'geography': '/images/subjects/geography-3d.svg',
   'upsc-geography': '/images/subjects/geography-3d.svg',
+
+  'general-studies': '/images/subjects/gk-3d.svg',
+  'gs': '/images/subjects/gk-3d.svg',
+  'uppsc-gs': '/images/subjects/gk-3d.svg',
+  'mppsc-gs': '/images/subjects/gk-3d.svg',
+  'bpsc-gs': '/images/subjects/gk-3d.svg',
+  'rpsc-gs': '/images/subjects/gk-3d.svg',
+  'kpsc-gs': '/images/subjects/gk-3d.svg',
+  'tnpsc-gs': '/images/subjects/gk-3d.svg',
+  'wbpsc-gs': '/images/subjects/gk-3d.svg',
+  'ifs-gs': '/images/subjects/gk-3d.svg',
+  'polity': '/images/subjects/social-studies-3d.svg',
+  'upsc-polity': '/images/subjects/social-studies-3d.svg',
+  'ethics': '/images/subjects/social-studies-3d.svg',
+  'upsc-ethics': '/images/subjects/social-studies-3d.svg',
 
   'economics': '/images/subjects/economics-3d.svg',
   'economy': '/images/subjects/economics-3d.svg',
@@ -712,6 +758,31 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   // Social Studies (Teaching exams)
   'social-studies': '/images/subjects/social-studies-3d.svg',
   'htet-social': '/images/subjects/social-studies-3d.svg',
+  'ctet-social': '/images/subjects/social-studies-3d.svg',
+  'uptet-social': '/images/subjects/social-studies-3d.svg',
+  'rtet-social': '/images/subjects/social-studies-3d.svg',
+  'kvs-social': '/images/subjects/social-studies-3d.svg',
+
+  // Child Development & Pedagogy (Teaching exams)
+  'cdp': '/images/subjects/social-studies-3d.svg',
+  'child-development': '/images/subjects/social-studies-3d.svg',
+  'htet-cdp': '/images/subjects/social-studies-3d.svg',
+  'ctet-cdp': '/images/subjects/social-studies-3d.svg',
+  'uptet-cdp': '/images/subjects/social-studies-3d.svg',
+  'rtet-cdp': '/images/subjects/social-studies-3d.svg',
+
+  // Law subjects
+  'law': '/images/subjects/history-3d.svg',
+  'jud-law': '/images/subjects/history-3d.svg',
+  'clat-legal': '/images/subjects/history-3d.svg',
+
+  // Statistics
+  'statistics': '/images/subjects/maths-3d.svg',
+  'isi-stats': '/images/subjects/maths-3d.svg',
+
+  // Pedagogy subjects (use appropriate book)
+  'pedagogy': '/images/subjects/english-3d.svg',
+  'teaching-methodology': '/images/subjects/english-3d.svg',
 };
 
 export const ColorfulSubjectIcon: React.FC<ColorfulSubjectIconProps> = ({
