@@ -701,7 +701,6 @@ const PREMIUM_3D_SUBJECTS: Record<string, string> = {
   'ca-paper3b-logical': '/images/subjects/reasoning-3d.svg',
   'general-ability': '/images/subjects/reasoning-3d.svg',
   'general-intelligence': '/images/subjects/reasoning-3d.svg',
-  'quantitative': '/images/subjects/maths-3d.svg',
   'sbi-quant': '/images/subjects/maths-3d.svg',
   'ibps-quant': '/images/subjects/maths-3d.svg',
   'pa-quant': '/images/subjects/maths-3d.svg',
