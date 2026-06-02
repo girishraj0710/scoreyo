@@ -187,7 +187,7 @@ export function AppHeader() {
                         Analytics
                       </Link>
                       <Link
-                        href="/admin/questions"
+                        href="/admin/review-questions"
                         className="block px-4 py-2 text-sm text-purple-600 hover:bg-purple-50 font-medium flex items-center gap-2"
                         onClick={() => setShowMenu(false)}
                       >
