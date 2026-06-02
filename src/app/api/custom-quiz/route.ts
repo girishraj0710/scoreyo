@@ -34,37 +34,55 @@ export async function POST(request: NextRequest) {
     }
 
     const formData = await request.formData();
-    const file = formData.get('file') as File;
+    const file = formData.get('file') as File | null;
+    const pastedText = formData.get('text') as string | null;
     const numQuestions = parseInt(formData.get('numQuestions') as string) || 10;
     const difficulty = (formData.get('difficulty') as string) || 'medium';
 
-    // Validate file
-    if (!file) {
-      return NextResponse.json(
-        { error: "No file uploaded" },
-        { status: 400 }
-      );
-    }
-
-    if (file.size > MAX_FILE_SIZE) {
-      return NextResponse.json(
-        { error: "File too large. Maximum size is 10MB" },
-        { status: 400 }
-      );
-    }
-
-    if (!ALLOWED_TYPES.includes(file.type)) {
-      return NextResponse.json(
-        { error: "Unsupported file type. Please upload PDF, DOCX, PPTX, or TXT" },
-        { status: 400 }
-      );
-    }
-
-    // Extract text from file
-    const buffer = await file.arrayBuffer();
-    const uint8Array = new Uint8Array(buffer);
-
     let extractedText: string;
+
+    // Check if user pasted text directly
+    if (pastedText && pastedText.trim()) {
+      console.log('[Custom Quiz] Using pasted text, length:', pastedText.length);
+      extractedText = pastedText.trim();
+
+      // Validate pasted text length
+      if (extractedText.length < 50) {
+        return NextResponse.json(
+          { error: "Text too short. Please paste at least 50 characters of study material." },
+          { status: 400 }
+        );
+      }
+
+      if (extractedText.length > 100000) {
+        return NextResponse.json(
+          { error: "Text too long. Maximum 100,000 characters. Please paste a smaller section." },
+          { status: 400 }
+        );
+      }
+    }
+    // Check if user uploaded a file
+    else if (file) {
+      console.log('[Custom Quiz] Processing file upload:', file.name, file.type);
+
+      // Validate file
+      if (file.size > MAX_FILE_SIZE) {
+        return NextResponse.json(
+          { error: "File too large. Maximum size is 10MB" },
+          { status: 400 }
+        );
+      }
+
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        return NextResponse.json(
+          { error: "Unsupported file type. Please upload PDF, DOCX, PPTX, or TXT" },
+          { status: 400 }
+        );
+      }
+
+      // Extract text from file
+      const buffer = await file.arrayBuffer();
+      const uint8Array = new Uint8Array(buffer);
 
     try {
       if (file.type === 'text/plain') {
@@ -137,6 +155,14 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    }
+    // Neither file nor text provided
+    else {
+      return NextResponse.json(
+        { error: "Please either upload a file or paste text to generate questions." },
+        { status: 400 }
+      );
+    }
 
     // Validate extracted text
     if (!extractedText || extractedText.trim().length < 100) {
@@ -186,7 +212,7 @@ OUTPUT FORMAT - Return ONLY valid JSON array, no markdown:
 
 Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON array, no other text.`;
 
-    console.log('[Custom Quiz] Generating questions for:', file.name, 'Questions:', numQuestions);
+    console.log('[Custom Quiz] Generating questions for:', file?.name || 'pasted text', 'Questions:', numQuestions);
 
     let questions: QuizQuestion[];
 
@@ -229,9 +255,9 @@ Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON ar
     return NextResponse.json({
       success: true,
       quiz: {
-        fileName: file.name,
-        fileSize: file.size,
-        fileType: file.type,
+        fileName: file?.name || 'pasted-text',
+        fileSize: file?.size || extractedText.length,
+        fileType: file?.type || 'text/plain',
         wordCount: words,
         questions,
         numQuestions: questions.length,
