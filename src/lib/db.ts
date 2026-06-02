@@ -1163,30 +1163,30 @@ export async function getCachedQuestionCount(examId: string, subjectId: string, 
 
 export async function getUserStats(userId: string) {
   const totalSessions = await queryOne(
-    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = $1",
+    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = ?",
     [userId]
   );
 
   const totalQuestions = await queryOne(
-    "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = $1",
+    "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = ?",
     [userId]
   );
 
   // Get questions answered today
   const today = new Date().toISOString().split("T")[0];
   const questionsToday = await queryOne(
-    "SELECT COALESCE(SUM(total_questions), 0) as total FROM quiz_sessions WHERE user_id = $1 AND DATE(created_at) = $2",
+    "SELECT COALESCE(SUM(total_questions), 0) as total FROM quiz_sessions WHERE user_id = ? AND DATE(created_at) = ?",
     [userId, today]
   );
 
   // Get personal best (most questions in a single day)
   const personalBest = await queryOne(
-    "SELECT COALESCE(MAX(daily_total), 0) as best FROM (SELECT DATE(created_at) as day, SUM(total_questions) as daily_total FROM quiz_sessions WHERE user_id = $1 GROUP BY DATE(created_at)) as daily_stats",
+    "SELECT COALESCE(MAX(daily_total), 0) as best FROM (SELECT DATE(created_at) as day, SUM(total_questions) as daily_total FROM quiz_sessions WHERE user_id = ? GROUP BY DATE(created_at)) as daily_stats",
     [userId]
   );
 
   const streakData = await queryAll(
-    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1 ORDER BY day DESC",
+    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = ? ORDER BY day DESC",
     [userId]
   );
 
@@ -1264,7 +1264,7 @@ export async function getUserStats(userId: string) {
 
   const examBreakdown = await queryAll(
     `SELECT exam_id, COUNT(*) as sessions, SUM(total_questions) as questions, SUM(correct_answers) as correct
-     FROM quiz_sessions WHERE user_id = $1 GROUP BY exam_id`,
+     FROM quiz_sessions WHERE user_id = ? GROUP BY exam_id`,
     [userId]
   );
 
@@ -1272,7 +1272,7 @@ export async function getUserStats(userId: string) {
   const contributorStats = await queryOne(
     `SELECT COALESCE(questions_contributed, 0) as questions_contributed,
             COALESCE(contribution_points, 0) as contribution_points
-     FROM users WHERE id = $1`,
+     FROM users WHERE id = ?`,
     [userId]
   );
 

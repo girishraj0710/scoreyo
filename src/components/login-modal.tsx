@@ -231,6 +231,32 @@ export function LoginModal() {
     }
   };
 
+  // Role selection submission
+  const handleRoleSelection = async (role: 'student' | 'teacher') => {
+    setSelectedRole(role);
+    setError("");
+    setIsSubmitting(true);
+    try {
+      const signupResult = await completeLogin(
+        email.trim(),
+        name.trim(),
+        age,
+        location.trim(),
+        phoneNumber.trim(),
+        examPreparingFor,
+        role
+      );
+      if (!signupResult.success) {
+        setError(signupResult.error || "Signup failed");
+        setIsSubmitting(false);
+      }
+      // Success - user logged in automatically!
+    } catch (err) {
+      setError("Signup failed");
+      setIsSubmitting(false);
+    }
+  };
+
   // Get list of popular exams for dropdown
   const allExams = getAllExams();
   const popularExams = allExams
@@ -530,6 +556,87 @@ export function LoginModal() {
                 </p>
               </div>
             )}
+          </div>
+        )}
+
+        {/* ROLE SELECTION STEP */}
+        {step === "role-selection" && (
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-800 mb-2">Choose Your Role</h2>
+              <p className="text-slate-600 text-sm">Are you a student or a teacher/contributor?</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4">
+              {/* Student Option */}
+              <button
+                onClick={() => handleRoleSelection('student')}
+                disabled={isSubmitting}
+                className={`relative p-6 rounded-2xl border-2 transition-all duration-200 ${
+                  selectedRole === 'student'
+                    ? 'border-indigo-500 bg-indigo-50'
+                    : 'border-slate-200 bg-white hover:border-indigo-300'
+                } disabled:opacity-50 disabled:cursor-not-allowed`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">📚</div>
+                  <div className="text-left flex-1">
+                    <h3 className="font-bold text-slate-800">I'm a Student</h3>
+                    <p className="text-sm text-slate-600 mt-1">
+                      Take quizzes, practice problems, track progress, and prepare for exams
+                    </p>
+                  </div>
+                  {selectedRole === 'student' && (
+                    <div className="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center text-white flex-shrink-0">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              </button>
+
+              {/* Teacher Option */}
+              <button
+                onClick={() => handleRoleSelection('teacher')}
+                disabled={isSubmitting}
+                className={`relative p-6 rounded-2xl border-2 transition-all duration-200 ${
+                  selectedRole === 'teacher'
+                    ? 'border-emerald-500 bg-emerald-50'
+                    : 'border-slate-200 bg-white hover:border-emerald-300'
+                } disabled:opacity-50 disabled:cursor-not-allowed`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">👨‍🏫</div>
+                  <div className="text-left flex-1">
+                    <h3 className="font-bold text-slate-800">I'm a Teacher/Contributor</h3>
+                    <p className="text-sm text-slate-600 mt-1">
+                      Create and submit verified questions to help students learn
+                    </p>
+                    <div className="mt-2 inline-block px-2 py-1 bg-emerald-100 rounded text-xs font-semibold text-emerald-700">
+                      Earn Contribution Points
+                    </div>
+                  </div>
+                  {selectedRole === 'teacher' && (
+                    <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white flex-shrink-0">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              </button>
+            </div>
+
+            {error && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-sm text-red-700">{error}</p>
+              </div>
+            )}
+
+            <p className="text-xs text-slate-400 text-center">
+              You can change your role later in settings
+            </p>
           </div>
         )}
       </div>
