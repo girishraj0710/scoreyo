@@ -1200,12 +1200,18 @@ export async function getUserStats(userId: string) {
   const todayDate = new Date().toISOString().split("T")[0];
   const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
 
+  console.log(`[getUserStats] Today: ${todayDate}, Yesterday: ${yesterday}`);
+
   if (streakData.length > 0) {
     // Normalize the date from DB (might include timestamp)
     const lastDayRaw = streakData[0].day;
     const lastDay = typeof lastDayRaw === 'string'
       ? lastDayRaw.split("T")[0]
       : lastDayRaw;
+
+    console.log(`[getUserStats] Last study day (raw): ${lastDayRaw}, normalized: ${lastDay}`);
+    console.log(`[getUserStats] Checking: ${lastDay} === ${todayDate}? ${lastDay === todayDate}`);
+    console.log(`[getUserStats] Checking: ${lastDay} === ${yesterday}? ${lastDay === yesterday}`);
 
     if (lastDay === todayDate || lastDay === yesterday) {
       streak = 1;
