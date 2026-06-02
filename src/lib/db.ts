@@ -2753,7 +2753,7 @@ export async function createDailyChallenge(
  * Get contributor's submitted questions
  * Returns pending_questions with classification and status filtering
  */
-export async function getTeacherSubmissions(
+export async function getContributorSubmissions(
   userId: string,
   status?: "pending" | "approved" | "rejected",
   limit: number = 50,
@@ -2820,7 +2820,7 @@ export async function getTeacherSubmissions(
 /**
  * Get contributor's contribution statistics
  */
-export async function getTeacherStats(userId: string) {
+export async function getContributorStats(userId: string) {
   const pool = getPool();
   const client = await pool.connect();
   try {

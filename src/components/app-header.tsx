@@ -67,16 +67,13 @@ export function AppHeader() {
         <div className="flex items-center gap-1">
           {/* Nav Links - Role Based */}
           <nav className="hidden sm:flex items-center gap-1">
-            {/* For Contributors/Contributors - Show Contributor Portal */}
-            {user && ['contributor', 'contributor', 'admin'].includes(user.role || '') ? (
+            {/* For Contributors - Show Contributor Portal */}
+            {user && ['contributor', 'admin'].includes(user.role || '') ? (
               <>
                 <Link href="/contributor" className={navLinkClass("/contributor")}>
                   👨‍🏫 Contributor Portal
                 </Link>
-                <Link href="/contributor/submissions" className={navLinkClass("/contributor/submissions")}>
-                  📝 My Submissions
-                </Link>
-                {/* Contributors/Contributors - No Dashboard or Pricing links */}
+                {/* My Submissions link removed - available as tab on main page */}
               </>
             ) : (
               <>
@@ -185,8 +182,7 @@ export function AppHeader() {
                     {user.role && ['contributor', 'contributor', 'admin'].includes(user.role) ? (
                       <>
                         <Link href="/contributor" className={mobileNavLinkClass("/contributor")} onClick={() => setShowMenu(false)}>👨‍🏫 Contributor Portal</Link>
-                        <Link href="/contributor/submissions" className={mobileNavLinkClass("/contributor/submissions")} onClick={() => setShowMenu(false)}>📝 My Submissions</Link>
-                        {/* Contributors/Contributors - No Dashboard or Pricing links */}
+                        {/* My Submissions link removed - available as tab on main page */}
                       </>
                     ) : (
                       <>
