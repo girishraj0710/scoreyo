@@ -36,9 +36,11 @@ export default function ReviewQuestionsPage() {
   const [questions, setQuestions] = useState<PendingQuestion[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<PendingQuestion | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<'all' | 'high-confidence' | 'needs-review'>('all');
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
+  const [bulkActionLoading, setBulkActionLoading] = useState(false);
 
   const loadQuestions = async () => {
     setLoading(true);
@@ -59,7 +61,109 @@ export default function ReviewQuestionsPage() {
 
   useEffect(() => {
     loadQuestions();
+    setSelectedIds(new Set()); // Clear selections when filter changes
   }, [filter]);
+
+  const toggleSelection = (id: string) => {
+    const newSelected = new Set(selectedIds);
+    if (newSelected.has(id)) {
+      newSelected.delete(id);
+    } else {
+      newSelected.add(id);
+    }
+    setSelectedIds(newSelected);
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedIds.size === questions.length) {
+      setSelectedIds(new Set());
+    } else {
+      setSelectedIds(new Set(questions.map(q => q.id)));
+    }
+  };
+
+  const handleBulkApprove = async () => {
+    if (selectedIds.size === 0) {
+      alert('Please select at least one question');
+      return;
+    }
+
+    if (!confirm(`Approve ${selectedIds.size} questions and add them to the question bank?`)) return;
+
+    setBulkActionLoading(true);
+    let successCount = 0;
+    let errorCount = 0;
+
+    try {
+      for (const questionId of selectedIds) {
+        try {
+          const response = await fetch(`/api/admin/pending-questions/${questionId}/approve`, {
+            method: 'POST',
+          });
+          const data = await response.json();
+          if (data.success) {
+            successCount++;
+          } else {
+            errorCount++;
+          }
+        } catch (error) {
+          errorCount++;
+        }
+      }
+
+      alert(`✅ Approved ${successCount} questions!${errorCount > 0 ? ` (${errorCount} failed)` : ''}`);
+      setSelectedIds(new Set());
+      loadQuestions();
+      setSelectedQuestion(null);
+    } catch (error) {
+      alert('❌ Bulk approval failed');
+    } finally {
+      setBulkActionLoading(false);
+    }
+  };
+
+  const handleBulkReject = async () => {
+    if (selectedIds.size === 0) {
+      alert('Please select at least one question');
+      return;
+    }
+
+    const reason = prompt(`Reject ${selectedIds.size} questions? Enter reason (optional):`);
+    if (reason === null) return; // User clicked cancel
+
+    setBulkActionLoading(true);
+    let successCount = 0;
+    let errorCount = 0;
+
+    try {
+      for (const questionId of selectedIds) {
+        try {
+          const response = await fetch(`/api/admin/pending-questions/${questionId}/reject`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ reason }),
+          });
+          const data = await response.json();
+          if (data.success) {
+            successCount++;
+          } else {
+            errorCount++;
+          }
+        } catch (error) {
+          errorCount++;
+        }
+      }
+
+      alert(`✅ Rejected ${successCount} questions${errorCount > 0 ? ` (${errorCount} failed)` : ''}`);
+      setSelectedIds(new Set());
+      loadQuestions();
+      setSelectedQuestion(null);
+    } catch (error) {
+      alert('❌ Bulk rejection failed');
+    } finally {
+      setBulkActionLoading(false);
+    }
+  };
 
   const handleApprove = async (questionId: string) => {
     if (!confirm('Approve this question and add it to the question bank?')) return;
@@ -166,38 +270,65 @@ export default function ReviewQuestionsPage() {
           </div>
         )}
 
-        {/* Filters */}
-        <div className="flex gap-3 mb-6">
-          <button
-            onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              filter === 'all'
-                ? 'bg-indigo-600 text-white'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-            }`}
-          >
-            All ({stats?.totalPending || 0})
-          </button>
-          <button
-            onClick={() => setFilter('high-confidence')}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              filter === 'high-confidence'
-                ? 'bg-indigo-600 text-white'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-            }`}
-          >
-            High Confidence ({stats?.highConfidence || 0})
-          </button>
-          <button
-            onClick={() => setFilter('needs-review')}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              filter === 'needs-review'
-                ? 'bg-indigo-600 text-white'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-            }`}
-          >
-            Needs Review ({stats?.needsReview || 0})
-          </button>
+        {/* Filters and Bulk Actions */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div className="flex gap-3">
+            <button
+              onClick={() => setFilter('all')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                filter === 'all'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              }`}
+            >
+              All ({stats?.totalPending || 0})
+            </button>
+            <button
+              onClick={() => setFilter('high-confidence')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                filter === 'high-confidence'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              }`}
+            >
+              High Confidence ({stats?.highConfidence || 0})
+            </button>
+            <button
+              onClick={() => setFilter('needs-review')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                filter === 'needs-review'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              }`}
+            >
+              Needs Review ({stats?.needsReview || 0})
+            </button>
+          </div>
+
+          {/* Bulk Actions */}
+          {selectedIds.size > 0 && (
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-gray-600 dark:text-gray-400">
+                {selectedIds.size} selected
+              </span>
+              <button
+                onClick={handleBulkApprove}
+                disabled={bulkActionLoading}
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+              >
+                <CheckCircle className="w-4 h-4" />
+                Approve All
+              </button>
+              <button
+                onClick={handleBulkReject}
+                disabled={bulkActionLoading}
+                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+              >
+                <XCircle className="w-4 h-4" />
+                Reject All
+              </button>
+            </div>
+          )}
         </div>
 
         {loading ? (
@@ -214,53 +345,84 @@ export default function ReviewQuestionsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Question List */}
             <div className="space-y-4 max-h-[calc(100vh-20rem)] overflow-y-auto">
+              {/* Select All Header */}
+              <div className="sticky top-0 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center gap-3 z-10">
+                <input
+                  type="checkbox"
+                  checked={questions.length > 0 && selectedIds.size === questions.length}
+                  onChange={toggleSelectAll}
+                  className="w-5 h-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer" onClick={toggleSelectAll}>
+                  Select All ({questions.length} questions)
+                </label>
+              </div>
+
               {questions.map((q) => (
                 <div
                   key={q.id}
-                  onClick={() => setSelectedQuestion(q)}
-                  className={`p-4 rounded-lg border cursor-pointer transition-all ${
+                  className={`p-4 rounded-lg border transition-all ${
                     selectedQuestion?.id === q.id
                       ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
                       : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-indigo-300'
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                        {q.detected_exam_id} / {q.detected_subject_id}
+                  <div className="flex items-start gap-3 mb-2">
+                    {/* Checkbox */}
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.has(q.id)}
+                      onChange={(e) => {
+                        e.stopPropagation();
+                        toggleSelection(q.id);
+                      }}
+                      className="w-5 h-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer mt-0.5 flex-shrink-0"
+                    />
+
+                    {/* Question Info - Click to view details */}
+                    <div
+                      className="flex-1 min-w-0 cursor-pointer"
+                      onClick={() => setSelectedQuestion(q)}
+                    >
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                            {q.detected_exam_id} / {q.detected_subject_id}
+                          </div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">
+                            {q.detected_topics.join(', ')}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <span
+                            className={`px-2 py-1 rounded text-xs font-medium ${
+                              q.quality_score >= 80
+                                ? 'bg-green-100 text-green-700'
+                                : q.quality_score >= 60
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-red-100 text-red-700'
+                            }`}
+                          >
+                            Q: {q.quality_score}
+                          </span>
+                          <span
+                            className={`px-2 py-1 rounded text-xs font-medium ${
+                              q.classification_confidence >= 0.8
+                                ? 'bg-green-100 text-green-700'
+                                : q.classification_confidence >= 0.6
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-red-100 text-red-700'
+                            }`}
+                          >
+                            C: {Math.round(q.classification_confidence * 100)}%
+                          </span>
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {q.detected_topics.join(', ')}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      <span
-                        className={`px-2 py-1 rounded text-xs font-medium ${
-                          q.quality_score >= 80
-                            ? 'bg-green-100 text-green-700'
-                            : q.quality_score >= 60
-                            ? 'bg-yellow-100 text-yellow-700'
-                            : 'bg-red-100 text-red-700'
-                        }`}
-                      >
-                        Q: {q.quality_score}
-                      </span>
-                      <span
-                        className={`px-2 py-1 rounded text-xs font-medium ${
-                          q.classification_confidence >= 0.8
-                            ? 'bg-green-100 text-green-700'
-                            : q.classification_confidence >= 0.6
-                            ? 'bg-yellow-100 text-yellow-700'
-                            : 'bg-red-100 text-red-700'
-                        }`}
-                      >
-                        C: {Math.round(q.classification_confidence * 100)}%
-                      </span>
+                      <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-2">
+                        {q.question}
+                      </p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-2">
-                    {q.question}
-                  </p>
                 </div>
               ))}
             </div>
