@@ -1190,6 +1190,11 @@ export async function getUserStats(userId: string) {
     [userId]
   );
 
+  console.log(`[getUserStats] User ${userId}: Found ${streakData.length} unique study days`);
+  if (streakData.length > 0) {
+    console.log(`[getUserStats] First 5 days:`, streakData.slice(0, 5).map(d => d.day));
+  }
+
   // Calculate current streak
   let streak = 0;
   const todayDate = new Date().toISOString().split("T")[0];
@@ -1229,6 +1234,8 @@ export async function getUserStats(userId: string) {
     }
   }
 
+  console.log(`[getUserStats] Calculated current streak: ${streak}`);
+
   // Calculate best streak (longest streak ever)
   let bestStreak = 0;
   let currentStreakCount = 0;
@@ -1261,6 +1268,8 @@ export async function getUserStats(userId: string) {
       }
     }
   }
+
+  console.log(`[getUserStats] Calculated best streak: ${bestStreak}`);
 
   const examBreakdown = await queryAll(
     `SELECT exam_id, COUNT(*) as sessions, SUM(total_questions) as questions, SUM(correct_answers) as correct

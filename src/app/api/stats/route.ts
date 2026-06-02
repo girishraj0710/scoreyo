@@ -35,6 +35,8 @@ export async function GET(request: NextRequest) {
 
     // Query from database
     const stats = await getUserStats(userId);
+
+    console.log(`[Stats API] getUserStats returned streak: ${stats.streak}, bestStreak: ${stats.bestStreak}`);
     const recentSessions = await getRecentSessions(userId, 20);
     const reviewTopics = await getTopicsForReview(userId);
 
