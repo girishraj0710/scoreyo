@@ -26,7 +26,7 @@ export function LoginModal() {
   const [examPreparingFor, setExamPreparingFor] = useState("");
 
   // Role selection
-  const [selectedRole, setSelectedRole] = useState<'student' | 'teacher' | null>(null);
+  const [selectedRole, setSelectedRole] = useState<'student' | 'contributor' | null>(null);
 
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -240,7 +240,7 @@ export function LoginModal() {
   };
 
   // Role selection submission
-  const handleRoleSelection = async (role: 'student' | 'teacher') => {
+  const handleRoleSelection = async (role: 'student' | 'contributor') => {
     setSelectedRole(role);
     setError("");
     setIsSubmitting(true);
@@ -252,7 +252,7 @@ export function LoginModal() {
         location.trim(),
         phoneNumber.trim(),
         examPreparingFor,
-        role
+        role === 'contributor' ? 'contributor' : 'student'
       );
       if (!signupResult.success) {
         setError(signupResult.error || "Signup failed");
@@ -261,7 +261,7 @@ export function LoginModal() {
         // Success - user logged in and role set!
         // Redirect based on selected role
         setTimeout(() => {
-          const urlToVisit = role === 'teacher' ? '/teacher' : '/dashboard';
+          const urlToVisit = role === 'contributor' ? '/teacher' : '/dashboard';
           router.push(urlToVisit);
         }, 100);
       }
@@ -610,12 +610,12 @@ export function LoginModal() {
                 </div>
               </button>
 
-              {/* Teacher Option */}
+              {/* Contributor Option */}
               <button
-                onClick={() => handleRoleSelection('teacher')}
+                onClick={() => handleRoleSelection('contributor')}
                 disabled={isSubmitting}
                 className={`relative p-6 rounded-2xl border-2 transition-all duration-200 ${
-                  selectedRole === 'teacher'
+                  selectedRole === 'contributor'
                     ? 'border-emerald-500 bg-emerald-50'
                     : 'border-slate-200 bg-white hover:border-emerald-300'
                 } disabled:opacity-50 disabled:cursor-not-allowed`}
@@ -631,7 +631,7 @@ export function LoginModal() {
                       Earn Contribution Points
                     </div>
                   </div>
-                  {selectedRole === 'teacher' && (
+                  {selectedRole === 'contributor' && (
                     <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white flex-shrink-0">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
