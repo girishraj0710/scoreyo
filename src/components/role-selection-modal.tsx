@@ -94,7 +94,7 @@ export function RoleSelectionModal({ isOpen, onRoleSelect }: RoleSelectionModalP
             <div className="flex items-start gap-3">
               <div className="text-3xl mt-1">👨‍🏫</div>
               <div>
-                <h3 className="font-bold text-slate-900">I'm a Teacher/Contributor</h3>
+                <h3 className="font-bold text-slate-900">I'm a Contributor</h3>
                 <p className="text-sm text-slate-600 mt-1">
                   Create and submit verified questions, earn contribution points, build the question bank
                 </p>

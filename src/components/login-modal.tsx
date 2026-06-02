@@ -578,7 +578,7 @@ export function LoginModal() {
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl font-bold text-slate-800 mb-2">Choose Your Role</h2>
-              <p className="text-slate-600 text-sm">Are you a student or a teacher/contributor?</p>
+              <p className="text-slate-600 text-sm">Are you a student or a contributor?</p>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
@@ -623,7 +623,7 @@ export function LoginModal() {
                 <div className="flex items-start gap-4">
                   <div className="text-3xl">👨‍🏫</div>
                   <div className="text-left flex-1">
-                    <h3 className="font-bold text-slate-800">I'm a Teacher/Contributor</h3>
+                    <h3 className="font-bold text-slate-800">I'm a Contributor</h3>
                     <p className="text-sm text-slate-600 mt-1">
                       Create and submit verified questions to help students learn
                     </p>

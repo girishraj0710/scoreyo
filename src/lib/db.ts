@@ -2745,7 +2745,7 @@ export async function createDailyChallenge(
 }
 
 /**
- * Get teacher/contributor's submitted questions
+ * Get contributor's submitted questions
  * Returns pending_questions with classification and status filtering
  */
 export async function getTeacherSubmissions(
@@ -2813,7 +2813,7 @@ export async function getTeacherSubmissions(
 }
 
 /**
- * Get teacher/contributor's contribution statistics
+ * Get contributor's contribution statistics
  */
 export async function getTeacherStats(userId: string) {
   const pool = getPool();

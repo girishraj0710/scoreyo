@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * GET /api/teacher/submissions
- * Get teacher/contributor's pending/approved/rejected questions
+ * Get contributor's pending/approved/rejected questions
  * Query params: status (pending/approved/rejected/all - default all), limit (default 50), offset (default 0)
  */
 export async function GET(request: NextRequest) {

@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * GET /api/teacher/stats
- * Get teacher/contributor's contribution statistics
+ * Get contributor's contribution statistics
  * Returns: questions_contributed, contribution_points, approval_rate, breakdown by status
  */
 export async function GET(request: NextRequest) {
