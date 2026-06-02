@@ -375,21 +375,21 @@ export function LandingPageV2() {
       </header>
 
       {/* Hero Section - Quizlet Style - Full Width Background */}
-      <section className="bg-slate-50 pt-4">
-        <div className="max-w-7xl mx-auto px-6 pb-2 text-center">
+      <section className="bg-slate-50 pt-6 md:pt-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-4 md:pb-2 text-center">
           {/* Main Heading - Simple & Direct */}
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 md:mb-2 leading-tight px-2">
             Master Your <span className="text-slate-900">Competitive Exams</span>
           </h1>
 
-          <p className="text-base md:text-lg text-slate-600 mb-3 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-4 md:mb-3 max-w-3xl mx-auto leading-relaxed px-2">
             Master JEE, NEET, UPSC, SSC, Banking & 60+ competitive exams with AI-powered practice, smart explanations, and personalized learning.
           </p>
 
           {/* CTA */}
           <button
             onClick={() => setShowLoginModal(true)}
-            className="px-8 py-3 text-white font-semibold text-base rounded-xl hover:shadow-2xl hover:scale-105 transition-all shadow-lg"
+            className="px-6 md:px-8 py-2.5 md:py-3 text-white font-semibold text-sm md:text-base rounded-xl hover:shadow-2xl hover:scale-105 transition-all shadow-lg"
             style={{ backgroundColor: '#4F46E5' }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#4338CA';
@@ -402,18 +402,18 @@ export function LandingPageV2() {
           </button>
 
           {/* Trust Stats */}
-          <div className="mt-3 flex flex-wrap justify-center gap-6 text-center">
+          <div className="mt-4 md:mt-3 flex flex-wrap justify-center gap-4 md:gap-6 text-center px-2">
             <div>
-              <div className="text-2xl font-semibold mb-1" style={{ color: '#085893' }}>60+</div>
-              <div className="text-xs text-slate-600">Exams Covered</div>
+              <div className="text-xl md:text-2xl font-semibold mb-1" style={{ color: '#085893' }}>60+</div>
+              <div className="text-[10px] md:text-xs text-slate-600">Exams Covered</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold mb-1" style={{ color: '#085893' }}>200+</div>
-              <div className="text-xs text-slate-600">Subjects Covered</div>
+              <div className="text-xl md:text-2xl font-semibold mb-1" style={{ color: '#085893' }}>200+</div>
+              <div className="text-[10px] md:text-xs text-slate-600">Subjects Covered</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold mb-1" style={{ color: '#085893' }}>1,870+</div>
-              <div className="text-xs text-slate-600">Practice Topics</div>
+              <div className="text-xl md:text-2xl font-semibold mb-1" style={{ color: '#085893' }}>1,870+</div>
+              <div className="text-[10px] md:text-xs text-slate-600">Practice Topics</div>
             </div>
           </div>
         </div>
@@ -421,46 +421,61 @@ export function LandingPageV2() {
 
       {/* Study Modes - Carousel (Quizlet Style) - Full Width Background */}
       <section className="bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 pb-16 relative overflow-visible">
-              {/* Left Arrow - 1/3 merged with cards, 2/3 outside */}
+        <div className="max-w-7xl mx-auto px-2 md:px-6 pb-12 md:pb-16 relative overflow-visible">
+              {/* Left Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex - 1)}
-                className="absolute left-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+                className="hidden md:flex absolute left-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-800" />
               </button>
 
-              {/* Right Arrow - 1/3 merged with cards, 2/3 outside */}
+              {/* Right Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex + 1)}
-                className="absolute right-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+                className="hidden md:flex absolute right-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
 
-              <div className="overflow-hidden px-4">
+              <div className="overflow-hidden px-2 md:px-4 touch-pan-y">
                 <div
-                  className="flex gap-6"
+                  ref={carouselTrackRef}
+                  className="flex gap-3 md:gap-6 cursor-grab active:cursor-grabbing"
                   style={{
-                    transform: `translateX(calc(-${carouselIndex * 25}% - ${carouselIndex * 6}px))`,
+                    transform: `translateX(calc(-${carouselIndex * 100}% - ${carouselIndex * 12}px))`,
                     transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
                     paddingTop: '24px',
                     paddingBottom: '24px'
+                  }}
+                  onTouchStart={(e) => {
+                    const touch = e.touches[0];
+                    carouselTrackRef.current?.setAttribute('data-start-x', touch.clientX.toString());
+                  }}
+                  onTouchEnd={(e) => {
+                    const startX = parseFloat(carouselTrackRef.current?.getAttribute('data-start-x') || '0');
+                    const endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+
+                    if (Math.abs(diff) > 50) {
+                      if (diff > 0) {
+                        setCarouselIndex(carouselIndex + 1);
+                      } else {
+                        setCarouselIndex(carouselIndex - 1);
+                      }
+                    }
                   }}
                 >
                   {infiniteModes.map((mode, index) => (
                     <div
                       key={`${mode.id}-${index}`}
-                      className="flex-shrink-0"
-                      style={{
-                        width: 'calc(25% - 18px)'
-                      }}
+                      className="flex-shrink-0 w-[85vw] md:w-[calc(25%-18px)]"
                     >
                     <button
                       onClick={() => setShowLoginModal(true)}
                       className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
                       style={{
-                        minHeight: '380px',
+                        minHeight: '360px',
                         transform: 'translateY(0) scale(1)',
                         transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                       }}
@@ -472,33 +487,46 @@ export function LandingPageV2() {
                       }}
                     >
                       {/* Large illustration on top with cream background */}
-                      <div className={`${mode.headerColor} h-52 flex items-center justify-center relative overflow-hidden pt-4`}>
+                      <div className={`${mode.headerColor} h-40 md:h-52 flex items-center justify-center relative overflow-hidden pt-3 md:pt-4`}>
                         <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                           <Image
                             src={mode.image}
                             alt={mode.title}
-                            width={160}
-                            height={160}
-                            className="object-contain"
+                            width={140}
+                            height={140}
+                            className="object-contain md:w-[160px] md:h-[160px]"
                           />
                         </div>
                       </div>
 
                       {/* Content below illustration */}
-                      <div className="p-5 flex-1 flex flex-col bg-white">
-                        <h3 className="text-lg font-bold text-slate-900 mb-2 text-center" style={{ letterSpacing: '0.02em' }}>{mode.title}</h3>
-                        <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1 text-center" style={{ letterSpacing: '0.01em' }}>
+                      <div className="p-4 md:p-5 flex-1 flex flex-col bg-white">
+                        <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2 text-center" style={{ letterSpacing: '0.02em' }}>{mode.title}</h3>
+                        <p className="text-slate-600 text-xs md:text-sm leading-relaxed mb-3 md:mb-4 flex-1 text-center line-clamp-3" style={{ letterSpacing: '0.01em' }}>
                           {mode.desc}
                         </p>
-                        <div className="text-indigo-600 font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
+                        <div className="text-indigo-600 font-semibold text-xs md:text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
                           {mode.cta}
-                          <ArrowRight className="w-4 h-4" />
+                          <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                         </div>
                       </div>
                     </button>
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Scroll Indicators - Mobile only */}
+            <div className="md:hidden flex justify-center gap-2 mt-4">
+              {studyModes.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCarouselIndex(idx + 4)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    carouselIndex === idx + 4 ? 'bg-indigo-600 w-6' : 'bg-slate-300'
+                  }`}
+                />
+              ))}
             </div>
         </div>
       </section>
