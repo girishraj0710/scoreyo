@@ -42,28 +42,60 @@ export async function POST(
       );
     }
 
+    // Normalize exam/subject IDs - map common AI mistakes to actual database codes
+    const EXAM_ID_MAP: Record<string, string> = {
+      'upsc': 'upsc-cse',
+      'ssc': 'ssc-cgl',
+      'banking': 'ibps-po',
+      'gate': 'gate',
+      'gate-cs': 'gate',
+      'gate-ee': 'gate',
+      'gate-me': 'gate',
+      'banking-po': 'ibps-po',
+      'state-engg': 'kcet',
+      'neet': 'neet-ug',
+    };
+
+    const SUBJECT_ID_MAP: Record<string, string> = {
+      'general-studies': 'upsc-gs',
+      'physics': 'jee-physics',
+      'chemistry': 'jee-chemistry',
+      'mathematics': 'jee-maths',
+      'biology': 'neet-biology',
+      'quantitative-aptitude': 'cat-quant',
+      'reasoning': 'ssc-reasoning',
+      'english': 'ssc-english',
+      'general-awareness': 'ssc-gk',
+      'general-knowledge': 'ssc-gk',
+    };
+
+    const normalizedExamId = EXAM_ID_MAP[pending.detected_exam_id] || pending.detected_exam_id;
+    const normalizedSubjectId = SUBJECT_ID_MAP[pending.detected_subject_id] || pending.detected_subject_id;
+
     // Get dimensional IDs for exam and subject
     const examDim = await queryOne(
       `SELECT id FROM dim_exams WHERE exam_code = $1`,
-      [pending.detected_exam_id]
+      [normalizedExamId]
     );
 
     const subjectDim = await queryOne(
       `SELECT id FROM dim_subjects WHERE subject_code = $1`,
-      [pending.detected_subject_id]
+      [normalizedSubjectId]
     );
 
     if (!examDim || !subjectDim) {
       console.error('[Approve] Exam or subject not found in dimensions:', {
-        examId: pending.detected_exam_id,
+        originalExamId: pending.detected_exam_id,
+        normalizedExamId,
         examFound: !!examDim,
-        subjectId: pending.detected_subject_id,
+        originalSubjectId: pending.detected_subject_id,
+        normalizedSubjectId,
         subjectFound: !!subjectDim,
       });
 
       const missingItems = [];
-      if (!examDim) missingItems.push(`exam '${pending.detected_exam_id}'`);
-      if (!subjectDim) missingItems.push(`subject '${pending.detected_subject_id}'`);
+      if (!examDim) missingItems.push(`exam '${normalizedExamId}' (original: '${pending.detected_exam_id}')`);
+      if (!subjectDim) missingItems.push(`subject '${normalizedSubjectId}' (original: '${pending.detected_subject_id}')`);
 
       return NextResponse.json(
         {
