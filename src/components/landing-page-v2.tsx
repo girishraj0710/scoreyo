@@ -438,38 +438,63 @@ export function LandingPageV2() {
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
 
-              <div className="overflow-hidden px-2 md:px-4 touch-pan-y">
+              {/* Mobile: Show as horizontal scroll, Desktop: Show carousel */}
+              <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
+                <div className="flex gap-4 pt-6">
+                  {studyModes.map((mode) => (
+                    <div
+                      key={mode.id}
+                      className="flex-shrink-0 snap-center"
+                      style={{ width: 'calc(100vw - 64px)' }}
+                    >
+                      <button
+                        onClick={() => setShowLoginModal(true)}
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
+                      >
+                        <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            <Image
+                              src={mode.image}
+                              alt={mode.title}
+                              width={140}
+                              height={140}
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+                        <div className="p-4 flex-1 flex flex-col bg-white">
+                          <h3 className="text-base font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
+                          <p className="text-slate-600 text-xs leading-relaxed mb-3 flex-1 text-center line-clamp-3">
+                            {mode.desc}
+                          </p>
+                          <div className="text-indigo-600 font-semibold text-xs flex items-center justify-center gap-1.5">
+                            {mode.cta}
+                            <ArrowRight className="w-3 h-3" />
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Desktop: Show animated carousel */}
+              <div className="hidden md:block overflow-hidden px-4">
                 <div
                   ref={carouselTrackRef}
-                  className="flex gap-3 md:gap-6 cursor-grab active:cursor-grabbing"
+                  className="flex gap-6"
                   style={{
-                    transform: `translateX(calc(-${carouselIndex * 100}% - ${carouselIndex * 12}px))`,
+                    transform: `translateX(calc(-${carouselIndex * 25}% - ${carouselIndex * 6}px))`,
                     transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
                     paddingTop: '24px',
                     paddingBottom: '24px'
-                  }}
-                  onTouchStart={(e) => {
-                    const touch = e.touches[0];
-                    carouselTrackRef.current?.setAttribute('data-start-x', touch.clientX.toString());
-                  }}
-                  onTouchEnd={(e) => {
-                    const startX = parseFloat(carouselTrackRef.current?.getAttribute('data-start-x') || '0');
-                    const endX = e.changedTouches[0].clientX;
-                    const diff = startX - endX;
-
-                    if (Math.abs(diff) > 50) {
-                      if (diff > 0) {
-                        setCarouselIndex(carouselIndex + 1);
-                      } else {
-                        setCarouselIndex(carouselIndex - 1);
-                      }
-                    }
                   }}
                 >
                   {infiniteModes.map((mode, index) => (
                     <div
                       key={`${mode.id}-${index}`}
-                      className="flex-shrink-0 w-[85vw] md:w-[calc(25%-18px)]"
+                      className="flex-shrink-0"
+                      style={{ width: 'calc(25% - 18px)' }}
                     >
                     <button
                       onClick={() => setShowLoginModal(true)}
@@ -485,48 +510,43 @@ export function LandingPageV2() {
                       onMouseLeave={(e) => {
                         e.currentTarget.style.transform = 'translateY(0) scale(1)';
                       }}
+                      style={{
+                        minHeight: '360px',
+                        transform: 'translateY(0) scale(1)',
+                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      }}
                     >
-                      {/* Large illustration on top with cream background */}
-                      <div className={`${mode.headerColor} h-40 md:h-52 flex items-center justify-center relative overflow-hidden pt-3 md:pt-4`}>
+                      <div className={`${mode.headerColor} h-52 flex items-center justify-center relative overflow-hidden pt-4`}>
                         <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                           <Image
                             src={mode.image}
                             alt={mode.title}
-                            width={140}
-                            height={140}
-                            className="object-contain md:w-[160px] md:h-[160px]"
+                            width={160}
+                            height={160}
+                            className="object-contain"
                           />
                         </div>
                       </div>
-
-                      {/* Content below illustration */}
-                      <div className="p-4 md:p-5 flex-1 flex flex-col bg-white">
-                        <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2 text-center" style={{ letterSpacing: '0.02em' }}>{mode.title}</h3>
-                        <p className="text-slate-600 text-xs md:text-sm leading-relaxed mb-3 md:mb-4 flex-1 text-center line-clamp-3" style={{ letterSpacing: '0.01em' }}>
+                      <div className="p-5 flex-1 flex flex-col bg-white">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1 text-center line-clamp-3">
                           {mode.desc}
                         </p>
-                        <div className="text-indigo-600 font-semibold text-xs md:text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
+                        <div className="text-indigo-600 font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
                           {mode.cta}
-                          <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                          <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
                     </button>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Scroll Indicators - Mobile only */}
-            <div className="md:hidden flex justify-center gap-2 mt-4">
-              {studyModes.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCarouselIndex(idx + 4)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    carouselIndex === idx + 4 ? 'bg-indigo-600 w-6' : 'bg-slate-300'
-                  }`}
-                />
-              ))}
             </div>
         </div>
       </section>
