@@ -12,6 +12,7 @@ interface User {
   exam_preparing_for?: string;
   avatar_color: string;
   created_at: string;
+  role?: 'student' | 'teacher' | 'contributor' | 'admin';
 }
 
 interface UserContextType {
@@ -27,7 +28,8 @@ interface UserContextType {
     age?: string,
     location?: string,
     phoneNumber?: string,
-    examPreparingFor?: string
+    examPreparingFor?: string,
+    role?: 'student' | 'teacher' | 'contributor'
   ) => Promise<{ success: boolean; needsSignup?: boolean; error?: string }>;
   logout: () => Promise<void>;
   updateProfile: (
@@ -120,13 +122,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
     age?: string,
     location?: string,
     phoneNumber?: string,
-    examPreparingFor?: string
+    examPreparingFor?: string,
+    role?: 'student' | 'teacher' | 'contributor'
   ) {
     try {
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name, age, location, phoneNumber, examPreparingFor }),
+        body: JSON.stringify({ email, name, age, location, phoneNumber, examPreparingFor, role }),
       });
       const data = await res.json();
       if (!res.ok) {

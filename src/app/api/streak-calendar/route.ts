@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { queryAll } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   const userId = request.cookies.get("prepgenie-user-id")?.value;
 
@@ -13,14 +15,16 @@ export async function GET(request: NextRequest) {
 
   try {
     // Get all quiz sessions to calculate streak
+    // Use DISTINCT to get unique dates
     const sessions = await queryAll(
-      `SELECT DATE(created_at) as date
+      `SELECT DISTINCT DATE(created_at) as date
        FROM quiz_sessions
        WHERE user_id = ?
-       ORDER BY created_at DESC
-       LIMIT 365`,
+       ORDER BY date DESC`,
       [userId]
     );
+
+    console.log(`[Streak Calendar] User ${userId} has ${sessions.length} unique study days`);
 
     if (sessions.length === 0) {
       return NextResponse.json({
@@ -34,6 +38,8 @@ export async function GET(request: NextRequest) {
     // Get unique dates (user studied on these days)
     const uniqueDates = new Set(sessions.map((s) => s.date));
     const totalDays = uniqueDates.size;
+
+    console.log(`[Streak Calendar] Unique dates:`, Array.from(uniqueDates).slice(0, 5));
 
     // Calculate current streak
     let currentStreak = 0;
@@ -86,6 +92,8 @@ export async function GET(request: NextRequest) {
       }
     }
     longestStreak = Math.max(longestStreak, tempStreak);
+
+    console.log(`[Streak Calendar] Current streak: ${currentStreak}, Longest: ${longestStreak}, Total days: ${totalDays}`);
 
     // Get last 30 days status
     const last30Days = [];

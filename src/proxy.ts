@@ -49,6 +49,7 @@ export function proxy(request: NextRequest) {
     "/api/admin/fix-sequence", // Admin endpoint to fix auto-increment sequences
     "/api/admin/debug-pending", // Admin endpoint for debugging pending questions
     "/api/admin/check-dimensions", // Admin endpoint to check dimension tables
+    "/api/admin/migrate-roles", // Admin endpoint to add user roles
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
