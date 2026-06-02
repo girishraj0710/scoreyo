@@ -6,7 +6,7 @@ import { useLocale } from "@/context/locale-context";
 import { Mail, X } from "lucide-react";
 import { getAllExams } from "@/lib/exams";
 
-type Step = "method" | "signin-email" | "signin-otp" | "signup-form" | "signup-otp";
+type Step = "method" | "signin-email" | "signin-otp" | "signup-form" | "signup-otp" | "role-selection";
 
 export function LoginModal() {
   const { user, showLoginModal, setShowLoginModal, sendOtp, verifyOtp, completeLogin } = useUser();
@@ -22,6 +22,9 @@ export function LoginModal() {
   const [location, setLocation] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [examPreparingFor, setExamPreparingFor] = useState("");
+
+  // Role selection
+  const [selectedRole, setSelectedRole] = useState<'student' | 'teacher' | null>(null);
 
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,6 +50,7 @@ export function LoginModal() {
       setLocation("");
       setPhoneNumber("");
       setExamPreparingFor("");
+      setSelectedRole(null);
       setError("");
     }
   }, [showLoginModal]);
@@ -192,19 +196,9 @@ export function LoginModal() {
           }
           setError(loginResult.error || "Login failed");
         } else {
-          // For signup, create account with all details
-          const signupResult = await completeLogin(
-            email.trim(),
-            name.trim(),
-            age,
-            location.trim(),
-            phoneNumber.trim(),
-            examPreparingFor
-          );
-          if (!signupResult.success) {
-            setError(signupResult.error || "Signup failed");
-          }
-          // Success - user logged in automatically!
+          // For signup, go to role selection first
+          setStep("role-selection");
+          setSelectedRole(null);
         }
       } else {
         setError(result.error || "Invalid code");

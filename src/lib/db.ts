@@ -1196,13 +1196,30 @@ export async function getUserStats(userId: string) {
   const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
 
   if (streakData.length > 0) {
-    const lastDay = streakData[0].day;
+    // Normalize the date from DB (might include timestamp)
+    const lastDayRaw = streakData[0].day;
+    const lastDay = typeof lastDayRaw === 'string'
+      ? lastDayRaw.split("T")[0]
+      : lastDayRaw;
+
     if (lastDay === todayDate || lastDay === yesterday) {
       streak = 1;
       for (let i = 1; i < streakData.length; i++) {
-        const current = new Date(streakData[i - 1].day);
-        const prev = new Date(streakData[i].day);
+        const currentRaw = streakData[i - 1].day;
+        const prevRaw = streakData[i].day;
+
+        // Normalize dates before comparison
+        const currentDay = typeof currentRaw === 'string'
+          ? currentRaw.split("T")[0]
+          : currentRaw;
+        const prevDay = typeof prevRaw === 'string'
+          ? prevRaw.split("T")[0]
+          : prevRaw;
+
+        const current = new Date(currentDay);
+        const prev = new Date(prevDay);
         const diffDays = (current.getTime() - prev.getTime()) / 86400000;
+
         if (diffDays === 1) {
           streak++;
         } else {
@@ -1221,8 +1238,19 @@ export async function getUserStats(userId: string) {
     bestStreak = 1;
 
     for (let i = streakData.length - 1; i > 0; i--) {
-      const current = new Date(streakData[i].day);
-      const prev = new Date(streakData[i - 1].day);
+      // Normalize dates before comparison
+      const currentRaw = streakData[i].day;
+      const prevRaw = streakData[i - 1].day;
+
+      const currentDay = typeof currentRaw === 'string'
+        ? currentRaw.split("T")[0]
+        : currentRaw;
+      const prevDay = typeof prevRaw === 'string'
+        ? prevRaw.split("T")[0]
+        : prevRaw;
+
+      const current = new Date(currentDay);
+      const prev = new Date(prevDay);
       const diffDays = (prev.getTime() - current.getTime()) / 86400000;
 
       if (diffDays === 1) {

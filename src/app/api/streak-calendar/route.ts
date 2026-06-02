@@ -36,7 +36,14 @@ export async function GET(request: NextRequest) {
     }
 
     // Get unique dates (user studied on these days)
-    const uniqueDates = new Set(sessions.map((s) => s.date));
+    // Normalize to YYYY-MM-DD format for consistent comparison
+    const uniqueDates = new Set(
+      sessions.map((s) => {
+        // s.date might be "2026-06-02" or "2026-06-02T00:00:00.000Z"
+        const dateStr = typeof s.date === 'string' ? s.date : s.date.toISOString();
+        return dateStr.split("T")[0]; // Always get YYYY-MM-DD
+      })
+    );
     const totalDays = uniqueDates.size;
 
     console.log(`[Streak Calendar] Unique dates:`, Array.from(uniqueDates).slice(0, 5));
