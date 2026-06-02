@@ -582,8 +582,9 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
+                transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.03}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(0) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
+                transition: visibleFeatures.has(0) ? 'opacity 0.8s ease-out' : 'none',
               }}
             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
@@ -606,7 +607,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
+                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.12}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
                   transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -622,8 +623,9 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
+                transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.04}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(1) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
+                transition: visibleFeatures.has(1) ? 'opacity 0.8s ease-out' : 'none',
               }}
             >
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -647,7 +649,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
+                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.11}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
                   transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -663,8 +665,9 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
+                transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.035}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(2) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
+                transition: visibleFeatures.has(2) ? 'opacity 0.8s ease-out' : 'none',
               }}
             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
@@ -687,7 +690,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
+                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.13}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
                   transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -703,8 +706,9 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
+                transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.045}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(3) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
+                transition: visibleFeatures.has(3) ? 'opacity 0.8s ease-out' : 'none',
               }}
             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
