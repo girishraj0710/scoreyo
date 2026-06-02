@@ -110,11 +110,13 @@ export const POST = withValidation(
       }
 
       // ── STEP 2: Check if User Exists ────────────────────────
+      console.log('[ROUTE-SECURE] Step 2: Checking if user exists...');
       const pool = getPool();
       let user = await pool.query(
         `SELECT * FROM users WHERE email = $1`,
         [cleanEmail]
       ).then(res => res.rows[0]);
+      console.log('[ROUTE-SECURE] User exists:', !!user);
 
       let userId: string;
 
@@ -155,6 +157,7 @@ export const POST = withValidation(
 
       } else {
         // ── STEP 3b: New User Registration ──────────────────────
+        console.log('[ROUTE-SECURE] Step 3b: Creating new user...');
         // Name is required for new users
         if (!name || !name.trim()) {
           return NextResponse.json(
@@ -170,6 +173,8 @@ export const POST = withValidation(
         const avatarColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
         const finalRole = role || 'student';
 
+        console.log('[ROUTE-SECURE] About to INSERT user:', { userId, name: name.trim(), email: cleanEmail, role: finalRole });
+
         await pool.query(
           `INSERT INTO users (
             id, name, email, age, location, phone_number, exam_preparing_for,
@@ -178,10 +183,12 @@ export const POST = withValidation(
           [userId, name.trim(), cleanEmail, age ? parseInt(age) : null, location || null, phoneNumber || null, examPreparingFor || null, avatarColor, finalRole]
         );
 
+        console.log('[ROUTE-SECURE] ✅ User INSERT successful');
         logger.info('New user registered', { userId, email: cleanEmail });
       }
 
       // ── STEP 4: Fetch Updated User Data ─────────────────────
+      console.log('[ROUTE-SECURE] Step 4: Fetching user data for userId:', userId);
       user = await pool.query(
         `SELECT id, name, email, age, location, phone_number as "phoneNumber",
                 exam_preparing_for as "examPreparingFor", avatar_color as "avatarColor",
@@ -190,8 +197,10 @@ export const POST = withValidation(
          WHERE id = $1`,
         [userId]
       ).then(res => res.rows[0]);
+      console.log('[ROUTE-SECURE] User fetched:', !!user);
 
       // ── STEP 5: Set Cookies ─────────────────────────────────
+      console.log('[ROUTE-SECURE] Step 5: Setting cookies and preparing response...');
       const csrfToken = generateCsrfToken();
 
       const response = NextResponse.json({
@@ -231,11 +240,21 @@ export const POST = withValidation(
       return response;
 
     } catch (error) {
+      // Log detailed error information
+      console.error('🚨🚨🚨 [ROUTE-SECURE] CRITICAL ERROR 🚨🚨🚨');
+      console.error('[ROUTE-SECURE] Error type:', error instanceof Error ? error.constructor.name : typeof error);
+      console.error('[ROUTE-SECURE] Error message:', error instanceof Error ? error.message : String(error));
+      console.error('[ROUTE-SECURE] Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+
       logger.error('Auth error', { email }, error as Error);
+
+      // Return detailed error in response (temporarily for debugging)
       return NextResponse.json(
         {
           error: "Authentication failed",
-          message: "Please try again later"
+          message: error instanceof Error ? error.message : "Please try again later",
+          errorType: error instanceof Error ? error.constructor.name : typeof error,
+          stack: error instanceof Error ? error.stack?.split('\n').slice(0, 5) : undefined
         },
         { status: 500 }
       );
