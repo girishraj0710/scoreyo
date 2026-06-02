@@ -46,6 +46,7 @@ export function proxy(request: NextRequest) {
     "/api/admin/sync-users", // Admin endpoint for user sync
     "/api/admin/migrate", // Admin endpoint for database migrations
     "/api/admin/pending-questions", // Admin endpoint for question review
+    "/api/admin/fix-sequence", // Admin endpoint to fix auto-increment sequences
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
