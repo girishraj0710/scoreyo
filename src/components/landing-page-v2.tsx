@@ -588,10 +588,30 @@ export function LandingPageV2() {
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
                 Rich Explanations
               </h3>
-              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
+              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed mb-4">
                 Understand the WHY behind every answer. Get step-by-step breakdowns, trap alerts, formulas, and common
                 mistakes highlighted for each question.
               </p>
+              <ul className="space-y-2 text-slate-600 text-sm md:text-base">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Step-by-step logic:</strong> See exactly how to solve each problem</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Trap alerts:</strong> Learn why wrong answers are tempting and how to avoid them</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Key formulas & shortcuts:</strong> Master the concepts that matter most</span>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -667,10 +687,30 @@ export function LandingPageV2() {
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
                 Midnight Doubt AI
               </h3>
-              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
+              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed mb-4">
                 Stuck at 2 AM? Ask our AI tutor anything, anytime. Get instant clarifications in simple language—English
                 or Hindi.
               </p>
+              <ul className="space-y-2 text-slate-600 text-sm md:text-base">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>24/7 availability:</strong> No waiting for teachers or doubt-solving sessions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Context-aware answers:</strong> AI remembers your conversation for follow-up questions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Bilingual support:</strong> Get explanations in English or Hindi, whichever you prefer</span>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -706,10 +746,30 @@ export function LandingPageV2() {
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
                 Smart Dashboard
               </h3>
-              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
+              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed mb-4">
                 Track your progress with beautiful stats and charts—questions solved, accuracy trends, daily streaks,
                 and achievement badges all in one place.
               </p>
+              <ul className="space-y-2 text-slate-600 text-sm md:text-base">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Performance analytics:</strong> Subject-wise accuracy, time spent, and improvement trends</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Streak tracking:</strong> Build daily practice habits with visual streak calendar</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span><strong>Achievement badges:</strong> Earn milestones and stay motivated throughout your prep journey</span>
+                </li>
+              </ul>
             </div>
           </div>
 
