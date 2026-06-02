@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { useUser } from "@/context/user-context";
 import { AppHeader } from "@/components/app-header";
 import { AppFooter } from "@/components/app-footer";
+import { MobileTabBar } from "@/components/mobile-tab-bar";
 
 export function ConditionalLayout({ children }: { children: ReactNode }) {
   const { user, isLoading } = useUser();
@@ -17,6 +18,7 @@ export function ConditionalLayout({ children }: { children: ReactNode }) {
       {showHeaderFooter && <AppHeader />}
       <main className="flex-1">{children}</main>
       {showHeaderFooter && <AppFooter />}
+      {showHeaderFooter && <MobileTabBar />}
     </>
   );
 }

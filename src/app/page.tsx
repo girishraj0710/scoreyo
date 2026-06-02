@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
-import { examCategories, type Exam } from "@/lib/exams";
+import { examCategories, type Exam, getExamById } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { Zap, Flame } from "lucide-react";
@@ -29,6 +29,8 @@ function HomePageContent() {
   const [subData, setSubData] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const [lastQuiz, setLastQuiz] = useState<any>(null);
+  const [showFullFlow, setShowFullFlow] = useState(false);
 
   // Refs for auto-scrolling
   const categoryRef = useRef<HTMLElement>(null);
@@ -43,7 +45,18 @@ function HomePageContent() {
   useEffect(() => {
     fetch("/api/stats")
       .then((r) => r.json())
-      .then(setStats)
+      .then((data) => {
+        setStats(data);
+        // Get last quiz session for Quick Start
+        if (data.recentSessions && data.recentSessions.length > 0) {
+          const recent = data.recentSessions[0];
+          setLastQuiz({
+            examId: recent.exam_id,
+            subjectId: recent.subject_id,
+            topic: recent.topic,
+          });
+        }
+      })
       .catch(() => {});
     fetch("/api/subscription")
       .then((r) => r.json())
@@ -343,8 +356,45 @@ function HomePageContent() {
         )}
       </section>
 
+      {/* Quick Start - Returning Users */}
+      {!showFullFlow && lastQuiz && !selectedCategory && (
+        <section className="mb-6 md:mb-8">
+          <div className="bg-gradient-to-r from-indigo-500 to-violet-500 rounded-2xl p-5 sm:p-6 text-white shadow-xl">
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="text-xs sm:text-sm font-medium text-indigo-100 mb-1">
+                  Continue where you left off
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold">
+                  {getExamById(lastQuiz.examId)?.name || "Last Quiz"}
+                </h3>
+                <p className="text-sm text-indigo-100 mt-1">
+                  {lastQuiz.subjectId} • {lastQuiz.topic}
+                </p>
+              </div>
+              <Zap className="w-8 h-8 text-yellow-300" />
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2">
+              <a
+                href={`/quiz?examId=${lastQuiz.examId}&subjectId=${lastQuiz.subjectId}&topic=${encodeURIComponent(lastQuiz.topic)}&count=5&difficulty=mixed`}
+                className="flex-1 bg-white text-indigo-600 font-semibold py-3 px-4 rounded-xl text-center hover:bg-indigo-50 transition-colors"
+              >
+                Start Quick Quiz (5 Q)
+              </a>
+              <button
+                onClick={() => setShowFullFlow(true)}
+                className="sm:w-auto bg-indigo-400/30 text-white font-medium py-3 px-4 rounded-xl hover:bg-indigo-400/40 transition-colors"
+              >
+                Browse All Exams
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Step 1: Category Selection */}
-      {!selectedCategory && (
+      {(showFullFlow || !lastQuiz) && !selectedCategory && (
         <section ref={categoryRef} className="mb-6 md:mb-8">
           <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
             <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">

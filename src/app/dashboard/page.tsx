@@ -11,6 +11,7 @@ import { StreakBadge } from "@/components/streak-badge";
 import { DailyProgressCard } from "@/components/daily-progress-card";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
+import { usePullToRefresh } from "@/hooks/use-pull-to-refresh";
 
 interface Stats {
   totalSessions: number;
@@ -58,26 +59,31 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedExamFilter, setSelectedExamFilter] = useState<string>("");
 
-  useEffect(() => {
-    async function loadStats() {
-      try {
-        const url = selectedExamFilter
-          ? `/api/stats?examId=${selectedExamFilter}`
-          : "/api/stats";
-        const res = await fetch(url);
-        const data = await res.json();
-        setStats(data.stats);
-        setMastery(data.mastery || []);
-        setRecentSessions(data.recentSessions || []);
-        setWeakTopics(data.weakTopics || []);
-      } catch {
-        // ignore
-      } finally {
-        setIsLoading(false);
-      }
+  const loadStats = async () => {
+    try {
+      setIsLoading(true);
+      const url = selectedExamFilter
+        ? `/api/stats?examId=${selectedExamFilter}`
+        : "/api/stats";
+      const res = await fetch(url);
+      const data = await res.json();
+      setStats(data.stats);
+      setMastery(data.mastery || []);
+      setRecentSessions(data.recentSessions || []);
+      setWeakTopics(data.weakTopics || []);
+    } catch {
+      // ignore
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  useEffect(() => {
     loadStats();
   }, [selectedExamFilter]);
+
+  // Pull-to-refresh for mobile
+  usePullToRefresh(loadStats);
 
   const formatTime = (seconds: number) => {
     if (!seconds) return "0:00";
