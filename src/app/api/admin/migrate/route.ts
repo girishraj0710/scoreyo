@@ -65,9 +65,7 @@ export async function POST(request: NextRequest) {
           quality_score REAL,
           duplicate_check_passed BOOLEAN DEFAULT false,
 
-          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-          FOREIGN KEY (user_id) REFERENCES users(id)
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
       `);
       console.log('[Migration] ✓ Created pending_questions table');
@@ -122,11 +120,18 @@ export async function POST(request: NextRequest) {
 
   } catch (error: any) {
     console.error('[Migration] Error:', error);
+    console.error('[Migration] Error stack:', error.stack);
+    console.error('[Migration] Error details:', JSON.stringify(error, null, 2));
+
     return NextResponse.json(
       {
         success: false,
-        error: error.message,
+        error: error.message || 'Unknown error',
+        errorName: error.name,
+        errorCode: error.code,
         details: error.stack,
+        hint: error.hint,
+        position: error.position,
       },
       { status: 500 }
     );
