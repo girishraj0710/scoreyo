@@ -45,8 +45,21 @@ export default function ReviewQuestionsPage() {
   const loadQuestions = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/admin/pending-questions?filter=${filter}`);
+      // Add cache busting timestamp to prevent stale data
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/api/admin/pending-questions?filter=${filter}&t=${timestamp}`, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
       const data = await response.json();
+
+      console.log('[Review] Loaded questions:', {
+        filter,
+        count: data.questions?.length || 0,
+        stats: data.stats,
+      });
 
       if (data.success) {
         setQuestions(data.questions);
