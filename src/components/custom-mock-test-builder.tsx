@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getExamById, examCategories } from "@/lib/exams";
 import { X, Plus, Minus, Clock, FileText, Sparkles } from "lucide-react";
+import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 interface CustomSection {
   subjectId: string;
@@ -153,11 +154,8 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#4255FF] dark:hover:border-indigo-400 hover:shadow-lg transition-all text-left group"
                   >
                     <div className="flex items-center gap-3">
-                      <div
-                        className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center text-2xl"
-                        style={{ backgroundColor: `${exam.color}20`, color: exam.color }}
-                      >
-                        {exam.icon}
+                      <div className="w-12 h-12 flex-shrink-0">
+                        <ColorfulExamIcon examId={exam.id} size={48} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="font-semibold text-gray-900 dark:text-white group-hover:text-[#4255FF] dark:group-hover:text-indigo-400 truncate">
@@ -187,11 +185,8 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 p-4 rounded-xl border border-[#90CAF9] dark:border-gray-600">
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3 min-w-0 flex-1">
-                      <div
-                        className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center text-2xl"
-                        style={{ backgroundColor: `${exam.color}30`, color: exam.color }}
-                      >
-                        {exam.icon}
+                      <div className="w-12 h-12 flex-shrink-0">
+                        <ColorfulExamIcon examId={exam.id} size={48} />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="font-bold text-gray-900 dark:text-white truncate">{exam.name}</div>
