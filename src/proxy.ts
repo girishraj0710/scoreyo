@@ -44,6 +44,7 @@ export function proxy(request: NextRequest) {
     "/api/custom-quiz", // Custom quiz from uploaded documents
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
+    "/api/admin/migrate", // Admin endpoint for database migrations
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {

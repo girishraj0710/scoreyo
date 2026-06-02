@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
+import { classifyContent, calculateQualityScore, checkDuplicate } from "@/lib/classify-content";
+import { queryAll, execute } from "@/lib/db";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_TYPES = [
@@ -262,7 +264,65 @@ Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON ar
       );
     }
 
-    // Return generated quiz
+    // Classify content using AI
+    console.log('[Custom Quiz] Classifying content...');
+    const classification = await classifyContent(extractedText);
+    console.log('[Custom Quiz] Classification result:', classification);
+
+    // Store questions in pending_questions table for admin review
+    const pendingQuestionIds: string[] = [];
+
+    try {
+      for (const question of questions) {
+        const questionId = `pending-${Date.now()}-${Math.random().toString(36).substring(7)}`;
+
+        // Calculate quality score
+        const qualityScore = calculateQualityScore(question);
+
+        // Check for duplicates
+        const isDuplicate = await checkDuplicate(question.question, queryAll);
+
+        // Store in pending_questions
+        await execute(
+          `INSERT INTO pending_questions (
+            id, user_id, source_type, source_file, content_preview,
+            detected_exam_id, detected_subject_id, detected_topics,
+            classification_confidence,
+            question, options, correct_answer, explanation, trap_alerts, difficulty,
+            quality_score, duplicate_check_passed, status
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            questionId,
+            userId,
+            file ? 'custom-upload' : 'custom-paste',
+            file?.name || null,
+            extractedText.slice(0, 500),
+            classification.examId,
+            classification.subjectId,
+            JSON.stringify(classification.topics),
+            classification.confidence,
+            question.question,
+            JSON.stringify(question.options),
+            question.correctAnswer,
+            question.explanation,
+            JSON.stringify(question.trapAlerts),
+            question.difficulty,
+            qualityScore,
+            isDuplicate ? 0 : 1,
+            'pending'
+          ]
+        );
+
+        pendingQuestionIds.push(questionId);
+      }
+
+      console.log('[Custom Quiz] Stored', questions.length, 'questions for review');
+    } catch (storageError) {
+      console.error('[Custom Quiz] Failed to store questions:', storageError);
+      // Continue even if storage fails - user still gets their quiz
+    }
+
+    // Return generated quiz with classification info
     return NextResponse.json({
       success: true,
       quiz: {
@@ -272,7 +332,19 @@ Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON ar
         wordCount: words,
         questions,
         numQuestions: questions.length,
-        difficulty
+        difficulty,
+        classification: {
+          exam: classification.examName,
+          subject: classification.subjectName,
+          topics: classification.topics,
+          confidence: classification.confidence,
+        },
+        pendingQuestionIds,
+        message: `Questions generated successfully! ${
+          classification.confidence > 0.7
+            ? `If approved, they'll be added to ${classification.examName} - ${classification.subjectName}.`
+            : 'Content classification had low confidence - admin review recommended.'
+        }`
       }
     });
 

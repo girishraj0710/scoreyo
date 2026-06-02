@@ -382,8 +382,12 @@ export function LandingPageV2() {
             Master Your<br className="sm:hidden" /> Competitive Exams
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-3 max-w-3xl mx-auto leading-relaxed">
             JEE, NEET, UPSC, SSC, Banking & 60+ exams with AI-powered practice.
+          </p>
+
+          <p className="text-xs sm:text-sm md:text-base text-slate-500 mb-6 max-w-3xl mx-auto leading-relaxed">
+            Smart quizzes · Mock tests · Spaced repetition · Performance analytics · Daily practice challenges
           </p>
 
           {/* CTA */}

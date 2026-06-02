@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPool } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 /**
  * Admin-only migration endpoint
  * POST /api/admin/migrate
@@ -8,12 +10,16 @@ import { getPool } from "@/lib/db";
  */
 export async function POST(request: NextRequest) {
   try {
-    // TODO: Add admin authentication check
-    // For now, check for a secret key in headers
+    // Check for admin secret in query param (for curl testing)
+    const url = new URL(request.url);
+    const secretParam = url.searchParams.get('secret');
     const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.ADMIN_SECRET}`) {
+
+    const providedSecret = secretParam || authHeader?.replace('Bearer ', '');
+
+    if (providedSecret !== process.env.ADMIN_SECRET) {
       return NextResponse.json(
-        { error: "Unauthorized" },
+        { error: "Unauthorized", provided: providedSecret ? 'yes' : 'no' },
         { status: 401 }
       );
     }
