@@ -615,11 +615,11 @@ export async function execute(sql: string, args: any[] = []) {
 // ─── User functions ──────────────────────────────────────
 
 export async function getUser(userId: string = "default-user") {
-  return queryOne("SELECT * FROM users WHERE id = ?", [userId]);
+  return queryOne("SELECT * FROM users WHERE id = $1", [userId]);
 }
 
 export async function updateUserName(userId: string, name: string) {
-  return execute("UPDATE users SET name = ? WHERE id = ?", [name, userId]);
+  return execute("UPDATE users SET name = $1 WHERE id = $2", [name, userId]);
 }
 
 export async function createNewUser(
@@ -696,7 +696,7 @@ export async function updateUserProfile(
 
   values.push(userId);
 
-  return execute(`UPDATE users SET ${updates.join(", ")} WHERE id = ?`, values);
+  return execute(`UPDATE users SET ${updates.join(", ")} WHERE id = $${values.length}`, values);
 }
 
 // Set user role (for initial role selection or admin changes)
@@ -704,11 +704,11 @@ export async function setUserRole(userId: string, role: string) {
   if (!['student', 'teacher', 'contributor', 'admin'].includes(role)) {
     throw new Error(`Invalid role: ${role}`);
   }
-  return execute("UPDATE users SET role = ? WHERE id = ?", [role, userId]);
+  return execute("UPDATE users SET role = $1 WHERE id = $2", [role, userId]);
 }
 
 export async function getUserByEmail(email: string) {
-  return queryOne("SELECT * FROM users WHERE email = ?", [email.toLowerCase().trim()]);
+  return queryOne("SELECT * FROM users WHERE email = $1", [email.toLowerCase().trim()]);
 }
 
 // ─── OTP functions ──────────────────────────────────────
@@ -716,9 +716,9 @@ export async function getUserByEmail(email: string) {
 export async function saveOtp(email: string, code: string, expiresMinutes: number = 10) {
   const expiresAt = new Date(Date.now() + expiresMinutes * 60 * 1000).toISOString();
   const normalizedEmail = email.toLowerCase().trim();
-  await execute("DELETE FROM otp_codes WHERE email = ?", [normalizedEmail]);
+  await execute("DELETE FROM otp_codes WHERE email = $1", [normalizedEmail]);
   await execute(
-    "INSERT INTO otp_codes (email, code, expires_at) VALUES (?, ?, ?)",
+    "INSERT INTO otp_codes (email, code, expires_at) VALUES ($1, $2, $3)",
     [normalizedEmail, code, expiresAt]
   );
 }
@@ -726,25 +726,25 @@ export async function saveOtp(email: string, code: string, expiresMinutes: numbe
 export async function verifyOtp(email: string, code: string): Promise<boolean> {
   const normalizedEmail = email.toLowerCase().trim();
   const otp = await queryOne(
-    "SELECT * FROM otp_codes WHERE email = ? AND code = ? AND verified = false",
+    "SELECT * FROM otp_codes WHERE email = $1 AND code = $2 AND verified = false",
     [normalizedEmail, code]
   );
 
   if (!otp) return false;
 
   if (new Date(otp.expires_at) < new Date()) {
-    await execute("DELETE FROM otp_codes WHERE id = ?", [otp.id]);
+    await execute("DELETE FROM otp_codes WHERE id = $1", [otp.id]);
     return false;
   }
 
-  await execute("UPDATE otp_codes SET verified = true WHERE id = ?", [otp.id]);
+  await execute("UPDATE otp_codes SET verified = true WHERE id = $1", [otp.id]);
   return true;
 }
 
 export async function isOtpVerified(email: string): Promise<boolean> {
   const normalizedEmail = email.toLowerCase().trim();
   const otp = await queryOne(
-    "SELECT * FROM otp_codes WHERE email = ? AND verified = true ORDER BY created_at DESC LIMIT 1",
+    "SELECT * FROM otp_codes WHERE email = $1 AND verified = true ORDER BY created_at DESC LIMIT 1",
     [normalizedEmail]
   );
 
@@ -755,7 +755,7 @@ export async function isOtpVerified(email: string): Promise<boolean> {
 }
 
 export async function cleanupOtps() {
-  await execute("DELETE FROM otp_codes WHERE expires_at < ?", [new Date().toISOString()]);
+  await execute("DELETE FROM otp_codes WHERE expires_at < $1", [new Date().toISOString()]);
 }
 
 // ─── Quiz Session functions ──────────────────────────────
