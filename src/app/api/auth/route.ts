@@ -36,6 +36,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, name, age, location, phoneNumber, examPreparingFor, role } = body;
 
+    console.log('[Auth POST] Request body received:', { email, name, role });
+
     if (!email || !email.trim()) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
@@ -156,6 +158,7 @@ export async function POST(request: NextRequest) {
 
     // Determine appropriate role (admin email gets admin role, otherwise use provided role or default)
     const finalRole = isAdminEmail(cleanEmail) ? 'admin' : (role || 'student');
+    console.log('[Auth POST] Final role determined:', { providedRole: role, finalRole, isAdmin: isAdminEmail(cleanEmail) });
 
     if (emergencyMode) {
       console.log('[Auth] 🚨 Emergency mode - creating user in Redis cache only');

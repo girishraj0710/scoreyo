@@ -126,12 +126,18 @@ export function UserProvider({ children }: { children: ReactNode }) {
     role?: 'student' | 'teacher' | 'contributor'
   ) {
     try {
+      const payload = { email, name, age, location, phoneNumber, examPreparingFor, role };
+      console.log('[UserContext] completeLogin payload:', payload);
+
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name, age, location, phoneNumber, examPreparingFor, role }),
+        body: JSON.stringify(payload),
       });
+
       const data = await res.json();
+      console.log('[UserContext] completeLogin response:', { status: res.status, data });
+
       if (!res.ok) {
         return { success: false, error: data.error || "Login failed" };
       }
@@ -144,7 +150,8 @@ export function UserProvider({ children }: { children: ReactNode }) {
         return { success: true };
       }
       return { success: false, error: "Unexpected error" };
-    } catch {
+    } catch (err) {
+      console.error('[UserContext] completeLogin error:', err);
       return { success: false, error: "Network error. Please try again." };
     }
   }

@@ -245,6 +245,13 @@ export function LoginModal() {
     setError("");
     setIsSubmitting(true);
     try {
+      const finalRole = role === 'contributor' ? 'contributor' : 'student';
+      console.log('[LoginModal] Submitting role selection:', {
+        email: email.trim(),
+        name: name.trim(),
+        role: finalRole,
+      });
+
       const signupResult = await completeLogin(
         email.trim(),
         name.trim(),
@@ -252,8 +259,11 @@ export function LoginModal() {
         location.trim(),
         phoneNumber.trim(),
         examPreparingFor,
-        role === 'contributor' ? 'contributor' : 'student'
+        finalRole
       );
+
+      console.log('[LoginModal] completeLogin result:', signupResult);
+
       if (!signupResult.success) {
         setError(signupResult.error || "Signup failed");
         setIsSubmitting(false);
@@ -266,6 +276,7 @@ export function LoginModal() {
         }, 100);
       }
     } catch (err) {
+      console.error('[LoginModal] Error during role selection:', err);
       setError("Signup failed");
       setIsSubmitting(false);
     }
@@ -455,9 +466,16 @@ export function LoginModal() {
                 <input
                   type="tel"
                   value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="+91 XXXXX XXXXX"
+                  onChange={(e) => {
+                    // Only allow digits and limit to 15 characters (international standard)
+                    const value = e.target.value.replace(/[^0-9]/g, '');
+                    if (value.length <= 15) {
+                      setPhoneNumber(value);
+                    }
+                  }}
+                  placeholder="10-digit phone number"
                   className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  maxLength={15}
                 />
               </div>
 
