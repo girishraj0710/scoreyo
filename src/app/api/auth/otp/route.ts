@@ -58,27 +58,35 @@ export async function POST(request: NextRequest) {
 
     // Check if we're in emergency auth mode (during migration)
     const emergencyMode = await isEmergencyAuthMode();
+    console.log(`[OTP] 🔍 Emergency mode: ${emergencyMode}`);
 
     if (emergencyMode) {
       console.log('[OTP] 🚨 Emergency mode active - bypassing database checks');
       // In emergency mode, allow all OTPs (we'll sort out users after migration)
     } else {
-      // Normal mode: check database for user existence
+      console.log(`[OTP] 🔍 Normal mode - checking user existence for action: ${action}`);
+
       // Try Redis cache first
       const cachedExists = await checkUserExistsInCache(cleanEmail);
+      console.log(`[OTP] 🔍 Redis cache check: ${cachedExists === null ? 'CACHE_MISS' : cachedExists ? 'USER_EXISTS' : 'USER_NOT_EXISTS'}`);
 
       let existingUser = null;
       if (cachedExists !== null) {
         // Use cached result
         existingUser = cachedExists ? { email: cleanEmail } : null;
+        console.log(`[OTP] 🔍 Using cached result: existingUser=${!!existingUser}`);
       } else {
         // Cache miss - query database
+        console.log('[OTP] 🔍 Cache miss - querying database...');
         existingUser = await getUserByEmail(cleanEmail);
-        console.log('[OTP] Database check result:', { email: cleanEmail, exists: !!existingUser });
+        console.log(`[OTP] 🔍 Database query result: existingUser=${!!existingUser}, type=${typeof existingUser}, value=${JSON.stringify(existingUser)}`);
       }
+
+      console.log(`[OTP] 🔍 Final check values: action=${action}, existingUser=${!!existingUser}, cachedExists=${cachedExists}`);
 
       // If action is "signup" and user exists, return error
       if (action === "signup" && existingUser) {
+        console.log('[OTP] ❌ Blocking signup - user already exists');
         return NextResponse.json({
           error: "An account with this email already exists. Please log in instead.",
           shouldLogin: true
@@ -88,11 +96,14 @@ export async function POST(request: NextRequest) {
       // If action is "login" and user doesn't exist, return error
       // Block login if we're certain user doesn't exist (either from DB or cache)
       if (action === "login" && !existingUser && cachedExists !== true) {
+        console.log('[OTP] ❌ Blocking login - user does not exist');
         return NextResponse.json({
           error: "No account found with this email. Please sign up first.",
           shouldSignup: true
         }, { status: 400 });
       }
+
+      console.log('[OTP] ✅ User existence check passed - proceeding to send OTP');
     }
 
     // Generate and save OTP (Redis first, database as backup)
