@@ -209,9 +209,15 @@ export default function TeacherPortalPage() {
                 <button
                   key={exam.id}
                   onClick={() => {
+                    console.log('[Teacher Portal] Exam selected:', exam.id, exam.name);
                     setSelectedExam(exam.id);
                     setSelectedSubject(null);
                     setSelectedStep('subject');
+                    // Scroll to subject section after a brief delay
+                    setTimeout(() => {
+                      const subjectSection = document.querySelector('[data-section="subject"]');
+                      subjectSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
                   }}
                   className={`p-6 rounded-xl border-2 transition-all text-left ${
                     selectedExam === exam.id
@@ -229,7 +235,7 @@ export default function TeacherPortalPage() {
 
           {/* Step 2: Subject Selection */}
           {selectedExam && currentExam && (
-            <div className="mb-10">
+            <div className="mb-10" data-section="subject">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-600 text-white font-bold text-sm">
                   2
