@@ -164,8 +164,8 @@ export function LandingPageV2() {
           (windowHeight - rect.top) / (windowHeight + rect.height)
         ));
 
-        // Apply parallax: 0 to -40px based on progress
-        return progress * -40;
+        // Apply parallax: 0 to -60px based on progress (increased from -40px)
+        return progress * -60;
       });
 
       setImageOffsets(newOffsets);
