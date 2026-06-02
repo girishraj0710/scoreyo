@@ -712,16 +712,16 @@ export function LandingPageV2() {
         </section>
         {/* Final CTA */}
         <section className="pb-8 mt-0 md:-mt-24">
-          <div className="bg-sky-400 rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl">
+          <div className="bg-[#4255FF] rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl">
             <h2 className="text-2xl md:text-4xl font-semibold mb-4">
               Ready to ace your exam?
             </h2>
-            <p className="text-base md:text-lg text-blue-50 mb-6 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-indigo-50 mb-6 max-w-2xl mx-auto">
               Join 50,000+ students who are already mastering their competitive exams with PrepGenie
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-3 bg-white text-blue-600 font-semibold text-base rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
+              className="px-8 py-3 bg-white text-[#4255FF] font-semibold text-base rounded-xl hover:bg-slate-50 hover:scale-105 transition-all shadow-xl"
             >
               Start Free Today
             </button>
