@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { CheckCircle, XCircle, AlertCircle, TrendingUp, Clock } from "lucide-react";
+import { ConfirmationModal, PromptModal } from "@/components/confirmation-modal";
 
 interface PendingQuestion {
   id: string;
@@ -41,6 +42,33 @@ export default function ReviewQuestionsPage() {
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
   const [bulkActionLoading, setBulkActionLoading] = useState(false);
+
+  // Modal states
+  const [confirmModal, setConfirmModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    type: 'confirm' | 'alert' | 'success' | 'error';
+    onConfirm: () => void;
+  }>({
+    isOpen: false,
+    title: '',
+    message: '',
+    type: 'confirm',
+    onConfirm: () => {},
+  });
+
+  const [promptModal, setPromptModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    onConfirm: (value: string) => void;
+  }>({
+    isOpen: false,
+    title: '',
+    message: '',
+    onConfirm: () => {},
+  });
 
   const loadQuestions = async () => {
     setLoading(true);
@@ -97,11 +125,29 @@ export default function ReviewQuestionsPage() {
 
   const handleBulkApprove = async () => {
     if (selectedIds.size === 0) {
-      alert('Please select at least one question');
+      setConfirmModal({
+        isOpen: true,
+        title: 'No Questions Selected',
+        message: 'Please select at least one question to approve.',
+        type: 'alert',
+        onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+      });
       return;
     }
 
-    if (!confirm(`Approve ${selectedIds.size} questions and add them to the question bank?`)) return;
+    setConfirmModal({
+      isOpen: true,
+      title: 'Approve Questions',
+      message: `Approve ${selectedIds.size} questions and add them to the question bank?`,
+      type: 'confirm',
+      onConfirm: () => {
+        setConfirmModal({ ...confirmModal, isOpen: false });
+        executeBulkApprove();
+      },
+    });
+  };
+
+  const executeBulkApprove = async () => {
 
     setBulkActionLoading(true);
     let successCount = 0;
@@ -133,9 +179,21 @@ export default function ReviewQuestionsPage() {
 
       if (errorCount > 0) {
         console.error('[Bulk Approve] Errors:', errors);
-        alert(`✅ Approved ${successCount} questions!\n❌ Failed: ${errorCount}\n\nFirst error: ${errors[0]}`);
+        setConfirmModal({
+          isOpen: true,
+          title: 'Bulk Approval Complete',
+          message: `✅ Approved ${successCount} questions!\n❌ Failed: ${errorCount}\n\nFirst error: ${errors[0]}`,
+          type: 'error',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
       } else {
-        alert(`✅ Successfully approved ${successCount} questions!`);
+        setConfirmModal({
+          isOpen: true,
+          title: 'Success!',
+          message: `✅ Successfully approved ${successCount} questions!`,
+          type: 'success',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
       }
 
       setSelectedIds(new Set());
@@ -151,12 +209,28 @@ export default function ReviewQuestionsPage() {
 
   const handleBulkReject = async () => {
     if (selectedIds.size === 0) {
-      alert('Please select at least one question');
+      setConfirmModal({
+        isOpen: true,
+        title: 'No Questions Selected',
+        message: 'Please select at least one question to reject.',
+        type: 'alert',
+        onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+      });
       return;
     }
 
-    const reason = prompt(`Reject ${selectedIds.size} questions? Enter reason (optional):`);
-    if (reason === null) return; // User clicked cancel
+    setPromptModal({
+      isOpen: true,
+      title: 'Reject Questions',
+      message: `Reject ${selectedIds.size} questions? Enter reason (optional):`,
+      onConfirm: (reason) => {
+        setPromptModal({ ...promptModal, isOpen: false });
+        executeBulkReject(reason);
+      },
+    });
+  };
+
+  const executeBulkReject = async (reason: string) => {
 
     setBulkActionLoading(true);
     let successCount = 0;
@@ -181,20 +255,54 @@ export default function ReviewQuestionsPage() {
         }
       }
 
-      alert(`✅ Rejected ${successCount} questions${errorCount > 0 ? ` (${errorCount} failed)` : ''}`);
+      if (errorCount > 0) {
+        setConfirmModal({
+          isOpen: true,
+          title: 'Bulk Rejection Complete',
+          message: `✅ Rejected ${successCount} questions\n❌ Failed: ${errorCount}`,
+          type: 'error',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
+      } else {
+        setConfirmModal({
+          isOpen: true,
+          title: 'Success!',
+          message: `✅ Successfully rejected ${successCount} questions`,
+          type: 'success',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
+      }
+
       setSelectedIds(new Set());
       loadQuestions();
       setSelectedQuestion(null);
     } catch (error) {
-      alert('❌ Bulk rejection failed');
+      setConfirmModal({
+        isOpen: true,
+        title: 'Error',
+        message: '❌ Bulk rejection failed',
+        type: 'error',
+        onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+      });
     } finally {
       setBulkActionLoading(false);
     }
   };
 
   const handleApprove = async (questionId: string) => {
-    if (!confirm('Approve this question and add it to the question bank?')) return;
+    setConfirmModal({
+      isOpen: true,
+      title: 'Approve Question',
+      message: 'Approve this question and add it to the question bank?',
+      type: 'confirm',
+      onConfirm: () => {
+        setConfirmModal({ ...confirmModal, isOpen: false });
+        executeApprove(questionId);
+      },
+    });
+  };
 
+  const executeApprove = async (questionId: string) => {
     setActionLoading(true);
     try {
       const response = await fetch(`/api/admin/pending-questions/${questionId}/approve`, {
@@ -204,24 +312,51 @@ export default function ReviewQuestionsPage() {
       const data = await response.json();
 
       if (data.success) {
-        alert(`✅ Question approved! ${data.pointsAwarded} points awarded to contributor.`);
+        setConfirmModal({
+          isOpen: true,
+          title: 'Success!',
+          message: `✅ Question approved!\n+${data.pointsAwarded} points awarded to contributor.`,
+          type: 'success',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
         loadQuestions();
         setSelectedQuestion(null);
       } else {
-        alert(`❌ Error: ${data.error}`);
+        setConfirmModal({
+          isOpen: true,
+          title: 'Error',
+          message: `❌ ${data.error}`,
+          type: 'error',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
       }
     } catch (error) {
       console.error('[Review] Approve error:', error);
-      alert('❌ Failed to approve question');
+      setConfirmModal({
+        isOpen: true,
+        title: 'Error',
+        message: '❌ Failed to approve question',
+        type: 'error',
+        onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+      });
     } finally {
       setActionLoading(false);
     }
   };
 
   const handleReject = async (questionId: string) => {
-    const reason = prompt('Reason for rejection (optional):');
-    if (reason === null) return; // User clicked cancel
+    setPromptModal({
+      isOpen: true,
+      title: 'Reject Question',
+      message: 'Reason for rejection (optional):',
+      onConfirm: (reason) => {
+        setPromptModal({ ...promptModal, isOpen: false });
+        executeReject(questionId, reason);
+      },
+    });
+  };
 
+  const executeReject = async (questionId: string, reason: string) => {
     setActionLoading(true);
     try {
       const response = await fetch(`/api/admin/pending-questions/${questionId}/reject`, {
@@ -233,15 +368,33 @@ export default function ReviewQuestionsPage() {
       const data = await response.json();
 
       if (data.success) {
-        alert('✅ Question rejected');
+        setConfirmModal({
+          isOpen: true,
+          title: 'Success!',
+          message: '✅ Question rejected',
+          type: 'success',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
         loadQuestions();
         setSelectedQuestion(null);
       } else {
-        alert(`❌ Error: ${data.error}`);
+        setConfirmModal({
+          isOpen: true,
+          title: 'Error',
+          message: `❌ ${data.error}`,
+          type: 'error',
+          onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+        });
       }
     } catch (error) {
       console.error('[Review] Reject error:', error);
-      alert('❌ Failed to reject question');
+      setConfirmModal({
+        isOpen: true,
+        title: 'Error',
+        message: '❌ Failed to reject question',
+        type: 'error',
+        onConfirm: () => setConfirmModal({ ...confirmModal, isOpen: false }),
+      });
     } finally {
       setActionLoading(false);
     }
@@ -535,6 +688,26 @@ export default function ReviewQuestionsPage() {
           </div>
         )}
       </div>
+
+      {/* Modals */}
+      <ConfirmationModal
+        isOpen={confirmModal.isOpen}
+        title={confirmModal.title}
+        message={confirmModal.message}
+        type={confirmModal.type}
+        onConfirm={confirmModal.onConfirm}
+        onCancel={() => setConfirmModal({ ...confirmModal, isOpen: false })}
+        showCancel={confirmModal.type === 'confirm'}
+      />
+
+      <PromptModal
+        isOpen={promptModal.isOpen}
+        title={promptModal.title}
+        message={promptModal.message}
+        placeholder="Enter reason (optional)..."
+        onConfirm={promptModal.onConfirm}
+        onCancel={() => setPromptModal({ ...promptModal, isOpen: false })}
+      />
     </div>
   );
 }
