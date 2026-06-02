@@ -158,10 +158,10 @@ export default function ContributorPortalPage() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-3">
-            👨‍🏫 Contributor Portal
+            🎯 Contributor Portal
           </h1>
           <p className="text-lg text-slate-600">
-            Create and submit verified questions to build PrepGenie's question bank
+            Create and submit verified questions to help students succeed
           </p>
         </div>
 
