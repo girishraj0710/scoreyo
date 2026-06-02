@@ -566,7 +566,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-indigo-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(0) ? `translateY(${scrollY * 0.08}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.08}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
                   transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -606,7 +606,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * 0.08}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.08}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
                   transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -647,7 +647,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * 0.08}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.08}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
                   transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -687,7 +687,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * 0.08}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.08}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
                   transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
                 }}
