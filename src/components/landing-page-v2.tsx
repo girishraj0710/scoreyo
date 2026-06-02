@@ -47,7 +47,8 @@ export function LandingPageV2() {
   const carouselTrackRef = useRef<HTMLDivElement>(null);
   const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set());
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [scrollY, setScrollY] = useState(0);
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [imageOffsets, setImageOffsets] = useState<number[]>([0, 0, 0, 0]);
   const [reviewsPage, setReviewsPage] = useState(0);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
@@ -123,16 +124,6 @@ export function LandingPageV2() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Scroll tracking for parallax
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -154,6 +145,49 @@ export function LandingPageV2() {
     });
 
     return () => observer.disconnect();
+  }, []);
+
+  // Parallax effect for images based on their position in viewport
+  useEffect(() => {
+    const handleScroll = () => {
+      const newOffsets = imageRefs.current.map((imageRef) => {
+        if (!imageRef) return 0;
+
+        const rect = imageRef.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Calculate position in viewport (0 = top, 1 = bottom)
+        const elementTop = rect.top;
+        const elementHeight = rect.height;
+
+        // Start parallax when element enters viewport from bottom
+        // End when element exits from top
+        if (elementTop > windowHeight) {
+          // Below viewport
+          return 0;
+        } else if (elementTop + elementHeight < 0) {
+          // Above viewport
+          return -35;
+        } else {
+          // In viewport - calculate parallax
+          // When element is at bottom of viewport: 0px
+          // When element is at top of viewport: -35px
+          const scrollProgress = 1 - ((elementTop + elementHeight) / (windowHeight + elementHeight));
+          return Math.max(Math.min(scrollProgress * -35, 0), -35);
+        }
+      });
+
+      setImageOffsets(newOffsets);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   // Handle infinite loop seamlessly with cloned cards (4-card layout)
@@ -564,9 +598,10 @@ export function LandingPageV2() {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
+                ref={(el) => { imageRefs.current[0] = el; }}
                 className="rounded-2xl overflow-hidden shadow-xl bg-indigo-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(0) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(0) ? `translateY(${imageOffsets[0]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
                   transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -604,9 +639,10 @@ export function LandingPageV2() {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
+                ref={(el) => { imageRefs.current[1] = el; }}
                 className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(1) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(1) ? `translateY(${imageOffsets[1]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
                   transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -645,9 +681,10 @@ export function LandingPageV2() {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
+                ref={(el) => { imageRefs.current[2] = el; }}
                 className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(2) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(2) ? `translateY(${imageOffsets[2]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
                   transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -685,9 +722,10 @@ export function LandingPageV2() {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
+                ref={(el) => { imageRefs.current[3] = el; }}
                 className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(3) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(3) ? `translateY(${imageOffsets[3]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
                   transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
                 }}
