@@ -27,10 +27,15 @@ export async function GET(request: NextRequest) {
 
 // POST - Login or Register (after OTP verification)
 export async function POST(request: NextRequest) {
+  console.log('🔥🔥🔥 [AUTH ROUTE.TS] POST CALLED - MAIN ROUTE (NOT SECURE) 🔥🔥🔥');
+
   // Feature flag: Use secure route if enabled
   if (process.env.ENABLE_SECURE_ROUTES === 'true') {
+    console.log('🚨 [AUTH] Redirecting to SECURE route');
     return securePOST(request);
   }
+
+  console.log('✅ [AUTH] Using MAIN route (no validation)');
 
   try {
     const body = await request.json();

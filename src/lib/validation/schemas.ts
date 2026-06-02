@@ -30,11 +30,15 @@ export const subjectIdSchema = z.string().min(1, 'Subject ID is required');
 export const loginSchema = z.object({
   email: emailSchema,
   name: z.string().min(2, 'Name must be at least 2 characters').max(100).optional(),
-  phoneNumber: phoneSchema.optional(),
-  examPreparingFor: z.string().optional(),
-  age: z.number().int().min(10).max(100).optional(),
-  location: z.string().max(200).optional(),
-});
+  // Phone: accept empty string, valid phone, or nothing - use passthrough to allow anything
+  phoneNumber: z.any().optional(),
+  // Exam: can be empty or valid exam ID
+  examPreparingFor: z.any().optional(),
+  // Age: accept anything
+  age: z.any().optional(),
+  location: z.any().optional(),
+  role: z.enum(['student', 'teacher', 'contributor', 'admin']).optional(),
+}).passthrough();
 
 export const otpRequestSchema = z.object({
   email: emailSchema,

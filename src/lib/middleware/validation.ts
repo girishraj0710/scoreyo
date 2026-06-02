@@ -45,10 +45,14 @@ export function withValidation<T>(
   handler: ValidatedHandler<T>
 ): (request: NextRequest) => Promise<NextResponse> {
   return async (request: NextRequest) => {
+    console.log('🔥🔥🔥 [VALIDATION MIDDLEWARE] withValidation CALLED 🔥🔥🔥');
     try {
       // Parse and validate request body
       const body = await request.json();
+      console.log('[VALIDATION] Body received:', JSON.stringify(body, null, 2));
+
       const validatedData = schema.parse(body);
+      console.log('[VALIDATION] ✅ Validation passed');
 
       // Call handler with validated data
       return await handler(request, validatedData);
@@ -57,6 +61,7 @@ export function withValidation<T>(
       // Handle validation errors
       if (error instanceof ZodError) {
         const errors = formatValidationErrors(error);
+        console.log('[VALIDATION] ❌ Validation failed:', errors);
         logger.warn('Validation error', {
           path: request.nextUrl.pathname,
           method: request.method,

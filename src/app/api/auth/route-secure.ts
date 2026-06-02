@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     const result = await pool.query(
       `SELECT id, name, email, age, location, phone_number as "phoneNumber",
               exam_preparing_for as "examPreparingFor", avatar_color as "avatarColor",
-              created_at as "createdAt"
+              role, created_at as "createdAt"
        FROM users
        WHERE id = $1`,
       [userId]
@@ -63,7 +63,9 @@ export async function GET(request: NextRequest) {
 export const POST = withValidation(
   loginSchema,
   async (request, validatedData) => {
-    const { email, name, phoneNumber, examPreparingFor } = validatedData;
+    console.log('🚨🚨🚨 [ROUTE-SECURE] POST HANDLER CALLED (INSIDE withValidation) 🚨🚨🚨');
+    const { email, name, phoneNumber, examPreparingFor, role, age, location } = validatedData;
+    console.log('[ROUTE-SECURE] Validated data:', { email, name, role });
 
     try {
       // Normalize email
@@ -166,13 +168,14 @@ export const POST = withValidation(
 
         userId = uuidv4();
         const avatarColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
+        const finalRole = role || 'student';
 
         await pool.query(
           `INSERT INTO users (
             id, name, email, phone_number, exam_preparing_for,
-            avatar_color, created_at, updated_at
-          ) VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`,
-          [userId, name.trim(), cleanEmail, phoneNumber || null, examPreparingFor || null, avatarColor]
+            avatar_color, role, created_at, updated_at
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`,
+          [userId, name.trim(), cleanEmail, phoneNumber || null, examPreparingFor || null, avatarColor, finalRole]
         );
 
         logger.info('New user registered', { userId, email: cleanEmail });
@@ -182,7 +185,7 @@ export const POST = withValidation(
       user = await pool.query(
         `SELECT id, name, email, age, location, phone_number as "phoneNumber",
                 exam_preparing_for as "examPreparingFor", avatar_color as "avatarColor",
-                created_at as "createdAt"
+                role, created_at as "createdAt"
          FROM users
          WHERE id = $1`,
         [userId]
