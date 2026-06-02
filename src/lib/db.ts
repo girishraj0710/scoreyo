@@ -1163,30 +1163,30 @@ export async function getCachedQuestionCount(examId: string, subjectId: string, 
 
 export async function getUserStats(userId: string) {
   const totalSessions = await queryOne(
-    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = ?",
+    "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = $1",
     [userId]
   );
 
   const totalQuestions = await queryOne(
-    "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = ?",
+    "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = $1",
     [userId]
   );
 
   // Get questions answered today
   const today = new Date().toISOString().split("T")[0];
   const questionsToday = await queryOne(
-    "SELECT COALESCE(SUM(total_questions), 0) as total FROM quiz_sessions WHERE user_id = ? AND DATE(created_at) = ?",
+    "SELECT COALESCE(SUM(total_questions), 0) as total FROM quiz_sessions WHERE user_id = $1 AND DATE(created_at) = $2",
     [userId, today]
   );
 
   // Get personal best (most questions in a single day)
   const personalBest = await queryOne(
-    "SELECT COALESCE(MAX(daily_total), 0) as best FROM (SELECT DATE(created_at) as day, SUM(total_questions) as daily_total FROM quiz_sessions WHERE user_id = ? GROUP BY DATE(created_at)) as daily_stats",
+    "SELECT COALESCE(MAX(daily_total), 0) as best FROM (SELECT DATE(created_at) as day, SUM(total_questions) as daily_total FROM quiz_sessions WHERE user_id = $1 GROUP BY DATE(created_at)) as daily_stats",
     [userId]
   );
 
   const streakData = await queryAll(
-    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = ? ORDER BY day DESC",
+    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1 ORDER BY day DESC",
     [userId]
   );
 
@@ -1273,7 +1273,7 @@ export async function getUserStats(userId: string) {
 
   const examBreakdown = await queryAll(
     `SELECT exam_id, COUNT(*) as sessions, SUM(total_questions) as questions, SUM(correct_answers) as correct
-     FROM quiz_sessions WHERE user_id = ? GROUP BY exam_id`,
+     FROM quiz_sessions WHERE user_id = $1 GROUP BY exam_id`,
     [userId]
   );
 
@@ -1281,7 +1281,7 @@ export async function getUserStats(userId: string) {
   const contributorStats = await queryOne(
     `SELECT COALESCE(questions_contributed, 0) as questions_contributed,
             COALESCE(contribution_points, 0) as contribution_points
-     FROM users WHERE id = ?`,
+     FROM users WHERE id = $1`,
     [userId]
   );
 
@@ -2736,4 +2736,109 @@ export async function createDailyChallenge(
   );
 
   return id;
+}
+
+/**
+ * Get teacher/contributor's submitted questions
+ * Returns pending_questions with classification and status filtering
+ */
+export async function getTeacherSubmissions(
+  userId: string,
+  status?: "pending" | "approved" | "rejected",
+  limit: number = 50,
+  offset: number = 0
+) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    let query = `
+      SELECT
+        pq.id,
+        pq.question,
+        pq.options,
+        pq.correct_answer as "correctAnswer",
+        pq.explanation,
+        pq.difficulty,
+        pq.status,
+        pq.exam_id,
+        pq.subject_id,
+        pq.admin_feedback,
+        pq.created_at,
+        e.name as exam_name,
+        s.name as subject_name
+      FROM pending_questions pq
+      LEFT JOIN exams e ON pq.exam_id = e.id
+      LEFT JOIN subjects s ON pq.subject_id = s.id
+      WHERE pq.user_id = $1
+    `;
+
+    const params: any[] = [userId];
+
+    if (status) {
+      params.push(status);
+      query += ` AND pq.status = $${params.length}`;
+    }
+
+    query += ` ORDER BY pq.created_at DESC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
+    params.push(limit, offset);
+
+    const result = await client.query(query, params);
+
+    return result.rows.map((row) => ({
+      id: row.id,
+      question: row.question,
+      options: Array.isArray(row.options) ? row.options : JSON.parse(row.options || '[]'),
+      correctAnswer: row.correctAnswer,
+      explanation: row.explanation,
+      difficulty: row.difficulty,
+      status: row.status,
+      exam_id: row.exam_id,
+      subject_id: row.subject_id,
+      admin_feedback: row.admin_feedback,
+      created_at: row.created_at,
+      classification: {
+        exam_name: row.exam_name || 'Unknown',
+        subject_name: row.subject_name || 'Unknown',
+      },
+    }));
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get teacher/contributor's contribution statistics
+ */
+export async function getTeacherStats(userId: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        COUNT(*) FILTER (WHERE status = 'pending') as pending_count,
+        COUNT(*) FILTER (WHERE status = 'approved') as approved_count,
+        COUNT(*) FILTER (WHERE status = 'rejected') as rejected_count,
+        COUNT(*) as total_count,
+        ROUND(
+          (COUNT(*) FILTER (WHERE status = 'approved')::FLOAT /
+           NULLIF(COUNT(*)::FLOAT, 0)) * 100
+        )::INT as approval_rate
+      FROM pending_questions
+      WHERE user_id = $1
+      `,
+      [userId]
+    );
+
+    const row = result.rows[0] || {};
+    return {
+      pending_count: parseInt(row.pending_count || '0'),
+      approved_count: parseInt(row.approved_count || '0'),
+      rejected_count: parseInt(row.rejected_count || '0'),
+      total_count: parseInt(row.total_count || '0'),
+      approval_rate: parseInt(row.approval_rate || '0'),
+    };
+  } finally {
+    client.release();
+  }
 }
