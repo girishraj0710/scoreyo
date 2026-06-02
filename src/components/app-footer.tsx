@@ -28,7 +28,6 @@ export function AppFooter() {
             <ul className="space-y-2 text-xs text-slate-600">
               <li><a href="/terms" className="hover:text-[#4255FF] transition-colors">Terms of Service</a></li>
               <li><a href="/privacy" className="hover:text-[#4255FF] transition-colors">Privacy Policy</a></li>
-              <li><a href="/refund" className="hover:text-[#4255FF] transition-colors">Refund Policy</a></li>
             </ul>
           </div>
           <div>

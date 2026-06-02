@@ -138,8 +138,7 @@ export function TermsContent() {
         <ul className="list-disc list-inside text-slate-600 mb-3 ml-4 space-y-1">
           <li>Payments processed securely via Razorpay</li>
           <li>Subscriptions auto-renew unless cancelled</li>
-          <li>7-day money-back guarantee for first purchase</li>
-          <li>No refunds for partial months</li>
+          <li>Cancel anytime from account settings</li>
         </ul>
       </section>
 
@@ -163,71 +162,6 @@ export function TermsContent() {
         <h2 className="text-xl font-bold text-slate-800 mb-3">8. Contact</h2>
         <p className="text-slate-600">
           📧 <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a>
-        </p>
-      </section>
-    </div>
-  );
-}
-
-export function RefundPolicyContent() {
-  return (
-    <div className="prose prose-slate max-w-none text-sm">
-      <p className="text-slate-500 mb-6">Last updated: May 16, 2026</p>
-
-      <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">1. No Refund Policy</h2>
-        <div className="p-3 bg-amber-50 rounded-lg border border-amber-200 mb-3">
-          <p className="text-amber-900 font-semibold mb-2">⚠️ Important Notice</p>
-          <p className="text-amber-800 text-sm">
-            PrepGenie operates on a <strong>no-refund policy</strong>. All payments for Pro subscriptions
-            are final and non-refundable.
-          </p>
-        </div>
-        <p className="text-slate-600 mb-3">
-          Try our <strong>Free plan</strong> (10 quizzes per day) before upgrading to Pro.
-        </p>
-      </section>
-
-      <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">2. Exceptions</h2>
-        <p className="text-slate-600 mb-3">
-          Refunds will <strong>only</strong> be considered for:
-        </p>
-        <ul className="list-disc list-inside text-slate-600 mb-3 ml-4 space-y-1">
-          <li><strong>Duplicate Payment:</strong> Charged twice for same subscription</li>
-          <li><strong>Technical Error:</strong> Payment processed but subscription not activated</li>
-          <li><strong>Unauthorized Charge:</strong> Payment made without your permission</li>
-        </ul>
-        <p className="text-slate-600 text-xs">
-          These cases require proof and will be reviewed individually.
-        </p>
-      </section>
-
-      <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">3. How to Report Payment Issues</h2>
-        <ol className="list-decimal list-inside text-slate-600 mb-3 ml-4 space-y-2">
-          <li>Email us at <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a></li>
-          <li>Subject: "Payment Issue - [Your Email]"</li>
-          <li>Include transaction ID, issue description, and proof</li>
-          <li>We'll investigate within 24-48 hours</li>
-          <li>If approved, refund processed in 7-10 business days</li>
-        </ol>
-      </section>
-
-      <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">4. Cancellation Policy</h2>
-        <ul className="list-disc list-inside text-slate-600 mb-3 ml-4 space-y-1">
-          <li>Cancel anytime from account settings</li>
-          <li>Access continues until end of billing period</li>
-          <li><strong>No refund</strong> for remaining days after cancellation</li>
-        </ul>
-      </section>
-
-      <section className="mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">5. Contact</h2>
-        <p className="text-slate-600">
-          📧 <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a><br />
-          🕐 Response time: 1-2 business days
         </p>
       </section>
     </div>

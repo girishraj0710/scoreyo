@@ -95,7 +95,6 @@ export default function ContactPage() {
                 <option value="general">General Inquiry</option>
                 <option value="technical">Technical Support</option>
                 <option value="billing">Billing & Payments</option>
-                <option value="refund">Refund Request</option>
                 <option value="content">Content Issue / Report Question</option>
                 <option value="feature">Feature Request</option>
                 <option value="bug">Bug Report</option>
@@ -184,9 +183,6 @@ export default function ContactPage() {
                   <a href="/privacy" className="block text-[#4255FF] hover:underline text-sm">
                     → Privacy Policy
                   </a>
-                  <a href="/refund" className="block text-[#4255FF] hover:underline text-sm">
-                    → Refund Policy
-                  </a>
                 </div>
               </div>
             </div>
@@ -206,7 +202,7 @@ export default function ContactPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-slate-500 mt-0.5">•</span>
-                <span><strong>Billing/refunds:</strong> Within 48 hours</span>
+                <span><strong>Billing inquiries:</strong> Within 48 hours</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-slate-500 mt-0.5">•</span>
@@ -229,10 +225,9 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-white rounded-xl border border-slate-200 p-6">
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Can I get a refund?</h3>
+            <h3 className="text-lg font-bold text-slate-800 mb-2">Can I cancel my subscription?</h3>
             <p className="text-slate-600 text-sm">
-              Yes! We offer a 7-day money-back guarantee for new Pro subscribers. See our{" "}
-              <a href="/refund" className="text-[#4255FF] hover:underline">Refund Policy</a> for details.
+              Yes! You can cancel anytime from your account settings. Your Pro access will continue until the end of your current billing period.
             </p>
           </div>
 
