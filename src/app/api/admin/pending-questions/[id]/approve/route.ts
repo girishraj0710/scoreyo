@@ -56,11 +56,21 @@ export async function POST(
     if (!examDim || !subjectDim) {
       console.error('[Approve] Exam or subject not found in dimensions:', {
         examId: pending.detected_exam_id,
-        subjectId: pending.detected_subject_id
+        examFound: !!examDim,
+        subjectId: pending.detected_subject_id,
+        subjectFound: !!subjectDim,
       });
 
+      const missingItems = [];
+      if (!examDim) missingItems.push(`exam '${pending.detected_exam_id}'`);
+      if (!subjectDim) missingItems.push(`subject '${pending.detected_subject_id}'`);
+
       return NextResponse.json(
-        { error: "Cannot approve: exam or subject not found in question bank dimensions" },
+        {
+          error: `Cannot approve: ${missingItems.join(' and ')} not found in question bank dimensions. Please add them to dim_exams/dim_subjects first.`,
+          missingExam: !examDim,
+          missingSubject: !subjectDim,
+        },
         { status: 400 }
       );
     }
@@ -189,10 +199,21 @@ export async function POST(
 
   } catch (error: any) {
     console.error('[Approve] Error:', error);
+    console.error('[Approve] Error stack:', error.stack);
+    console.error('[Approve] Error details:', {
+      message: error.message,
+      code: error.code,
+      detail: error.detail,
+      hint: error.hint,
+    });
+
     return NextResponse.json(
       {
         success: false,
-        error: error.message,
+        error: error.message || 'Unknown error',
+        errorCode: error.code,
+        errorDetail: error.detail,
+        errorHint: error.hint,
       },
       { status: 500 }
     );

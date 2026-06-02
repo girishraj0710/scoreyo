@@ -93,6 +93,7 @@ export default function ReviewQuestionsPage() {
     setBulkActionLoading(true);
     let successCount = 0;
     let errorCount = 0;
+    const errors: string[] = [];
 
     try {
       for (const questionId of selectedIds) {
@@ -101,21 +102,34 @@ export default function ReviewQuestionsPage() {
             method: 'POST',
           });
           const data = await response.json();
+
+          console.log(`[Bulk Approve] Question ${questionId}:`, data);
+
           if (data.success) {
             successCount++;
           } else {
             errorCount++;
+            errors.push(`${questionId}: ${data.error || 'Unknown error'}`);
           }
         } catch (error) {
           errorCount++;
+          errors.push(`${questionId}: ${error instanceof Error ? error.message : 'Network error'}`);
+          console.error(`[Bulk Approve] Error for ${questionId}:`, error);
         }
       }
 
-      alert(`✅ Approved ${successCount} questions!${errorCount > 0 ? ` (${errorCount} failed)` : ''}`);
+      if (errorCount > 0) {
+        console.error('[Bulk Approve] Errors:', errors);
+        alert(`✅ Approved ${successCount} questions!\n❌ Failed: ${errorCount}\n\nFirst error: ${errors[0]}`);
+      } else {
+        alert(`✅ Successfully approved ${successCount} questions!`);
+      }
+
       setSelectedIds(new Set());
       loadQuestions();
       setSelectedQuestion(null);
     } catch (error) {
+      console.error('[Bulk Approve] Fatal error:', error);
       alert('❌ Bulk approval failed');
     } finally {
       setBulkActionLoading(false);
