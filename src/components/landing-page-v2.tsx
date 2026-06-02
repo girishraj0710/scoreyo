@@ -156,21 +156,19 @@ export function LandingPageV2() {
         const rect = imageRef.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        // Simple calculation: how much of the element is visible
-        // Element center relative to viewport center
-        const elementCenter = rect.top + rect.height / 2;
-        const viewportCenter = windowHeight / 2;
+        // Calculate how far the element has scrolled through the viewport
+        // When element enters from bottom: rect.top = windowHeight, progress = 0
+        // When element exits from top: rect.top = -rect.height, progress = 1
+        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
 
-        // Distance from center (-windowHeight/2 to +windowHeight/2)
-        const distance = elementCenter - viewportCenter;
+        // Clamp between 0 and 1
+        const clampedProgress = Math.max(0, Math.min(1, progress));
 
-        // Apply parallax: convert distance to offset
-        // Closer to top = more negative offset (move up)
-        // Max -40px when at top, 0px at center, +40px at bottom
-        const offset = (distance / windowHeight) * -80;
+        // Apply parallax: starts at 0px, moves to -40px as it scrolls up
+        // This creates the lag effect where image moves slower than scroll
+        const offset = clampedProgress * -40;
 
-        // Clamp between -40 and 0 (only allow upward movement)
-        return Math.max(Math.min(offset, 0), -40);
+        return offset;
       });
 
       setImageOffsets(newOffsets);
