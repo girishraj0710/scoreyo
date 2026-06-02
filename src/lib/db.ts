@@ -630,11 +630,12 @@ export async function createNewUser(
   location: string = "",
   phoneNumber: string = "",
   examPreparingFor: string = "",
-  avatarColor: string = "#6366f1"
+  avatarColor: string = "#6366f1",
+  role: string = "student"
 ) {
   return execute(
-    "INSERT INTO users (id, name, email, age, location, phone_number, exam_preparing_for, avatar_color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    [id, name, email, age, location, phoneNumber, examPreparingFor, avatarColor]
+    "INSERT INTO users (id, name, email, age, location, phone_number, exam_preparing_for, avatar_color, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [id, name, email, age, location, phoneNumber, examPreparingFor, avatarColor, role]
   );
 }
 
@@ -666,7 +667,8 @@ export async function updateUserProfile(
   age?: number | null,
   location?: string,
   phoneNumber?: string,
-  examPreparingFor?: string
+  examPreparingFor?: string,
+  role?: string
 ) {
   const updates: string[] = ["name = ?", "email = ?"];
   const values: any[] = [name, email];
@@ -687,10 +689,22 @@ export async function updateUserProfile(
     updates.push("exam_preparing_for = ?");
     values.push(examPreparingFor);
   }
+  if (role !== undefined) {
+    updates.push("role = ?");
+    values.push(role);
+  }
 
   values.push(userId);
 
   return execute(`UPDATE users SET ${updates.join(", ")} WHERE id = ?`, values);
+}
+
+// Set user role (for initial role selection or admin changes)
+export async function setUserRole(userId: string, role: string) {
+  if (!['student', 'teacher', 'contributor', 'admin'].includes(role)) {
+    throw new Error(`Invalid role: ${role}`);
+  }
+  return execute("UPDATE users SET role = ? WHERE id = ?", [role, userId]);
 }
 
 export async function getUserByEmail(email: string) {

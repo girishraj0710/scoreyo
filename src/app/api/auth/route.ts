@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { email, name, age, location, phoneNumber, examPreparingFor } = body;
+    const { email, name, age, location, phoneNumber, examPreparingFor, role } = body;
 
     if (!email || !email.trim()) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -158,6 +158,7 @@ export async function POST(request: NextRequest) {
         phone_number: phoneNumber?.trim() || "",
         exam_preparing_for: examPreparingFor?.trim() || "",
         avatar_color: avatarColor,
+        role: role || "student",
         subscription_status: 'free',
         subscription_expires_at: null,
         created_at: new Date().toISOString(),
@@ -180,7 +181,8 @@ export async function POST(request: NextRequest) {
         location?.trim() || "",
         phoneNumber?.trim() || "",
         examPreparingFor?.trim() || "",
-        avatarColor
+        avatarColor,
+        role || "student"
       );
       user = await getUser(id);
     }
