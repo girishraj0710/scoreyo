@@ -152,12 +152,16 @@ export function LandingPageV2() {
       const newOffsets = featureRefs.current.map((ref) => {
         if (!ref) return 0;
         const rect = ref.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height / 2;
-        const viewportCenter = window.innerHeight / 2;
-        // Calculate how far the element is from viewport center
-        const distanceFromCenter = viewportCenter - elementCenter;
-        // Apply parallax based on distance (-30px max)
-        return Math.max(Math.min(distanceFromCenter * 0.05, 0), -30);
+        const viewportHeight = window.innerHeight;
+
+        // Calculate how far the element has scrolled into view
+        // When element is below viewport: rect.top > viewportHeight (offset = 0)
+        // When element is at bottom of viewport: rect.top = viewportHeight (offset starts)
+        // When element is at top of viewport: rect.top = 0 (offset = max)
+        const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / viewportHeight));
+
+        // Apply parallax: 0px when entering, up to -45px when scrolled
+        return scrollProgress * -45;
       });
       setFeatureOffsets(newOffsets);
     };
