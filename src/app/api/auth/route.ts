@@ -247,7 +247,16 @@ export async function POST(request: NextRequest) {
     return response;
   } catch (error) {
     console.error("Auth error:", error);
-    return NextResponse.json({ error: "Authentication failed" }, { status: 500 });
+    // Return detailed error in development, generic in production
+    const errorMessage = process.env.NODE_ENV === 'development'
+      ? (error instanceof Error ? error.message : String(error))
+      : "Please try again later";
+
+    return NextResponse.json({
+      error: "Authentication failed",
+      message: errorMessage,
+      details: error instanceof Error ? error.stack : undefined
+    }, { status: 500 });
   }
 }
 

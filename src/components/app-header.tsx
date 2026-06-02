@@ -67,16 +67,16 @@ export function AppHeader() {
         <div className="flex items-center gap-1">
           {/* Nav Links - Role Based */}
           <nav className="hidden sm:flex items-center gap-1">
-            {/* For Teachers/Contributors - Show Teacher Portal */}
-            {user && ['teacher', 'contributor', 'admin'].includes(user.role || '') ? (
+            {/* For Contributors/Contributors - Show Contributor Portal */}
+            {user && ['contributor', 'contributor', 'admin'].includes(user.role || '') ? (
               <>
-                <Link href="/teacher" className={navLinkClass("/teacher")}>
-                  👨‍🏫 Teacher Portal
+                <Link href="/contributor" className={navLinkClass("/contributor")}>
+                  👨‍🏫 Contributor Portal
                 </Link>
-                <Link href="/teacher/submissions" className={navLinkClass("/teacher/submissions")}>
+                <Link href="/contributor/submissions" className={navLinkClass("/contributor/submissions")}>
                   📝 My Submissions
                 </Link>
-                {/* Teachers/Contributors - No Dashboard or Pricing links */}
+                {/* Contributors/Contributors - No Dashboard or Pricing links */}
               </>
             ) : (
               <>
@@ -174,7 +174,7 @@ export function AppHeader() {
                       {user.name}
                       {user.role && user.role !== 'student' && (
                         <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 font-semibold">
-                          {user.role === 'teacher' ? '👨‍🏫' : user.role === 'contributor' ? '🤝' : '⚙️'} {user.role}
+                          {user.role === 'contributor' ? '👨‍🏫' : user.role === 'contributor' ? '🤝' : '⚙️'} {user.role}
                         </span>
                       )}
                     </div>
@@ -182,11 +182,11 @@ export function AppHeader() {
                   </div>
                   {/* Mobile nav links - Role Based */}
                   <div className="sm:hidden border-b border-slate-100">
-                    {user.role && ['teacher', 'contributor', 'admin'].includes(user.role) ? (
+                    {user.role && ['contributor', 'contributor', 'admin'].includes(user.role) ? (
                       <>
-                        <Link href="/teacher" className={mobileNavLinkClass("/teacher")} onClick={() => setShowMenu(false)}>👨‍🏫 Teacher Portal</Link>
-                        <Link href="/teacher/submissions" className={mobileNavLinkClass("/teacher/submissions")} onClick={() => setShowMenu(false)}>📝 My Submissions</Link>
-                        {/* Teachers/Contributors - No Dashboard or Pricing links */}
+                        <Link href="/contributor" className={mobileNavLinkClass("/contributor")} onClick={() => setShowMenu(false)}>👨‍🏫 Contributor Portal</Link>
+                        <Link href="/contributor/submissions" className={mobileNavLinkClass("/contributor/submissions")} onClick={() => setShowMenu(false)}>📝 My Submissions</Link>
+                        {/* Contributors/Contributors - No Dashboard or Pricing links */}
                       </>
                     ) : (
                       <>

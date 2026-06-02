@@ -8,7 +8,7 @@ import { ArrowRight, BookOpen, Zap, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
 
-export default function TeacherPortalPage() {
+export default function ContributorPortalPage() {
   const router = useRouter();
   const { user, isLoading } = useUser();
   const [selectedStep, setSelectedStep] = useState<'exam' | 'subject' | 'upload'>('exam');
@@ -24,9 +24,9 @@ export default function TeacherPortalPage() {
   const [dragActive, setDragActive] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
 
-  // Check if user is teacher or contributor or admin
+  // Check if user is contributor or contributor or admin
   useEffect(() => {
-    if (!isLoading && user && !isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student')) {
+    if (!isLoading && user && !isAdmin(user.role, user.email) && !['contributor', 'contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
   }, [user, isLoading, router]);
@@ -36,13 +36,13 @@ export default function TeacherPortalPage() {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading teacher portal...</p>
+          <p className="text-slate-600">Loading contributor portal...</p>
         </div>
       </div>
     );
   }
 
-  if (!user || (!isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student'))) {
+  if (!user || (!isAdmin(user.role, user.email) && !['contributor', 'contributor'].includes(user.role || 'student'))) {
     return null;
   }
 
@@ -158,7 +158,7 @@ export default function TeacherPortalPage() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-3">
-            👨‍🏫 Teacher Portal
+            👨‍🏫 Contributor Portal
           </h1>
           <p className="text-lg text-slate-600">
             Create and submit verified questions to build PrepGenie's question bank
@@ -168,13 +168,13 @@ export default function TeacherPortalPage() {
         {/* Navigation Tabs */}
         <div className="flex gap-3 mb-8 flex-wrap">
           <Link
-            href="/teacher/submissions"
+            href="/contributor/submissions"
             className="px-6 py-3 rounded-lg font-medium transition-all bg-white text-slate-700 border border-slate-200 hover:border-indigo-400 hover:text-indigo-600"
           >
             📝 My Submissions
           </Link>
           <Link
-            href="/teacher/stats"
+            href="/contributor/stats"
             className="px-6 py-3 rounded-lg font-medium transition-all bg-white text-slate-700 border border-slate-200 hover:border-indigo-400 hover:text-indigo-600"
           >
             📊 Contribution Stats
@@ -209,7 +209,7 @@ export default function TeacherPortalPage() {
                 <button
                   key={exam.id}
                   onClick={() => {
-                    console.log('[Teacher Portal] Exam selected:', exam.id, exam.name);
+                    console.log('[Contributor Portal] Exam selected:', exam.id, exam.name);
                     setSelectedExam(exam.id);
                     setSelectedSubject(null);
                     setSelectedStep('subject');

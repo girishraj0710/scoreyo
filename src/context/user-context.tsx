@@ -12,7 +12,7 @@ interface User {
   exam_preparing_for?: string;
   avatar_color: string;
   created_at: string;
-  role?: 'student' | 'teacher' | 'contributor' | 'admin';
+  role?: 'student' | 'contributor' | 'admin';
 }
 
 interface UserContextType {
@@ -29,7 +29,7 @@ interface UserContextType {
     location?: string,
     phoneNumber?: string,
     examPreparingFor?: string,
-    role?: 'student' | 'teacher' | 'contributor'
+    role?: 'student' | 'contributor'
   ) => Promise<{ success: boolean; needsSignup?: boolean; error?: string }>;
   logout: () => Promise<void>;
   updateProfile: (
@@ -123,7 +123,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
     location?: string,
     phoneNumber?: string,
     examPreparingFor?: string,
-    role?: 'student' | 'teacher' | 'contributor'
+    role?: 'student' | 'contributor'
   ) {
     try {
       const payload = { email, name, age, location, phoneNumber, examPreparingFor, role };

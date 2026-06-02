@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Teacher Portal - PrepGenie",
+  title: "Contributor Portal - PrepGenie",
   description: "Create and submit verified questions to PrepGenie's question bank",
 };
 
-export default function TeacherLayout({
+export default function ContributorLayout({
   children,
 }: {
   children: React.ReactNode;

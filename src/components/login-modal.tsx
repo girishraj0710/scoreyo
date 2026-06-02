@@ -271,7 +271,7 @@ export function LoginModal() {
         // Success - user logged in and role set!
         // Redirect based on selected role
         setTimeout(() => {
-          const urlToVisit = role === 'contributor' ? '/teacher' : '/dashboard';
+          const urlToVisit = role === 'contributor' ? '/contributor' : '/dashboard';
           router.push(urlToVisit);
         }, 100);
       }

@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getTeacherSubmissions } from "@/lib/db";
+import { getContributorSubmissions } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 /**
- * GET /api/teacher/submissions
+ * GET /api/contributor/submissions
  * Get contributor's pending/approved/rejected questions
  * Query params: status (pending/approved/rejected/all - default all), limit (default 50), offset (default 0)
  */
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Fetch submissions
-    const submissions = await getTeacherSubmissions(
+    const submissions = await getContributorSubmissions(
       userId,
       status === "all" ? undefined : (status as "pending" | "approved" | "rejected"),
       limit,
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
       count: submissions?.length || 0,
     });
   } catch (error: any) {
-    console.error("[Teacher Submissions] Error:", error);
+    console.error("[Contributor Submissions] Error:", error);
     return NextResponse.json(
       {
         success: false,

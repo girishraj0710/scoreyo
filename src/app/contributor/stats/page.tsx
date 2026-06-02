@@ -7,7 +7,7 @@ import { TrendingUp, Award } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
 
-interface TeacherStats {
+interface ContributorStats {
   questions_contributed: number;
   contribution_points: number;
   pending_questions: number;
@@ -19,20 +19,20 @@ interface TeacherStats {
 export default function StatsPage() {
   const router = useRouter();
   const { user, isLoading } = useUser();
-  const [stats, setStats] = useState<TeacherStats | null>(null);
+  const [stats, setStats] = useState<ContributorStats | null>(null);
   const [pageLoading, setPageLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Check if user is teacher or contributor
+  // Check if user is contributor or contributor
   useEffect(() => {
-    if (!isLoading && user && !isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student')) {
+    if (!isLoading && user && !isAdmin(user.role, user.email) && !['contributor', 'contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
   }, [user, isLoading, router]);
 
   // Fetch stats
   useEffect(() => {
-    if (!isLoading && user && ['teacher', 'contributor', 'admin'].includes(user.role || 'student')) {
+    if (!isLoading && user && ['contributor', 'contributor', 'admin'].includes(user.role || 'student')) {
       fetchStats();
     }
   }, [isLoading, user]);
@@ -41,7 +41,7 @@ export default function StatsPage() {
     try {
       setPageLoading(true);
       setError(null);
-      const res = await fetch('/api/teacher/stats');
+      const res = await fetch('/api/contributor/stats');
       if (!res.ok) {
         throw new Error('Failed to fetch stats');
       }
@@ -66,7 +66,7 @@ export default function StatsPage() {
     );
   }
 
-  if (!user || (!isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student'))) {
+  if (!user || (!isAdmin(user.role, user.email) && !['contributor', 'contributor'].includes(user.role || 'student'))) {
     return null;
   }
 
@@ -91,7 +91,7 @@ export default function StatsPage() {
             </p>
           </div>
           <Link
-            href="/teacher"
+            href="/contributor"
             className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
           >
             Create Questions

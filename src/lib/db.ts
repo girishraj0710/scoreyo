@@ -701,7 +701,7 @@ export async function updateUserProfile(
 
 // Set user role (for initial role selection or admin changes)
 export async function setUserRole(userId: string, role: string) {
-  if (!['student', 'teacher', 'contributor', 'admin'].includes(role)) {
+  if (!['student', 'contributor', 'admin'].includes(role)) {
     throw new Error(`Invalid role: ${role}`);
   }
   return execute("UPDATE users SET role = $1 WHERE id = $2", [role, userId]);

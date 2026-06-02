@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getUser, getTeacherStats } from "@/lib/db";
+import { getUser, getContributorStats } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 /**
- * GET /api/teacher/stats
+ * GET /api/contributor/stats
  * Get contributor's contribution statistics
  * Returns: questions_contributed, contribution_points, approval_rate, breakdown by status
  */
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Get stats
-    const stats = await getTeacherStats(userId);
+    const stats = await getContributorStats(userId);
 
     return NextResponse.json({
       success: true,
@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error: any) {
-    console.error("[Teacher Stats] Error:", error);
+    console.error("[Contributor Stats] Error:", error);
     return NextResponse.json(
       {
         success: false,

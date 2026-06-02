@@ -37,7 +37,7 @@ export const loginSchema = z.object({
   // Age: accept anything
   age: z.any().optional(),
   location: z.any().optional(),
-  role: z.enum(['student', 'teacher', 'contributor', 'admin']).optional(),
+  role: z.enum(['student', 'contributor', 'admin']).optional(),
 }).passthrough();
 
 export const otpRequestSchema = z.object({

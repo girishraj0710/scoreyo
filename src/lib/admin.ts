@@ -46,15 +46,15 @@ export function isAdmin(userRole?: string, userEmail?: string): boolean {
 export function determineUserRole(
   userEmail: string,
   existingRole?: string | null
-): 'admin' | 'teacher' | 'contributor' | 'student' {
+): 'admin' | 'contributor' | 'student' {
   // Admins stay admin
   if (isAdminEmail(userEmail)) {
     return 'admin';
   }
 
   // Keep existing role if set
-  if (existingRole && ['teacher', 'contributor', 'admin', 'student'].includes(existingRole)) {
-    return existingRole as 'admin' | 'teacher' | 'contributor' | 'student';
+  if (existingRole && ['contributor', 'admin', 'student'].includes(existingRole)) {
+    return existingRole as 'admin' | 'contributor' | 'student';
   }
 
   // Default to student
