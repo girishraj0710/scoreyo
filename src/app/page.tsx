@@ -47,14 +47,59 @@ function HomePageContent() {
       .then((r) => r.json())
       .then((data) => {
         setStats(data);
-        // Get last quiz session for Quick Start
+
+        // Smart Quick Start: Suggest next topic, not the same one
         if (data.recentSessions && data.recentSessions.length > 0) {
-          const recent = data.recentSessions[0];
-          setLastQuiz({
-            examId: recent.exam_id,
-            subjectId: recent.subject_id,
-            topic: recent.topic,
-          });
+          const recentSessions = data.recentSessions;
+
+          // Get last 5 unique topics taken
+          const recentTopics = new Set(
+            recentSessions.slice(0, 5).map((s: any) => `${s.exam_id}:${s.subject_id}:${s.topic}`)
+          );
+
+          // Find a topic from recent sessions that hasn't been practiced in last 5
+          let suggestedQuiz = null;
+
+          for (let i = 0; i < recentSessions.length && i < 10; i++) {
+            const session = recentSessions[i];
+            const topicKey = `${session.exam_id}:${session.subject_id}:${session.topic}`;
+
+            // If this topic appears only once in recent history (not repeated), suggest it
+            const topicCount = recentSessions.slice(0, 5).filter((s: any) =>
+              s.exam_id === session.exam_id &&
+              s.subject_id === session.subject_id &&
+              s.topic === session.topic
+            ).length;
+
+            if (topicCount === 1) {
+              suggestedQuiz = {
+                examId: session.exam_id,
+                subjectId: session.subject_id,
+                topic: session.topic,
+              };
+              break;
+            }
+          }
+
+          // If all topics are repeated, just pick the second most recent (not the immediate last)
+          if (!suggestedQuiz && recentSessions.length >= 2) {
+            const session = recentSessions[1]; // Skip index 0, use index 1
+            suggestedQuiz = {
+              examId: session.exam_id,
+              subjectId: session.subject_id,
+              topic: session.topic,
+            };
+          } else if (!suggestedQuiz && recentSessions.length === 1) {
+            // Only one session ever - suggest same (first-time user)
+            const session = recentSessions[0];
+            suggestedQuiz = {
+              examId: session.exam_id,
+              subjectId: session.subject_id,
+              topic: session.topic,
+            };
+          }
+
+          setLastQuiz(suggestedQuiz);
         }
       })
       .catch(() => {});
@@ -363,10 +408,10 @@ function HomePageContent() {
             <div className="flex items-start justify-between mb-3">
               <div>
                 <div className="text-xs sm:text-sm font-medium text-indigo-100 mb-1">
-                  Continue where you left off
+                  Practice Next Topic
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold">
-                  {getExamById(lastQuiz.examId)?.name || "Last Quiz"}
+                  {getExamById(lastQuiz.examId)?.name || "Suggested Quiz"}
                 </h3>
                 <p className="text-sm text-indigo-100 mt-1">
                   {lastQuiz.subjectId} • {lastQuiz.topic}
