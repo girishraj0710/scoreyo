@@ -172,10 +172,10 @@ export const POST = withValidation(
 
         await pool.query(
           `INSERT INTO users (
-            id, name, email, phone_number, exam_preparing_for,
+            id, name, email, age, location, phone_number, exam_preparing_for,
             avatar_color, role, created_at, updated_at
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`,
-          [userId, name.trim(), cleanEmail, phoneNumber || null, examPreparingFor || null, avatarColor, finalRole]
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`,
+          [userId, name.trim(), cleanEmail, age ? parseInt(age) : null, location || null, phoneNumber || null, examPreparingFor || null, avatarColor, finalRole]
         );
 
         logger.info('New user registered', { userId, email: cleanEmail });
