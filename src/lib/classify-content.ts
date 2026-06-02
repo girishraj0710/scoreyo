@@ -53,6 +53,8 @@ UPSC subjects:
 - subject_id: upsc-economy (Indian Economy)
 - subject_id: upsc-science (Science & Technology)
 - subject_id: upsc-current (Current Affairs & General Studies)
+- subject_id: upsc-gs (General Studies - mixed topics)
+- subject_id: upsc-ethics (Ethics, Integrity & Aptitude)
 
 CAT/Banking/SSC subjects:
 - subject_id: quantitative-aptitude (Quant, Math, Data Interpretation)
