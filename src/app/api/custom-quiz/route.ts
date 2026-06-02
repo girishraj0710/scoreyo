@@ -273,52 +273,73 @@ Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON ar
     const pendingQuestionIds: string[] = [];
 
     try {
-      for (const question of questions) {
+      console.log('[Custom Quiz] Attempting to store', questions.length, 'questions...');
+
+      for (let i = 0; i < questions.length; i++) {
+        const question = questions[i];
         const questionId = `pending-${Date.now()}-${Math.random().toString(36).substring(7)}`;
 
-        // Calculate quality score
-        const qualityScore = calculateQualityScore(question);
+        try {
+          // Calculate quality score
+          const qualityScore = calculateQualityScore(question);
 
-        // Check for duplicates
-        const isDuplicate = await checkDuplicate(question.question, queryAll);
+          // Check for duplicates
+          const isDuplicate = await checkDuplicate(question.question, queryAll);
 
-        // Store in pending_questions
-        await execute(
-          `INSERT INTO pending_questions (
-            id, user_id, source_type, source_file, content_preview,
-            detected_exam_id, detected_subject_id, detected_topics,
-            classification_confidence,
-            question, options, correct_answer, explanation, trap_alerts, difficulty,
-            quality_score, duplicate_check_passed, status
-          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
+          console.log(`[Custom Quiz] Storing question ${i + 1}/${questions.length}, ID: ${questionId}`);
+
+          // Store in pending_questions
+          await execute(
+            `INSERT INTO pending_questions (
+              id, user_id, source_type, source_file, content_preview,
+              detected_exam_id, detected_subject_id, detected_topics,
+              classification_confidence,
+              question, options, correct_answer, explanation, trap_alerts, difficulty,
+              quality_score, duplicate_check_passed, status
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+              questionId,
+              userId,
+              file ? 'custom-upload' : 'custom-paste',
+              file?.name || null,
+              extractedText.slice(0, 500),
+              classification.examId,
+              classification.subjectId,
+              JSON.stringify(classification.topics),
+              classification.confidence,
+              question.question,
+              JSON.stringify(question.options),
+              question.correctAnswer,
+              question.explanation,
+              JSON.stringify(question.trapAlerts),
+              question.difficulty,
+              qualityScore,
+              isDuplicate ? false : true,
+              'pending'
+            ]
+          );
+
+          pendingQuestionIds.push(questionId);
+          console.log(`[Custom Quiz] ✓ Stored question ${i + 1}`);
+        } catch (questionError: any) {
+          console.error(`[Custom Quiz] Failed to store question ${i + 1}:`, {
+            error: questionError.message,
+            code: questionError.code,
+            detail: questionError.detail,
             questionId,
-            userId,
-            file ? 'custom-upload' : 'custom-paste',
-            file?.name || null,
-            extractedText.slice(0, 500),
-            classification.examId,
-            classification.subjectId,
-            JSON.stringify(classification.topics),
-            classification.confidence,
-            question.question,
-            JSON.stringify(question.options),
-            question.correctAnswer,
-            question.explanation,
-            JSON.stringify(question.trapAlerts),
-            question.difficulty,
-            qualityScore,
-            isDuplicate ? 0 : 1,
-            'pending'
-          ]
-        );
-
-        pendingQuestionIds.push(questionId);
+          });
+          // Continue with next question even if one fails
+        }
       }
 
-      console.log('[Custom Quiz] Stored', questions.length, 'questions for review');
-    } catch (storageError) {
-      console.error('[Custom Quiz] Failed to store questions:', storageError);
+      console.log('[Custom Quiz] Successfully stored', pendingQuestionIds.length, 'of', questions.length, 'questions');
+    } catch (storageError: any) {
+      console.error('[Custom Quiz] Storage error:', {
+        message: storageError.message,
+        code: storageError.code,
+        detail: storageError.detail,
+        stack: storageError.stack,
+      });
       // Continue even if storage fails - user still gets their quiz
     }
 
