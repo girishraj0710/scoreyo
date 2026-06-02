@@ -45,6 +45,7 @@ export function proxy(request: NextRequest) {
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
     "/api/admin/migrate", // Admin endpoint for database migrations
+    "/api/admin/pending-questions", // Admin endpoint for question review
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
