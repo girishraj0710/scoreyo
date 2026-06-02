@@ -133,12 +133,11 @@ export function AIClarificationChat({
                   : 'bg-white border border-blue-200 mr-8'
               }`}
             >
-              <div className="flex items-start gap-2">
-                {msg.type === 'ai' && <span className="text-xs font-semibold text-blue-700 shrink-0">PrepGenie AI:</span>}
-                <div className="flex-1 text-sm leading-relaxed text-slate-700 whitespace-pre-wrap">
-                  {msg.text}
-                </div>
-                {msg.type === 'user' && <span className="text-xs font-semibold text-slate-600 shrink-0">You:</span>}
+              <div className="text-xs font-semibold mb-1 ${msg.type === 'ai' ? 'text-blue-700' : 'text-slate-600'}">
+                {msg.type === 'ai' ? 'PrepGenie AI:' : 'You:'}
+              </div>
+              <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-wrap">
+                {msg.text}
               </div>
             </div>
           ))}

@@ -1445,8 +1445,9 @@ function QuizContent() {
           className="hidden xl:block fixed w-96 overflow-y-auto"
           style={{
             right: '1rem',
-            top: '14rem', // Adjusted to align with question card (header + back + quiz header + margin)
-            maxHeight: 'calc(100vh - 14rem)',
+            top: '14rem',
+            bottom: '2rem', // Add bottom spacing to prevent footer overlap
+            maxHeight: 'calc(100vh - 16rem)', // Account for top + bottom spacing
           }}
         >
           <AIClarificationChat
