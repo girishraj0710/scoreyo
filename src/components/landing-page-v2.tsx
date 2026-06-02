@@ -592,7 +592,7 @@ export function LandingPageV2() {
               </h3>
               <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
                 Understand the WHY behind every answer. Get step-by-step breakdowns, trap alerts, formulas, and common
-                mistakes highlighted for each question. Never waste time wondering why you got it wrong—our detailed explanations show you the logic behind correct answers and help you avoid traps that confuse most students. Master concepts faster with clarity that traditional textbooks can't match.
+                mistakes highlighted for each question. Never waste time wondering why you got it wrong—our detailed explanations show you the logic behind correct answers and help you avoid traps that confuse most students.
               </p>
             </div>
           </div>
@@ -675,7 +675,7 @@ export function LandingPageV2() {
               </h3>
               <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
                 Stuck at 2 AM? Ask our AI tutor anything, anytime. Get instant clarifications in simple language—English
-                or Hindi. No more waiting for teachers or WhatsApp groups to respond—our AI understands your exact question and explains concepts in a way that clicks instantly. It's like having a patient tutor available 24/7 who never gets tired of your questions.
+                or Hindi. No more waiting for teachers or WhatsApp groups to respond—our AI understands your exact question and explains concepts in a way that clicks instantly.
               </p>
             </div>
           </div>
