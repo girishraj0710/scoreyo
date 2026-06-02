@@ -50,6 +50,7 @@ export function proxy(request: NextRequest) {
     "/api/admin/debug-pending", // Admin endpoint for debugging pending questions
     "/api/admin/check-dimensions", // Admin endpoint to check dimension tables
     "/api/admin/migrate-roles", // Admin endpoint to add user roles
+    "/api/user/select-role", // User endpoint for role selection
   ];
 
   if (csrfExemptPaths.some((path) => pathname.startsWith(path))) {
