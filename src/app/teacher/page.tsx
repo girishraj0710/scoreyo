@@ -6,6 +6,7 @@ import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
 import { ArrowRight, BookOpen, Zap, BarChart3 } from "lucide-react";
 import Link from "next/link";
+import { isAdmin } from "@/lib/admin";
 
 export default function TeacherPortalPage() {
   const router = useRouter();
@@ -23,9 +24,9 @@ export default function TeacherPortalPage() {
   const [dragActive, setDragActive] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
 
-  // Check if user is teacher or contributor
+  // Check if user is teacher or contributor or admin
   useEffect(() => {
-    if (!isLoading && user && !['teacher', 'contributor', 'admin'].includes(user.role || 'student')) {
+    if (!isLoading && user && !isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
   }, [user, isLoading, router]);
@@ -41,7 +42,7 @@ export default function TeacherPortalPage() {
     );
   }
 
-  if (!user || !['teacher', 'contributor', 'admin'].includes(user.role || 'student')) {
+  if (!user || (!isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student'))) {
     return null;
   }
 

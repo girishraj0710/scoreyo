@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { TrendingUp, Award } from "lucide-react";
 import Link from "next/link";
+import { isAdmin } from "@/lib/admin";
 
 interface TeacherStats {
   questions_contributed: number;
@@ -24,7 +25,7 @@ export default function StatsPage() {
 
   // Check if user is teacher or contributor
   useEffect(() => {
-    if (!isLoading && user && !['teacher', 'contributor', 'admin'].includes(user.role || 'student')) {
+    if (!isLoading && user && !isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
   }, [user, isLoading, router]);
@@ -65,7 +66,7 @@ export default function StatsPage() {
     );
   }
 
-  if (!user || !['teacher', 'contributor', 'admin'].includes(user.role || 'student')) {
+  if (!user || (!isAdmin(user.role, user.email) && !['teacher', 'contributor'].includes(user.role || 'student'))) {
     return null;
   }
 

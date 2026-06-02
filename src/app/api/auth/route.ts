@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getUser, getUserByEmail, createNewUser, listUsers, updateUserProfile, isOtpVerified } from "@/lib/db";
+import { getUser, getUserByEmail, createNewUser, listUsers, updateUserProfile, isOtpVerified, setUserRole } from "@/lib/db";
 import { v4 as uuidv4 } from "uuid";
 import { generateCsrfToken, CSRF_COOKIE_NAME } from "@/lib/csrf";
 import { isEmergencyAuthMode, checkUserExistsInCache, cacheUserExists } from "@/lib/user-cache";
 import { verifyOTPFromCache } from "@/lib/otp-cache";
 import { getRedis } from "@/lib/redis";
 import { POST as securePOST, PATCH as securePATCH } from "./route-secure";
+import { isAdminEmail, determineUserRole } from "@/lib/admin";
 
 const COOKIE_NAME = "prepgenie-user-id";
 const AVATAR_COLORS = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#14b8a6"];
@@ -98,6 +99,13 @@ export async function POST(request: NextRequest) {
 
     if (user) {
       // Existing user — log them in
+      // Auto-promote admin emails if they don't have admin role yet
+      if (isAdminEmail(cleanEmail) && user.role !== 'admin') {
+        console.log(`[Auth] Auto-promoting ${cleanEmail} to admin role`);
+        await setUserRole(user.id, 'admin');
+        user.role = 'admin';
+      }
+
       const csrfToken = generateCsrfToken();
 
       const response = NextResponse.json({
@@ -146,6 +154,9 @@ export async function POST(request: NextRequest) {
     const id = uuidv4();
     const avatarColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
 
+    // Determine appropriate role (admin email gets admin role, otherwise use provided role or default)
+    const finalRole = isAdminEmail(cleanEmail) ? 'admin' : (role || 'student');
+
     if (emergencyMode) {
       console.log('[Auth] 🚨 Emergency mode - creating user in Redis cache only');
       // In emergency mode, store user in Redis (we'll sync to database after migration)
@@ -158,7 +169,7 @@ export async function POST(request: NextRequest) {
         phone_number: phoneNumber?.trim() || "",
         exam_preparing_for: examPreparingFor?.trim() || "",
         avatar_color: avatarColor,
-        role: role || "student",
+        role: finalRole,
         subscription_status: 'free',
         subscription_expires_at: null,
         created_at: new Date().toISOString(),
@@ -182,7 +193,7 @@ export async function POST(request: NextRequest) {
         phoneNumber?.trim() || "",
         examPreparingFor?.trim() || "",
         avatarColor,
-        role || "student"
+        finalRole
       );
       user = await getUser(id);
     }

@@ -7,6 +7,7 @@ import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
+import { isAdmin } from "@/lib/admin";
 
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
@@ -219,8 +220,8 @@ export function AppHeader() {
                       </>
                     )}
                   </div>
-                  {/* Admin Links (if admin email) */}
-                  {(user.email === "girish.raj0710@gmail.com" || user.email === "grgowda07.1992@gmail.com") && (
+                  {/* Admin Links (if admin role) */}
+                  {isAdmin(user.role, user.email) && (
                     <div className="border-b border-slate-100">
                       <Link
                         href="/admin"

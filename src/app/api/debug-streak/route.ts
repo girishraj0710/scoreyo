@@ -16,28 +16,52 @@ export async function GET(request: NextRequest) {
   try {
     // Get recent sessions
     const recentSessions = await queryAll(
-      "SELECT id, created_at, exam_id, total_questions FROM quiz_sessions WHERE user_id = ? ORDER BY created_at DESC LIMIT 20",
+      "SELECT id, created_at, exam_id, total_questions FROM quiz_sessions WHERE user_id = $1 ORDER BY created_at DESC LIMIT 20",
       [userId]
     );
 
     // Get unique days
     const uniqueDays = await queryAll(
-      "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = ? ORDER BY day DESC",
+      "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1 ORDER BY day DESC",
       [userId]
     );
 
     // Get count
     const count = await queryOne(
-      "SELECT COUNT(*) as total FROM quiz_sessions WHERE user_id = ?",
+      "SELECT COUNT(*) as total FROM quiz_sessions WHERE user_id = $1",
       [userId]
     );
 
     // Check today's sessions
     const today = new Date().toISOString().split("T")[0];
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+
     const todaySessions = await queryAll(
-      "SELECT * FROM quiz_sessions WHERE user_id = ? AND DATE(created_at) = ?",
+      "SELECT * FROM quiz_sessions WHERE user_id = $1 AND DATE(created_at) = $2",
       [userId, today]
     );
+
+    // Debug streak calculation
+    let streakDebug = {
+      today,
+      yesterday,
+      lastDayRaw: null,
+      lastDayNormalized: null,
+      matchesToday: false,
+      matchesYesterday: false,
+    };
+
+    if (uniqueDays.length > 0) {
+      const lastDayRaw = uniqueDays[0].day;
+      const lastDay = typeof lastDayRaw === 'string'
+        ? lastDayRaw.split("T")[0]
+        : lastDayRaw;
+
+      streakDebug.lastDayRaw = lastDayRaw;
+      streakDebug.lastDayNormalized = lastDay;
+      streakDebug.matchesToday = lastDay === today;
+      streakDebug.matchesYesterday = lastDay === yesterday;
+    }
 
     return NextResponse.json({
       userId,
@@ -51,6 +75,7 @@ export async function GET(request: NextRequest) {
       uniqueDays: uniqueDays.map(d => d.day),
       todaySessions: todaySessions.length,
       today: today,
+      streakDebug,
     });
   } catch (error) {
     console.error("[Debug Streak] Error:", error);
