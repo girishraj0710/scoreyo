@@ -285,6 +285,31 @@ function QuizContent() {
       try {
         setIsLoading(true);
 
+        // Custom mode: Load from sessionStorage
+        if (mode === "custom") {
+          const customQuizJson = sessionStorage.getItem('customQuiz');
+          if (!customQuizJson) {
+            throw new Error("No custom quiz found. Please generate a quiz first.");
+          }
+
+          const customQuestions = JSON.parse(customQuizJson);
+          setQuizData({
+            sessionId: `custom-${Date.now()}`,
+            examId: "custom",
+            subjectId: "custom",
+            topic: "Custom Quiz",
+            examName: "Custom Quiz",
+            subjectName: "Your Material",
+            questions: customQuestions,
+          });
+          setAnswers(new Array(customQuestions.length).fill(null));
+          setIsLoading(false);
+
+          // Clear sessionStorage after loading
+          sessionStorage.removeItem('customQuiz');
+          return;
+        }
+
         // Sprint mode: Load from sprint data
         if (isSprintMode && sprintId) {
           const sprintRes = await fetch("/api/sprint");
@@ -363,7 +388,7 @@ function QuizContent() {
       }
     }
     loadQuiz();
-  }, [examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber, isSprintMode, sprintId]);
+  }, [mode, examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber, isSprintMode, sprintId]);
 
   // Scroll to top when results are shown
   useEffect(() => {
@@ -444,6 +469,30 @@ function QuizContent() {
     if (!quizData) return;
     setIsSubmitting(true);
     try {
+      // Custom mode: Calculate results locally, don't save to database
+      if (mode === "custom") {
+        const correctAnswers = quizData.questions.filter(
+          (q, i) => answers[i] === q.correctAnswer
+        ).length;
+        const totalQuestions = quizData.questions.length;
+        const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
+
+        const localResults = {
+          correctAnswers,
+          totalQuestions,
+          accuracy,
+          timeTaken: timeElapsed,
+          newBadges: [],
+          isCustomQuiz: true, // Flag to identify custom quiz results
+        };
+
+        setResults(localResults);
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Normal mode: Submit to API
       const res = await fetch("/api/quiz", {
         method: "PUT",
         headers: getHeadersWithCsrf(),
