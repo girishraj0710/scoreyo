@@ -73,13 +73,9 @@ export async function POST(request: NextRequest) {
           // Use cached result
           existingUser = cachedExists ? { email: cleanEmail } : null;
         } else {
-          // Cache miss - try database (will fail during Turso block)
-          try {
-            existingUser = await getUserByEmail(cleanEmail);
-          } catch (dbError) {
-            console.error('[OTP] Database check failed (Turso blocked?), allowing OTP:', dbError);
-            // If DB fails, allow the OTP - we'll handle user creation in auth/route.ts
-          }
+          // Cache miss - query database
+          existingUser = await getUserByEmail(cleanEmail);
+          console.log('[OTP] Database check result:', { email: cleanEmail, exists: !!existingUser });
         }
 
         // If action is "signup" and user exists, return error
