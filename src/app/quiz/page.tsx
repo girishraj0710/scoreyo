@@ -1380,7 +1380,7 @@ function QuizContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={nextQuestion}
-              className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-[#4255FF] to-purple-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all"
+              className="px-6 py-3 text-sm font-bold bg-[#4255FF] text-white rounded-lg shadow-md hover:shadow-lg hover:bg-[#3244EE] transition-all"
             >
               Next Question →
             </motion.button>
