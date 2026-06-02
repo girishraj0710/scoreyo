@@ -510,17 +510,6 @@ export function LandingPageV2() {
                       onMouseLeave={(e) => {
                         e.currentTarget.style.transform = 'translateY(0) scale(1)';
                       }}
-                      style={{
-                        minHeight: '360px',
-                        transform: 'translateY(0) scale(1)',
-                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                      }}
                     >
                       <div className={`${mode.headerColor} h-52 flex items-center justify-center relative overflow-hidden pt-4`}>
                         <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
