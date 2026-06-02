@@ -47,7 +47,7 @@ export function LandingPageV2() {
   const carouselTrackRef = useRef<HTMLDivElement>(null);
   const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set());
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [featureOffsets, setFeatureOffsets] = useState<number[]>([0, 0, 0, 0]);
+  const [scrollY, setScrollY] = useState(0);
   const [reviewsPage, setReviewsPage] = useState(0);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
@@ -123,7 +123,17 @@ export function LandingPageV2() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Intersection Observer for scroll animations + parallax offset tracking
+  // Scroll tracking for parallax
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -144,31 +154,6 @@ export function LandingPageV2() {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  // Calculate parallax offsets for each feature based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const newOffsets = featureRefs.current.map((ref) => {
-        if (!ref) return 0;
-        const rect = ref.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-
-        // Calculate how far the element has scrolled into view
-        // When element is below viewport: rect.top > viewportHeight (offset = 0)
-        // When element is at bottom of viewport: rect.top = viewportHeight (offset starts)
-        // When element is at top of viewport: rect.top = 0 (offset = max)
-        const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / viewportHeight));
-
-        // Apply parallax: 0px when entering, up to -45px when scrolled
-        return scrollProgress * -45;
-      });
-      setFeatureOffsets(newOffsets);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial calculation
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Handle infinite loop seamlessly with cloned cards (4-card layout)
@@ -581,7 +566,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-indigo-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(0) ? `translateY(${featureOffsets[0]}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(0) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
                   transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -621,7 +606,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(1) ? `translateY(${featureOffsets[1]}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(1) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
                   transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -662,7 +647,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(2) ? `translateY(${featureOffsets[2]}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(2) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
                   transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
                 }}
@@ -702,7 +687,7 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(3) ? `translateY(${featureOffsets[3]}px)` : 'translateY(0px)',
+                  transform: visibleFeatures.has(3) ? `translateY(${Math.max(scrollY * -0.035, -35)}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
                   transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
                 }}
