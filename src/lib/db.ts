@@ -1203,11 +1203,16 @@ export async function getUserStats(userId: string) {
   console.log(`[getUserStats] Today: ${todayDate}, Yesterday: ${yesterday}`);
 
   if (streakData.length > 0) {
-    // Normalize the date from DB (might include timestamp)
+    // Normalize the date from DB (PostgreSQL returns Date objects or ISO strings)
     const lastDayRaw = streakData[0].day;
-    const lastDay = typeof lastDayRaw === 'string'
-      ? lastDayRaw.split("T")[0]
-      : lastDayRaw;
+
+    // Always convert to string and extract YYYY-MM-DD
+    let lastDay: string;
+    if (lastDayRaw instanceof Date) {
+      lastDay = lastDayRaw.toISOString().split("T")[0];
+    } else {
+      lastDay = String(lastDayRaw).split("T")[0];
+    }
 
     console.log(`[getUserStats] Last study day (raw): ${lastDayRaw}, normalized: ${lastDay}`);
     console.log(`[getUserStats] Checking: ${lastDay} === ${todayDate}? ${lastDay === todayDate}`);
@@ -1219,13 +1224,13 @@ export async function getUserStats(userId: string) {
         const currentRaw = streakData[i - 1].day;
         const prevRaw = streakData[i].day;
 
-        // Normalize dates before comparison
-        const currentDay = typeof currentRaw === 'string'
-          ? currentRaw.split("T")[0]
-          : currentRaw;
-        const prevDay = typeof prevRaw === 'string'
-          ? prevRaw.split("T")[0]
-          : prevRaw;
+        // Always convert to string and extract YYYY-MM-DD
+        const currentDay = (currentRaw instanceof Date)
+          ? currentRaw.toISOString().split("T")[0]
+          : String(currentRaw).split("T")[0];
+        const prevDay = (prevRaw instanceof Date)
+          ? prevRaw.toISOString().split("T")[0]
+          : String(prevRaw).split("T")[0];
 
         const current = new Date(currentDay);
         const prev = new Date(prevDay);
@@ -1251,16 +1256,16 @@ export async function getUserStats(userId: string) {
     bestStreak = 1;
 
     for (let i = streakData.length - 1; i > 0; i--) {
-      // Normalize dates before comparison
+      // Always convert to string and extract YYYY-MM-DD
       const currentRaw = streakData[i].day;
       const prevRaw = streakData[i - 1].day;
 
-      const currentDay = typeof currentRaw === 'string'
-        ? currentRaw.split("T")[0]
-        : currentRaw;
-      const prevDay = typeof prevRaw === 'string'
-        ? prevRaw.split("T")[0]
-        : prevRaw;
+      const currentDay = (currentRaw instanceof Date)
+        ? currentRaw.toISOString().split("T")[0]
+        : String(currentRaw).split("T")[0];
+      const prevDay = (prevRaw instanceof Date)
+        ? prevRaw.toISOString().split("T")[0]
+        : String(prevRaw).split("T")[0];
 
       const current = new Date(currentDay);
       const prev = new Date(prevDay);

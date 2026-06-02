@@ -39,9 +39,11 @@ export async function GET(request: NextRequest) {
     // Normalize to YYYY-MM-DD format for consistent comparison
     const uniqueDates = new Set(
       sessions.map((s) => {
-        // s.date might be "2026-06-02" or "2026-06-02T00:00:00.000Z"
-        const dateStr = typeof s.date === 'string' ? s.date : s.date.toISOString();
-        return dateStr.split("T")[0]; // Always get YYYY-MM-DD
+        // PostgreSQL returns Date objects or ISO strings
+        if (s.date instanceof Date) {
+          return s.date.toISOString().split("T")[0];
+        }
+        return String(s.date).split("T")[0];
       })
     );
     const totalDays = uniqueDates.size;
