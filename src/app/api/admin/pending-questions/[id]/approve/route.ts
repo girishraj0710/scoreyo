@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
  */
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const adminId = request.cookies.get("prepgenie-user-id")?.value;
@@ -20,7 +20,7 @@ export async function POST(
       );
     }
 
-    const id = params.id;
+    const { id } = await params;
 
     // Get pending question
     const pending = await queryOne(
