@@ -182,6 +182,8 @@ export async function POST(request: NextRequest) {
     // Generate questions using AI
     const prompt = `You are an expert educator creating practice questions from study material.
 
+IMPORTANT: The material may contain LaTeX equations (\\omega, \\vec{}, etc.) and mathematical symbols. Read them as math notation.
+
 STUDY MATERIAL:
 ${extractedText.slice(0, 15000)}
 
@@ -195,10 +197,11 @@ REQUIREMENTS:
    - 30% Conceptual understanding (why, how)
    - 30% Application (scenarios, examples)
 3. Each question has exactly 4 options (A, B, C, D)
-4. Include detailed explanation for correct answer
-5. Add trap alerts explaining why wrong answers are tempting
+4. Write questions in plain text (avoid complex LaTeX in questions)
+5. Include detailed explanation for correct answer
+6. Add trap alerts explaining why wrong answers are tempting
 
-OUTPUT FORMAT - Return ONLY valid JSON array, no markdown:
+OUTPUT FORMAT - Return ONLY valid JSON array, no markdown or code blocks:
 [
   {
     "question": "Question text here",
@@ -217,20 +220,27 @@ Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON ar
     let questions: QuizQuestion[];
 
     try {
+      console.log('[Custom Quiz] Calling AI with prompt length:', prompt.length);
+
       const { text } = await generateText({
-        model: openrouter("google/gemini-2.0-flash-exp:free"),
+        model: openrouter("openai/gpt-4o-mini"), // More reliable than free Gemini
         prompt,
         maxOutputTokens: 4000,
         temperature: 0.7,
       });
 
+      console.log('[Custom Quiz] AI response received, length:', text.length);
+      console.log('[Custom Quiz] First 200 chars:', text.substring(0, 200));
+
       // Parse JSON response
       const jsonMatch = text.match(/\[[\s\S]*\]/);
       if (!jsonMatch) {
+        console.error('[Custom Quiz] No JSON found in response:', text.substring(0, 500));
         throw new Error('No JSON array found in response');
       }
 
       questions = JSON.parse(jsonMatch[0]);
+      console.log('[Custom Quiz] Parsed questions count:', questions.length);
 
       // Validate questions
       if (!Array.isArray(questions) || questions.length === 0) {
@@ -242,9 +252,10 @@ Generate exactly ${numQuestions} high-quality questions. Return ONLY the JSON ar
 
     } catch (aiError) {
       console.error('[Custom Quiz] AI generation error:', aiError);
+      console.error('[Custom Quiz] Error stack:', aiError instanceof Error ? aiError.stack : 'No stack');
       return NextResponse.json(
         {
-          error: "Failed to generate questions from your material. Please try again or upload different content.",
+          error: "Failed to generate questions from your material. The content might be too complex or contain formatting that the AI cannot process. Try simplifying the text or removing special characters/equations.",
           details: aiError instanceof Error ? aiError.message : 'AI generation failed'
         },
         { status: 500 }
