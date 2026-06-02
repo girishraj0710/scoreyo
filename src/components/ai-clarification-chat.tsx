@@ -102,10 +102,9 @@ export function AIClarificationChat({
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-200 text-purple-700 rounded-xl hover:from-purple-100 hover:to-indigo-100 transition-all font-medium text-sm"
+        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-50 to-sky-50 border-2 border-blue-200 text-blue-700 rounded-xl hover:from-blue-100 hover:to-sky-100 transition-all font-medium text-sm"
       >
-        <span className="text-lg">🤖</span>
-        <span>Still confused? Ask AI for help</span>
+        <span>Still confused? Ask PrepGenie AI for help</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>
@@ -114,11 +113,10 @@ export function AIClarificationChat({
   }
 
   return (
-    <div className="p-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl border-2 border-purple-200">
+    <div className="p-4 bg-gradient-to-br from-blue-50 to-sky-50 rounded-xl border-2 border-blue-200">
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-2xl">🤖</span>
         <div>
-          <div className="text-sm font-semibold text-purple-900">Ask AI Tutor</div>
+          <div className="text-sm font-semibold text-blue-900">PrepGenie AI</div>
           <div className="text-xs text-slate-500">Get instant clarification</div>
         </div>
       </div>
@@ -131,16 +129,16 @@ export function AIClarificationChat({
               key={idx}
               className={`p-3 rounded-lg ${
                 msg.type === 'user'
-                  ? 'bg-purple-100 border border-purple-200 ml-8'
-                  : 'bg-white border border-purple-200 mr-8'
+                  ? 'bg-blue-100 border border-blue-200 ml-8'
+                  : 'bg-white border border-blue-200 mr-8'
               }`}
             >
               <div className="flex items-start gap-2">
-                {msg.type === 'ai' && <span className="text-lg shrink-0">🤖</span>}
+                {msg.type === 'ai' && <span className="text-xs font-semibold text-blue-700 shrink-0">PrepGenie AI:</span>}
                 <div className="flex-1 text-sm leading-relaxed text-slate-700 whitespace-pre-wrap">
                   {msg.text}
                 </div>
-                {msg.type === 'user' && <span className="text-lg shrink-0">👤</span>}
+                {msg.type === 'user' && <span className="text-xs font-semibold text-slate-600 shrink-0">You:</span>}
               </div>
             </div>
           ))}
@@ -154,7 +152,7 @@ export function AIClarificationChat({
             <button
               key={i}
               onClick={() => handleQuickQuestion(q)}
-              className="text-xs px-3 py-1.5 bg-white text-purple-700 rounded-full border border-purple-200 hover:bg-purple-100 transition-colors"
+              className="text-xs px-3 py-1.5 bg-white text-blue-700 rounded-full border border-blue-200 hover:bg-blue-100 transition-colors"
             >
               {q}
             </button>
@@ -164,8 +162,8 @@ export function AIClarificationChat({
 
       {/* Loading */}
       {isLoading && (
-        <div className="flex items-center gap-2 text-purple-700 text-sm py-4">
-          <div className="animate-spin h-4 w-4 border-2 border-purple-600 border-t-transparent rounded-full"></div>
+        <div className="flex items-center gap-2 text-blue-700 text-sm py-4">
+          <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
           <span>Thinking...</span>
         </div>
       )}
@@ -178,13 +176,13 @@ export function AIClarificationChat({
           onChange={(e) => setUserQuestion(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && handleAsk()}
           placeholder="Type your question here..."
-          className="flex-1 px-3 py-2 border border-purple-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="flex-1 px-3 py-2 border border-blue-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           disabled={isLoading}
         />
         <button
           onClick={handleAsk}
           disabled={!userQuestion.trim() || isLoading}
-          className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 text-sm font-medium"
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 text-sm font-medium"
         >
           Ask
         </button>
@@ -192,20 +190,20 @@ export function AIClarificationChat({
 
       {/* Feedback - Only show after last AI message */}
       {messages.length > 0 && messages[messages.length - 1].type === 'ai' && !hasRated && !isLoading && (
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-purple-200">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-blue-200">
           <span className="text-xs text-slate-500">Was this helpful?</span>
           <div className="flex gap-2">
             <button
               onClick={() => handleRate(true)}
               className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition-colors"
             >
-              👍 Yes
+              Yes
             </button>
             <button
               onClick={() => handleRate(false)}
               className="px-3 py-1 text-xs bg-red-100 text-red-700 rounded-full hover:bg-red-200 transition-colors"
             >
-              👎 No
+              No
             </button>
           </div>
         </div>
@@ -213,14 +211,14 @@ export function AIClarificationChat({
 
       {hasRated && (
         <div className="text-xs text-slate-500 text-center mt-2">
-          Thanks for your feedback! 🙏
+          Thanks for your feedback!
         </div>
       )}
 
       {/* Close */}
       <button
         onClick={() => setIsOpen(false)}
-        className="mt-3 w-full text-xs text-slate-500 hover:text-purple-800"
+        className="mt-3 w-full text-xs text-slate-500 hover:text-blue-800"
       >
         Close
       </button>
