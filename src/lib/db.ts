@@ -1226,6 +1226,14 @@ export async function getUserStats(userId: string) {
     [userId]
   );
 
+  // Get contributor stats
+  const contributorStats = await queryOne(
+    `SELECT COALESCE(questions_contributed, 0) as questions_contributed,
+            COALESCE(contribution_points, 0) as contribution_points
+     FROM users WHERE id = $1`,
+    [userId]
+  );
+
   return {
     totalSessions: (totalSessions?.count as number) || 0,
     totalQuestions: (totalQuestions?.total as number) || 0,
@@ -1239,6 +1247,8 @@ export async function getUserStats(userId: string) {
     questionsToday: (questionsToday?.total as number) || 0,
     personalBest: (personalBest?.best as number) || 0,
     examBreakdown,
+    questionsContributed: (contributorStats?.questions_contributed as number) || 0,
+    contributionPoints: (contributorStats?.contribution_points as number) || 0,
   };
 }
 
