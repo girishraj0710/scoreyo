@@ -120,9 +120,10 @@ export async function POST(
     );
 
     if (!topicDim) {
-      // Create new topic
+      // Create new topic - use ON CONFLICT to handle race conditions and sequence issues
       await execute(
-        `INSERT INTO dim_topics (topic_name, category, scope) VALUES ($1, $2, $3)`,
+        `INSERT INTO dim_topics (topic_name, category, scope) VALUES ($1, $2, $3)
+         ON CONFLICT (topic_name) DO NOTHING`,
         [firstTopic, "general", "universal"]
       );
       topicDim = await queryOne(
@@ -130,22 +131,29 @@ export async function POST(
         [firstTopic]
       );
 
-      // Create bridge entry
-      await execute(
-        `INSERT INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id)
-         VALUES ($1, $2, $3)
-         ON CONFLICT DO NOTHING`,
-        [examDim.id, subjectDim.id, topicDim.id]
-      );
-    } else {
-      // Ensure bridge entry exists
-      await execute(
-        `INSERT INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id)
-         VALUES ($1, $2, $3)
-         ON CONFLICT DO NOTHING`,
-        [examDim.id, subjectDim.id, topicDim.id]
-      );
+      if (!topicDim) {
+        // If still null, the topic_name might not have a unique constraint - try fetching by ILIKE
+        topicDim = await queryOne(
+          `SELECT id FROM dim_topics WHERE LOWER(topic_name) = LOWER($1) LIMIT 1`,
+          [firstTopic]
+        );
+      }
+
+      if (!topicDim) {
+        return NextResponse.json(
+          { error: `Failed to create topic '${firstTopic}' in dim_topics. Please check dim_topics sequence.` },
+          { status: 500 }
+        );
+      }
     }
+
+    // Ensure bridge entry exists
+    await execute(
+      `INSERT INTO bridge_exam_subject_topic (exam_id, subject_id, topic_id)
+       VALUES ($1, $2, $3)
+       ON CONFLICT DO NOTHING`,
+      [examDim.id, subjectDim.id, topicDim.id]
+    );
 
     // Insert into fact_exam_questions
     const currentYear = new Date().getFullYear();

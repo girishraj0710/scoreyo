@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * POST /api/admin/fix-sequence
- * Fix PostgreSQL auto-increment sequence for fact_exam_questions
+ * Fix PostgreSQL auto-increment sequences for all tables
  */
 export async function POST(request: NextRequest) {
   try {
@@ -24,39 +24,52 @@ export async function POST(request: NextRequest) {
     const client = await pool.connect();
 
     try {
-      console.log('[Fix Sequence] Getting max ID from fact_exam_questions...');
+      const results: Record<string, any> = {};
 
-      // Get the current max ID
-      const maxIdResult = await client.query(
-        `SELECT MAX(id) as max_id FROM fact_exam_questions`
-      );
-      const maxId = maxIdResult.rows[0]?.max_id || 0;
+      // Fix all known sequences
+      const sequences = [
+        { table: 'fact_exam_questions', column: 'id', sequence: 'fact_exam_questions_id_seq' },
+        { table: 'dim_topics', column: 'id', sequence: 'dim_topics_id_seq' },
+        { table: 'dim_exams', column: 'id', sequence: 'dim_exams_id_seq' },
+        { table: 'dim_subjects', column: 'id', sequence: 'dim_subjects_id_seq' },
+        { table: 'bridge_exam_subject_topic', column: 'id', sequence: 'bridge_exam_subject_topic_id_seq' },
+      ];
 
-      console.log('[Fix Sequence] Current max ID:', maxId);
+      for (const seq of sequences) {
+        try {
+          // Get the current max ID
+          const maxIdResult = await client.query(
+            `SELECT COALESCE(MAX(${seq.column}), 0) as max_id FROM ${seq.table}`
+          );
+          const maxId = maxIdResult.rows[0]?.max_id || 0;
 
-      // Reset the sequence to max_id + 1
-      const setvalResult = await client.query(
-        `SELECT setval('fact_exam_questions_id_seq', $1, true)`,
-        [maxId]
-      );
+          // Reset the sequence
+          await client.query(
+            `SELECT setval('${seq.sequence}', $1, true)`,
+            [maxId]
+          );
 
-      console.log('[Fix Sequence] Sequence reset to:', maxId + 1);
+          results[seq.table] = {
+            success: true,
+            maxId,
+            nextIdWillBe: maxId + 1,
+          };
 
-      // Verify the sequence is now correct
-      const nextvalResult = await client.query(
-        `SELECT nextval('fact_exam_questions_id_seq') as next_id`
-      );
-      const nextId = nextvalResult.rows[0]?.next_id;
-
-      console.log('[Fix Sequence] Next ID will be:', nextId);
+          console.log(`[Fix Sequence] ${seq.table}: max=${maxId}, next=${maxId + 1}`);
+        } catch (seqError: any) {
+          // Sequence might not exist for this table
+          results[seq.table] = {
+            success: false,
+            error: seqError.message,
+          };
+          console.warn(`[Fix Sequence] ${seq.table} skipped:`, seqError.message);
+        }
+      }
 
       return NextResponse.json({
         success: true,
-        message: "Sequence fixed successfully",
-        details: {
-          previousMaxId: maxId,
-          nextIdWillBe: nextId,
-        },
+        message: "All sequences fixed",
+        results,
       });
 
     } finally {
