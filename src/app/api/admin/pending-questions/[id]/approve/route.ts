@@ -108,11 +108,40 @@ export async function POST(
     // Insert into fact_exam_questions
     const currentYear = new Date().getFullYear();
 
-    await execute(
+    // Check if this exact question already exists
+    const existingQuestion = await queryOne(
+      `SELECT id FROM fact_exam_questions
+       WHERE topic_id = $1 AND question = $2`,
+      [topicDim.id, pending.question]
+    );
+
+    if (existingQuestion) {
+      // Question already exists, just update pending status
+      await execute(
+        `UPDATE pending_questions
+         SET status = 'approved',
+             reviewed_by = $1,
+             reviewed_at = CURRENT_TIMESTAMP,
+             review_notes = 'Question already exists in database'
+         WHERE id = $2`,
+        [adminId, id]
+      );
+
+      return NextResponse.json({
+        success: true,
+        message: "Question already exists in question bank",
+        questionId: existingQuestion.id,
+        duplicate: true,
+      });
+    }
+
+    // Insert new question (id will auto-increment)
+    const insertResult = await queryOne(
       `INSERT INTO fact_exam_questions (
         topic_id, question, options, correct_answer, explanation,
         difficulty, source, valid_from, valid_until
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      RETURNING id`,
       [
         topicDim.id,
         pending.question,
@@ -125,6 +154,8 @@ export async function POST(
         currentYear + 10 // Valid for 10 years
       ]
     );
+
+    const newQuestionId = insertResult?.id;
 
     // Update pending_questions status
     await execute(
@@ -145,12 +176,13 @@ export async function POST(
       [pending.user_id]
     );
 
-    console.log('[Admin] Approved question:', id, 'Contributor:', pending.user_id);
+    console.log('[Admin] Approved question:', newQuestionId, 'from pending:', id, 'Contributor:', pending.user_id);
 
     return NextResponse.json({
       success: true,
       message: "Question approved and added to question bank",
-      questionId: id,
+      pendingQuestionId: id,
+      newQuestionId: newQuestionId,
       contributorId: pending.user_id,
       pointsAwarded: 10,
     });
