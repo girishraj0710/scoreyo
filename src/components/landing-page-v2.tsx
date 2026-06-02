@@ -566,11 +566,9 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-indigo-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(0)
-                    ? `translateY(${scrollY * -0.1}px)`
-                    : 'translateY(50px) translateX(-30px)',
+                  transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
-                  transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out, transform 0.6s ease-out' : 'none',
+                  transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
                 }}
               >
                 <img
@@ -585,8 +583,7 @@ export function LandingPageV2() {
               className="w-full md:w-3/5"
               style={{
                 opacity: visibleFeatures.has(0) ? 1 : 0,
-                transform: visibleFeatures.has(0) ? 'translateX(0)' : 'translateX(30px)',
-                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
@@ -609,11 +606,9 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(1)
-                    ? `translateY(${scrollY * -0.1}px)`
-                    : 'translateY(50px) translateX(30px)',
+                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
-                  transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out, transform 0.6s ease-out' : 'none',
+                  transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
                 }}
               >
                 <img
@@ -628,8 +623,7 @@ export function LandingPageV2() {
               className="w-full md:w-3/5"
               style={{
                 opacity: visibleFeatures.has(1) ? 1 : 0,
-                transform: visibleFeatures.has(1) ? 'translateX(0)' : 'translateX(-30px)',
-                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -653,11 +647,9 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(2)
-                    ? `translateY(${scrollY * -0.1}px)`
-                    : 'translateY(50px) translateX(-30px)',
+                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
-                  transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out, transform 0.6s ease-out' : 'none',
+                  transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
                 }}
               >
                 <img
@@ -672,8 +664,7 @@ export function LandingPageV2() {
               className="w-full md:w-3/5"
               style={{
                 opacity: visibleFeatures.has(2) ? 1 : 0,
-                transform: visibleFeatures.has(2) ? 'translateX(0)' : 'translateX(30px)',
-                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
@@ -696,11 +687,9 @@ export function LandingPageV2() {
               <div
                 className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(3)
-                    ? `translateY(${scrollY * -0.1}px)`
-                    : 'translateY(50px) translateX(30px)',
+                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
-                  transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out, transform 0.6s ease-out' : 'none',
+                  transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
                 }}
               >
                 <img
@@ -715,8 +704,7 @@ export function LandingPageV2() {
               className="w-full md:w-3/5"
               style={{
                 opacity: visibleFeatures.has(3) ? 1 : 0,
-                transform: visibleFeatures.has(3) ? 'translateX(0)' : 'translateX(-30px)',
-                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
