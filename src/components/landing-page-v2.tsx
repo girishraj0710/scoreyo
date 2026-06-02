@@ -156,25 +156,21 @@ export function LandingPageV2() {
         const rect = imageRef.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        // Calculate position in viewport (0 = top, 1 = bottom)
-        const elementTop = rect.top;
-        const elementHeight = rect.height;
+        // Simple calculation: how much of the element is visible
+        // Element center relative to viewport center
+        const elementCenter = rect.top + rect.height / 2;
+        const viewportCenter = windowHeight / 2;
 
-        // Start parallax when element enters viewport from bottom
-        // End when element exits from top
-        if (elementTop > windowHeight) {
-          // Below viewport
-          return 0;
-        } else if (elementTop + elementHeight < 0) {
-          // Above viewport
-          return -35;
-        } else {
-          // In viewport - calculate parallax
-          // When element is at bottom of viewport: 0px
-          // When element is at top of viewport: -35px
-          const scrollProgress = 1 - ((elementTop + elementHeight) / (windowHeight + elementHeight));
-          return Math.max(Math.min(scrollProgress * -35, 0), -35);
-        }
+        // Distance from center (-windowHeight/2 to +windowHeight/2)
+        const distance = elementCenter - viewportCenter;
+
+        // Apply parallax: convert distance to offset
+        // Closer to top = more negative offset (move up)
+        // Max -40px when at top, 0px at center, +40px at bottom
+        const offset = (distance / windowHeight) * -80;
+
+        // Clamp between -40 and 0 (only allow upward movement)
+        return Math.max(Math.min(offset, 0), -40);
       });
 
       setImageOffsets(newOffsets);
