@@ -154,14 +154,14 @@ export default function DashboardPage() {
         AGENTFORCE-BLUE
       </div>
 
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">Your Dashboard</h1>
-          <p className="text-slate-500 text-sm mt-1">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Your Dashboard</h1>
+          <p className="text-slate-500 text-xs sm:text-sm mt-1">
             Track your preparation progress across all exams
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <StreakBadge
             currentStreak={stats.streak || 0}
             bestStreak={stats.bestStreak || stats.streak || 0}
@@ -169,8 +169,8 @@ export default function DashboardPage() {
           />
           <a
             href="/"
-            className="px-4 py-2 text-white text-sm font-medium rounded-lg"
-            style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s' }}
+            className="px-4 py-2 text-white text-sm font-medium rounded-lg flex-1 sm:flex-none text-center"
+            style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
           >
@@ -189,37 +189,37 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-          <div className="text-sm text-slate-500 mb-1">Total Quizzes</div>
-          <div className="text-3xl font-bold text-violet-600">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-8">
+        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200">
+          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Total Quizzes</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-600">
             {stats.totalSessions}
           </div>
         </div>
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-          <div className="text-sm text-slate-500 mb-1">Questions Solved</div>
-          <div className="text-3xl font-bold text-emerald-600">
+        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200">
+          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Questions Solved</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">
             {stats.totalQuestions}
           </div>
         </div>
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-          <div className="text-sm text-slate-500 mb-1">Accuracy</div>
-          <div className="text-3xl font-bold text-cyan-600">
+        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200">
+          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Accuracy</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-600">
             {stats.accuracy}%
           </div>
-          <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
+          <div className="w-full bg-slate-100 rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2">
             <div
-              className="bg-cyan-500 h-2 rounded-full animate-progress"
+              className="bg-cyan-500 h-1.5 sm:h-2 rounded-full animate-progress"
               style={{ width: `${stats.accuracy}%` }}
             />
           </div>
         </div>
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 streak-pulse">
-          <div className="text-sm text-slate-500 mb-1">Day Streak</div>
-          <div className="text-3xl font-bold text-amber-500">
+        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200 streak-pulse">
+          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Day Streak</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">
             {stats.streak}
           </div>
-          <div className="text-xs text-slate-400 mt-1">
+          <div className="text-[9px] sm:text-xs text-slate-400 mt-1">
             {stats.streak > 0 ? "Keep it up!" : "Start your streak!"}
           </div>
         </div>

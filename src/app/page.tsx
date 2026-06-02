@@ -219,15 +219,15 @@ function HomePageContent() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
-      <section className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="text-center mb-8 md:mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2">
           <span className="text-[#4255FF]">
             Smart Exam Prep
           </span>
         </h1>
-        <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-6 leading-relaxed">
-          Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br />
-          AI-powered practice with progress tracking to master every topic.
+        <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed px-2">
+          Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br className="hidden sm:block" />
+          <span className="sm:hidden"> </span>AI-powered practice with progress tracking to master every topic.
         </p>
 
         {/* Search Bar for logged-in users */}
@@ -320,24 +320,24 @@ function HomePageContent() {
 
         {/* Quick Stats */}
         {stats?.stats && stats.stats.totalSessions > 0 && (
-          <div className="flex justify-center gap-6 mb-8">
-            <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
-              <div className="text-2xl font-bold text-emerald-600">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-2xl mx-auto mb-6 md:mb-8">
+            <div className="bg-white rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border border-slate-200">
+              <div className="text-xl sm:text-2xl font-bold text-emerald-600">
                 {stats.stats.totalQuestions}
               </div>
-              <div className="text-xs text-slate-500">Questions Solved</div>
+              <div className="text-[10px] sm:text-xs text-slate-500">Questions Solved</div>
             </div>
-            <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200">
-              <div className="text-2xl font-bold text-cyan-600">
+            <div className="bg-white rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border border-slate-200">
+              <div className="text-xl sm:text-2xl font-bold text-cyan-600">
                 {stats.stats.accuracy}%
               </div>
-              <div className="text-xs text-slate-500">Accuracy</div>
+              <div className="text-[10px] sm:text-xs text-slate-500">Accuracy</div>
             </div>
-            <div className="bg-white rounded-xl px-5 py-3 shadow-sm border border-slate-200 streak-pulse">
-              <div className="text-2xl font-bold text-amber-500">
+            <div className="bg-white rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border border-slate-200 streak-pulse">
+              <div className="text-xl sm:text-2xl font-bold text-amber-500">
                 {stats.stats.streak}
               </div>
-              <div className="text-xs text-slate-500">Day Streak</div>
+              <div className="text-[10px] sm:text-xs text-slate-500">Day Streak</div>
             </div>
           </div>
         )}
@@ -345,14 +345,14 @@ function HomePageContent() {
 
       {/* Step 1: Category Selection */}
       {!selectedCategory && (
-        <section ref={categoryRef} className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+        <section ref={categoryRef} className="mb-6 md:mb-8">
+          <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
               1
             </span>
             Choose Exam Category
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
             {examCategories.map((category) => (
               <button
                 key={category.id}
@@ -363,18 +363,18 @@ function HomePageContent() {
                   setSelectedTopic(null);
                   setTimeout(() => examRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                 }}
-              className="card-hover p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-slate-300"
+              className="card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center border-slate-200 bg-white hover:border-slate-300 min-h-[120px] sm:min-h-[140px]"
               >
-                <div className="flex justify-center mb-2">
+                <div className="flex justify-center mb-1 sm:mb-2">
                   <ColorfulCategoryIcon
                     categoryId={category.id}
-                    size={64}
+                    size={56}
                   />
                 </div>
-                <div className="text-sm font-medium text-slate-700">
+                <div className="text-xs sm:text-sm font-medium text-slate-700 leading-tight">
                   {category.name}
                 </div>
-                <div className="text-xs text-slate-400 mt-1">
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1">
                   {category.exams.length} exam
                   {category.exams.length > 1 ? "s" : ""}
                 </div>
@@ -386,10 +386,10 @@ function HomePageContent() {
 
       {/* Step 2: Exam Selection */}
       {selectedCategory && (
-        <section ref={examRef} className="mb-8">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-              <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+        <section ref={examRef} className="mb-6 md:mb-8">
+          <div className="mb-3 md:mb-4 flex items-center justify-between">
+            <h2 className="text-base sm:text-lg font-semibold text-slate-800 flex items-center gap-2">
+              <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
                 2
               </span>
               Select Exam
@@ -402,12 +402,12 @@ function HomePageContent() {
                 setSelectedTopic(null);
                 setTimeout(() => categoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
               }}
-              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+              className="text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
-              ← Change Category
+              ← Change
             </button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
             {examCategories
               .find((c) => c.id === selectedCategory)
               ?.exams.map((exam) => (
@@ -419,29 +419,29 @@ function HomePageContent() {
                     setSelectedTopic(null);
                     setTimeout(() => subjectRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                   }}
-                  className={`card-hover p-4 rounded-xl border-2 text-left ${
+                  className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-left ${
                     selectedExam?.id === exam.id
                       ? "border-indigo-500 bg-slate-50 shadow-md"
                       : "border-slate-200 bg-white hover:border-slate-300"
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-16 h-16 flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
                       <ColorfulExamIcon
                         examId={exam.id}
-                        size={56}
+                        size={48}
                       />
                     </div>
                     <div className="min-w-0">
-                      <div className="font-semibold text-slate-800">
+                      <div className="text-sm sm:text-base font-semibold text-slate-800">
                         {exam.name}
                       </div>
-                      <div className="text-xs text-slate-500 truncate">
+                      <div className="text-[10px] sm:text-xs text-slate-500 truncate">
                         {exam.description}
                       </div>
                     </div>
                   </div>
-                  <div className="mt-2 text-xs text-slate-400">
+                  <div className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-slate-400">
                     {exam.subjects.length} subjects |{" "}
                     {exam.subjects.reduce(
                       (sum, s) => sum + s.topics.length,
@@ -457,14 +457,14 @@ function HomePageContent() {
 
       {/* Step 3: Subject Selection */}
       {selectedExam && (
-        <section ref={subjectRef} className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+        <section ref={subjectRef} className="mb-6 md:mb-8">
+          <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
               3
             </span>
             Select Subject
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
             {currentSubjects.map((subject) => (
               <div key={subject.id} className="relative">
                 <button
@@ -473,22 +473,22 @@ function HomePageContent() {
                     setSelectedTopic(null);
                     setTimeout(() => topicRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                   }}
-                  className={`card-hover p-4 rounded-xl border-2 text-center w-full ${
+                  className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center w-full min-h-[120px] sm:min-h-[140px] ${
                     selectedSubject === subject.id
                       ? "border-indigo-500 bg-slate-50 shadow-md"
                       : "border-slate-200 bg-white hover:border-slate-300"
                   }`}
                 >
-                  <div className="flex justify-center mb-2">
+                  <div className="flex justify-center mb-1 sm:mb-2">
                     <ColorfulSubjectIcon
                       subjectId={subject.id}
-                      size={56}
+                      size={48}
                     />
                   </div>
-                  <div className="text-sm font-medium text-slate-700">
+                  <div className="text-xs sm:text-sm font-medium text-slate-700 leading-tight">
                     {subject.name}
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">
+                  <div className="text-[10px] sm:text-xs text-slate-400 mt-1">
                     {subject.topics.length} topics
                   </div>
                 </button>
@@ -515,14 +515,14 @@ function HomePageContent() {
 
       {/* Step 4: Topic Selection */}
       {selectedSubject && (
-        <section ref={topicRef} className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">
+        <section ref={topicRef} className="mb-6 md:mb-8">
+          <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
               4
             </span>
             Select Topic
           </h2>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {currentTopics.map((topic) => (
               <button
                 key={topic}
@@ -530,7 +530,7 @@ function HomePageContent() {
                   setSelectedTopic(selectedTopic === topic ? null : topic);
                   setTimeout(() => settingsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
                 }}
-                className={`px-4 py-2 rounded-full text-sm font-medium border-2 ${
+                className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border-2 min-h-[40px] sm:min-h-[44px] ${
                   selectedTopic === topic
                     ? "border-indigo-500 bg-slate-500 text-white shadow-md"
                     : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
@@ -545,9 +545,9 @@ function HomePageContent() {
 
       {/* Step 5: Quiz Settings & Start */}
       {selectedTopic && (
-        <section ref={settingsRef} className="mb-12">
-          <div className="bg-white rounded-2xl border-2 border-slate-200 p-6 shadow-lg max-w-lg mx-auto">
-            <h2 className="text-lg font-semibold text-slate-800 mb-5 text-center">
+        <section ref={settingsRef} className="mb-8 md:mb-12">
+          <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-slate-200 p-4 sm:p-6 shadow-lg max-w-lg mx-auto">
+            <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-4 sm:mb-5 text-center">
               Quiz Settings
             </h2>
 
