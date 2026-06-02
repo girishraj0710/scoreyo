@@ -279,7 +279,7 @@ function HomePageContent() {
       {/* Hero Section */}
       <section className="text-center mb-8 md:mb-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2">
-          <span className="text-[#00A1E0]">
+          <span className="text-[#4255FF]">
             Smart Exam Prep
           </span>
         </h1>

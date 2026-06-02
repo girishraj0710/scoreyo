@@ -372,14 +372,14 @@ export default function MockTestPage() {
           <div className="flex gap-3 justify-center">
             <a href="/pricing" className="px-6 py-3 text-white font-semibold rounded-xl shadow-lg"
             style={{
-              backgroundColor: '#00A1E0',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0176D3';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
               {t("upgradeToPro")}
             </a>
@@ -403,14 +403,14 @@ export default function MockTestPage() {
           {/* Header */}
           <div className="p-6 text-white"
             style={{
-              backgroundColor: '#00A1E0',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0176D3';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}>
             <div className="flex items-center gap-3 mb-2">
               {exam && <ColorfulExamIcon examId={exam.id} size={64} className="text-white" />}
@@ -469,7 +469,7 @@ export default function MockTestPage() {
                 </ul>
               </div>
 
-              <div className="[#E8F4FC] border border-[#90CAF9] rounded-lg p-4">
+              <div className="[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
                 <p className="font-semibold text-[#005A7A]">💡 Pro Tips:</p>
                 <ul className="text-sm mt-2 space-y-1 list-disc list-inside">
                   <li>Attempt all questions - there's no negative marking</li>
@@ -492,7 +492,7 @@ export default function MockTestPage() {
 
             <div className="flex items-center gap-4">
               {isGeneratingInBackground && (
-                <div className="flex items-center gap-2 text-sm [#00A1E0]">
+                <div className="flex items-center gap-2 text-sm [#4255FF]">
                   <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -506,14 +506,14 @@ export default function MockTestPage() {
                 disabled={isGeneratingInBackground}
                 className="px-8 py-3 text-white font-bold rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             style={{
-              backgroundColor: '#00A1E0',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0176D3';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
               >
                 {isGeneratingInBackground ? "Please wait..." : "Start Test →"}
@@ -530,8 +530,8 @@ export default function MockTestPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8F4FC] flex items-center justify-center">
-            <svg className="animate-spin h-8 w-8 [#00A1E0]" viewBox="0 0 24 24" fill="none">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
+            <svg className="animate-spin h-8 w-8 [#4255FF]" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
@@ -558,7 +558,7 @@ export default function MockTestPage() {
     const percentage = results.accuracy;
     const grade =
       percentage >= 90 ? { label: t("excellent"), color: "text-slate-500", bg: "bg-slate-50" }
-      : percentage >= 70 ? { label: t("goodJob"), color: "[#00A1E0]", bg: "bg-slate-50" }
+      : percentage >= 70 ? { label: t("goodJob"), color: "[#4255FF]", bg: "bg-slate-50" }
       : percentage >= 50 ? { label: t("keepPracticing"), color: "text-amber-600", bg: "bg-amber-50" }
       : { label: t("needsImprovement"), color: "text-red-600", bg: "bg-red-50" };
 
@@ -566,7 +566,7 @@ export default function MockTestPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Score Card */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center mb-8">
-          <div className="text-sm [#00A1E0] font-medium mb-2">{t("mockTestResult")}</div>
+          <div className="text-sm [#4255FF] font-medium mb-2">{t("mockTestResult")}</div>
           <h2 className={`text-2xl font-bold ${grade.color} mb-2`}>{grade.label}</h2>
           <div className="text-6xl font-bold text-slate-800 mb-2">{percentage}%</div>
           <p className="text-slate-500 mb-6">
@@ -590,7 +590,7 @@ export default function MockTestPage() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 [#00A1E0] text-white rounded-lg hover:[#0176D3] font-medium">
+            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 [#4255FF] text-white rounded-lg hover:[#3242CC] font-medium">
               {t("takeAnotherTest")}
             </button>
             <a href="/reports" className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium">
@@ -630,7 +630,7 @@ export default function MockTestPage() {
                       {globalIdx + 1}
                     </span>
                     <div className="flex-1">
-                      <span className="text-xs [#00A1E0] font-medium">{r.subjectName}</span>
+                      <span className="text-xs [#4255FF] font-medium">{r.subjectName}</span>
                       <p className="text-slate-800 font-medium mt-1">{r.question}</p>
                     </div>
                   </div>
@@ -693,7 +693,7 @@ export default function MockTestPage() {
         <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4 sticky top-16 z-40">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <span className="text-sm font-semibold [#00A1E0]">{examName}</span>
+              <span className="text-sm font-semibold [#4255FF]">{examName}</span>
               <span className="text-slate-300 mx-2">|</span>
               <span className="text-sm text-slate-500">{t("mockTest")}</span>
             </div>
@@ -716,7 +716,7 @@ export default function MockTestPage() {
         {/* Question */}
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-4">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E8F4FC] [#0176D3]">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E8EAFF] [#3242CC]">
               {question.subjectName}
             </span>
             <span className="text-xs text-slate-400">Q{currentQuestion + 1}</span>
@@ -735,12 +735,12 @@ export default function MockTestPage() {
                 }}
                 className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
                   answers[currentQuestion] === idx
-                    ? "border-[#00A1E0] bg-slate-50"
+                    ? "border-[#4255FF] bg-slate-50"
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50/50"
                 }`}
               >
                 <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
-                  answers[currentQuestion] === idx ? "bg-slate-500 border-[#00A1E0] text-white" : "border-slate-300 text-slate-400"
+                  answers[currentQuestion] === idx ? "bg-slate-500 border-[#4255FF] text-white" : "border-slate-300 text-slate-400"
                 }`}>
                   {String.fromCharCode(65 + idx)}
                 </span>
@@ -763,7 +763,7 @@ export default function MockTestPage() {
             {currentQuestion < questions.length - 1 ? (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
-                className="px-5 py-2 text-sm font-medium [#00A1E0] text-white rounded-lg hover:[#0176D3]"
+                className="px-5 py-2 text-sm font-medium [#4255FF] text-white rounded-lg hover:[#3242CC]"
               >
                 {t("next")}
               </button>
@@ -798,7 +798,7 @@ export default function MockTestPage() {
                 onClick={() => setCurrentQuestion(idx)}
                 className={`w-8 h-8 rounded-lg text-xs font-medium ${
                   idx === currentQuestion ? "bg-slate-500 text-white"
-                  : answers[idx] !== null ? "bg-[#E8F4FC] [#00A1E0]"
+                  : answers[idx] !== null ? "bg-[#E8EAFF] [#4255FF]"
                   : "bg-slate-100 text-slate-400"
                 }`}
                 title={q.subjectName}
@@ -809,7 +809,7 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-4 mt-3 text-xs text-slate-400">
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-500 inline-block" /> {t("current")}</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8F4FC] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8EAFF] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-100 inline-block" /> {t("notAnswered")}</span>
           </div>
         </div>
@@ -837,7 +837,7 @@ export default function MockTestPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#00A1E0] rounded-2xl mb-6 shadow-lg">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#4255FF] rounded-2xl mb-6 shadow-lg">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
@@ -852,14 +852,14 @@ export default function MockTestPage() {
               onClick={() => setShowLoginModal(true)}
               className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
             style={{
-              backgroundColor: '#00A1E0',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0176D3';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
             >
               Start Mock Tests Now
@@ -872,8 +872,8 @@ export default function MockTestPage() {
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <div className="w-12 h-12 bg-[#E8F4FC] rounded-xl flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 [#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 [#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -937,8 +937,8 @@ export default function MockTestPage() {
             <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">What's Included in Mock Tests</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#E8F4FC] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-[#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-16 h-16 bg-[#E8EAFF] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -956,7 +956,7 @@ export default function MockTestPage() {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-[#D4EDFA] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-[#0176D3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-[#3242CC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
@@ -972,7 +972,7 @@ export default function MockTestPage() {
             <p className="text-slate-600 mb-8">JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-4 bg-[#00A1E0] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#0176D3] transition-all"
+              className="px-8 py-4 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#3242CC] transition-all"
             >
               Get Started - It's Free
             </button>
@@ -1002,7 +1002,7 @@ export default function MockTestPage() {
             onClick={() => setTestType("short")}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               testType === "short"
-                ? "bg-[#00A1E0] text-white shadow-lg"
+                ? "bg-[#4255FF] text-white shadow-lg"
                 : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
             }`}
           >
@@ -1019,7 +1019,7 @@ export default function MockTestPage() {
             onClick={() => setTestType("full")}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               testType === "full"
-                ? "bg-[#00A1E0] text-white shadow-lg"
+                ? "bg-[#4255FF] text-white shadow-lg"
                 : "bg-white text-slate-600 border-2 border-slate-200 hover:border-slate-300"
             }`}
           >
@@ -1036,7 +1036,7 @@ export default function MockTestPage() {
         {/* Custom Test Builder Button */}
         <button
           onClick={() => setShowCustomBuilder(true)}
-          className="px-8 py-3 bg-[#00A1E0] text-white rounded-xl font-semibold shadow-lg transition-all flex items-center gap-2 hover:bg-[#0176D3]"
+          className="px-8 py-3 bg-[#4255FF] text-white rounded-xl font-semibold shadow-lg transition-all flex items-center gap-2 hover:bg-[#3242CC]"
         >
           <Sparkles className="w-5 h-5" />
           <span>Create Custom Test</span>
@@ -1057,7 +1057,7 @@ export default function MockTestPage() {
               setShowSearchDropdown(true);
             }}
             onFocus={() => setShowSearchDropdown(true)}
-            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-[#00A1E0] focus:ring-2 focus:ring-[#E8F4FC] outline-none transition-all"
+            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-[#4255FF] focus:ring-2 focus:ring-[#E8EAFF] outline-none transition-all"
           />
           <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -1114,7 +1114,7 @@ export default function MockTestPage() {
                   setModalTestType(testType);
                   setShowExamModal(true);
                 }}
-                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-[#00A1E0] hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-[#4255FF] hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-4">
@@ -1132,16 +1132,16 @@ export default function MockTestPage() {
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-2 mb-4">
-                  <div className="bg-[#E8F4FC] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#00A1E0]">{firstConfig.totalQuestions}</div>
+                  <div className="bg-[#E8EAFF] rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-[#4255FF]">{firstConfig.totalQuestions}</div>
                     <div className="text-xs text-slate-500">Questions</div>
                   </div>
                   <div className="bg-[#D4EDFA] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#0176D3]">{firstConfig.timeLimitMinutes}m</div>
+                    <div className="text-lg font-bold text-[#3242CC]">{firstConfig.timeLimitMinutes}m</div>
                     <div className="text-xs text-slate-500">Duration</div>
                   </div>
                   <div className="bg-[#C0E5F8] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#005FB2]">{firstConfig.sections.length}</div>
+                    <div className="text-lg font-bold text-[#2D43B8]">{firstConfig.sections.length}</div>
                     <div className="text-xs text-slate-500">Sections</div>
                   </div>
                 </div>
@@ -1244,16 +1244,16 @@ export default function MockTestPage() {
             <div className="p-6 space-y-6">
               {/* Test Stats */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-[#E8F4FC] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#00A1E0]">{statsQuestions}</div>
+                <div className="bg-[#E8EAFF] rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-[#4255FF]">{statsQuestions}</div>
                   <div className="text-xs text-slate-600 mt-1">Questions</div>
                 </div>
                 <div className="bg-[#D4EDFA] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#0176D3]">{statsDuration}m</div>
+                  <div className="text-2xl font-bold text-[#3242CC]">{statsDuration}m</div>
                   <div className="text-xs text-slate-600 mt-1">Duration</div>
                 </div>
                 <div className="bg-[#C0E5F8] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#005FB2]">{baseConfigForStats.sections.length}</div>
+                  <div className="text-2xl font-bold text-[#2D43B8]">{baseConfigForStats.sections.length}</div>
                   <div className="text-xs text-slate-600 mt-1">Sections</div>
                 </div>
               </div>
@@ -1266,7 +1266,7 @@ export default function MockTestPage() {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
                     <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
-                      <div className="w-2 h-2 rounded-full [#E8F4FC]0"></div>
+                      <div className="w-2 h-2 rounded-full [#E8EAFF]0"></div>
                       <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
                       <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
                     </div>
@@ -1289,8 +1289,8 @@ export default function MockTestPage() {
                         onClick={() => setSelectedTestNumber(num)}
                         className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
                           selectedTestNumber === num
-                            ? "[#00A1E0] text-white shadow-lg scale-110"
-                            : "bg-white text-slate-700 hover:[#E8F4FC] hover:[#00A1E0] border-2 border-slate-200 hover:border-[#90CAF9]"
+                            ? "[#4255FF] text-white shadow-lg scale-110"
+                            : "bg-white text-slate-700 hover:[#E8EAFF] hover:[#4255FF] border-2 border-slate-200 hover:border-[#90CAF9]"
                         }`}
                       >
                         {num}
@@ -1315,7 +1315,7 @@ export default function MockTestPage() {
                               setSelectedTestNumber(num);
                             }
                           }}
-                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-[#00A1E0] focus:ring-2 focus:ring-indigo-200 outline-none"
+                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none"
                         />
                         <span className="text-sm text-slate-500">of {testCapacity[selectedExam]}</span>
                       </div>
@@ -1345,7 +1345,7 @@ export default function MockTestPage() {
                       onClick={() => setModalTestType("short")}
                       className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
                         modalTestType === "short"
-                          ? "bg-[#00A1E0] text-white shadow-lg"
+                          ? "bg-[#4255FF] text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -1362,7 +1362,7 @@ export default function MockTestPage() {
                       onClick={() => setModalTestType("full")}
                       className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
                         modalTestType === "full"
-                          ? "bg-[#00A1E0] text-white shadow-lg"
+                          ? "bg-[#4255FF] text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -1396,14 +1396,14 @@ export default function MockTestPage() {
                 }}
                 className="px-8 py-3 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
             style={{
-              backgroundColor: '#00A1E0',
+              backgroundColor: '#4255FF',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0176D3';
+              e.currentTarget.style.backgroundColor = '#3242CC';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#00A1E0';
+              e.currentTarget.style.backgroundColor = '#4255FF';
             }}
               >
                 <span>Start Test {selectedTestNumber}</span>

@@ -477,12 +477,28 @@ function QuizContent() {
         const totalQuestions = quizData.questions.length;
         const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
 
+        // Build per-question results for review section
+        const questionResults = quizData.questions.map((q, i) => ({
+          question: q.question,
+          options: q.options,
+          correctAnswer: q.correctAnswer,
+          userAnswer: answers[i] ?? -1,
+          isCorrect: answers[i] === q.correctAnswer,
+          explanation: q.explanation,
+          source: 'ai-validated', // Custom questions are AI-generated
+        }));
+
         const localResults = {
           correctAnswers,
           totalQuestions,
           accuracy,
           timeTaken: timeElapsed,
           newBadges: [],
+          isNewRecord: false, // Custom quizzes don't track records
+          topicsToReview: [], // No review system for custom
+          xpGained: 0, // No XP for custom quizzes
+          levelUp: null, // No leveling for custom
+          results: questionResults, // Per-question breakdown
           isCustomQuiz: true, // Flag to identify custom quiz results
         };
 
