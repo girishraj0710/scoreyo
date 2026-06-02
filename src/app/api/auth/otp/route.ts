@@ -91,7 +91,8 @@ export async function POST(request: NextRequest) {
         }
 
         // If action is "login" and user doesn't exist, return error
-        if (action === "login" && existingUser === null && cachedExists === false) {
+        // Block login if we're certain user doesn't exist (either from DB or cache)
+        if (action === "login" && !existingUser && cachedExists !== true) {
           return NextResponse.json({
             error: "No account found with this email. Please sign up first.",
             shouldSignup: true

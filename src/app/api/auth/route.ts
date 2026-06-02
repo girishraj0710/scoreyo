@@ -108,6 +108,8 @@ export async function POST(request: NextRequest) {
         user.role = 'admin';
       }
 
+      console.log('[Auth] Logging in existing user:', { email: cleanEmail, id: user.id });
+
       const csrfToken = generateCsrfToken();
 
       const response = NextResponse.json({
@@ -146,11 +148,12 @@ export async function POST(request: NextRequest) {
     }
 
     // New user — require signup data (name is mandatory, others optional)
+    console.log('[Auth] New user detected, checking signup data:', { hasName: !!name });
     if (!name || !name.trim()) {
       return NextResponse.json({
+        error: "Please complete signup with your name and details",
         needsSignup: true,
-        message: "Please complete signup with your details"
-      });
+      }, { status: 400 });
     }
 
     const id = uuidv4();
