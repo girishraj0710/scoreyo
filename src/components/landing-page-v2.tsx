@@ -375,15 +375,15 @@ export function LandingPageV2() {
       </header>
 
       {/* Hero Section - Quizlet Style - Full Width Background */}
-      <section className="bg-slate-50 pt-6 md:pt-4">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-4 md:pb-2 text-center">
+      <section className="bg-slate-50 pt-6 md:pt-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-6 md:pb-8 text-center">
           {/* Main Heading - Simple & Direct */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 md:mb-2 leading-tight px-2">
-            Master Your <span className="text-slate-900">Competitive Exams</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+            Master Your<br className="sm:hidden" /> Competitive Exams
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-4 md:mb-3 max-w-3xl mx-auto leading-relaxed px-2">
-            Master JEE, NEET, UPSC, SSC, Banking & 60+ competitive exams with AI-powered practice, smart explanations, and personalized learning.
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed">
+            JEE, NEET, UPSC, SSC, Banking & 60+ exams with AI-powered practice.
           </p>
 
           {/* CTA */}
@@ -531,14 +531,14 @@ export function LandingPageV2() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* What Makes PrepGenie Different - Snake Pattern */}
-        <section className="pt-16 pb-20">
-          <div className="text-center mb-32">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        <section className="pt-8 md:pt-16 pb-12 md:pb-20">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
               What makes PrepGenie different
             </h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-2">
               Intelligent AI features designed specifically for Indian competitive exams
             </p>
           </div>
@@ -546,16 +546,15 @@ export function LandingPageV2() {
           {/* Feature 1 - Image Left, Text Right */}
           <div
             ref={(el) => { featureRefs.current[0] = el; }}
-            className="flex flex-col md:flex-row items-start gap-12 mb-24"
+            className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
           >
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
-                className="rounded-2xl overflow-hidden shadow-2xl bg-indigo-200 p-6 max-w-md"
+                className="rounded-2xl overflow-hidden shadow-xl bg-indigo-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.1}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
-                  transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
+                  transition: 'opacity 0.6s ease-out',
                 }}
               >
                 <img
@@ -569,18 +568,16 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
-                transform: visibleFeatures.has(0) ? `translateY(${scrollY * -0.03}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(0) ? 1 : 0,
-                transition: visibleFeatures.has(0) ? 'opacity 0.8s ease-out' : 'none',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
                 Rich Explanations
               </h3>
-              <p className="text-slate-600 text-lg leading-relaxed">
+              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
                 Understand the WHY behind every answer. Get step-by-step breakdowns, trap alerts, formulas, and common
-                mistakes highlighted for each question. Never just memorize—learn concepts deeply with visual diagrams
-                and shortcut methods used by toppers.
+                mistakes highlighted for each question.
               </p>
             </div>
           </div>
@@ -588,16 +585,15 @@ export function LandingPageV2() {
           {/* Feature 2 - Text Left, Image Right */}
           <div
             ref={(el) => { featureRefs.current[1] = el; }}
-            className="flex flex-col md:flex-row-reverse items-start gap-12 mb-24"
+            className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
           >
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
-                className="rounded-2xl overflow-hidden shadow-2xl bg-purple-200 p-6 max-w-md"
+                className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.12}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
-                  transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
+                  transition: 'opacity 0.6s ease-out',
                 }}
               >
                 <img
@@ -611,9 +607,8 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
-                transform: visibleFeatures.has(1) ? `translateY(${scrollY * -0.04}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(1) ? 1 : 0,
-                transition: visibleFeatures.has(1) ? 'opacity 0.8s ease-out' : 'none',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -630,16 +625,15 @@ export function LandingPageV2() {
           {/* Feature 3 - Image Left, Text Right */}
           <div
             ref={(el) => { featureRefs.current[2] = el; }}
-            className="flex flex-col md:flex-row items-start gap-12 mb-24"
+            className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
           >
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
-                className="rounded-2xl overflow-hidden shadow-2xl bg-sky-200 p-6 max-w-md"
+                className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.11}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
-                  transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
+                  transition: 'opacity 0.6s ease-out',
                 }}
               >
                 <img
@@ -653,18 +647,16 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
-                transform: visibleFeatures.has(2) ? `translateY(${scrollY * -0.035}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(2) ? 1 : 0,
-                transition: visibleFeatures.has(2) ? 'opacity 0.8s ease-out' : 'none',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
                 Midnight Doubt AI
               </h3>
-              <p className="text-slate-600 text-lg leading-relaxed">
+              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
                 Stuck at 2 AM? Ask our AI tutor anything, anytime. Get instant clarifications in simple language—English
-                or Hindi. The AI breaks down complex concepts with examples, adapts to your learning level, and is perfect
-                for late-night study sessions when no teacher is available.
+                or Hindi.
               </p>
             </div>
           </div>
@@ -672,16 +664,15 @@ export function LandingPageV2() {
           {/* Feature 4 - Text Left, Image Right */}
           <div
             ref={(el) => { featureRefs.current[3] = el; }}
-            className="flex flex-col md:flex-row-reverse items-start gap-12 mb-24"
+            className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
           >
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
-                className="rounded-2xl overflow-hidden shadow-2xl bg-emerald-200 p-6 max-w-md"
+                className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
                 style={{
-                  transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.13}px)` : 'translateY(50px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
-                  transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
+                  transition: 'opacity 0.6s ease-out',
                 }}
               >
                 <img
@@ -695,25 +686,23 @@ export function LandingPageV2() {
             <div
               className="w-full md:w-3/5"
               style={{
-                transform: visibleFeatures.has(3) ? `translateY(${scrollY * -0.045}px)` : 'translateY(30px)',
                 opacity: visibleFeatures.has(3) ? 1 : 0,
-                transition: visibleFeatures.has(3) ? 'opacity 0.8s ease-out' : 'none',
+                transition: 'opacity 0.8s ease-out',
               }}
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
                 Smart Dashboard
               </h3>
-              <p className="text-slate-600 text-lg leading-relaxed">
+              <p className="text-slate-600 text-sm md:text-base lg:text-lg leading-relaxed">
                 Track your progress with beautiful stats and charts—questions solved, accuracy trends, daily streaks,
-                study hours, and achievement badges all in one place. Visual progress bars show how close you are to
-                weekly goals. Celebrate milestones and get personalized insights on where to focus next.
+                and achievement badges all in one place.
               </p>
             </div>
           </div>
 
         </section>
         {/* Final CTA */}
-        <section className="pb-8 -mt-72">
+        <section className="pb-8 mt-0 md:-mt-24">
           <div className="bg-sky-400 rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl">
             <h2 className="text-2xl md:text-4xl font-semibold mb-4">
               Ready to ace your exam?
