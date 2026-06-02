@@ -1132,16 +1132,16 @@ export default function MockTestPage() {
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-2 mb-4">
-                  <div className="bg-[#E8EAFF] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#4255FF]">{firstConfig.totalQuestions}</div>
+                  <div className="bg-[#B3D9FF] rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-[#005A7A]">{firstConfig.totalQuestions}</div>
                     <div className="text-xs text-slate-500">Questions</div>
                   </div>
-                  <div className="bg-[#D6D9FF] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#3242CC]">{firstConfig.timeLimitMinutes}m</div>
+                  <div className="bg-[#90CAF9] rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-[#004D6D]">{firstConfig.timeLimitMinutes}m</div>
                     <div className="text-xs text-slate-500">Duration</div>
                   </div>
-                  <div className="bg-[#C4C8FF] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#2D43B8]">{firstConfig.sections.length}</div>
+                  <div className="bg-[#64B5F6] rounded-lg p-2 text-center">
+                    <div className="text-lg font-bold text-[#003A5D]">{firstConfig.sections.length}</div>
                     <div className="text-xs text-slate-500">Sections</div>
                   </div>
                 </div>
