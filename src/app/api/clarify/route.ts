@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import Anthropic from "@anthropic-ai/sdk";
+import { generateText } from "ai";
+import { openrouter } from "@openrouter/ai-sdk-provider";
 import { execute } from "@/lib/db";
 
-// Initialize Anthropic client
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || process.env.OPENROUTER_API_KEY,
-});
+// Use OpenRouter with gpt-4o-mini (same as quiz generator)
+// Cost: $0.15/$0.60 per 1M tokens - ultra cheap and reliable
+const AI_MODEL = "openai/gpt-4o-mini";
+const TIMEOUT_MS = 30000; // 30 seconds
 
 export async function POST(request: Request) {
   try {
@@ -25,66 +26,70 @@ export async function POST(request: Request) {
     console.log('[Clarify] Question:', questionText.substring(0, 100));
     console.log('[Clarify] User asks:', userQuestion);
 
-    // Build conversation messages for Claude
-    const messages: Array<{ role: 'user' | 'assistant'; content: string }> = [];
+    // Build prompt (same pattern as quiz generator - simple and reliable)
+    const systemInstruction = `You are a patient, encouraging AI tutor helping Indian students understand competitive exam questions they got wrong.
 
-    // System context as first user message
-    const contextMessage = `I'm a student who got a quiz question wrong. Here's the context:
+Your response style:
+- Clear and concise (2-4 sentences max)
+- Focus on the KEY concept, not everything
+- Be supportive and encouraging
+- Use simple language
+- If mathematical, show ONE key step that makes it click
 
-QUESTION: ${questionText}
+Format your response naturally - no markdown, no bold, just plain helpful text.`;
 
-MY ANSWER: ${wrongAnswer} (incorrect)
-CORRECT ANSWER: ${correctAnswer}
+    // Build the full prompt
+    let fullPrompt = `${systemInstruction}
 
-Please help me understand this.`;
+CONTEXT:
+Question: ${questionText}
+Student's Answer: ${wrongAnswer} (incorrect)
+Correct Answer: ${correctAnswer}
+
+`;
 
     // Add conversation history if exists
     if (conversationHistory && conversationHistory.length > 0) {
-      // Add context as first message
-      messages.push({
-        role: 'user',
-        content: contextMessage
-      });
-
-      // Add dummy assistant acknowledgment
-      messages.push({
-        role: 'assistant',
-        content: 'I understand. I can see the question and your answer. What would you like to know?'
-      });
-
-      // Add conversation history
+      fullPrompt += "CONVERSATION HISTORY:\n";
       conversationHistory.forEach((msg: any) => {
         if (msg.type === 'user') {
-          messages.push({ role: 'user', content: msg.text });
+          fullPrompt += `Student: ${msg.text}\n`;
         } else if (msg.type === 'ai') {
-          messages.push({ role: 'assistant', content: msg.text });
+          fullPrompt += `Tutor: ${msg.text}\n`;
         }
       });
-    } else {
-      // First question - just add context and current question
-      messages.push({
-        role: 'user',
-        content: `${contextMessage}
-
-${userQuestion}`
-      });
+      fullPrompt += "\n";
     }
 
-    console.log('[Clarify] Sending to Claude API with', messages.length, 'messages');
+    // Add current question
+    fullPrompt += `STUDENT'S NEW QUESTION: ${userQuestion}
+
+YOUR RESPONSE (2-4 sentences, clear and encouraging):`;
+
+    console.log('[Clarify] Sending to OpenRouter...');
+    console.log('[Clarify] Prompt length:', fullPrompt.length, 'chars');
 
     try {
-      const response = await anthropic.messages.create({
-        model: "claude-3-5-haiku-20241022", // Fast and cheap ($1 per 1M tokens)
-        max_tokens: 500,
-        system: "You are a patient, encouraging tutor helping students understand quiz questions they got wrong. Provide clear, concise explanations in 2-4 sentences. Focus on the key concept and be supportive.",
-        messages: messages,
+      // Use Vercel AI SDK with OpenRouter (same pattern as quiz generator)
+      const { text } = await generateText({
+        model: openrouter(AI_MODEL),
+        prompt: fullPrompt,
+        maxOutputTokens: 500,
+        temperature: 0.7,
       });
 
-      const result = response.content[0].type === 'text'
-        ? response.content[0].text
-        : "I can help explain this concept. Could you be more specific about what you'd like to understand?";
+      let result = text.trim();
 
-      console.log('[Clarify] Claude response received:', result.substring(0, 100) + '...');
+      // Remove any markdown formatting if AI adds it (despite instructions)
+      result = result.replace(/\*\*/g, '').replace(/\*/g, '').replace(/#{1,6}\s/g, '');
+
+      console.log('[Clarify] AI response received:', result.substring(0, 100) + '...');
+
+      // Validate response quality
+      if (!result || result.length < 20) {
+        console.warn('[Clarify] AI response too short, using fallback');
+        throw new Error('AI response too short');
+      }
 
       // Store for analytics (non-blocking)
       execute(
@@ -95,27 +100,25 @@ ${userQuestion}`
 
       return NextResponse.json({
         response: result,
-        source: 'claude'
+        source: 'openrouter',
+        model: AI_MODEL
       });
 
     } catch (apiError: any) {
-      console.error("[Clarify] Claude API Error:", apiError?.message || apiError);
-      console.error("[Clarify] Error details:", JSON.stringify(apiError, null, 2));
-
-      // Check if API key is missing
-      if (apiError?.status === 401 || apiError?.message?.includes('api_key')) {
-        return NextResponse.json({
-          response: "AI service configuration issue. Please contact support.",
-          source: 'error'
-        });
-      }
+      console.error("[Clarify] AI API Error:", apiError?.message || apiError);
+      console.error("[Clarify] Error details:", {
+        name: apiError?.name,
+        message: apiError?.message,
+        cause: apiError?.cause
+      });
 
       // Intelligent fallback based on the actual question
       const fallback = generateIntelligentFallback(questionText, userQuestion, correctAnswer, wrongAnswer);
 
       return NextResponse.json({
         response: fallback,
-        source: 'fallback'
+        source: 'fallback',
+        model: 'fallback-rules'
       });
     }
 
