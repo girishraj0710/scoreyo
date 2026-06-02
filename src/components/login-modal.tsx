@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { Mail, X } from "lucide-react";
@@ -9,6 +10,7 @@ import { getAllExams } from "@/lib/exams";
 type Step = "method" | "signin-email" | "signin-otp" | "signup-form" | "signup-otp" | "role-selection";
 
 export function LoginModal() {
+  const router = useRouter();
   const { user, showLoginModal, setShowLoginModal, sendOtp, verifyOtp, completeLogin } = useUser();
   const { t } = useLocale();
 
@@ -187,6 +189,12 @@ export function LoginModal() {
         if (step === "signin-otp") {
           const loginResult = await completeLogin(email.trim());
           if (loginResult.success) {
+            // Redirect based on user role (wait a moment for user context to update)
+            setTimeout(() => {
+              // The user context will have been updated by completeLogin
+              // Just redirect and let the page load, role-based logic will render appropriately
+              router.push('/dashboard');
+            }, 100);
             return; // Logged in!
           }
           if (loginResult.needsSignup) {
@@ -249,8 +257,14 @@ export function LoginModal() {
       if (!signupResult.success) {
         setError(signupResult.error || "Signup failed");
         setIsSubmitting(false);
+      } else {
+        // Success - user logged in and role set!
+        // Redirect based on selected role
+        setTimeout(() => {
+          const urlToVisit = role === 'teacher' ? '/teacher' : '/dashboard';
+          router.push(urlToVisit);
+        }, 100);
       }
-      // Success - user logged in automatically!
     } catch (err) {
       setError("Signup failed");
       setIsSubmitting(false);

@@ -22,16 +22,17 @@ export async function GET(request: NextRequest) {
   const examId = request.nextUrl.searchParams.get("examId");
 
   try {
+    // TEMPORARILY DISABLED CACHE FOR DEBUG
     // Try cache first (5-minute TTL - balances freshness vs performance)
-    const cacheKey = CacheKeys.userStats(userId);
-    const cached = await getCached<any>(cacheKey);
+    // const cacheKey = CacheKeys.userStats(userId);
+    // const cached = await getCached<any>(cacheKey);
 
-    if (cached && (!examId || cached.examId === examId)) {
-      console.log(`[Stats API] ✓ Cache hit for user ${userId}`);
-      return NextResponse.json(cached);
-    }
+    // if (cached && (!examId || cached.examId === examId)) {
+    //   console.log(`[Stats API] ✓ Cache hit for user ${userId}`);
+    //   return NextResponse.json(cached);
+    // }
 
-    console.log(`[Stats API] Cache miss, querying DB for user ${userId}`);
+    console.log(`[Stats API] CACHE DISABLED - Querying DB for user ${userId}`);
 
     // Query from database
     const stats = await getUserStats(userId);
