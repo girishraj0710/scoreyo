@@ -728,11 +728,11 @@ export function LandingPageV2() {
 
             {/* App Store Badges */}
             <div className="mt-6">
-              <p className="text-white text-base font-bold mb-3">Learn anytime, anywhere</p>
-              <div className="flex items-center justify-center gap-3">
+              <p className="text-white text-sm sm:text-base font-bold mb-3">Learn anytime, anywhere</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 {/* Google Play Store */}
-                <button className="bg-black rounded-lg px-4 py-2.5 flex items-center gap-2.5 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button className="w-full sm:w-auto bg-black rounded-lg px-4 py-3 flex items-center justify-center gap-2.5 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75 min-h-[56px]">
+                  <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a1.978 1.978 0 01-.61-1.423V3.237c0-.534.212-1.043.609-1.423z" fill="#32BBFF"/>
                     <path d="M13.792 12l3.896 3.896-11.52 6.581a2.006 2.006 0 01-.559.137L13.792 12z" fill="#32BBFF"/>
                     <path d="M20.405 10.812l-2.717 1.552L13.792 12l3.896-3.896 2.717 1.552c.752.43 1.196 1.198 1.196 2.078s-.444 1.648-1.196 2.078z" fill="#32BBFF"/>
@@ -740,18 +740,18 @@ export function LandingPageV2() {
                   </svg>
                   <div className="text-left">
                     <div className="text-[9px] text-slate-300 leading-tight">GET IT ON</div>
-                    <div className="text-xs font-semibold text-white leading-tight">Google Play</div>
+                    <div className="text-sm font-semibold text-white leading-tight">Google Play</div>
                   </div>
                 </button>
 
                 {/* Apple App Store */}
-                <button className="bg-black rounded-lg px-4 py-2.5 flex items-center gap-2.5 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <button className="w-full sm:w-auto bg-black rounded-lg px-4 py-3 flex items-center justify-center gap-2.5 hover:bg-slate-800 transition-colors cursor-not-allowed opacity-75 min-h-[56px]">
+                  <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                   </svg>
                   <div className="text-left">
                     <div className="text-[9px] text-slate-300 leading-tight">Download on the</div>
-                    <div className="text-xs font-semibold text-white leading-tight">App Store</div>
+                    <div className="text-sm font-semibold text-white leading-tight">App Store</div>
                   </div>
                 </button>
               </div>
@@ -893,37 +893,66 @@ export function LandingPageV2() {
               Trusted by 50,000+ students
             </h2>
 
-            {/* Arrow Navigation */}
-            <button
-              onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
-              disabled={reviewsPage === 0}
-              className="absolute left-0 top-[240px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-            >
-              <ChevronLeft className="w-6 h-6 text-slate-700" />
-            </button>
-            <button
-              onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
-              disabled={reviewsPage === 2}
-              className="absolute right-0 top-[240px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-            >
-              <ChevronRight className="w-6 h-6 text-slate-700" />
-            </button>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
-                <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
-                    ))}
+            {/* Mobile: Horizontal scroll carousel */}
+            <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
+              <div className="flex gap-4">
+                {testimonials.map((testimonial, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-shrink-0 snap-center"
+                    style={{ width: 'calc(100vw - 64px)' }}
+                  >
+                    <div className="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-lg h-full">
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+                      <p className="text-slate-700 mb-6 text-sm leading-relaxed italic">
+                        "{testimonial.review}"
+                      </p>
+                      <div className="font-semibold text-slate-900 text-sm">{testimonial.name}</div>
+                      <div className="text-xs text-slate-500">{testimonial.exam}</div>
+                    </div>
                   </div>
-                  <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
-                    "{testimonial.review}"
-                  </p>
-                  <div className="font-semibold text-slate-900">{testimonial.name}</div>
-                  <div className="text-sm text-slate-500">{testimonial.exam}</div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: Grid with arrow navigation */}
+            <div className="hidden md:block relative">
+              {/* Arrow Navigation */}
+              <button
+                onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
+                disabled={reviewsPage === 0}
+                className="absolute left-0 top-[200px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+              >
+                <ChevronLeft className="w-6 h-6 text-slate-700" />
+              </button>
+              <button
+                onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
+                disabled={reviewsPage === 2}
+                className="absolute right-0 top-[200px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+              >
+                <ChevronRight className="w-6 h-6 text-slate-700" />
+              </button>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
+                  <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
+                      "{testimonial.review}"
+                    </p>
+                    <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                    <div className="text-sm text-slate-500">{testimonial.exam}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
