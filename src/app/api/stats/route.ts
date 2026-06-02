@@ -60,8 +60,9 @@ export async function GET(request: NextRequest) {
       examId: examId || null,
     };
 
+    // CACHE DISABLED FOR DEBUG
     // Cache for 5 minutes (300 seconds)
-    await setCached(cacheKey, response, 300);
+    // await setCached(cacheKey, response, 300);
 
     return NextResponse.json(response);
   } catch (error) {
