@@ -64,39 +64,34 @@ export async function POST(request: NextRequest) {
       // In emergency mode, allow all OTPs (we'll sort out users after migration)
     } else {
       // Normal mode: check database for user existence
-      try {
-        // Try Redis cache first
-        const cachedExists = await checkUserExistsInCache(cleanEmail);
+      // Try Redis cache first
+      const cachedExists = await checkUserExistsInCache(cleanEmail);
 
-        let existingUser = null;
-        if (cachedExists !== null) {
-          // Use cached result
-          existingUser = cachedExists ? { email: cleanEmail } : null;
-        } else {
-          // Cache miss - query database
-          existingUser = await getUserByEmail(cleanEmail);
-          console.log('[OTP] Database check result:', { email: cleanEmail, exists: !!existingUser });
-        }
+      let existingUser = null;
+      if (cachedExists !== null) {
+        // Use cached result
+        existingUser = cachedExists ? { email: cleanEmail } : null;
+      } else {
+        // Cache miss - query database
+        existingUser = await getUserByEmail(cleanEmail);
+        console.log('[OTP] Database check result:', { email: cleanEmail, exists: !!existingUser });
+      }
 
-        // If action is "signup" and user exists, return error
-        if (action === "signup" && existingUser) {
-          return NextResponse.json({
-            error: "An account with this email already exists. Please log in instead.",
-            shouldLogin: true
-          }, { status: 400 });
-        }
+      // If action is "signup" and user exists, return error
+      if (action === "signup" && existingUser) {
+        return NextResponse.json({
+          error: "An account with this email already exists. Please log in instead.",
+          shouldLogin: true
+        }, { status: 400 });
+      }
 
-        // If action is "login" and user doesn't exist, return error
-        // Block login if we're certain user doesn't exist (either from DB or cache)
-        if (action === "login" && !existingUser && cachedExists !== true) {
-          return NextResponse.json({
-            error: "No account found with this email. Please sign up first.",
-            shouldSignup: true
-          }, { status: 400 });
-        }
-      } catch (error) {
-        console.error('[OTP] User check failed, allowing OTP anyway:', error);
-        // If everything fails, allow the OTP
+      // If action is "login" and user doesn't exist, return error
+      // Block login if we're certain user doesn't exist (either from DB or cache)
+      if (action === "login" && !existingUser && cachedExists !== true) {
+        return NextResponse.json({
+          error: "No account found with this email. Please sign up first.",
+          shouldSignup: true
+        }, { status: 400 });
       }
     }
 
