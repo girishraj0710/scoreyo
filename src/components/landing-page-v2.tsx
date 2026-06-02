@@ -1,5 +1,5 @@
 "use client";
-// v83 - Repositioned CTA with -mt-72 for zero gap between sections
+// v84 - Fixed parallax effect with reduced movement and -40px cap
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
