@@ -469,7 +469,7 @@ export default function MockTestPage() {
                 </ul>
               </div>
 
-              <div className="[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
+              <div className="[#E8F4FC] border border-[#90CAF9] rounded-lg p-4">
                 <p className="font-semibold text-[#005A7A]">💡 Pro Tips:</p>
                 <ul className="text-sm mt-2 space-y-1 list-disc list-inside">
                   <li>Attempt all questions - there's no negative marking</li>
@@ -530,7 +530,7 @@ export default function MockTestPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8F4FC] flex items-center justify-center">
             <svg className="animate-spin h-8 w-8 [#00A1E0]" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -716,7 +716,7 @@ export default function MockTestPage() {
         {/* Question */}
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-4">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E8EAFF] [#0176D3]">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E8F4FC] [#0176D3]">
               {question.subjectName}
             </span>
             <span className="text-xs text-slate-400">Q{currentQuestion + 1}</span>
@@ -798,7 +798,7 @@ export default function MockTestPage() {
                 onClick={() => setCurrentQuestion(idx)}
                 className={`w-8 h-8 rounded-lg text-xs font-medium ${
                   idx === currentQuestion ? "bg-slate-500 text-white"
-                  : answers[idx] !== null ? "bg-[#E8EAFF] [#00A1E0]"
+                  : answers[idx] !== null ? "bg-[#E8F4FC] [#00A1E0]"
                   : "bg-slate-100 text-slate-400"
                 }`}
                 title={q.subjectName}
@@ -809,7 +809,7 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-4 mt-3 text-xs text-slate-400">
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-500 inline-block" /> {t("current")}</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8EAFF] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8F4FC] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-100 inline-block" /> {t("notAnswered")}</span>
           </div>
         </div>
@@ -872,7 +872,7 @@ export default function MockTestPage() {
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-[#E8F4FC] rounded-xl flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 [#00A1E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -1266,7 +1266,7 @@ export default function MockTestPage() {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
                     <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
-                      <div className="w-2 h-2 rounded-full [#E8EAFF]0"></div>
+                      <div className="w-2 h-2 rounded-full [#E8F4FC]0"></div>
                       <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
                       <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
                     </div>
@@ -1290,7 +1290,7 @@ export default function MockTestPage() {
                         className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
                           selectedTestNumber === num
                             ? "[#00A1E0] text-white shadow-lg scale-110"
-                            : "bg-white text-slate-700 hover:[#E8EAFF] hover:[#00A1E0] border-2 border-slate-200 hover:border-[#90CAF9]"
+                            : "bg-white text-slate-700 hover:[#E8F4FC] hover:[#00A1E0] border-2 border-slate-200 hover:border-[#90CAF9]"
                         }`}
                       >
                         {num}
