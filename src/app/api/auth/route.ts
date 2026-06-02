@@ -36,7 +36,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, name, age, location, phoneNumber, examPreparingFor, role } = body;
 
-    console.log('[Auth POST] Request body received:', { email, name, role });
+    console.log('[Auth POST] Full request body received:', JSON.stringify(body, null, 2));
+    console.log('[Auth POST] Extracted values:', { email, name, role, type_of_role: typeof role });
 
     if (!email || !email.trim()) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -151,7 +152,7 @@ export async function POST(request: NextRequest) {
     console.log('[Auth] New user detected, checking signup data:', { hasName: !!name });
     if (!name || !name.trim()) {
       return NextResponse.json({
-        error: "Please complete signup with your name and details",
+        error: "No account found with this email. Please sign up first.",
         needsSignup: true,
       }, { status: 400 });
     }
