@@ -28,23 +28,37 @@ AVAILABLE EXAMS:
 - JEE Main (Engineering entrance - NIT, IIIT) - exam_id: jee-main
 - JEE Advanced (IIT entrance) - exam_id: jee-advanced
 - NEET (Medical entrance) - exam_id: neet
-- UPSC Civil Services (IAS, IPS) - exam_id: upsc
-- SSC (Staff Selection Commission) - exam_id: ssc
+- UPSC Civil Services (IAS, IPS) - exam_id: upsc-cse
+- SSC (Staff Selection Commission) - exam_id: ssc-cgl
 - CAT (MBA entrance) - exam_id: cat
-- GATE (Engineering postgraduate) - exam_id: gate
-- Banking (IBPS, SBI) - exam_id: banking
+- GATE (Engineering postgraduate) - exam_id: gate-cs or gate-ee or gate-me
+- Banking (IBPS, SBI) - exam_id: banking-po
 - NDA (National Defence Academy) - exam_id: nda
-- State Engineering (Karnataka CET, MHT CET, etc.) - exam_id: state-engg
 
-AVAILABLE SUBJECTS (examples):
-- Physics (JEE/NEET): Mechanics, Thermodynamics, Electromagnetism, Optics, Modern Physics - subject_id: physics
-- Chemistry (JEE/NEET): Physical, Organic, Inorganic - subject_id: chemistry
-- Mathematics (JEE): Calculus, Algebra, Trigonometry, Coordinate Geometry - subject_id: mathematics
-- Biology (NEET): Botany, Zoology, Human Physiology - subject_id: biology
-- General Studies (UPSC): Polity, Geography, History, Economy - subject_id: general-studies
-- Quantitative Aptitude (CAT/Banking): Arithmetic, Data Interpretation - subject_id: quantitative-aptitude
-- Reasoning (CAT/Banking/SSC): Logical, Verbal, Analytical - subject_id: reasoning
-- English (All exams): Grammar, Comprehension, Vocabulary - subject_id: english
+AVAILABLE SUBJECTS (you MUST use these exact IDs):
+JEE/Engineering subjects:
+- subject_id: jee-physics (Physics for JEE)
+- subject_id: jee-chemistry (Chemistry for JEE)
+- subject_id: jee-maths (Mathematics for JEE)
+
+NEET/Medical subjects:
+- subject_id: neet-physics (Physics for NEET)
+- subject_id: neet-chemistry (Chemistry for NEET)
+- subject_id: neet-biology (Biology for NEET)
+
+UPSC subjects:
+- subject_id: upsc-polity (Indian Polity & Governance)
+- subject_id: upsc-history (Indian History & Culture)
+- subject_id: upsc-geography (Geography)
+- subject_id: upsc-economy (Indian Economy)
+- subject_id: upsc-science (Science & Technology)
+- subject_id: upsc-current (Current Affairs & General Studies)
+
+CAT/Banking/SSC subjects:
+- subject_id: quantitative-aptitude (Quant, Math, Data Interpretation)
+- subject_id: reasoning (Logical, Verbal, Analytical Reasoning)
+- subject_id: english (Grammar, Comprehension, Vocabulary)
+- subject_id: general-awareness (Current Affairs, GK)
 
 TASK:
 Analyze the content and return classification in JSON format.
@@ -53,12 +67,14 @@ OUTPUT FORMAT (return ONLY valid JSON, no markdown, no other text):
 {
   "examId": "jee-main",
   "examName": "JEE Main",
-  "subjectId": "physics",
+  "subjectId": "jee-physics",
   "subjectName": "Physics",
   "topics": ["Thermodynamics", "Heat Transfer", "Work and Energy"],
   "confidence": 0.95,
   "reasoning": "Content discusses work-energy theorem, angular momentum in collisions, and energy conservation - typical JEE Main Physics Mechanics topics."
 }
+
+CRITICAL: You MUST use the exact exam_id and subject_id values from the lists above. Do NOT make up your own IDs.
 
 Return ONLY the JSON object, no other text.`;
 
