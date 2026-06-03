@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, Suspense } from "react";
+import { useUser } from "@/context/user-context";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
@@ -1531,6 +1532,15 @@ function QuizContent() {
 }
 
 export default function QuizPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+      router.push("/contributor");
+    }
+  }, [user, userLoading, router]);
   return (
     <Suspense
       fallback={

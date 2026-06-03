@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { getExamIcon } from "@/lib/professional-icons";
@@ -8,6 +10,15 @@ import { BarChart3, Star, TrendingUp, Target, Zap, CheckCircle2 } from "lucide-r
 
 export default function ReportsPage() {
   const { t } = useLocale();
+  const { user, isLoading: userLoading } = useUser();
+  const router = useRouter();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ['contributor', 'admin'].includes(user.role || '')) {
+      router.push('/contributor');
+    }
+  }, [user, userLoading, router]);
 
   // Debug: Check if component is even mounting
   console.log('[Reports] Component mounting');

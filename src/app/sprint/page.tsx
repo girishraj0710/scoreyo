@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useUser } from "@/context/user-context";
 import { useRouter } from "next/navigation";
 import { Trophy, Clock, Users, Zap } from "lucide-react";
 import { sounds } from "@/lib/sounds";
@@ -33,6 +34,15 @@ interface SprintData {
 }
 
 export default function SprintPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+      router.push("/contributor");
+    }
+  }, [user, userLoading, router]);
   const router = useRouter();
   const [sprints, setSprints] = useState<SprintData[]>([]);
   const [noActiveSprint, setNoActiveSprint] = useState(false);

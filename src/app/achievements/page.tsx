@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { BADGES, RARITY_STYLES, checkBadges, getNextMilestones, type Badge } from "@/lib/achievements";
 import { Trophy, Award, Lock, Share2, TrendingUp } from "lucide-react";
@@ -11,7 +12,15 @@ interface BadgeWithStatus extends Badge {
 }
 
 export default function AchievementsPage() {
-  const { user } = useUser();
+  const { user, isLoading: userLoading } = useUser();
+  const router = useRouter();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ['contributor', 'admin'].includes(user.role || '')) {
+      router.push('/contributor');
+    }
+  }, [user, userLoading, router]);
   const [badges, setBadges] = useState<BadgeWithStatus[]>([]);
   const [stats, setStats] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");

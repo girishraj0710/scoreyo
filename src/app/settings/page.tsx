@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale, type Locale } from "@/context/locale-context";
 import { getAllExams } from "@/lib/exams";
@@ -37,6 +38,15 @@ interface Subscription {
 }
 
 export default function SettingsPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+      router.push("/contributor");
+    }
+  }, [user, userLoading, router]);
   const { user, updateProfile, logout } = useUser();
   const { locale, setLocale } = useLocale();
 

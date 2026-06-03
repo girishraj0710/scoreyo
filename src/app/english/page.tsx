@@ -9,6 +9,15 @@ import { getPathIcon } from "@/lib/english-icons";
 import { BookOpen, Target, TrendingUp, Award, Calendar, Zap } from "lucide-react";
 
 export default function EnglishHubPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+      router.push("/contributor");
+    }
+  }, [user, userLoading, router]);
   const { user, isLoading, setShowLoginModal } = useUser();
   const router = useRouter();
   const [dailyStreak, setDailyStreak] = useState(0);

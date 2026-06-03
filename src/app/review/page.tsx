@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useUser } from "@/context/user-context";
+import { useRouter } from "next/navigation";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
@@ -17,6 +19,15 @@ interface ReviewTopic {
 }
 
 export default function ReviewPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+      router.push("/contributor");
+    }
+  }, [user, userLoading, router]);
   const { t } = useLocale();
   const [overdue, setOverdue] = useState<ReviewTopic[]>([]);
   const [dueToday, setDueToday] = useState<ReviewTopic[]>([]);

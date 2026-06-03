@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useUser } from "@/context/user-context";
+import { useRouter } from "next/navigation";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
@@ -33,6 +35,15 @@ interface LeaderboardEntry {
 }
 
 export default function LeaderboardPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+      router.push("/contributor");
+    }
+  }, [user, userLoading, router]);
   const { t } = useLocale();
   const [personalBests, setPersonalBests] = useState<PersonalBest[]>([]);
   const [longestStreak, setLongestStreak] = useState(0);
