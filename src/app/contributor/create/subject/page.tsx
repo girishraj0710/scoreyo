@@ -7,7 +7,7 @@ import { examCategories, getExamById } from "@/lib/exams";
 import { ArrowRight, BookOpen, CheckCircle } from "lucide-react";
 import { ColorfulSubjectIcon, ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
-import { Icon3DBook } from "@/components/premium-3d-icons";
+import { Icon3DBook, Icon3DGraduationCap, Icon3DRocket, Icon3DTarget, Icon3DTrophy, Icon3DChart, Icon3DNotebook } from "@/components/premium-3d-icons";
 
 function SelectSubjectContent() {
   const router = useRouter();
@@ -60,6 +60,30 @@ function SelectSubjectContent() {
       </div>
     );
   }
+
+  // Get appropriate icon based on exam category
+  const getExamIcon = (category: string) => {
+    const iconMap: Record<string, React.ComponentType<{size?: number}>> = {
+      'engineering': Icon3DRocket,
+      'medical': Icon3DGraduationCap,
+      'civil-services': Icon3DTrophy,
+      'government': Icon3DTarget,
+      'banking': Icon3DChart,
+      'banking-ssc': Icon3DChart,
+      'law': Icon3DBook,
+      'management': Icon3DChart,
+      'mba': Icon3DChart,
+      'defence': Icon3DTarget,
+      'defense': Icon3DTarget,
+      'teaching': Icon3DGraduationCap,
+      'railways': Icon3DRocket,
+      'police': Icon3DTarget,
+      'state': Icon3DTrophy,
+      'state-psc': Icon3DTrophy,
+    };
+    const IconComponent = iconMap[category] || Icon3DNotebook;
+    return <IconComponent size={72} />;
+  };
 
   const handleSubjectSelect = (subjectId: string) => {
     router.push(`/contributor/create/upload?examId=${examId}&subjectId=${subjectId}`);
@@ -115,7 +139,7 @@ function SelectSubjectContent() {
         {/* Selected Exam Summary */}
         <div className="bg-indigo-50 rounded-xl border-2 border-indigo-200 p-6 mb-8">
           <div className="flex items-center gap-4">
-            <Icon3DBook size={72} />
+            {getExamIcon(exam.category)}
             <div>
               <div className="text-sm text-indigo-600 font-medium mb-1">Selected Exam</div>
               <div className="text-2xl font-bold text-slate-900">{exam.name}</div>
