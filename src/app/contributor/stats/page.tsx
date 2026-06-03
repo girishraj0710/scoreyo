@@ -78,14 +78,17 @@ export default function StatsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">
-              📊 Contribution Stats
-            </h1>
+            <div className="flex items-center gap-3 mb-2">
+              <PremiumIcon icon={BarChart3} gradient="emerald" size="md" />
+              <h1 className="text-4xl font-bold text-slate-900">
+                Contribution Stats
+              </h1>
+            </div>
             <p className="text-lg text-slate-600">
               Track your contribution to PrepGenie's question bank
             </p>
