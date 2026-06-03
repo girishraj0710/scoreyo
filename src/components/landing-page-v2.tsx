@@ -996,8 +996,6 @@ export function LandingPageV2() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6">
-
       {/* Footer - Full Width */}
       <footer className="bg-slate-100 text-slate-900 py-12 mt-16">
         <div className="max-w-6xl mx-auto px-6">
