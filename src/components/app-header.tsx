@@ -171,7 +171,7 @@ export function AppHeader() {
                       {user.name}
                       {user.role && user.role !== 'student' && (
                         <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 font-semibold">
-                          {user.role === 'contributor' ? '👨‍🏫' : user.role === 'contributor' ? '🤝' : '⚙️'} {user.role}
+                          {user.role === 'contributor' ? '🎯' : '⚙️'} {user.role}
                         </span>
                       )}
                     </div>
