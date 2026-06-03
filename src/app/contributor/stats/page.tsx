@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { TrendingUp, Award, BarChart3 } from "lucide-react";
+import { TrendingUp, Clock, CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
-import { PremiumIcon } from "@/components/premium-icon";
+import { Icon3DChart, Icon3DSparkle, Icon3DNotebook, Icon3DTrophy } from "@/components/premium-3d-icons";
 
 interface ContributorStats {
   questions_contributed: number;
@@ -84,8 +84,8 @@ export default function StatsPage() {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <PremiumIcon icon={BarChart3} gradient="emerald" size="md" />
+            <div className="flex items-center gap-4 mb-2">
+              <Icon3DChart size={56} />
               <h1 className="text-4xl font-bold text-slate-900">
                 Contribution Stats
               </h1>
@@ -126,7 +126,7 @@ export default function StatsPage() {
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-sm font-semibold text-blue-900">Questions Contributed</h3>
-                  <div className="text-2xl">📝</div>
+                  <Icon3DNotebook size={48} />
                 </div>
                 <p className="text-5xl font-bold text-blue-600 mb-2">{stats.questions_contributed}</p>
                 <p className="text-sm text-blue-700">Total questions submitted</p>
@@ -136,7 +136,7 @@ export default function StatsPage() {
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-xl p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-sm font-semibold text-purple-900">Contribution Points</h3>
-                  <Award className="w-6 h-6 text-purple-600" />
+                  <Icon3DTrophy size={48} />
                 </div>
                 <p className="text-5xl font-bold text-purple-600 mb-2">{stats.contribution_points}</p>
                 <p className="text-sm text-purple-700">Points earned from approved questions</p>
@@ -158,10 +158,13 @@ export default function StatsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm opacity-90 mb-2">Your Current Level</p>
-                  <h2 className="text-4xl font-bold mb-2">🏆 {getLevel(stats.contribution_points)}</h2>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Icon3DTrophy size={48} />
+                    <h2 className="text-4xl font-bold">{getLevel(stats.contribution_points)}</h2>
+                  </div>
                   <p className="text-sm opacity-90">Keep contributing to reach the next level!</p>
                 </div>
-                <div className="text-6xl">✨</div>
+                <Icon3DSparkle size={80} />
               </div>
             </div>
 
@@ -175,7 +178,10 @@ export default function StatsPage() {
                   {/* Pending */}
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-slate-700 font-medium">⏳ Pending</span>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-yellow-500" />
+                        <span className="text-slate-700 font-medium">Pending</span>
+                      </div>
                       <span className="font-bold text-slate-900">{stats.pending_questions}</span>
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-2">
@@ -191,7 +197,10 @@ export default function StatsPage() {
                   {/* Approved */}
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-slate-700 font-medium">✅ Approved</span>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-slate-700 font-medium">Approved</span>
+                      </div>
                       <span className="font-bold text-slate-900">{stats.approved_questions}</span>
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-2">
@@ -207,7 +216,10 @@ export default function StatsPage() {
                   {/* Rejected */}
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-slate-700 font-medium">❌ Rejected</span>
+                      <div className="flex items-center gap-2">
+                        <XCircle className="w-4 h-4 text-red-500" />
+                        <span className="text-slate-700 font-medium">Rejected</span>
+                      </div>
                       <span className="font-bold text-slate-900">{stats.rejected_questions}</span>
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-2">

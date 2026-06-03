@@ -3,10 +3,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { ArrowRight, Zap, Sparkles, FileText, BarChart3, GraduationCap, Rocket, Award, Target } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
-import { PremiumIcon } from "@/components/premium-icon";
+import { Icon3DTarget, Icon3DSparkle, Icon3DNotebook, Icon3DChart, Icon3DGraduationCap, Icon3DTrophy, Icon3DRocket } from "@/components/premium-3d-icons";
 
 export default function ContributorPortalPage() {
   const router = useRouter();
@@ -39,8 +39,8 @@ export default function ContributorPortalPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-3 mb-3">
-            <PremiumIcon icon={Target} gradient="indigo" size="md" />
+          <div className="flex items-center gap-4 mb-3">
+            <Icon3DTarget size={56} />
             <h1 className="text-4xl font-bold text-slate-900">
               Contributor Portal
             </h1>
@@ -56,8 +56,8 @@ export default function ContributorPortalPage() {
             href="/contributor/create"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform">
-              <PremiumIcon icon={Sparkles} gradient="indigo" size="lg" />
+            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+              <Icon3DSparkle size={72} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
               Create Question Set
@@ -74,8 +74,8 @@ export default function ContributorPortalPage() {
             href="/contributor/submissions"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform">
-              <PremiumIcon icon={FileText} gradient="cyan" size="lg" />
+            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+              <Icon3DNotebook size={72} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
               My Submissions
@@ -92,8 +92,8 @@ export default function ContributorPortalPage() {
             href="/contributor/stats"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform">
-              <PremiumIcon icon={BarChart3} gradient="emerald" size="lg" />
+            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+              <Icon3DChart size={72} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
               Contribution Stats
@@ -160,31 +160,31 @@ export default function ContributorPortalPage() {
         {/* Benefits */}
         <div className="grid md:grid-cols-3 gap-6">
           <div className="border-2 border-slate-200 rounded-xl p-6">
-            <div className="mb-3">
-              <PremiumIcon icon={GraduationCap} gradient="blue" size="md" />
+            <div className="mb-3 flex justify-center">
+              <Icon3DGraduationCap size={56} />
             </div>
-            <h3 className="font-bold text-slate-900 mb-2">Help Students</h3>
-            <p className="text-sm text-slate-600">
+            <h3 className="font-bold text-slate-900 mb-2 text-center">Help Students</h3>
+            <p className="text-sm text-slate-600 text-center">
               Your questions help thousands of students prepare for their exams
             </p>
           </div>
 
           <div className="border-2 border-slate-200 rounded-xl p-6">
-            <div className="mb-3">
-              <PremiumIcon icon={Award} gradient="amber" size="md" />
+            <div className="mb-3 flex justify-center">
+              <Icon3DTrophy size={56} />
             </div>
-            <h3 className="font-bold text-slate-900 mb-2">Earn Points</h3>
-            <p className="text-sm text-slate-600">
+            <h3 className="font-bold text-slate-900 mb-2 text-center">Earn Points</h3>
+            <p className="text-sm text-slate-600 text-center">
               Get contribution points for every approved question
             </p>
           </div>
 
           <div className="border-2 border-slate-200 rounded-xl p-6">
-            <div className="mb-3">
-              <PremiumIcon icon={Rocket} gradient="purple" size="md" />
+            <div className="mb-3 flex justify-center">
+              <Icon3DRocket size={56} />
             </div>
-            <h3 className="font-bold text-slate-900 mb-2">Build Reputation</h3>
-            <p className="text-sm text-slate-600">
+            <h3 className="font-bold text-slate-900 mb-2 text-center">Build Reputation</h3>
+            <p className="text-sm text-slate-600 text-center">
               Top contributors get featured and special badges
             </p>
           </div>

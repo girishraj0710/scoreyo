@@ -4,8 +4,9 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { getExamById } from "@/lib/exams";
-import { ArrowRight, BookOpen, Check, Upload, FileText, Lightbulb, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Check } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
+import { Icon3DSparkle, Icon3DNotebook, Icon3DPencil, Icon3DRocket } from "@/components/premium-3d-icons";
 
 function UploadContentPage() {
   const router = useRouter();
@@ -238,9 +239,7 @@ function UploadContentPage() {
         {submissionMessage && (
           <div className="mb-8 p-6 bg-green-50 border-2 border-green-200 rounded-xl">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
-                <CheckCircle2 className="w-7 h-7 text-white" />
-              </div>
+              <Icon3DRocket size={56} />
               <div>
                 <p className="text-green-900 font-bold text-lg">{submissionMessage}</p>
                 <p className="text-green-700 text-sm mt-1">Redirecting to submissions...</p>
@@ -263,7 +262,7 @@ function UploadContentPage() {
                   : 'text-slate-500 hover:text-slate-700'
               }`}
             >
-              <Upload className="w-4 h-4" />
+              <Icon3DRocket size={24} />
               Upload Files
               {activeTab === 'upload' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
@@ -277,7 +276,7 @@ function UploadContentPage() {
                   : 'text-slate-500 hover:text-slate-700'
               }`}
             >
-              <FileText className="w-4 h-4" />
+              <Icon3DPencil size={24} />
               Paste Text
               {activeTab === 'paste' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
@@ -301,7 +300,7 @@ function UploadContentPage() {
               >
                 {!file ? (
                   <div className="flex flex-col items-center gap-4">
-                    <BookOpen className="w-16 h-16 text-indigo-400" />
+                    <Icon3DNotebook size={80} />
                     <div>
                       <p className="text-xl text-slate-700 font-medium mb-2">
                         Drag and drop your file here
@@ -357,7 +356,7 @@ function UploadContentPage() {
                 className="w-full h-64 p-4 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-400 text-slate-700 resize-none"
               />
               <div className="flex items-start gap-2 mt-3">
-                <Lightbulb className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                <Icon3DSparkle size={20} />
                 <p className="text-xs text-slate-500">
                   <span className="font-semibold">Tip:</span> More content = better question quality. Aim for at least 500 words.
                 </p>
@@ -439,7 +438,7 @@ function UploadContentPage() {
                   </>
                 ) : (
                   <>
-                    <Sparkles className="w-6 h-6" />
+                    <Icon3DSparkle size={28} />
                     Generate & Submit Questions
                     <ArrowRight className="w-6 h-6" />
                   </>
@@ -447,11 +446,12 @@ function UploadContentPage() {
               </button>
 
               {isProcessing && (
-                <div className="text-center">
+                <div className="text-center flex flex-col items-center gap-3">
+                  <Icon3DSparkle size={48} />
                   <p className="text-slate-600 font-medium">
-                    ⏳ This may take 30-60 seconds. Please wait...
+                    This may take 30-60 seconds. Please wait...
                   </p>
-                  <p className="text-sm text-slate-500 mt-2">
+                  <p className="text-sm text-slate-500">
                     Our AI is analyzing your content and generating high-quality questions
                   </p>
                 </div>
@@ -463,7 +463,7 @@ function UploadContentPage() {
         {/* Info Box */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
           <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
-            <Lightbulb className="w-5 h-5 text-blue-600" /> What Happens Next?
+            <Icon3DSparkle size={28} /> What Happens Next?
           </h3>
           <ul className="space-y-2 text-sm text-blue-800">
             <li className="flex items-start gap-2">

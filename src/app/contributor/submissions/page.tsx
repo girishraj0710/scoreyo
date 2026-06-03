@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { CheckCircle, XCircle, Clock, FileText } from "lucide-react";
+import { CheckCircle, XCircle, Clock } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
-import { PremiumIcon } from "@/components/premium-icon";
+import { Icon3DNotebook, Icon3DBook } from "@/components/premium-3d-icons";
 
 interface Submission {
   id: string;
@@ -98,9 +98,9 @@ export default function SubmissionsPage() {
 
   const tabs = [
     { id: 'all' as const, label: 'All', count: submissions.length },
-    { id: 'pending' as const, label: '⏳ Pending', count: submissions.filter(s => s.status === 'pending').length },
-    { id: 'approved' as const, label: '✅ Approved', count: submissions.filter(s => s.status === 'approved').length },
-    { id: 'rejected' as const, label: '❌ Rejected', count: submissions.filter(s => s.status === 'rejected').length },
+    { id: 'pending' as const, label: 'Pending', count: submissions.filter(s => s.status === 'pending').length },
+    { id: 'approved' as const, label: 'Approved', count: submissions.filter(s => s.status === 'approved').length },
+    { id: 'rejected' as const, label: 'Rejected', count: submissions.filter(s => s.status === 'rejected').length },
   ];
 
   return (
@@ -109,8 +109,8 @@ export default function SubmissionsPage() {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <PremiumIcon icon={FileText} gradient="cyan" size="md" />
+            <div className="flex items-center gap-4 mb-2">
+              <Icon3DNotebook size={56} />
               <h1 className="text-4xl font-bold text-slate-900">
                 My Submissions
               </h1>
@@ -163,7 +163,9 @@ export default function SubmissionsPage() {
           </div>
         ) : filteredSubmissions.length === 0 ? (
           <div className="bg-white rounded-xl border-2 border-slate-200 p-12 text-center">
-            <p className="text-2xl mb-3">📭</p>
+            <div className="flex justify-center mb-4">
+              <Icon3DBook size={80} />
+            </div>
             <p className="text-lg font-semibold text-slate-900 mb-2">No submissions yet</p>
             <p className="text-slate-600 mb-6">
               {activeTab === 'all' ? 'Start creating questions to see them here!' : `No ${activeTab} submissions`}
@@ -202,14 +204,14 @@ export default function SubmissionsPage() {
 
                       {/* Metadata */}
                       <div className="flex flex-wrap gap-4 mb-3 text-sm">
-                        <span className="text-slate-600">
-                          📚 <strong>{submission.classification?.exam_name || 'Unknown Exam'}</strong>
+                        <span className="text-slate-600 flex items-center gap-1">
+                          <Icon3DBook size={16} /> <strong>{submission.classification?.exam_name || 'Unknown Exam'}</strong>
+                        </span>
+                        <span className="text-slate-600 flex items-center gap-1">
+                          <Icon3DNotebook size={16} /> <strong>{submission.classification?.subject_name || 'Unknown Subject'}</strong>
                         </span>
                         <span className="text-slate-600">
-                          📖 <strong>{submission.classification?.subject_name || 'Unknown Subject'}</strong>
-                        </span>
-                        <span className="text-slate-600">
-                          ⚡ <strong className="capitalize">{submission.difficulty}</strong>
+                          <strong className="capitalize">{submission.difficulty}</strong>
                         </span>
                         <span className="text-slate-500">
                           {new Date(submission.created_at).toLocaleDateString('en-IN')}
