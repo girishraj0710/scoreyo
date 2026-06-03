@@ -924,7 +924,7 @@ export function LandingPageV2() {
 
       {/* Social Proof */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-2 md:px-6 relative">
+        <div className="max-w-7xl mx-auto px-2 md:px-6">
           <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 text-center">
             Trusted by 50,000+ students
           </h2>
@@ -955,9 +955,9 @@ export function LandingPageV2() {
             </div>
           </div>
 
-          {/* Desktop: Grid with arrow navigation - Arrows at section edges */}
-          <div className="hidden md:block">
-            {/* Left Arrow - At section edge */}
+          {/* Desktop: Grid with arrow navigation - Separate container for arrows */}
+          <div className="hidden md:block relative">
+            {/* Left Arrow - Centered with cards */}
             <button
               onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
               disabled={reviewsPage === 0}
@@ -966,7 +966,7 @@ export function LandingPageV2() {
               <ChevronLeft className="w-6 h-6 text-slate-800" />
             </button>
 
-            {/* Right Arrow - At section edge */}
+            {/* Right Arrow - Centered with cards */}
             <button
               onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
               disabled={reviewsPage === 2}
