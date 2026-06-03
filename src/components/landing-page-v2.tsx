@@ -955,22 +955,22 @@ export function LandingPageV2() {
             </div>
           </div>
 
-          {/* Desktop: Grid with arrow navigation - Separate container for arrows */}
+          {/* Desktop: Grid with arrow navigation */}
           <div className="hidden md:block relative">
-            {/* Left Arrow - Centered with cards */}
+            {/* Left Arrow - Aligned with card center */}
             <button
               onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
               disabled={reviewsPage === 0}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+              className="absolute left-0 top-[140px] z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
             >
               <ChevronLeft className="w-6 h-6 text-slate-800" />
             </button>
 
-            {/* Right Arrow - Centered with cards */}
+            {/* Right Arrow - Aligned with card center */}
             <button
               onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
               disabled={reviewsPage === 2}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+              className="absolute right-0 top-[140px] z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
             >
               <ChevronRight className="w-6 h-6 text-slate-800" />
             </button>
