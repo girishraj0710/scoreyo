@@ -6,6 +6,7 @@ import { useUser } from "@/context/user-context";
 import { ArrowRight, Zap, Sparkles, FileText, BarChart3, GraduationCap, Rocket, Award, Target } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
+import { PremiumIcon } from "@/components/premium-icon";
 
 export default function ContributorPortalPage() {
   const router = useRouter();
@@ -39,9 +40,7 @@ export default function ContributorPortalPage() {
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
-              <Target className="w-7 h-7 text-white" />
-            </div>
+            <PremiumIcon icon={Target} gradient="indigo" size="md" />
             <h1 className="text-4xl font-bold text-slate-900">
               Contributor Portal
             </h1>
@@ -57,8 +56,8 @@ export default function ContributorPortalPage() {
             href="/contributor/create"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-              <Sparkles className="w-8 h-8 text-white" />
+            <div className="mb-4 group-hover:scale-110 transition-transform">
+              <PremiumIcon icon={Sparkles} gradient="indigo" size="lg" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
               Create Question Set
@@ -75,8 +74,8 @@ export default function ContributorPortalPage() {
             href="/contributor/submissions"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-              <FileText className="w-8 h-8 text-white" />
+            <div className="mb-4 group-hover:scale-110 transition-transform">
+              <PremiumIcon icon={FileText} gradient="cyan" size="lg" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
               My Submissions
@@ -93,8 +92,8 @@ export default function ContributorPortalPage() {
             href="/contributor/stats"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-              <BarChart3 className="w-8 h-8 text-white" />
+            <div className="mb-4 group-hover:scale-110 transition-transform">
+              <PremiumIcon icon={BarChart3} gradient="emerald" size="lg" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
               Contribution Stats
@@ -161,8 +160,8 @@ export default function ContributorPortalPage() {
         {/* Benefits */}
         <div className="grid md:grid-cols-3 gap-6">
           <div className="border-2 border-slate-200 rounded-xl p-6">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-3 shadow-md">
-              <GraduationCap className="w-6 h-6 text-white" />
+            <div className="mb-3">
+              <PremiumIcon icon={GraduationCap} gradient="blue" size="md" />
             </div>
             <h3 className="font-bold text-slate-900 mb-2">Help Students</h3>
             <p className="text-sm text-slate-600">
@@ -171,8 +170,8 @@ export default function ContributorPortalPage() {
           </div>
 
           <div className="border-2 border-slate-200 rounded-xl p-6">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-3 shadow-md">
-              <Award className="w-6 h-6 text-white" />
+            <div className="mb-3">
+              <PremiumIcon icon={Award} gradient="amber" size="md" />
             </div>
             <h3 className="font-bold text-slate-900 mb-2">Earn Points</h3>
             <p className="text-sm text-slate-600">
@@ -181,8 +180,8 @@ export default function ContributorPortalPage() {
           </div>
 
           <div className="border-2 border-slate-200 rounded-xl p-6">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-3 shadow-md">
-              <Rocket className="w-6 h-6 text-white" />
+            <div className="mb-3">
+              <PremiumIcon icon={Rocket} gradient="purple" size="md" />
             </div>
             <h3 className="font-bold text-slate-900 mb-2">Build Reputation</h3>
             <p className="text-sm text-slate-600">
