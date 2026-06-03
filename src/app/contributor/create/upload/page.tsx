@@ -39,7 +39,7 @@ function UploadContentPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p className="text-slate-600">Loading...</p>
@@ -57,7 +57,7 @@ function UploadContentPage() {
 
   if (!exam || !subject) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <p className="text-slate-600 mb-4">Invalid selection</p>
           <button
@@ -170,7 +170,7 @@ function UploadContentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -217,7 +217,7 @@ function UploadContentPage() {
         </div>
 
         {/* Selection Summary */}
-        <div className="bg-white rounded-xl border-2 border-green-200 p-6 mb-8">
+        <div className="bg-green-50 rounded-xl border-2 border-green-200 p-6 mb-8">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <div className="text-sm text-green-600 font-medium mb-1 flex items-center gap-1">
@@ -248,7 +248,7 @@ function UploadContentPage() {
         )}
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl border-2 border-slate-200 p-8 shadow-lg">
+        <div className="rounded-2xl border-2 border-slate-200 p-8 shadow-sm">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">Upload Study Material</h2>
 
           {/* Tabs */}
@@ -482,7 +482,7 @@ function UploadContentPage() {
 export default function UploadPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p className="text-slate-600">Loading...</p>

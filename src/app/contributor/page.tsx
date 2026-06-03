@@ -20,7 +20,7 @@ export default function ContributorPortalPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p className="text-slate-600">Loading contributor portal...</p>
@@ -34,7 +34,7 @@ export default function ContributorPortalPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -50,7 +50,7 @@ export default function ContributorPortalPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <Link
             href="/contributor/create"
-            className="group p-8 rounded-2xl border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-purple-50 hover:border-indigo-400 hover:shadow-xl transition-all"
+            className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
           >
             <div className="text-4xl mb-4">✨</div>
             <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
@@ -98,7 +98,7 @@ export default function ContributorPortalPage() {
         </div>
 
         {/* How It Works */}
-        <div className="bg-white rounded-2xl border-2 border-slate-200 p-8 mb-8">
+        <div className="rounded-2xl border-2 border-slate-200 p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <Zap className="w-7 h-7 text-yellow-500" />
             <h2 className="text-2xl font-bold text-slate-900">How It Works</h2>
@@ -149,7 +149,7 @@ export default function ContributorPortalPage() {
 
         {/* Benefits */}
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-xl p-6">
+          <div className="border-2 border-slate-200 rounded-xl p-6">
             <div className="text-3xl mb-3">🎓</div>
             <h3 className="font-bold text-slate-900 mb-2">Help Students</h3>
             <p className="text-sm text-slate-600">
@@ -157,7 +157,7 @@ export default function ContributorPortalPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6">
+          <div className="border-2 border-slate-200 rounded-xl p-6">
             <div className="text-3xl mb-3">⚡</div>
             <h3 className="font-bold text-slate-900 mb-2">Earn Points</h3>
             <p className="text-sm text-slate-600">
@@ -165,7 +165,7 @@ export default function ContributorPortalPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-xl p-6">
+          <div className="border-2 border-slate-200 rounded-xl p-6">
             <div className="text-3xl mb-3">🚀</div>
             <h3 className="font-bold text-slate-900 mb-2">Build Reputation</h3>
             <p className="text-sm text-slate-600">
