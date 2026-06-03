@@ -259,6 +259,13 @@ function HomePageContent() {
     }
   };
 
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (user && (user.role === 'contributor' || user.role === 'admin')) {
+      window.location.href = '/contributor';
+    }
+  }, [user]);
+
   // Show minimal loading state while checking auth (don't show landing page)
   if (isLoading) {
     return (
@@ -271,6 +278,18 @@ function HomePageContent() {
   // Show landing page if not logged in
   if (!user) {
     return <LandingPage />;
+  }
+
+  // Show loading state while redirecting contributors
+  if (user.role === 'contributor' || user.role === 'admin') {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-12 h-12 border-4 border-slate-200 border-t-indigo-600 rounded-full animate-spin"></div>
+          <p className="text-slate-600">Redirecting to Contributor Portal...</p>
+        </div>
+      </div>
+    );
   }
 
   // Show quiz selection interface for logged-in users
