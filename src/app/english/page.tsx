@@ -10,16 +10,14 @@ import { BookOpen, Target, TrendingUp, Award, Calendar, Zap } from "lucide-react
 
 export default function EnglishHubPage() {
   const router = useRouter();
-  const { user, isLoading: userLoading } = useUser();
+  const { user, isLoading, setShowLoginModal } = useUser();
 
   // Redirect contributors to contributor portal
   useEffect(() => {
-    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+    if (!isLoading && user && ["contributor", "admin"].includes(user.role || "")) {
       router.push("/contributor");
     }
-  }, [user, userLoading, router]);
-  const { user, isLoading, setShowLoginModal } = useUser();
-  const router = useRouter();
+  }, [user, isLoading, router]);
   const [dailyStreak, setDailyStreak] = useState(0);
   const [todayCompleted, setTodayCompleted] = useState(false);
 

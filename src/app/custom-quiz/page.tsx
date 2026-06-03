@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter } from "next/navigation";
 import { CheckCircle, AlertCircle } from "lucide-react";
@@ -24,7 +24,6 @@ export default function CustomQuizPage() {
       router.push("/contributor");
     }
   }, [user, userLoading, router]);
-  const router = useRouter();
   const [activeTab, setActiveTab] = useState<'upload' | 'paste'>('upload');
   const [file, setFile] = useState<File | null>(null);
   const [pastedText, setPastedText] = useState("");

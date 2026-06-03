@@ -39,7 +39,8 @@ interface Subscription {
 
 export default function SettingsPage() {
   const router = useRouter();
-  const { user, isLoading: userLoading } = useUser();
+  const { user, isLoading: userLoading, updateProfile, logout } = useUser();
+  const { locale, setLocale } = useLocale();
 
   // Redirect contributors to contributor portal
   useEffect(() => {
@@ -47,8 +48,6 @@ export default function SettingsPage() {
       router.push("/contributor");
     }
   }, [user, userLoading, router]);
-  const { user, updateProfile, logout } = useUser();
-  const { locale, setLocale } = useLocale();
 
   // Profile form state
   const [name, setName] = useState("");

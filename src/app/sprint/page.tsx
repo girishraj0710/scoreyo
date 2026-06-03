@@ -43,7 +43,6 @@ export default function SprintPage() {
       router.push("/contributor");
     }
   }, [user, userLoading, router]);
-  const router = useRouter();
   const [sprints, setSprints] = useState<SprintData[]>([]);
   const [noActiveSprint, setNoActiveSprint] = useState(false);
   const [loading, setLoading] = useState(true);
