@@ -922,78 +922,81 @@ export function LandingPageV2() {
           `}</style>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Social Proof */}
-        <section className="py-16 relative">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 text-center">
-              Trusted by 50,000+ students
-            </h2>
+      {/* Social Proof */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-2 md:px-6 relative">
+          <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 text-center">
+            Trusted by 50,000+ students
+          </h2>
 
-            {/* Mobile: Horizontal scroll carousel */}
-            <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
-              <div className="flex gap-4">
-                {testimonials.map((testimonial, idx) => (
-                  <div
-                    key={idx}
-                    className="flex-shrink-0 snap-center"
-                    style={{ width: 'calc(100vw - 64px)' }}
-                  >
-                    <div className="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-lg h-full">
-                      <div className="flex gap-1 mb-4">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                      <p className="text-slate-700 mb-6 text-sm leading-relaxed italic">
-                        "{testimonial.review}"
-                      </p>
-                      <div className="font-semibold text-slate-900 text-sm">{testimonial.name}</div>
-                      <div className="text-xs text-slate-500">{testimonial.exam}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop: Grid with arrow navigation */}
-            <div className="hidden md:block relative">
-              {/* Arrow Navigation */}
-              <button
-                onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
-                disabled={reviewsPage === 0}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-              >
-                <ChevronLeft className="w-6 h-6 text-slate-700" />
-              </button>
-              <button
-                onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
-                disabled={reviewsPage === 2}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-              >
-                <ChevronRight className="w-6 h-6 text-slate-700" />
-              </button>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
-                  <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
+          {/* Mobile: Horizontal scroll carousel */}
+          <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
+            <div className="flex gap-4">
+              {testimonials.map((testimonial, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 snap-center"
+                  style={{ width: 'calc(100vw - 64px)' }}
+                >
+                  <div className="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-lg h-full">
                     <div className="flex gap-1 mb-4">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                        <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
+                    <p className="text-slate-700 mb-6 text-sm leading-relaxed italic">
                       "{testimonial.review}"
                     </p>
-                    <div className="font-semibold text-slate-900">{testimonial.name}</div>
-                    <div className="text-sm text-slate-500">{testimonial.exam}</div>
+                    <div className="font-semibold text-slate-900 text-sm">{testimonial.name}</div>
+                    <div className="text-xs text-slate-500">{testimonial.exam}</div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
-      </div>
+
+          {/* Desktop: Grid with arrow navigation - Arrows at section edges */}
+          <div className="hidden md:block">
+            {/* Left Arrow - At section edge */}
+            <button
+              onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
+              disabled={reviewsPage === 0}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+            >
+              <ChevronLeft className="w-6 h-6 text-slate-800" />
+            </button>
+
+            {/* Right Arrow - At section edge */}
+            <button
+              onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
+              disabled={reviewsPage === 2}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+            >
+              <ChevronRight className="w-6 h-6 text-slate-800" />
+            </button>
+
+            {/* Testimonial Cards Grid */}
+            <div className="grid md:grid-cols-3 gap-8 px-4">
+              {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
+                <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
+                    "{testimonial.review}"
+                  </p>
+                  <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                  <div className="text-sm text-slate-500">{testimonial.exam}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-6">
 
       {/* Footer - Full Width */}
       <footer className="bg-slate-100 text-slate-900 py-12 mt-16">
