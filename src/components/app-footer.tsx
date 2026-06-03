@@ -2,13 +2,18 @@
 
 import { useLocale } from "@/context/locale-context";
 import { usePathname } from "next/navigation";
+import { useUser } from "@/context/user-context";
 
 export function AppFooter() {
   const { t } = useLocale();
   const pathname = usePathname();
+  const { user } = useUser();
 
   // Show TOEFL attribution only on English learning pages
   const isEnglishPage = pathname?.startsWith("/english");
+
+  // Check if user is contributor
+  const isContributor = user && ['contributor', 'admin'].includes(user.role || '');
 
   return (
     <footer className="bg-white border-t border-slate-200 mt-auto">
@@ -19,8 +24,12 @@ export function AppFooter() {
             <h3 className="font-semibold text-slate-800 mb-3 text-sm">Product</h3>
             <ul className="space-y-2 text-xs text-slate-600">
               <li><a href="/" className="hover:text-[#4255FF] transition-colors">Home</a></li>
-              <li><a href="/mock-test" className="hover:text-[#4255FF] transition-colors">Mock Tests</a></li>
-              <li><a href="/pricing" className="hover:text-[#4255FF] transition-colors">Pricing</a></li>
+              {!isContributor && (
+                <>
+                  <li><a href="/mock-test" className="hover:text-[#4255FF] transition-colors">Mock Tests</a></li>
+                  <li><a href="/pricing" className="hover:text-[#4255FF] transition-colors">Pricing</a></li>
+                </>
+              )}
             </ul>
           </div>
           <div>

@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
@@ -40,8 +41,16 @@ type PageState = "select" | "instructions" | "loading" | "test" | "results" | "p
 type TestType = "short" | "full";
 
 export default function MockTestPage() {
-  const { user, setShowLoginModal } = useUser();
+  const { user, setShowLoginModal, isLoading: userLoading } = useUser();
   const { t } = useLocale();
+  const router = useRouter();
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ['contributor', 'admin'].includes(user.role || '')) {
+      router.push('/contributor');
+    }
+  }, [user, userLoading, router]);
 
   const [pageState, setPageState] = useState<PageState>("select");
   const [testType, setTestType] = useState<TestType>("short");

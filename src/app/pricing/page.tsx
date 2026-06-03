@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
@@ -22,14 +23,22 @@ interface SubscriptionData {
 }
 
 export default function PricingPage() {
-  const { user } = useUser();
+  const { user, isLoading: userLoading } = useUser();
   const { t } = useLocale();
+  const router = useRouter();
   const [subData, setSubData] = useState<SubscriptionData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<"free" | "monthly" | "quarterly">("quarterly");
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && ['contributor', 'admin'].includes(user.role || '')) {
+      router.push('/contributor');
+    }
+  }, [user, userLoading, router]);
 
   useEffect(() => {
     fetchSubscription();
