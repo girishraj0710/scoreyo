@@ -6,7 +6,7 @@ import { useUser } from "@/context/user-context";
 import { TrendingUp, Clock, CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
-import { Icon3DChart, Icon3DSparkle, Icon3DNotebook, Icon3DTrophy } from "@/components/premium-3d-icons";
+import { Icon3DChart, Icon3DSparkle, Icon3DNotebook, Icon3DTrophy, Icon3DTarget } from "@/components/premium-3d-icons";
 
 interface ContributorStats {
   questions_contributed: number;
@@ -264,9 +264,14 @@ export default function StatsPage() {
 
             {/* Leaderboard Info */}
             <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6">
-              <p className="text-indigo-900 mb-2">
-                <strong>🎯 Tip:</strong> Higher quality questions and consistent contributions help you climb the contributor leaderboard. Keep improving your submissions!
-              </p>
+              <div className="flex items-start gap-3">
+                <Icon3DTarget size={32} />
+                <div>
+                  <p className="text-indigo-900 mb-2">
+                    <strong>Tip:</strong> Higher quality questions and consistent contributions help you climb the contributor leaderboard. Keep improving your submissions!
+                  </p>
+                </div>
+              </div>
               <p className="text-sm text-indigo-800">
                 Last updated: {new Date().toLocaleTimeString('en-IN')}
               </p>

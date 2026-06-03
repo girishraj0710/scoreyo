@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { getExamById } from "@/lib/exams";
-import { ArrowRight, BookOpen, Check } from "lucide-react";
+import { ArrowRight, BookOpen, Check, CheckCircle } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DSparkle, Icon3DNotebook, Icon3DPencil, Icon3DRocket } from "@/components/premium-3d-icons";
 
@@ -196,14 +196,14 @@ function UploadContentPage() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-green-600 text-white font-bold text-sm flex items-center justify-center">
-                ✓
+                <CheckCircle className="w-5 h-5" />
               </div>
               <span className="font-semibold text-green-600 hidden sm:inline">Select Exam</span>
             </div>
             <div className="flex-1 h-1 bg-green-600"></div>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-green-600 text-white font-bold text-sm flex items-center justify-center">
-                ✓
+                <CheckCircle className="w-5 h-5" />
               </div>
               <span className="font-semibold text-green-600 hidden sm:inline">Select Subject</span>
             </div>

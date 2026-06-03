@@ -4,10 +4,10 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories, getExamById } from "@/lib/exams";
-import { ArrowRight, BookOpen } from "lucide-react";
-import { ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
+import { ArrowRight, BookOpen, CheckCircle } from "lucide-react";
+import { ColorfulSubjectIcon, ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
-import { PremiumIcon } from "@/components/premium-icon";
+import { Icon3DBook } from "@/components/premium-3d-icons";
 
 function SelectSubjectContent() {
   const router = useRouter();
@@ -91,7 +91,7 @@ function SelectSubjectContent() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-green-600 text-white font-bold text-sm flex items-center justify-center">
-                ✓
+                <CheckCircle className="w-5 h-5" />
               </div>
               <span className="font-semibold text-green-600">Select Exam</span>
             </div>
@@ -115,7 +115,7 @@ function SelectSubjectContent() {
         {/* Selected Exam Summary */}
         <div className="bg-indigo-50 rounded-xl border-2 border-indigo-200 p-6 mb-8">
           <div className="flex items-center gap-4">
-            <div className="text-5xl">{exam.icon}</div>
+            <Icon3DBook size={72} />
             <div>
               <div className="text-sm text-indigo-600 font-medium mb-1">Selected Exam</div>
               <div className="text-2xl font-bold text-slate-900">{exam.name}</div>

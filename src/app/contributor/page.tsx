@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DTarget, Icon3DSparkle, Icon3DNotebook, Icon3DChart, Icon3DGraduationCap, Icon3DTrophy, Icon3DRocket } from "@/components/premium-3d-icons";
@@ -146,8 +146,8 @@ export default function ContributorPortalPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                <span className="text-2xl">✓</span>
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Icon3DSparkle size={48} />
               </div>
               <h3 className="font-semibold text-slate-900 mb-2">AI Generates</h3>
               <p className="text-sm text-slate-600">
@@ -192,22 +192,24 @@ export default function ContributorPortalPage() {
 
         {/* Guidelines */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
-          <h3 className="font-semibold text-blue-900 mb-3">💡 Quality Guidelines</h3>
+          <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+            <Icon3DSparkle size={24} /> Quality Guidelines
+          </h3>
           <ul className="space-y-2 text-sm text-blue-800">
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
               <span>Upload relevant, accurate study material from trusted sources</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
               <span>Ensure content matches the selected exam and subject</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
               <span>More content = better question quality (aim for 500+ words)</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
               <span>Questions go through admin review before being published</span>
             </li>
           </ul>
