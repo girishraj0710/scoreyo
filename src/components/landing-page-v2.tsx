@@ -956,41 +956,43 @@ export function LandingPageV2() {
           </div>
 
           {/* Desktop: Grid with arrow navigation */}
-          <div className="hidden md:block relative">
-            {/* Left Arrow - Centered with cards */}
-            <button
-              onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
-              disabled={reviewsPage === 0}
-              className="absolute left-0 top-[120px] z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
-            >
-              <ChevronLeft className="w-6 h-6 text-slate-800" />
-            </button>
+          <div className="hidden md:block px-4">
+            <div className="relative">
+              {/* Left Arrow - Centered with cards */}
+              <button
+                onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
+                disabled={reviewsPage === 0}
+                className="absolute -left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+              >
+                <ChevronLeft className="w-6 h-6 text-slate-800" />
+              </button>
 
-            {/* Right Arrow - Centered with cards */}
-            <button
-              onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
-              disabled={reviewsPage === 2}
-              className="absolute right-0 top-[120px] z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
-            >
-              <ChevronRight className="w-6 h-6 text-slate-800" />
-            </button>
+              {/* Right Arrow - Centered with cards */}
+              <button
+                onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
+                disabled={reviewsPage === 2}
+                className="absolute -right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+              >
+                <ChevronRight className="w-6 h-6 text-slate-800" />
+              </button>
 
-            {/* Testimonial Cards Grid */}
-            <div className="grid md:grid-cols-3 gap-8 px-4">
-              {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
-                <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
-                    ))}
+              {/* Testimonial Cards Grid */}
+              <div className="grid md:grid-cols-3 gap-8">
+                {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
+                  <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
+                      "{testimonial.review}"
+                    </p>
+                    <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                    <div className="text-sm text-slate-500">{testimonial.exam}</div>
                   </div>
-                  <p className="text-slate-700 mb-6 text-base leading-relaxed italic">
-                    "{testimonial.review}"
-                  </p>
-                  <div className="font-semibold text-slate-900">{testimonial.name}</div>
-                  <div className="text-sm text-slate-500">{testimonial.exam}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
