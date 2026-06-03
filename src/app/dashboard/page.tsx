@@ -2,6 +2,8 @@
 // VERSION: AGENTFORCE-BLUE-THEME-2026-06-01
 
 import { useState, useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/user-context";
 import { getAllExams, getExamById } from "@/lib/exams";
 import { MistakeMapWidget } from "@/components/mistake-map-widget";
 import { DPPCard } from "@/components/dpp-card";
@@ -12,6 +14,7 @@ import { DailyProgressCard } from "@/components/daily-progress-card";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { usePullToRefresh } from "@/hooks/use-pull-to-refresh";
+import { isAdmin } from "@/lib/admin";
 
 interface Stats {
   totalSessions: number;
@@ -54,12 +57,21 @@ interface Session {
 }
 
 export default function DashboardPage() {
+  const router = useRouter();
+  const { user, isLoading: userLoading } = useUser();
   const [stats, setStats] = useState<Stats | null>(null);
   const [mastery, setMastery] = useState<MasteryItem[]>([]);
   const [recentSessions, setRecentSessions] = useState<Session[]>([]);
   const [weakTopics, setWeakTopics] = useState<MasteryItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedExamFilter, setSelectedExamFilter] = useState<string>("");
+
+  // Redirect contributors to contributor portal
+  useEffect(() => {
+    if (!userLoading && user && (user.role === 'contributor' || isAdmin(user.role, user.email))) {
+      router.push('/contributor');
+    }
+  }, [user, userLoading, router]);
 
   const loadStats = async () => {
     try {
@@ -109,6 +121,23 @@ export default function DashboardPage() {
     mastery.filter((m) => m.mastery_score < 80).slice(0, 6),
     [mastery]
   );
+
+  // Show loading while checking user role
+  if (userLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
+          <p className="text-slate-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Prevent contributors from seeing student dashboard
+  if (user && (user.role === 'contributor' || isAdmin(user.role, user.email))) {
+    return null;
+  }
 
   if (isLoading) {
     return (
