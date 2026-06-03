@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { TrendingUp, Award } from "lucide-react";
+import { TrendingUp, Award, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
+import { PremiumIcon } from "@/components/premium-icon";
 
 interface ContributorStats {
   questions_contributed: number;
