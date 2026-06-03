@@ -1,5 +1,5 @@
 "use client";
-// VERSION: AGENTFORCE-BLUE-THEME-2026-06-01
+// VERSION: AGENTFORCE-BLUE-THEME-2026-06-03-HOTFIX
 
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
