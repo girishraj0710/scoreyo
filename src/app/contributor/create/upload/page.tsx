@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { getExamById } from "@/lib/exams";
-import { ArrowRight, BookOpen, Check } from "lucide-react";
+import { ArrowRight, BookOpen, Check, Upload, FileText, Lightbulb, CheckCircle2, Sparkles } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 
 function UploadContentPage() {
@@ -238,7 +238,9 @@ function UploadContentPage() {
         {submissionMessage && (
           <div className="mb-8 p-6 bg-green-50 border-2 border-green-200 rounded-xl">
             <div className="flex items-center gap-3">
-              <div className="text-3xl">🎉</div>
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
+                <CheckCircle2 className="w-7 h-7 text-white" />
+              </div>
               <div>
                 <p className="text-green-900 font-bold text-lg">{submissionMessage}</p>
                 <p className="text-green-700 text-sm mt-1">Redirecting to submissions...</p>
@@ -255,26 +257,28 @@ function UploadContentPage() {
           <div className="flex gap-8 mb-6 border-b border-slate-200">
             <button
               onClick={() => setActiveTab('upload')}
-              className={`pb-3 px-2 font-medium transition-colors relative ${
+              className={`pb-3 px-2 font-medium transition-colors relative flex items-center gap-2 ${
                 activeTab === 'upload'
                   ? 'text-indigo-600'
                   : 'text-slate-500 hover:text-slate-700'
               }`}
             >
-              📎 Upload Files
+              <Upload className="w-4 h-4" />
+              Upload Files
               {activeTab === 'upload' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
               )}
             </button>
             <button
               onClick={() => setActiveTab('paste')}
-              className={`pb-3 px-2 font-medium transition-colors relative ${
+              className={`pb-3 px-2 font-medium transition-colors relative flex items-center gap-2 ${
                 activeTab === 'paste'
                   ? 'text-indigo-600'
                   : 'text-slate-500 hover:text-slate-700'
               }`}
             >
-              📝 Paste Text
+              <FileText className="w-4 h-4" />
+              Paste Text
               {activeTab === 'paste' && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
               )}
@@ -322,7 +326,9 @@ function UploadContentPage() {
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-4">
-                    <div className="text-5xl">✅</div>
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
+                      <Check className="w-9 h-9 text-white" />
+                    </div>
                     <div className="text-center">
                       <p className="font-bold text-slate-900 text-xl mb-1">{file.name}</p>
                       <p className="text-sm text-slate-500">
@@ -350,9 +356,12 @@ function UploadContentPage() {
                 placeholder="Paste your study material here...&#10;&#10;You can paste text from:&#10;• Lecture notes&#10;• Textbook chapters&#10;• Study guides&#10;• Previous year papers&#10;• Any educational content"
                 className="w-full h-64 p-4 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-400 text-slate-700 resize-none"
               />
-              <p className="text-xs text-slate-400 mt-3">
-                💡 Tip: More content = better question quality. Aim for at least 500 words.
-              </p>
+              <div className="flex items-start gap-2 mt-3">
+                <Lightbulb className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                <p className="text-xs text-slate-500">
+                  <span className="font-semibold">Tip:</span> More content = better question quality. Aim for at least 500 words.
+                </p>
+              </div>
             </div>
           )}
 
@@ -430,6 +439,7 @@ function UploadContentPage() {
                   </>
                 ) : (
                   <>
+                    <Sparkles className="w-6 h-6" />
                     Generate & Submit Questions
                     <ArrowRight className="w-6 h-6" />
                   </>
@@ -453,7 +463,7 @@ function UploadContentPage() {
         {/* Info Box */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
           <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
-            <span className="text-xl">💡</span> What Happens Next?
+            <Lightbulb className="w-5 h-5 text-blue-600" /> What Happens Next?
           </h3>
           <ul className="space-y-2 text-sm text-blue-800">
             <li className="flex items-start gap-2">
