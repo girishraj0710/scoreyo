@@ -962,14 +962,14 @@ export function LandingPageV2() {
               <button
                 onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
                 disabled={reviewsPage === 0}
-                className="absolute left-0 top-[200px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-700" />
               </button>
               <button
                 onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
                 disabled={reviewsPage === 2}
-                className="absolute right-0 top-[200px] -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
               >
                 <ChevronRight className="w-6 h-6 text-slate-700" />
               </button>

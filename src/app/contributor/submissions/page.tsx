@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { CheckCircle, XCircle, Clock } from "lucide-react";
+import { CheckCircle, XCircle, Clock, FileText } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
+import { PremiumIcon } from "@/components/premium-icon";
 
 interface Submission {
   id: string;
@@ -76,7 +77,7 @@ export default function SubmissionsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p className="text-slate-600">Loading submissions...</p>
@@ -103,14 +104,17 @@ export default function SubmissionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">
-              📝 My Submissions
-            </h1>
+            <div className="flex items-center gap-3 mb-2">
+              <PremiumIcon icon={FileText} gradient="cyan" size="md" />
+              <h1 className="text-4xl font-bold text-slate-900">
+                My Submissions
+              </h1>
+            </div>
             <p className="text-lg text-slate-600">
               Track and manage your contributed questions
             </p>
