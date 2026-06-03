@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
+import { PremiumIcon } from "@/components/premium-icon";
 
 export default function CreateQuestionSelectExamPage() {
   const router = useRouter();

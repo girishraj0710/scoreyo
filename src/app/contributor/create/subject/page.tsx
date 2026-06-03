@@ -4,9 +4,10 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories, getExamById } from "@/lib/exams";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
+import { PremiumIcon } from "@/components/premium-icon";
 
 function SelectSubjectContent() {
   const router = useRouter();
