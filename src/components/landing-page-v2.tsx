@@ -454,7 +454,7 @@ export function LandingPageV2() {
               {/* Left Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex - 1)}
-                className="hidden md:flex absolute left-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+                className="hidden md:flex absolute left-0 top-[204px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-800" />
               </button>
@@ -462,7 +462,7 @@ export function LandingPageV2() {
               {/* Right Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex + 1)}
-                className="hidden md:flex absolute right-0 top-[240px] -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
+                className="hidden md:flex absolute right-0 top-[204px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-slate-200"
               >
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
@@ -956,27 +956,27 @@ export function LandingPageV2() {
           </div>
 
           {/* Desktop: Grid with arrow navigation */}
-          <div className="hidden md:block relative px-4">
-            {/* Left Arrow - At section edge, centered with grid */}
+          <div className="hidden md:block relative">
+            {/* Left Arrow - Centered with cards */}
             <button
               onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
               disabled={reviewsPage === 0}
-              className="absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+              className="absolute left-0 top-[120px] z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
             >
               <ChevronLeft className="w-6 h-6 text-slate-800" />
             </button>
 
-            {/* Right Arrow - At section edge, centered with grid */}
+            {/* Right Arrow - Centered with cards */}
             <button
               onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
               disabled={reviewsPage === 2}
-              className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
+              className="absolute right-0 top-[120px] z-20 w-14 h-14 bg-white rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-slate-200 flex items-center justify-center"
             >
               <ChevronRight className="w-6 h-6 text-slate-800" />
             </button>
 
             {/* Testimonial Cards Grid */}
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 px-4">
               {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
                 <div key={idx} className="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:shadow-xl transition-shadow">
                   <div className="flex gap-1 mb-4">
