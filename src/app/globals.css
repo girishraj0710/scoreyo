@@ -141,15 +141,20 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-glow 2s infinite;
 }
 
+/* Nav link base color */
+.nav-link {
+  color: var(--foreground-secondary) !important;
+}
+
 /* Nav link hover */
 .nav-link:hover:not(.nav-link-active) {
   color: var(--primary) !important;
-  background-color: var(--hover-bg);
+  background-color: var(--hover-bg) !important;
 }
 
 .nav-link-active {
   color: var(--primary) !important;
-  background-color: var(--primary-bg);
+  background-color: var(--primary-bg) !important;
 }
 
 /* Card hover effect */
