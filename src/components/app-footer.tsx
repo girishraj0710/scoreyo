@@ -16,13 +16,13 @@ export function AppFooter() {
   const isContributor = user && ['contributor', 'admin'].includes(user.role || '');
 
   return (
-    <footer className="bg-white border-t border-slate-200 mt-auto">
+    <footer className="border-t mt-auto" style={{ background: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Footer Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
           <div>
-            <h3 className="font-semibold text-slate-800 mb-3 text-sm">Product</h3>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Product</h3>
+            <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
               <li><a href="/" className="hover:text-[#4255FF] transition-colors">Home</a></li>
               {!isContributor && (
                 <>
@@ -33,44 +33,45 @@ export function AppFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-slate-800 mb-3 text-sm">Legal</h3>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Legal</h3>
+            <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
               <li><a href="/terms" className="hover:text-[#4255FF] transition-colors">Terms of Service</a></li>
               <li><a href="/privacy" className="hover:text-[#4255FF] transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-slate-800 mb-3 text-sm">Support</h3>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Support</h3>
+            <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
               <li><a href="/contact" className="hover:text-[#4255FF] transition-colors">Contact Us</a></li>
               <li><a href="mailto:support@prepgenie.co.in" className="hover:text-[#4255FF] transition-colors">Email Support</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-slate-800 mb-3 text-sm">Company</h3>
-            <ul className="space-y-2 text-xs text-slate-600">
-              <li className="text-slate-500">Bangalore, Karnataka</li>
-              <li className="text-slate-500">India</li>
+            <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Company</h3>
+            <ul className="space-y-2 text-xs" style={{ color: 'var(--muted)' }}>
+              <li>Bangalore, Karnataka</li>
+              <li>India</li>
             </ul>
           </div>
         </div>
 
         {/* Copyright and Info */}
-        <div className="text-center text-sm text-slate-500 border-t border-slate-100 pt-6">
+        <div className="text-center text-sm border-t pt-6" style={{ color: 'var(--muted)', borderColor: 'var(--card-border)' }}>
           <p>{t("footerText")}</p>
-          <p className="mt-1 text-xs text-slate-400">{t("footerExams")}</p>
+          <p className="mt-1 text-xs" style={{ color: 'var(--muted)' }}>{t("footerExams")}</p>
 
           {/* Attribution for TOEFL Vocabulary Dataset (MIT License Requirement) */}
           {/* Only shown on English learning pages */}
           {isEnglishPage && (
-            <div className="mt-4 pt-4 border-t border-slate-100">
-              <p className="text-xs text-slate-400">
+            <div className="mt-4 pt-4 border-t" style={{ borderColor: 'var(--card-border)' }}>
+              <p className="text-xs" style={{ color: 'var(--muted)' }}>
                 TOEFL vocabulary powered by{" "}
                 <a
                   href="https://wordlevel.net"
                   target="_blank"
                   rel="dofollow noopener noreferrer"
-                  className="text-blue-500 hover:text-[#4255FF] underline"
+                  className="underline"
+                  style={{ color: 'var(--primary)' }}
                 >
                   WordLevel.net
                 </a>
