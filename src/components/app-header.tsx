@@ -33,7 +33,7 @@ export function AppHeader() {
   const navLinkStyle = (href: string): React.CSSProperties =>
     isActive(href)
       ? { color: '#ffffff', backgroundColor: 'var(--primary)' }
-      : { color: 'var(--foreground)' };
+      : { color: 'var(--foreground-secondary)' };
 
   const navHoverProps = (href: string) =>
     isActive(href) ? {} : {
@@ -42,7 +42,7 @@ export function AppHeader() {
         e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)';
       },
       onMouseLeave: (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.currentTarget.style.color = 'var(--foreground)';
+        e.currentTarget.style.color = 'var(--foreground-secondary)';
         e.currentTarget.style.backgroundColor = 'transparent';
       },
     };
