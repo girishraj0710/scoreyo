@@ -849,7 +849,7 @@ function HomePageContent() {
       <section className="mt-10 max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="rounded-xl p-5 border text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
-            <div className="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
               <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
@@ -858,8 +858,8 @@ function HomePageContent() {
             <p className="text-xs" style={{ color: "var(--muted)" }}>Questions curated from NCERT, previous year papers &amp; standard textbooks</p>
           </div>
           <div className="rounded-xl p-5 border text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
-            <div className="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" style={{ color: "var(--primary)" }}>
                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
               </svg>
             </div>
@@ -867,8 +867,8 @@ function HomePageContent() {
             <p className="text-xs" style={{ color: "var(--muted)" }}>Questions match the actual difficulty and pattern of your target exam</p>
           </div>
           <div className="rounded-xl p-5 border text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
-            <div className="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" style={{ color: "var(--accent)" }}>
                 <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
