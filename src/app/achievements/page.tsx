@@ -136,10 +136,10 @@ export default function AchievementsPage() {
             <span className="text-sm text-indigo-100">Overall Progress</span>
             <span className="text-sm font-bold">{unlockedBadges.length} / {badges.length}</span>
           </div>
-          <div className="w-full /20 rounded-full h-3" style={{ background: "var(--card-bg)" }}>
+          <div className="w-full /20 rounded-full h-3" style={{ background: "var(--card-border)" }}>
             <div
-              className=" h-3 rounded-full transition-all duration-500" style={{ background: "var(--card-bg)" }}
-              style={{ width: `${completionPercentage}%` }}
+              className="h-3 rounded-full transition-all duration-500"
+              style={{ background: "var(--primary)", width: `${completionPercentage}%` }}
             />
           </div>
         </div>
@@ -221,7 +221,8 @@ export default function AchievementsPage() {
                 {/* Share Button */}
                 <button
                   onClick={() => shareBadge(badge)}
-                  className="w-full flex items-center justify-center gap-2 py-2  border-2   rounded-lg hover: transition-all" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+                  className="w-full flex items-center justify-center gap-2 py-2  border-2   rounded-lg hover: transition-all"
+                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", color: "var(--foreground)" }}
                 >
                   <Share2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Share</span>
@@ -254,7 +255,7 @@ export default function AchievementsPage() {
                   <div className="text-6xl mb-2 filter grayscale opacity-50">
                     {badge.icon}
                   </div>
-                  <div className="inline-block px-3 py-1 rounded-full text-xs font-bold   border " style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}>
+                  <div className="inline-block px-3 py-1 rounded-full text-xs font-bold   border " style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", color: "var(--foreground)" }}>
                     {badge.rarity.toUpperCase()}
                   </div>
                 </div>
@@ -267,7 +268,7 @@ export default function AchievementsPage() {
                   <p className="text-sm " style={{ color: "var(--foreground)" }}>{badge.description}</p>
 
                   {/* Requirement Hint */}
-                  <div className="mt-4 p-3  rounded-lg border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+                  <div className="mt-4 p-3  rounded-lg border " style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
                     <div className="flex items-center justify-center gap-2 text-xs " style={{ color: "var(--foreground)" }}>
                       <TrendingUp className="w-3 h-3" />
                       <span>
