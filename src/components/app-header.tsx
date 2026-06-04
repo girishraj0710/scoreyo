@@ -29,9 +29,14 @@ export function AppHeader() {
   const navLinkClass = (href: string) =>
     `relative px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
       isActive(href)
-        ? "text-[#4255FF] bg-[#E8EAFF] dark:bg-indigo-900/40"
-        : "text-slate-600 dark:text-slate-400 hover:text-[#4255FF] hover:bg-slate-50 dark:hover:bg-slate-800"
+        ? "text-[var(--primary)] bg-[var(--primary-bg)]"
+        : "hover:text-[var(--primary)] transition-colors"
     }`;
+
+  const getNavLinkStyle = (href: string) => ({
+    color: isActive(href) ? 'var(--primary)' : 'var(--foreground-secondary)',
+    backgroundColor: isActive(href) ? 'var(--primary-bg)' : 'transparent',
+  });
 
   const mobileNavLinkClass = (href: string) =>
     `block px-4 py-2 text-sm transition-colors ${
@@ -56,7 +61,7 @@ export function AppHeader() {
   }, [showMenu]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-slate-950">
+    <header className="sticky top-0 z-50 border-b shadow-sm" style={{ background: 'var(--card-bg)', borderBottomColor: 'var(--card-border)' }}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 mr-8 lg:mr-12">
           <div className="w-9 h-9 bg-[#4255FF] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
@@ -133,13 +138,17 @@ export function AppHeader() {
             <div className="flex items-center gap-3 ml-2">
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors"
+                className="w-24 px-4 py-2 font-medium rounded-lg border transition-colors"
+                style={{ color: 'var(--foreground-secondary)', backgroundColor: 'var(--hover-bg)', borderColor: 'var(--card-border)' }}
               >
                 Log in
               </button>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 bg-[#4255FF] text-white font-medium rounded-lg hover:bg-[#3242CC] border border-[#4255FF] hover:border-[#3242CC] transition-colors dark:shadow-lg"
+                className="w-24 px-4 py-2 text-white font-medium rounded-lg border transition-colors"
+                style={{ backgroundColor: 'var(--primary)', borderColor: 'var(--primary)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary-dark)')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary)')}
               >
                 Sign up
               </button>
@@ -151,7 +160,10 @@ export function AppHeader() {
             <div className="relative ml-2" ref={menuRef}>
               <button
                 onClick={() => setShowMenu(!showMenu)}
-                className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800"
+                className="flex items-center gap-2 px-2 py-1.5 rounded-lg transition-colors"
+                style={{ backgroundColor: 'transparent' }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
               >
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs"
@@ -159,18 +171,18 @@ export function AppHeader() {
                 >
                   {user.name?.charAt(0).toUpperCase()}
                 </div>
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300 hidden sm:inline max-w-[80px] truncate">
+                <span className="text-sm font-medium hidden sm:inline max-w-[80px] truncate" style={{ color: 'var(--foreground)' }}>
                   {user.name}
                 </span>
-                <svg className="w-4 h-4 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-tertiary)' }}>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
               {showMenu && (
-                <div className="absolute right-0 mt-1 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-lg dark:shadow-slate-950 border border-slate-200 dark:border-slate-700 z-[70] py-1">
-                  <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-700">
-                    <div className="font-medium text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2">
+                <div className="absolute right-0 mt-1 w-48 rounded-xl shadow-lg z-[70] py-1" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
+                  <div className="px-4 py-2" style={{ borderBottom: '1px solid var(--divider)' }}>
+                    <div className="font-medium text-sm flex items-center gap-2" style={{ color: 'var(--foreground)' }}>
                       {user.name}
                       {user.role && user.role !== 'student' && (
                         <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 font-semibold">
@@ -178,10 +190,10 @@ export function AppHeader() {
                         </span>
                       )}
                     </div>
-                    {user.email && <div className="text-xs text-slate-500 dark:text-slate-400">{user.email}</div>}
+                    {user.email && <div className="text-xs" style={{ color: 'var(--foreground-tertiary)' }}>{user.email}</div>}
                   </div>
                   {/* Mobile nav links - Role Based */}
-                  <div className="sm:hidden border-b border-slate-100 dark:border-slate-700">
+                  <div className="sm:hidden" style={{ borderBottom: '1px solid var(--divider)' }}>
                     {user.role && ['contributor', 'contributor', 'admin'].includes(user.role) ? (
                       <>
                         <Link href="/contributor" className={mobileNavLinkClass("/contributor")} onClick={() => setShowMenu(false)}>👨‍🏫 Contributor Portal</Link>
@@ -243,7 +255,10 @@ export function AppHeader() {
                   )}
                   <Link
                     href="/settings"
-                    className="block px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center gap-2"
+                    className="block px-4 py-2 text-sm flex items-center gap-2 transition-colors"
+                    style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                     onClick={() => setShowMenu(false)}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -254,7 +269,10 @@ export function AppHeader() {
                   </Link>
                   <button
                     onClick={() => toggleDarkMode()}
-                    className="w-full text-left px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center gap-2 border-t border-slate-200 dark:border-slate-700"
+                    className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors"
+                    style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent', borderTop: '1px solid var(--divider)' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                   >
                     {isDarkMode ? (
                       <>
@@ -274,7 +292,10 @@ export function AppHeader() {
                       router.push("/");
                       logout();
                     }}
-                    className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900 flex items-center gap-2"
+                    className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors"
+                    style={{ color: 'var(--danger)', backgroundColor: 'transparent' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--danger-light)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
