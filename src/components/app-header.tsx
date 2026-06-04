@@ -32,7 +32,7 @@ export function AppHeader() {
 
   const navLinkStyle = (href: string): React.CSSProperties =>
     isActive(href)
-      ? { color: 'var(--primary)', backgroundColor: 'var(--primary-bg)' }
+      ? { color: '#ffffff', backgroundColor: 'var(--primary)' }
       : { color: 'var(--foreground-secondary)' };
 
   const mobileNavLinkClass = (href: string) =>
