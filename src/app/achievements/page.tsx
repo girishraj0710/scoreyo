@@ -72,10 +72,10 @@ export default function AchievementsPage() {
   if (isLoading) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="shimmer h-20 bg-white rounded-xl mb-8" />
+        <div className="shimmer h-20  rounded-xl mb-8" style={{ background: "var(--card-bg)" }} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="shimmer h-40 bg-white rounded-xl" />
+            <div key={i} className="shimmer h-40  rounded-xl" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       </div>
@@ -101,7 +101,7 @@ export default function AchievementsPage() {
       {/* Header */}
       <div className="bg-[#4255FF] rounded-2xl p-8 mb-8 text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+          <div className="w-16 h-16 /20 backdrop-blur-sm rounded-xl flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
             <Trophy className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -112,19 +112,19 @@ export default function AchievementsPage() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="/10 backdrop-blur-sm rounded-xl p-4" style={{ background: "var(--card-bg)" }}>
             <div className="text-2xl font-bold">{unlockedBadges.length}</div>
             <div className="text-sm text-indigo-100">Badges Earned</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="/10 backdrop-blur-sm rounded-xl p-4" style={{ background: "var(--card-bg)" }}>
             <div className="text-2xl font-bold">{badges.length}</div>
             <div className="text-sm text-indigo-100">Total Badges</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="/10 backdrop-blur-sm rounded-xl p-4" style={{ background: "var(--card-bg)" }}>
             <div className="text-2xl font-bold">{completionPercentage}%</div>
             <div className="text-sm text-indigo-100">Completion</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="/10 backdrop-blur-sm rounded-xl p-4" style={{ background: "var(--card-bg)" }}>
             <div className="text-2xl font-bold">{stats?.streak || 0}</div>
             <div className="text-sm text-indigo-100">Day Streak</div>
           </div>
@@ -136,9 +136,9 @@ export default function AchievementsPage() {
             <span className="text-sm text-indigo-100">Overall Progress</span>
             <span className="text-sm font-bold">{unlockedBadges.length} / {badges.length}</span>
           </div>
-          <div className="w-full bg-white/20 rounded-full h-3">
+          <div className="w-full /20 rounded-full h-3" style={{ background: "var(--card-bg)" }}>
             <div
-              className="bg-white h-3 rounded-full transition-all duration-500"
+              className=" h-3 rounded-full transition-all duration-500" style={{ background: "var(--card-bg)" }}
               style={{ width: `${completionPercentage}%` }}
             />
           </div>
@@ -205,9 +205,9 @@ export default function AchievementsPage() {
                   <h3 className={`text-lg font-bold mb-1 ${style.text}`}>
                     {badge.name}
                   </h3>
-                  <p className="text-sm text-slate-600">{badge.description}</p>
+                  <p className="text-sm " style={{ color: "var(--foreground)" }}>{badge.description}</p>
                   {badge.unlocked_at && (
-                    <p className="text-xs text-slate-400 mt-2">
+                    <p className="text-xs  mt-2" style={{ color: "var(--foreground)" }}>
                       Unlocked on{" "}
                       {new Date(badge.unlocked_at).toLocaleDateString("en-IN", {
                         day: "numeric",
@@ -221,7 +221,7 @@ export default function AchievementsPage() {
                 {/* Share Button */}
                 <button
                   onClick={() => shareBadge(badge)}
-                  className="w-full flex items-center justify-center gap-2 py-2 bg-white border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-2  border-2   rounded-lg hover: transition-all" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
                 >
                   <Share2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Share</span>
@@ -246,7 +246,7 @@ export default function AchievementsPage() {
               >
                 {/* Lock Overlay */}
                 <div className="absolute top-4 right-4">
-                  <Lock className="w-6 h-6 text-slate-400" />
+                  <Lock className="w-6 h-6 " style={{ color: "var(--foreground)" }} />
                 </div>
 
                 {/* Badge Icon (grayscale) */}
@@ -254,21 +254,21 @@ export default function AchievementsPage() {
                   <div className="text-6xl mb-2 filter grayscale opacity-50">
                     {badge.icon}
                   </div>
-                  <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-200 text-slate-500 border border-slate-300">
+                  <div className="inline-block px-3 py-1 rounded-full text-xs font-bold   border " style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}>
                     {badge.rarity.toUpperCase()}
                   </div>
                 </div>
 
                 {/* Badge Info */}
                 <div className="text-center">
-                  <h3 className="text-lg font-bold mb-1 text-slate-500">
+                  <h3 className="text-lg font-bold mb-1 " style={{ color: "var(--foreground)" }}>
                     {badge.name}
                   </h3>
-                  <p className="text-sm text-slate-400">{badge.description}</p>
+                  <p className="text-sm " style={{ color: "var(--foreground)" }}>{badge.description}</p>
 
                   {/* Requirement Hint */}
-                  <div className="mt-4 p-3 bg-white rounded-lg border border-slate-200">
-                    <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
+                  <div className="mt-4 p-3  rounded-lg border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+                    <div className="flex items-center justify-center gap-2 text-xs " style={{ color: "var(--foreground)" }}>
                       <TrendingUp className="w-3 h-3" />
                       <span>
                         {badge.requirement.type.replace(/_/g, " ")}:{" "}
@@ -285,11 +285,11 @@ export default function AchievementsPage() {
       {/* No badges message */}
       {filteredBadges.length === 0 && (
         <div className="text-center py-12">
-          <Award className="w-20 h-20 mx-auto text-slate-300 mb-4" />
-          <h3 className="text-xl font-bold text-slate-600 mb-2">
+          <Award className="w-20 h-20 mx-auto  mb-4" style={{ color: "var(--foreground)" }} />
+          <h3 className="text-xl font-bold  mb-2" style={{ color: "var(--foreground)" }}>
             No badges in this category yet
           </h3>
-          <p className="text-slate-500">
+          <p className="" style={{ color: "var(--foreground)" }}>
             Keep practicing to unlock more achievements!
           </p>
         </div>

@@ -370,14 +370,14 @@ export default function MockTestPage() {
   if (pageState === "pro-required") {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-amber-200">
+        <div className=" rounded-2xl p-12 shadow-lg border border-amber-200" style={{ background: "var(--card-bg)" }}>
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-amber-100 flex items-center justify-center">
             <svg className="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("mockTestProOnly")}</h2>
-          <p className="text-slate-500 mb-6">{t("mockTestProDesc")}</p>
+          <h2 className="text-xl font-semibold  mb-2" style={{ color: "var(--foreground)" }}>{t("mockTestProOnly")}</h2>
+          <p className=" mb-6" style={{ color: "var(--foreground)" }}>{t("mockTestProDesc")}</p>
           <div className="flex gap-3 justify-center">
             <a href="/pricing" className="px-6 py-3 text-white font-semibold rounded-xl shadow-lg"
             style={{
@@ -392,7 +392,7 @@ export default function MockTestPage() {
             }}>
               {t("upgradeToPro")}
             </a>
-            <button onClick={() => setPageState("select")} className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">
+            <button onClick={() => setPageState("select")} className="px-6 py-3 bg-slate-100  font-medium rounded-xl hover:" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}>
               Go Back
             </button>
           </div>
@@ -408,7 +408,7 @@ export default function MockTestPage() {
 
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+        <div className=" rounded-2xl shadow-lg border  overflow-hidden" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           {/* Header */}
           <div className="p-6 text-white"
             style={{
@@ -430,10 +430,10 @@ export default function MockTestPage() {
             </p>
             {config && (
               <div className="mt-4 flex gap-4 text-sm">
-                <span className="bg-white/20 px-3 py-1 rounded-full">
+                <span className="/20 px-3 py-1 rounded-full" style={{ background: "var(--card-bg)" }}>
                   📝 {config.totalQuestions} Questions
                 </span>
-                <span className="bg-white/20 px-3 py-1 rounded-full">
+                <span className="/20 px-3 py-1 rounded-full" style={{ background: "var(--card-bg)" }}>
                   ⏱️ {config.timeLimitMinutes} Minutes
                 </span>
               </div>
@@ -442,9 +442,9 @@ export default function MockTestPage() {
 
           {/* Instructions */}
           <div className="p-8">
-            <h2 className="text-xl font-bold text-slate-800 mb-4">📋 General Instructions</h2>
+            <h2 className="text-xl font-bold  mb-4" style={{ color: "var(--foreground)" }}>📋 General Instructions</h2>
 
-            <div className="space-y-4 text-slate-700">
+            <div className="space-y-4 " style={{ color: "var(--foreground)" }}>
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                 <p className="font-semibold text-amber-900">⏰ Timer Rules</p>
                 <p className="text-sm mt-1">The countdown timer will display the remaining time. When the timer reaches zero, the test will end automatically. You don't need to manually submit.</p>
@@ -454,7 +454,7 @@ export default function MockTestPage() {
                 <p className="font-semibold mb-2">📊 Question Status Indicators:</p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-3">
-                    <span className="w-6 h-6 border-2 border-slate-300 rounded"></span>
+                    <span className="w-6 h-6 border-2  rounded" style={{ borderColor: "var(--card-border)" }}></span>
                     <span>Not visited yet</span>
                   </div>
                   <div className="flex items-center gap-3">
@@ -491,10 +491,10 @@ export default function MockTestPage() {
           </div>
 
           {/* Footer */}
-          <div className="bg-slate-50 p-6 flex items-center justify-between border-t">
+          <div className=" p-6 flex items-center justify-between border-t" style={{ background: "var(--background)" }}>
             <button
               onClick={() => setPageState("select")}
-              className="px-6 py-2 text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg border border-slate-200 transition-colors"
+              className="px-6 py-2 text-slate-600 hover: hover: rounded-lg border  transition-colors" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
             >
               ← Back
             </button>
@@ -538,22 +538,22 @@ export default function MockTestPage() {
   if (pageState === "loading") {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
+        <div className=" rounded-2xl p-12 shadow-lg border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
             <svg className="animate-spin h-8 w-8 [#4255FF]" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-slate-800 mb-2">{t("preparingMockTest")}</h2>
-          <p className="text-slate-500 mb-6">{t("preparingMockTestDesc")}</p>
+          <h2 className="text-xl font-semibold  mb-2" style={{ color: "var(--foreground)" }}>{t("preparingMockTest")}</h2>
+          <p className=" mb-6" style={{ color: "var(--foreground)" }}>{t("preparingMockTestDesc")}</p>
           <button
             onClick={() => {
               setPageState("select");
               setQuestions([]);
               setAnswers([]);
             }}
-            className="px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg border border-slate-200 transition-colors"
+            className="px-6 py-2 text-sm text-slate-600 hover: hover: rounded-lg border  transition-colors" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}
           >
             Cancel
           </button>
@@ -574,11 +574,11 @@ export default function MockTestPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Score Card */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center mb-8">
+        <div className=" rounded-2xl p-8 shadow-lg border  text-center mb-8" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <div className="text-sm [#4255FF] font-medium mb-2">{t("mockTestResult")}</div>
           <h2 className={`text-2xl font-bold ${grade.color} mb-2`}>{grade.label}</h2>
-          <div className="text-6xl font-bold text-slate-800 mb-2">{percentage}%</div>
-          <p className="text-slate-500 mb-6">
+          <div className="text-6xl font-bold  mb-2" style={{ color: "var(--foreground)" }}>{percentage}%</div>
+          <p className=" mb-6" style={{ color: "var(--foreground)" }}>
             {results.correctAnswers} / {results.totalQuestions} {t("correct")} | {t("time")}: {formatTime(results.timeTaken)}
           </p>
 
@@ -588,11 +588,11 @@ export default function MockTestPage() {
               const acc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
               return (
                 <div key={subjectId} className={`${acc >= 70 ? "bg-slate-50 border-slate-200" : acc >= 50 ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200"} rounded-xl p-3 border`}>
-                  <div className="text-xs text-slate-500">{data.subjectName}</div>
+                  <div className="text-xs " style={{ color: "var(--foreground)" }}>{data.subjectName}</div>
                   <div className={`text-lg font-bold ${acc >= 70 ? "text-slate-500" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
                     {data.correct}/{data.total}
                   </div>
-                  <div className="text-xs text-slate-400">{acc}%</div>
+                  <div className="text-xs " style={{ color: "var(--foreground)" }}>{acc}%</div>
                 </div>
               );
             })}
@@ -602,7 +602,7 @@ export default function MockTestPage() {
             <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 [#4255FF] text-white rounded-lg hover:[#3242CC] font-medium">
               {t("takeAnotherTest")}
             </button>
-            <a href="/reports" className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium">
+            <a href="/reports" className="px-6 py-2 bg-slate-100  rounded-lg hover: font-medium" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}>
               {t("viewReports")}
             </a>
           </div>
@@ -640,7 +640,7 @@ export default function MockTestPage() {
                     </span>
                     <div className="flex-1">
                       <span className="text-xs [#4255FF] font-medium">{r.subjectName}</span>
-                      <p className="text-slate-800 font-medium mt-1">{r.question}</p>
+                      <p className=" font-medium mt-1" style={{ color: "var(--foreground)" }}>{r.question}</p>
                     </div>
                   </div>
                   <div className="ml-10 space-y-2">
@@ -652,13 +652,13 @@ export default function MockTestPage() {
                       }`}>
                         <span className="font-medium mr-2">{String.fromCharCode(65 + optIdx)}.</span>
                         {opt}
-                        {optIdx === r.correctAnswer && <span className="ml-2 text-slate-500 font-medium">({t("correct")})</span>}
+                        {optIdx === r.correctAnswer && <span className="ml-2  font-medium" style={{ color: "var(--foreground)" }}>({t("correct")})</span>}
                         {optIdx === r.userAnswer && !r.isCorrect && <span className="ml-2 text-red-600 font-medium">({t("yourAnswer")})</span>}
                       </div>
                     ))}
                   </div>
                   {r.explanation && (
-                    <div className="ml-10 mt-3 p-3 bg-slate-50 rounded-lg text-sm text-blue-800">
+                    <div className="ml-10 mt-3 p-3  rounded-lg text-sm text-blue-800" style={{ background: "var(--background)" }}>
                       <strong>{t("explanation")}:</strong> {r.explanation}
                     </div>
                   )}
@@ -690,7 +690,7 @@ export default function MockTestPage() {
               setTimeRemaining(0);
             }
           }}
-          className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-4 transition-colors"
+          className="flex items-center gap-2 text-slate-600 hover: mb-4 transition-colors" style={{ color: "var(--foreground)" }}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -699,12 +699,12 @@ export default function MockTestPage() {
         </button>
 
         {/* Sticky header */}
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4 sticky top-16 z-40">
+        <div className=" rounded-xl p-4 shadow-sm border  mb-4 sticky top-16 z-40" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <div className="flex items-center justify-between mb-2">
             <div>
               <span className="text-sm font-semibold [#4255FF]">{examName}</span>
-              <span className="text-slate-300 mx-2">|</span>
-              <span className="text-sm text-slate-500">{t("mockTest")}</span>
+              <span className=" mx-2" style={{ color: "var(--foreground)" }}>|</span>
+              <span className="text-sm " style={{ color: "var(--foreground)" }}>{t("mockTest")}</span>
             </div>
             <div className={`text-lg font-mono font-bold px-4 py-1 rounded-lg ${isCriticalTime ? "bg-red-100 text-red-600 animate-pulse" : isLowTime ? "bg-amber-100 text-amber-600" : "bg-slate-100 text-slate-600"}`}>
               {formatTime(timeRemaining)}
@@ -716,22 +716,22 @@ export default function MockTestPage() {
               <div key={idx} className={`h-1.5 flex-1 rounded-full ${idx === currentQuestion ? "bg-slate-500" : answers[idx] !== null ? "bg-blue-300" : "bg-slate-200"}`} />
             ))}
           </div>
-          <div className="flex justify-between mt-1 text-xs text-slate-400">
+          <div className="flex justify-between mt-1 text-xs " style={{ color: "var(--foreground)" }}>
             <span>Q{currentQuestion + 1} / {questions.length} — {question.subjectName}</span>
             <span>{answeredCount} {t("answered", { count: String(answeredCount), total: String(questions.length) })}</span>
           </div>
         </div>
 
         {/* Question */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-4">
+        <div className=" rounded-2xl p-6 shadow-lg border  mb-4" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#E8EAFF] [#3242CC]">
               {question.subjectName}
             </span>
-            <span className="text-xs text-slate-400">Q{currentQuestion + 1}</span>
+            <span className="text-xs " style={{ color: "var(--foreground)" }}>Q{currentQuestion + 1}</span>
           </div>
 
-          <h2 className="text-lg font-medium text-slate-800 mb-6 leading-relaxed">{question.question}</h2>
+          <h2 className="text-lg font-medium  mb-6 leading-relaxed" style={{ color: "var(--foreground)" }}>{question.question}</h2>
 
           <div className="space-y-3">
             {question.options.map((option, idx) => (
@@ -753,7 +753,7 @@ export default function MockTestPage() {
                 }`}>
                   {String.fromCharCode(65 + idx)}
                 </span>
-                <span className="text-slate-700">{option}</span>
+                <span className="" style={{ color: "var(--foreground)" }}>{option}</span>
               </button>
             ))}
           </div>
@@ -764,7 +764,7 @@ export default function MockTestPage() {
           <button
             onClick={() => currentQuestion > 0 && setCurrentQuestion(currentQuestion - 1)}
             disabled={currentQuestion === 0}
-            className="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 disabled:opacity-40"
+            className="px-4 py-2 text-sm font-medium   border  rounded-lg hover: disabled:opacity-40" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
           >
             {t("previous")}
           </button>
@@ -789,7 +789,7 @@ export default function MockTestPage() {
           {currentQuestion < questions.length - 1 && (
             <button
               onClick={() => setCurrentQuestion(currentQuestion + 1)}
-              className="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50"
+              className="px-4 py-2 text-sm font-medium   border  rounded-lg hover:" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
             >
               {t("skip")}
             </button>
@@ -798,8 +798,8 @@ export default function MockTestPage() {
         </div>
 
         {/* Question navigator */}
-        <div className="bg-white rounded-xl p-4 border border-slate-200">
-          <div className="text-xs text-slate-400 mb-2 font-medium">{t("questionNavigator")}</div>
+        <div className=" rounded-xl p-4 border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="text-xs  mb-2 font-medium" style={{ color: "var(--foreground)" }}>{t("questionNavigator")}</div>
           <div className="flex flex-wrap gap-1.5">
             {questions.map((q, idx) => (
               <button
@@ -816,10 +816,10 @@ export default function MockTestPage() {
               </button>
             ))}
           </div>
-          <div className="flex gap-4 mt-3 text-xs text-slate-400">
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-500 inline-block" /> {t("current")}</span>
+          <div className="flex gap-4 mt-3 text-xs " style={{ color: "var(--foreground)" }}>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded  inline-block" style={{ background: "var(--background)" }} /> {t("current")}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8EAFF] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-100 inline-block" /> {t("notAnswered")}</span>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded  inline-block" style={{ background: "var(--background)" }} /> {t("notAnswered")}</span>
           </div>
         </div>
 
@@ -851,10 +851,10 @@ export default function MockTestPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h1 className="text-5xl font-bold mb-4 text-slate-800">
+            <h1 className="text-5xl font-bold mb-4 " style={{ color: "var(--foreground)" }}>
               Full-Length Mock Tests
             </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl  max-w-3xl mx-auto mb-8" style={{ color: "var(--foreground)" }}>
               Practice with realistic exam simulations for JEE, NEET, UPSC, Banking, SSC, and 55+ other competitive exams
             </p>
             <button
@@ -880,29 +880,29 @@ export default function MockTestPage() {
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+            <div className=" rounded-2xl p-8 shadow-lg border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
               <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 [#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">Short Practice Tests</h3>
-              <p className="text-slate-600 mb-4">20-30 questions · 40-60 minutes</p>
-              <ul className="space-y-2 text-sm text-slate-600">
+              <h3 className="text-xl font-bold  mb-2" style={{ color: "var(--foreground)" }}>Short Practice Tests</h3>
+              <p className=" mb-4" style={{ color: "var(--foreground)" }}>20-30 questions · 40-60 minutes</p>
+              <ul className="space-y-2 text-sm " style={{ color: "var(--foreground)" }}>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4  mt-0.5 flex-shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Quick daily practice sessions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4  mt-0.5 flex-shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Build exam stamina gradually</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4  mt-0.5 flex-shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Perfect for topic revision</span>
@@ -910,29 +910,29 @@ export default function MockTestPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+            <div className=" rounded-2xl p-8 shadow-lg border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
               <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">Full-Length Mock Tests</h3>
-              <p className="text-slate-600 mb-4">60-90 questions · 100-150 minutes</p>
-              <ul className="space-y-2 text-sm text-slate-600">
+              <h3 className="text-xl font-bold  mb-2" style={{ color: "var(--foreground)" }}>Full-Length Mock Tests</h3>
+              <p className=" mb-4" style={{ color: "var(--foreground)" }}>60-90 questions · 100-150 minutes</p>
+              <ul className="space-y-2 text-sm " style={{ color: "var(--foreground)" }}>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4  mt-0.5 flex-shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Real exam pattern and difficulty</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4  mt-0.5 flex-shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Time management practice</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4  mt-0.5 flex-shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Complete pre-exam simulation</span>
@@ -942,8 +942,8 @@ export default function MockTestPage() {
           </div>
 
           {/* What's Included */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-16">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">What's Included in Mock Tests</h2>
+          <div className=" rounded-2xl p-8 shadow-lg border  mb-16" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+            <h2 className="text-2xl font-bold  mb-6 text-center" style={{ color: "var(--foreground)" }}>What's Included in Mock Tests</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-[#E8EAFF] rounded-full flex items-center justify-center mx-auto mb-3">
@@ -951,17 +951,17 @@ export default function MockTestPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-2">Timed Tests</h3>
-                <p className="text-sm text-slate-600">Real exam time limits with countdown timer</p>
+                <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>Timed Tests</h3>
+                <p className="text-sm " style={{ color: "var(--foreground)" }}>Real exam time limits with countdown timer</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 " style={{ color: "var(--foreground)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-2">Detailed Analytics</h3>
-                <p className="text-sm text-slate-600">Section-wise performance breakdown</p>
+                <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>Detailed Analytics</h3>
+                <p className="text-sm " style={{ color: "var(--foreground)" }}>Section-wise performance breakdown</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-[#D6D9FF] rounded-full flex items-center justify-center mx-auto mb-3">
@@ -969,16 +969,16 @@ export default function MockTestPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-2">Rich Explanations</h3>
-                <p className="text-sm text-slate-600">Step-by-step solutions for every question</p>
+                <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>Rich Explanations</h3>
+                <p className="text-sm " style={{ color: "var(--foreground)" }}>Step-by-step solutions for every question</p>
               </div>
             </div>
           </div>
 
           {/* Available Exams */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Available for 60+ Exams</h2>
-            <p className="text-slate-600 mb-8">JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
+            <h2 className="text-2xl font-bold  mb-4" style={{ color: "var(--foreground)" }}>Available for 60+ Exams</h2>
+            <p className=" mb-8" style={{ color: "var(--foreground)" }}>JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
             <button
               onClick={() => setShowLoginModal(true)}
               className="px-8 py-4 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#3242CC] transition-all"
@@ -996,10 +996,10 @@ export default function MockTestPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-3 text-slate-800">
+        <h1 className="text-4xl font-bold mb-3 " style={{ color: "var(--foreground)" }}>
           Mock Tests
         </h1>
-        <p className="text-slate-600 max-w-2xl mx-auto">
+        <p className=" max-w-2xl mx-auto" style={{ color: "var(--foreground)" }}>
           Practice with full-length mock tests or take short practice tests to prepare for your exams
         </p>
       </div>
@@ -1049,9 +1049,9 @@ export default function MockTestPage() {
         >
           <Sparkles className="w-5 h-5" />
           <span>Create Custom Test</span>
-          <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">NEW</span>
+          <span className="text-xs /20 px-2 py-0.5 rounded-full" style={{ background: "var(--card-bg)" }}>NEW</span>
         </button>
-        <p className="text-xs text-slate-500 -mt-2">Build your own personalized mock test</p>
+        <p className="text-xs  -mt-2" style={{ color: "var(--foreground)" }}>Build your own personalized mock test</p>
       </div>
 
       {/* Search Bar */}
@@ -1066,9 +1066,9 @@ export default function MockTestPage() {
               setShowSearchDropdown(true);
             }}
             onFocus={() => setShowSearchDropdown(true)}
-            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 border-slate-200 focus:border-[#4255FF] focus:ring-2 focus:ring-[#E8EAFF] outline-none transition-all"
+            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2  focus:border-[#4255FF] focus:ring-2 focus:ring-[#E8EAFF] outline-none transition-all" style={{ borderColor: "var(--card-border)" }}
           />
-          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 " style={{ color: "var(--foreground)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           {searchQuery && (
@@ -1077,7 +1077,7 @@ export default function MockTestPage() {
                 setSearchQuery("");
                 setShowSearchDropdown(false);
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:" style={{ color: "var(--foreground)" }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1091,15 +1091,15 @@ export default function MockTestPage() {
       {isLoadingConfigs ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="bg-white rounded-xl p-6 h-64 shimmer" />
+            <div key={i} className=" rounded-xl p-6 h-64 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       ) : Object.keys(groupedConfigs).length === 0 ? (
         <div className="text-center py-16">
           <div className="flex justify-center mb-4">
-            <FileText className="w-20 h-20 text-slate-400" />
+            <FileText className="w-20 h-20 " style={{ color: "var(--foreground)" }} />
           </div>
-          <p className="text-slate-400 text-lg">No mock tests found matching your search</p>
+          <p className=" text-lg" style={{ color: "var(--foreground)" }}>No mock tests found matching your search</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -1123,7 +1123,7 @@ export default function MockTestPage() {
                   setModalTestType(testType);
                   setShowExamModal(true);
                 }}
-                className="group bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-[#4255FF] hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="group  rounded-2xl p-6 border-2  hover:border-[#4255FF] hover:shadow-xl transition-all duration-300 cursor-pointer" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}
               >
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-4">
@@ -1134,8 +1134,8 @@ export default function MockTestPage() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-lg text-slate-800 mb-1">{firstConfig.examName}</h3>
-                    <p className="text-xs text-slate-400 line-clamp-1">{exam?.description || ""}</p>
+                    <h3 className="font-bold text-lg  mb-1" style={{ color: "var(--foreground)" }}>{firstConfig.examName}</h3>
+                    <p className="text-xs  line-clamp-1" style={{ color: "var(--foreground)" }}>{exam?.description || ""}</p>
                   </div>
                 </div>
 
@@ -1143,27 +1143,27 @@ export default function MockTestPage() {
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <div className="bg-[#E3F2FD] rounded-lg p-2 text-center">
                     <div className="text-lg font-bold text-[#0277BD]">{firstConfig.totalQuestions}</div>
-                    <div className="text-xs text-slate-500">Questions</div>
+                    <div className="text-xs " style={{ color: "var(--foreground)" }}>Questions</div>
                   </div>
                   <div className="bg-[#BBDEFB] rounded-lg p-2 text-center">
                     <div className="text-lg font-bold text-[#01579B]">{firstConfig.timeLimitMinutes}m</div>
-                    <div className="text-xs text-slate-500">Duration</div>
+                    <div className="text-xs " style={{ color: "var(--foreground)" }}>Duration</div>
                   </div>
                   <div className="bg-[#90CAF9] rounded-lg p-2 text-center">
                     <div className="text-lg font-bold text-[#014F86]">{firstConfig.sections.length}</div>
-                    <div className="text-xs text-slate-500">Sections</div>
+                    <div className="text-xs " style={{ color: "var(--foreground)" }}>Sections</div>
                   </div>
                 </div>
 
                 {/* Subjects */}
                 <div className="flex flex-wrap gap-1.5 min-h-[52px]">
                   {firstConfig.sections.slice(0, 3).map((s) => (
-                    <span key={s.subjectId} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
+                    <span key={s.subjectId} className="text-xs   px-2 py-1 rounded-md" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}>
                       {s.subjectName} ({s.questionCount})
                     </span>
                   ))}
                   {firstConfig.sections.length > 3 && (
-                    <span className="text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded-md">
+                    <span className="text-xs   px-2 py-1 rounded-md" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}>
                       +{firstConfig.sections.length - 3} more
                     </span>
                   )}
@@ -1179,13 +1179,13 @@ export default function MockTestPage() {
       {/* Past Tests History */}
       {history.length > 0 && (
         <div className="mt-12 mb-24">
-          <h2 className="text-2xl font-bold text-slate-800 mb-5">Past Mock Tests</h2>
+          <h2 className="text-2xl font-bold  mb-5" style={{ color: "var(--foreground)" }}>Past Mock Tests</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {history.filter((h: any) => h.status === "completed").slice(0, 6).map((h: any) => {
               const exam = getExamById(h.exam_id);
               const acc = h.total_questions > 0 ? Math.round((h.correct_answers / h.total_questions) * 100) : 0;
               return (
-                <div key={h.id} className="bg-white rounded-xl p-4 border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
+                <div key={h.id} className=" rounded-xl p-4 border  flex items-center justify-between hover:shadow-md transition-shadow" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 flex items-center justify-center">
                       <ColorfulExamIcon
@@ -1194,8 +1194,8 @@ export default function MockTestPage() {
                       />
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-800">{exam?.name || h.exam_id}</div>
-                      <div className="text-xs text-slate-400">
+                      <div className="font-semibold " style={{ color: "var(--foreground)" }}>{exam?.name || h.exam_id}</div>
+                      <div className="text-xs " style={{ color: "var(--foreground)" }}>
                         {new Date(h.completed_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {formatTime(h.time_taken_seconds)}
                       </div>
                     </div>
@@ -1213,21 +1213,21 @@ export default function MockTestPage() {
       {/* Exam Details Modal */}
       {showExamModal && selectedExam && groupedConfigs[selectedExam] && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowExamModal(false)}>
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <div className=" rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ background: "var(--card-bg)" }} onClick={(e) => e.stopPropagation()}>
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div className="sticky top-0  border-b  px-6 py-4 flex items-center justify-between" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
               <div className="flex items-center gap-3">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <ColorfulExamIcon examId={selectedExam} size={64} />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-slate-800">{groupedConfigs[selectedExam][0].examName}</h2>
-                  <p className="text-sm text-slate-500">{getExamById(selectedExam)?.description || ""}</p>
+                  <h2 className="text-xl font-bold " style={{ color: "var(--foreground)" }}>{groupedConfigs[selectedExam][0].examName}</h2>
+                  <p className="text-sm " style={{ color: "var(--foreground)" }}>{getExamById(selectedExam)?.description || ""}</p>
                 </div>
               </div>
               <button
                 onClick={() => setShowExamModal(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+                className="w-8 h-8 flex items-center justify-center rounded-lg hover: text-slate-400 hover: transition-colors" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1255,29 +1255,29 @@ export default function MockTestPage() {
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-[#E8EAFF] rounded-xl p-4 text-center">
                   <div className="text-2xl font-bold text-[#4255FF]">{statsQuestions}</div>
-                  <div className="text-xs text-slate-600 mt-1">Questions</div>
+                  <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>Questions</div>
                 </div>
                 <div className="bg-[#D6D9FF] rounded-xl p-4 text-center">
                   <div className="text-2xl font-bold text-[#3242CC]">{statsDuration}m</div>
-                  <div className="text-xs text-slate-600 mt-1">Duration</div>
+                  <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>Duration</div>
                 </div>
                 <div className="bg-[#C4C8FF] rounded-xl p-4 text-center">
                   <div className="text-2xl font-bold text-[#2D43B8]">{baseConfigForStats.sections.length}</div>
-                  <div className="text-xs text-slate-600 mt-1">Sections</div>
+                  <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>Sections</div>
                 </div>
               </div>
 
               {/* Sections Covered */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-700 mb-3">Topics Covered</h3>
+                <h3 className="text-sm font-semibold  mb-3" style={{ color: "var(--foreground)" }}>Topics Covered</h3>
                 <div className="grid grid-cols-2 gap-2">
                   {baseConfigForStats.sections.map((s) => {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
-                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
+                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2  rounded-lg border " style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }}>
                       <div className="w-2 h-2 rounded-full [#E8EAFF]0"></div>
-                      <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
-                      <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
+                      <span className="text-sm  font-medium" style={{ color: "var(--foreground)" }}>{s.subjectName}</span>
+                      <span className="text-xs  ml-auto" style={{ color: "var(--foreground)" }}>({qPerSection}Q)</span>
                     </div>
                     );
                   })}
@@ -1289,8 +1289,8 @@ export default function MockTestPage() {
 
               {/* Test Selector */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-700 mb-3">Select Test Number</h3>
-                <div className="px-4 py-4 bg-slate-50 rounded-xl border border-slate-200">
+                <h3 className="text-sm font-semibold  mb-3" style={{ color: "var(--foreground)" }}>Select Test Number</h3>
+                <div className="px-4 py-4  rounded-xl border " style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }}>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {Array.from({ length: Math.min(testCapacity[selectedExam] || 3, 10) }, (_, i) => i + 1).map((num) => (
                       <button
@@ -1307,9 +1307,9 @@ export default function MockTestPage() {
                     ))}
                   </div>
                   {testCapacity[selectedExam] > 10 && (
-                    <div className="mt-4 pt-4 border-t border-slate-200">
+                    <div className="mt-4 pt-4 border-t " style={{ borderColor: "var(--card-border)" }}>
                       <div className="flex items-center gap-3 justify-center">
-                        <label htmlFor="test-number-input" className="text-sm text-slate-600 font-medium">
+                        <label htmlFor="test-number-input" className="text-sm  font-medium" style={{ color: "var(--foreground)" }}>
                           Or enter test number:
                         </label>
                         <input
@@ -1324,9 +1324,9 @@ export default function MockTestPage() {
                               setSelectedTestNumber(num);
                             }
                           }}
-                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none"
+                          className="w-20 px-3 py-2 text-center border-2  rounded-lg font-bold  focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}
                         />
-                        <span className="text-sm text-slate-500">of {testCapacity[selectedExam]}</span>
+                        <span className="text-sm " style={{ color: "var(--foreground)" }}>of {testCapacity[selectedExam]}</span>
                       </div>
                     </div>
                   )}
@@ -1391,10 +1391,10 @@ export default function MockTestPage() {
             })()}
 
             {/* Footer Actions */}
-            <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div className="sticky bottom-0  border-t  px-6 py-4 flex items-center justify-between" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
               <button
                 onClick={() => setShowExamModal(false)}
-                className="px-6 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+                className="px-6 py-2  hover: rounded-lg font-medium transition-colors" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}
               >
                 Cancel
               </button>

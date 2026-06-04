@@ -21,10 +21,10 @@ export default function ContributorPortalPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen  flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading contributor portal...</p>
+          <p className="" style={{ color: "var(--foreground)" }}>Loading contributor portal...</p>
         </div>
       </div>
     );
@@ -35,17 +35,17 @@ export default function ContributorPortalPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <div className="min-h-screen  pt-8 pb-12 px-4" style={{ background: "var(--card-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-3">
             <Icon3DTarget size={56} />
-            <h1 className="text-4xl font-bold text-slate-900">
+            <h1 className="text-4xl font-bold " style={{ color: "var(--foreground)" }}>
               Contributor Portal
             </h1>
           </div>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg " style={{ color: "var(--foreground)" }}>
             Create and submit verified questions to help students succeed
           </p>
         </div>
@@ -54,15 +54,15 @@ export default function ContributorPortalPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <Link
             href="/contributor/create"
-            className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
+            className="group p-8 rounded-2xl border-2   hover:border-indigo-400 hover:shadow-xl transition-all" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}
           >
             <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
               <Icon3DSparkle size={72} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
+            <h3 className="text-xl font-bold  mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
               Create Question Set
             </h3>
-            <p className="text-slate-600 text-sm mb-4">
+            <p className=" text-sm mb-4" style={{ color: "var(--foreground)" }}>
               Upload study material and generate AI-powered questions
             </p>
             <div className="flex items-center gap-2 text-indigo-600 font-medium">
@@ -72,15 +72,15 @@ export default function ContributorPortalPage() {
 
           <Link
             href="/contributor/submissions"
-            className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
+            className="group p-8 rounded-2xl border-2   hover:border-indigo-400 hover:shadow-xl transition-all" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}
           >
             <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
               <Icon3DNotebook size={72} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
+            <h3 className="text-xl font-bold  mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
               My Submissions
             </h3>
-            <p className="text-slate-600 text-sm mb-4">
+            <p className=" text-sm mb-4" style={{ color: "var(--foreground)" }}>
               Track your submitted questions and approval status
             </p>
             <div className="flex items-center gap-2 text-indigo-600 font-medium">
@@ -90,15 +90,15 @@ export default function ContributorPortalPage() {
 
           <Link
             href="/contributor/stats"
-            className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
+            className="group p-8 rounded-2xl border-2   hover:border-indigo-400 hover:shadow-xl transition-all" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}
           >
             <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
               <Icon3DChart size={72} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
+            <h3 className="text-xl font-bold  mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
               Contribution Stats
             </h3>
-            <p className="text-slate-600 text-sm mb-4">
+            <p className=" text-sm mb-4" style={{ color: "var(--foreground)" }}>
               View your contribution analytics and points
             </p>
             <div className="flex items-center gap-2 text-indigo-600 font-medium">
@@ -108,10 +108,10 @@ export default function ContributorPortalPage() {
         </div>
 
         {/* How It Works */}
-        <div className="rounded-2xl border-2 border-slate-200 p-8 mb-8">
+        <div className="rounded-2xl border-2  p-8 mb-8" style={{ borderColor: "var(--card-border)" }}>
           <div className="flex items-center gap-3 mb-6">
             <Zap className="w-7 h-7 text-yellow-500" />
-            <h2 className="text-2xl font-bold text-slate-900">How It Works</h2>
+            <h2 className="text-2xl font-bold " style={{ color: "var(--foreground)" }}>How It Works</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
@@ -119,8 +119,8 @@ export default function ContributorPortalPage() {
               <div className="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
                 <span className="text-2xl font-bold text-indigo-600">1</span>
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Select Exam</h3>
-              <p className="text-sm text-slate-600">
+              <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>Select Exam</h3>
+              <p className="text-sm " style={{ color: "var(--foreground)" }}>
                 Choose from JEE, NEET, UPSC, and 20+ exams
               </p>
             </div>
@@ -129,8 +129,8 @@ export default function ContributorPortalPage() {
               <div className="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
                 <span className="text-2xl font-bold text-indigo-600">2</span>
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Select Subject</h3>
-              <p className="text-sm text-slate-600">
+              <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>Select Subject</h3>
+              <p className="text-sm " style={{ color: "var(--foreground)" }}>
                 Pick the subject for your questions
               </p>
             </div>
@@ -139,8 +139,8 @@ export default function ContributorPortalPage() {
               <div className="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
                 <span className="text-2xl font-bold text-indigo-600">3</span>
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Upload Material</h3>
-              <p className="text-sm text-slate-600">
+              <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>Upload Material</h3>
+              <p className="text-sm " style={{ color: "var(--foreground)" }}>
                 Upload PDF, DOCX, or paste text from your notes
               </p>
             </div>
@@ -149,8 +149,8 @@ export default function ContributorPortalPage() {
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Icon3DSparkle size={48} />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">AI Generates</h3>
-              <p className="text-sm text-slate-600">
+              <h3 className="font-semibold  mb-2" style={{ color: "var(--foreground)" }}>AI Generates</h3>
+              <p className="text-sm " style={{ color: "var(--foreground)" }}>
                 Questions are created and submitted for review
               </p>
             </div>
@@ -159,32 +159,32 @@ export default function ContributorPortalPage() {
 
         {/* Benefits */}
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="border-2 border-slate-200 rounded-xl p-6">
+          <div className="border-2  rounded-xl p-6" style={{ borderColor: "var(--card-border)" }}>
             <div className="mb-3 flex justify-center">
               <Icon3DGraduationCap size={56} />
             </div>
-            <h3 className="font-bold text-slate-900 mb-2 text-center">Help Students</h3>
-            <p className="text-sm text-slate-600 text-center">
+            <h3 className="font-bold  mb-2 text-center" style={{ color: "var(--foreground)" }}>Help Students</h3>
+            <p className="text-sm  text-center" style={{ color: "var(--foreground)" }}>
               Your questions help thousands of students prepare for their exams
             </p>
           </div>
 
-          <div className="border-2 border-slate-200 rounded-xl p-6">
+          <div className="border-2  rounded-xl p-6" style={{ borderColor: "var(--card-border)" }}>
             <div className="mb-3 flex justify-center">
               <Icon3DTrophy size={56} />
             </div>
-            <h3 className="font-bold text-slate-900 mb-2 text-center">Earn Points</h3>
-            <p className="text-sm text-slate-600 text-center">
+            <h3 className="font-bold  mb-2 text-center" style={{ color: "var(--foreground)" }}>Earn Points</h3>
+            <p className="text-sm  text-center" style={{ color: "var(--foreground)" }}>
               Get contribution points for every approved question
             </p>
           </div>
 
-          <div className="border-2 border-slate-200 rounded-xl p-6">
+          <div className="border-2  rounded-xl p-6" style={{ borderColor: "var(--card-border)" }}>
             <div className="mb-3 flex justify-center">
               <Icon3DRocket size={56} />
             </div>
-            <h3 className="font-bold text-slate-900 mb-2 text-center">Build Reputation</h3>
-            <p className="text-sm text-slate-600 text-center">
+            <h3 className="font-bold  mb-2 text-center" style={{ color: "var(--foreground)" }}>Build Reputation</h3>
+            <p className="text-sm  text-center" style={{ color: "var(--foreground)" }}>
               Top contributors get featured and special badges
             </p>
           </div>

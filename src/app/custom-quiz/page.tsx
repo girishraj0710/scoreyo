@@ -245,10 +245,10 @@ export default function CustomQuizPage() {
                   </div>
 
                   <div>
-                    <p className="text-xl text-slate-700 mb-2 font-medium">
+                    <p className="text-xl  mb-2 font-medium" style={{ color: "var(--foreground)" }}>
                       Drag and drop notes, readings, lecture slides, etc.
                     </p>
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm " style={{ color: "var(--foreground)" }}>
                       Supported file types are .docx, .pdf, .pptx
                     </p>
                   </div>
@@ -262,7 +262,7 @@ export default function CustomQuizPage() {
                   />
                   <label
                     htmlFor="file-upload"
-                    className="px-6 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 cursor-pointer transition-colors font-medium"
+                    className="px-6 py-3 bg-slate-600 text-white rounded-lg hover: cursor-pointer transition-colors font-medium" style={{ background: "var(--background)" }}
                   >
                     Browse files
                   </label>
@@ -271,14 +271,14 @@ export default function CustomQuizPage() {
                 <div className="flex flex-col items-center gap-4">
                   <CheckCircle className="w-16 h-16 text-green-600" />
                   <div className="text-center">
-                    <p className="text-lg font-semibold text-slate-900 mb-1">{file.name}</p>
-                    <p className="text-sm text-slate-500">
+                    <p className="text-lg font-semibold  mb-1" style={{ color: "var(--foreground)" }}>{file.name}</p>
+                    <p className="text-sm " style={{ color: "var(--foreground)" }}>
                       {(file.size / 1024 / 1024).toFixed(2)} MB
                     </p>
                   </div>
                   <button
                     onClick={() => setFile(null)}
-                    className="text-sm text-slate-600 hover:text-red-600 transition-colors underline"
+                    className="text-sm  hover:text-red-600 transition-colors underline" style={{ color: "var(--foreground)" }}
                   >
                     Remove file
                   </button>
@@ -290,14 +290,14 @@ export default function CustomQuizPage() {
 
         {/* Paste Text Tab Content */}
         {activeTab === 'paste' && (
-          <div className="bg-white rounded-2xl border-2 border-slate-200 p-8">
+          <div className=" rounded-2xl border-2  p-8" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
             <textarea
               value={pastedText}
               onChange={(e) => setPastedText(e.target.value)}
               placeholder="Paste your study material here..."
-              className="w-full h-64 p-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-indigo-400 text-slate-700 resize-none"
+              className="w-full h-64 p-4 border-2  rounded-lg focus:outline-none focus:border-indigo-400  resize-none" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}
             />
-            <p className="text-xs text-slate-400 mt-2">
+            <p className="text-xs  mt-2" style={{ color: "var(--foreground)" }}>
               Paste text from your notes, textbook, or any study material
             </p>
           </div>
@@ -306,13 +306,13 @@ export default function CustomQuizPage() {
         {/* Configuration & Generate */}
         {((activeTab === 'upload' && file) || (activeTab === 'paste' && pastedText.trim())) && (
           <div className="mt-8 space-y-6">
-            <div className="bg-white rounded-2xl border border-slate-200 p-8">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6">Quiz Settings</h3>
+            <div className=" rounded-2xl border  p-8" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+              <h3 className="text-lg font-semibold  mb-6" style={{ color: "var(--foreground)" }}>Quiz Settings</h3>
 
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Number of Questions */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-3">
+                  <label className="block text-sm font-medium  mb-3" style={{ color: "var(--foreground)" }}>
                     Number of Questions
                   </label>
                   <div className="grid grid-cols-4 gap-3">
@@ -334,7 +334,7 @@ export default function CustomQuizPage() {
 
                 {/* Difficulty */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-3">
+                  <label className="block text-sm font-medium  mb-3" style={{ color: "var(--foreground)" }}>
                     Difficulty Level
                   </label>
                   <div className="grid grid-cols-3 gap-3">
@@ -387,7 +387,7 @@ export default function CustomQuizPage() {
             </button>
 
             {isProcessing && (
-              <p className="text-center text-sm text-slate-500">
+              <p className="text-center text-sm " style={{ color: "var(--foreground)" }}>
                 This may take 30-60 seconds. Please wait...
               </p>
             )}

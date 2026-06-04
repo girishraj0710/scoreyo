@@ -85,10 +85,10 @@ export default function MorePage() {
       {/* Menu Sections */}
       {menuSections.map((section) => (
         <div key={section.title} className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3 px-2">
+          <h3 className="text-sm font-semibold  uppercase tracking-wider mb-3 px-2" style={{ color: "var(--foreground)" }}>
             {section.title}
           </h3>
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+          <div className=" rounded-xl shadow-sm border  overflow-hidden" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
             {section.items.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -102,8 +102,8 @@ export default function MorePage() {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-5 h-5 text-slate-600" />
-                    <span className="font-medium text-slate-800">
+                    <Icon className="w-5 h-5 " style={{ color: "var(--foreground)" }} />
+                    <span className="font-medium " style={{ color: "var(--foreground)" }}>
                       {item.label}
                     </span>
                   </div>
@@ -113,7 +113,7 @@ export default function MorePage() {
                     </span>
                   )}
                   <svg
-                    className="w-5 h-5 text-slate-400"
+                    className="w-5 h-5 " style={{ color: "var(--foreground)" }}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ export default function MorePage() {
       </button>
 
       {/* App Version */}
-      <div className="mt-6 text-center text-sm text-slate-400">
+      <div className="mt-6 text-center text-sm " style={{ color: "var(--foreground)" }}>
         PrepGenie v1.0.0
       </div>
     </div>

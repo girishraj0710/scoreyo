@@ -125,10 +125,10 @@ export default function DashboardPage() {
   // Show loading while checking user role
   if (userLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen  flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading...</p>
+          <p className="" style={{ color: "var(--foreground)" }}>Loading...</p>
         </div>
       </div>
     );
@@ -144,12 +144,12 @@ export default function DashboardPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-white rounded-xl p-6 h-24 shimmer" />
+            <div key={i} className=" rounded-xl p-6 h-24 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[1, 2].map((i) => (
-            <div key={i} className="bg-white rounded-xl p-6 h-64 shimmer" />
+            <div key={i} className=" rounded-xl p-6 h-64 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       </div>
@@ -159,14 +159,14 @@ export default function DashboardPage() {
   if (!stats || stats.totalSessions === 0) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
+        <div className=" rounded-2xl p-12 shadow-lg border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <div className="flex justify-center mb-6">
             <BookOpen className="w-20 h-20" style={{ color: '#4255FF' }} />
           </div>
-          <h2 className="text-2xl font-bold text-slate-800 mb-3">
+          <h2 className="text-2xl font-bold  mb-3" style={{ color: "var(--foreground)" }}>
             No Quiz Data Yet
           </h2>
-          <p className="text-slate-500 mb-6">
+          <p className=" mb-6" style={{ color: "var(--foreground)" }}>
             Take your first quiz to see your dashboard with progress tracking,
             streaks, and performance analytics!
           </p>
@@ -193,8 +193,8 @@ export default function DashboardPage() {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-3">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Your Dashboard</h1>
-          <p className="text-slate-500 text-xs sm:text-sm mt-1">
+          <h1 className="text-xl sm:text-2xl font-bold " style={{ color: "var(--foreground)" }}>Your Dashboard</h1>
+          <p className=" text-xs sm:text-sm mt-1" style={{ color: "var(--foreground)" }}>
             Track your preparation progress across all exams
           </p>
         </div>
@@ -227,36 +227,36 @@ export default function DashboardPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-8">
-        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200">
-          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Total Quizzes</div>
+        <div className=" rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="text-[10px] sm:text-xs md:text-sm  mb-1" style={{ color: "var(--foreground)" }}>Total Quizzes</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-600">
             {stats.totalSessions}
           </div>
         </div>
-        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200">
-          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Questions Solved</div>
+        <div className=" rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="text-[10px] sm:text-xs md:text-sm  mb-1" style={{ color: "var(--foreground)" }}>Questions Solved</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">
             {stats.totalQuestions}
           </div>
         </div>
-        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200">
-          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Accuracy</div>
+        <div className=" rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="text-[10px] sm:text-xs md:text-sm  mb-1" style={{ color: "var(--foreground)" }}>Accuracy</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-600">
             {stats.accuracy}%
           </div>
-          <div className="w-full bg-slate-100 rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2">
+          <div className="w-full  rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2" style={{ background: "var(--background)" }}>
             <div
               className="bg-cyan-500 h-1.5 sm:h-2 rounded-full animate-progress"
               style={{ width: `${stats.accuracy}%` }}
             />
           </div>
         </div>
-        <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border border-slate-200 streak-pulse">
-          <div className="text-[10px] sm:text-xs md:text-sm text-slate-500 mb-1">Day Streak</div>
+        <div className=" rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm border  streak-pulse" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="text-[10px] sm:text-xs md:text-sm  mb-1" style={{ color: "var(--foreground)" }}>Day Streak</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">
             {stats.streak}
           </div>
-          <div className="text-[9px] sm:text-xs text-slate-400 mt-1">
+          <div className="text-[9px] sm:text-xs  mt-1" style={{ color: "var(--foreground)" }}>
             {stats.streak > 0 ? "Keep it up!" : "Start your streak!"}
           </div>
         </div>
@@ -270,12 +270,12 @@ export default function DashboardPage() {
         <DPPCard />
 
         {/* Exam-wise Breakdown */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[400px]">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
+        <div className=" rounded-2xl p-6 shadow-lg border  flex flex-col h-[400px]" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h3 className="text-lg font-semibold  mb-4 shrink-0" style={{ color: "var(--foreground)" }}>
             Exam-wise Performance
           </h3>
           {stats.examBreakdown.length === 0 ? (
-            <p className="text-slate-400 text-sm">No exam data yet</p>
+            <p className=" text-sm" style={{ color: "var(--foreground)" }}>No exam data yet</p>
           ) : (
             <div className="space-y-3 overflow-y-auto flex-1 pr-2">
               {stats.examBreakdown.map((eb) => {
@@ -294,14 +294,14 @@ export default function DashboardPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-slate-700 truncate">
+                        <span className="text-sm font-medium  truncate" style={{ color: "var(--foreground)" }}>
                           {exam?.name || eb.exam_id}
                         </span>
-                        <span className="text-sm font-bold text-slate-800">
+                        <span className="text-sm font-bold " style={{ color: "var(--foreground)" }}>
                           {accuracy}%
                         </span>
                       </div>
-                      <div className="w-full bg-slate-100 rounded-full h-2 mt-1">
+                      <div className="w-full  rounded-full h-2 mt-1" style={{ background: "var(--background)" }}>
                         <div
                           className="h-2 rounded-full animate-progress"
                           style={{
@@ -310,7 +310,7 @@ export default function DashboardPage() {
                           }}
                         />
                       </div>
-                      <div className="text-xs text-slate-400 mt-1">
+                      <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>
                         {eb.sessions} quizzes | {eb.questions} questions
                       </div>
                     </div>
@@ -325,12 +325,12 @@ export default function DashboardPage() {
         <MistakeMapWidget />
 
         {/* Weak Topics */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col h-[500px]">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
+        <div className=" rounded-2xl p-6 shadow-lg border  flex flex-col h-[500px]" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h3 className="text-lg font-semibold  mb-4 shrink-0" style={{ color: "var(--foreground)" }}>
             Topics to Improve
           </h3>
           {mastery.length === 0 ? (
-            <p className="text-slate-400 text-sm">
+            <p className=" text-sm" style={{ color: "var(--foreground)" }}>
               Complete more quizzes to see weak areas
             </p>
           ) : (
@@ -343,10 +343,10 @@ export default function DashboardPage() {
                       className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-100"
                     >
                       <div>
-                        <div className="text-sm font-medium text-slate-700">
+                        <div className="text-sm font-medium " style={{ color: "var(--foreground)" }}>
                           {m.topic}
                         </div>
-                        <div className="text-xs text-slate-400">
+                        <div className="text-xs " style={{ color: "var(--foreground)" }}>
                           {exam?.name} | {m.total_attempted} questions
                         </div>
                       </div>
@@ -379,17 +379,17 @@ export default function DashboardPage() {
         <StudyStreakCalendar />
 
         {/* Recent Sessions */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 md:col-span-2 flex flex-col h-[400px]">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4 shrink-0">
+        <div className=" rounded-2xl p-6 shadow-lg border  md:col-span-2 flex flex-col h-[400px]" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h3 className="text-lg font-semibold  mb-4 shrink-0" style={{ color: "var(--foreground)" }}>
             Recent Quizzes
           </h3>
           {recentSessions.length === 0 ? (
-            <p className="text-slate-400 text-sm">No quizzes taken yet</p>
+            <p className=" text-sm" style={{ color: "var(--foreground)" }}>No quizzes taken yet</p>
           ) : (
             <div className="overflow-x-auto overflow-y-auto flex-1">
               <table className="w-full text-sm">
-                <thead className="sticky top-0 bg-white z-10">
-                  <tr className="text-left text-slate-500 border-b border-slate-100">
+                <thead className="sticky top-0  z-10" style={{ background: "var(--card-bg)" }}>
+                  <tr className="text-left  border-b " style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}>
                     <th className="pb-3 pt-0 font-medium">Exam</th>
                     <th className="pb-3 pt-0 font-medium">Topic</th>
                     <th className="pb-3 pt-0 font-medium text-center">Score</th>
@@ -409,14 +409,14 @@ export default function DashboardPage() {
                     return (
                       <tr
                         key={s.id}
-                        className="border-b border-slate-50 hover:bg-slate-50"
+                        className="border-b  hover:" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }}
                       >
                         <td className="py-3">
-                          <span className="font-medium text-slate-700">
+                          <span className="font-medium " style={{ color: "var(--foreground)" }}>
                             {exam?.name || s.exam_id}
                           </span>
                         </td>
-                        <td className="py-3 text-slate-600">{s.topic}</td>
+                        <td className="py-3 " style={{ color: "var(--foreground)" }}>{s.topic}</td>
                         <td className="py-3 text-center">
                           <span
                             className={`inline-block px-2 py-1 rounded-full text-xs font-bold ${
@@ -431,10 +431,10 @@ export default function DashboardPage() {
                             %)
                           </span>
                         </td>
-                        <td className="py-3 text-center text-slate-500">
+                        <td className="py-3 text-center " style={{ color: "var(--foreground)" }}>
                           {formatTime(s.time_taken_seconds)}
                         </td>
-                        <td className="py-3 text-right text-slate-400 text-xs">
+                        <td className="py-3 text-right  text-xs" style={{ color: "var(--foreground)" }}>
                           {formatDate(s.created_at)}
                         </td>
                       </tr>

@@ -34,18 +34,18 @@ export default function DebugAuthPage() {
 
       <div className="space-y-6">
         {/* CSRF Token Status */}
-        <div className="bg-white rounded-lg p-6 shadow border border-slate-200">
+        <div className=" rounded-lg p-6 shadow border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <h2 className="text-lg font-semibold mb-4">CSRF Token Status</h2>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <span className={`w-3 h-3 rounded-full ${csrfToken ? 'bg-green-500' : 'bg-red-500'}`} />
               <span className="font-medium">CSRF Token (-client cookie):</span>
-              <code className="text-sm bg-slate-100 px-2 py-1 rounded">
+              <code className="text-sm  px-2 py-1 rounded" style={{ background: "var(--background)" }}>
                 {csrfToken ? 'Present' : 'Missing'}
               </code>
             </div>
             {csrfToken && (
-              <div className="ml-5 text-xs text-slate-600 break-all">
+              <div className="ml-5 text-xs  break-all" style={{ color: "var(--foreground)" }}>
                 {csrfToken}
               </div>
             )}
@@ -53,9 +53,9 @@ export default function DebugAuthPage() {
         </div>
 
         {/* Visible Cookies */}
-        <div className="bg-white rounded-lg p-6 shadow border border-slate-200">
+        <div className=" rounded-lg p-6 shadow border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <h2 className="text-lg font-semibold mb-4">Client-Readable Cookies</h2>
-          <div className="text-sm text-slate-600 mb-3">
+          <div className="text-sm  mb-3" style={{ color: "var(--foreground)" }}>
             Note: httpOnly cookies (like prepgenie-user-id and prepgenie-csrf-token) won't appear here.
           </div>
           {Object.keys(cookies).length === 0 ? (
@@ -63,9 +63,9 @@ export default function DebugAuthPage() {
           ) : (
             <div className="space-y-2">
               {Object.entries(cookies).map(([name, value]) => (
-                <div key={name} className="border-b border-slate-200 pb-2">
+                <div key={name} className="border-b  pb-2" style={{ borderColor: "var(--card-border)" }}>
                   <div className="font-medium">{name}</div>
-                  <div className="text-xs text-slate-600 break-all">{value}</div>
+                  <div className="text-xs  break-all" style={{ color: "var(--foreground)" }}>{value}</div>
                 </div>
               ))}
             </div>
@@ -73,10 +73,10 @@ export default function DebugAuthPage() {
         </div>
 
         {/* Auth Check */}
-        <div className="bg-white rounded-lg p-6 shadow border border-slate-200">
+        <div className=" rounded-lg p-6 shadow border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
           <h2 className="text-lg font-semibold mb-4">Server Auth Status (GET /api/auth)</h2>
           {!authCheck ? (
-            <div className="text-slate-500">Loading...</div>
+            <div className="" style={{ color: "var(--foreground)" }}>Loading...</div>
           ) : (
             <div>
               {authCheck.user ? (
@@ -142,7 +142,7 @@ export default function DebugAuthPage() {
           </button>
           <a
             href="/"
-            className="px-6 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 font-medium"
+            className="px-6 py-2 bg-slate-200  rounded-lg hover: font-medium" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}
           >
             Go Home
           </a>

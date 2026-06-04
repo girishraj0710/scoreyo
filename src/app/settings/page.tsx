@@ -217,12 +217,12 @@ export default function SettingsPage() {
   if (!user) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-12 shadow-lg border border-slate-200 dark:border-gray-700">
-          <User className="w-16 h-16 mx-auto mb-4 text-slate-300" />
-          <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
+        <div className=" dark:bg-gray-800 rounded-2xl p-12 shadow-lg border  dark:border-gray-700" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <User className="w-16 h-16 mx-auto mb-4 " style={{ color: "var(--foreground)" }} />
+          <h2 className="text-xl font-bold  dark:text-white mb-2" style={{ color: "var(--foreground)" }}>
             Please Login
           </h2>
-          <p className="text-slate-500 dark:text-gray-400">
+          <p className=" dark:text-gray-400" style={{ color: "var(--foreground)" }}>
             You need to be logged in to access settings.
           </p>
         </div>
@@ -232,14 +232,14 @@ export default function SettingsPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-      <h1 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">Settings</h1>
-      <p className="text-slate-500 dark:text-gray-400 text-sm mb-8">
+      <h1 className="text-2xl font-bold  dark:text-white mb-2" style={{ color: "var(--foreground)" }}>Settings</h1>
+      <p className=" dark:text-gray-400 text-sm mb-8" style={{ color: "var(--foreground)" }}>
         Manage your profile, preferences, and account settings
       </p>
 
       {/* ─── PROFILE SECTION ─── */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-gray-700 mb-6">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <User className="w-5 h-5 text-indigo-500" />
           Profile
         </h2>
@@ -247,16 +247,16 @@ export default function SettingsPage() {
         <div className="space-y-4">
           {/* Name */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium  dark:text-gray-300 mb-1.5" style={{ color: "var(--foreground)" }}>
               Full Name
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 " style={{ color: "var(--foreground)" }} />
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
                 placeholder="Enter your full name"
               />
             </div>
@@ -264,34 +264,34 @@ export default function SettingsPage() {
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium  dark:text-gray-300 mb-1.5" style={{ color: "var(--foreground)" }}>
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 " style={{ color: "var(--foreground)" }} />
               <input
                 type="email"
                 value={email}
                 disabled
-                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-gray-600 rounded-lg bg-slate-50 dark:bg-gray-600 text-slate-500 dark:text-gray-400 cursor-not-allowed"
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-600  dark:text-gray-400 cursor-not-allowed" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}
                 placeholder="Your email"
               />
             </div>
-            <p className="text-xs text-slate-400 mt-1">Email cannot be changed as it&apos;s used for login</p>
+            <p className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>Email cannot be changed as it&apos;s used for login</p>
           </div>
 
           {/* Phone */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium  dark:text-gray-300 mb-1.5" style={{ color: "var(--foreground)" }}>
               Phone Number
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 " style={{ color: "var(--foreground)" }} />
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
                 placeholder="+91 98765 43210"
               />
             </div>
@@ -300,16 +300,16 @@ export default function SettingsPage() {
           {/* Age & Location - Side by Side */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-1.5">
+              <label className="block text-sm font-medium  dark:text-gray-300 mb-1.5" style={{ color: "var(--foreground)" }}>
                 Age
               </label>
               <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 " style={{ color: "var(--foreground)" }} />
                 <input
                   type="number"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                  className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
                   placeholder="18"
                   min="10"
                   max="60"
@@ -317,16 +317,16 @@ export default function SettingsPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-1.5">
+              <label className="block text-sm font-medium  dark:text-gray-300 mb-1.5" style={{ color: "var(--foreground)" }}>
                 Location
               </label>
               <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 " style={{ color: "var(--foreground)" }} />
                 <input
                   type="text"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                  className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
                   placeholder="City, State"
                 />
               </div>
@@ -335,15 +335,15 @@ export default function SettingsPage() {
 
           {/* Exam Preparing For */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium  dark:text-gray-300 mb-1.5" style={{ color: "var(--foreground)" }}>
               Exam Preparing For
             </label>
             <div className="relative">
-              <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 " style={{ color: "var(--foreground)" }} />
               <select
                 value={examPreparingFor}
                 onChange={(e) => setExamPreparingFor(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none"
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
               >
                 <option value="">Select an exam</option>
                 {getAllExams().map((exam) => (
@@ -352,7 +352,7 @@ export default function SettingsPage() {
                   </option>
                 ))}
               </select>
-              <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 rotate-90" />
+              <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4  rotate-90" style={{ color: "var(--foreground)" }} />
             </div>
           </div>
 
@@ -385,15 +385,15 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── STUDY PREFERENCES ─── */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-gray-700 mb-6">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Target className="w-5 h-5 text-emerald-500" />
           Study Preferences
         </h2>
 
         {/* Daily Goal */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-3">
+          <label className="block text-sm font-medium  dark:text-gray-300 mb-3" style={{ color: "var(--foreground)" }}>
             Daily Question Goal
           </label>
           <div className="grid grid-cols-4 gap-2">
@@ -411,12 +411,12 @@ export default function SettingsPage() {
               </button>
             ))}
           </div>
-          <p className="text-xs text-slate-400 mt-2">Questions per day target</p>
+          <p className="text-xs  mt-2" style={{ color: "var(--foreground)" }}>Questions per day target</p>
         </div>
 
         {/* Default Difficulty */}
         <div>
-          <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-3">
+          <label className="block text-sm font-medium  dark:text-gray-300 mb-3" style={{ color: "var(--foreground)" }}>
             Default Quiz Difficulty
           </label>
           <div className="grid grid-cols-4 gap-2">
@@ -443,15 +443,15 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── LANGUAGE & APPEARANCE ─── */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-gray-700 mb-6">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Globe className="w-5 h-5 text-blue-500" />
           Language & Appearance
         </h2>
 
         {/* Language */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-slate-600 dark:text-gray-300 mb-3">
+          <label className="block text-sm font-medium  dark:text-gray-300 mb-3" style={{ color: "var(--foreground)" }}>
             App Language
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -475,7 +475,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Dark Mode */}
-        <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-gray-700/50 rounded-xl">
+        <div className="flex items-center justify-between p-4  dark:bg-gray-700/50 rounded-xl" style={{ background: "var(--background)" }}>
           <div className="flex items-center gap-3">
             {darkMode ? (
               <Moon className="w-5 h-5 text-indigo-500" />
@@ -483,10 +483,10 @@ export default function SettingsPage() {
               <Sun className="w-5 h-5 text-amber-500" />
             )}
             <div>
-              <div className="text-sm font-medium text-slate-700 dark:text-gray-200">
+              <div className="text-sm font-medium  dark:text-gray-200" style={{ color: "var(--foreground)" }}>
                 Dark Mode
               </div>
-              <div className="text-xs text-slate-400">
+              <div className="text-xs " style={{ color: "var(--foreground)" }}>
                 {darkMode ? "Dark theme active" : "Light theme active"}
               </div>
             </div>
@@ -507,8 +507,8 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── SUBSCRIPTION ─── */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-gray-700 mb-6">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <CreditCard className="w-5 h-5 text-purple-500" />
           Subscription
         </h2>
@@ -518,7 +518,7 @@ export default function SettingsPage() {
             {/* Plan Status */}
             <div className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl border border-purple-100 dark:border-purple-800">
               <div>
-                <div className="text-sm font-medium text-slate-700 dark:text-gray-200">
+                <div className="text-sm font-medium  dark:text-gray-200" style={{ color: "var(--foreground)" }}>
                   Current Plan
                 </div>
                 <div className="text-lg font-bold text-purple-600 dark:text-purple-400 mt-0.5">
@@ -539,15 +539,15 @@ export default function SettingsPage() {
             {/* Subscription Details */}
             {subscription.isPro && subscription.subscription && (
               <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="p-3 bg-slate-50 dark:bg-gray-700/50 rounded-lg">
-                  <div className="text-slate-400 text-xs">Started</div>
-                  <div className="font-medium text-slate-700 dark:text-gray-200 mt-0.5">
+                <div className="p-3  dark:bg-gray-700/50 rounded-lg" style={{ background: "var(--background)" }}>
+                  <div className=" text-xs" style={{ color: "var(--foreground)" }}>Started</div>
+                  <div className="font-medium  dark:text-gray-200 mt-0.5" style={{ color: "var(--foreground)" }}>
                     {formatDate(subscription.subscription.started_at)}
                   </div>
                 </div>
-                <div className="p-3 bg-slate-50 dark:bg-gray-700/50 rounded-lg">
-                  <div className="text-slate-400 text-xs">Expires</div>
-                  <div className="font-medium text-slate-700 dark:text-gray-200 mt-0.5">
+                <div className="p-3  dark:bg-gray-700/50 rounded-lg" style={{ background: "var(--background)" }}>
+                  <div className=" text-xs" style={{ color: "var(--foreground)" }}>Expires</div>
+                  <div className="font-medium  dark:text-gray-200 mt-0.5" style={{ color: "var(--foreground)" }}>
                     {formatDate(subscription.subscription.expires_at)}
                   </div>
                 </div>
@@ -572,13 +572,13 @@ export default function SettingsPage() {
             )}
           </div>
         ) : (
-          <div className="animate-pulse h-20 bg-slate-100 dark:bg-gray-700 rounded-xl" />
+          <div className="animate-pulse h-20  dark:bg-gray-700 rounded-xl" style={{ background: "var(--background)" }} />
         )}
       </section>
 
       {/* ─── NOTIFICATIONS ─── */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-gray-700 mb-6">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Bell className="w-5 h-5 text-amber-500" />
           Notifications
         </h2>
@@ -604,29 +604,29 @@ export default function SettingsPage() {
           />
         </div>
 
-        <p className="text-xs text-slate-400 mt-4">
+        <p className="text-xs  mt-4" style={{ color: "var(--foreground)" }}>
           Note: Browser notifications require permission. Push notifications coming soon.
         </p>
       </section>
 
       {/* ─── ACCOUNT ─── */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-gray-700 mb-6">
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
-          <Shield className="w-5 h-5 text-slate-500" />
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
+          <Shield className="w-5 h-5 " style={{ color: "var(--foreground)" }} />
           Account
         </h2>
 
         <div className="space-y-3">
           {/* Account Info */}
-          <div className="p-4 bg-slate-50 dark:bg-gray-700/50 rounded-xl">
+          <div className="p-4  dark:bg-gray-700/50 rounded-xl" style={{ background: "var(--background)" }}>
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm font-medium text-slate-700 dark:text-gray-200">Account ID</div>
-                <div className="text-xs text-slate-400 mt-0.5 font-mono">{user.id}</div>
+                <div className="text-sm font-medium  dark:text-gray-200" style={{ color: "var(--foreground)" }}>Account ID</div>
+                <div className="text-xs  mt-0.5 font-mono" style={{ color: "var(--foreground)" }}>{user.id}</div>
               </div>
               <div className="text-right">
-                <div className="text-sm font-medium text-slate-700 dark:text-gray-200">Member Since</div>
-                <div className="text-xs text-slate-400 mt-0.5">{formatDate(user.created_at)}</div>
+                <div className="text-sm font-medium  dark:text-gray-200" style={{ color: "var(--foreground)" }}>Member Since</div>
+                <div className="text-xs  mt-0.5" style={{ color: "var(--foreground)" }}>{formatDate(user.created_at)}</div>
               </div>
             </div>
           </div>
@@ -634,13 +634,13 @@ export default function SettingsPage() {
           {/* Logout */}
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-between p-4 bg-slate-50 hover:bg-slate-100 dark:bg-gray-700/50 dark:hover:bg-gray-700 rounded-xl transition group"
+            className="w-full flex items-center justify-between p-4 bg-slate-50 hover: dark:bg-gray-700/50 dark:hover:bg-gray-700 rounded-xl transition group" style={{ background: "var(--background)" }}
           >
             <div className="flex items-center gap-3">
-              <LogOut className="w-5 h-5 text-slate-500 group-hover:text-slate-700 dark:text-gray-400" />
-              <span className="text-sm font-medium text-slate-700 dark:text-gray-200">Logout</span>
+              <LogOut className="w-5 h-5 text-slate-500 group-hover: dark:text-gray-400" style={{ color: "var(--foreground)" }} />
+              <span className="text-sm font-medium  dark:text-gray-200" style={{ color: "var(--foreground)" }}>Logout</span>
             </div>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
+            <ChevronRight className="w-4 h-4 " style={{ color: "var(--foreground)" }} />
           </button>
 
           {/* Delete Account */}
@@ -659,7 +659,7 @@ export default function SettingsPage() {
 
       {/* App Version */}
       <div className="text-center py-4">
-        <p className="text-xs text-slate-400">
+        <p className="text-xs " style={{ color: "var(--foreground)" }}>
           PrepGenie v2.0 | Made with ❤️ in India
         </p>
       </div>
@@ -708,10 +708,10 @@ function NotificationToggle({
   };
 
   return (
-    <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-gray-700/50 rounded-xl">
+    <div className="flex items-center justify-between p-4  dark:bg-gray-700/50 rounded-xl" style={{ background: "var(--background)" }}>
       <div>
-        <div className="text-sm font-medium text-slate-700 dark:text-gray-200">{label}</div>
-        <div className="text-xs text-slate-400 mt-0.5">{description}</div>
+        <div className="text-sm font-medium  dark:text-gray-200" style={{ color: "var(--foreground)" }}>{label}</div>
+        <div className="text-xs  mt-0.5" style={{ color: "var(--foreground)" }}>{description}</div>
       </div>
       <button
         onClick={handleToggle}

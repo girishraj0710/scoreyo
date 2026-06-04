@@ -121,7 +121,7 @@ export default function EnglishHubPage() {
               </div>
               <h3 className="text-xl font-bold mb-2 min-h-[2rem]" style={{ color: 'var(--foreground)' }}>Competitive Exams</h3>
               <p className="mb-4 min-h-[3rem]" style={{ color: 'var(--foreground-secondary)' }}>Master English for SSC, Banking, Railways, state exams</p>
-              <ul className="space-y-2.5 text-sm text-slate-600">
+              <ul className="space-y-2.5 text-sm " style={{ color: "var(--foreground)" }}>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -156,7 +156,7 @@ export default function EnglishHubPage() {
               </div>
               <h3 className="text-xl font-bold mb-2 min-h-[2rem]" style={{ color: 'var(--foreground)' }}>IELTS/TOEFL</h3>
               <p className="mb-4 min-h-[3rem]" style={{ color: 'var(--foreground-secondary)' }}>Achieve your target band score for study abroad</p>
-              <ul className="space-y-2.5 text-sm text-slate-600">
+              <ul className="space-y-2.5 text-sm " style={{ color: "var(--foreground)" }}>
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -259,7 +259,7 @@ export default function EnglishHubPage() {
           {/* CTA */}
           <div className="text-center">
             <h2 className="text-2xl font-bold text-[#3242CC] mb-4">Ready to Master English?</h2>
-            <p className="text-slate-600 mb-8">Join thousands of students improving their English skills every day</p>
+            <p className=" mb-8" style={{ color: "var(--foreground)" }}>Join thousands of students improving their English skills every day</p>
             <button
               onClick={() => setShowLoginModal(true)}
               className="px-8 py-4 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
@@ -317,7 +317,7 @@ export default function EnglishHubPage() {
                 Take a 10-minute test with 20 questions to accurately find your English level and get a personalized learning path
               </p>
               <Link href="/english/assessment">
-                <button className="bg-white text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-all">
+                <button className=" text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover: transition-all" style={{ background: "var(--background)" }} style={{ background: "var(--card-bg)" }}>
                   Start Assessment →
                 </button>
               </Link>

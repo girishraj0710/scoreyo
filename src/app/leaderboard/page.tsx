@@ -73,7 +73,7 @@ export default function LeaderboardPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-white rounded-xl p-6 h-40 shimmer" />
+            <div key={i} className=" rounded-xl p-6 h-40 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       </div>
@@ -87,50 +87,50 @@ export default function LeaderboardPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-800">{t("leaderboardTitle")}</h1>
-        <p className="text-slate-500 text-sm mt-1">{t("leaderboardSubtitle")}</p>
+        <h1 className="text-2xl font-bold " style={{ color: "var(--foreground)" }}>{t("leaderboardTitle")}</h1>
+        <p className=" text-sm mt-1" style={{ color: "var(--foreground)" }}>{t("leaderboardSubtitle")}</p>
       </div>
 
       {/* Quick Stats Row */}
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-          <div className="bg-white rounded-xl p-4 border border-slate-200 text-center">
+          <div className=" rounded-xl p-4 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
             <div className="text-3xl font-bold text-[#4255FF]">{stats.totalQuestions}</div>
-            <div className="text-xs text-slate-500 mt-1">{t("questionsSolved")}</div>
+            <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>{t("questionsSolved")}</div>
           </div>
-          <div className="bg-white rounded-xl p-4 border border-slate-200 text-center">
+          <div className=" rounded-xl p-4 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
             <div className="text-3xl font-bold text-emerald-600">{stats.accuracy}%</div>
-            <div className="text-xs text-slate-500 mt-1">{t("accuracy")}</div>
+            <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>{t("accuracy")}</div>
           </div>
-          <div className="bg-white rounded-xl p-4 border border-slate-200 text-center">
+          <div className=" rounded-xl p-4 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
             <div className="text-3xl font-bold text-amber-500">{stats.streak}</div>
-            <div className="text-xs text-slate-500 mt-1">{t("dayStreak")}</div>
+            <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>{t("dayStreak")}</div>
           </div>
-          <div className="bg-white rounded-xl p-4 border border-slate-200 text-center">
+          <div className=" rounded-xl p-4 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
             <div className="text-3xl font-bold text-purple-600">{longestStreak}</div>
-            <div className="text-xs text-slate-500 mt-1">{t("longestStreak")}</div>
+            <div className="text-xs  mt-1" style={{ color: "var(--foreground)" }}>{t("longestStreak")}</div>
           </div>
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Personal Bests */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <div className=" rounded-xl p-6 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h2 className="text-lg font-semibold  mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <svg className="w-6 h-6 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             {t("personalBests")}
           </h2>
           {personalBests.length === 0 ? (
-            <p className="text-slate-400 text-sm">{t("noBestsYet")}</p>
+            <p className=" text-sm" style={{ color: "var(--foreground)" }}>{t("noBestsYet")}</p>
           ) : (
             <div className="space-y-3">
               {personalBests.map((pb) => {
                 const exam = getExamById(pb.exam_id);
                 const accuracy = Math.round(pb.best_accuracy);
                 return (
-                  <div key={pb.exam_id} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div key={pb.exam_id} className="flex items-center gap-3 p-3  rounded-lg" style={{ background: "var(--background)" }}>
                     <div className="w-14 h-14 flex items-center justify-center shrink-0">
                       <ColorfulExamIcon
                         examId={pb.exam_id}
@@ -138,10 +138,10 @@ export default function LeaderboardPage() {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-slate-700 text-sm truncate">
+                      <div className="font-medium  text-sm truncate" style={{ color: "var(--foreground)" }}>
                         {exam?.name || pb.exam_id}
                       </div>
-                      <div className="text-xs text-slate-400">
+                      <div className="text-xs " style={{ color: "var(--foreground)" }}>
                         {pb.total_sessions} {t("quizzes")} | {pb.total_questions} {t("questions")}
                       </div>
                     </div>
@@ -149,7 +149,7 @@ export default function LeaderboardPage() {
                       <div className={`text-lg font-bold ${accuracy >= 80 ? "text-emerald-600" : accuracy >= 50 ? "text-amber-600" : "text-red-600"}`}>
                         {accuracy}%
                       </div>
-                      <div className="text-xs text-slate-400">{t("bestAccuracy")}</div>
+                      <div className="text-xs " style={{ color: "var(--foreground)" }}>{t("bestAccuracy")}</div>
                     </div>
                   </div>
                 );
@@ -159,8 +159,8 @@ export default function LeaderboardPage() {
         </div>
 
         {/* Milestones */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <div className=" rounded-xl p-6 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h2 className="text-lg font-semibold  mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
             </svg>
@@ -192,7 +192,7 @@ export default function LeaderboardPage() {
           {/* In Progress */}
           {inProgressMilestones.length > 0 && (
             <div>
-              <h3 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-medium  uppercase tracking-wider mb-2" style={{ color: "var(--foreground)" }}>
                 {t("inProgress")}
               </h3>
               <div className="space-y-2">
@@ -200,10 +200,10 @@ export default function LeaderboardPage() {
                   <div key={idx} className="flex items-center gap-3">
                     <div className="flex-1">
                       <div className="flex justify-between text-xs mb-1">
-                        <span className="font-medium text-slate-600">{m.label}</span>
-                        <span className="text-slate-400">{m.progress}%</span>
+                        <span className="font-medium " style={{ color: "var(--foreground)" }}>{m.label}</span>
+                        <span className="" style={{ color: "var(--foreground)" }}>{m.progress}%</span>
                       </div>
-                      <div className="w-full bg-slate-100 rounded-full h-2">
+                      <div className="w-full  rounded-full h-2" style={{ background: "var(--background)" }}>
                         <div
                           className="bg-[#4255FF] h-2 rounded-full transition-all"
                           style={{ width: `${m.progress}%` }}
@@ -218,20 +218,20 @@ export default function LeaderboardPage() {
         </div>
 
         {/* Rankings */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <div className=" rounded-xl p-6 shadow-sm border  md:col-span-2" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h2 className="text-lg font-semibold  mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
             {t("rankings")}
           </h2>
           {leaderboard.length === 0 ? (
-            <p className="text-slate-400 text-sm">{t("noBestsYet")}</p>
+            <p className=" text-sm" style={{ color: "var(--foreground)" }}>{t("noBestsYet")}</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-slate-500 border-b border-slate-100">
+                  <tr className="text-left  border-b " style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}>
                     <th className="pb-3 font-medium w-12">#</th>
                     <th className="pb-3 font-medium">Name</th>
                     <th className="pb-3 font-medium text-center">{t("totalQuizzes")}</th>
@@ -260,7 +260,7 @@ export default function LeaderboardPage() {
                           >
                             {entry.name?.charAt(0).toUpperCase()}
                           </div>
-                          <span className="font-medium text-slate-700">
+                          <span className="font-medium " style={{ color: "var(--foreground)" }}>
                             {entry.name}
                             {entry.id === currentUserId && (
                               <span className="ml-1 text-xs text-[#4255FF]">(You)</span>
@@ -268,8 +268,8 @@ export default function LeaderboardPage() {
                           </span>
                         </div>
                       </td>
-                      <td className="py-3 text-center text-slate-600">{entry.total_sessions}</td>
-                      <td className="py-3 text-center text-slate-600">{entry.total_questions}</td>
+                      <td className="py-3 text-center " style={{ color: "var(--foreground)" }}>{entry.total_sessions}</td>
+                      <td className="py-3 text-center " style={{ color: "var(--foreground)" }}>{entry.total_questions}</td>
                       <td className="py-3 text-center">
                         <span className={`inline-block px-2 py-1 rounded-full text-xs font-bold ${
                           entry.accuracy >= 80 ? "bg-emerald-100 text-emerald-700" : entry.accuracy >= 50 ? "bg-amber-100 text-amber-700" : "bg-red-100 text-red-700"
