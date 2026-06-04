@@ -3,15 +3,37 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --foreground-secondary: #64748b;
   --primary: #6366f1;
   --primary-light: #818cf8;
   --primary-dark: #4f46e5;
+  --primary-bg: #eef2ff;
   --accent: #f59e0b;
   --success: #10b981;
   --danger: #ef4444;
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
   --muted: #64748b;
+  --hover-bg: #f1f5f9;
+  --selected-bg: #f8fafc;
+}
+
+[data-theme="dark"] {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --foreground-secondary: #94a3b8;
+  --primary: #818cf8;
+  --primary-light: #a5b4fc;
+  --primary-dark: #6366f1;
+  --primary-bg: #1e1b4b;
+  --accent: #fbbf24;
+  --success: #34d399;
+  --danger: #f87171;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --muted: #94a3b8;
+  --hover-bg: #334155;
+  --selected-bg: #1e293b;
 }
 
 @theme inline {

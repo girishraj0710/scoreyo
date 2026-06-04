@@ -58,10 +58,9 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  const savedTheme = localStorage.getItem('prepgenie-dark-mode');
-                  const isDark = savedTheme === 'true';
-                  if (isDark) {
-                    document.documentElement.classList.add('dark');
+                  var t = localStorage.getItem('prepgenie-theme');
+                  if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
                   }
                 } catch (e) {}
               })();
@@ -69,7 +68,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full min-w-[320px] flex flex-col bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors">
+      <body className="min-h-full min-w-[320px] flex flex-col font-sans transition-colors" style={{ background: "var(--background)", color: "var(--foreground)" }}>
         <Providers>
           <ConditionalLayout>{children}</ConditionalLayout>
         </Providers>

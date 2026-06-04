@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
-import { useDarkMode } from "@/context/dark-mode-context";
+import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
@@ -14,7 +14,8 @@ import { Moon, Sun } from "lucide-react";
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
   const { t } = useLocale();
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === "dark";
   const router = useRouter();
   const pathname = usePathname();
   const [showMenu, setShowMenu] = useState(false);
@@ -268,9 +269,9 @@ export function AppHeader() {
                     Settings
                   </Link>
                   <button
-                    onClick={() => toggleDarkMode()}
+                    onClick={() => toggleTheme()}
                     className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors"
-                    style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent', borderTop: '1px solid var(--divider)' }}
+                    style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent', borderTop: '1px solid var(--card-border)' }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                   >
