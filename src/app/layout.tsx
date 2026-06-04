@@ -50,8 +50,26 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${fredoka.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full min-w-[320px] flex flex-col bg-white font-sans">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const savedTheme = localStorage.getItem('prepgenie-dark-mode');
+                  const isDark = savedTheme === 'true';
+                  if (isDark) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full min-w-[320px] flex flex-col bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors">
         <Providers>
           <ConditionalLayout>{children}</ConditionalLayout>
         </Providers>
