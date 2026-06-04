@@ -8,13 +8,13 @@ import { LoginModal } from "@/components/login-modal";
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
-    <UserProvider>
-      <DarkModeProvider>
-        <LocaleProvider>
+    <LocaleProvider>
+      <UserProvider>
+        <DarkModeProvider>
           <LoginModal />
           {children}
-        </LocaleProvider>
-      </DarkModeProvider>
-    </UserProvider>
+        </DarkModeProvider>
+      </UserProvider>
+    </LocaleProvider>
   );
 }
