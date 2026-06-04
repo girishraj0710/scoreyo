@@ -28,13 +28,9 @@ export function AppHeader() {
   };
 
   const navLinkClass = (href: string) =>
-    `relative px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
-      isActive(href)
-        ? "text-[var(--primary)] bg-[var(--primary-bg)]"
-        : "hover:text-[var(--primary)] transition-colors"
-    }`;
+    `nav-link relative px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors`;
 
-  const getNavLinkStyle = (href: string) => ({
+  const getNavLinkStyle = (href: string): React.CSSProperties => ({
     color: isActive(href) ? 'var(--primary)' : 'var(--foreground-secondary)',
     backgroundColor: isActive(href) ? 'var(--primary-bg)' : 'transparent',
   });
@@ -79,7 +75,7 @@ export function AppHeader() {
             {/* For Contributors - Show Contributor Portal */}
             {user && ['contributor', 'admin'].includes(user.role || '') ? (
               <>
-                <Link href="/contributor" className={navLinkClass("/contributor")}>
+                <Link href="/contributor" className={navLinkClass("/contributor")} style={getNavLinkStyle("/contributor")}>
                   👨‍🏫 Contributor Portal
                 </Link>
                 {/* My Submissions link removed - available as tab on main page */}
@@ -87,31 +83,31 @@ export function AppHeader() {
             ) : (
               <>
                 {/* For Students - Show Regular Navigation */}
-                <Link href="/" className={navLinkClass("/")}>
+                <Link href="/" className={navLinkClass("/")} style={getNavLinkStyle("/")}>
                   {t("home")}
                 </Link>
-                <Link href="/dashboard" className={navLinkClass("/dashboard")}>
+                <Link href="/dashboard" className={navLinkClass("/dashboard")} style={getNavLinkStyle("/dashboard")}>
                   {t("dashboard")}
                 </Link>
-                <Link href="/review" className={navLinkClass("/review")}>
+                <Link href="/review" className={navLinkClass("/review")} style={getNavLinkStyle("/review")}>
                   {t("review")}
                 </Link>
-                <Link href="/mock-test" className={navLinkClass("/mock-test")}>
+                <Link href="/mock-test" className={navLinkClass("/mock-test")} style={getNavLinkStyle("/mock-test")}>
                   {t("mockTests")}
                 </Link>
-                <Link href="/reports" className={navLinkClass("/reports")}>
+                <Link href="/reports" className={navLinkClass("/reports")} style={getNavLinkStyle("/reports")}>
                   {t("reports")}
                 </Link>
-                <Link href="/achievements" className={navLinkClass("/achievements")}>
+                <Link href="/achievements" className={navLinkClass("/achievements")} style={getNavLinkStyle("/achievements")}>
                   Badges
                 </Link>
-                <Link href="/sprint" className={navLinkClass("/sprint")}>
+                <Link href="/sprint" className={navLinkClass("/sprint")} style={getNavLinkStyle("/sprint")}>
                   Sprint
                 </Link>
-                <Link href="/english" className={navLinkClass("/english")}>
+                <Link href="/english" className={navLinkClass("/english")} style={getNavLinkStyle("/english")}>
                   Learn English
                 </Link>
-                <Link href="/custom-quiz" className={navLinkClass("/custom-quiz")}>
+                <Link href="/custom-quiz" className={navLinkClass("/custom-quiz")} style={getNavLinkStyle("/custom-quiz")}>
                   Custom Quiz
                 </Link>
                 <Link href="/pricing" className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50" : "text-amber-600 hover:text-amber-700 hover:bg-amber-50"}`}>
