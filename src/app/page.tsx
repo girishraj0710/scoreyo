@@ -269,8 +269,8 @@ function HomePageContent() {
   // Show minimal loading state while checking auth (don't show landing page)
   if (isLoading) {
     return (
-      <div className="min-h-screen  flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
-        <div className="w-12 h-12 border-4  border-t-blue-600 rounded-full animate-spin" style={{ borderColor: "var(--card-border)" }}></div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -283,10 +283,10 @@ function HomePageContent() {
   // Show loading state while redirecting contributors
   if (user.role === 'contributor' || user.role === 'admin') {
     return (
-      <div className="min-h-screen  flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-12 h-12 border-4  border-t-indigo-600 rounded-full animate-spin" style={{ borderColor: "var(--card-border)" }}></div>
-          <p className="" style={{ color: "var(--foreground)" }}>Redirecting to Contributor Portal...</p>
+          <div className="w-12 h-12 border-4 border-slate-200 border-t-indigo-600 rounded-full animate-spin"></div>
+          <p className="text-slate-600">Redirecting to Contributor Portal...</p>
         </div>
       </div>
     );
@@ -302,7 +302,7 @@ function HomePageContent() {
             Smart Exam Prep
           </span>
         </h1>
-        <p className="text-base sm:text-lg  max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed px-2" style={{ color: "var(--foreground)" }}>
+        <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed px-2">
           Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br className="hidden sm:block" />
           <span className="sm:hidden"> </span>AI-powered practice with progress tracking to master every topic.
         </p>
@@ -319,9 +319,9 @@ function HomePageContent() {
                 setShowSearchDropdown(true);
               }}
               onFocus={() => setShowSearchDropdown(true)}
-              className="w-full px-6 py-3 rounded-xl border-2  focus:border-indigo-500 focus:outline-none text-base" style={{ borderColor: "var(--card-border)" }}
+              className="w-full px-6 py-3 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
             />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 " style={{ color: "var(--foreground)" }}>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -330,9 +330,9 @@ function HomePageContent() {
 
           {/* Search Results Dropdown */}
           {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length > 0 && (
-            <div className="mt-3  rounded-xl shadow-lg border-2  overflow-hidden" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
-              <div className="p-3 border-b  " style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }}>
-                <p className="text-sm font-semibold " style={{ color: "var(--foreground)" }}>
+            <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 overflow-hidden">
+              <div className="p-3 border-b border-slate-200 bg-slate-50">
+                <p className="text-sm font-semibold text-slate-700">
                   Found {searchResults.length} result{searchResults.length !== 1 ? "s" : ""}
                 </p>
               </div>
@@ -341,7 +341,7 @@ function HomePageContent() {
                   <button
                     key={index}
                     onClick={() => handleSearchSelect(result)}
-                    className="w-full px-4 py-3 hover: transition-colors text-left border-b  last:border-b-0" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }}
+                    className="w-full px-4 py-3 hover:bg-slate-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
                   >
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5">
@@ -352,26 +352,26 @@ function HomePageContent() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold " style={{ color: "var(--foreground)" }}>{result.exam.name}</span>
+                          <span className="font-semibold text-slate-800">{result.exam.name}</span>
                           <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
                             {result.category}
                           </span>
                         </div>
                         {result.type === "exam" && (
-                          <p className="text-sm " style={{ color: "var(--foreground)" }}>Full exam</p>
+                          <p className="text-sm text-slate-600">Full exam</p>
                         )}
                         {result.type === "subject" && result.subject && (
-                          <p className="text-sm " style={{ color: "var(--foreground)" }}>
+                          <p className="text-sm text-slate-600">
                             <span className="font-medium">{result.subject.name}</span>
                           </p>
                         )}
                         {result.type === "topic" && result.subject && result.topic && (
-                          <p className="text-sm " style={{ color: "var(--foreground)" }}>
+                          <p className="text-sm text-slate-600">
                             <span className="font-medium">{result.subject.name}</span> → {result.topic}
                           </p>
                         )}
                       </div>
-                      <svg className="w-5 h-5  mt-1" style={{ color: "var(--foreground)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-slate-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -383,14 +383,14 @@ function HomePageContent() {
 
           {/* No Results */}
           {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
-            <div className="mt-3  rounded-xl shadow-lg border-2  p-6 text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+            <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-6 text-center">
               <div className="flex justify-center mb-2">
-                <svg className="w-16 h-16 " style={{ color: "var(--foreground)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
-              <p className="font-semibold  mb-1" style={{ color: "var(--foreground)" }}>No results found</p>
-              <p className="text-sm " style={{ color: "var(--foreground)" }}>Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
+              <p className="font-semibold text-slate-800 mb-1">No results found</p>
+              <p className="text-sm text-slate-600">Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
             </div>
           )}
         </div>
@@ -398,23 +398,23 @@ function HomePageContent() {
         {/* Quick Stats */}
         {stats?.stats && stats.stats.totalSessions > 0 && (
           <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-2xl mx-auto mb-6 md:mb-8">
-            <div className=" rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+            <div className="bg-white rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border border-slate-200">
               <div className="text-xl sm:text-2xl font-bold text-emerald-600">
                 {stats.stats.totalQuestions}
               </div>
-              <div className="text-[10px] sm:text-xs " style={{ color: "var(--foreground)" }}>Questions Solved</div>
+              <div className="text-[10px] sm:text-xs text-slate-500">Questions Solved</div>
             </div>
-            <div className=" rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+            <div className="bg-white rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border border-slate-200">
               <div className="text-xl sm:text-2xl font-bold text-cyan-600">
                 {stats.stats.accuracy}%
               </div>
-              <div className="text-[10px] sm:text-xs " style={{ color: "var(--foreground)" }}>Accuracy</div>
+              <div className="text-[10px] sm:text-xs text-slate-500">Accuracy</div>
             </div>
-            <div className=" rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border  streak-pulse" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+            <div className="bg-white rounded-lg sm:rounded-xl px-3 sm:px-5 py-3 sm:py-4 shadow-sm border border-slate-200 streak-pulse">
               <div className="text-xl sm:text-2xl font-bold text-amber-500">
                 {stats.stats.streak}
               </div>
-              <div className="text-[10px] sm:text-xs " style={{ color: "var(--foreground)" }}>Day Streak</div>
+              <div className="text-[10px] sm:text-xs text-slate-500">Day Streak</div>
             </div>
           </div>
         )}
@@ -442,7 +442,7 @@ function HomePageContent() {
             <div className="flex flex-col sm:flex-row gap-2">
               <a
                 href={`/quiz?examId=${lastQuiz.examId}&subjectId=${lastQuiz.subjectId}&topic=${encodeURIComponent(lastQuiz.topic)}&count=5&difficulty=mixed`}
-                className="flex-1  text-indigo-600 font-semibold py-3 px-4 rounded-xl text-center hover:bg-indigo-50 transition-colors" style={{ background: "var(--card-bg)" }}
+                className="flex-1 bg-white text-indigo-600 font-semibold py-3 px-4 rounded-xl text-center hover:bg-indigo-50 transition-colors"
               >
                 Start Quick Quiz (5 Q)
               </a>
@@ -460,7 +460,7 @@ function HomePageContent() {
       {/* Step 1: Category Selection */}
       {(showFullFlow || !lastQuiz) && !selectedCategory && (
         <section ref={categoryRef} className="mb-6 md:mb-8">
-          <h2 className="text-base sm:text-lg font-semibold  mb-3 md:mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
+          <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
             <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
               1
             </span>
@@ -477,7 +477,7 @@ function HomePageContent() {
                   setSelectedTopic(null);
                   setTimeout(() => examRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                 }}
-              className="card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center border-slate-200  hover: min-h-[120px] sm:min-h-[140px]" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}
+              className="card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center border-slate-200 bg-white hover:border-slate-300 min-h-[120px] sm:min-h-[140px]"
               >
                 <div className="flex justify-center mb-1 sm:mb-2">
                   <ColorfulCategoryIcon
@@ -485,10 +485,10 @@ function HomePageContent() {
                     size={56}
                   />
                 </div>
-                <div className="text-xs sm:text-sm font-medium  leading-tight" style={{ color: "var(--foreground)" }}>
+                <div className="text-xs sm:text-sm font-medium text-slate-700 leading-tight">
                   {category.name}
                 </div>
-                <div className="text-[10px] sm:text-xs  mt-1" style={{ color: "var(--foreground)" }}>
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1">
                   {category.exams.length} exam
                   {category.exams.length > 1 ? "s" : ""}
                 </div>
@@ -502,7 +502,7 @@ function HomePageContent() {
       {selectedCategory && (
         <section ref={examRef} className="mb-6 md:mb-8">
           <div className="mb-3 md:mb-4 flex items-center justify-between">
-            <h2 className="text-base sm:text-lg font-semibold  flex items-center gap-2" style={{ color: "var(--foreground)" }}>
+            <h2 className="text-base sm:text-lg font-semibold text-slate-800 flex items-center gap-2">
               <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
                 2
               </span>
@@ -547,15 +547,15 @@ function HomePageContent() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-sm sm:text-base font-semibold " style={{ color: "var(--foreground)" }}>
+                      <div className="text-sm sm:text-base font-semibold text-slate-800">
                         {exam.name}
                       </div>
-                      <div className="text-[10px] sm:text-xs  truncate" style={{ color: "var(--foreground)" }}>
+                      <div className="text-[10px] sm:text-xs text-slate-500 truncate">
                         {exam.description}
                       </div>
                     </div>
                   </div>
-                  <div className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs " style={{ color: "var(--foreground)" }}>
+                  <div className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-slate-400">
                     {exam.subjects.length} subjects |{" "}
                     {exam.subjects.reduce(
                       (sum, s) => sum + s.topics.length,
@@ -572,7 +572,7 @@ function HomePageContent() {
       {/* Step 3: Subject Selection */}
       {selectedExam && (
         <section ref={subjectRef} className="mb-6 md:mb-8">
-          <h2 className="text-base sm:text-lg font-semibold  mb-3 md:mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
+          <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
             <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
               3
             </span>
@@ -599,10 +599,10 @@ function HomePageContent() {
                       size={48}
                     />
                   </div>
-                  <div className="text-xs sm:text-sm font-medium  leading-tight" style={{ color: "var(--foreground)" }}>
+                  <div className="text-xs sm:text-sm font-medium text-slate-700 leading-tight">
                     {subject.name}
                   </div>
-                  <div className="text-[10px] sm:text-xs  mt-1" style={{ color: "var(--foreground)" }}>
+                  <div className="text-[10px] sm:text-xs text-slate-400 mt-1">
                     {subject.topics.length} topics
                   </div>
                 </button>
@@ -630,7 +630,7 @@ function HomePageContent() {
       {/* Step 4: Topic Selection */}
       {selectedSubject && (
         <section ref={topicRef} className="mb-6 md:mb-8">
-          <h2 className="text-base sm:text-lg font-semibold  mb-3 md:mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
+          <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-3 md:mb-4 flex items-center gap-2">
             <span className="w-6 h-6 sm:w-7 sm:h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold">
               4
             </span>
@@ -660,24 +660,24 @@ function HomePageContent() {
       {/* Step 5: Quiz Settings & Start */}
       {selectedTopic && (
         <section ref={settingsRef} className="mb-8 md:mb-12">
-          <div className=" rounded-xl sm:rounded-2xl border-2  p-4 sm:p-6 shadow-lg max-w-lg mx-auto" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
-            <h2 className="text-base sm:text-lg font-semibold  mb-4 sm:mb-5 text-center" style={{ color: "var(--foreground)" }}>
+          <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-slate-200 p-4 sm:p-6 shadow-lg max-w-lg mx-auto">
+            <h2 className="text-base sm:text-lg font-semibold text-slate-800 mb-4 sm:mb-5 text-center">
               Quiz Settings
             </h2>
 
             {/* Quiz Summary */}
-            <div className=" rounded-xl p-4 mb-5" style={{ background: "var(--background)" }}>
+            <div className="bg-slate-50 rounded-xl p-4 mb-5">
               <div className="grid grid-cols-2 gap-2 text-sm">
-                <div className="" style={{ color: "var(--foreground)" }}>Exam:</div>
-                <div className="font-medium " style={{ color: "var(--foreground)" }}>
+                <div className="text-slate-500">Exam:</div>
+                <div className="font-medium text-slate-800">
                   {selectedExam?.name}
                 </div>
-                <div className="" style={{ color: "var(--foreground)" }}>Subject:</div>
-                <div className="font-medium " style={{ color: "var(--foreground)" }}>
+                <div className="text-slate-500">Subject:</div>
+                <div className="font-medium text-slate-800">
                   {currentSubjects.find((s) => s.id === selectedSubject)?.name}
                 </div>
-                <div className="" style={{ color: "var(--foreground)" }}>Topic:</div>
-                <div className="font-medium " style={{ color: "var(--foreground)" }}>
+                <div className="text-slate-500">Topic:</div>
+                <div className="font-medium text-slate-800">
                   {selectedTopic}
                 </div>
               </div>
@@ -685,7 +685,7 @@ function HomePageContent() {
 
             {/* Number of Questions */}
             <div className="mb-4">
-              <label className="block text-sm font-medium  mb-2" style={{ color: "var(--foreground)" }}>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Number of Questions
               </label>
               <div className="flex gap-2">
@@ -707,7 +707,7 @@ function HomePageContent() {
 
             {/* Difficulty */}
             <div className="mb-6">
-              <label className="block text-sm font-medium  mb-2" style={{ color: "var(--foreground)" }}>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Difficulty
               </label>
               <div className="flex gap-2">
@@ -783,7 +783,7 @@ function HomePageContent() {
             )}
 
             {subData?.isPro && (
-              <div className="mb-4 p-3 rounded-xl text-sm  border  flex items-center gap-2" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }}>
+              <div className="mb-4 p-3 rounded-xl text-sm bg-slate-50 border border-slate-200 flex items-center gap-2">
                 <span className="px-2 py-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 text-white text-xs font-bold rounded-full">PRO</span>
                 <span className="text-indigo-700">Unlimited quizzes</span>
               </div>
@@ -803,7 +803,7 @@ function HomePageContent() {
             {subData && !subData.isPro && subData.quizzesRemaining === 0 && (
               <a
                 href="/pricing"
-                className="block mt-3 w-full py-2 text-center text-sm font-medium text-indigo-600  rounded-xl hover:bg-indigo-100" style={{ background: "var(--background)" }}
+                className="block mt-3 w-full py-2 text-center text-sm font-medium text-indigo-600 bg-slate-50 rounded-xl hover:bg-indigo-100"
               >
                 View Pro Plans →
               </a>
@@ -814,8 +814,8 @@ function HomePageContent() {
 
       {/* Exam Count Banner */}
       <section className="mt-8 text-center">
-        <div className="inline-flex items-center gap-3  rounded-full px-6 py-3 shadow-sm border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
-          <span className="text-sm " style={{ color: "var(--foreground)" }}>
+        <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-sm border border-slate-200">
+          <span className="text-sm text-slate-600">
             Covering{" "}
             <span className="font-bold text-indigo-600">
               {examCategories.reduce(
@@ -843,32 +843,32 @@ function HomePageContent() {
       {/* Trust & Credibility Section */}
       <section className="mt-10 max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className=" rounded-xl p-5 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
             <div className="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 " style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
-            <h3 className="font-semibold  mb-1" style={{ color: "var(--foreground)" }}>Expert Verified</h3>
-            <p className="text-xs " style={{ color: "var(--foreground)" }}>Questions curated from NCERT, previous year papers &amp; standard textbooks</p>
+            <h3 className="font-semibold text-slate-800 mb-1">Expert Verified</h3>
+            <p className="text-xs text-slate-500">Questions curated from NCERT, previous year papers &amp; standard textbooks</p>
           </div>
-          <div className=" rounded-xl p-5 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
             <div className="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
               </svg>
             </div>
-            <h3 className="font-semibold  mb-1" style={{ color: "var(--foreground)" }}>Exam-Pattern Based</h3>
-            <p className="text-xs " style={{ color: "var(--foreground)" }}>Questions match the actual difficulty and pattern of your target exam</p>
+            <h3 className="font-semibold text-slate-800 mb-1">Exam-Pattern Based</h3>
+            <p className="text-xs text-slate-500">Questions match the actual difficulty and pattern of your target exam</p>
           </div>
-          <div className=" rounded-xl p-5 border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className="bg-white rounded-xl p-5 border border-slate-200 text-center">
             <div className="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
-            <h3 className="font-semibold  mb-1" style={{ color: "var(--foreground)" }}>Smart Progress</h3>
-            <p className="text-xs " style={{ color: "var(--foreground)" }}>Tracks weak topics and schedules revision using spaced repetition</p>
+            <h3 className="font-semibold text-slate-800 mb-1">Smart Progress</h3>
+            <p className="text-xs text-slate-500">Tracks weak topics and schedules revision using spaced repetition</p>
           </div>
         </div>
       </section>

@@ -148,8 +148,8 @@ export default function PricingPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16 text-center">
         <div className="animate-pulse">
-          <div className="h-8  rounded w-48 mx-auto mb-4" style={{ background: "var(--background)" }}></div>
-          <div className="h-4  rounded w-64 mx-auto" style={{ background: "var(--background)" }}></div>
+          <div className="h-8 bg-slate-200 rounded w-48 mx-auto mb-4"></div>
+          <div className="h-4 bg-slate-200 rounded w-64 mx-auto"></div>
         </div>
       </div>
     );
@@ -159,14 +159,14 @@ export default function PricingPage() {
   if (showSuccess) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="max-w-md mx-auto  rounded-2xl p-8 shadow-lg border border-emerald-200 text-center" style={{ background: "var(--card-bg)" }}>
+        <div className="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-lg border border-emerald-200 text-center">
           <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
             <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold  mb-2" style={{ color: "var(--foreground)" }}>{t("paymentSuccess")}</h2>
-          <p className=" mb-6" style={{ color: "var(--foreground)" }}>{t("proWelcome")}</p>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">{t("paymentSuccess")}</h2>
+          <p className="text-slate-500 mb-6">{t("proWelcome")}</p>
           <div className="flex gap-3 justify-center">
             <a
               href="/"
@@ -176,7 +176,7 @@ export default function PricingPage() {
             </a>
             <a
               href="/dashboard"
-              className="px-6 py-3 bg-slate-100  font-medium rounded-xl hover:" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}
+              className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200"
             >
               {t("dashboard")}
             </a>
@@ -197,7 +197,7 @@ export default function PricingPage() {
             {t("pricingTitle")}
           </span>
         </h1>
-        <p className=" max-w-lg mx-auto" style={{ color: "var(--foreground)" }}>
+        <p className="text-slate-500 max-w-lg mx-auto">
           {t("pricingSubtitle")}
         </p>
       </div>
@@ -209,11 +209,11 @@ export default function PricingPage() {
             <span className="px-3 py-1 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white text-xs font-bold rounded-full">
               PRO
             </span>
-            <span className="text-sm font-semibold " style={{ color: "var(--foreground)" }}>
+            <span className="text-sm font-semibold text-slate-800">
               {subData.subscription.plan === "monthly" ? t("proMonthly") : t("proQuarterly")}
             </span>
           </div>
-          <p className="text-xs " style={{ color: "var(--foreground)" }}>
+          <p className="text-xs text-slate-500">
             {t("expiresOn")}: {new Date(subData.subscription.expires_at).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
           </p>
         </div>
@@ -233,12 +233,12 @@ export default function PricingPage() {
           }`}
         >
           <div className="mb-5">
-            <h3 className="text-lg font-bold " style={{ color: "var(--foreground)" }}>{t("freePlan")}</h3>
-            <p className="text-sm  mt-1" style={{ color: "var(--foreground)" }}>{t("freePlanDesc")}</p>
+            <h3 className="text-lg font-bold text-slate-800">{t("freePlan")}</h3>
+            <p className="text-sm text-slate-400 mt-1">{t("freePlanDesc")}</p>
           </div>
           <div className="mb-6">
-            <span className="text-4xl font-bold " style={{ color: "var(--foreground)" }}>{t("freePrice")}</span>
-            <span className=" ml-1" style={{ color: "var(--foreground)" }}>{t("forever")}</span>
+            <span className="text-4xl font-bold text-slate-800">{t("freePrice")}</span>
+            <span className="text-slate-400 ml-1">{t("forever")}</span>
           </div>
           <ul className="space-y-3 mb-6">
             {[
@@ -247,7 +247,7 @@ export default function PricingPage() {
               t("freeBasicStats"),
               t("freeReview"),
             ].map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-2 text-sm " style={{ color: "var(--foreground)" }}>
+              <li key={idx} className="flex items-center gap-2 text-sm text-slate-600">
                 <svg className="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -258,8 +258,8 @@ export default function PricingPage() {
               t("freeNoMock"),
               t("freeNoReports"),
             ].map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-2 text-sm " style={{ color: "var(--foreground)" }}>
-                <svg className="w-4 h-4  shrink-0" style={{ color: "var(--foreground)" }} fill="currentColor" viewBox="0 0 20 20">
+              <li key={idx} className="flex items-center gap-2 text-sm text-slate-400">
+                <svg className="w-4 h-4 text-slate-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
                 {feature}
@@ -267,11 +267,11 @@ export default function PricingPage() {
             ))}
           </ul>
           {!isPro ? (
-            <div className="py-3 text-center text-sm font-medium   rounded-xl" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}>
+            <div className="py-3 text-center text-sm font-medium text-slate-400 bg-slate-50 rounded-xl">
               {t("currentPlan")}
             </div>
           ) : (
-            <div className="py-3 text-center text-sm font-medium   rounded-xl" style={{ background: "var(--background)" }} style={{ color: "var(--foreground)" }}>
+            <div className="py-3 text-center text-sm font-medium text-slate-300 bg-slate-50 rounded-xl">
               Free
             </div>
           )}
@@ -305,12 +305,12 @@ export default function PricingPage() {
           )}
 
           <div className={`mb-5 ${((!isPro && selectedPlan === "monthly") || (isPro && subData?.subscription?.plan === "monthly")) ? "mt-2" : ""}`}>
-            <h3 className="text-lg font-bold " style={{ color: "var(--foreground)" }}>{t("proMonthly")}</h3>
-            <p className="text-sm  mt-1" style={{ color: "var(--foreground)" }}>{t("proPlanDesc")}</p>
+            <h3 className="text-lg font-bold text-slate-800">{t("proMonthly")}</h3>
+            <p className="text-sm text-slate-400 mt-1">{t("proPlanDesc")}</p>
           </div>
           <div className="mb-6">
-            <span className="text-4xl font-bold " style={{ color: "var(--foreground)" }}>₹79</span>
-            <span className=" ml-1" style={{ color: "var(--foreground)" }}>/{t("monthly").toLowerCase()}</span>
+            <span className="text-4xl font-bold text-slate-800">₹79</span>
+            <span className="text-slate-400 ml-1">/{t("monthly").toLowerCase()}</span>
           </div>
           <ul className="space-y-3 mb-6">
             {[
@@ -321,7 +321,7 @@ export default function PricingPage() {
               t("proMockTests"),
               t("proPriority"),
             ].map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-2 text-sm " style={{ color: "var(--foreground)" }}>
+              <li key={idx} className="flex items-center gap-2 text-sm text-slate-600">
                 <svg className="w-4 h-4 text-[#4255FF] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -330,14 +330,14 @@ export default function PricingPage() {
             ))}
           </ul>
           {isPro && subData?.subscription?.plan === "monthly" ? (
-            <div className="py-3 text-center text-sm font-semibold text-[#4255FF]  rounded-xl border border-[#90CAF9]" style={{ background: "var(--card-bg)" }}>
+            <div className="py-3 text-center text-sm font-semibold text-[#4255FF] bg-white rounded-xl border border-[#90CAF9]">
               {t("activePlan")}
             </div>
           ) : isPro ? (
             <button
               onClick={(e) => { e.stopPropagation(); handleUpgrade("monthly"); }}
               disabled={isProcessing}
-              className="w-full py-3 font-medium rounded-xl text-sm  text-slate-500 border-2 border-slate-200 hover: hover: hover: transition-all disabled:opacity-50" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+              className="w-full py-3 font-medium rounded-xl text-sm bg-white text-slate-500 border-2 border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 transition-all disabled:opacity-50"
             >
               {isProcessing && processingPlan === "monthly" ? t("processing") : t("switchPlan")}
             </button>
@@ -379,12 +379,12 @@ export default function PricingPage() {
           </div>
 
           <div className="mb-5 mt-2">
-            <h3 className="text-lg font-bold " style={{ color: "var(--foreground)" }}>{t("proQuarterly")}</h3>
-            <p className="text-sm  mt-1" style={{ color: "var(--foreground)" }}>{t("proPlanDesc")}</p>
+            <h3 className="text-lg font-bold text-slate-800">{t("proQuarterly")}</h3>
+            <p className="text-sm text-slate-400 mt-1">{t("proPlanDesc")}</p>
           </div>
           <div className="mb-6">
-            <span className="text-4xl font-bold " style={{ color: "var(--foreground)" }}>₹149</span>
-            <span className=" ml-1" style={{ color: "var(--foreground)" }}>/3 {t("monthly").toLowerCase()}</span>
+            <span className="text-4xl font-bold text-slate-800">₹149</span>
+            <span className="text-slate-400 ml-1">/3 {t("monthly").toLowerCase()}</span>
             <div className="flex items-center gap-2 mt-1">
               <span className="text-sm text-emerald-600 font-semibold">₹50/{t("monthly").toLowerCase()}</span>
               <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold">
@@ -401,7 +401,7 @@ export default function PricingPage() {
               t("proMockTests"),
               t("proPriority"),
             ].map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-2 text-sm " style={{ color: "var(--foreground)" }}>
+              <li key={idx} className="flex items-center gap-2 text-sm text-slate-700">
                 <svg className="w-4 h-4 text-[#4255FF] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -410,14 +410,14 @@ export default function PricingPage() {
             ))}
           </ul>
           {isPro && subData?.subscription?.plan === "quarterly" ? (
-            <div className="py-3 text-center text-sm font-semibold text-[#4255FF]  rounded-xl border border-[#90CAF9]" style={{ background: "var(--card-bg)" }}>
+            <div className="py-3 text-center text-sm font-semibold text-[#4255FF] bg-white rounded-xl border border-[#90CAF9]">
               {t("activePlan")}
             </div>
           ) : isPro ? (
             <button
               onClick={(e) => { e.stopPropagation(); handleUpgrade("quarterly"); }}
               disabled={isProcessing}
-              className="w-full py-3 font-medium rounded-xl text-sm  text-slate-500 border-2 border-slate-200 hover: hover: hover: transition-all disabled:opacity-50" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+              className="w-full py-3 font-medium rounded-xl text-sm bg-white text-slate-500 border-2 border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 transition-all disabled:opacity-50"
             >
               {isProcessing && processingPlan === "quarterly" ? t("processing") : t("switchPlan")}
             </button>
@@ -439,16 +439,16 @@ export default function PricingPage() {
 
       {/* FAQ */}
       <div className="max-w-2xl mx-auto mt-12">
-        <h2 className="text-xl font-bold  text-center mb-6" style={{ color: "var(--foreground)" }}>{t("faqTitle")}</h2>
+        <h2 className="text-xl font-bold text-slate-800 text-center mb-6">{t("faqTitle")}</h2>
         <div className="space-y-4">
           {[
             { q: t("faqQ1"), a: t("faqA1") },
             { q: t("faqQ2"), a: t("faqA2") },
             { q: t("faqQ3"), a: t("faqA3") },
           ].map((faq, idx) => (
-            <div key={idx} className=" rounded-xl p-4 border " style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
-              <h3 className="font-semibold  text-sm mb-1" style={{ color: "var(--foreground)" }}>{faq.q}</h3>
-              <p className="text-sm " style={{ color: "var(--foreground)" }}>{faq.a}</p>
+            <div key={idx} className="bg-white rounded-xl p-4 border border-slate-200">
+              <h3 className="font-semibold text-slate-800 text-sm mb-1">{faq.q}</h3>
+              <p className="text-sm text-slate-500">{faq.a}</p>
             </div>
           ))}
         </div>
@@ -457,20 +457,20 @@ export default function PricingPage() {
       {/* Payment History */}
       {subData?.paymentHistory && subData.paymentHistory.length > 0 && (
         <div className="max-w-2xl mx-auto mt-12">
-          <h2 className="text-lg font-bold  mb-4" style={{ color: "var(--foreground)" }}>{t("paymentHistoryTitle")}</h2>
-          <div className=" rounded-xl border  overflow-hidden" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <h2 className="text-lg font-bold text-slate-800 mb-4">{t("paymentHistoryTitle")}</h2>
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
             {subData.paymentHistory.map((payment: any, idx: number) => (
               <div key={idx} className={`px-4 py-3 flex items-center justify-between ${idx > 0 ? "border-t border-slate-100" : ""}`}>
                 <div>
-                  <div className="text-sm font-medium " style={{ color: "var(--foreground)" }}>
+                  <div className="text-sm font-medium text-slate-800">
                     {payment.plan === "monthly" ? t("proMonthly") : t("proQuarterly")}
                   </div>
-                  <div className="text-xs " style={{ color: "var(--foreground)" }}>
+                  <div className="text-xs text-slate-400">
                     {new Date(payment.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-sm font-semibold " style={{ color: "var(--foreground)" }}>₹{(payment.amount / 100).toFixed(0)}</div>
+                  <div className="text-sm font-semibold text-slate-800">₹{(payment.amount / 100).toFixed(0)}</div>
                   <div className="text-xs text-emerald-600">{payment.status}</div>
                 </div>
               </div>

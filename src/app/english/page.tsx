@@ -42,8 +42,8 @@ export default function EnglishHubPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
-        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: 'var(--primary-light)', borderTopColor: 'var(--primary)' }}></div>
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -51,7 +51,7 @@ export default function EnglishHubPage() {
   // Landing page for non-authenticated users
   if (!user) {
     return (
-      <div className="min-h-screen" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
         <div className="max-w-6xl mx-auto px-4 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
@@ -63,7 +63,7 @@ export default function EnglishHubPage() {
                 Master English Language
               </span>
             </h1>
-            <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: 'var(--foreground-secondary)' }}>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
               Comprehensive English learning for competitive exams, IELTS, TOEFL, and professional communication
             </p>
             <button
@@ -80,33 +80,33 @@ export default function EnglishHubPage() {
           {/* Learning Paths Preview */}
           <div className="grid md:grid-cols-3 gap-6 mb-16 items-stretch">
             {/* Foundation Builder - First Card */}
-            <div className="rounded-2xl p-8 shadow-lg flex flex-col h-full" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: 'var(--primary-bg)' }}>
-                <BookOpen className="w-6 h-6" style={{ color: 'var(--primary)' }} />
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
+              <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+                <BookOpen className="w-6 h-6 text-[#4255FF]" />
               </div>
-              <h3 className="text-xl font-bold mb-2 min-h-[2rem]" style={{ color: 'var(--foreground)' }}>Foundation Builder</h3>
-              <p className="mb-4 min-h-[3rem]" style={{ color: 'var(--foreground-secondary)' }}>Build strong foundations from A1 to B1 level</p>
-              <ul className="space-y-2.5 text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+              <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Foundation Builder</h3>
+              <p className="text-slate-600 mb-4 min-h-[3rem]">Build strong foundations from A1 to B1 level</p>
+              <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style={{ color: 'var(--primary)' }}>
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Start from scratch - complete beginner friendly</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style={{ color: 'var(--primary)' }}>
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Essential grammar rules with examples</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style={{ color: 'var(--primary)' }}>
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Common vocabulary for daily communication</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style={{ color: 'var(--primary)' }}>
+                  <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>Pronunciation & conversation practice</span>
@@ -115,13 +115,13 @@ export default function EnglishHubPage() {
             </div>
 
             {/* Competitive Exams - Second Card */}
-            <div className="rounded-2xl p-8 shadow-lg flex flex-col h-full" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: 'var(--hover-bg)' }}>
-                <Target className="w-6 h-6" style={{ color: 'var(--primary)' }} />
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
+              <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+                <Target className="w-6 h-6 text-[#4255FF]" />
               </div>
-              <h3 className="text-xl font-bold mb-2 min-h-[2rem]" style={{ color: 'var(--foreground)' }}>Competitive Exams</h3>
-              <p className="mb-4 min-h-[3rem]" style={{ color: 'var(--foreground-secondary)' }}>Master English for SSC, Banking, Railways, state exams</p>
-              <ul className="space-y-2.5 text-sm " style={{ color: "var(--foreground)" }}>
+              <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">Competitive Exams</h3>
+              <p className="text-slate-600 mb-4 min-h-[3rem]">Master English for SSC, Banking, Railways, state exams</p>
+              <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -150,13 +150,13 @@ export default function EnglishHubPage() {
             </div>
 
             {/* IELTS/TOEFL - Third Card */}
-            <div className="rounded-2xl p-8 shadow-lg flex flex-col h-full" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: 'var(--hover-bg)' }}>
-                <Award className="w-6 h-6" style={{ color: 'var(--primary)' }} />
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 flex flex-col h-full">
+              <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 flex-shrink-0">
+                <Award className="w-6 h-6 text-[#4255FF]" />
               </div>
-              <h3 className="text-xl font-bold mb-2 min-h-[2rem]" style={{ color: 'var(--foreground)' }}>IELTS/TOEFL</h3>
-              <p className="mb-4 min-h-[3rem]" style={{ color: 'var(--foreground-secondary)' }}>Achieve your target band score for study abroad</p>
-              <ul className="space-y-2.5 text-sm " style={{ color: "var(--foreground)" }}>
+              <h3 className="text-xl font-bold text-slate-800 mb-2 min-h-[2rem]">IELTS/TOEFL</h3>
+              <p className="text-slate-600 mb-4 min-h-[3rem]">Achieve your target band score for study abroad</p>
+              <ul className="space-y-2.5 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
                   <svg className="w-4 h-4 text-[#4255FF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -186,29 +186,29 @@ export default function EnglishHubPage() {
           </div>
 
           {/* Features */}
-          <div className="rounded-2xl p-8 shadow-lg mb-16" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-            <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--primary)' }}>Why Choose Our English Hub?</h2>
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-16">
+            <h2 className="text-2xl font-bold text-[#3242CC] mb-6 text-center">Why Choose Our English Hub?</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'var(--hover-bg)' }}>
-                  <TrendingUp className="w-8 h-8" style={{ color: 'var(--primary)' }} />
+                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <TrendingUp className="w-8 h-8 text-[#4255FF]" />
                 </div>
-                <h3 className="font-semibold mb-2" style={{ color: 'var(--primary)' }}>AI-Powered Learning</h3>
-                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>Personalized recommendations based on your performance and goals</p>
+                <h3 className="font-semibold text-[#3242CC] mb-2">AI-Powered Learning</h3>
+                <p className="text-sm text-slate-600">Personalized recommendations based on your performance and goals</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'var(--warning-light)' }}>
-                  <Calendar className="w-8 h-8" style={{ color: 'var(--warning)' }} />
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Calendar className="w-8 h-8 text-amber-600" />
                 </div>
-                <h3 className="font-semibold mb-2" style={{ color: 'var(--primary)' }}>Daily Practice Streaks</h3>
-                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>10-minute daily sessions to build habits and maintain learning momentum</p>
+                <h3 className="font-semibold text-[#3242CC] mb-2">Daily Practice Streaks</h3>
+                <p className="text-sm text-slate-600">10-minute daily sessions to build habits and maintain learning momentum</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'var(--hover-bg)' }}>
-                  <Zap className="w-8 h-8" style={{ color: 'var(--primary)' }} />
+                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Zap className="w-8 h-8 text-[#4255FF]" />
                 </div>
-                <h3 className="font-semibold mb-2" style={{ color: 'var(--primary)' }}>Rich Explanations</h3>
-                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>Detailed explanations with examples, grammar rules, and common mistakes</p>
+                <h3 className="font-semibold text-[#3242CC] mb-2">Rich Explanations</h3>
+                <p className="text-sm text-slate-600">Detailed explanations with examples, grammar rules, and common mistakes</p>
               </div>
             </div>
           </div>
@@ -259,7 +259,7 @@ export default function EnglishHubPage() {
           {/* CTA */}
           <div className="text-center">
             <h2 className="text-2xl font-bold text-[#3242CC] mb-4">Ready to Master English?</h2>
-            <p className=" mb-8" style={{ color: "var(--foreground)" }}>Join thousands of students improving their English skills every day</p>
+            <p className="text-slate-600 mb-8">Join thousands of students improving their English skills every day</p>
             <button
               onClick={() => setShowLoginModal(true)}
               className="px-8 py-4 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
@@ -278,27 +278,27 @@ export default function EnglishHubPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-4xl font-bold" style={{ color: 'var(--foreground)' }}>
+            <h1 className="text-4xl font-bold text-slate-900">
               English Learning Hub
             </h1>
             <div className="flex items-center gap-6">
               {/* Daily Streak */}
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl shadow-sm" style={{ background: 'var(--card-bg)', border: '1px solid var(--warning-light)' }}>
-                <Zap className={`w-5 h-5`} style={{ color: todayCompleted ? 'var(--warning)' : 'var(--foreground-tertiary)' }} />
+              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-amber-200">
+                <Zap className={`w-5 h-5 ${todayCompleted ? 'text-amber-500' : 'text-slate-400'}`} />
                 <div>
-                  <div className="text-xs" style={{ color: 'var(--foreground-tertiary)' }}>Daily Streak</div>
-                  <div className="text-xl font-bold" style={{ color: 'var(--warning)' }}>{dailyStreak} days</div>
+                  <div className="text-xs text-slate-500">Daily Streak</div>
+                  <div className="text-xl font-bold text-amber-600">{dailyStreak} days</div>
                 </div>
               </div>
             </div>
           </div>
-          <p className="text-lg" style={{ color: 'var(--foreground-secondary)' }}>
+          <p className="text-slate-600 text-lg">
             Master English for competitive exams, IELTS, TOEFL, and real-world communication
           </p>
         </div>
@@ -317,7 +317,7 @@ export default function EnglishHubPage() {
                 Take a 10-minute test with 20 questions to accurately find your English level and get a personalized learning path
               </p>
               <Link href="/english/assessment">
-                <button className=" text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover: transition-all" style={{ background: "var(--background)" }} style={{ background: "var(--card-bg)" }}>
+                <button className="bg-white text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-all">
                   Start Assessment →
                 </button>
               </Link>
@@ -330,15 +330,15 @@ export default function EnglishHubPage() {
 
         {/* Learning Paths */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>Choose Your Learning Path</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Choose Your Learning Path</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {englishPaths.map((path) => {
               const PathIcon = getPathIcon(path.id);
               return (
               <Link key={path.id} href={`/english/${path.id}`} className="h-full">
                 <div
-                  className="rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all cursor-pointer group h-full flex flex-col"
-                  style={{ background: 'var(--card-bg)', border: `2px solid ${path.color}30`, borderColor: `${path.color}30` }}
+                  className="bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-lg transition-all cursor-pointer group h-full flex flex-col"
+                  style={{ borderColor: `${path.color}20` }}
                 >
                   <div className="flex items-start gap-4 flex-1">
                     <div
@@ -348,24 +348,24 @@ export default function EnglishHubPage() {
                       <PathIcon className="w-8 h-8" style={{ color: path.color }} />
                     </div>
                     <div className="flex-1 flex flex-col">
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-[#4255FF] transition-colors min-h-[3.5rem]" style={{ color: 'var(--foreground)' }}>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#4255FF] transition-colors min-h-[3.5rem]">
                         {path.name}
                       </h3>
-                      <p className="text-sm mb-3 min-h-[2.5rem]" style={{ color: 'var(--foreground-secondary)' }}>
+                      <p className="text-sm text-slate-600 mb-3 min-h-[2.5rem]">
                         {path.description}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: 'var(--hover-bg)', color: 'var(--primary)' }}>
+                        <span className="px-3 py-1 bg-slate-100 text-[#3242CC] text-xs font-medium rounded-full">
                           {getLevelBadge(path)}
                         </span>
-                        <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: 'var(--hover-bg)', color: 'var(--primary)' }}>
+                        <span className="px-3 py-1 bg-slate-100 text-[#3242CC] text-xs font-medium rounded-full">
                           {path.totalQuestions}+ questions
                         </span>
-                        <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: 'var(--warning-light)', color: 'var(--warning)' }}>
+                        <span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
                           {path.estimatedWeeks} weeks
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm mt-auto" style={{ color: 'var(--foreground-tertiary)' }}>
+                      <div className="flex items-center gap-2 text-sm text-slate-500 mt-auto">
                         <BookOpen className="w-4 h-4" />
                         <span>{path.topics.length} topics</span>
                       </div>
@@ -379,38 +379,38 @@ export default function EnglishHubPage() {
         </div>
 
         {/* Features Highlight */}
-        <div className="rounded-2xl p-8 shadow-sm" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-          <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>Why Choose Our English Hub?</h2>
+        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Why Choose Our English Hub?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'var(--hover-bg)' }}>
-                <TrendingUp className="w-5 h-5" style={{ color: 'var(--primary)' }} />
+              <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <TrendingUp className="w-5 h-5 text-[#4255FF]" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1" style={{ color: 'var(--foreground)' }}>AI-Powered Learning</h3>
-                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+                <h3 className="font-semibold text-slate-900 mb-1">AI-Powered Learning</h3>
+                <p className="text-sm text-slate-600">
                   Personalized recommendations based on your performance and goals
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'var(--warning-light)' }}>
-                <Calendar className="w-5 h-5" style={{ color: 'var(--warning)' }} />
+              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Calendar className="w-5 h-5 text-amber-600" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Daily Practice</h3>
-                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+                <h3 className="font-semibold text-slate-900 mb-1">Daily Practice</h3>
+                <p className="text-sm text-slate-600">
                   10-minute daily sessions to build habits and maintain streaks
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'var(--hover-bg)' }}>
-                <Award className="w-5 h-5" style={{ color: 'var(--primary)' }} />
+              <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Award className="w-5 h-5 text-[#4255FF]" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Rich Explanations</h3>
-                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+                <h3 className="font-semibold text-slate-900 mb-1">Rich Explanations</h3>
+                <p className="text-sm text-slate-600">
                   Detailed explanations with examples, traps, and common mistakes
                 </p>
               </div>

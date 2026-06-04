@@ -28,19 +28,19 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen " style={{ background: "var(--background)" }}>
+    <div className="min-h-screen bg-slate-100">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold  mb-4" style={{ color: "var(--foreground)" }}>Contact & Support</h1>
-        <p className="text-lg  max-w-2xl mx-auto" style={{ color: "var(--foreground)" }}>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Contact & Support</h1>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Have questions or need help? We&apos;re here to assist you. Get in touch with us through any of the channels below.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Contact Form */}
-        <div className=" rounded-2xl shadow-lg border  p-8" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
-          <h2 className="text-2xl font-bold  mb-6" style={{ color: "var(--foreground)" }}>Send Us a Message</h2>
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+          <h2 className="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
 
           {submitStatus === "success" && (
             <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
@@ -51,7 +51,7 @@ export default function ContactPage() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium  mb-2" style={{ color: "var(--foreground)" }}>
+              <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                 Your Name
               </label>
               <input
@@ -60,13 +60,13 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border-2  rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all" style={{ borderColor: "var(--card-border)" }}
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 placeholder="Enter your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium  mb-2" style={{ color: "var(--foreground)" }}>
+              <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                 Email Address
               </label>
               <input
@@ -75,13 +75,13 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border-2  rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all" style={{ borderColor: "var(--card-border)" }}
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 placeholder="your.email@example.com"
               />
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium  mb-2" style={{ color: "var(--foreground)" }}>
+              <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
                 Subject
               </label>
               <select
@@ -89,7 +89,7 @@ export default function ContactPage() {
                 required
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 border-2  rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all" style={{ borderColor: "var(--card-border)" }}
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
               >
                 <option value="">Select a subject</option>
                 <option value="general">General Inquiry</option>
@@ -103,7 +103,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium  mb-2" style={{ color: "var(--foreground)" }}>
+              <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                 Message
               </label>
               <textarea
@@ -112,7 +112,7 @@ export default function ContactPage() {
                 rows={6}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border-2  rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none" style={{ borderColor: "var(--card-border)" }}
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
                 placeholder="Describe your question or issue in detail..."
               />
             </div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
         {/* Contact Information */}
         <div className="space-y-6">
           {/* Email Support */}
-          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,18 +138,18 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Email Support</h3>
-                <p className=" mb-2" style={{ color: "var(--foreground)" }}>Get help via email</p>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Email Support</h3>
+                <p className="text-slate-600 mb-2">Get help via email</p>
                 <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline font-medium">
                   support@prepgenie.co.in
                 </a>
-                <p className="text-sm  mt-2" style={{ color: "var(--foreground)" }}>Response time: Within 24 hours</p>
+                <p className="text-sm text-slate-500 mt-2">Response time: Within 24 hours</p>
               </div>
             </div>
           </div>
 
           {/* Location */}
-          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,15 +158,15 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Location</h3>
-                <p className="" style={{ color: "var(--foreground)" }}>Bangalore, Karnataka</p>
-                <p className="" style={{ color: "var(--foreground)" }}>India</p>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Location</h3>
+                <p className="text-slate-600">Bangalore, Karnataka</p>
+                <p className="text-slate-600">India</p>
               </div>
             </div>
           </div>
 
           {/* FAQs */}
-          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,8 +174,8 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Quick Help</h3>
-                <p className=" mb-3" style={{ color: "var(--foreground)" }}>Check our help resources</p>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Quick Help</h3>
+                <p className="text-slate-600 mb-3">Check our help resources</p>
                 <div className="space-y-2">
                   <a href="/terms" className="block text-[#4255FF] hover:underline text-sm">
                     → Terms of Service
@@ -190,22 +190,22 @@ export default function ContactPage() {
 
           {/* Response Time Notice */}
           <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border border-amber-200 p-6">
-            <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>⏰ Response Times</h3>
-            <ul className="space-y-2 text-sm " style={{ color: "var(--foreground)" }}>
+            <h3 className="text-lg font-bold text-slate-800 mb-2">⏰ Response Times</h3>
+            <ul className="space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className=" mt-0.5" style={{ color: "var(--foreground)" }}>•</span>
+                <span className="text-slate-500 mt-0.5">•</span>
                 <span><strong>General queries:</strong> Within 24 hours</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className=" mt-0.5" style={{ color: "var(--foreground)" }}>•</span>
+                <span className="text-slate-500 mt-0.5">•</span>
                 <span><strong>Technical issues:</strong> Within 12 hours</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className=" mt-0.5" style={{ color: "var(--foreground)" }}>•</span>
+                <span className="text-slate-500 mt-0.5">•</span>
                 <span><strong>Billing inquiries:</strong> Within 48 hours</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className=" mt-0.5" style={{ color: "var(--foreground)" }}>•</span>
+                <span className="text-slate-500 mt-0.5">•</span>
                 <span><strong>Business days:</strong> Monday - Saturday (9 AM - 6 PM IST)</span>
               </li>
             </ul>
@@ -215,32 +215,32 @@ export default function ContactPage() {
 
       {/* Common Questions */}
       <div className="mt-16">
-        <h2 className="text-3xl font-bold  mb-8 text-center" style={{ color: "var(--foreground)" }}>Common Questions</h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Common Questions</h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
-            <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>How do I cancel my subscription?</h3>
-            <p className=" text-sm" style={{ color: "var(--foreground)" }}>
+          <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <h3 className="text-lg font-bold text-slate-800 mb-2">How do I cancel my subscription?</h3>
+            <p className="text-slate-600 text-sm">
               Go to Dashboard → Subscription → Cancel Subscription. Your access continues until the end of your billing period.
             </p>
           </div>
 
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
-            <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Can I cancel my subscription?</h3>
-            <p className=" text-sm" style={{ color: "var(--foreground)" }}>
+          <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <h3 className="text-lg font-bold text-slate-800 mb-2">Can I cancel my subscription?</h3>
+            <p className="text-slate-600 text-sm">
               Yes! You can cancel anytime from your account settings. Your Pro access will continue until the end of your current billing period.
             </p>
           </div>
 
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
-            <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>How do I report a wrong question?</h3>
-            <p className=" text-sm" style={{ color: "var(--foreground)" }}>
+          <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <h3 className="text-lg font-bold text-slate-800 mb-2">How do I report a wrong question?</h3>
+            <p className="text-slate-600 text-sm">
               Click the &quot;Report Question&quot; button during or after a quiz. We review all reports within 48 hours and update content accordingly.
             </p>
           </div>
 
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
-            <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Which exams are supported?</h3>
-            <p className=" text-sm" style={{ color: "var(--foreground)" }}>
+          <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <h3 className="text-lg font-bold text-slate-800 mb-2">Which exams are supported?</h3>
+            <p className="text-slate-600 text-sm">
               We support 20+ exams including JEE Main, NEET, UPSC CSE, SSC CGL, IBPS PO, CAT, GATE, and many state-level exams. Check the homepage for the full list.
             </p>
           </div>

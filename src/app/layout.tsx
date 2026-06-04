@@ -69,7 +69,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full min-w-[320px] flex flex-col font-sans transition-colors" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+      <body className="min-h-full min-w-[320px] flex flex-col bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors">
         <Providers>
           <ConditionalLayout>{children}</ConditionalLayout>
         </Providers>

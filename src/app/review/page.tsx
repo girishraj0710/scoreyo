@@ -59,7 +59,7 @@ export default function ReviewPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className=" rounded-xl p-6 h-24 shimmer" style={{ background: "var(--card-bg)" }} />
+            <div key={i} className="bg-white rounded-xl p-6 h-24 shimmer" />
           ))}
         </div>
       </div>
@@ -85,8 +85,8 @@ export default function ReviewPage() {
               />
               <span className="text-sm font-medium text-[#4255FF]">{exam?.name || topic.exam_id}</span>
             </div>
-            <h3 className="font-semibold  truncate" style={{ color: "var(--foreground)" }}>{topic.topic}</h3>
-            <div className="flex items-center gap-3 mt-1 text-xs " style={{ color: "var(--foreground)" }}>
+            <h3 className="font-semibold text-slate-800 truncate">{topic.topic}</h3>
+            <div className="flex items-center gap-3 mt-1 text-xs text-slate-400">
               <span>{topic.total_attempted} {t("questionsAttempted")}</span>
               <span>|</span>
               <span>{t("lastPracticed")}: {formatDate(topic.last_attempted)}</span>
@@ -97,8 +97,8 @@ export default function ReviewPage() {
             {/* Mastery Score */}
             <div className="text-center">
               <div className={`text-2xl font-bold ${masteryColor}`}>{mastery}%</div>
-              <div className="text-xs " style={{ color: "var(--foreground)" }}>{t("mastery")}</div>
-              <div className="w-16  rounded-full h-1.5 mt-1" style={{ background: "var(--background)" }}>
+              <div className="text-xs text-slate-400">{t("mastery")}</div>
+              <div className="w-16 bg-slate-100 rounded-full h-1.5 mt-1">
                 <div className={`${masteryBg} h-1.5 rounded-full`} style={{ width: `${mastery}%` }} />
               </div>
             </div>
@@ -126,8 +126,8 @@ export default function ReviewPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold " style={{ color: "var(--foreground)" }}>{t("reviewTitle")}</h1>
-        <p className=" text-sm mt-1" style={{ color: "var(--foreground)" }}>{t("reviewSubtitle")}</p>
+        <h1 className="text-2xl font-bold text-slate-800">{t("reviewTitle")}</h1>
+        <p className="text-slate-500 text-sm mt-1">{t("reviewSubtitle")}</p>
         {totalDue > 0 && (
           <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full">
             <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
@@ -140,14 +140,14 @@ export default function ReviewPage() {
 
       {/* Empty State */}
       {overdue.length === 0 && dueToday.length === 0 && upcoming.length === 0 && (
-        <div className=" rounded-2xl p-12 shadow-lg border  text-center" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200 text-center">
           <div className="flex justify-center mb-4">
             <svg className="w-24 h-24 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold  mb-2" style={{ color: "var(--foreground)" }}>{t("allCaughtUp")}</h2>
-          <p className=" mb-6" style={{ color: "var(--foreground)" }}>{t("noReviewsDesc")}</p>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">{t("allCaughtUp")}</h2>
+          <p className="text-slate-500 mb-6">{t("noReviewsDesc")}</p>
           <a
             href="/"
             className="inline-block px-8 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg"
@@ -190,7 +190,7 @@ export default function ReviewPage() {
       {/* Upcoming Section */}
       {upcoming.length > 0 && (
         <section className="mb-8">
-          <h2 className="flex items-center gap-2 text-lg font-semibold  mb-3" style={{ color: "var(--foreground)" }}>
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-slate-600 mb-3">
             <span className="w-3 h-3 bg-indigo-400 rounded-full" />
             {t("upcomingTopics")} ({upcoming.length})
           </h2>

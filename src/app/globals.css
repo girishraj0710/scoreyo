@@ -1,110 +1,16 @@
 @import "tailwindcss";
 
-/* ============================================
-   LIGHT MODE (DEFAULT)
-   ============================================ */
 :root {
-  /* Primary Colors */
-  --primary: #4255FF;
-  --primary-dark: #3242CC;
-  --primary-light: #818cf8;
-  --primary-bg: #E8EAFF;
-
-  /* Backgrounds */
-  --background: #ffffff;
-  --background-secondary: #f8fafc;
-  --background-tertiary: #f1f5f9;
-
-  /* Text Colors */
+  --background: #f8fafc;
   --foreground: #0f172a;
-  --foreground-secondary: #475569;
-  --foreground-tertiary: #64748b;
-  --foreground-muted: #94a3b8;
-
-  /* Cards & Containers */
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4f46e5;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --danger: #ef4444;
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
-  --divider: #e2e8f0;
-
-  /* Input & Forms */
-  --input-bg: #f8fafc;
-  --input-border: #cbd5e1;
-  --input-placeholder: #94a3b8;
-
-  /* Interactive */
-  --hover-bg: #f1f5f9;
-  --hover-bg-dark: #e2e8f0;
-
-  /* Status Colors */
-  --success: #10b981;
-  --success-light: #ecfdf5;
-  --danger: #ef4444;
-  --danger-light: #fef2f2;
-  --warning: #eab308;
-  --warning-light: #fef3c7;
-  --info: #3b82f6;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-
-  /* Old variables (for compatibility) */
-  --accent: #f59e0b;
-  --muted: #64748b;
-}
-
-/* ============================================
-   DARK MODE
-   ============================================ */
-html.dark {
-  /* Primary Colors */
-  --primary: #818cf8;
-  --primary-dark: #6366f1;
-  --primary-light: #c7d2fe;
-  --primary-bg: #312e81;
-
-  /* Backgrounds */
-  --background: #0f172a;
-  --background-secondary: #1e293b;
-  --background-tertiary: #334155;
-
-  /* Text Colors */
-  --foreground: #f1f5f9;
-  --foreground-secondary: #cbd5e1;
-  --foreground-tertiary: #94a3b8;
-  --foreground-muted: #64748b;
-
-  /* Cards & Containers */
-  --card-bg: #1e293b;
-  --card-border: #334155;
-  --divider: #334155;
-
-  /* Input & Forms */
-  --input-bg: #1e293b;
-  --input-border: #334155;
-  --input-placeholder: #64748b;
-
-  /* Interactive */
-  --hover-bg: #334155;
-  --hover-bg-dark: #475569;
-
-  /* Status Colors */
-  --success: #34d399;
-  --success-light: #0f766e;
-  --danger: #f87171;
-  --danger-light: #7f1d1d;
-  --warning: #fcd34d;
-  --warning-light: #78350f;
-  --info: #60a5fa;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-
-  /* Old variables (for compatibility) */
-  --accent: #fbbf24;
   --muted: #64748b;
 }
 
@@ -122,8 +28,6 @@ body {
   /* Mobile-first font size */
   font-size: 16px;
   line-height: 1.6;
-  /* Smooth transition between light/dark mode */
-  transition: background-color 300ms ease, color 300ms ease;
 }
 
 /* Mobile-optimized typography */
