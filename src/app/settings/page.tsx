@@ -217,7 +217,7 @@ export default function SettingsPage() {
   if (!user) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className=" dark:bg-gray-800 rounded-2xl p-12 shadow-lg border  dark:border-gray-700" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <div className=" dark:bg-gray-800 rounded-2xl p-12 shadow-lg border  dark:border-gray-700" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
           <User className="w-16 h-16 mx-auto mb-4 " style={{ color: "var(--foreground)" }} />
           <h2 className="text-xl font-bold  dark:text-white mb-2" style={{ color: "var(--foreground)" }}>
             Please Login
@@ -238,7 +238,7 @@ export default function SettingsPage() {
       </p>
 
       {/* ─── PROFILE SECTION ─── */}
-      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
         <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <User className="w-5 h-5 text-indigo-500" />
           Profile
@@ -256,7 +256,7 @@ export default function SettingsPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
                 placeholder="Enter your full name"
               />
             </div>
@@ -273,7 +273,7 @@ export default function SettingsPage() {
                 type="email"
                 value={email}
                 disabled
-                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-600  dark:text-gray-400 cursor-not-allowed" style={{ background: "var(--background)" }} style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }}
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-600  dark:text-gray-400 cursor-not-allowed" style={{ background: "var(--background)", borderColor: "var(--card-border)", color: "var(--foreground)" }}
                 placeholder="Your email"
               />
             </div>
@@ -291,7 +291,7 @@ export default function SettingsPage() {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
                 placeholder="+91 98765 43210"
               />
             </div>
@@ -309,7 +309,7 @@ export default function SettingsPage() {
                   type="number"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+                  className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
                   placeholder="18"
                   min="10"
                   max="60"
@@ -326,7 +326,7 @@ export default function SettingsPage() {
                   type="text"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+                  className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
                   placeholder="City, State"
                 />
               </div>
@@ -343,7 +343,7 @@ export default function SettingsPage() {
               <select
                 value={examPreparingFor}
                 onChange={(e) => setExamPreparingFor(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none" style={{ borderColor: "var(--card-border)" }} style={{ color: "var(--foreground)" }} style={{ background: "var(--card-bg)" }}
+                className="w-full pl-10 pr-4 py-2.5 border  dark:border-gray-600 rounded-lg  dark:bg-gray-700  dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none" style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
               >
                 <option value="">Select an exam</option>
                 {getAllExams().map((exam) => (
@@ -385,7 +385,7 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── STUDY PREFERENCES ─── */}
-      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
         <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Target className="w-5 h-5 text-emerald-500" />
           Study Preferences
@@ -443,7 +443,7 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── LANGUAGE & APPEARANCE ─── */}
-      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
         <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Globe className="w-5 h-5 text-blue-500" />
           Language & Appearance
@@ -507,7 +507,7 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── SUBSCRIPTION ─── */}
-      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
         <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <CreditCard className="w-5 h-5 text-purple-500" />
           Subscription
@@ -577,7 +577,7 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── NOTIFICATIONS ─── */}
-      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
         <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Bell className="w-5 h-5 text-amber-500" />
           Notifications
@@ -610,7 +610,7 @@ export default function SettingsPage() {
       </section>
 
       {/* ─── ACCOUNT ─── */}
-      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+      <section className=" dark:bg-gray-800 rounded-2xl p-6 shadow-sm border  dark:border-gray-700 mb-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
         <h2 className="text-lg font-semibold  dark:text-white mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
           <Shield className="w-5 h-5 " style={{ color: "var(--foreground)" }} />
           Account

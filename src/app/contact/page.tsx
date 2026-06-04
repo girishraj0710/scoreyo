@@ -39,7 +39,7 @@ export default function ContactPage() {
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Contact Form */}
-        <div className=" rounded-2xl shadow-lg border  p-8" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+        <div className=" rounded-2xl shadow-lg border  p-8" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
           <h2 className="text-2xl font-bold  mb-6" style={{ color: "var(--foreground)" }}>Send Us a Message</h2>
 
           {submitStatus === "success" && (
@@ -130,7 +130,7 @@ export default function ContactPage() {
         {/* Contact Information */}
         <div className="space-y-6">
           {/* Email Support */}
-          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +149,7 @@ export default function ContactPage() {
           </div>
 
           {/* Location */}
-          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +166,7 @@ export default function ContactPage() {
           </div>
 
           {/* FAQs */}
-          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-2xl shadow-lg border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,28 +217,28 @@ export default function ContactPage() {
       <div className="mt-16">
         <h2 className="text-3xl font-bold  mb-8 text-center" style={{ color: "var(--foreground)" }}>Common Questions</h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>How do I cancel my subscription?</h3>
             <p className=" text-sm" style={{ color: "var(--foreground)" }}>
               Go to Dashboard → Subscription → Cancel Subscription. Your access continues until the end of your billing period.
             </p>
           </div>
 
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Can I cancel my subscription?</h3>
             <p className=" text-sm" style={{ color: "var(--foreground)" }}>
               Yes! You can cancel anytime from your account settings. Your Pro access will continue until the end of your current billing period.
             </p>
           </div>
 
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>How do I report a wrong question?</h3>
             <p className=" text-sm" style={{ color: "var(--foreground)" }}>
               Click the &quot;Report Question&quot; button during or after a quiz. We review all reports within 48 hours and update content accordingly.
             </p>
           </div>
 
-          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)" }} style={{ background: "var(--card-bg)" }}>
+          <div className=" rounded-xl border  p-6" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
             <h3 className="text-lg font-bold  mb-2" style={{ color: "var(--foreground)" }}>Which exams are supported?</h3>
             <p className=" text-sm" style={{ color: "var(--foreground)" }}>
               We support 20+ exams including JEE Main, NEET, UPSC CSE, SSC CGL, IBPS PO, CAT, GATE, and many state-level exams. Check the homepage for the full list.
