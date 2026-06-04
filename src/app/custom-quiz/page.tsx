@@ -129,61 +129,55 @@ export default function CustomQuizPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen py-12 px-4" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">
+          <h1 className="text-4xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>
             Generate a practice test
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg" style={{ color: 'var(--foreground-secondary)' }}>
             Choose or upload materials to generate practice questions designed for you
           </p>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-8 mb-8 border-b border-slate-200">
+        <div className="flex gap-8 mb-8" style={{ borderBottom: '1px solid var(--card-border)' }}>
           <button
             onClick={() => setActiveTab('upload')}
-            className={`pb-3 px-2 font-medium transition-colors relative ${
-              activeTab === 'upload'
-                ? 'text-[#4255FF]'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
+            className="pb-3 px-2 font-medium transition-colors relative"
+            style={{ color: activeTab === 'upload' ? 'var(--primary)' : 'var(--foreground-secondary)' }}
           >
             Upload files
             {activeTab === 'upload' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4255FF]" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'var(--primary)' }} />
             )}
           </button>
           <button
             onClick={() => setActiveTab('paste')}
-            className={`pb-3 px-2 font-medium transition-colors relative ${
-              activeTab === 'paste'
-                ? 'text-[#4255FF]'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
+            className="pb-3 px-2 font-medium transition-colors relative"
+            style={{ color: activeTab === 'paste' ? 'var(--primary)' : 'var(--foreground-secondary)' }}
           >
             Paste text
             {activeTab === 'paste' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4255FF]" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'var(--primary)' }} />
             )}
           </button>
         </div>
 
         {/* Upload Tab Content */}
         {activeTab === 'upload' && (
-          <div className="bg-white rounded-2xl border-2 border-slate-200 p-12">
+          <div className="rounded-2xl border-2 p-12" style={{ background: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
             <div
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
               onDragOver={handleDrag}
               onDrop={handleDrop}
-              className={`border-2 border-dashed rounded-xl p-16 text-center transition-all ${
-                dragActive
-                  ? 'border-indigo-400 bg-indigo-50'
-                  : 'border-slate-300 hover:border-slate-400'
-              }`}
+              className="border-2 border-dashed rounded-xl p-16 text-center transition-all"
+              style={{
+                borderColor: dragActive ? 'var(--primary)' : 'var(--card-border)',
+                background: dragActive ? 'var(--primary-bg)' : 'transparent'
+              }}
             >
               {!file ? (
                 <div className="flex flex-col items-center gap-6">
