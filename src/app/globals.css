@@ -24,7 +24,7 @@
 [data-theme="dark"] {
   --background: #0f172a;
   --foreground: #f1f5f9;
-  --foreground-secondary: #94a3b8;
+  --foreground-secondary: #cbd5e1;
   --primary: #818cf8;
   --primary-light: #a5b4fc;
   --primary-dark: #6366f1;
@@ -147,11 +147,6 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-glow 2s infinite;
 }
 
-/* Nav link hover - !important overrides inline styles */
-.nav-link:hover:not(.nav-link-active) {
-  color: var(--primary) !important;
-  background-color: var(--nav-hover-bg) !important;
-}
 
 /* Card hover effect */
 .card-hover {
