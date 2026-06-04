@@ -6,7 +6,7 @@
 // List of email addresses that are auto-promoted to admin role
 // These users will be set to admin role on login if they're not already admin
 export const ADMIN_EMAILS = [
-  "girish.raj0710@gmail.com",
+  // "girish.raj0710@gmail.com", // Owner/developer account - keep as student to test all features
   "grgowda07.1992@gmail.com",
   "admin@prepgenie.co.in",
 ];
