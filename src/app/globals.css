@@ -25,7 +25,7 @@
   --primary: #818cf8;
   --primary-light: #a5b4fc;
   --primary-dark: #6366f1;
-  --primary-bg: #1e1b4b;
+  --primary-bg: #312e81;
   --accent: #fbbf24;
   --success: #34d399;
   --danger: #f87171;
@@ -142,7 +142,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Nav link hover */
-.nav-link:hover {
+.nav-link:hover:not(.nav-link-active) {
+  color: var(--primary) !important;
+  background-color: var(--hover-bg);
+}
+
+.nav-link-active {
   color: var(--primary) !important;
   background-color: var(--primary-bg);
 }

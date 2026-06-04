@@ -322,7 +322,7 @@ function HomePageContent() {
               className="w-full px-6 py-3 rounded-xl border-2 focus:outline-none text-base"
               style={{ background: "var(--card-bg)", color: "var(--foreground)", borderColor: "var(--card-border)" }}
             />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2" style={{ color: "var(--muted)" }}>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -354,26 +354,26 @@ function HomePageContent() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold text-slate-800">{result.exam.name}</span>
-                          <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
+                          <span className="font-semibold" style={{ color: "var(--foreground)" }}>{result.exam.name}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "var(--primary-bg)", color: "var(--primary)" }}>
                             {result.category}
                           </span>
                         </div>
                         {result.type === "exam" && (
-                          <p className="text-sm text-slate-600">Full exam</p>
+                          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Full exam</p>
                         )}
                         {result.type === "subject" && result.subject && (
-                          <p className="text-sm text-slate-600">
+                          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
                             <span className="font-medium">{result.subject.name}</span>
                           </p>
                         )}
                         {result.type === "topic" && result.subject && result.topic && (
-                          <p className="text-sm text-slate-600">
+                          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
                             <span className="font-medium">{result.subject.name}</span> → {result.topic}
                           </p>
                         )}
                       </div>
-                      <svg className="w-5 h-5 text-slate-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: "var(--muted)" }}>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -519,7 +519,7 @@ function HomePageContent() {
                 setSelectedTopic(null);
                 setTimeout(() => categoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
               }}
-              className="text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+              className="text-xs sm:text-sm font-medium" style={{ color: "var(--primary)" }}
             >
               ← Change
             </button>
@@ -691,7 +691,7 @@ function HomePageContent() {
 
             {/* Number of Questions */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium mb-2" style={{ color: "var(--foreground)" }}>
                 Number of Questions
               </label>
               <div className="flex gap-2">
@@ -701,9 +701,10 @@ function HomePageContent() {
                     onClick={() => setQuestionCount(n)}
                     className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
                       questionCount === n
-                        ? "border-indigo-500 bg-slate-500 text-white"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
+                        ? "border-indigo-500 bg-indigo-600 text-white"
+                        : ""
                     }`}
+                    style={questionCount !== n ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
                   >
                     {n}
                   </button>
@@ -713,7 +714,7 @@ function HomePageContent() {
 
             {/* Difficulty */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium mb-2" style={{ color: "var(--foreground)" }}>
                 Difficulty
               </label>
               <div className="flex gap-2">
@@ -728,9 +729,10 @@ function HomePageContent() {
                     onClick={() => setDifficulty(d.value)}
                     className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
                       difficulty === d.value
-                        ? "border-indigo-500 bg-slate-500 text-white"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
+                        ? "border-indigo-500 bg-indigo-600 text-white"
+                        : ""
                     }`}
+                    style={difficulty !== d.value ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
                   >
                     {d.label}
                   </button>
@@ -740,7 +742,7 @@ function HomePageContent() {
 
             {/* Pressure Mode Toggle */}
             <div className="mb-4">
-              <label className="flex items-center gap-3 p-4 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-xl cursor-pointer hover:from-red-100 hover:to-orange-100 transition-colors">
+              <label className="flex items-center gap-3 p-4 border-2 rounded-xl cursor-pointer transition-colors" style={{ background: pressureMode ? "var(--danger)" + "15" : "var(--card-bg)", borderColor: pressureMode ? "var(--danger)" : "var(--card-border)" }}>
                 <input
                   type="checkbox"
                   checked={pressureMode}
@@ -749,11 +751,11 @@ function HomePageContent() {
                 />
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-red-600" />
-                    <span className="font-semibold text-red-900">Pressure Mode</span>
+                    <Zap className="w-5 h-5" style={{ color: "var(--danger)" }} />
+                    <span className="font-semibold" style={{ color: "var(--foreground)" }}>Pressure Mode</span>
                     <span className="px-2 py-0.5 bg-red-600 text-white text-xs font-bold rounded-full">INTENSE</span>
                   </div>
-                  <p className="text-xs text-red-700 mt-1 flex items-center gap-1">
+                  <p className="text-xs mt-1 flex items-center gap-1" style={{ color: "var(--foreground-secondary)" }}>
                     Timer accelerates as time runs out. Simulates real exam stress! <Flame className="w-3.5 h-3.5 inline" />
                   </p>
                 </div>
@@ -762,26 +764,22 @@ function HomePageContent() {
 
             {/* Quiz Limit Info */}
             {subData && !subData.isPro && (
-              <div className={`mb-4 p-3 rounded-xl text-sm ${
-                subData.quizzesRemaining === 0
-                  ? "bg-red-50 border border-red-200"
-                  : "bg-amber-50 border border-amber-200"
-              }`}>
+              <div className="mb-4 p-3 rounded-xl text-sm border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
                 <div className="flex items-center justify-between">
-                  <span className={subData.quizzesRemaining === 0 ? "text-red-700" : "text-amber-700"}>
+                  <span style={{ color: subData.quizzesRemaining === 0 ? "var(--danger)" : "var(--foreground-secondary)" }}>
                     {subData.quizzesRemaining === 0
                       ? "Daily limit reached!"
                       : `${subData.todayQuizCount} of ${subData.quizLimit} free quizzes used today`}
                   </span>
-                  <a href="/pricing" className="text-indigo-600 font-medium text-xs hover:text-indigo-700">
+                  <a href="/pricing" className="font-medium text-xs" style={{ color: "var(--primary)" }}>
                     Upgrade
                   </a>
                 </div>
                 {subData.quizzesRemaining !== null && subData.quizzesRemaining > 0 && (
-                  <div className="mt-2 w-full bg-amber-200 rounded-full h-1.5">
+                  <div className="mt-2 w-full rounded-full h-1.5" style={{ background: "var(--hover-bg)" }}>
                     <div
-                      className="bg-amber-500 h-1.5 rounded-full"
-                      style={{ width: `${(subData.todayQuizCount / subData.quizLimit) * 100}%` }}
+                      className="h-1.5 rounded-full"
+                      style={{ width: `${(subData.todayQuizCount / subData.quizLimit) * 100}%`, background: "var(--accent)" }}
                     />
                   </div>
                 )}
@@ -789,9 +787,9 @@ function HomePageContent() {
             )}
 
             {subData?.isPro && (
-              <div className="mb-4 p-3 rounded-xl text-sm bg-slate-50 border border-slate-200 flex items-center gap-2">
+              <div className="mb-4 p-3 rounded-xl text-sm border flex items-center gap-2" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
                 <span className="px-2 py-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 text-white text-xs font-bold rounded-full">PRO</span>
-                <span className="text-indigo-700">Unlimited quizzes</span>
+                <span style={{ color: "var(--primary)" }}>Unlimited quizzes</span>
               </div>
             )}
 
@@ -809,7 +807,8 @@ function HomePageContent() {
             {subData && !subData.isPro && subData.quizzesRemaining === 0 && (
               <a
                 href="/pricing"
-                className="block mt-3 w-full py-2 text-center text-sm font-medium text-indigo-600 bg-slate-50 rounded-xl hover:bg-indigo-100"
+                className="block mt-3 w-full py-2 text-center text-sm font-medium rounded-xl"
+                style={{ color: "var(--primary)", background: "var(--hover-bg)" }}
               >
                 View Pro Plans →
               </a>
@@ -823,18 +822,18 @@ function HomePageContent() {
         <div className="inline-flex items-center gap-3 rounded-full px-6 py-3 shadow-sm border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
           <span className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
             Covering{" "}
-            <span className="font-bold text-indigo-600">
+            <span className="font-bold" style={{ color: "var(--primary)" }}>
               {examCategories.reduce(
                 (sum, cat) => sum + cat.exams.length,
                 0
               )}
             </span>{" "}
             exams across{" "}
-            <span className="font-bold text-indigo-600">
+            <span className="font-bold" style={{ color: "var(--primary)" }}>
               {examCategories.length}
             </span>{" "}
             categories with{" "}
-            <span className="font-bold text-indigo-600">
+            <span className="font-bold" style={{ color: "var(--primary)" }}>
               {examCategories
                 .flatMap((c) => c.exams)
                 .flatMap((e) => e.subjects)
@@ -884,7 +883,7 @@ function HomePageContent() {
 
 export default function HomePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ color: "var(--foreground)" }}>Loading...</div>}>
       <HomePageContent />
     </Suspense>
   );
