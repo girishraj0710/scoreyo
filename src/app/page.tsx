@@ -318,7 +318,8 @@ function HomePageContent() {
                 setSearchQuery(e.target.value);
                 setShowSearchDropdown(true);
               }}
-              onFocus={() => setShowSearchDropdown(true)}
+              onFocus={(e) => { setShowSearchDropdown(true); e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(99, 102, 241, 0.2)'; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.boxShadow = 'none'; }}
               className="w-full px-6 py-3 rounded-xl border-2 focus:outline-none text-base"
               style={{ background: "var(--card-bg)", color: "var(--foreground)", borderColor: "var(--card-border)" }}
             />
