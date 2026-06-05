@@ -135,7 +135,7 @@ function SelectSubjectContent() {
             </div>
             <div className="flex-1 h-1" style={{ background: "var(--card-border)" }}></div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full text-slate-400 font-bold text-sm flex items-center justify-center" style={{ background: "var(--muted)", color: "var(--muted)" }}>
+              <div className="w-8 h-8 rounded-full font-bold text-sm flex items-center justify-center" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                 3
               </div>
               <span style={{ color: "var(--muted)" }}>Upload & Generate</span>

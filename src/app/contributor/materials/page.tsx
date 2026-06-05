@@ -167,7 +167,7 @@ export default function ContributorMaterialsPage() {
           <div className={`flex items-center gap-2 ${step !== 'exam' ? 'opacity-60' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
               step === 'exam' ? 'bg-indigo-600' : ''
-            }`} style={step !== 'exam' ? { background: "var(--muted)" } : {}}>
+            }`} style={step !== 'exam' ? { background: "var(--hover-bg)", color: "var(--foreground)" } : {}}>
               1
             </div>
             <span className="font-medium" style={{ color: "var(--foreground)" }}>Select Exam</span>
@@ -176,7 +176,7 @@ export default function ContributorMaterialsPage() {
           <div className={`flex items-center gap-2 ${step !== 'subject' ? 'opacity-60' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
               step === 'subject' ? 'bg-indigo-600' : ''
-            }`} style={step !== 'subject' ? { background: "var(--muted)" } : {}}>
+            }`} style={step !== 'subject' ? { background: "var(--hover-bg)", color: "var(--foreground)" } : {}}>
               2
             </div>
             <span className="font-medium" style={{ color: "var(--foreground)" }}>Select Subject</span>
@@ -185,7 +185,7 @@ export default function ContributorMaterialsPage() {
           <div className={`flex items-center gap-2 ${step !== 'upload' ? 'opacity-60' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
               step === 'upload' ? 'bg-indigo-600' : ''
-            }`} style={step !== 'upload' ? { background: "var(--muted)" } : {}}>
+            }`} style={step !== 'upload' ? { background: "var(--hover-bg)", color: "var(--foreground)" } : {}}>
               3
             </div>
             <span className="font-medium" style={{ color: "var(--foreground)" }}>Upload Files</span>

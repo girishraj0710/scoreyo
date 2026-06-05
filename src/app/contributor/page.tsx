@@ -198,7 +198,7 @@ export default function ContributorPortalPage() {
 
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--background)" }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
                 <span className="text-2xl font-bold text-indigo-600">1</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Select Exam</h3>
@@ -208,7 +208,7 @@ export default function ContributorPortalPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--background)" }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
                 <span className="text-2xl font-bold text-indigo-600">2</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Select Subject</h3>
@@ -218,7 +218,7 @@ export default function ContributorPortalPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--background)" }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
                 <span className="text-2xl font-bold text-indigo-600">3</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Upload Material</h3>
@@ -273,26 +273,26 @@ export default function ContributorPortalPage() {
         </div>
 
         {/* Guidelines */}
-        <div className="mt-8 bg-blue-50 rounded-xl p-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-          <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+        <div className="mt-8 rounded-xl p-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+          <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <Icon3DSparkle size={24} /> Quality Guidelines
           </h3>
-          <ul className="space-y-2 text-sm text-blue-800">
+          <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-              <span>Upload relevant, accurate study material from trusted sources</span>
+              <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+              <span style={{ color: "var(--foreground-secondary)" }}>Upload relevant, accurate study material from trusted sources</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-              <span>Ensure content matches the selected exam and subject</span>
+              <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+              <span style={{ color: "var(--foreground-secondary)" }}>Ensure content matches the selected exam and subject</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-              <span>More content = better question quality (aim for 500+ words)</span>
+              <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+              <span style={{ color: "var(--foreground-secondary)" }}>More content = better question quality (aim for 500+ words)</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-              <span>Questions go through admin review before being published</span>
+              <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+              <span style={{ color: "var(--foreground-secondary)" }}>Questions go through admin review before being published</span>
             </li>
           </ul>
         </div>
