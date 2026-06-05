@@ -238,7 +238,16 @@ export default function EnglishPracticePage() {
               </button>
 
               {/* Progress Bar */}
-              <div className="rounded-xl p-4 shadow-sm mb-4" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+              <div
+                className="rounded-xl p-4 shadow-sm mb-4 transition-all"
+                style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+                }}
+              >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     Question {currentIndex + 1} of {questions.length}
@@ -268,7 +277,16 @@ export default function EnglishPracticePage() {
             </div>
 
             {/* Question */}
-            <div className="rounded-2xl p-8 shadow-sm mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-sm mb-6 transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+              }}
+            >
               <div className="mb-2">
                 <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                   {currentQuestion.difficulty}
@@ -288,6 +306,18 @@ export default function EnglishPracticePage() {
                     style={{
                       borderColor: userAnswers[currentIndex] === idx ? "#4255FF" : "var(--card-border)",
                       background: userAnswers[currentIndex] === idx ? "var(--hover-bg)" : "var(--card-bg)"
+                    }}
+                    onMouseEnter={(e) => {
+                      if (userAnswers[currentIndex] !== idx) {
+                        e.currentTarget.style.borderColor = "var(--primary)";
+                        e.currentTarget.style.background = "var(--hover-bg)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (userAnswers[currentIndex] !== idx) {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                        e.currentTarget.style.background = "var(--card-bg)";
+                      }
                     }}
                   >
                     <div className="flex items-center gap-3">
@@ -315,6 +345,16 @@ export default function EnglishPracticePage() {
                 disabled={currentIndex === 0}
                 className="px-6 py-3 border-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
+                onMouseEnter={(e) => {
+                  if (currentIndex > 0) {
+                    e.currentTarget.style.borderColor = "var(--primary)";
+                    e.currentTarget.style.background = "var(--hover-bg)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--card-border)";
+                  e.currentTarget.style.background = "var(--card-bg)";
+                }}
               >
                 Previous
               </button>
@@ -376,7 +416,19 @@ export default function EnglishPracticePage() {
               {questions.map((q, idx) => {
                 const isCorrect = userAnswers[idx] === q.correctAnswer;
                 return (
-                  <div key={idx} className="rounded-xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+                  <div
+                    key={idx}
+                    className="rounded-xl p-6 shadow-sm transition-all"
+                    style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.1)";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                  >
                     <div className="flex items-start gap-3 mb-3">
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"

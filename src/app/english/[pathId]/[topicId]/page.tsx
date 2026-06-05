@@ -99,7 +99,18 @@ export default function EnglishTopicPage() {
         </Link>
 
         {/* Topic Header */}
-        <div className="mb-8 rounded-2xl p-8 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div
+          className="mb-8 rounded-2xl p-8 shadow-sm transition-all"
+          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+            e.currentTarget.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
           <div className="flex items-start gap-6">
             {(() => {
               const TopicIcon = getTopicIcon(topic.id);
@@ -157,7 +168,18 @@ export default function EnglishTopicPage() {
         )}
 
         {/* Subtopics */}
-        <div className="mb-8 rounded-2xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div
+          className="mb-8 rounded-2xl p-6 shadow-sm transition-all"
+          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+            e.currentTarget.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <Target className="w-5 h-5 text-[#4255FF]" />
             What You'll Learn
@@ -175,13 +197,34 @@ export default function EnglishTopicPage() {
         </div>
 
         {/* Practice Options */}
-        <div className="rounded-2xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div
+          className="rounded-2xl p-6 shadow-sm transition-all"
+          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+            e.currentTarget.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
           <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Start Practice</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               onClick={() => handleStartPractice(5)}
-              className="p-6 border-2 rounded-xl hover:border-indigo-400 transition-all group"
+              className="p-6 border-2 rounded-xl transition-all group"
               style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--primary)";
+                e.currentTarget.style.background = "var(--hover-bg)";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--card-border)";
+                e.currentTarget.style.background = "var(--card-bg)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               <Play className="w-8 h-8 text-[#4255FF] mb-2" />
               <div className="font-bold mb-1" style={{ color: "var(--foreground)" }}>Quick Practice</div>
@@ -191,8 +234,16 @@ export default function EnglishTopicPage() {
 
             <button
               onClick={() => handleStartPractice(10)}
-              className="p-6 border-2 rounded-xl hover:border-[#4255FF] transition-all group"
-              style={{ borderColor: "var(--card-border)", background: "var(--hover-bg)" }}
+              className="p-6 border-2 rounded-xl transition-all group"
+              style={{ borderColor: "var(--primary)", background: "var(--hover-bg)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--primary)";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--primary)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               <Play className="w-8 h-8 text-[#4255FF] mb-2" />
               <div className="font-bold mb-1" style={{ color: "var(--foreground)" }}>Standard Practice</div>
@@ -202,8 +253,18 @@ export default function EnglishTopicPage() {
 
             <button
               onClick={() => handleStartPractice(20)}
-              className="p-6 border-2 rounded-xl hover:border-indigo-400 transition-all group"
+              className="p-6 border-2 rounded-xl transition-all group"
               style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--primary)";
+                e.currentTarget.style.background = "var(--hover-bg)";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--card-border)";
+                e.currentTarget.style.background = "var(--card-bg)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               <Play className="w-8 h-8 text-[#4255FF] mb-2" />
               <div className="font-bold mb-1" style={{ color: "var(--foreground)" }}>Deep Practice</div>

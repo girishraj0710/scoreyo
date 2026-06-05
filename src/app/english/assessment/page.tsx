@@ -129,7 +129,18 @@ export default function EnglishAssessmentPage() {
               </button>
             </Link>
 
-            <div className="rounded-2xl p-8 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-lg transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#4255FF] to-purple-600 rounded-full flex items-center justify-center">
                 <Target className="w-10 h-10 text-white" />
               </div>
@@ -189,7 +200,18 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl p-8 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-lg transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <div className="mb-2">
                 <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                   {currentQuestion.level}
@@ -205,8 +227,16 @@ export default function EnglishAssessmentPage() {
                   <button
                     key={idx}
                     onClick={() => handleAnswerSelect(idx)}
-                    className="w-full text-left p-5 rounded-xl border-2 hover:border-indigo-400 transition-all group"
+                    className="w-full text-left p-5 rounded-xl border-2 transition-all group"
                     style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--primary)";
+                      e.currentTarget.style.background = "var(--hover-bg)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                      e.currentTarget.style.background = "var(--card-bg)";
+                    }}
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full border-2 group-hover:border-[#4255FF] group-hover:bg-[#4255FF] flex items-center justify-center flex-shrink-0 transition-all" style={{ borderColor: "var(--muted)" }}>
@@ -244,14 +274,33 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl p-8 shadow-lg mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-lg mb-6 transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>
                 Recommended Learning Path
               </h2>
 
               <div
-                className="border-2 rounded-xl p-6 hover:shadow-md transition-all"
+                className="border-2 rounded-xl p-6 transition-all"
                 style={{ borderColor: `${getPathDetails(recommendedPath).color}20` }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
               >
                 <div className="flex items-start gap-4">
                   <div

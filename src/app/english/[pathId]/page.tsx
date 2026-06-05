@@ -111,7 +111,18 @@ export default function EnglishPathPage() {
         </Link>
 
         {/* Path Header */}
-        <div className="mb-8 rounded-2xl p-8 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div
+          className="mb-8 rounded-2xl p-8 shadow-sm transition-all"
+          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+            e.currentTarget.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
           <div className="flex items-start gap-6">
             {(() => {
               const PathIcon = getPathIcon(path.id);
@@ -162,7 +173,20 @@ export default function EnglishPathPage() {
 
             return (
               <Link key={topic.id} href={`/english/${pathId}/${topic.id}`}>
-                <div className="rounded-xl p-6 shadow-sm border-2 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+                <div
+                  className="rounded-xl p-6 shadow-sm border-2 transition-all cursor-pointer group"
+                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--primary)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.12)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                    e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
                   <div className="flex items-start gap-4">
                     {/* Icon */}
                     <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:transition-colors" style={{ background: "var(--hover-bg)" }}>

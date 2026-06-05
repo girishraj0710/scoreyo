@@ -80,7 +80,18 @@ export default function EnglishHubPage() {
           {/* Learning Paths Preview */}
           <div className="grid md:grid-cols-3 gap-6 mb-16 items-stretch">
             {/* Foundation Builder - First Card */}
-            <div className="rounded-2xl p-8 shadow-lg flex flex-col h-full" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-lg flex flex-col h-full transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: "var(--hover-bg)" }}>
                 <BookOpen className="w-6 h-6 text-[#4255FF]" />
               </div>
@@ -115,7 +126,18 @@ export default function EnglishHubPage() {
             </div>
 
             {/* Competitive Exams - Second Card */}
-            <div className="rounded-2xl p-8 shadow-lg flex flex-col h-full" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-lg flex flex-col h-full transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: "var(--hover-bg)" }}>
                 <Target className="w-6 h-6 text-[#4255FF]" />
               </div>
@@ -150,7 +172,18 @@ export default function EnglishHubPage() {
             </div>
 
             {/* IELTS/TOEFL - Third Card */}
-            <div className="rounded-2xl p-8 shadow-lg flex flex-col h-full" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div
+              className="rounded-2xl p-8 shadow-lg flex flex-col h-full transition-all"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: "var(--hover-bg)" }}>
                 <Award className="w-6 h-6 text-[#4255FF]" />
               </div>
@@ -186,7 +219,18 @@ export default function EnglishHubPage() {
           </div>
 
           {/* Features */}
-          <div className="rounded-2xl p-8 shadow-lg mb-16" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+          <div
+            className="rounded-2xl p-8 shadow-lg mb-16 transition-all"
+            style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = "0 10px 15px -3px rgb(0 0 0 / 0.1)";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
             <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: "var(--foreground)" }}>Why Choose Our English Hub?</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
@@ -339,6 +383,14 @@ export default function EnglishHubPage() {
                 <div
                   className="rounded-2xl p-6 shadow-sm border-2 hover:shadow-lg transition-all cursor-pointer group h-full flex flex-col"
                   style={{ background: "var(--card-bg)", borderColor: `${path.color}20` }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.15)";
+                    e.currentTarget.style.borderColor = path.color;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)";
+                    e.currentTarget.style.borderColor = `${path.color}20`;
+                  }}
                 >
                   <div className="flex items-start gap-4 flex-1">
                     <div

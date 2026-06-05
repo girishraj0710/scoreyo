@@ -20,22 +20,22 @@ export function DailyProgressCard({
   const isPersonalBest = questionsToday > personalBest;
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
+    <div className="rounded-2xl p-6 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <p className="text-sm font-medium text-slate-600 mb-1">
+          <p className="text-sm font-medium mb-1" style={{ color: "var(--foreground-secondary)" }}>
             Questions Today
           </p>
           <div className="flex items-baseline gap-2">
             <motion.span
               key={questionsToday}
               initial={{ scale: 1.2, color: "#6366f1" }}
-              animate={{ scale: 1, color: "#0f172a" }}
+              animate={{ scale: 1, color: "var(--foreground)" }}
               className="text-4xl font-bold"
             >
               {questionsToday}
             </motion.span>
-            <span className="text-xl text-slate-400">/ {dailyGoal}</span>
+            <span className="text-xl" style={{ color: "var(--muted)" }}>/ {dailyGoal}</span>
           </div>
         </div>
 
@@ -49,7 +49,7 @@ export function DailyProgressCard({
               stroke="currentColor"
               strokeWidth="6"
               fill="transparent"
-              className="text-slate-200"
+              style={{ color: "var(--hover-bg)" }}
             />
             <motion.circle
               cx="40"
@@ -74,7 +74,7 @@ export function DailyProgressCard({
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-lg font-bold text-slate-700">
+            <span className="text-lg font-bold" style={{ color: "var(--foreground-secondary)" }}>
               {Math.round(progress)}%
             </span>
           </div>
@@ -86,10 +86,11 @@ export function DailyProgressCard({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200"
+          className="flex items-center gap-2 p-3 rounded-lg border"
+          style={{ background: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.3)" }}
         >
           <Zap className="w-5 h-5 text-green-600" />
-          <p className="text-sm font-medium text-green-700">
+          <p className="text-sm font-medium text-green-600">
             {isPersonalBest
               ? "🎉 New personal record!"
               : "🎯 Daily goal completed! Keep it up!"}
@@ -98,7 +99,7 @@ export function DailyProgressCard({
       ) : (
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-1.5 text-slate-600">
+            <div className="flex items-center gap-1.5" style={{ color: "var(--foreground-secondary)" }}>
               <Target className="w-4 h-4" />
               <span>
                 {remaining} more to reach your goal
@@ -107,7 +108,7 @@ export function DailyProgressCard({
           </div>
 
           {personalBest > 0 && questionsToday < personalBest && (
-            <div className="flex items-center gap-1.5 text-xs text-slate-500">
+            <div className="flex items-center gap-1.5 text-xs" style={{ color: "var(--muted)" }}>
               <TrendingUp className="w-3.5 h-3.5" />
               <span>
                 {personalBest - questionsToday} more to beat your record of {personalBest}
@@ -118,7 +119,7 @@ export function DailyProgressCard({
       )}
 
       {/* Progress Bar */}
-      <div className="mt-4 bg-slate-100 rounded-full h-2 overflow-hidden">
+      <div className="mt-4 rounded-full h-2 overflow-hidden" style={{ background: "var(--hover-bg)" }}>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}

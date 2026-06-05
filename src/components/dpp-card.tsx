@@ -43,7 +43,7 @@ export function DPPCard() {
 
   if (loading) {
     return (
-      <div className="bg-[#00A1E0] rounded-2xl p-6 shadow-lg text-white">
+      <div className="rounded-2xl p-6 shadow-lg text-white" style={{ background: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)" }}>
         <div className="animate-pulse">
           <div className="h-6 bg-white/20 rounded w-3/4 mb-4"></div>
           <div className="h-4 bg-white/20 rounded w-1/2"></div>
@@ -59,7 +59,7 @@ export function DPPCard() {
   const { dpp, completed, completionData, streak } = data;
 
   return (
-    <div className="bg-[#00A1E0] rounded-2xl p-6 shadow-lg text-white relative overflow-hidden h-[400px]">
+    <div className="rounded-2xl p-6 shadow-lg text-white relative overflow-hidden h-[400px]" style={{ background: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)" }}>
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
       <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
@@ -104,7 +104,7 @@ export function DPPCard() {
 
             <button
               onClick={() => router.push(`/dpp/${dpp.id}`)}
-              className="w-full px-4 py-3 bg-white text-[#00A1E0] font-bold rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
+              className="w-full px-4 py-3 bg-white text-[#00A1E0] font-bold rounded-xl hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
             >
               <span>Start Today's DPP</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
