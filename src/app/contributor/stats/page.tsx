@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { TrendingUp, Clock, CheckCircle, XCircle } from "lucide-react";
@@ -23,13 +23,19 @@ export default function StatsPage() {
   const [stats, setStats] = useState<ContributorStats | null>(null);
   const [pageLoading, setPageLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const isMountedRef = useRef(false);
 
   // Check if user is contributor or contributor
   useEffect(() => {
+    if (!isMountedRef.current) {
+      isMountedRef.current = true;
+      return;
+    }
+
     if (!isLoading && user && !isAdmin(user.role, user.email) && !['contributor', 'contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
-  }, [user, isLoading, router]);
+  }, [user, isLoading]);
 
   // Fetch stats
   useEffect(() => {
@@ -58,10 +64,10 @@ export default function StatsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading stats...</p>
+          <p style={{ color: "var(--foreground-secondary)" }}>Loading stats...</p>
         </div>
       </div>
     );
@@ -79,18 +85,18 @@ export default function StatsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
             <div className="flex items-center gap-4 mb-2">
               <Icon3DChart size={56} />
-              <h1 className="text-4xl font-bold text-slate-900">
+              <h1 className="text-4xl font-bold" style={{ color: "var(--foreground)" }}>
                 Contribution Stats
               </h1>
             </div>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg" style={{ color: "var(--foreground-secondary)" }}>
               Track your contribution to PrepGenie's question bank
             </p>
           </div>
@@ -104,9 +110,9 @@ export default function StatsPage() {
 
         {/* Error Message */}
         {error && (
-          <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-900 font-semibold">Error loading stats</p>
-            <p className="text-sm text-red-700 mt-1">{error}</p>
+          <div className="mb-8 p-4 rounded-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <p className="font-semibold text-red-500">Error loading stats</p>
+            <p className="text-sm text-red-500 mt-1 opacity-75">{error}</p>
           </div>
         )}
 
@@ -115,7 +121,7 @@ export default function StatsPage() {
           <div className="flex items-center justify-center py-12">
             <div className="text-center">
               <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full mx-auto mb-3" />
-              <p className="text-slate-600">Loading stats...</p>
+              <p style={{ color: "var(--foreground-secondary)" }}>Loading stats...</p>
             </div>
           </div>
         ) : stats ? (
@@ -123,33 +129,33 @@ export default function StatsPage() {
             {/* Main Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {/* Questions Contributed */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-8">
+              <div className="border-2 rounded-xl p-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold text-blue-900">Questions Contributed</h3>
+                  <h3 className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>Questions Contributed</h3>
                   <Icon3DNotebook size={48} />
                 </div>
                 <p className="text-5xl font-bold text-blue-600 mb-2">{stats.questions_contributed}</p>
-                <p className="text-sm text-blue-700">Total questions submitted</p>
+                <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Total questions submitted</p>
               </div>
 
               {/* Contribution Points */}
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-xl p-8">
+              <div className="border-2 rounded-xl p-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold text-purple-900">Contribution Points</h3>
+                  <h3 className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>Contribution Points</h3>
                   <Icon3DTrophy size={48} />
                 </div>
                 <p className="text-5xl font-bold text-purple-600 mb-2">{stats.contribution_points}</p>
-                <p className="text-sm text-purple-700">Points earned from approved questions</p>
+                <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Points earned from approved questions</p>
               </div>
 
               {/* Approval Rate */}
-              <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-xl p-8">
+              <div className="border-2 rounded-xl p-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold text-green-900">Approval Rate</h3>
+                  <h3 className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>Approval Rate</h3>
                   <TrendingUp className="w-6 h-6 text-green-600" />
                 </div>
                 <p className="text-5xl font-bold text-green-600 mb-2">{stats.approval_rate}%</p>
-                <p className="text-sm text-green-700">Percentage of approved questions</p>
+                <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Percentage of approved questions</p>
               </div>
             </div>
 
@@ -160,7 +166,7 @@ export default function StatsPage() {
                   <p className="text-sm opacity-90 mb-2">Your Current Level</p>
                   <div className="flex items-center gap-3 mb-2">
                     <Icon3DTrophy size={48} />
-                    <h2 className="text-4xl font-bold">{getLevel(stats.contribution_points)}</h2>
+                    <h2 className="text-4xl font-bold" style={{ color: "var(--card-bg)" }}>{getLevel(stats.contribution_points)}</h2>
                   </div>
                   <p className="text-sm opacity-90">Keep contributing to reach the next level!</p>
                 </div>
@@ -171,8 +177,8 @@ export default function StatsPage() {
             {/* Question Status Breakdown */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Status Chart */}
-              <div className="bg-white border-2 border-slate-200 rounded-xl p-8">
-                <h3 className="text-lg font-bold text-slate-900 mb-6">Question Status</h3>
+              <div className="border-2 rounded-xl p-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+                <h3 className="text-lg font-bold mb-6" style={{ color: "var(--foreground)" }}>Question Status</h3>
 
                 <div className="space-y-4">
                   {/* Pending */}
@@ -180,11 +186,11 @@ export default function StatsPage() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-yellow-500" />
-                        <span className="text-slate-700 font-medium">Pending</span>
+                        <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>Pending</span>
                       </div>
-                      <span className="font-bold text-slate-900">{stats.pending_questions}</span>
+                      <span className="font-bold" style={{ color: "var(--foreground)" }}>{stats.pending_questions}</span>
                     </div>
-                    <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                       <div
                         className="bg-yellow-500 h-2 rounded-full transition-all"
                         style={{
@@ -199,11 +205,11 @@ export default function StatsPage() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-slate-700 font-medium">Approved</span>
+                        <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>Approved</span>
                       </div>
-                      <span className="font-bold text-slate-900">{stats.approved_questions}</span>
+                      <span className="font-bold" style={{ color: "var(--foreground)" }}>{stats.approved_questions}</span>
                     </div>
-                    <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                       <div
                         className="bg-green-500 h-2 rounded-full transition-all"
                         style={{
@@ -218,11 +224,11 @@ export default function StatsPage() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <XCircle className="w-4 h-4 text-red-500" />
-                        <span className="text-slate-700 font-medium">Rejected</span>
+                        <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>Rejected</span>
                       </div>
-                      <span className="font-bold text-slate-900">{stats.rejected_questions}</span>
+                      <span className="font-bold" style={{ color: "var(--foreground)" }}>{stats.rejected_questions}</span>
                     </div>
-                    <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                       <div
                         className="bg-red-500 h-2 rounded-full transition-all"
                         style={{
@@ -235,27 +241,27 @@ export default function StatsPage() {
               </div>
 
               {/* Quick Stats */}
-              <div className="bg-white border-2 border-slate-200 rounded-xl p-8">
-                <h3 className="text-lg font-bold text-slate-900 mb-6">Quick Summary</h3>
+              <div className="border-2 rounded-xl p-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+                <h3 className="text-lg font-bold mb-6" style={{ color: "var(--foreground)" }}>Quick Summary</h3>
 
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
-                    <span className="text-slate-700">Total Submissions</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg" style={{ background: "var(--hover-bg)" }}>
+                    <span style={{ color: "var(--foreground-secondary)" }}>Total Submissions</span>
                     <span className="text-2xl font-bold text-blue-600">{stats.questions_contributed}</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
-                    <span className="text-slate-700">Earning Per Question</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg" style={{ background: "var(--hover-bg)" }}>
+                    <span style={{ color: "var(--foreground-secondary)" }}>Earning Per Question</span>
                     <span className="text-2xl font-bold text-green-600">+10 pts</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg">
-                    <span className="text-slate-700">Current Earnings</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg" style={{ background: "var(--hover-bg)" }}>
+                    <span style={{ color: "var(--foreground-secondary)" }}>Current Earnings</span>
                     <span className="text-2xl font-bold text-purple-600">{stats.contribution_points} pts</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-amber-50 rounded-lg">
-                    <span className="text-slate-700">Success Rate</span>
+                  <div className="flex items-center justify-between p-4 rounded-lg" style={{ background: "var(--hover-bg)" }}>
+                    <span style={{ color: "var(--foreground-secondary)" }}>Success Rate</span>
                     <span className="text-2xl font-bold text-amber-600">{stats.approval_rate}%</span>
                   </div>
                 </div>
@@ -263,16 +269,16 @@ export default function StatsPage() {
             </div>
 
             {/* Leaderboard Info */}
-            <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6">
+            <div className="border-2 rounded-xl p-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
               <div className="flex items-start gap-3">
                 <Icon3DTarget size={32} />
                 <div>
-                  <p className="text-indigo-900 mb-2">
+                  <p className="mb-2" style={{ color: "var(--foreground)" }}>
                     <strong>Tip:</strong> Higher quality questions and consistent contributions help you climb the contributor leaderboard. Keep improving your submissions!
                   </p>
                 </div>
               </div>
-              <p className="text-sm text-indigo-800">
+              <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
                 Last updated: {new Date().toLocaleTimeString('en-IN')}
               </p>
             </div>

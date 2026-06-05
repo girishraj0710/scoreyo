@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
@@ -14,17 +14,23 @@ export default function CreateQuestionSelectExamPage() {
   const { user, isLoading } = useUser();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [examSearch, setExamSearch] = useState('');
+  const isMountedRef = useRef(false);
 
   // Check if user is contributor or admin
   useEffect(() => {
+    if (!isMountedRef.current) {
+      isMountedRef.current = true;
+      return;
+    }
+
     if (!isLoading && user && !isAdmin(user.role, user.email) && !['contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
-  }, [user, isLoading, router]);
+  }, [user, isLoading]);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
@@ -42,7 +48,7 @@ export default function CreateQuestionSelectExamPage() {
   };
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">

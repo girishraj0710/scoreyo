@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories, getExamById } from "@/lib/exams";
@@ -15,13 +15,19 @@ function SelectSubjectContent() {
   const { user, isLoading } = useUser();
   const examId = searchParams.get("examId");
   const [subjectSearch, setSubjectSearch] = useState('');
+  const isMountedRef = useRef(false);
 
   // Check if user is contributor or admin
   useEffect(() => {
+    if (!isMountedRef.current) {
+      isMountedRef.current = true;
+      return;
+    }
+
     if (!isLoading && user && !isAdmin(user.role, user.email) && !['contributor'].includes(user.role || 'student')) {
       router.push('/');
     }
-  }, [user, isLoading, router]);
+  }, [user, isLoading]);
 
   useEffect(() => {
     if (!examId) {
@@ -31,7 +37,7 @@ function SelectSubjectContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
@@ -48,7 +54,7 @@ function SelectSubjectContent() {
 
   if (!exam) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="text-center">
           <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>Exam not found</p>
           <button
@@ -91,7 +97,7 @@ function SelectSubjectContent() {
   };
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -138,7 +144,7 @@ function SelectSubjectContent() {
         </div>
 
         {/* Selected Exam Summary */}
-        <div className="rounded-xl p-6 mb-8" style={{ background: "var(--primary-bg)", borderColor: "#818cf8", borderWidth: "2px", borderStyle: "solid" }}>
+        <div className="rounded-xl p-6 mb-8" style={{ background: "var(--background)", borderColor: "#818cf8", borderWidth: "2px", borderStyle: "solid" }}>
           <div className="flex items-center gap-4">
             {getExamIcon(exam.category)}
             <div>
@@ -233,7 +239,7 @@ function SelectSubjectContent() {
 export default function SelectSubjectPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>

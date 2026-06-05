@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/user-context';
 import { isAdmin } from '@/lib/admin';
@@ -33,6 +33,7 @@ export default function ContributorMaterialsPage() {
   const [uploadMessage, setUploadMessage] = useState('');
   const [examSearch, setExamSearch] = useState('');
   const [subjectSearch, setSubjectSearch] = useState('');
+  const isMountedRef = useRef(false);
 
   const exams = getAllExams();
   const selectedExamObj = selectedExam ? getExamById(selectedExam) : null;
@@ -40,10 +41,15 @@ export default function ContributorMaterialsPage() {
 
   // Check auth
   useEffect(() => {
+    if (!isMountedRef.current) {
+      isMountedRef.current = true;
+      return;
+    }
+
     if (!userLoading && user && !isAdmin(user.role, user.email) && user.role !== 'contributor') {
       router.push('/');
     }
-  }, [user, userLoading, router]);
+  }, [user, userLoading]);
 
   // Get exam name
   const examName = selectedExam
@@ -122,7 +128,7 @@ export default function ContributorMaterialsPage() {
 
   if (userLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
@@ -136,7 +142,7 @@ export default function ContributorMaterialsPage() {
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -272,7 +278,7 @@ export default function ContributorMaterialsPage() {
         {/* Step 2: Select Subject */}
         {step === 'subject' && examName && (
           <div className="space-y-6">
-            <div className="flex items-center gap-2 p-4 rounded-lg" style={{ background: "var(--primary-bg)", borderColor: "#818cf8", borderWidth: "1px", borderStyle: "solid" }}>
+            <div className="flex items-center gap-2 p-4 rounded-lg" style={{ background: "var(--background)", borderColor: "#818cf8", borderWidth: "1px", borderStyle: "solid" }}>
               <CheckCircle className="w-5 h-5 text-indigo-600" />
               <p style={{ color: "var(--foreground)" }}>Selected: <span className="font-semibold">{examName}</span></p>
             </div>
@@ -368,7 +374,7 @@ export default function ContributorMaterialsPage() {
         {/* Step 3: Upload Files */}
         {step === 'upload' && examName && subjectName && (
           <div className="space-y-8">
-            <div className="flex items-center gap-4 p-4 rounded-lg" style={{ background: "var(--primary-bg)", borderColor: "#818cf8", borderWidth: "1px", borderStyle: "solid" }}>
+            <div className="flex items-center gap-4 p-4 rounded-lg" style={{ background: "var(--background)", borderColor: "#818cf8", borderWidth: "1px", borderStyle: "solid" }}>
               <CheckCircle className="w-5 h-5 text-indigo-600 flex-shrink-0" />
               <div>
                 <p style={{ color: "var(--foreground)" }}>

@@ -21,7 +21,7 @@ export default function ContributorPortalPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading contributor portal...</p>
@@ -35,7 +35,7 @@ export default function ContributorPortalPage() {
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -198,7 +198,7 @@ export default function ContributorPortalPage() {
 
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--background)" }}>
                 <span className="text-2xl font-bold text-indigo-600">1</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Select Exam</h3>
@@ -208,7 +208,7 @@ export default function ContributorPortalPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--background)" }}>
                 <span className="text-2xl font-bold text-indigo-600">2</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Select Subject</h3>
@@ -218,7 +218,7 @@ export default function ContributorPortalPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--background)" }}>
                 <span className="text-2xl font-bold text-indigo-600">3</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Upload Material</h3>
