@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Search, X } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
 import { PremiumIcon } from "@/components/premium-icon";
@@ -13,6 +13,7 @@ export default function CreateQuestionSelectExamPage() {
   const router = useRouter();
   const { user, isLoading } = useUser();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [examSearch, setExamSearch] = useState('');
 
   // Check if user is contributor or admin
   useEffect(() => {
@@ -119,86 +120,153 @@ export default function CreateQuestionSelectExamPage() {
         {/* Exam Grid */}
         {selectedCategory && (
           <section>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-slate-900">
                 {examCategories.find(c => c.id === selectedCategory)?.name} Exams
               </h2>
               <button
-                onClick={() => setSelectedCategory(null)}
+                onClick={() => {
+                  setSelectedCategory(null);
+                  setExamSearch('');
+                }}
                 className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
               >
                 ← Change Category
               </button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {examCategories
-                .find((c) => c.id === selectedCategory)
-                ?.exams.map((exam) => (
-                  <button
-                    key={exam.id}
-                    onClick={() => handleExamSelect(exam.id)}
-                    className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-left group"
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-16 h-16 flex items-center justify-center shrink-0">
-                        <ColorfulExamIcon examId={exam.id} size={48} />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">
-                          {exam.name}
-                        </div>
-                        <div className="text-xs text-slate-500 mt-1">
-                          {exam.fullName}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-xs text-slate-400 mb-3">
-                      {exam.subjects.length} subjects | {exam.subjects.reduce((sum, s) => sum + s.topics.length, 0)} topics
-                    </div>
-                    <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
-                      Select Exam <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </button>
-                ))}
+
+            {/* Search Input */}
+            <div className="mb-6 relative">
+              <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search exams..."
+                value={examSearch}
+                onChange={(e) => setExamSearch(e.target.value)}
+                className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+              />
+              {examSearch && (
+                <button
+                  onClick={() => setExamSearch('')}
+                  className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
             </div>
+
+            {/* Filtered Exams */}
+            {examCategories
+              .find((c) => c.id === selectedCategory)
+              ?.exams.filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase())).length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-slate-500">No exams found matching "{examSearch}"</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {examCategories
+                  .find((c) => c.id === selectedCategory)
+                  ?.exams.filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase()))
+                  .map((exam) => (
+                    <button
+                      key={exam.id}
+                      onClick={() => handleExamSelect(exam.id)}
+                      className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-left group"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-16 h-16 flex items-center justify-center shrink-0">
+                          <ColorfulExamIcon examId={exam.id} size={48} />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">
+                            {exam.name}
+                          </div>
+                          <div className="text-xs text-slate-500 mt-1">
+                            {exam.fullName}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-slate-400 mb-3">
+                        {exam.subjects.length} subjects | {exam.subjects.reduce((sum, s) => sum + s.topics.length, 0)} topics
+                      </div>
+                      <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
+                        Select Exam <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </button>
+                  ))}
+              </div>
+            )}
           </section>
         )}
 
         {/* Show all exams if no category selected */}
         {!selectedCategory && (
           <section>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-slate-900">Or Browse All Exams</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {examCategories.flatMap(cat => cat.exams).map((exam) => (
+
+            {/* Search Input */}
+            <div className="mb-6 relative">
+              <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search all exams..."
+                value={examSearch}
+                onChange={(e) => setExamSearch(e.target.value)}
+                className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+              />
+              {examSearch && (
                 <button
-                  key={exam.id}
-                  onClick={() => handleExamSelect(exam.id)}
-                  className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-left group"
+                  onClick={() => setExamSearch('')}
+                  className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-16 h-16 flex items-center justify-center shrink-0">
-                      <ColorfulExamIcon examId={exam.id} size={48} />
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">
-                        {exam.name}
-                      </div>
-                      <div className="text-xs text-slate-500 mt-1 line-clamp-1">
-                        {exam.fullName}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-xs text-slate-400 mb-3">
-                    {exam.subjects.length} subjects | {exam.subjects.reduce((sum, s) => sum + s.topics.length, 0)} topics
-                  </div>
-                  <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
-                    Select Exam <ArrowRight className="w-4 h-4" />
-                  </div>
+                  <X className="w-5 h-5" />
                 </button>
-              ))}
+              )}
             </div>
+
+            {/* Filtered All Exams */}
+            {examCategories
+              .flatMap(cat => cat.exams)
+              .filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase())).length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-slate-500">No exams found matching "{examSearch}"</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {examCategories
+                  .flatMap(cat => cat.exams)
+                  .filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase()))
+                  .map((exam) => (
+                    <button
+                      key={exam.id}
+                      onClick={() => handleExamSelect(exam.id)}
+                      className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-left group"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-16 h-16 flex items-center justify-center shrink-0">
+                          <ColorfulExamIcon examId={exam.id} size={48} />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">
+                            {exam.name}
+                          </div>
+                          <div className="text-xs text-slate-500 mt-1 line-clamp-1">
+                            {exam.fullName}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-slate-400 mb-3">
+                        {exam.subjects.length} subjects | {exam.subjects.reduce((sum, s) => sum + s.topics.length, 0)} topics
+                      </div>
+                      <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
+                        Select Exam <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </button>
+                  ))}
+              </div>
+            )}
           </section>
         )}
       </div>

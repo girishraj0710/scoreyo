@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { examCategories, getExamById } from "@/lib/exams";
-import { ArrowRight, BookOpen, CheckCircle } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle, Search, X } from "lucide-react";
 import { ColorfulSubjectIcon, ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DBook, Icon3DGraduationCap, Icon3DRocket, Icon3DTarget, Icon3DTrophy, Icon3DChart, Icon3DNotebook } from "@/components/premium-3d-icons";
@@ -14,6 +14,7 @@ function SelectSubjectContent() {
   const searchParams = useSearchParams();
   const { user, isLoading } = useUser();
   const examId = searchParams.get("examId");
+  const [subjectSearch, setSubjectSearch] = useState('');
 
   // Check if user is contributor or admin
   useEffect(() => {
@@ -151,28 +152,58 @@ function SelectSubjectContent() {
         {/* Subject Grid */}
         <section>
           <h2 className="text-xl font-bold text-slate-900 mb-4">Choose Subject</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {exam.subjects.map((subject) => (
+
+          {/* Search Input */}
+          <div className="mb-6 relative">
+            <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search subjects..."
+              value={subjectSearch}
+              onChange={(e) => setSubjectSearch(e.target.value)}
+              className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+            />
+            {subjectSearch && (
               <button
-                key={subject.id}
-                onClick={() => handleSubjectSelect(subject.id)}
-                className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-center group min-h-[160px] flex flex-col items-center justify-center"
+                onClick={() => setSubjectSearch('')}
+                className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
               >
-                <div className="flex justify-center mb-3">
-                  <ColorfulSubjectIcon subjectId={subject.id} size={56} />
-                </div>
-                <div className="text-base font-semibold text-slate-800 group-hover:text-indigo-600 mb-2">
-                  {subject.name}
-                </div>
-                <div className="text-xs text-slate-400 mb-3">
-                  {subject.topics.length} topics
-                </div>
-                <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
-                  Select <ArrowRight className="w-4 h-4" />
-                </div>
+                <X className="w-5 h-5" />
               </button>
-            ))}
+            )}
           </div>
+
+          {/* Filtered Subjects */}
+          {exam.subjects.filter(s => s.name.toLowerCase().includes(subjectSearch.toLowerCase())).length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-slate-500">No subjects found matching "{subjectSearch}"</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {exam.subjects
+                .filter(s => s.name.toLowerCase().includes(subjectSearch.toLowerCase()))
+                .map((subject) => (
+                  <button
+                    key={subject.id}
+                    onClick={() => handleSubjectSelect(subject.id)}
+                    className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-center group min-h-[160px] flex flex-col items-center justify-center"
+                  >
+                    <div className="flex justify-center mb-3">
+                      <ColorfulSubjectIcon subjectId={subject.id} size={56} />
+                    </div>
+                    <div className="text-base font-semibold text-slate-800 group-hover:text-indigo-600 mb-2">
+                      {subject.name}
+                    </div>
+                    <div className="text-xs text-slate-400 mb-3">
+                      {subject.topics.length} topics
+                    </div>
+                    <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
+                      Select <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </button>
+                ))}
+            </div>
+          )}
         </section>
       </div>
     </div>

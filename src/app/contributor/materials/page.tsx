@@ -7,7 +7,8 @@ import { isAdmin } from '@/lib/admin';
 import { useLocale } from '@/context/locale-context';
 import { StudyMaterialUploader } from '@/components/study-material-uploader';
 import { getAllExams, getExamById } from '@/lib/exams';
-import { ChevronRight, Upload, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { ChevronRight, Upload, CheckCircle, AlertCircle, Loader, Search, X } from 'lucide-react';
+import { ColorfulExamIcon, ColorfulCategoryIcon } from '@/lib/colorful-exam-icons';
 
 interface FileUpload {
   file: File;
@@ -30,6 +31,8 @@ export default function ContributorMaterialsPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [uploadMessage, setUploadMessage] = useState('');
+  const [examSearch, setExamSearch] = useState('');
+  const [subjectSearch, setSubjectSearch] = useState('');
 
   const exams = getAllExams();
   const selectedExamObj = selectedExam ? getExamById(selectedExam) : null;
@@ -137,6 +140,14 @@ export default function ContributorMaterialsPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+            <a
+              href="/contributor"
+              className="text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-1"
+            >
+              ← Back to Portal
+            </a>
+          </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-3">
             Upload Study Materials
           </h1>
@@ -178,23 +189,62 @@ export default function ContributorMaterialsPage() {
         {/* Step 1: Select Exam */}
         {step === 'exam' && (
           <div className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              {exams.map((exam) => (
-                <button
-                  key={exam.id}
-                  onClick={() => {
-                    setSelectedExam(exam.id);
-                    setSelectedSubject(null);
-                    setStep('subject');
-                  }}
-                  className="p-6 text-left border-2 border-slate-200 rounded-lg hover:border-indigo-400 hover:shadow-md transition-all"
-                >
-                  <p className="font-semibold text-slate-900">{exam.name}</p>
-                  <p className="text-sm text-slate-600 mt-1">
-                    Share materials for {exam.name}
-                  </p>
-                </button>
-              ))}
+            {/* Search Input */}
+            <div className="relative">
+              <div className="relative">
+                <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search exams..."
+                  value={examSearch}
+                  onChange={(e) => setExamSearch(e.target.value)}
+                  className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+                />
+                {examSearch && (
+                  <button
+                    onClick={() => setExamSearch('')}
+                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Filtered Exams */}
+            <div>
+              {exams.filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase())).length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-slate-500">No exams found matching "{examSearch}"</p>
+                </div>
+              ) : (
+                <div className="grid md:grid-cols-2 gap-4">
+                  {exams
+                    .filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase()))
+                    .map((exam) => (
+                      <button
+                        key={exam.id}
+                        onClick={() => {
+                          setSelectedExam(exam.id);
+                          setSelectedSubject(null);
+                          setExamSearch('');
+                          setStep('subject');
+                        }}
+                        className="p-6 text-left border-2 border-slate-200 rounded-lg hover:border-indigo-400 hover:shadow-md transition-all flex items-start gap-4"
+                      >
+                        <div className="flex-shrink-0 mt-1">
+                          <ColorfulExamIcon examId={exam.id} size={40} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-semibold text-slate-900">{exam.name}</p>
+                          <p className="text-sm text-slate-600 mt-1">
+                            Share materials for {exam.name}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -209,24 +259,63 @@ export default function ContributorMaterialsPage() {
 
             <h2 className="text-2xl font-bold text-slate-900">Select Subject</h2>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {subjects.map((subject) => (
-                <button
-                  key={subject.id}
-                  onClick={() => {
-                    setSelectedSubject(subject.id);
-                    setStep('upload');
-                  }}
-                  className="p-6 text-left border-2 border-slate-200 rounded-lg hover:border-indigo-400 hover:shadow-md transition-all"
-                >
-                  <p className="font-semibold text-slate-900">{subject.name}</p>
-                </button>
-              ))}
+            {/* Search Input */}
+            <div className="relative">
+              <div className="relative">
+                <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search subjects..."
+                  value={subjectSearch}
+                  onChange={(e) => setSubjectSearch(e.target.value)}
+                  className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+                />
+                {subjectSearch && (
+                  <button
+                    onClick={() => setSubjectSearch('')}
+                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
             </div>
+
+            {/* Filtered Subjects */}
+            {subjects.filter(s => s.name.toLowerCase().includes(subjectSearch.toLowerCase())).length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-slate-500">No subjects found matching "{subjectSearch}"</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-4">
+                {subjects
+                  .filter(s => s.name.toLowerCase().includes(subjectSearch.toLowerCase()))
+                  .map((subject) => (
+                    <button
+                      key={subject.id}
+                      onClick={() => {
+                        setSelectedSubject(subject.id);
+                        setSubjectSearch('');
+                        setStep('upload');
+                      }}
+                      className="p-6 text-left border-2 border-slate-200 rounded-lg hover:border-indigo-400 hover:shadow-md transition-all flex items-start gap-4"
+                    >
+                      <div className="flex-shrink-0 mt-1">
+                        <ColorfulCategoryIcon categoryId={subject.id} size={40} />
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-slate-900">{subject.name}</p>
+                      </div>
+                    </button>
+                  ))}
+              </div>
+            )}
 
             <button
               onClick={() => {
                 setSelectedExam(null);
+                setExamSearch('');
+                setSubjectSearch('');
                 setStep('exam');
               }}
               className="text-indigo-600 hover:text-indigo-700 font-medium"
