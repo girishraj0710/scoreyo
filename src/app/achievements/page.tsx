@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { BADGES, RARITY_STYLES, checkBadges, getNextMilestones, type Badge } from "@/lib/achievements";
 import { Trophy, Award, Lock, Share2, TrendingUp } from "lucide-react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 interface BadgeWithStatus extends Badge {
   unlocked: boolean;
