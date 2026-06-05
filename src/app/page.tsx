@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { examCategories, type Exam, getExamById } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { Zap, Flame } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
 
@@ -294,14 +295,13 @@ function HomePageContent() {
 
   // Show quiz selection interface for logged-in users
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Hero Section */}
-      <section className="text-center mb-8 md:mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2">
-          <span className="text-[#4255FF]">
-            Smart Exam Prep
-          </span>
-        </h1>
+    <AccessibilityWrapper>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Section */}
+        <section className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2" style={{ color: "var(--foreground)" }}>
+            Smart Exam Prep for Success
+          </h1>
         <p className="text-base sm:text-lg max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed px-2" style={{ color: "var(--foreground-secondary)" }}>
           Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br className="hidden sm:block" />
           <span className="sm:hidden"> </span>AI-powered practice with progress tracking to master every topic.
@@ -928,7 +928,8 @@ function HomePageContent() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </AccessibilityWrapper>
   );
 }
 

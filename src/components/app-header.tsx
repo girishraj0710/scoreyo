@@ -147,14 +147,14 @@ export function AppHeader() {
             <div className="flex items-center gap-3 ml-2">
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 font-medium rounded-lg border transition-colors"
+                className="w-24 px-4 py-2 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 style={{ color: 'var(--foreground-secondary)', backgroundColor: 'var(--hover-bg)', borderColor: 'var(--card-border)' }}
               >
                 Log in
               </button>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="w-24 px-4 py-2 text-white font-medium rounded-lg border transition-colors"
+                className="w-24 px-4 py-2 text-white font-medium rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2"
                 style={{ backgroundColor: 'var(--primary)', borderColor: 'var(--primary)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary-dark)')}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary)')}
@@ -169,10 +169,12 @@ export function AppHeader() {
             <div className="relative ml-2" ref={menuRef}>
               <button
                 onClick={() => setShowMenu(!showMenu)}
-                className="flex items-center gap-2 px-2 py-1.5 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-2 py-1.5 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 style={{ backgroundColor: 'transparent' }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                aria-label={`${showMenu ? 'Close' : 'Open'} user menu`}
+                aria-expanded={showMenu}
               >
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs"
@@ -264,7 +266,7 @@ export function AppHeader() {
                   )}
                   <Link
                     href="/settings"
-                    className="block px-4 py-2 text-sm flex items-center gap-2 transition-colors"
+                    className="block px-4 py-2 text-sm flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent' }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
@@ -278,10 +280,11 @@ export function AppHeader() {
                   </Link>
                   <button
                     onClick={() => toggleTheme()}
-                    className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors"
+                    className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent', borderTop: '1px solid var(--card-border)' }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                    aria-label={`Toggle ${isDarkMode ? 'light' : 'dark'} mode`}
                   >
                     {isDarkMode ? (
                       <>
@@ -301,10 +304,11 @@ export function AppHeader() {
                       router.push("/");
                       logout();
                     }}
-                    className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors"
+                    className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
                     style={{ color: 'var(--danger)', backgroundColor: 'transparent' }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--danger-light)')}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                    aria-label="Logout"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />

@@ -67,7 +67,8 @@ export default function MorePage() {
   ];
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-20 md:pb-8">
+    <AccessibilityWrapper>
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-20 md:pb-8">
       {/* User Info */}
       <div className="bg-gradient-to-r from-indigo-500 to-violet-500 rounded-2xl p-6 mb-6 text-white">
         <div className="flex items-center gap-4">
@@ -148,5 +149,6 @@ export default function MorePage() {
         PrepGenie v1.0.0
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

@@ -8,6 +8,7 @@ import { ArrowRight, BookOpen, CheckCircle, Search, X } from "lucide-react";
 import { ColorfulSubjectIcon, ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DBook, Icon3DGraduationCap, Icon3DRocket, Icon3DTarget, Icon3DTrophy, Icon3DChart, Icon3DNotebook } from "@/components/premium-3d-icons";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 function SelectSubjectContent() {
   const router = useRouter();
@@ -238,7 +239,8 @@ function SelectSubjectContent() {
 
 export default function SelectSubjectPage() {
   return (
-    <Suspense fallback={
+    <AccessibilityWrapper>
+      <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
@@ -247,6 +249,7 @@ export default function SelectSubjectPage() {
       </div>
     }>
       <SelectSubjectContent />
-    </Suspense>
+      </Suspense>
+    </AccessibilityWrapper>
   );
 }

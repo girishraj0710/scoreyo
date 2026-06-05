@@ -22,7 +22,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   // Handle legacy string explanations
   if (typeof explanation === 'string') {
     return (
-      <div className="mt-6 space-y-4">
+      <div className="mt-6 space-y-4" aria-live="polite" role="region" aria-label="Question explanation">
         <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-[#4255FF] font-semibold text-sm">💡 Explanation</span>
@@ -44,7 +44,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   const wrongOptions = [0, 1, 2, 3].filter(i => i !== correctAnswer);
 
   return (
-    <div className="mt-6 space-y-4">
+    <div className="mt-6 space-y-4" aria-live="polite" role="region" aria-label="Detailed question explanation">
       {/* Core Logic */}
       <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
         <div className="flex items-center gap-2 mb-2">

@@ -1,3 +1,5 @@
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+
 export const metadata = {
   title: "Terms of Service | PrepGenie",
   description: "Terms of Service for PrepGenie - AI-powered exam preparation platform",
@@ -5,7 +7,8 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-slate-100">
+    <AccessibilityWrapper>
+      <div className="min-h-screen bg-slate-100">
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 md:p-12">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Terms of Service</h1>
@@ -234,5 +237,6 @@ export default function TermsPage() {
         </div>
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

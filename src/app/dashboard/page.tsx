@@ -11,6 +11,7 @@ import { LevelProgressWidget } from "@/components/level-progress-widget";
 import { StudyStreakCalendar } from "@/components/study-streak-calendar";
 import { StreakBadge } from "@/components/streak-badge";
 import { DailyProgressCard } from "@/components/daily-progress-card";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { BookOpen } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { usePullToRefresh } from "@/hooks/use-pull-to-refresh";
@@ -158,34 +159,37 @@ export default function DashboardPage() {
 
   if (!stats || stats.totalSessions === 0) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="rounded-2xl p-12 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-          <div className="flex justify-center mb-6">
-            <BookOpen className="w-20 h-20" style={{ color: '#4255FF' }} />
+      <AccessibilityWrapper>
+        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+          <div className="rounded-2xl p-12 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+            <div className="flex justify-center mb-6">
+              <BookOpen className="w-20 h-20" style={{ color: '#4255FF' }} />
+            </div>
+            <h1 className="text-2xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
+              No Quiz Data Yet
+            </h1>
+            <p className="mb-6" style={{ color: "var(--muted)" }}>
+              Take your first quiz to see your dashboard with progress tracking,
+              streaks, and performance analytics!
+            </p>
+            <a
+              href="/"
+              className="inline-block px-8 py-3 text-white font-semibold rounded-xl shadow-lg"
+              style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s' }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
+            >
+              Start Your First Quiz
+            </a>
           </div>
-          <h2 className="text-2xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
-            No Quiz Data Yet
-          </h2>
-          <p className="mb-6" style={{ color: "var(--muted)" }}>
-            Take your first quiz to see your dashboard with progress tracking,
-            streaks, and performance analytics!
-          </p>
-          <a
-            href="/"
-            className="inline-block px-8 py-3 text-white font-semibold rounded-xl shadow-lg"
-            style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s' }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
-          >
-            Start Your First Quiz
-          </a>
         </div>
-      </div>
+      </AccessibilityWrapper>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <AccessibilityWrapper>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Version Badge - Remove after testing */}
       <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#4255FF' }}>
         AGENTFORCE-BLUE
@@ -193,7 +197,7 @@ export default function DashboardPage() {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-3">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold" style={{ color: "var(--foreground)" }}>Your Dashboard</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: "var(--foreground)" }}>Your Dashboard</h1>
           <p className="text-xs sm:text-sm mt-1" style={{ color: "var(--muted)" }}>
             Track your preparation progress across all exams
           </p>
@@ -448,5 +452,6 @@ export default function DashboardPage() {
         </div>
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

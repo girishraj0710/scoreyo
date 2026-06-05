@@ -129,7 +129,8 @@ export default function CustomQuizPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4" style={{ background: "var(--page-bg)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4" style={{ background: "var(--page-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -408,5 +409,6 @@ export default function CustomQuizPage() {
         )}
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

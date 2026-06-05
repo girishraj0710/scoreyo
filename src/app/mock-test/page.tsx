@@ -11,6 +11,7 @@ import { FileText, Sparkles } from "lucide-react";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 // Dynamic import: Only load builder when user clicks "Create Custom Test"
 const CustomMockTestBuilder = dynamic(
@@ -1002,8 +1003,9 @@ export default function MockTestPage() {
 
   // Selection screen - NEW REDESIGNED UI
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
+    <AccessibilityWrapper>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
           Mock Tests
@@ -1457,5 +1459,6 @@ export default function MockTestPage() {
         />
       )}
     </div>
+    </AccessibilityWrapper>
   );
 }

@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 /**
  * Admin Dashboard Page - Dynamic Import Wrapper

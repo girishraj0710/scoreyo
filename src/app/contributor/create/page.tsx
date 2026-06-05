@@ -8,6 +8,7 @@ import { ArrowRight, Sparkles, Search, X } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon } from "@/lib/colorful-exam-icons";
 import { isAdmin } from "@/lib/admin";
 import { PremiumIcon } from "@/components/premium-icon";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function CreateQuestionSelectExamPage() {
   const router = useRouter();
@@ -48,7 +49,8 @@ export default function CreateQuestionSelectExamPage() {
   };
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -331,5 +333,6 @@ export default function CreateQuestionSelectExamPage() {
         )}
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

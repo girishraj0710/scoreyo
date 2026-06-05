@@ -28,7 +28,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <AccessibilityWrapper>
+      <div className="min-h-screen bg-slate-100">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Contact & Support</h1>
@@ -248,5 +249,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

@@ -7,6 +7,7 @@ import { CheckCircle, XCircle, Clock } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DNotebook, Icon3DBook } from "@/components/premium-3d-icons";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 interface Submission {
   id: string;
@@ -110,7 +111,8 @@ export default function SubmissionsPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
@@ -270,5 +272,6 @@ export default function SubmissionsPage() {
         )}
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

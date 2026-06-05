@@ -7,6 +7,7 @@ import { ArrowRight, Zap, CheckCircle, Upload } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DTarget, Icon3DSparkle, Icon3DNotebook, Icon3DChart, Icon3DGraduationCap, Icon3DTrophy, Icon3DRocket } from "@/components/premium-3d-icons";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function ContributorPortalPage() {
   const router = useRouter();
@@ -21,12 +22,14 @@ export default function ContributorPortalPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
+      <AccessibilityWrapper>
+        <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading contributor portal...</p>
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
@@ -35,7 +38,8 @@ export default function ContributorPortalPage() {
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -298,5 +302,6 @@ export default function ContributorPortalPage() {
         </div>
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

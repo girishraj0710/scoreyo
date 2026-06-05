@@ -69,15 +69,18 @@ function LevelSelectionContent() {
 
   if (isLoading || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
-      </div>
+      <AccessibilityWrapper>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
+        </div>
+      </AccessibilityWrapper>
     );
   }
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
+      <AccessibilityWrapper>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-slate-800 mb-4">Login Required</h2>
           <p className="text-slate-600 mb-6">Please login to access level mode</p>
@@ -89,12 +92,14 @@ function LevelSelectionContent() {
           </a>
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
   if (!examId || !subjectId || !exam || !subject) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
+      <AccessibilityWrapper>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-slate-800 mb-4">Invalid Parameters</h2>
           <p className="text-slate-600 mb-6">Please select an exam and subject</p>
@@ -106,12 +111,14 @@ function LevelSelectionContent() {
           </a>
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
   return (
-    <>
-      {/* Level Map - Full Screen */}
+    <AccessibilityWrapper>
+      <>
+        {/* Level Map - Full Screen */}
       {levels.length > 0 ? (
         <LevelMapV3
             levels={levels}
@@ -143,19 +150,22 @@ function LevelSelectionContent() {
           </div>
         )}
       </>
+      </AccessibilityWrapper>
     );
 }
 
 export default function LevelSelectionPage() {
   return (
-    <Suspense
-      fallback={
+    <AccessibilityWrapper>
+      <Suspense
+        fallback={
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
           <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
         </div>
       }
     >
       <LevelSelectionContent />
-    </Suspense>
+      </Suspense>
+    </AccessibilityWrapper>
   );
 }

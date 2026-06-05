@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 declare global {
   interface Window {
@@ -146,19 +147,22 @@ export default function PricingPage() {
 
   if (isLoading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-16 text-center">
+      <AccessibilityWrapper>
+        <div className="max-w-4xl mx-auto px-4 py-16 text-center">
         <div className="animate-pulse">
           <div className="h-8 rounded w-48 mx-auto mb-4" style={{ background: "var(--hover-bg)" }}></div>
           <div className="h-4 rounded w-64 mx-auto" style={{ background: "var(--hover-bg)" }}></div>
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
   // Success modal
   if (showSuccess) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-16">
+      <AccessibilityWrapper>
+        <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="max-w-md mx-auto rounded-2xl p-8 shadow-lg border border-emerald-200 text-center" style={{ background: "var(--card-bg)" }}>
           <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
             <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
@@ -184,14 +188,16 @@ export default function PricingPage() {
           </div>
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
   const isPro = subData?.isPro;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Header */}
+    <AccessibilityWrapper>
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-bold mb-3">
           <span className="bg-gradient-to-r from-[#4255FF] to-purple-600 bg-clip-text text-transparent">
@@ -557,5 +563,6 @@ export default function PricingPage() {
         </div>
       )}
     </div>
+    </AccessibilityWrapper>
   );
 }

@@ -8,8 +8,8 @@
   --primary-light: #818cf8;
   --primary-dark: #4f46e5;
   --primary-bg: #eef2ff;
-  --accent: #f59e0b;
-  --success: #10b981;
+  --accent: #b45309;
+  --success: #059669;
   --danger: #ef4444;
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
@@ -190,12 +190,22 @@ h1, h2, h3, h4, h5, h6 {
 .quiz-option.correct {
   border-color: var(--success);
   background-color: #ecfdf5;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.03) 10px,
+    rgba(0, 0, 0, 0.03) 20px
+  );
   border-width: 2px;
 }
 
 .quiz-option.incorrect {
   border-color: var(--danger);
   background-color: #fef2f2;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px);
   border-width: 2px;
 }
 
@@ -432,6 +442,33 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Global focus styles for keyboard navigation (WCAG AA) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible,
+[role="menuitem"]:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 3px solid #4255FF;
+  outline-offset: 2px;
+}
+
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] input:focus-visible,
+[data-theme="dark"] select:focus-visible,
+[data-theme="dark"] textarea:focus-visible,
+[data-theme="dark"] [role="button"]:focus-visible,
+[data-theme="dark"] [role="link"]:focus-visible,
+[data-theme="dark"] [role="menuitem"]:focus-visible,
+[data-theme="dark"] [role="tab"]:focus-visible {
+  outline: 3px solid #818cf8;
+  outline-offset: 2px;
+}
+
 /* Horizontal scroll container */
 .horizontal-scroll {
   display: flex;
@@ -458,5 +495,167 @@ h1, h2, h3, h4, h5, h6 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ─── WCAG AAA: Enhanced Color Blindness Support ─── */
+/* For users with color vision deficiency (CVD): protanopia, deuteranopia, tritanopia */
+
+/* Success indicators - Add diagonal stripe pattern */
+.success-indicator,
+.status-success,
+[data-status="success"] {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.05) 10px,
+    rgba(0, 0, 0, 0.05) 20px
+  );
+}
+
+/* Warning/Caution indicators - Add dot pattern */
+.warning-indicator,
+.status-warning,
+[data-status="warning"] {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  background-size: 5px 5px;
+}
+
+/* Error/Danger indicators - Add cross-hatch pattern */
+.error-indicator,
+.status-error,
+.status-danger,
+[data-status="error"],
+[data-status="danger"] {
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.08) 10px, rgba(0, 0, 0, 0.08) 20px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.08) 10px, rgba(0, 0, 0, 0.08) 20px);
+}
+
+/* Info indicators - Add horizontal stripes */
+.info-indicator,
+.status-info,
+[data-status="info"] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.05) 10px,
+    rgba(0, 0, 0, 0.05) 15px
+  );
+}
+
+/* Progress bar segments with patterns for colorblind users */
+.progress-segment-success {
+  background-image: linear-gradient(90deg, transparent 0%, transparent 48%, rgba(0, 0, 0, 0.1) 48%, rgba(0, 0, 0, 0.1) 52%, transparent 52%, transparent 100%);
+}
+
+.progress-segment-warning {
+  background-image: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 5px,
+    rgba(0, 0, 0, 0.1) 5px,
+    rgba(0, 0, 0, 0.1) 10px
+  );
+}
+
+.progress-segment-error {
+  background-image: repeating-linear-gradient(90deg, transparent 0%, transparent 2px, rgba(0, 0, 0, 0.15) 2px, rgba(0, 0, 0, 0.15) 4px);
+}
+
+/* Status badges with texture differentiation */
+.badge-success::after,
+.badge-error::after,
+.badge-warning::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.badge-success::after {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.3) 2px,
+    rgba(255, 255, 255, 0.3) 4px
+  );
+}
+
+.badge-error::after {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.3) 2px,
+    rgba(255, 255, 255, 0.3) 4px
+  );
+}
+
+.badge-warning::after {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.2) 1px,
+    rgba(255, 255, 255, 0.2) 2px
+  );
+}
+
+/* ─── WCAG AAA: Respect prefers-reduced-motion (vestibular disorders) ─── */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable specific animations */
+  .animate-spin,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-progress,
+  .streak-pulse,
+  .animate-bounce-once,
+  .animate-pulse-slow,
+  .level-node,
+  .animate-glow,
+  .animate-badge-pop,
+  .animate-bounce-slow,
+  .animate-slide-down,
+  .confetti,
+  .shimmer,
+  .shimmer-gold,
+  .hover-lift,
+  .card-hover {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  /* Allow focus changes but not animations */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 3px solid #4255FF;
+    outline-offset: 2px;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Disable transition on hover */
+  button:hover,
+  a:hover,
+  .card-hover:hover {
+    transition: none !important;
+    transform: none !important;
   }
 }

@@ -172,7 +172,8 @@ export function InlineLoginForm() {
             {/* Email Option */}
             <button
               onClick={() => setStep("email")}
-              className="w-full flex items-center gap-3 px-4 py-3 border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-left group"
+              className="w-full flex items-center gap-3 px-4 py-3 border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-left group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              aria-label="Continue with email"
             >
               <Mail className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
               <span className="font-medium text-slate-800 text-sm">Continue with email</span>
@@ -194,7 +195,8 @@ export function InlineLoginForm() {
         <div>
           <button
             onClick={() => setStep("method")}
-            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1"
+            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Back to login method selection"
           >
             ← Back
           </button>
@@ -215,15 +217,20 @@ export function InlineLoginForm() {
                 className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
                 autoFocus
                 required
+                aria-invalid={!!error}
+                aria-describedby={error ? "email-error" : undefined}
               />
             </div>
             {error && (
-              <p className="text-red-500 text-xs mb-3">{error}</p>
+              <p className="text-red-500 text-xs mb-3" id="email-error" role="alert">
+                {error}
+              </p>
             )}
             <button
               type="submit"
               disabled={!email.trim() || isSubmitting}
-              className="w-full py-2.5 bg-[#4255FF] text-white font-semibold rounded-lg hover:bg-[#3242CC] transition-colors disabled:opacity-50 text-sm"
+              className="w-full py-2.5 bg-[#4255FF] text-white font-semibold rounded-lg hover:bg-[#3242CC] transition-colors disabled:opacity-50 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+              aria-label="Continue with email"
             >
               {isSubmitting ? "Sending..." : "Continue"}
             </button>
@@ -236,7 +243,8 @@ export function InlineLoginForm() {
         <div>
           <button
             onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
-            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1"
+            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Back to email input"
           >
             ← Back
           </button>
@@ -260,17 +268,22 @@ export function InlineLoginForm() {
                 value={digit}
                 onChange={(e) => handleOtpChange(idx, e.target.value)}
                 onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none transition-all ${
+                className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all ${
                   digit
                     ? "border-[#4255FF] bg-slate-50 text-[#3242CC]"
                     : "border-slate-200 text-slate-800 focus:border-[#4255FF]"
                 }`}
+                aria-label={`OTP digit ${idx + 1}`}
+                aria-invalid={!!error}
+                aria-describedby={error ? "otp-error" : undefined}
               />
             ))}
           </div>
 
           {error && (
-            <p className="text-red-500 text-xs mb-3 text-center">{error}</p>
+            <p className="text-red-500 text-xs mb-3 text-center" id="otp-error" role="alert">
+              {error}
+            </p>
           )}
 
           {isSubmitting && (

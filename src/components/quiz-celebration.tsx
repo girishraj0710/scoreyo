@@ -109,6 +109,9 @@ export function QuizCelebration({
         delay: 0.2
       }}
       className="text-center mb-8"
+      role="region"
+      aria-live="polite"
+      aria-label={`Quiz results: ${grade.label}. Score: ${correctAnswers} out of ${totalQuestions}`}
     >
       {/* Emoji Animation */}
       <motion.div

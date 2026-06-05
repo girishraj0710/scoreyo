@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckCircle, XCircle, AlertCircle, Info } from "lucide-react";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 interface ConfirmationModalProps {
   isOpen: boolean;
@@ -25,6 +26,8 @@ export function ConfirmationModal({
   onCancel,
   showCancel = true,
 }: ConfirmationModalProps) {
+  const focusTrapRef = useFocusTrap(isOpen);
+
   if (!isOpen) return null;
 
   const getIcon = () => {
@@ -52,15 +55,21 @@ export function ConfirmationModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4" role="presentation">
+      <div
+        ref={focusTrapRef}
+        className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
         {/* Icon */}
         <div className="flex justify-center mb-4">
           {getIcon()}
         </div>
 
         {/* Title */}
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">
+        <h2 id="modal-title" className="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">
           {title}
         </h2>
 
@@ -74,14 +83,16 @@ export function ConfirmationModal({
           {showCancel && (
             <button
               onClick={onCancel}
-              className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-medium transition-colors"
+              className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              aria-label={cancelLabel}
             >
               {cancelLabel}
             </button>
           )}
           <button
             onClick={onConfirm}
-            className={`flex-1 px-4 py-3 ${getButtonColor()} text-white rounded-lg font-medium transition-colors`}
+            className={`flex-1 px-4 py-3 ${getButtonColor()} text-white rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+            aria-label={confirmLabel}
           >
             {confirmLabel}
           </button>
@@ -116,6 +127,7 @@ export function PromptModal({
   onCancel,
 }: PromptModalProps) {
   const [value, setValue] = React.useState(defaultValue);
+  const focusTrapRef = useFocusTrap(isOpen);
 
   React.useEffect(() => {
     setValue(defaultValue);
@@ -134,15 +146,21 @@ export function PromptModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4" role="presentation">
+      <div
+        ref={focusTrapRef}
+        className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="prompt-modal-title"
+      >
         {/* Icon */}
         <div className="flex justify-center mb-4">
           <AlertCircle className="w-12 h-12 text-indigo-500" />
         </div>
 
         {/* Title */}
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">
+        <h2 id="prompt-modal-title" className="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">
           {title}
         </h2>
 
@@ -156,7 +174,7 @@ export function PromptModal({
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholder}
-          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white mb-4 resize-none"
+          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-gray-700 dark:text-white mb-4 resize-none"
           rows={3}
           autoFocus
         />
@@ -165,13 +183,15 @@ export function PromptModal({
         <div className="flex gap-3">
           <button
             onClick={handleCancel}
-            className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-medium transition-colors"
+            className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label={cancelLabel}
           >
             {cancelLabel}
           </button>
           <button
             onClick={handleConfirm}
-            className="flex-1 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
+            className="flex-1 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label={confirmLabel}
           >
             {confirmLabel}
           </button>

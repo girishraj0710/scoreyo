@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { calculateStars } from "@/lib/level-definitions";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import { LoadingSpinner } from "@/components/loading-skeleton";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 // Dynamic imports: Only load these modals when actually needed
 const RichExplanation = dynamic(
@@ -1565,8 +1566,9 @@ export default function QuizPage() {
     }
   }, [user, userLoading, router]);
   return (
-    <Suspense
-      fallback={
+    <AccessibilityWrapper>
+      <Suspense
+        fallback={
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
           <div className="rounded-2xl p-12 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
@@ -1598,6 +1600,7 @@ export default function QuizPage() {
       }
     >
       <QuizContent />
-    </Suspense>
+      </Suspense>
+    </AccessibilityWrapper>
   );
 }

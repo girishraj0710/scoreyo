@@ -38,9 +38,10 @@ export function LanguageSelector() {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setShowMenu(!showMenu)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg border transition-colors"
+        className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
         style={{ borderColor: "var(--card-border)", background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
-        title="Change Language"
+        aria-label="Change language"
+        aria-expanded={showMenu}
       >
         <span className="text-base leading-none">{currentLanguage.flag}</span>
         <span className="hidden sm:inline">{currentLanguage.nativeName}</span>
@@ -70,7 +71,7 @@ export function LanguageSelector() {
                 setLocale(lang.code);
                 setShowMenu(false);
               }}
-              className="w-full text-left px-3 py-2.5 text-sm flex items-center gap-3 transition-colors"
+              className="w-full text-left px-3 py-2.5 text-sm flex items-center gap-3 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
               style={
                 locale === lang.code
                   ? { background: "var(--primary-bg)", color: "var(--primary)" }
@@ -78,6 +79,8 @@ export function LanguageSelector() {
               }
               onMouseEnter={(e) => e.currentTarget.style.background = "var(--hover-bg)"}
               onMouseLeave={(e) => e.currentTarget.style.background = locale === lang.code ? "var(--primary-bg)" : "transparent"}
+              aria-label={`Select ${lang.name}`}
+              aria-current={locale === lang.code ? "true" : undefined}
             >
               <span className="text-lg leading-none">{lang.flag}</span>
               <div className="flex-1">

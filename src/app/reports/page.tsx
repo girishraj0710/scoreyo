@@ -7,6 +7,7 @@ import { useLocale } from "@/context/locale-context";
 import { getExamById, getSubjectById } from "@/lib/exams";
 import { getExamIcon } from "@/lib/professional-icons";
 import { BarChart3, Star, TrendingUp, Target, Zap, CheckCircle2 } from "lucide-react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function ReportsPage() {
   const { t } = useLocale();
@@ -170,8 +171,9 @@ export default function ReportsPage() {
   })();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      {/* Header */}
+    <AccessibilityWrapper>
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
           {t("reportsTitle")}
@@ -514,5 +516,6 @@ export default function ReportsPage() {
         </div>
       )}
     </div>
+    </AccessibilityWrapper>
   );
 }

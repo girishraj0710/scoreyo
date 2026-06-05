@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 interface PersonalBest {
   exam_id: string;
@@ -70,13 +71,15 @@ export default function LeaderboardPage() {
 
   if (isLoading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <AccessibilityWrapper>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="rounded-xl p-6 h-40 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
@@ -84,7 +87,8 @@ export default function LeaderboardPage() {
   const inProgressMilestones = milestones.filter((m) => !m.achieved);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <AccessibilityWrapper>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold" style={{ color: "var(--foreground-secondary)" }}>{t("leaderboardTitle")}</h1>
@@ -292,5 +296,6 @@ export default function LeaderboardPage() {
         </div>
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

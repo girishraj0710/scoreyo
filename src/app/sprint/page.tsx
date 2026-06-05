@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Trophy, Clock, Users, Zap } from "lucide-react";
 import { sounds } from "@/lib/sounds";
 import { Icon } from "@iconify/react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 interface SprintData {
   sprint: {
@@ -260,7 +261,8 @@ export default function SprintPage() {
   });
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -538,5 +540,6 @@ export default function SprintPage() {
         })}
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

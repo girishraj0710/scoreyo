@@ -7,6 +7,7 @@ import Link from "next/link";
 import { englishPaths, type EnglishPath } from "@/lib/english-content";
 import { getPathIcon } from "@/lib/english-icons";
 import { BookOpen, Target, TrendingUp, Award, Calendar, Zap } from "lucide-react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function EnglishHubPage() {
   const router = useRouter();
@@ -322,7 +323,8 @@ export default function EnglishHubPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -471,5 +473,6 @@ export default function EnglishHubPage() {
         </div>
       </main>
     </div>
+    </AccessibilityWrapper>
   );
 }

@@ -9,6 +9,7 @@ import { StudyMaterialUploader } from '@/components/study-material-uploader';
 import { getAllExams, getExamById } from '@/lib/exams';
 import { ChevronRight, Upload, CheckCircle, AlertCircle, Loader, Search, X } from 'lucide-react';
 import { ColorfulExamIcon, ColorfulCategoryIcon } from '@/lib/colorful-exam-icons';
+import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
 
 interface FileUpload {
   file: File;
@@ -142,7 +143,8 @@ export default function ContributorMaterialsPage() {
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--background)" }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -452,5 +454,6 @@ export default function ContributorMaterialsPage() {
         )}
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }

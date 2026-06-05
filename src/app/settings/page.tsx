@@ -208,7 +208,8 @@ export default function SettingsPage() {
 
   if (!user) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <AccessibilityWrapper>
+        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <div className="rounded-2xl p-12 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
           <User className="w-16 h-16 mx-auto mb-4" style={{ color: "var(--muted)" }} />
           <h2 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
@@ -219,11 +220,13 @@ export default function SettingsPage() {
           </p>
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6" style={{ background: "var(--primary-bg)" }}>
+    <AccessibilityWrapper>
+      <div className="min-h-screen py-8 px-4 sm:px-6" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-3xl mx-auto">
         <h1 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>Settings</h1>
         <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>
@@ -252,6 +255,7 @@ export default function SettingsPage() {
                 className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Enter your full name"
+                aria-label="Full name"
               />
             </div>
           </div>
@@ -289,6 +293,7 @@ export default function SettingsPage() {
                 className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="+91 98765 43210"
+                aria-label="Phone number"
               />
             </div>
           </div>
@@ -310,6 +315,7 @@ export default function SettingsPage() {
                   placeholder="18"
                   min="10"
                   max="60"
+                  aria-label="Age"
                 />
               </div>
             </div>
@@ -326,6 +332,7 @@ export default function SettingsPage() {
                   className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                   style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                   placeholder="City, State"
+                  aria-label="Location"
                 />
               </div>
             </div>
@@ -342,6 +349,7 @@ export default function SettingsPage() {
                 value={examPreparingFor}
                 onChange={(e) => setExamPreparingFor(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none"
+                aria-label="Exam preparing for"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
               >
                 <option value="">Select an exam</option>
@@ -684,6 +692,7 @@ export default function SettingsPage() {
         />
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }
 

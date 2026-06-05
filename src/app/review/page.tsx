@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 interface ReviewTopic {
   exam_id: string;
@@ -56,13 +57,15 @@ export default function ReviewPage() {
 
   if (isLoading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <AccessibilityWrapper>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-4">
           {[1, 2, 3].map((i) => (
             <div key={i} className="rounded-xl p-6 h-24 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       </div>
+      </AccessibilityWrapper>
     );
   }
 
@@ -124,8 +127,9 @@ export default function ReviewPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
+    <AccessibilityWrapper>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>{t("reviewTitle")}</h1>
         <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>{t("reviewSubtitle")}</p>
@@ -203,5 +207,6 @@ export default function ReviewPage() {
         </section>
       )}
     </div>
+    </AccessibilityWrapper>
   );
 }

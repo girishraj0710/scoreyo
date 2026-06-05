@@ -13,6 +13,7 @@ import {
   AlertCircle,
   Loader,
 } from 'lucide-react';
+import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
 
 interface StudyMaterial {
   id: string;
@@ -122,7 +123,8 @@ export default function StudyMaterialsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <AccessibilityWrapper>
+      <div className="min-h-screen bg-white pt-8 pb-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -362,5 +364,6 @@ export default function StudyMaterialsPage() {
         )}
       </div>
     </div>
+    </AccessibilityWrapper>
   );
 }
