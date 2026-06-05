@@ -24,10 +24,10 @@ export default function CreateQuestionSelectExamPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading...</p>
+          <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
         </div>
       </div>
     );
@@ -42,7 +42,7 @@ export default function CreateQuestionSelectExamPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -54,10 +54,10 @@ export default function CreateQuestionSelectExamPage() {
               ← Back to Portal
             </a>
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">
+          <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
             Create Question Set
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg" style={{ color: "var(--foreground-secondary)" }}>
             Step 1 of 3: Select the exam for your questions
           </p>
         </div>
@@ -71,19 +71,19 @@ export default function CreateQuestionSelectExamPage() {
               </div>
               <span className="font-semibold text-indigo-600">Select Exam</span>
             </div>
-            <div className="flex-1 h-1 bg-slate-200"></div>
+            <div className="flex-1 h-1" style={{ background: "var(--card-border)" }}></div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-400 font-bold text-sm flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full text-slate-400 font-bold text-sm flex items-center justify-center" style={{ background: "var(--muted)", color: "var(--muted)" }}>
                 2
               </div>
-              <span className="text-slate-400">Select Subject</span>
+              <span style={{ color: "var(--muted)" }}>Select Subject</span>
             </div>
-            <div className="flex-1 h-1 bg-slate-200"></div>
+            <div className="flex-1 h-1" style={{ background: "var(--card-border)" }}></div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-400 font-bold text-sm flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full text-slate-400 font-bold text-sm flex items-center justify-center" style={{ background: "var(--muted)", color: "var(--muted)" }}>
                 3
               </div>
-              <span className="text-slate-400">Upload & Generate</span>
+              <span style={{ color: "var(--muted)" }}>Upload & Generate</span>
             </div>
           </div>
         </div>
@@ -91,13 +91,27 @@ export default function CreateQuestionSelectExamPage() {
         {/* Category Selection (Optional - for better UX) */}
         {!selectedCategory && (
           <section className="mb-8">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">Choose Category</h2>
+            <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Choose Category</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
               {examCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className="p-4 rounded-xl border-2 text-center border-slate-200 bg-white hover:border-indigo-300 hover:shadow-md transition-all min-h-[140px]"
+                  className="p-4 rounded-xl text-center transition-all min-h-[140px]"
+                  style={{
+                    background: "var(--card-bg)",
+                    borderColor: "var(--card-border)",
+                    borderWidth: "2px",
+                    borderStyle: "solid"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#818cf8";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
                 >
                   <div className="flex justify-center mb-2">
                     <ColorfulCategoryIcon
@@ -105,10 +119,10 @@ export default function CreateQuestionSelectExamPage() {
                       size={56}
                     />
                   </div>
-                  <div className="text-sm font-medium text-slate-700 leading-tight">
+                  <div className="text-sm font-medium leading-tight" style={{ color: "var(--foreground)" }}>
                     {category.name}
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">
+                  <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>
                     {category.exams.length} exam{category.exams.length > 1 ? "s" : ""}
                   </div>
                 </button>
@@ -121,7 +135,7 @@ export default function CreateQuestionSelectExamPage() {
         {selectedCategory && (
           <section>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-slate-900">
+              <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>
                 {examCategories.find(c => c.id === selectedCategory)?.name} Exams
               </h2>
               <button
@@ -137,18 +151,24 @@ export default function CreateQuestionSelectExamPage() {
 
             {/* Search Input */}
             <div className="mb-6 relative">
-              <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+              <Search className="absolute left-4 top-3.5 w-5 h-5" style={{ color: "var(--muted)" }} />
               <input
                 type="text"
                 placeholder="Search exams..."
                 value={examSearch}
                 onChange={(e) => setExamSearch(e.target.value)}
-                className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+                className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50"
+                style={{
+                  borderColor: "var(--card-border)",
+                  background: "var(--card-bg)",
+                  color: "var(--foreground)"
+                }}
               />
               {examSearch && (
                 <button
                   onClick={() => setExamSearch('')}
-                  className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
+                  className="absolute right-3 top-3.5 hover:opacity-70"
+                  style={{ color: "var(--muted)" }}
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -160,7 +180,7 @@ export default function CreateQuestionSelectExamPage() {
               .find((c) => c.id === selectedCategory)
               ?.exams.filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase())).length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-slate-500">No exams found matching "{examSearch}"</p>
+                <p style={{ color: "var(--muted)" }}>No exams found matching "{examSearch}"</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -171,22 +191,36 @@ export default function CreateQuestionSelectExamPage() {
                     <button
                       key={exam.id}
                       onClick={() => handleExamSelect(exam.id)}
-                      className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-left group"
+                      className="p-6 rounded-xl transition-all text-left group"
+                      style={{
+                        background: "var(--card-bg)",
+                        borderColor: "var(--card-border)",
+                        borderWidth: "2px",
+                        borderStyle: "solid"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = "#6366f1";
+                        e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-16 h-16 flex items-center justify-center shrink-0">
                           <ColorfulExamIcon examId={exam.id} size={48} />
                         </div>
                         <div className="flex-1">
-                          <div className="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">
+                          <div className="text-lg font-semibold group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
                             {exam.name}
                           </div>
-                          <div className="text-xs text-slate-500 mt-1">
+                          <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>
                             {exam.fullName}
                           </div>
                         </div>
                       </div>
-                      <div className="text-xs text-slate-400 mb-3">
+                      <div className="text-xs mb-3" style={{ color: "var(--muted)" }}>
                         {exam.subjects.length} subjects | {exam.subjects.reduce((sum, s) => sum + s.topics.length, 0)} topics
                       </div>
                       <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
@@ -203,23 +237,29 @@ export default function CreateQuestionSelectExamPage() {
         {!selectedCategory && (
           <section>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-slate-900">Or Browse All Exams</h2>
+              <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>Or Browse All Exams</h2>
             </div>
 
             {/* Search Input */}
             <div className="mb-6 relative">
-              <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+              <Search className="absolute left-4 top-3.5 w-5 h-5" style={{ color: "var(--muted)" }} />
               <input
                 type="text"
                 placeholder="Search all exams..."
                 value={examSearch}
                 onChange={(e) => setExamSearch(e.target.value)}
-                className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+                className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50"
+                style={{
+                  borderColor: "var(--card-border)",
+                  background: "var(--card-bg)",
+                  color: "var(--foreground)"
+                }}
               />
               {examSearch && (
                 <button
                   onClick={() => setExamSearch('')}
-                  className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
+                  className="absolute right-3 top-3.5 hover:opacity-70"
+                  style={{ color: "var(--muted)" }}
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -231,7 +271,7 @@ export default function CreateQuestionSelectExamPage() {
               .flatMap(cat => cat.exams)
               .filter(e => e.name.toLowerCase().includes(examSearch.toLowerCase())).length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-slate-500">No exams found matching "{examSearch}"</p>
+                <p style={{ color: "var(--muted)" }}>No exams found matching "{examSearch}"</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -242,22 +282,36 @@ export default function CreateQuestionSelectExamPage() {
                     <button
                       key={exam.id}
                       onClick={() => handleExamSelect(exam.id)}
-                      className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-left group"
+                      className="p-6 rounded-xl transition-all text-left group"
+                      style={{
+                        background: "var(--card-bg)",
+                        borderColor: "var(--card-border)",
+                        borderWidth: "2px",
+                        borderStyle: "solid"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = "#6366f1";
+                        e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-16 h-16 flex items-center justify-center shrink-0">
                           <ColorfulExamIcon examId={exam.id} size={48} />
                         </div>
                         <div className="flex-1">
-                          <div className="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">
+                          <div className="text-lg font-semibold group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
                             {exam.name}
                           </div>
-                          <div className="text-xs text-slate-500 mt-1 line-clamp-1">
+                          <div className="text-xs mt-1 line-clamp-1" style={{ color: "var(--muted)" }}>
                             {exam.fullName}
                           </div>
                         </div>
                       </div>
-                      <div className="text-xs text-slate-400 mb-3">
+                      <div className="text-xs mb-3" style={{ color: "var(--muted)" }}>
                         {exam.subjects.length} subjects | {exam.subjects.reduce((sum, s) => sum + s.topics.length, 0)} topics
                       </div>
                       <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">

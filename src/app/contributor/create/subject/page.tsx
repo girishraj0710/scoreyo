@@ -31,10 +31,10 @@ function SelectSubjectContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading...</p>
+          <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
         </div>
       </div>
     );
@@ -48,9 +48,9 @@ function SelectSubjectContent() {
 
   if (!exam) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
         <div className="text-center">
-          <p className="text-slate-600 mb-4">Exam not found</p>
+          <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>Exam not found</p>
           <button
             onClick={() => router.push('/contributor/create')}
             className="text-indigo-600 hover:text-indigo-700 font-medium"
@@ -91,7 +91,7 @@ function SelectSubjectContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -103,10 +103,10 @@ function SelectSubjectContent() {
               ← Back to Exams
             </button>
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">
+          <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
             Create Question Set
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg" style={{ color: "var(--foreground-secondary)" }}>
             Step 2 of 3: Select the subject for <span className="font-semibold text-indigo-600">{exam.name}</span>
           </p>
         </div>
@@ -127,46 +127,52 @@ function SelectSubjectContent() {
               </div>
               <span className="font-semibold text-indigo-600">Select Subject</span>
             </div>
-            <div className="flex-1 h-1 bg-slate-200"></div>
+            <div className="flex-1 h-1" style={{ background: "var(--card-border)" }}></div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-400 font-bold text-sm flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full text-slate-400 font-bold text-sm flex items-center justify-center" style={{ background: "var(--muted)", color: "var(--muted)" }}>
                 3
               </div>
-              <span className="text-slate-400">Upload & Generate</span>
+              <span style={{ color: "var(--muted)" }}>Upload & Generate</span>
             </div>
           </div>
         </div>
 
         {/* Selected Exam Summary */}
-        <div className="bg-indigo-50 rounded-xl border-2 border-indigo-200 p-6 mb-8">
+        <div className="rounded-xl p-6 mb-8" style={{ background: "var(--primary-bg)", borderColor: "#818cf8", borderWidth: "2px", borderStyle: "solid" }}>
           <div className="flex items-center gap-4">
             {getExamIcon(exam.category)}
             <div>
               <div className="text-sm text-indigo-600 font-medium mb-1">Selected Exam</div>
-              <div className="text-2xl font-bold text-slate-900">{exam.name}</div>
-              <div className="text-sm text-slate-500 mt-1">{exam.fullName}</div>
+              <div className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>{exam.name}</div>
+              <div className="text-sm mt-1" style={{ color: "var(--foreground-secondary)" }}>{exam.fullName}</div>
             </div>
           </div>
         </div>
 
         {/* Subject Grid */}
         <section>
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Choose Subject</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Choose Subject</h2>
 
           {/* Search Input */}
           <div className="mb-6 relative">
-            <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+            <Search className="absolute left-4 top-3.5 w-5 h-5" style={{ color: "var(--muted)" }} />
             <input
               type="text"
               placeholder="Search subjects..."
               value={subjectSearch}
               onChange={(e) => setSubjectSearch(e.target.value)}
-              className="w-full pl-12 pr-10 py-3 rounded-lg border-2 border-slate-200 focus:outline-none focus:border-indigo-600 text-slate-900 placeholder-slate-500"
+              className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50"
+              style={{
+                borderColor: "var(--card-border)",
+                background: "var(--card-bg)",
+                color: "var(--foreground)"
+              }}
             />
             {subjectSearch && (
               <button
                 onClick={() => setSubjectSearch('')}
-                className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600"
+                className="absolute right-3 top-3.5 hover:opacity-70"
+                style={{ color: "var(--muted)" }}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -176,7 +182,7 @@ function SelectSubjectContent() {
           {/* Filtered Subjects */}
           {exam.subjects.filter(s => s.name.toLowerCase().includes(subjectSearch.toLowerCase())).length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-slate-500">No subjects found matching "{subjectSearch}"</p>
+              <p style={{ color: "var(--muted)" }}>No subjects found matching "{subjectSearch}"</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -186,15 +192,29 @@ function SelectSubjectContent() {
                   <button
                     key={subject.id}
                     onClick={() => handleSubjectSelect(subject.id)}
-                    className="p-6 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-500 hover:shadow-lg transition-all text-center group min-h-[160px] flex flex-col items-center justify-center"
+                    className="p-6 rounded-xl transition-all text-center group min-h-[160px] flex flex-col items-center justify-center"
+                    style={{
+                      background: "var(--card-bg)",
+                      borderColor: "var(--card-border)",
+                      borderWidth: "2px",
+                      borderStyle: "solid"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#6366f1";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
                   >
                     <div className="flex justify-center mb-3">
                       <ColorfulSubjectIcon subjectId={subject.id} size={56} />
                     </div>
-                    <div className="text-base font-semibold text-slate-800 group-hover:text-indigo-600 mb-2">
+                    <div className="text-base font-semibold group-hover:text-indigo-600 mb-2" style={{ color: "var(--foreground)" }}>
                       {subject.name}
                     </div>
-                    <div className="text-xs text-slate-400 mb-3">
+                    <div className="text-xs mb-3" style={{ color: "var(--muted)" }}>
                       {subject.topics.length} topics
                     </div>
                     <div className="flex items-center gap-2 text-indigo-600 font-medium text-sm group-hover:gap-3 transition-all">
@@ -213,10 +233,10 @@ function SelectSubjectContent() {
 export default function SelectSubjectPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--primary-bg)" }}>
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
-          <p className="text-slate-600">Loading...</p>
+          <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
         </div>
       </div>
     }>
