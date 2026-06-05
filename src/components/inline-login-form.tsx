@@ -156,14 +156,14 @@ export function InlineLoginForm() {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-2xl sticky top-8">
+    <div className="rounded-2xl p-6 shadow-2xl sticky top-8" style={{ background: "var(--card-bg)" }}>
       {/* Method Selection Step */}
       {step === "method" && (
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">
+          <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
             Log in or sign up in seconds
           </h2>
-          <p className="text-sm text-slate-600 mb-6">
+          <p className="text-sm mb-6" style={{ color: "var(--foreground-secondary)" }}>
             Use your email or another service to continue (it's free)!
           </p>
 
@@ -172,16 +172,17 @@ export function InlineLoginForm() {
             {/* Email Option */}
             <button
               onClick={() => setStep("email")}
-              className="w-full flex items-center gap-3 px-4 py-3 border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all text-left group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full flex items-center gap-3 px-4 py-3 border-2 rounded-xl hover:opacity-80 transition-all text-left group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              style={{ borderColor: "var(--card-border)", color: "var(--foreground)" }}
               aria-label="Continue with email"
             >
-              <Mail className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
-              <span className="font-medium text-slate-800 text-sm">Continue with email</span>
+              <Mail className="w-5 h-5" style={{ color: "var(--foreground-secondary)" }} />
+              <span className="font-medium text-sm">Continue with email</span>
             </button>
           </div>
 
-          <div className="pt-4 border-t border-slate-200">
-            <p className="text-xs text-slate-500 text-center">
+          <div className="pt-4" style={{ borderTop: "1px solid var(--card-border)" }}>
+            <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
               By continuing, you agree to PrepGenie's{" "}
               <a href="/terms" className="text-[#4255FF] hover:underline">Terms</a> & {" "}
               <a href="/privacy" className="text-[#4255FF] hover:underline">Privacy Policy</a>.
@@ -195,15 +196,16 @@ export function InlineLoginForm() {
         <div>
           <button
             onClick={() => setStep("method")}
-            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="mb-3 text-xs hover:opacity-70 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            style={{ color: "var(--muted)" }}
             aria-label="Back to login method selection"
           >
             ← Back
           </button>
-          <h3 className="text-xl font-bold text-slate-900 mb-2">
+          <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
             Continue with email
           </h3>
-          <p className="text-xs text-slate-600 mb-4">
+          <p className="text-xs mb-4" style={{ color: "var(--foreground-secondary)" }}>
             We'll send you a verification code
           </p>
 
@@ -214,7 +216,12 @@ export function InlineLoginForm() {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
-                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
+                className="w-full px-3 py-2.5 border-2 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
+                style={{
+                  borderColor: "var(--card-border)",
+                  background: "var(--card-bg)",
+                  color: "var(--foreground)"
+                }}
                 autoFocus
                 required
                 aria-invalid={!!error}
@@ -243,15 +250,16 @@ export function InlineLoginForm() {
         <div>
           <button
             onClick={() => { setStep("email"); setOtp(["", "", "", "", "", ""]); setError(""); }}
-            className="mb-3 text-xs text-slate-500 hover:text-slate-700 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="mb-3 text-xs hover:opacity-70 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            style={{ color: "var(--muted)" }}
             aria-label="Back to email input"
           >
             ← Back
           </button>
-          <h3 className="text-xl font-bold text-slate-900 mb-2">
+          <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
             Enter verification code
           </h3>
-          <p className="text-xs text-slate-600 mb-1">
+          <p className="text-xs mb-1" style={{ color: "var(--foreground-secondary)" }}>
             We sent a code to
           </p>
           <p className="text-sm text-[#4255FF] font-medium mb-4">{email}</p>
@@ -268,11 +276,12 @@ export function InlineLoginForm() {
                 value={digit}
                 onChange={(e) => handleOtpChange(idx, e.target.value)}
                 onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                className={`w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all ${
-                  digit
-                    ? "border-[#4255FF] bg-slate-50 text-[#3242CC]"
-                    : "border-slate-200 text-slate-800 focus:border-[#4255FF]"
-                }`}
+                className="w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+                style={{
+                  borderColor: digit ? "#4255FF" : "var(--card-border)",
+                  background: digit ? "var(--primary-bg)" : "var(--card-bg)",
+                  color: digit ? "#3242CC" : "var(--foreground)"
+                }}
                 aria-label={`OTP digit ${idx + 1}`}
                 aria-invalid={!!error}
                 aria-describedby={error ? "otp-error" : undefined}
@@ -293,8 +302,8 @@ export function InlineLoginForm() {
           {/* Resend */}
           <div className="text-center mt-4">
             {countdown > 0 ? (
-              <p className="text-xs text-slate-500">
-                Resend code in <span className="font-medium text-slate-700">{countdown}s</span>
+              <p className="text-xs" style={{ color: "var(--muted)" }}>
+                Resend code in <span className="font-medium" style={{ color: "var(--foreground)" }}>{countdown}s</span>
               </p>
             ) : (
               <button
@@ -314,17 +323,17 @@ export function InlineLoginForm() {
         <div>
           <div className="text-center mb-4">
             <div className="w-12 h-12 mx-auto mb-2 bg-amber-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6" style={{ color: "var(--muted)" }} fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
-            <p className="text-sm text-slate-500 font-medium">Email verified!</p>
+            <p className="text-sm font-medium" style={{ color: "var(--muted)" }}>Email verified!</p>
           </div>
 
-          <h3 className="text-xl font-bold text-slate-900 mb-2">
+          <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
             What's your name?
           </h3>
-          <p className="text-xs text-slate-600 mb-4">
+          <p className="text-xs mb-4" style={{ color: "var(--foreground-secondary)" }}>
             We'll use this to personalize your experience
           </p>
 
@@ -335,7 +344,12 @@ export function InlineLoginForm() {
                 value={name}
                 onChange={(e) => { setName(e.target.value); setError(""); }}
                 placeholder="Enter your name"
-                className="w-full px-3 py-2.5 border-2 border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
+                className="w-full px-3 py-2.5 border-2 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
+                style={{
+                  borderColor: "var(--card-border)",
+                  background: "var(--card-bg)",
+                  color: "var(--foreground)"
+                }}
                 autoFocus
                 required
               />
