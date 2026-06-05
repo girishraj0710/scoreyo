@@ -42,12 +42,8 @@ export default function SettingsPage() {
   const { user, isLoading: userLoading, updateProfile, logout } = useUser();
   const { locale, setLocale } = useLocale();
 
-  // Redirect contributors to contributor portal
-  useEffect(() => {
-    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
-      router.push("/contributor");
-    }
-  }, [user, userLoading, router]);
+  // No redirect - allow all authenticated users to access settings
+  // Contributors and admins can also manage their profile settings
 
   // Profile form state
   const [name, setName] = useState("");
@@ -227,11 +223,12 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-      <h1 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>Settings</h1>
-      <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>
-        Manage your profile, preferences, and account settings
-      </p>
+    <div className="min-h-screen py-8 px-4 sm:px-6" style={{ background: "var(--primary-bg)" }}>
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>Settings</h1>
+        <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>
+          Manage your profile, preferences, and account settings
+        </p>
 
       {/* ─── PROFILE SECTION ─── */}
       <section className="rounded-2xl p-6 shadow-sm border mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
@@ -659,32 +656,33 @@ export default function SettingsPage() {
           >
             <div className="flex items-center gap-3">
               <Trash2 className="w-5 h-5 text-red-500" />
-              <span className="text-sm font-medium" style={{ color: "var(--danger)" }}>Delete Account</span>
+              <span className="text-sm font-medium text-red-500">Delete Account</span>
             </div>
             <ChevronRight className="w-4 h-4 text-red-400" />
           </button>
         </div>
       </section>
 
-      {/* App Version */}
-      <div className="text-center py-4">
-        <p className="text-xs" style={{ color: "var(--muted)" }}>
-          PrepGenie v2.0 | Made with ❤️ in India
-        </p>
-      </div>
+        {/* App Version */}
+        <div className="text-center py-4">
+          <p className="text-xs" style={{ color: "var(--muted)" }}>
+            PrepGenie v2.0 | Made with ❤️ in India
+          </p>
+        </div>
 
-      {/* Modal */}
-      <ConfirmationModal
-        isOpen={modal.isOpen}
-        title={modal.title}
-        message={modal.message}
-        type={modal.type}
-        confirmLabel={modal.type === 'error' ? 'Yes, Delete' : modal.type === 'confirm' ? 'Yes' : 'OK'}
-        cancelLabel="Cancel"
-        onConfirm={modal.onConfirm}
-        onCancel={() => setModal(prev => ({ ...prev, isOpen: false }))}
-        showCancel={modal.type === 'confirm' || modal.type === 'error'}
-      />
+        {/* Modal */}
+        <ConfirmationModal
+          isOpen={modal.isOpen}
+          title={modal.title}
+          message={modal.message}
+          type={modal.type}
+          confirmLabel={modal.type === 'error' ? 'Yes, Delete' : modal.type === 'confirm' ? 'Yes' : 'OK'}
+          cancelLabel="Cancel"
+          onConfirm={modal.onConfirm}
+          onCancel={() => setModal(prev => ({ ...prev, isOpen: false }))}
+          showCancel={modal.type === 'confirm' || modal.type === 'error'}
+        />
+      </div>
     </div>
   );
 }
