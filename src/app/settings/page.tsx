@@ -11,6 +11,7 @@ import {
   ChevronRight, Check, Save, Calendar
 } from "lucide-react";
 import { ConfirmationModal } from "@/components/confirmation-modal";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 const LANGUAGES = [
   { code: "en", name: "English", native: "English" },

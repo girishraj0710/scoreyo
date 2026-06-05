@@ -7,6 +7,7 @@ import { LevelMapV3 } from "@/components/level-map-v3";
 import { getExamById } from "@/lib/exams";
 import { LevelDefinition } from "@/lib/level-definitions";
 import { ArrowLeft } from "lucide-react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 function LevelSelectionContent() {
   const searchParams = useSearchParams();

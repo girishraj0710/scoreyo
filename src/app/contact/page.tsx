@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

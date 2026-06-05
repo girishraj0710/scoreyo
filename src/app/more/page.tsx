@@ -16,6 +16,7 @@ import {
   Mail,
   BookOpen,
 } from "lucide-react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function MorePage() {
   const { user, logout } = useUser();

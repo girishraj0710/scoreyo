@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter } from "next/navigation";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 interface QuizQuestion {
   question: string;

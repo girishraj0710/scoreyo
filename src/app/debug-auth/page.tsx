@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getCsrfToken } from "@/lib/csrf-client";
+import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function DebugAuthPage() {
   const [cookies, setCookies] = useState<Record<string, string>>({});
