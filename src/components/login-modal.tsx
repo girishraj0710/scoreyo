@@ -295,11 +295,11 @@ export function LoginModal() {
         onClick={() => setShowLoginModal(false)}
       />
 
-      <div className="relative rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in max-h-[90vh] overflow-y-auto" style={{ background: "var(--card-bg)" }}>
+      <div className="relative rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in max-h-[90vh] overflow-y-auto" style={{ background: "#ffffff" }}>
         <button
           onClick={() => setShowLoginModal(false)}
           className="absolute top-4 right-4 p-2 rounded-full transition-colors z-10"
-          style={{ color: "var(--muted)" }}
+          style={{ color: "#94a3b8" }}
         >
           <X size={20} />
         </button>
@@ -307,10 +307,10 @@ export function LoginModal() {
         {/* Method Selection */}
         {step === "method" && (
           <div>
-            <h2 className="text-3xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
+            <h2 className="text-3xl font-bold mb-3" style={{ color: "#0f172a" }}>
               Welcome to PrepGenie
             </h2>
-            <p className="mb-8" style={{ color: "var(--foreground-secondary)" }}>
+            <p className="mb-8" style={{ color: "#64748b" }}>
               Choose how you'd like to continue
             </p>
 
@@ -318,30 +318,30 @@ export function LoginModal() {
               <button
                 onClick={() => setStep("signin-email")}
                 className="w-full flex items-center gap-4 px-6 py-4 border-2 rounded-xl hover:bg-[#E8EAFF] transition-all text-left group"
-                style={{ borderColor: "var(--card-border)", background: "var(--hover-bg)" }}
+                style={{ borderColor: "#e2e8f0", background: "#f1f5f9" }}
               >
                 <Mail className="w-5 h-5 text-[#4255FF] group-hover:text-[#3242CC]" />
                 <div>
-                  <div className="font-semibold" style={{ color: "var(--foreground)" }}>Sign In</div>
-                  <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Already have an account</div>
+                  <div className="font-semibold" style={{ color: "#0f172a" }}>Sign In</div>
+                  <div className="text-sm" style={{ color: "#64748b" }}>Already have an account</div>
                 </div>
               </button>
 
               <button
                 onClick={() => setStep("signup-form")}
                 className="w-full flex items-center gap-4 px-6 py-4 border-2 rounded-xl transition-all text-left group"
-                style={{ borderColor: "var(--card-border)" }}
+                style={{ borderColor: "#e2e8f0" }}
               >
-                <Mail className="w-5 h-5" style={{ color: "var(--foreground-secondary)" }} />
+                <Mail className="w-5 h-5" style={{ color: "#64748b" }} />
                 <div>
-                  <div className="font-semibold" style={{ color: "var(--foreground)" }}>Sign Up</div>
-                  <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Create a new account</div>
+                  <div className="font-semibold" style={{ color: "#0f172a" }}>Sign Up</div>
+                  <div className="text-sm" style={{ color: "#64748b" }}>Create a new account</div>
                 </div>
               </button>
             </div>
 
-            <div className="mt-8 pt-6 text-center" style={{ borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "var(--card-border)" }}>
-              <p className="text-xs" style={{ color: "var(--muted)" }}>
+            <div className="mt-8 pt-6 text-center" style={{ borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "#e2e8f0" }}>
+              <p className="text-xs" style={{ color: "#94a3b8" }}>
                 By continuing, you agree to PrepGenie's{" "}
                 <a href="/terms" className="text-[#4255FF] hover:underline">Terms of Use</a> and{" "}
                 <a href="/privacy" className="text-[#4255FF] hover:underline">Privacy Policy</a>.
@@ -356,14 +356,14 @@ export function LoginModal() {
             <button
               onClick={() => setStep("method")}
               className="mb-4 text-sm flex items-center gap-1"
-              style={{ color: "var(--muted)" }}
+              style={{ color: "#94a3b8" }}
             >
               ← Back
             </button>
-            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+            <h2 className="text-2xl font-bold mb-2" style={{ color: "#0f172a" }}>
               Sign In
             </h2>
-            <p className="mb-6" style={{ color: "var(--foreground-secondary)" }}>
+            <p className="mb-6" style={{ color: "#64748b" }}>
               Enter your email to receive a verification code
             </p>
 
@@ -374,7 +374,7 @@ export function LoginModal() {
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
                 className="w-full px-4 py-3.5 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 autoFocus
                 required
               />
@@ -396,20 +396,20 @@ export function LoginModal() {
             <button
               onClick={() => setStep("method")}
               className="mb-4 text-sm flex items-center gap-1"
-              style={{ color: "var(--muted)" }}
+              style={{ color: "#94a3b8" }}
             >
               ← Back
             </button>
-            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+            <h2 className="text-2xl font-bold mb-2" style={{ color: "#0f172a" }}>
               Create Your Account
             </h2>
-            <p className="mb-6" style={{ color: "var(--foreground-secondary)" }}>
+            <p className="mb-6" style={{ color: "#64748b" }}>
               Fill in your details to get started
             </p>
 
             <form onSubmit={handleSignupSubmitForm} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--foreground-secondary)" }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -418,14 +418,14 @@ export function LoginModal() {
                   onChange={(e) => { setEmail(e.target.value); setError(""); }}
                   placeholder="your.email@example.com"
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   autoFocus
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--foreground-secondary)" }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -434,13 +434,13 @@ export function LoginModal() {
                   onChange={(e) => { setName(e.target.value); setError(""); }}
                   placeholder="Enter your full name"
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--foreground-secondary)" }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
                   Age
                 </label>
                 <input
@@ -451,12 +451,12 @@ export function LoginModal() {
                   min="10"
                   max="100"
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--foreground-secondary)" }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
                   Location
                 </label>
                 <input
@@ -465,12 +465,12 @@ export function LoginModal() {
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="City, State"
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--foreground-secondary)" }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
                   Phone Number
                 </label>
                 <input
@@ -485,20 +485,20 @@ export function LoginModal() {
                   }}
                   placeholder="10-digit phone number"
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   maxLength={15}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--foreground-secondary)" }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
                   Preparing For
                 </label>
                 <select
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
-                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 >
                   <option value="">Select exam (optional)</option>
                   {popularExams.map(exam => (
@@ -520,7 +520,7 @@ export function LoginModal() {
                 {isSubmitting ? "Sending verification..." : "Continue to Verification"}
               </button>
 
-              <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
+              <p className="text-xs text-center" style={{ color: "#94a3b8" }}>
                 We'll send a verification code to your email
               </p>
             </form>
@@ -537,14 +537,14 @@ export function LoginModal() {
                 setError("");
               }}
               className="mb-4 text-sm flex items-center gap-1"
-              style={{ color: "var(--muted)" }}
+              style={{ color: "#94a3b8" }}
             >
               ← Back
             </button>
-            <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+            <h2 className="text-2xl font-bold mb-2" style={{ color: "#0f172a" }}>
               Enter verification code
             </h2>
-            <p className="mb-1" style={{ color: "var(--foreground-secondary)" }}>
+            <p className="mb-1" style={{ color: "#64748b" }}>
               We sent a code to
             </p>
             <p className="text-[#4255FF] font-medium mb-6">{email}</p>
@@ -563,8 +563,8 @@ export function LoginModal() {
                   className="w-12 h-14 text-center text-xl font-bold border-2 rounded-xl focus:outline-none transition-all"
                   style={
                     digit
-                      ? { borderColor: "#4255FF", background: "var(--hover-bg)", color: "#3242CC" }
-                      : { borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }
+                      ? { borderColor: "#4255FF", background: "#f1f5f9", color: "#3242CC" }
+                      : { borderColor: "#e2e8f0", color: "#0f172a", background: "#ffffff" }
                   }
                 />
               ))}
@@ -575,8 +575,8 @@ export function LoginModal() {
 
             <div className="text-center mt-6">
               {countdown > 0 ? (
-                <p className="text-sm" style={{ color: "var(--muted)" }}>
-                  Resend code in <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>{countdown}s</span>
+                <p className="text-sm" style={{ color: "#94a3b8" }}>
+                  Resend code in <span className="font-medium" style={{ color: "#64748b" }}>{countdown}s</span>
                 </p>
               ) : (
                 <button
@@ -590,8 +590,8 @@ export function LoginModal() {
             </div>
 
             {step === "signup-otp" && (
-              <div className="mt-6 p-4 rounded-xl" style={{ background: "var(--hover-bg)" }}>
-                <p className="text-sm flex items-center gap-2" style={{ color: "var(--foreground-secondary)" }}>
+              <div className="mt-6 p-4 rounded-xl" style={{ background: "#f1f5f9" }}>
+                <p className="text-sm flex items-center gap-2" style={{ color: "#64748b" }}>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
@@ -609,8 +609,8 @@ export function LoginModal() {
         {step === "role-selection" && (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>Choose Your Role</h2>
-              <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Are you a student or a contributor?</p>
+              <h2 className="text-2xl font-bold mb-2" style={{ color: "#0f172a" }}>Choose Your Role</h2>
+              <p className="text-sm" style={{ color: "#64748b" }}>Are you a student or a contributor?</p>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
@@ -625,15 +625,15 @@ export function LoginModal() {
                 } disabled:opacity-50 disabled:cursor-not-allowed`}
                 style={
                   selectedRole === 'student'
-                    ? { background: "var(--primary-bg)", borderColor: undefined }
-                    : { borderColor: "var(--card-border)", background: "var(--card-bg)" }
+                    ? { background: "#eef2ff", borderColor: undefined }
+                    : { borderColor: "#e2e8f0", background: "#ffffff" }
                 }
               >
                 <div className="flex items-start gap-4">
                   <div className="text-3xl">📚</div>
                   <div className="text-left flex-1">
-                    <h3 className="font-bold" style={{ color: "var(--foreground)" }}>I'm a Student</h3>
-                    <p className="text-sm mt-1" style={{ color: "var(--foreground-secondary)" }}>
+                    <h3 className="font-bold" style={{ color: "#0f172a" }}>I'm a Student</h3>
+                    <p className="text-sm mt-1" style={{ color: "#64748b" }}>
                       Take quizzes, practice problems, track progress, and prepare for exams
                     </p>
                   </div>
@@ -658,15 +658,15 @@ export function LoginModal() {
                 } disabled:opacity-50 disabled:cursor-not-allowed`}
                 style={
                   selectedRole !== 'contributor'
-                    ? { borderColor: "var(--card-border)", background: "var(--card-bg)" }
+                    ? { borderColor: "#e2e8f0", background: "#ffffff" }
                     : {}
                 }
               >
                 <div className="flex items-start gap-4">
                   <div className="text-3xl">👨‍🏫</div>
                   <div className="text-left flex-1">
-                    <h3 className="font-bold" style={{ color: "var(--foreground)" }}>I'm a Contributor</h3>
-                    <p className="text-sm mt-1" style={{ color: "var(--foreground-secondary)" }}>
+                    <h3 className="font-bold" style={{ color: "#0f172a" }}>I'm a Contributor</h3>
+                    <p className="text-sm mt-1" style={{ color: "#64748b" }}>
                       Create and submit verified questions to help students learn
                     </p>
                     <div className="mt-2 inline-block px-2 py-1 bg-emerald-100 rounded text-xs font-semibold text-emerald-700">
@@ -690,7 +690,7 @@ export function LoginModal() {
               </div>
             )}
 
-            <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
+            <p className="text-xs text-center" style={{ color: "#94a3b8" }}>
               You can change your role later in settings
             </p>
           </div>
