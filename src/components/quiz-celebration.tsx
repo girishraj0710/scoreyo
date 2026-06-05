@@ -148,7 +148,8 @@ export function QuizCelebration({
           damping: 15,
           delay: 0.5
         }}
-        className="text-7xl font-bold text-slate-800 mb-2"
+        className="text-7xl font-bold mb-2"
+        style={{ color: "var(--foreground)" }}
       >
         {accuracy}%
       </motion.div>
@@ -158,7 +159,8 @@ export function QuizCelebration({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="text-slate-600"
+        className=""
+        style={{ color: "var(--foreground-secondary)" }}
       >
         {correctAnswers} out of {totalQuestions} correct
       </motion.p>

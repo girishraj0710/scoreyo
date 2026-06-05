@@ -61,13 +61,13 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
             <span className="text-lg">📐</span>
             <span className="text-[#3242CC] font-semibold text-sm">Formula</span>
           </div>
-          <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 font-mono text-sm text-[#005A7A] mb-2">
+          <div className="px-3 py-2 rounded-lg border font-mono text-sm text-[#005A7A] mb-2" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
             {explanation.formula}
           </div>
           {explanation.calculation && (
             <>
               <div className="text-[#3242CC] font-semibold text-xs mb-1 mt-3">Step-by-step:</div>
-              <pre className="text-xs text-[#005A7A] leading-relaxed whitespace-pre-wrap font-mono bg-white px-3 py-2 rounded-lg border border-slate-200">
+              <pre className="text-xs text-[#005A7A] leading-relaxed whitespace-pre-wrap font-mono px-3 py-2 rounded-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
                 {explanation.calculation}
               </pre>
             </>
@@ -76,7 +76,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
       )}
 
       {/* Trap Alerts - Why wrong options are tempting */}
-      <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
+      <div className="p-4 rounded-xl border border-amber-200" style={{ background: "var(--primary-bg)" }}>
         <div className="flex items-center gap-2 mb-3">
           <span className="text-lg">⚠️</span>
           <span className="text-amber-700 font-semibold text-sm">Why Other Options Are Wrong</span>
@@ -87,11 +87,11 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
             return (
               <div
                 key={idx}
-                className={`p-3 rounded-lg border ${
-                  isUserChoice
-                    ? 'bg-red-50 border-red-300'
-                    : 'bg-white border-amber-200'
-                }`}
+                className={`p-3 rounded-lg border`}
+                style={{
+                  background: isUserChoice ? "var(--primary-bg)" : "var(--card-bg)",
+                  borderColor: isUserChoice ? "#dc2626" : "var(--card-border)"
+                }}
               >
                 <div className="flex items-start gap-2">
                   <span className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
@@ -102,10 +102,10 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
                     {String.fromCharCode(65 + idx)}
                   </span>
                   <div className="flex-1">
-                    <p className="text-xs text-slate-600 mb-1 line-clamp-1">{options[idx]}</p>
+                    <p className="text-xs mb-1 line-clamp-1" style={{ color: "var(--foreground-secondary)" }}>{options[idx]}</p>
                     <p className={`text-sm leading-relaxed ${
-                      isUserChoice ? 'text-red-900 font-medium' : 'text-amber-900'
-                    }`}>
+                      isUserChoice ? 'text-red-900 font-medium' : ''
+                    }`} style={!isUserChoice ? { color: "var(--foreground)" } : undefined}>
                       {explanation.trapAlerts[i] || "This option is incorrect based on the concept."}
                     </p>
                     {isUserChoice && (
@@ -122,7 +122,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
       </div>
 
       {/* Common Mistakes */}
-      <div className="p-4 bg-purple-50 rounded-xl border border-purple-200">
+      <div className="p-4 rounded-xl border border-purple-200" style={{ background: "var(--primary-bg)" }}>
         <div className="flex items-center gap-2 mb-2">
           <span className="text-lg">🚫</span>
           <span className="text-purple-700 font-semibold text-sm">Common Student Mistakes</span>
@@ -138,12 +138,12 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
       </div>
 
       {/* Correct Answer Highlight */}
-      <div className="p-3 bg-amber-100 rounded-lg border-2 border-emerald-400 flex items-center gap-3">
+      <div className="p-3 rounded-lg border-2 border-emerald-400 flex items-center gap-3" style={{ background: "var(--primary-bg)" }}>
         <span className="shrink-0 w-8 h-8 rounded-full bg-cyan-400 text-white flex items-center justify-center text-sm font-bold">
           {String.fromCharCode(65 + correctAnswer)}
         </span>
         <div className="flex-1">
-          <div className="text-xs text-slate-500 font-semibold mb-0.5">✓ Correct Answer</div>
+          <div className="text-xs font-semibold mb-0.5" style={{ color: "var(--muted)" }}>✓ Correct Answer</div>
           <div className="text-sm text-emerald-900 font-medium">{options[correctAnswer]}</div>
         </div>
       </div>
