@@ -148,8 +148,8 @@ export default function PricingPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16 text-center">
         <div className="animate-pulse">
-          <div className="h-8 bg-slate-200 rounded w-48 mx-auto mb-4"></div>
-          <div className="h-4 bg-slate-200 rounded w-64 mx-auto"></div>
+          <div className="h-8 rounded w-48 mx-auto mb-4" style={{ background: "var(--hover-bg)" }}></div>
+          <div className="h-4 rounded w-64 mx-auto" style={{ background: "var(--hover-bg)" }}></div>
         </div>
       </div>
     );
@@ -159,14 +159,14 @@ export default function PricingPage() {
   if (showSuccess) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-lg border border-emerald-200 text-center">
+        <div className="max-w-md mx-auto rounded-2xl p-8 shadow-lg border border-emerald-200 text-center" style={{ background: "var(--card-bg)" }}>
           <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
             <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-slate-800 mb-2">{t("paymentSuccess")}</h2>
-          <p className="text-slate-500 mb-6">{t("proWelcome")}</p>
+          <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{t("paymentSuccess")}</h2>
+          <p className="mb-6" style={{ color: "var(--muted)" }}>{t("proWelcome")}</p>
           <div className="flex gap-3 justify-center">
             <a
               href="/"
@@ -176,7 +176,8 @@ export default function PricingPage() {
             </a>
             <a
               href="/dashboard"
-              className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200"
+              className="px-6 py-3 font-medium rounded-xl"
+              style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
             >
               {t("dashboard")}
             </a>
@@ -197,23 +198,23 @@ export default function PricingPage() {
             {t("pricingTitle")}
           </span>
         </h1>
-        <p className="text-slate-500 max-w-lg mx-auto">
+        <p className="max-w-lg mx-auto" style={{ color: "var(--muted)" }}>
           {t("pricingSubtitle")}
         </p>
       </div>
 
       {/* Current Plan Status */}
       {isPro && subData?.subscription && (
-        <div className="max-w-md mx-auto mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-5 border border-[#90CAF9]">
+        <div className="max-w-md mx-auto mb-8 rounded-2xl p-5 border border-[#90CAF9]" style={{ background: "var(--primary-bg)" }}>
           <div className="flex items-center gap-3 mb-2">
             <span className="px-3 py-1 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white text-xs font-bold rounded-full">
               PRO
             </span>
-            <span className="text-sm font-semibold text-slate-800">
+            <span className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
               {subData.subscription.plan === "monthly" ? t("proMonthly") : t("proQuarterly")}
             </span>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs" style={{ color: "var(--muted)" }}>
             {t("expiresOn")}: {new Date(subData.subscription.expires_at).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
           </p>
         </div>

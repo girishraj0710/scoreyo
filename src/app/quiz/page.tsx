@@ -111,9 +111,9 @@ function ReportModal({
   if (submitted) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-2xl p-6 max-w-md w-full text-center">
+        <div className="rounded-2xl p-6 max-w-md w-full text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
           <div className="text-3xl mb-3">Thank you!</div>
-          <p className="text-slate-600 mb-4">
+          <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>
             Your report has been submitted. This helps us improve question quality.
           </p>
           <button
@@ -129,11 +129,11 @@ function ReportModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl p-6 max-w-md w-full">
-        <h3 className="text-lg font-semibold text-slate-800 mb-2">
+      <div className="rounded-2xl p-6 max-w-md w-full" style={{ background: "var(--card-bg)" }}>
+        <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--foreground)" }}>
           Report Issue
         </h3>
-        <p className="text-sm text-slate-500 mb-4 line-clamp-2">
+        <p className="text-sm mb-4 line-clamp-2" style={{ color: "var(--muted)" }}>
           &quot;{question.question.substring(0, 100)}...&quot;
         </p>
 
@@ -151,8 +151,9 @@ function ReportModal({
               className={`w-full text-left px-3 py-2 rounded-lg text-sm border ${
                 issue === preset
                   ? "border-red-400 bg-red-50 text-red-700"
-                  : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                  : ""
               }`}
+              style={issue !== preset ? { borderColor: "var(--card-border)", color: "var(--foreground-secondary)" } : undefined}
             >
               {preset}
             </button>
@@ -163,13 +164,15 @@ function ReportModal({
           value={issue}
           onChange={(e) => setIssue(e.target.value)}
           placeholder="Or describe the issue in your own words..."
-          className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm resize-none h-20 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border rounded-lg text-sm resize-none h-20 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
         />
 
         <div className="flex gap-2">
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 text-sm font-medium"
+            className="flex-1 px-4 py-2 rounded-lg text-sm font-medium"
+            style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
           >
             Cancel
           </button>
@@ -653,16 +656,16 @@ function QuizContent() {
   if (error && (error as any) === "LIMIT_REACHED") {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-amber-200">
+        <div className="rounded-2xl p-12 shadow-lg border border-amber-200" style={{ background: "var(--card-bg)" }}>
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-amber-100 flex items-center justify-center">
             <svg className="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-slate-800 mb-2">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--foreground)" }}>
             Daily Limit Reached
           </h2>
-          <p className="text-slate-500 mb-6">
+          <p className="mb-6" style={{ color: "var(--muted)" }}>
             Free users can take 10 quizzes per day. Upgrade to Pro for unlimited practice!
           </p>
           <div className="flex gap-3 justify-center">
@@ -674,7 +677,8 @@ function QuizContent() {
             </a>
             <a
               href="/"
-              className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200"
+              className="px-6 py-3 font-medium rounded-xl"
+              style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
             >
               Go Home
             </a>
@@ -689,20 +693,20 @@ function QuizContent() {
   if (error && (error as any) === "AI_BUSY") {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-[#90CAF9]">
+        <div className="rounded-2xl p-12 shadow-lg border border-[#90CAF9]" style={{ background: "var(--card-bg)" }}>
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
             <svg className="w-8 h-8 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-slate-800 mb-2">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--foreground)" }}>
             AI is warming up
           </h2>
-          <p className="text-slate-600 mb-2">
+          <p className="mb-2" style={{ color: "var(--foreground-secondary)" }}>
             Our question generator is a bit slow for <span className="font-medium">{topic}</span> right now,
             and this topic isn&apos;t cached yet.
           </p>
-          <p className="text-slate-500 text-sm mb-6">
+          <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>
             Try again in a few seconds, or pick a different topic — popular ones are usually instant.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
@@ -719,7 +723,8 @@ function QuizContent() {
             </button>
             <a
               href={examId && subjectId ? `/?examId=${examId}&subjectId=${subjectId}` : "/"}
-              className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200"
+              className="px-6 py-3 font-medium rounded-xl"
+              style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
             >
               Pick another topic
             </a>
@@ -733,7 +738,7 @@ function QuizContent() {
   if (isLoading) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
+        <div className="rounded-2xl p-12 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
             <svg
               className="animate-spin h-8 w-8 text-[#4255FF]"
@@ -755,10 +760,10 @@ function QuizContent() {
               />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-slate-800 mb-2">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--foreground)" }}>
             Preparing Your Quiz...
           </h2>
-          <p className="text-slate-500">
+          <p style={{ color: "var(--muted)" }}>
             {isLevelMode ? (
               <>Preparing Level {levelNumber} questions...</>
             ) : isSprintMode ? (
@@ -767,7 +772,7 @@ function QuizContent() {
               <>Selecting {count} questions on &quot;{topic}&quot; from our question bank</>
             )}
           </p>
-          <p className="text-sm text-slate-400 mt-2">
+          <p className="text-sm mt-2" style={{ color: "var(--muted)" }}>
             Almost ready...
           </p>
         </div>
@@ -779,12 +784,12 @@ function QuizContent() {
   if (error) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-lg border border-red-200">
+        <div className="rounded-2xl p-12 shadow-lg border border-red-200" style={{ background: "var(--card-bg)" }}>
           <div className="text-4xl mb-4">!</div>
-          <h2 className="text-xl font-semibold text-red-600 mb-2">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--danger)" }}>
             Oops! Something went wrong
           </h2>
-          <p className="text-slate-500 mb-6">{error}</p>
+          <p className="mb-6" style={{ color: "var(--muted)" }}>{error}</p>
           <div className="flex gap-3 justify-center">
             <button
               onClick={() => window.location.reload()}
@@ -794,7 +799,8 @@ function QuizContent() {
             </button>
             <a
               href="/"
-              className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200"
+              className="px-6 py-2 rounded-lg"
+              style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
             >
               Go Home
             </a>
@@ -851,11 +857,11 @@ function QuizContent() {
       percentage >= 90
         ? {
             label: "Excellent!",
-            color: "text-slate-500",
-            bg: "bg-slate-50",
+            color: "var(--success)",
+            bg: "var(--hover-bg)",
           }
         : percentage >= 70
-          ? { label: "Good Job!", color: "text-[#4255FF]", bg: "bg-slate-50" }
+          ? { label: "Good Job!", color: "var(--primary)", bg: "var(--hover-bg)" }
           : percentage >= 50
             ? {
                 label: "Keep Practicing!",
@@ -898,29 +904,29 @@ function QuizContent() {
         />
 
         {/* Score Card */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 text-center mb-8">
-          <p className="text-slate-500 mb-6">
+        <div className="rounded-2xl p-8 shadow-lg border text-center mb-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+          <p className="mb-6" style={{ color: "var(--muted)" }}>
             Time: {formatTime(results.timeTaken)}
           </p>
 
           <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto mb-6">
-            <div className={`${grade.bg} rounded-xl p-3`}>
-              <div className="text-lg font-bold text-slate-500">
+            <div className="rounded-xl p-3" style={{ background: "var(--hover-bg)" }}>
+              <div className="text-lg font-bold" style={{ color: "var(--success)" }}>
                 {results.correctAnswers}
               </div>
-              <div className="text-xs text-slate-500">Correct</div>
+              <div className="text-xs" style={{ color: "var(--muted)" }}>Correct</div>
             </div>
             <div className="bg-red-50 rounded-xl p-3">
               <div className="text-lg font-bold text-red-600">
                 {results.totalQuestions - results.correctAnswers}
               </div>
-              <div className="text-xs text-slate-500">Wrong</div>
+              <div className="text-xs" style={{ color: "var(--muted)" }}>Wrong</div>
             </div>
-            <div className="bg-slate-50 rounded-xl p-3">
-              <div className="text-lg font-bold text-slate-600">
+            <div className="rounded-xl p-3" style={{ background: "var(--hover-bg)" }}>
+              <div className="text-lg font-bold" style={{ color: "var(--foreground-secondary)" }}>
                 {formatTime(results.timeTaken)}
               </div>
-              <div className="text-xs text-slate-500">Time</div>
+              <div className="text-xs" style={{ color: "var(--muted)" }}>Time</div>
             </div>
           </div>
 
@@ -942,7 +948,8 @@ function QuizContent() {
                 </button>
                 <a
                   href="/"
-                  className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium"
+                  className="px-6 py-2 rounded-lg font-medium"
+                  style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
                 >
                   New Quiz
                 </a>
@@ -958,16 +965,17 @@ function QuizContent() {
         </div>
 
         {/* Question-by-question review */}
-        <h3 className="text-lg font-semibold text-slate-800 mb-4">
+        <h3 className="text-lg font-semibold mb-4" style={{ color: "var(--foreground)" }}>
           Review Answers
         </h3>
         <div className="space-y-4">
           {results.results.map((r: any, idx: number) => (
             <div
               key={idx}
-              className={`bg-white rounded-xl p-5 border-2 ${
-                r.isCorrect ? "border-slate-200" : "border-red-200"
+              className={`rounded-xl p-5 border-2 ${
+                r.isCorrect ? "" : "border-red-200"
               }`}
+              style={{ background: "var(--card-bg)", borderColor: r.isCorrect ? "var(--card-border)" : undefined }}
             >
               <div className="flex items-start gap-3 mb-3">
                 <span
@@ -981,12 +989,13 @@ function QuizContent() {
                   <div className="flex items-center gap-2 mb-1">
                     <SourceBadge source={r.source} />
                   </div>
-                  <p className="text-slate-800 font-medium">{r.question}</p>
+                  <p className="font-medium" style={{ color: "var(--foreground)" }}>{r.question}</p>
                 </div>
                 {/* Report button */}
                 <button
                   onClick={() => setReportQuestion(quizData.questions[idx])}
-                  className="shrink-0 text-slate-400 hover:text-red-500 p-1"
+                  className="shrink-0 hover:text-red-500 p-1"
+                  style={{ color: "var(--muted)" }}
                   title="Report incorrect question"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1001,18 +1010,24 @@ function QuizContent() {
                     key={optIdx}
                     className={`px-3 py-2 rounded-lg text-sm ${
                       optIdx === r.correctAnswer
-                        ? "bg-slate-50 border border-emerald-300 text-emerald-800 font-medium"
+                        ? "border border-emerald-300 text-emerald-800 font-medium"
                         : optIdx === r.userAnswer && !r.isCorrect
                           ? "bg-red-50 border border-red-300 text-red-800"
-                          : "bg-slate-50 text-slate-600"
+                          : ""
                     }`}
+                    style={optIdx === r.correctAnswer
+                      ? { background: "var(--hover-bg)" }
+                      : optIdx === r.userAnswer && !r.isCorrect
+                        ? undefined
+                        : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }
+                    }
                   >
                     <span className="font-medium mr-2">
                       {String.fromCharCode(65 + optIdx)}.
                     </span>
                     {opt}
                     {optIdx === r.correctAnswer && (
-                      <span className="ml-2 text-slate-500 font-medium">
+                      <span className="ml-2 font-medium" style={{ color: "var(--muted)" }}>
                         (Correct)
                       </span>
                     )}
@@ -1027,7 +1042,7 @@ function QuizContent() {
 
               <div className="ml-10 mt-3">
                 {typeof r.explanation === 'string' ? (
-                  <div className="p-3 bg-slate-50 rounded-lg text-sm text-blue-800">
+                  <div className="p-3 rounded-lg text-sm" style={{ background: "var(--hover-bg)", color: "var(--primary)" }}>
                     <strong>Explanation:</strong> {r.explanation}
                   </div>
                 ) : (
@@ -1047,8 +1062,8 @@ function QuizContent() {
         </div>
 
         {/* Quality note at bottom of results */}
-        <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-[#005A7A]">
-          <strong>Quality First:</strong> Our questions are sourced from NCERT textbooks, previous year papers, and curated by subject experts. If you spot any error, please use the 🚩 report button — our team reviews every report to maintain high accuracy.
+        <div className="mt-6 p-4 rounded-xl border text-sm" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)", color: "var(--foreground-secondary)" }}>
+          <strong>Quality First:</strong> Our questions are sourced from NCERT textbooks, previous year papers, and curated by subject experts. If you spot any error, please use the report button — our team reviews every report to maintain high accuracy.
         </div>
       </div>
     );
@@ -1083,13 +1098,13 @@ function QuizContent() {
   // Safety check: if question is undefined, show error
   if (!question) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 max-w-md text-center">
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="rounded-2xl p-8 shadow-lg border max-w-md text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-3xl text-red-600">⚠️</span>
           </div>
-          <h2 className="text-xl font-bold text-slate-900 mb-2">Question Loading Error</h2>
-          <p className="text-slate-600 mb-6">Unable to load question data. Please try starting a new quiz.</p>
+          <h2 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>Question Loading Error</h2>
+          <p className="mb-6" style={{ color: "var(--foreground-secondary)" }}>Unable to load question data. Please try starting a new quiz.</p>
           <button
             onClick={() => window.location.href = '/quiz/levels'}
             className="px-6 py-3 bg-[#4255FF] text-white rounded-lg hover:bg-[#3242CC] transition-colors"
@@ -1118,7 +1133,8 @@ function QuizContent() {
       {/* Back Button - Standalone Floating */}
       <button
         onClick={handleBack}
-        className="inline-flex items-center gap-1.5 mb-3 px-3 py-2 text-sm font-medium text-slate-600 hover:text-[#4255FF] bg-white hover:bg-[#E8EAFF] border border-slate-200 rounded-lg transition-colors shadow-sm shrink-0 self-start"
+        className="inline-flex items-center gap-1.5 mb-3 px-3 py-2 text-sm font-medium hover:text-[#4255FF] border rounded-lg transition-colors shadow-sm shrink-0 self-start"
+        style={{ color: "var(--foreground-secondary)", background: "var(--card-bg)", borderColor: "var(--card-border)" }}
         aria-label="Back"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1128,7 +1144,7 @@ function QuizContent() {
       </button>
 
       {/* Quiz Header */}
-      <div className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-200 mb-2 shrink-0">
+      <div className="rounded-lg p-2.5 shadow-sm border mb-2 shrink-0" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
         <div className="flex items-center justify-between mb-1.5">
           <div className="flex items-center gap-2 flex-wrap">
             {isLevelMode && (
@@ -1142,12 +1158,12 @@ function QuizContent() {
             <span className="text-sm font-medium text-[#4255FF]">
               {quizData.examName}
             </span>
-            <span className="text-slate-300">|</span>
-            <span className="text-sm text-slate-500">
+            <span style={{ color: "var(--muted)" }}>|</span>
+            <span className="text-sm" style={{ color: "var(--muted)" }}>
               {quizData.subjectName}
             </span>
-            <span className="text-slate-300">|</span>
-            <span className="text-sm text-slate-500">
+            <span style={{ color: "var(--muted)" }}>|</span>
+            <span className="text-sm" style={{ color: "var(--muted)" }}>
               {isLevelMode ? levelName : quizData.topic}
             </span>
           </div>
@@ -1178,8 +1194,8 @@ function QuizContent() {
                     if (percentage > 10) return "text-red-700 bg-red-100 animate-pulse";
                     return "text-red-900 bg-red-200 animate-bounce font-bold";
                   })()
-                : "text-slate-600 bg-slate-100"
-            }`}>
+                : ""
+            }`} style={!(pressureMode || isSprintMode) ? { color: "var(--foreground-secondary)", background: "var(--hover-bg)" } : undefined}>
               {(pressureMode || isSprintMode) ? (
                 <span className="flex items-center gap-1">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -1204,12 +1220,13 @@ function QuizContent() {
                   ? "bg-slate-500"
                   : answers[idx] !== null
                     ? "bg-indigo-300"
-                    : "bg-slate-200"
+                    : ""
               }`}
+              style={idx !== currentQuestion && answers[idx] === null ? { background: "var(--card-border)" } : undefined}
             />
           ))}
         </div>
-        <div className="flex justify-between mt-1.5 text-xs text-slate-400">
+        <div className="flex justify-between mt-1.5 text-xs" style={{ color: "var(--muted)" }}>
           <span>
             Question {currentQuestion + 1} of {quizData.questions.length}
           </span>
@@ -1252,7 +1269,8 @@ function QuizContent() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.3 }}
-        className="bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-lg border border-slate-200 overflow-hidden mb-2 shrink-0"
+        className="rounded-xl shadow-lg border overflow-hidden mb-2 shrink-0"
+        style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
       >
         {/* Colored Header Strip */}
         <div className={`h-1 bg-gradient-to-r ${
@@ -1298,7 +1316,8 @@ function QuizContent() {
             {/* Report Button */}
             <button
               onClick={() => setReportQuestion(question)}
-              className="p-2 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors"
+              className="p-2 rounded-lg hover:bg-red-50 hover:text-red-500 transition-colors"
+              style={{ color: "var(--muted)" }}
               title="Report issue"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1309,14 +1328,14 @@ function QuizContent() {
 
           {/* Passage/Context (for Reading Comprehension) */}
           {question.passage && (
-            <div className="mb-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+            <div className="mb-4 p-4 rounded-lg border" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
               <div className="flex items-center gap-2 mb-2">
                 <svg className="w-4 h-4 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
                 <span className="text-xs font-semibold text-[#4255FF] uppercase">Passage</span>
               </div>
-              <div className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap max-h-64 overflow-y-auto">
+              <div className="text-sm leading-relaxed whitespace-pre-wrap max-h-64 overflow-y-auto" style={{ color: "var(--foreground-secondary)" }}>
                 {question.passage}
               </div>
             </div>
@@ -1324,7 +1343,7 @@ function QuizContent() {
 
           {/* Question Text */}
           <div className="mb-3">
-            <h2 className="text-lg md:text-xl font-semibold text-slate-900 leading-relaxed">
+            <h2 className="text-lg md:text-xl font-semibold leading-relaxed" style={{ color: "var(--foreground)" }}>
               {question.question}
             </h2>
           </div>
@@ -1352,7 +1371,7 @@ function QuizContent() {
                         ? "border-red-400 bg-red-50 shadow-lg shadow-red-100"
                         : isSelected
                         ? "border-[#4255FF] bg-[#E8EAFF] shadow-lg shadow-indigo-100"
-                        : "border-slate-200 bg-white hover:border-[#90CAF9] hover:bg-slate-50 shadow-sm"
+                        : "border-[var(--card-border)] hover:border-[#90CAF9] shadow-sm"
                     }
                     ${showExplanation ? "cursor-default" : "cursor-pointer"}
                   `}
@@ -1368,7 +1387,7 @@ function QuizContent() {
                           ? "bg-gradient-to-br from-red-500 to-pink-500 text-white shadow-md"
                           : isSelected
                           ? "bg-gradient-to-br from-[#4255FF] to-purple-500 text-white shadow-md"
-                          : "bg-slate-100 text-slate-600 border border-slate-200"
+                          : "border border-[var(--card-border)]"
                       }
                     `}
                   >
@@ -1376,7 +1395,7 @@ function QuizContent() {
                   </span>
 
                   {/* Option Text */}
-                  <span className="flex-1 text-sm text-slate-800 leading-relaxed pt-1">
+                  <span className="flex-1 text-sm leading-relaxed pt-1" style={{ color: "var(--foreground)" }}>
                     {option}
                   </span>
 
@@ -1407,7 +1426,8 @@ function QuizContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 mt-4 shrink-0 max-h-56 overflow-y-auto"
+          className="rounded-xl shadow-lg border p-4 mt-4 shrink-0 max-h-56 overflow-y-auto"
+          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
         >
           <RichExplanation
             explanation={question.explanation}
@@ -1426,7 +1446,8 @@ function QuizContent() {
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
-          className="px-4 py-3 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
+          className="px-4 py-3 text-sm font-semibold border-2 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
+          style={{ color: "var(--foreground-secondary)", background: "var(--card-bg)", borderColor: "var(--card-border)" }}
         >
           ← Previous
         </button>
@@ -1455,7 +1476,8 @@ function QuizContent() {
           {!isLastQuestion && !showExplanation && (
             <button
               onClick={nextQuestion}
-              className="px-4 py-3 text-sm font-semibold text-slate-600 bg-white border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
+              className="px-4 py-3 text-sm font-semibold border-2 rounded-lg transition-all shadow-sm"
+              style={{ color: "var(--foreground-secondary)", background: "var(--card-bg)", borderColor: "var(--card-border)" }}
             >
               Skip →
             </button>
@@ -1488,8 +1510,9 @@ function QuizContent() {
                 ? "bg-slate-500 text-white"
                 : answers[idx] !== null
                   ? "bg-[#E8EAFF] text-[#4255FF]"
-                  : "bg-slate-100 text-slate-400"
+                  : ""
             }`}
+            style={idx !== currentQuestion && answers[idx] === null ? { background: "var(--hover-bg)", color: "var(--muted)" } : undefined}
           >
             {idx + 1}
           </button>
@@ -1545,7 +1568,7 @@ export default function QuizPage() {
     <Suspense
       fallback={
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <div className="bg-white rounded-2xl p-12 shadow-lg border border-slate-200">
+          <div className="rounded-2xl p-12 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8EAFF] flex items-center justify-center">
               <svg
                 className="animate-spin h-8 w-8 text-[#4255FF]"
@@ -1567,7 +1590,7 @@ export default function QuizPage() {
                 />
               </svg>
             </div>
-            <h2 className="text-xl font-semibold text-slate-800">
+            <h2 className="text-xl font-semibold" style={{ color: "var(--foreground)" }}>
               Loading...
             </h2>
           </div>

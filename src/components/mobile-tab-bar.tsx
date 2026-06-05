@@ -25,7 +25,7 @@ export function MobileTabBar() {
       <div className="h-16 md:hidden" />
 
       {/* Fixed bottom tab bar - only visible on mobile */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 md:hidden z-50 safe-area-inset-bottom">
+      <nav className="fixed bottom-0 left-0 right-0 border-t md:hidden z-50 safe-area-inset-bottom" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
         <div className="grid grid-cols-4 h-16">
           {tabs.map((tab) => {
             const isActive = pathname === tab.href;
@@ -35,11 +35,8 @@ export function MobileTabBar() {
               <Link
                 key={tab.href}
                 href={tab.href}
-                className={`flex flex-col items-center justify-center gap-1 transition-colors ${
-                  isActive
-                    ? "text-[#4255FF]"
-                    : "text-slate-500 hover:text-slate-700"
-                }`}
+                className="flex flex-col items-center justify-center gap-1 transition-colors"
+                style={{ color: isActive ? "#4255FF" : "var(--muted)" }}
               >
                 <Icon className="w-6 h-6" strokeWidth={isActive ? 2.5 : 2} />
                 <span className="text-[10px] font-medium">{tab.label}</span>

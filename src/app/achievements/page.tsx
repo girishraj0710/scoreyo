@@ -72,10 +72,10 @@ export default function AchievementsPage() {
   if (isLoading) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="shimmer h-20 bg-white rounded-xl mb-8" />
+        <div className="shimmer h-20 rounded-xl mb-8" style={{ background: "var(--card-bg)" }} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="shimmer h-40 bg-white rounded-xl" />
+            <div key={i} className="shimmer h-40 rounded-xl" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
       </div>
@@ -154,8 +154,9 @@ export default function AchievementsPage() {
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
               selectedCategory === cat
                 ? "bg-[#4255FF] text-white shadow-lg"
-                : "bg-white text-slate-600 hover:bg-slate-50 border border-slate-200"
+                : "border"
             }`}
+            style={selectedCategory === cat ? undefined : { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" }}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
           </button>
@@ -205,9 +206,9 @@ export default function AchievementsPage() {
                   <h3 className={`text-lg font-bold mb-1 ${style.text}`}>
                     {badge.name}
                   </h3>
-                  <p className="text-sm text-slate-600">{badge.description}</p>
+                  <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{badge.description}</p>
                   {badge.unlocked_at && (
-                    <p className="text-xs text-slate-400 mt-2">
+                    <p className="text-xs mt-2" style={{ color: "var(--muted)" }}>
                       Unlocked on{" "}
                       {new Date(badge.unlocked_at).toLocaleDateString("en-IN", {
                         day: "numeric",
@@ -221,7 +222,8 @@ export default function AchievementsPage() {
                 {/* Share Button */}
                 <button
                   onClick={() => shareBadge(badge)}
-                  className="w-full flex items-center justify-center gap-2 py-2 bg-white border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-2 border-2 rounded-lg transition-all"
+                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", color: "var(--foreground-secondary)" }}
                 >
                   <Share2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Share</span>
@@ -242,11 +244,12 @@ export default function AchievementsPage() {
             return (
               <div
                 key={badge.id}
-                className={`relative rounded-xl p-6 border-2 bg-slate-50 border-slate-200 opacity-60`}
+                className="relative rounded-xl p-6 border-2 opacity-60"
+                style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}
               >
                 {/* Lock Overlay */}
                 <div className="absolute top-4 right-4">
-                  <Lock className="w-6 h-6 text-slate-400" />
+                  <Lock className="w-6 h-6" style={{ color: "var(--muted)" }} />
                 </div>
 
                 {/* Badge Icon (grayscale) */}

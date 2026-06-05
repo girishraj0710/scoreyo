@@ -116,16 +116,16 @@ export default function SprintPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="mb-8">
-            <div className="h-8 w-64 bg-slate-200/70 rounded shimmer mb-2"></div>
-            <div className="h-4 w-96 bg-slate-200/70 rounded shimmer"></div>
+            <div className="h-8 w-64 rounded shimmer mb-2" style={{ background: "var(--hover-bg)" }}></div>
+            <div className="h-4 w-96 rounded shimmer" style={{ background: "var(--hover-bg)" }}></div>
           </div>
-          <div className="bg-slate-100/70 rounded-xl p-6 mb-6 shimmer h-48"></div>
+          <div className="rounded-xl p-6 mb-6 shimmer h-48" style={{ background: "var(--hover-bg)" }}></div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="bg-white/70 backdrop-blur-sm rounded-xl p-6 h-64 shimmer" />
+              <div key={i} className="backdrop-blur-sm rounded-xl p-6 h-64 shimmer" style={{ background: "var(--card-bg)", opacity: 0.7 }} />
             ))}
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function SprintPage() {
 
   if (noActiveSprint) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="relative overflow-hidden bg-[#4255FF] rounded-2xl shadow-xl shadow-indigo-500/20 p-12 text-center">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
@@ -260,7 +260,7 @@ export default function SprintPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -268,9 +268,9 @@ export default function SprintPage() {
             <div className="p-2 bg-[#4255FF] rounded-lg shadow-md shadow-indigo-500/20">
               <Zap className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-slate-900">Live Sprint Challenges</h1>
+            <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>Live Sprint Challenges</h1>
           </div>
-          <p className="text-slate-600 text-sm">
+          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
             {sprints.length} active challenges • Compete with students across India in real-time
           </p>
         </div>
@@ -428,7 +428,7 @@ export default function SprintPage() {
           <div key={examId} className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <Icon icon={category.icon} className="w-6 h-6" />
-              <h2 className="text-lg font-semibold text-slate-900">{category.name}</h2>
+              <h2 className="text-lg font-semibold" style={{ color: "var(--foreground)" }}>{category.name}</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {categorysprints.filter((s) => s && s.sprint).map((sprintData) => {
@@ -444,11 +444,12 @@ export default function SprintPage() {
                     current === sprintData.sprint.id ? null : sprintData.sprint.id
                   )
                 }
-                className={`group relative overflow-hidden bg-white rounded-2xl border p-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${sprintCategory.glow} ${
+                className={`group relative overflow-hidden rounded-2xl border p-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${sprintCategory.glow} ${
                   isSelected
                     ? "border-indigo-400 shadow-xl ring-2 ring-indigo-100"
-                    : "border-slate-200/80 shadow-sm hover:shadow-xl"
+                    : "shadow-sm hover:shadow-xl"
                 }`}
+                style={{ background: "var(--card-bg)", borderColor: isSelected ? undefined : "var(--card-border)" }}
               >
                 {/* Soft gradient accent in the background */}
                 <div
