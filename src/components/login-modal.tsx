@@ -295,7 +295,7 @@ export function LoginModal() {
         onClick={() => setShowLoginModal(false)}
       />
 
-      <div className="relative rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in max-h-[90vh] overflow-y-auto" style={{ background: "#ffffff" }}>
+      <div className="relative rounded-3xl p-8 max-w-md w-full shadow-2xl animate-scale-in max-h-[90vh] overflow-y-auto login-modal" style={{ background: "#ffffff" }}>
         <button
           onClick={() => setShowLoginModal(false)}
           className="absolute top-4 right-4 p-2 rounded-full transition-colors z-10"
@@ -717,6 +717,31 @@ export function LoginModal() {
         }
         .animate-scale-in {
           animation: scale-in 0.2s ease-out;
+        }
+
+        /* CRITICAL: Isolate login modal from CSS variables - keep light mode always */
+        .login-modal,
+        .login-modal * {
+          color-scheme: light !important;
+        }
+
+        .login-modal input::placeholder {
+          color: #94a3b8 !important;
+        }
+
+        .login-modal input,
+        .login-modal select,
+        .login-modal textarea {
+          background-color: #ffffff !important;
+          color: #0f172a !important;
+          border-color: #e2e8f0 !important;
+        }
+
+        .login-modal input:focus,
+        .login-modal select:focus,
+        .login-modal textarea:focus {
+          border-color: #4255FF !important;
+          background-color: #ffffff !important;
         }
       `}</style>
     </div>
