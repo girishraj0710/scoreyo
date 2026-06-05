@@ -166,20 +166,21 @@ export default function EnglishPracticePage() {
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
+        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--muted)", borderTopColor: "var(--foreground)" }}></div>
       </div>
     );
   }
 
   if (!path || !topic) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-slate-900 mb-4">Topic not found</h1>
+          <h1 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Topic not found</h1>
           <button
             onClick={() => router.push('/english')}
-            className="text-[#4255FF] hover:underline"
+            className="hover:underline"
+            style={{ color: "var(--foreground)" }}
           >
             ← Back to English Hub
           </button>
@@ -193,7 +194,7 @@ export default function EnglishPracticePage() {
   const accuracy = questions.length > 0 ? (correctCount / questions.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Loading State */}
@@ -201,11 +202,11 @@ export default function EnglishPracticePage() {
           <div className="text-center py-16">
             {error ? (
               <div>
-                <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
                   <XCircle className="w-8 h-8 text-red-600" />
                 </div>
-                <h2 className="text-xl font-bold text-slate-900 mb-2">Oops!</h2>
-                <p className="text-slate-600 mb-6">{error}</p>
+                <h2 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>Oops!</h2>
+                <p className="mb-6" style={{ color: "var(--foreground-secondary)" }}>{error}</p>
                 <button
                   onClick={() => router.push(`/english/${pathId}/${topicId}`)}
                   className="px-6 py-3 bg-[#4255FF] text-white rounded-lg hover:bg-[#3242CC] transition-colors"
@@ -229,24 +230,25 @@ export default function EnglishPracticePage() {
             <div className="mb-6">
               <button
                 onClick={() => router.push(`/english/${pathId}/${topicId}`)}
-                className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-4 transition-colors"
+                className="flex items-center gap-2 mb-4 transition-colors"
+                style={{ color: "var(--foreground-secondary)" }}
               >
                 <ChevronLeft className="w-5 h-5" />
                 Back to {topic.name}
               </button>
 
               {/* Progress Bar */}
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4">
+              <div className="rounded-xl p-4 shadow-sm mb-4" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     Question {currentIndex + 1} of {questions.length}
                   </span>
-                  <span className="text-sm text-slate-500 flex items-center gap-1">
+                  <span className="text-sm flex items-center gap-1" style={{ color: "var(--foreground-secondary)" }}>
                     <Clock className="w-4 h-4" />
                     {Math.floor((Date.now() - startTime) / 1000 / 60)}m {Math.floor((Date.now() - startTime) / 1000 % 60)}s
                   </span>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
+                <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                   <div
                     className="bg-gradient-to-r from-[#4255FF] to-purple-500 h-2 rounded-full transition-all"
                     style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
@@ -256,23 +258,23 @@ export default function EnglishPracticePage() {
 
               {/* Warning Message */}
               {warning && (
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                <div className="rounded-lg p-4 mb-4" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
                   <div className="flex items-start gap-3">
                     <div className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5">ℹ️</div>
-                    <p className="text-sm text-yellow-800">{warning}</p>
+                    <p className="text-sm" style={{ color: "var(--foreground)" }}>{warning}</p>
                   </div>
                 </div>
               )}
             </div>
 
             {/* Question */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 mb-6">
+            <div className="rounded-2xl p-8 shadow-sm mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
               <div className="mb-2">
-                <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] text-xs font-medium rounded-full">
+                <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                   {currentQuestion.difficulty}
                 </span>
               </div>
-              <h2 className="text-xl font-bold text-slate-900 mb-6">
+              <h2 className="text-xl font-bold mb-6" style={{ color: "var(--foreground)" }}>
                 {currentQuestion.question}
               </h2>
 
@@ -282,23 +284,24 @@ export default function EnglishPracticePage() {
                   <button
                     key={idx}
                     onClick={() => handleAnswerSelect(idx)}
-                    className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                      userAnswers[currentIndex] === idx
-                        ? "border-[#4255FF] bg-[#E8EAFF]"
-                        : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                    }`}
+                    className="w-full text-left p-4 rounded-xl border-2 transition-all"
+                    style={{
+                      borderColor: userAnswers[currentIndex] === idx ? "#4255FF" : "var(--card-border)",
+                      background: userAnswers[currentIndex] === idx ? "var(--hover-bg)" : "var(--card-bg)"
+                    }}
                   >
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-                          userAnswers[currentIndex] === idx
-                            ? "border-[#4255FF] bg-[#4255FF] text-white"
-                            : "border-slate-300"
-                        }`}
+                        className="w-8 h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0"
+                        style={{
+                          borderColor: userAnswers[currentIndex] === idx ? "#4255FF" : "var(--muted)",
+                          background: userAnswers[currentIndex] === idx ? "#4255FF" : "transparent",
+                          color: userAnswers[currentIndex] === idx ? "white" : "var(--foreground)"
+                        }}
                       >
                         {String.fromCharCode(65 + idx)}
                       </div>
-                      <span className="text-slate-800">{option}</span>
+                      <span style={{ color: "var(--foreground)" }}>{option}</span>
                     </div>
                   </button>
                 ))}
@@ -310,7 +313,8 @@ export default function EnglishPracticePage() {
               <button
                 onClick={handlePrevious}
                 disabled={currentIndex === 0}
-                className="px-6 py-3 border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-3 border-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
               >
                 Previous
               </button>
@@ -339,63 +343,71 @@ export default function EnglishPracticePage() {
         {quizState === "results" && (
           <div>
             {/* Results Header */}
-            <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 rounded-2xl p-8 text-white mb-6">
+            <div className="rounded-2xl p-8 text-white mb-6" style={{ background: "var(--foreground)" }}>
               <div className="text-center mb-6">
-                <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "rgba(255, 255, 255, 0.2)" }}>
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h1 className="text-3xl font-bold mb-2">Quiz Complete!</h1>
-                <p className="text-indigo-100">Great job! Here's how you did:</p>
+                <p style={{ opacity: 0.8 }}>Great job! Here's how you did:</p>
               </div>
 
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
                   <div className="text-4xl font-bold mb-1">{correctCount}/{questions.length}</div>
-                  <div className="text-indigo-100 text-sm">Correct</div>
+                  <div className="text-sm" style={{ opacity: 0.8 }}>Correct</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold mb-1">{accuracy.toFixed(0)}%</div>
-                  <div className="text-indigo-100 text-sm">Accuracy</div>
+                  <div className="text-sm" style={{ opacity: 0.8 }}>Accuracy</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold mb-1">
                     {Math.floor((Date.now() - startTime) / 1000 / 60)}m
                   </div>
-                  <div className="text-indigo-100 text-sm">Time</div>
+                  <div className="text-sm" style={{ opacity: 0.8 }}>Time</div>
                 </div>
               </div>
             </div>
 
             {/* Question Review */}
             <div className="space-y-4 mb-6">
-              <h2 className="text-xl font-bold text-slate-900">Review Your Answers</h2>
+              <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>Review Your Answers</h2>
               {questions.map((q, idx) => {
                 const isCorrect = userAnswers[idx] === q.correctAnswer;
                 return (
-                  <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                  <div key={idx} className="rounded-xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
                     <div className="flex items-start gap-3 mb-3">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          isCorrect ? "bg-emerald-100 text-emerald-600" : "bg-red-100 text-red-600"
-                        }`}
+                        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{
+                          background: isCorrect ? "var(--hover-bg)" : "var(--hover-bg)",
+                          color: isCorrect ? "rgb(16, 185, 129)" : "rgb(239, 68, 68)"
+                        }}
                       >
                         {isCorrect ? <CheckCircle2 className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
                       </div>
                       <div className="flex-1">
-                        <p className="font-medium text-slate-900 mb-2">
+                        <p className="font-medium mb-2" style={{ color: "var(--foreground)" }}>
                           {idx + 1}. {q.question}
                         </p>
                         <div className="space-y-1 mb-3">
                           {q.options.map((opt, optIdx) => (
                             <div
                               key={optIdx}
-                              className={`p-2 rounded text-sm ${
-                                optIdx === q.correctAnswer
-                                  ? "bg-emerald-50 text-emerald-700 font-medium"
+                              className="p-2 rounded text-sm"
+                              style={{
+                                background: optIdx === q.correctAnswer
+                                  ? "var(--hover-bg)"
                                   : optIdx === userAnswers[idx]
-                                  ? "bg-red-50 text-red-700"
-                                  : "text-slate-600"
-                              }`}
+                                  ? "var(--hover-bg)"
+                                  : "transparent",
+                                color: optIdx === q.correctAnswer
+                                  ? "rgb(16, 185, 129)"
+                                  : optIdx === userAnswers[idx]
+                                  ? "rgb(239, 68, 68)"
+                                  : "var(--foreground-secondary)"
+                              }}
                             >
                               {String.fromCharCode(65 + optIdx)}. {opt}
                               {optIdx === q.correctAnswer && " ✓"}
@@ -403,7 +415,7 @@ export default function EnglishPracticePage() {
                             </div>
                           ))}
                         </div>
-                        <div className="bg-[#E8EAFF] border-l-4 border-blue-500 p-3 text-sm text-slate-700">
+                        <div className="border-l-4 border-blue-500 p-3 text-sm" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                           <strong>Explanation:</strong> {q.explanation}
                         </div>
                       </div>
@@ -417,7 +429,8 @@ export default function EnglishPracticePage() {
             <div className="flex gap-4">
               <button
                 onClick={() => router.push(`/english/${pathId}/${topicId}`)}
-                className="flex-1 px-6 py-3 border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
+                className="flex-1 px-6 py-3 border-2 rounded-lg hover:transition-colors"
+                style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
               >
                 Back to Topic
               </button>
@@ -428,7 +441,8 @@ export default function EnglishPracticePage() {
                   setUserAnswers([]);
                   fetchQuestions();
                 }}
-                className="flex-1 px-6 py-3 bg-[#4255FF] text-white rounded-lg hover:bg-[#3242CC] transition-colors"
+                className="flex-1 px-6 py-3 text-white rounded-lg hover:transition-colors"
+                style={{ background: "var(--foreground)" }}
               >
                 Practice Again
               </button>

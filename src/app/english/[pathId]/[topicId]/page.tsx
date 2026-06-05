@@ -58,19 +58,19 @@ export default function EnglishTopicPage() {
 
   if (isLoading || !user || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
+        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--muted)", borderTopColor: "var(--foreground)" }}></div>
       </div>
     );
   }
 
   if (!path || !topic) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-slate-900 mb-4">Topic not found</h1>
+          <h1 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Topic not found</h1>
           <Link href="/english">
-            <button className="text-[#4255FF] hover:underline">← Back to English Hub</button>
+            <button className="hover:underline" style={{ color: "var(--foreground)" }}>← Back to English Hub</button>
           </Link>
         </div>
       </div>
@@ -87,46 +87,46 @@ export default function EnglishTopicPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Button */}
         <Link href={`/english/${pathId}`}>
-          <button className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-6 transition-colors">
+          <button className="flex items-center gap-2 mb-6 transition-colors" style={{ color: "var(--foreground-secondary)" }}>
             <ChevronLeft className="w-5 h-5" />
             Back to {path.name}
           </button>
         </Link>
 
         {/* Topic Header */}
-        <div className="mb-8 bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div className="mb-8 rounded-2xl p-8 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
           <div className="flex items-start gap-6">
             {(() => {
               const TopicIcon = getTopicIcon(topic.id);
               return (
-                <div className="w-20 h-20 bg-[#E8EAFF] rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: "var(--hover-bg)" }}>
                   <TopicIcon className="w-10 h-10 text-[#4255FF]" />
                 </div>
               );
             })()}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl font-bold text-slate-900">{topic.name}</h1>
+                <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>{topic.name}</h1>
                 <span className={`px-3 py-1 text-sm font-medium rounded-full ${getLevelColor(topic.level)}`}>
                   {topic.level}
                 </span>
               </div>
-              <p className="text-slate-600 mb-4">{topic.description}</p>
+              <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>{topic.description}</p>
               <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 bg-[#E8EAFF] rounded-lg">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
                   <BookOpen className="w-4 h-4 text-[#4255FF]" />
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     {topic.questionCount} questions
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-lg">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
                   <Clock className="w-4 h-4 text-purple-600" />
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     ~{topic.estimatedTime} min
                   </span>
                 </div>
@@ -137,75 +137,78 @@ export default function EnglishTopicPage() {
 
         {/* Progress Stats */}
         {progress.completed > 0 && (
-          <div className="mb-8 bg-gradient-to-r from-[#4255FF] to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="mb-8 rounded-2xl p-6 text-white shadow-lg" style={{ background: "var(--foreground)" }}>
             <h2 className="text-lg font-semibold mb-4">Your Progress</h2>
             <div className="grid grid-cols-3 gap-4">
               <div>
                 <div className="text-3xl font-bold">{progress.completed}</div>
-                <div className="text-indigo-100 text-sm">Questions Completed</div>
+                <div className="text-sm" style={{ opacity: 0.7 }}>Questions Completed</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">{progress.accuracy.toFixed(0)}%</div>
-                <div className="text-indigo-100 text-sm">Accuracy</div>
+                <div className="text-sm" style={{ opacity: 0.7 }}>Accuracy</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">{progress.mastery.toFixed(0)}%</div>
-                <div className="text-indigo-100 text-sm">Mastery</div>
+                <div className="text-sm" style={{ opacity: 0.7 }}>Mastery</div>
               </div>
             </div>
           </div>
         )}
 
         {/* Subtopics */}
-        <div className="mb-8 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-          <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <div className="mb-8 rounded-2xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <Target className="w-5 h-5 text-[#4255FF]" />
             What You'll Learn
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {topic.subtopics.map((subtopic, idx) => (
-              <div key={idx} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
-                <div className="w-8 h-8 bg-[#E8EAFF] rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#4255FF] font-semibold text-sm">{idx + 1}</span>
+              <div key={idx} className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "var(--hover-bg)" }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "var(--card-bg)", color: "var(--foreground)" }}>
+                  <span className="font-semibold text-sm">{idx + 1}</span>
                 </div>
-                <span className="text-slate-700">{subtopic}</span>
+                <span style={{ color: "var(--foreground)" }}>{subtopic}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Practice Options */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Start Practice</h2>
+        <div className="rounded-2xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Start Practice</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               onClick={() => handleStartPractice(5)}
-              className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-[#E8EAFF] transition-all group"
+              className="p-6 border-2 rounded-xl hover:border-indigo-400 transition-all group"
+              style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
             >
               <Play className="w-8 h-8 text-[#4255FF] mb-2" />
-              <div className="font-bold text-slate-900 mb-1">Quick Practice</div>
-              <div className="text-sm text-slate-600">5 questions</div>
-              <div className="text-xs text-slate-500 mt-2">~5 minutes</div>
+              <div className="font-bold mb-1" style={{ color: "var(--foreground)" }}>Quick Practice</div>
+              <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>5 questions</div>
+              <div className="text-xs mt-2" style={{ color: "var(--muted)" }}>~5 minutes</div>
             </button>
 
             <button
               onClick={() => handleStartPractice(10)}
-              className="p-6 border-2 border-[#90CAF9] bg-[#E8EAFF] rounded-xl hover:border-[#4255FF] hover:bg-[#E8EAFF] transition-all group"
+              className="p-6 border-2 rounded-xl hover:border-[#4255FF] transition-all group"
+              style={{ borderColor: "var(--card-border)", background: "var(--hover-bg)" }}
             >
               <Play className="w-8 h-8 text-[#4255FF] mb-2" />
-              <div className="font-bold text-slate-900 mb-1">Standard Practice</div>
-              <div className="text-sm text-slate-600">10 questions</div>
-              <div className="text-xs text-slate-500 mt-2">~10 minutes</div>
+              <div className="font-bold mb-1" style={{ color: "var(--foreground)" }}>Standard Practice</div>
+              <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>10 questions</div>
+              <div className="text-xs mt-2" style={{ color: "var(--muted)" }}>~10 minutes</div>
             </button>
 
             <button
               onClick={() => handleStartPractice(20)}
-              className="p-6 border-2 border-slate-200 rounded-xl hover:border-indigo-400 hover:bg-[#E8EAFF] transition-all group"
+              className="p-6 border-2 rounded-xl hover:border-indigo-400 transition-all group"
+              style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
             >
               <Play className="w-8 h-8 text-[#4255FF] mb-2" />
-              <div className="font-bold text-slate-900 mb-1">Deep Practice</div>
-              <div className="text-sm text-slate-600">20 questions</div>
-              <div className="text-xs text-slate-500 mt-2">~20 minutes</div>
+              <div className="font-bold mb-1" style={{ color: "var(--foreground)" }}>Deep Practice</div>
+              <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>20 questions</div>
+              <div className="text-xs mt-2" style={{ color: "var(--muted)" }}>~20 minutes</div>
             </button>
           </div>
         </div>

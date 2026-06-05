@@ -54,19 +54,19 @@ export default function EnglishPathPage() {
 
   if (isLoading || !user || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
+        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--muted)", borderTopColor: "var(--foreground)" }}></div>
       </div>
     );
   }
 
   if (!path) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-slate-900 mb-4">Path not found</h1>
+          <h1 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Path not found</h1>
           <Link href="/english">
-            <button className="text-[#4255FF] hover:underline">← Back to English Hub</button>
+            <button className="hover:underline" style={{ color: "var(--foreground)" }}>← Back to English Hub</button>
           </Link>
         </div>
       </div>
@@ -99,19 +99,19 @@ export default function EnglishPathPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Button */}
         <Link href="/english">
-          <button className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-6 transition-colors">
+          <button className="flex items-center gap-2 mb-6 transition-colors" style={{ color: "var(--foreground-secondary)" }}>
             <ChevronLeft className="w-5 h-5" />
             Back to English Hub
           </button>
         </Link>
 
         {/* Path Header */}
-        <div className="mb-8 bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+        <div className="mb-8 rounded-2xl p-8 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
           <div className="flex items-start gap-6">
             {(() => {
               const PathIcon = getPathIcon(path.id);
@@ -125,24 +125,24 @@ export default function EnglishPathPage() {
               );
             })()}
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-slate-900 mb-2">{path.name}</h1>
-              <p className="text-slate-600 mb-4">{path.description}</p>
+              <h1 className="text-3xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{path.name}</h1>
+              <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>{path.description}</p>
               <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 bg-[#E8EAFF] rounded-lg">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
                   <BookOpen className="w-4 h-4 text-[#4255FF]" />
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     {path.topics.length} topics
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-lg">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
                   <Award className="w-4 h-4 text-emerald-600" />
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     {path.totalQuestions}+ questions
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-lg">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
                   <Clock className="w-4 h-4 text-purple-600" />
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     ~{path.estimatedWeeks} weeks
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default function EnglishPathPage() {
 
         {/* Topics Grid */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">Topics</h2>
+          <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Topics</h2>
           {sortedTopics.map((topic: EnglishTopic) => {
             const topicProgress = getTopicProgress(topic.id);
             const isStarted = topicProgress.completed > 0;
@@ -162,10 +162,10 @@ export default function EnglishPathPage() {
 
             return (
               <Link key={topic.id} href={`/english/${pathId}/${topic.id}`}>
-                <div className="bg-white rounded-xl p-6 shadow-sm border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group">
+                <div className="rounded-xl p-6 shadow-sm border-2 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="w-14 h-14 bg-[#E8EAFF] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#E8EAFF] transition-colors">
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:transition-colors" style={{ background: "var(--hover-bg)" }}>
                       <TopicIcon className="w-7 h-7 text-[#4255FF]" />
                     </div>
 
@@ -173,10 +173,10 @@ export default function EnglishPathPage() {
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#4255FF] transition-colors">
+                          <h3 className="text-lg font-bold group-hover:text-[#4255FF] transition-colors" style={{ color: "var(--foreground)" }}>
                             {topic.name}
                           </h3>
-                          <p className="text-sm text-slate-600">{topic.description}</p>
+                          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{topic.description}</p>
                         </div>
                         {isCompleted && (
                           <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0" />
@@ -188,10 +188,10 @@ export default function EnglishPathPage() {
                         <span className={`px-3 py-1 text-xs font-medium rounded-full ${getLevelBadgeColor(topic.level)}`}>
                           {topic.level}
                         </span>
-                        <span className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                           {topic.questionCount} questions
                         </span>
-                        <span className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                           ~{topic.estimatedTime} min
                         </span>
                       </div>
@@ -199,11 +199,11 @@ export default function EnglishPathPage() {
                       {/* Progress Bar */}
                       {isStarted && (
                         <div className="mb-2">
-                          <div className="flex items-center justify-between text-xs text-slate-600 mb-1">
+                          <div className="flex items-center justify-between text-xs mb-1" style={{ color: "var(--foreground-secondary)" }}>
                             <span>Progress: {topicProgress.completed}/{topic.questionCount}</span>
                             <span>Mastery: {topicProgress.mastery.toFixed(0)}%</span>
                           </div>
-                          <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                          <div className="w-full rounded-full h-2 overflow-hidden" style={{ background: "var(--hover-bg)" }}>
                             <div
                               className="h-full bg-gradient-to-r from-[#4255FF] to-purple-500 transition-all"
                               style={{ width: `${(topicProgress.completed / topic.questionCount) * 100}%` }}
@@ -213,7 +213,7 @@ export default function EnglishPathPage() {
                       )}
 
                       {/* Subtopics */}
-                      <div className="text-xs text-slate-500">
+                      <div className="text-xs" style={{ color: "var(--muted)" }}>
                         <span className="font-medium">Covers:</span> {topic.subtopics.slice(0, 3).join(", ")}
                         {topic.subtopics.length > 3 && ` +${topic.subtopics.length - 3} more`}
                       </div>

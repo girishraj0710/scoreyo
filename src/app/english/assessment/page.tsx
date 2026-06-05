@@ -72,8 +72,8 @@ export default function EnglishAssessmentPage() {
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin"></div>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
+        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--muted)", borderTopColor: "var(--foreground)" }}></div>
       </div>
     );
   }
@@ -117,48 +117,48 @@ export default function EnglishAssessmentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
         {/* Intro State */}
         {state === "intro" && (
           <div className="text-center">
             <Link href="/english">
-              <button className="mb-6 text-slate-600 hover:text-slate-900 text-sm">
+              <button className="mb-6 text-sm" style={{ color: "var(--foreground-secondary)" }}>
                 ← Back to English Hub
               </button>
             </Link>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+            <div className="rounded-2xl p-8 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
               <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#4255FF] to-purple-600 rounded-full flex items-center justify-center">
                 <Target className="w-10 h-10 text-white" />
               </div>
 
-              <h1 className="text-3xl font-bold text-slate-900 mb-4">
+              <h1 className="text-3xl font-bold mb-4" style={{ color: "var(--foreground)" }}>
                 Comprehensive Level Assessment
               </h1>
-              <p className="text-lg text-slate-600 mb-6">
+              <p className="text-lg mb-6" style={{ color: "var(--foreground-secondary)" }}>
                 Take our 10-minute test with 20 questions to accurately discover your English level and get personalized learning recommendations
               </p>
 
-              <div className="bg-[#E8EAFF] rounded-xl p-6 mb-8">
-                <h3 className="font-semibold text-slate-900 mb-3">What to expect:</h3>
+              <div className="rounded-xl p-6 mb-8" style={{ background: "var(--hover-bg)" }}>
+                <h3 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>What to expect:</h3>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-[#4255FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">20 questions covering grammar, vocabulary, tenses, and more</span>
+                    <span style={{ color: "var(--foreground)" }}>20 questions covering grammar, vocabulary, tenses, and more</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-[#4255FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Progressive difficulty from beginner to advanced</span>
+                    <span style={{ color: "var(--foreground)" }}>Progressive difficulty from beginner to advanced</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-[#4255FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Detailed results with topic-wise performance analysis</span>
+                    <span style={{ color: "var(--foreground)" }}>Detailed results with topic-wise performance analysis</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-[#4255FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Takes ~10 minutes - 100% free, no strings attached</span>
+                    <span style={{ color: "var(--foreground)" }}>Takes ~10 minutes - 100% free, no strings attached</span>
                   </li>
                 </ul>
               </div>
@@ -178,10 +178,10 @@ export default function EnglishAssessmentPage() {
         {state === "quiz" && currentQuestion && (
           <div>
             <div className="mb-6 text-center">
-              <span className="text-sm font-medium text-slate-600">
+              <span className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>
                 Question {currentIndex + 1} of {levelAssessmentQuestions.length}
               </span>
-              <div className="mt-2 w-full bg-slate-200 rounded-full h-2">
+              <div className="mt-2 w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                 <div
                   className="bg-gradient-to-r from-[#4255FF] to-purple-500 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${((currentIndex + 1) / levelAssessmentQuestions.length) * 100}%` }}
@@ -189,14 +189,14 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+            <div className="rounded-2xl p-8 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
               <div className="mb-2">
-                <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] text-xs font-medium rounded-full">
+                <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
                   {currentQuestion.level}
                 </span>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 mb-8">
+              <h2 className="text-2xl font-bold mb-8" style={{ color: "var(--foreground)" }}>
                 {currentQuestion.question}
               </h2>
 
@@ -205,15 +205,16 @@ export default function EnglishAssessmentPage() {
                   <button
                     key={idx}
                     onClick={() => handleAnswerSelect(idx)}
-                    className="w-full text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-[#E8EAFF] transition-all group"
+                    className="w-full text-left p-5 rounded-xl border-2 hover:border-indigo-400 transition-all group"
+                    style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full border-2 border-slate-300 group-hover:border-[#4255FF] group-hover:bg-[#4255FF] flex items-center justify-center flex-shrink-0 transition-all">
-                        <span className="font-semibold text-slate-700 group-hover:text-white">
+                      <div className="w-10 h-10 rounded-full border-2 group-hover:border-[#4255FF] group-hover:bg-[#4255FF] flex items-center justify-center flex-shrink-0 transition-all" style={{ borderColor: "var(--muted)" }}>
+                        <span className="font-semibold group-hover:text-white" style={{ color: "var(--foreground)" }}>
                           {String.fromCharCode(65 + idx)}
                         </span>
                       </div>
-                      <span className="text-slate-800 font-medium">{option}</span>
+                      <span className="font-medium" style={{ color: "var(--foreground)" }}>{option}</span>
                     </div>
                   </button>
                 ))}
@@ -243,8 +244,8 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-6">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <div className="rounded-2xl p-8 shadow-lg mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>
                 Recommended Learning Path
               </h2>
 
@@ -260,10 +261,10 @@ export default function EnglishAssessmentPage() {
                     {getPathDetails(recommendedPath).icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
                       {getPathDetails(recommendedPath).name}
                     </h3>
-                    <p className="text-slate-600 mb-4">
+                    <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>
                       {getPathDetails(recommendedPath).description}
                     </p>
                     <Link href={`/english/${recommendedPath}`}>
@@ -276,9 +277,9 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="bg-[#E8EAFF] rounded-xl p-6 border border-blue-200 mb-6">
-              <h3 className="font-semibold text-slate-900 mb-3">💡 What your level means:</h3>
-              <div className="text-slate-700">
+            <div className="rounded-xl p-6 mb-6" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+              <h3 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>💡 What your level means:</h3>
+              <div style={{ color: "var(--foreground)" }}>
                 {detectedLevel === "beginner" && (
                   <p>
                     You're just starting your English learning journey! Focus on building strong fundamentals with our Foundation Builder path. Master basic grammar, essential vocabulary, and everyday conversations.
@@ -297,17 +298,17 @@ export default function EnglishAssessmentPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-slate-200 mb-6">
-              <h3 className="font-semibold text-slate-900 mb-4">📊 Your Performance Breakdown:</h3>
+            <div className="rounded-xl p-6 mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+              <h3 className="font-semibold mb-4" style={{ color: "var(--foreground)" }}>📊 Your Performance Breakdown:</h3>
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-slate-700">Beginner Questions</span>
-                    <span className="text-sm font-semibold text-slate-900">
+                    <span className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>Beginner Questions</span>
+                    <span className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
                       {userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "beginner").length} / 7
                     </span>
                   </div>
-                  <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                     <div
                       className="bg-green-500 h-2 rounded-full transition-all"
                       style={{
@@ -318,12 +319,12 @@ export default function EnglishAssessmentPage() {
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-slate-700">Intermediate Questions</span>
-                    <span className="text-sm font-semibold text-slate-900">
+                    <span className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>Intermediate Questions</span>
+                    <span className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
                       {userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "intermediate").length} / 7
                     </span>
                   </div>
-                  <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                     <div
                       className="bg-yellow-500 h-2 rounded-full transition-all"
                       style={{
@@ -334,12 +335,12 @@ export default function EnglishAssessmentPage() {
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-slate-700">Advanced Questions</span>
-                    <span className="text-sm font-semibold text-slate-900">
+                    <span className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>Advanced Questions</span>
+                    <span className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
                       {userAnswers.filter((ans, idx) => ans === levelAssessmentQuestions[idx].correctAnswer && levelAssessmentQuestions[idx].level === "advanced").length} / 6
                     </span>
                   </div>
-                  <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                     <div
                       className="bg-red-500 h-2 rounded-full transition-all"
                       style={{
@@ -353,7 +354,7 @@ export default function EnglishAssessmentPage() {
 
             <div className="mt-6 flex gap-4">
               <Link href="/english" className="flex-1">
-                <button className="w-full px-6 py-3 border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-all">
+                <button className="w-full px-6 py-3 border-2 rounded-lg hover:transition-all" style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}>
                   Explore All Paths
                 </button>
               </Link>
@@ -363,7 +364,8 @@ export default function EnglishAssessmentPage() {
                   setCurrentIndex(0);
                   setUserAnswers([]);
                 }}
-                className="flex-1 px-6 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-all"
+                className="flex-1 px-6 py-3 text-white rounded-lg hover:transition-all"
+                style={{ background: "var(--foreground)" }}
               >
                 Retake Assessment
               </button>
