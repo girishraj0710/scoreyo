@@ -148,7 +148,7 @@ export default function EnglishTopicPage() {
 
         {/* Progress Stats */}
         {progress.completed > 0 && (
-          <div className="mb-8 rounded-2xl p-6 text-white shadow-lg" style={{ background: "var(--foreground)" }}>
+          <div className="mb-8 rounded-2xl p-6 text-white shadow-lg" style={{ background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)" }}>
             <h2 className="text-lg font-semibold mb-4">Your Progress</h2>
             <div className="grid grid-cols-3 gap-4">
               <div>

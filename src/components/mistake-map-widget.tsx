@@ -176,11 +176,11 @@ export function MistakeMapWidget() {
       </div>
 
       {/* Recommendation */}
-      <div className={`${primaryWeakness.lightColor} rounded-lg p-3 border`} style={{ borderColor: primaryWeakness.color.replace('bg-', '#').substring(0, 7) }}>
+      <div className="rounded-lg p-3 border" style={{ background: "rgba(99, 102, 241, 0.08)", borderColor: "rgba(99, 102, 241, 0.3)" }}>
         <div className="flex items-start gap-2">
           <primaryWeakness.IconComponent className={`w-5 h-5 shrink-0 ${primaryWeakness.iconColor}`} />
           <div>
-            <div className={`text-xs font-semibold ${primaryWeakness.textColor} mb-1`}>
+            <div className="text-xs font-semibold mb-1" style={{ color: "var(--primary)" }}>
               Focus Area: {primaryWeakness.label} Errors
             </div>
             <div className="text-xs" style={{ color: "var(--foreground-secondary)" }}>

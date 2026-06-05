@@ -1136,7 +1136,17 @@ export default function MockTestPage() {
                   setModalTestType(testType);
                   setShowExamModal(true);
                 }}
-                className="group rounded-2xl p-6 border-2 hover:border-[#4255FF] hover:shadow-xl transition-all duration-300 cursor-pointer"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow = "0 12px 20px rgba(66, 85, 255, 0.15)";
+                  e.currentTarget.style.borderColor = "#4255FF";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "initial";
+                  e.currentTarget.style.borderColor = "var(--card-border)";
+                }}
+                className="group rounded-2xl p-6 border-2 transition-all duration-300 cursor-pointer"
                 style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
               >
                 {/* Header */}

@@ -225,6 +225,20 @@ export default function PricingPage() {
         {/* Free Plan */}
         <div
           onClick={() => !isPro && setSelectedPlan("free")}
+          onMouseEnter={(e) => {
+            if (!isPro && selectedPlan !== "free") {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.1)";
+              e.currentTarget.style.borderColor = "#4255FF";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isPro && selectedPlan !== "free") {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "initial";
+              e.currentTarget.style.borderColor = "var(--card-border)";
+            }
+          }}
           className={`rounded-2xl p-6 border-2 transition-all cursor-pointer ${
             isPro
               ? "border-slate-100 opacity-60 cursor-default"
@@ -282,6 +296,20 @@ export default function PricingPage() {
         {/* Pro Monthly */}
         <div
           onClick={() => !isPro && setSelectedPlan("monthly")}
+          onMouseEnter={(e) => {
+            if (!isPro && selectedPlan !== "monthly") {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.1)";
+              e.currentTarget.style.borderColor = "#4255FF";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isPro && selectedPlan !== "monthly") {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "initial";
+              e.currentTarget.style.borderColor = "var(--card-border)";
+            }
+          }}
           className={`rounded-2xl p-6 border-2 transition-all cursor-pointer relative ${
             isPro && subData?.subscription?.plan === "monthly"
               ? "border-indigo-400 shadow-xl shadow-indigo-200 cursor-default"
@@ -378,6 +406,20 @@ export default function PricingPage() {
         {/* Pro Quarterly — DEFAULT HIGHLIGHTED */}
         <div
           onClick={() => !isPro && setSelectedPlan("quarterly")}
+          onMouseEnter={(e) => {
+            if (!isPro && selectedPlan !== "quarterly") {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.1)";
+              e.currentTarget.style.borderColor = "#4255FF";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isPro && selectedPlan !== "quarterly") {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "initial";
+              e.currentTarget.style.borderColor = "var(--card-border)";
+            }
+          }}
           className={`rounded-2xl p-6 border-2 transition-all cursor-pointer relative ${
             isPro && subData?.subscription?.plan === "quarterly"
               ? "border-indigo-400 shadow-xl shadow-indigo-200 cursor-default"

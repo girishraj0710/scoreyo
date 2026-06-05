@@ -480,7 +480,17 @@ function HomePageContent() {
                   setSelectedTopic(null);
                   setTimeout(() => examRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                 }}
-              className="card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center min-h-[120px] sm:min-h-[140px]"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.borderColor = "#4255FF";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "initial";
+                  e.currentTarget.style.borderColor = "var(--card-border)";
+                }}
+              className="card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center min-h-[120px] sm:min-h-[140px] transition-all"
               style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex justify-center mb-1 sm:mb-2">
@@ -537,7 +547,21 @@ function HomePageContent() {
                     setSelectedTopic(null);
                     setTimeout(() => subjectRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                   }}
-                  className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-left ${
+                  onMouseEnter={(e) => {
+                    if (selectedExam?.id !== exam.id) {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                      e.currentTarget.style.borderColor = "#4255FF";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (selectedExam?.id !== exam.id) {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "initial";
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }
+                  }}
+                  className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-left transition-all ${
                     selectedExam?.id === exam.id
                       ? "border-indigo-500 shadow-md"
                       : ""
@@ -592,7 +616,21 @@ function HomePageContent() {
                     setSelectedTopic(null);
                     setTimeout(() => topicRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                   }}
-                  className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center w-full min-h-[120px] sm:min-h-[140px] ${
+                  onMouseEnter={(e) => {
+                    if (selectedSubject !== subject.id) {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                      e.currentTarget.style.borderColor = "#4255FF";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (selectedSubject !== subject.id) {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "initial";
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }
+                  }}
+                  className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center w-full min-h-[120px] sm:min-h-[140px] transition-all ${
                     selectedSubject === subject.id
                       ? "border-indigo-500 shadow-md"
                       : ""
@@ -650,7 +688,19 @@ function HomePageContent() {
                   setSelectedTopic(selectedTopic === topic ? null : topic);
                   setTimeout(() => settingsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
                 }}
-                className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border-2 min-h-[40px] sm:min-h-[44px] ${
+                onMouseEnter={(e) => {
+                  if (selectedTopic !== topic) {
+                    e.currentTarget.style.borderColor = "#4255FF";
+                    e.currentTarget.style.transform = "scale(1.05)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedTopic !== topic) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }
+                }}
+                className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border-2 min-h-[40px] sm:min-h-[44px] transition-all ${
                   selectedTopic === topic
                     ? "border-indigo-500 bg-indigo-600 text-white shadow-md"
                     : ""
