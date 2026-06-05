@@ -400,7 +400,7 @@ export default function ReportsPage() {
                 const totalAttempted = Number(topic.total_attempted) || 0;
                 const masteryScore = Number(topic.mastery_score) || 0;
                 return (
-                  <div key={idx} className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-100">
+                  <div key={idx} className="flex items-center justify-between p-3 rounded-lg border" style={{ background: "rgba(239, 68, 68, 0.08)", borderColor: "rgba(239, 68, 68, 0.2)" }}>
                     <div>
                       <div className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>{topicName}</div>
                       <div className="text-xs" style={{ color: "var(--muted)" }}>{exam?.name} | {totalAttempted} Q</div>
@@ -409,8 +409,8 @@ export default function ReportsPage() {
                       <span className="text-lg font-bold text-red-600">{Math.round(masteryScore)}%</span>
                       <a
                         href={`/quiz?examId=${topic.exam_id}&subjectId=${topic.subject_id}&topic=${encodeURIComponent(topicName)}&count=5&difficulty=mixed`}
-                        className="text-xs text-[#4255FF] px-3 py-2 rounded hover:bg-[#E8EAFF]"
-                        style={{ background: "var(--hover-bg)" }}
+                        className="text-xs text-[#4255FF] px-3 py-2 rounded hover:opacity-80 transition-all"
+                        style={{ background: "var(--primary-light)" }}
                       >
                         {t("practice")}
                       </a>
