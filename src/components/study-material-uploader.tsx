@@ -154,9 +154,13 @@ export function StudyMaterialUploader({
         onDrop={handleDrop}
         className={`relative border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
           dragActive
-            ? 'border-indigo-600 bg-indigo-50'
-            : 'border-slate-300 bg-slate-50 hover:border-slate-400'
+            ? 'border-indigo-600'
+            : ''
         } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
+        style={{
+          borderColor: dragActive ? '#4f46e5' : 'var(--card-border)',
+          background: dragActive ? 'var(--primary-bg)' : 'var(--card-bg)'
+        }}
       >
         <input
           ref={fileInputRef}
@@ -172,14 +176,14 @@ export function StudyMaterialUploader({
           className="flex flex-col items-center gap-3"
           onClick={() => !isLoading && fileInputRef.current?.click()}
         >
-          <div className="p-3 bg-indigo-100 rounded-lg">
+          <div className="p-3 rounded-lg" style={{ background: 'var(--primary-bg)' }}>
             <Upload className="w-6 h-6 text-indigo-600" />
           </div>
           <div>
-            <p className="font-semibold text-slate-900">
+            <p className="font-semibold" style={{ color: 'var(--foreground)' }}>
               Drop files here or click to browse
             </p>
-            <p className="text-sm text-slate-600 mt-1">
+            <p className="text-sm mt-1" style={{ color: 'var(--foreground-secondary)' }}>
               PDF, DOCX, PPTX files up to {maxFileSize}MB each
             </p>
           </div>
@@ -207,10 +211,10 @@ export function StudyMaterialUploader({
       {files.length > 0 && (
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-slate-900">
+            <h3 className="font-semibold" style={{ color: 'var(--foreground)' }}>
               Selected Files ({files.length})
             </h3>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
               {(getTotalSize() / 1024 / 1024).toFixed(1)}MB / {maxBatchSize}MB
             </p>
           </div>
@@ -219,19 +223,24 @@ export function StudyMaterialUploader({
             {files.map((file, index) => (
               <div
                 key={index}
-                className="border border-slate-200 rounded-lg p-4 space-y-3"
+                className="rounded-lg p-4 space-y-3"
+                style={{
+                  border: '1px solid',
+                  borderColor: 'var(--card-border)',
+                  background: 'var(--card-bg)'
+                }}
               >
                 {/* File Info */}
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-3 flex-1">
-                    <div className="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">
+                    <div className="px-2 py-1 rounded text-xs font-bold" style={{ background: 'var(--primary-bg)', color: 'var(--foreground-secondary)' }}>
                       {getFileIcon(file.file.name)}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-slate-900 truncate">
+                      <p className="font-medium truncate" style={{ color: 'var(--foreground)' }}>
                         {file.file.name}
                       </p>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs" style={{ color: 'var(--muted)' }}>
                         {(file.file.size / 1024 / 1024).toFixed(1)}MB
                       </p>
                     </div>
@@ -239,7 +248,10 @@ export function StudyMaterialUploader({
                   <button
                     onClick={() => removeFile(index)}
                     disabled={isLoading}
-                    className="p-2 hover:bg-red-50 rounded transition-colors disabled:opacity-50"
+                    className="p-2 rounded transition-colors disabled:opacity-50"
+                    style={{ color: 'var(--muted)' }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = 'var(--hover-bg)'}
+                    onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                     title="Remove file"
                   >
                     <X className="w-4 h-4 text-red-600" />
@@ -264,9 +276,9 @@ export function StudyMaterialUploader({
 
                 {/* Metadata Input */}
                 {!file.error && (
-                  <div className="space-y-3 pt-2 border-t border-slate-200">
+                  <div className="space-y-3 pt-2" style={{ borderTop: '1px solid var(--card-border)' }}>
                     <div>
-                      <label className="text-sm font-medium text-slate-700 block mb-1">
+                      <label className="text-sm font-medium block mb-1" style={{ color: 'var(--foreground)' }}>
                         Title
                       </label>
                       <input
@@ -278,15 +290,20 @@ export function StudyMaterialUploader({
                         disabled={isLoading}
                         maxLength={255}
                         placeholder="E.g., Physics Notes - Mechanics"
-                        className="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-slate-100"
+                        className="w-full px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+                        style={{
+                          border: '1px solid var(--card-border)',
+                          background: 'var(--card-bg)',
+                          color: 'var(--foreground)'
+                        }}
                       />
-                      <p className="text-xs text-slate-500 mt-1">
+                      <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                         {file.title.length}/255 characters
                       </p>
                     </div>
 
                     <div>
-                      <label className="text-sm font-medium text-slate-700 block mb-1">
+                      <label className="text-sm font-medium block mb-1" style={{ color: 'var(--foreground)' }}>
                         Description (optional)
                       </label>
                       <textarea
@@ -298,9 +315,14 @@ export function StudyMaterialUploader({
                         maxLength={500}
                         placeholder="Brief description of the material"
                         rows={2}
-                        className="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-slate-100 resize-none"
+                        className="w-full px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 resize-none"
+                        style={{
+                          border: '1px solid var(--card-border)',
+                          background: 'var(--card-bg)',
+                          color: 'var(--foreground)'
+                        }}
                       />
-                      <p className="text-xs text-slate-500 mt-1">
+                      <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                         {file.description.length}/500 characters
                       </p>
                     </div>
