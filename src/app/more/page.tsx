@@ -14,6 +14,7 @@ import {
   User,
   Shield,
   Mail,
+  BookOpen,
 } from "lucide-react";
 
 export default function MorePage() {
@@ -44,6 +45,7 @@ export default function MorePage() {
         { href: "/leaderboard", icon: Trophy, label: "Leaderboard" },
         { href: "/achievements", icon: Trophy, label: "Badges & Achievements" },
         { href: "/sprint", icon: Zap, label: "Live Sprints" },
+        { href: "/study-materials", icon: BookOpen, label: "Study Materials" },
       ],
     },
     {

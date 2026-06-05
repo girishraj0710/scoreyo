@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
-import { ArrowRight, Zap, CheckCircle } from "lucide-react";
+import { ArrowRight, Zap, CheckCircle, Upload } from "lucide-react";
 import Link from "next/link";
 import { isAdmin } from "@/lib/admin";
 import { Icon3DTarget, Icon3DSparkle, Icon3DNotebook, Icon3DChart, Icon3DGraduationCap, Icon3DTrophy, Icon3DRocket } from "@/components/premium-3d-icons";
@@ -51,7 +51,7 @@ export default function ContributorPortalPage() {
         </div>
 
         {/* Quick Actions - Large Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <Link
             href="/contributor/create"
             className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
@@ -67,6 +67,24 @@ export default function ContributorPortalPage() {
             </p>
             <div className="flex items-center gap-2 text-indigo-600 font-medium">
               Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link
+            href="/contributor/materials"
+            className="group p-8 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xl transition-all"
+          >
+            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+              <Upload size={72} className="text-indigo-600" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600">
+              Upload Study Materials
+            </h3>
+            <p className="text-slate-600 text-sm mb-4">
+              Share PDF, DOCX, PPT files with the community
+            </p>
+            <div className="flex items-center gap-2 text-indigo-600 font-medium">
+              Upload Now <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 

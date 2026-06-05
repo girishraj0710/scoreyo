@@ -2853,3 +2853,323 @@ export async function getContributorStats(userId: string) {
     client.release();
   }
 }
+
+// ==================== STUDY MATERIALS FUNCTIONS ====================
+
+/**
+ * Insert new study material submission
+ */
+export async function insertStudyMaterial(data: {
+  contributor_id: string;
+  exam_id: number;
+  subject_id: number;
+  title: string;
+  description?: string;
+  file_path: string;
+  file_type: 'pdf' | 'docx' | 'ppt';
+  file_size: number;
+}): Promise<string> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      INSERT INTO study_materials (
+        contributor_id, exam_id, subject_id, title, description,
+        file_path, file_type, file_size, status
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending')
+      RETURNING id
+      `,
+      [
+        data.contributor_id,
+        data.exam_id,
+        data.subject_id,
+        data.title,
+        data.description || null,
+        data.file_path,
+        data.file_type,
+        data.file_size,
+      ]
+    );
+
+    if (result.rows.length === 0) {
+      throw new Error('Failed to insert study material');
+    }
+
+    logger.debug('Study material inserted', {
+      id: result.rows[0].id,
+      exam_id: data.exam_id,
+      subject_id: data.subject_id,
+    });
+
+    return result.rows[0].id;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get pending materials for admin review
+ */
+export async function getPendingStudyMaterials(
+  limit: number = 50,
+  offset: number = 0
+): Promise<any[]> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        sm.id,
+        sm.title,
+        sm.description,
+        sm.file_type,
+        sm.file_size,
+        sm.status,
+        sm.created_at,
+        de.exam_name,
+        ds.subject_name,
+        u.name as contributor_name,
+        u.email as contributor_email
+      FROM study_materials sm
+      LEFT JOIN dim_exams de ON sm.exam_id = de.id
+      LEFT JOIN dim_subjects ds ON sm.subject_id = ds.id
+      LEFT JOIN users u ON sm.contributor_id = u.id
+      WHERE sm.status = 'pending'
+      ORDER BY sm.created_at ASC
+      LIMIT $1 OFFSET $2
+      `,
+      [limit, offset]
+    );
+
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get approved materials by exam/subject
+ */
+export async function getStudyMaterialsByExamSubject(
+  exam_id: number,
+  subject_id: number,
+  limit: number = 50,
+  offset: number = 0
+): Promise<any[]> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        sm.id,
+        sm.title,
+        sm.description,
+        sm.file_type,
+        sm.file_size,
+        sm.download_count,
+        sm.created_at,
+        u.name as contributor_name
+      FROM study_materials sm
+      LEFT JOIN users u ON sm.contributor_id = u.id
+      WHERE sm.exam_id = $1
+        AND sm.subject_id = $2
+        AND sm.status = 'approved'
+      ORDER BY sm.download_count DESC, sm.created_at DESC
+      LIMIT $3 OFFSET $4
+      `,
+      [exam_id, subject_id, limit, offset]
+    );
+
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Approve material and award points
+ */
+export async function approveStudyMaterial(
+  id: string,
+  admin_id: string
+): Promise<void> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+
+    // Update material status
+    const materialResult = await client.query(
+      `
+      UPDATE study_materials
+      SET status = 'approved', reviewed_by = $1, reviewed_at = CURRENT_TIMESTAMP
+      WHERE id = $2
+      RETURNING contributor_id
+      `,
+      [admin_id, id]
+    );
+
+    if (materialResult.rows.length === 0) {
+      throw new Error('Material not found');
+    }
+
+    const contributorId = materialResult.rows[0].contributor_id;
+
+    // Award contribution points (5 points)
+    await client.query(
+      `
+      UPDATE users
+      SET materials_contributed = COALESCE(materials_contributed, 0) + 1,
+          total_points = COALESCE(total_points, 0) + 5
+      WHERE id = $1
+      `,
+      [contributorId]
+    );
+
+    await client.query('COMMIT');
+    logger.debug('Study material approved', { id, admin_id });
+  } catch (error) {
+    await client.query('ROLLBACK');
+    logger.error('Failed to approve study material', { id }, error as Error);
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Reject material with reason
+ */
+export async function rejectStudyMaterial(
+  id: string,
+  reason: string
+): Promise<void> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    await client.query(
+      `
+      UPDATE study_materials
+      SET status = 'rejected', rejection_reason = $1, reviewed_at = CURRENT_TIMESTAMP
+      WHERE id = $2
+      `,
+      [reason, id]
+    );
+
+    logger.debug('Study material rejected', { id, reason_length: reason.length });
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Increment download counter
+ */
+export async function incrementDownloadCount(id: string): Promise<void> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    await client.query(
+      `
+      UPDATE study_materials
+      SET download_count = download_count + 1
+      WHERE id = $1
+      `,
+      [id]
+    );
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get single material
+ */
+export async function getStudyMaterial(id: string): Promise<any> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        sm.*,
+        de.exam_name,
+        ds.subject_name,
+        u.name as contributor_name
+      FROM study_materials sm
+      LEFT JOIN dim_exams de ON sm.exam_id = de.id
+      LEFT JOIN dim_subjects ds ON sm.subject_id = ds.id
+      LEFT JOIN users u ON sm.contributor_id = u.id
+      WHERE sm.id = $1
+      `,
+      [id]
+    );
+
+    return result.rows[0] || null;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get contributor's submissions
+ */
+export async function getContributorStudyMaterials(
+  contributor_id: string
+): Promise<any[]> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        sm.id,
+        sm.title,
+        sm.description,
+        sm.file_type,
+        sm.file_size,
+        sm.status,
+        sm.download_count,
+        sm.rejection_reason,
+        sm.created_at,
+        sm.reviewed_at,
+        de.exam_name,
+        ds.subject_name
+      FROM study_materials sm
+      LEFT JOIN dim_exams de ON sm.exam_id = de.id
+      LEFT JOIN dim_subjects ds ON sm.subject_id = ds.id
+      WHERE sm.contributor_id = $1
+      ORDER BY sm.created_at DESC
+      `,
+      [contributor_id]
+    );
+
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Count pending materials
+ */
+export async function getPendingStudyMaterialsCount(): Promise<number> {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT COUNT(*) as count
+      FROM study_materials
+      WHERE status = 'pending'
+      `
+    );
+
+    return parseInt(result.rows[0].count || '0');
+  } finally {
+    client.release();
+  }
+}
