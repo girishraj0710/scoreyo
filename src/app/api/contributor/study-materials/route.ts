@@ -8,6 +8,14 @@ export const maxDuration = 90; // 90 seconds timeout for upload
 
 export async function POST(request: NextRequest) {
   try {
+    // Check Supabase configuration
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      return NextResponse.json(
+        { error: 'Study materials feature not configured. Contact administrator.' },
+        { status: 503 }
+      );
+    }
+
     // Get user from cookie
     const userId = request.cookies.get('prepgenie-user-id')?.value;
 
