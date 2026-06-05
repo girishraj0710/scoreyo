@@ -19,20 +19,34 @@ export const STORAGE_CONSTANTS = {
   } as Record<string, string>,
 };
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+// Lazy-load Supabase client - only initialize when actually used
+let supabaseClient: any = null;
 
-// Create a dummy client if keys are missing (for build-time)
-// At runtime, these keys should always be present
-export const supabase = supabaseUrl && supabaseServiceKey
-  ? createClient(supabaseUrl, supabaseServiceKey, {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-      },
-    })
-  : null as any; // Will fail at runtime if accessed, but allows build to succeed
+function getSupabaseClient() {
+  if (supabaseClient) return supabaseClient;
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) {
+    throw new Error('Missing Supabase configuration (NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY)');
+  }
+
+  supabaseClient = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
+
+  return supabaseClient;
+}
+
+// Export supabase accessor - will only initialize on first use
+export const supabase = Object.create(null);
+Object.defineProperty(supabase, 'storage', {
+  get: () => getSupabaseClient().storage,
+});
 
 /**
  * Get file extension and validate it
