@@ -464,12 +464,24 @@ export default function SettingsPage() {
                 <button
                   key={goal}
                   onClick={() => handleDailyGoalChange(goal)}
-                  className={`py-2.5 rounded-lg text-sm font-medium transition ${
-                    dailyGoal === goal
-                      ? "bg-emerald-500 text-white shadow-md"
-                      : ""
-                  }`}
-                  style={dailyGoal !== goal ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}
+                  className="py-2.5 rounded-lg text-sm font-medium transition-all"
+                  style={dailyGoal === goal
+                    ? { background: "#10b981", color: "white", boxShadow: "0 4px 12px rgba(16, 185, 129, 0.3)" }
+                    : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (dailyGoal !== goal) {
+                      e.currentTarget.style.background = "var(--card-bg)";
+                      e.currentTarget.style.borderColor = "#10b981";
+                      e.currentTarget.style.border = "2px solid #10b981";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (dailyGoal !== goal) {
+                      e.currentTarget.style.background = "var(--hover-bg)";
+                      e.currentTarget.style.border = "none";
+                    }
+                  }}
                 >
                   {goal}
                 </button>
@@ -493,12 +505,24 @@ export default function SettingsPage() {
                 <button
                   key={d.value}
                   onClick={() => handleDifficultyChange(d.value)}
-                  className={`py-2.5 rounded-lg text-sm font-medium transition ${
-                    difficulty === d.value
-                      ? "bg-indigo-500 text-white shadow-md"
-                      : ""
-                  }`}
-                  style={difficulty !== d.value ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}
+                  className="py-2.5 rounded-lg text-sm font-medium transition-all"
+                  style={difficulty === d.value
+                    ? { background: "#4255FF", color: "white", boxShadow: "0 4px 12px rgba(66, 85, 255, 0.3)" }
+                    : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (difficulty !== d.value) {
+                      e.currentTarget.style.background = "var(--card-bg)";
+                      e.currentTarget.style.borderColor = "#4255FF";
+                      e.currentTarget.style.border = "2px solid #4255FF";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (difficulty !== d.value) {
+                      e.currentTarget.style.background = "var(--hover-bg)";
+                      e.currentTarget.style.border = "none";
+                    }
+                  }}
                 >
                   {d.label}
                 </button>
@@ -531,11 +555,10 @@ export default function SettingsPage() {
                     ) : "Free"}
                   </div>
                 </div>
-                <div className={`px-3 py-1 rounded-full text-xs font-bold ${
-                  subscription.isPro
-                    ? "bg-purple-100 text-purple-700"
-                    : ""
-                }`} style={!subscription.isPro ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}>
+                <div className="px-3 py-1 rounded-full text-xs font-bold" style={subscription.isPro
+                  ? { background: "rgba(168, 85, 247, 0.1)", color: "#a855f7", border: "1px solid rgba(168, 85, 247, 0.3)" }
+                  : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }
+                }>
                   {subscription.isPro ? "ACTIVE" : "FREE TIER"}
                 </div>
               </div>
