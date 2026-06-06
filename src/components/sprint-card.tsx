@@ -145,7 +145,8 @@ export function SprintCard() {
 
       <button
         onClick={handleViewSprint}
-        className="w-full mt-4 py-2.5 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition-colors flex items-center justify-center gap-2"
+        className="w-full mt-4 py-2.5 text-orange-600 font-semibold rounded-lg hover:shadow-md transition-colors flex items-center justify-center gap-2"
+        style={{ background: "var(--card-bg)" }}
       >
         <Zap className="w-4 h-4" />
         {participated ? "View Leaderboard" : "Join Sprint Now"}

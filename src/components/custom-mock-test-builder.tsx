@@ -110,7 +110,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col" style={{ background: "var(--card-bg)" }}>
         {/* Header */}
         <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 text-white p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">

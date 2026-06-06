@@ -247,12 +247,15 @@ export default function PricingPage() {
           }}
           className={`rounded-2xl p-6 border-2 transition-all cursor-pointer ${
             isPro
-              ? "border-slate-100 opacity-60 cursor-default"
+              ? "opacity-60 cursor-default"
               : selectedPlan === "free"
                 ? "border-indigo-400 shadow-lg shadow-indigo-100"
-                : "border-slate-200 hover:border-slate-300"
+                : "hover:shadow-md transition-shadow"
           }`}
-          style={{ background: "var(--card-bg)" }}
+          style={{
+            background: "var(--card-bg)",
+            borderColor: isPro ? "var(--card-border)" : selectedPlan === "free" ? "#818cf8" : "var(--card-border)"
+          }}
         >
           <div className="mb-5">
             <h3 className="text-lg font-bold" style={{ color: "var(--foreground)" }}>{t("freePlan")}</h3>
@@ -318,13 +321,14 @@ export default function PricingPage() {
           }}
           className={`rounded-2xl p-6 border-2 transition-all cursor-pointer relative ${
             isPro && subData?.subscription?.plan === "monthly"
-              ? "border-indigo-400 shadow-xl shadow-indigo-200 cursor-default"
+              ? "shadow-xl shadow-indigo-200 cursor-default"
               : !isPro && selectedPlan === "monthly"
-                ? "border-indigo-400 shadow-xl shadow-indigo-200"
-                : "border-slate-200 hover:border-slate-300"
+                ? "shadow-xl shadow-indigo-200"
+                : "hover:shadow-md transition-shadow"
           }`}
           style={{
-            background: (isPro && subData?.subscription?.plan === "monthly") || (!isPro && selectedPlan === "monthly") ? "linear-gradient(to bottom, var(--primary-bg), rgba(168, 85, 247, 0.1))" : "var(--card-bg)"
+            background: (isPro && subData?.subscription?.plan === "monthly") || (!isPro && selectedPlan === "monthly") ? "linear-gradient(to bottom, var(--primary-bg), rgba(168, 85, 247, 0.1))" : "var(--card-bg)",
+            borderColor: (isPro && subData?.subscription?.plan === "monthly") || (!isPro && selectedPlan === "monthly") ? "#818cf8" : "var(--card-border)"
           }}
         >
           {/* Show badge when selected */}
@@ -428,13 +432,14 @@ export default function PricingPage() {
           }}
           className={`rounded-2xl p-6 border-2 transition-all cursor-pointer relative ${
             isPro && subData?.subscription?.plan === "quarterly"
-              ? "border-indigo-400 shadow-xl shadow-indigo-200 cursor-default"
+              ? "shadow-xl shadow-indigo-200 cursor-default"
               : !isPro && selectedPlan === "quarterly"
-                ? "border-indigo-400 shadow-xl shadow-indigo-200"
-                : "border-slate-200 hover:border-slate-300"
+                ? "shadow-xl shadow-indigo-200"
+                : "hover:shadow-md transition-shadow"
           }`}
           style={{
-            background: (isPro && subData?.subscription?.plan === "quarterly") || (!isPro && selectedPlan === "quarterly") ? "linear-gradient(to bottom, var(--primary-bg), rgba(168, 85, 247, 0.1))" : "var(--card-bg)"
+            background: (isPro && subData?.subscription?.plan === "quarterly") || (!isPro && selectedPlan === "quarterly") ? "linear-gradient(to bottom, var(--primary-bg), rgba(168, 85, 247, 0.1))" : "var(--card-bg)",
+            borderColor: (isPro && subData?.subscription?.plan === "quarterly") || (!isPro && selectedPlan === "quarterly") ? "#818cf8" : "var(--card-border)"
           }}
         >
           {/* Most Popular / Selected badge */}

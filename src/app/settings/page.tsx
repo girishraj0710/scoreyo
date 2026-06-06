@@ -683,9 +683,10 @@ function NotificationToggle({
         style={!checked ? { background: "var(--card-border)" } : undefined}
       >
         <div
-          className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${
+          className={`absolute top-1 w-4 h-4 rounded-full shadow transition-transform ${
             checked ? "translate-x-7" : "translate-x-1"
           }`}
+          style={{ background: "white" }}
         />
       </button>
     </div>

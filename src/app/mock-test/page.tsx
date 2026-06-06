@@ -590,7 +590,7 @@ export default function MockTestPage() {
             {Object.entries(results.sectionResults).map(([subjectId, data]: [string, any]) => {
               const acc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
               return (
-                <div key={subjectId} className={`${acc >= 70 ? "border-slate-200" : acc >= 50 ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200"} rounded-xl p-3 border`} style={acc >= 70 ? { background: "var(--hover-bg)" } : undefined}>
+                <div key={subjectId} className={`${acc >= 70 ? "border-[var(--card-border)]" : acc >= 50 ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200"} rounded-xl p-3 border`} style={acc >= 70 ? { background: "var(--hover-bg)" } : undefined}>
                   <div className="text-xs" style={{ color: "var(--muted)" }}>{data.subjectName}</div>
                   <div className={`text-lg font-bold ${acc >= 70 ? "text-slate-500" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
                     {data.correct}/{data.total}
@@ -1211,7 +1211,7 @@ export default function MockTestPage() {
               const exam = getExamById(h.exam_id);
               const acc = h.total_questions > 0 ? Math.round((h.correct_answers / h.total_questions) * 100) : 0;
               return (
-                <div key={h.id} className="bg-white rounded-xl p-4 border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
+                <div key={h.id} className="bg-white rounded-xl p-4 border border-[var(--card-border)] flex items-center justify-between hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 flex items-center justify-center">
                       <ColorfulExamIcon
@@ -1239,9 +1239,9 @@ export default function MockTestPage() {
       {/* Exam Details Modal */}
       {showExamModal && selectedExam && groupedConfigs[selectedExam] && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowExamModal(false)}>
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ background: "var(--card-bg)" }} onClick={(e) => e.stopPropagation()}>
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div className="sticky top-0 border-b border-[var(--card-border)] px-6 py-4 flex items-center justify-between" style={{ background: "var(--card-bg)" }}>
               <div className="flex items-center gap-3">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <ColorfulExamIcon examId={selectedExam} size={64} />
@@ -1300,7 +1300,7 @@ export default function MockTestPage() {
                   {baseConfigForStats.sections.map((s) => {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
-                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
+                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-[var(--card-border)]" style={{ background: "var(--primary-bg)" }}>
                       <div className="w-2 h-2 rounded-full [#E8EAFF]0"></div>
                       <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
                       <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
@@ -1316,7 +1316,7 @@ export default function MockTestPage() {
               {/* Test Selector */}
               <div>
                 <h3 className="text-sm font-semibold text-slate-700 mb-3">Select Test Number</h3>
-                <div className="px-4 py-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="px-4 py-4 rounded-xl border border-[var(--card-border)]" style={{ background: "var(--primary-bg)" }}>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {Array.from({ length: Math.min(testCapacity[selectedExam] || 3, 10) }, (_, i) => i + 1).map((num) => (
                       <button
@@ -1325,7 +1325,7 @@ export default function MockTestPage() {
                         className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
                           selectedTestNumber === num
                             ? "[#4255FF] text-white shadow-lg scale-110"
-                            : "bg-white text-slate-700 hover:[#E8EAFF] hover:[#4255FF] border-2 border-slate-200 hover:border-[#90CAF9]"
+                            : "bg-white text-slate-700 hover:[#E8EAFF] hover:[#4255FF] border-2 border-[var(--card-border)] hover:border-[#90CAF9]"
                         }`}
                       >
                         {num}
@@ -1333,7 +1333,7 @@ export default function MockTestPage() {
                     ))}
                   </div>
                   {testCapacity[selectedExam] > 10 && (
-                    <div className="mt-4 pt-4 border-t border-slate-200">
+                    <div className="mt-4 pt-4 border-t border-[var(--card-border)]">
                       <div className="flex items-center gap-3 justify-center">
                         <label htmlFor="test-number-input" className="text-sm text-slate-600 font-medium">
                           Or enter test number:
@@ -1417,7 +1417,7 @@ export default function MockTestPage() {
             })()}
 
             {/* Footer Actions */}
-            <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div className="sticky bottom-0 bg-white border-t border-[var(--card-border)] px-6 py-4 flex items-center justify-between">
               <button
                 onClick={() => setShowExamModal(false)}
                 className="px-6 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"

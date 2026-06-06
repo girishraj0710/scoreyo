@@ -124,7 +124,7 @@ export default function StudyMaterialsPage() {
 
   return (
     <AccessibilityWrapper>
-      <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+      <div className="min-h-screen pt-8 pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -179,7 +179,7 @@ export default function StudyMaterialsPage() {
                     setSelectedSubject(null);
                     setStep('subject');
                   }}
-                  className="p-6 text-left border-2 border-slate-200 rounded-lg hover:border-indigo-400 hover:shadow-md transition-all"
+                  className="p-6 text-left border-2 border-[var(--card-border)] rounded-lg hover:border-indigo-400 hover:shadow-md transition-all"
                 >
                   <p className="font-semibold text-slate-900">{exam.name}</p>
                   <p className="text-sm text-slate-600 mt-1">
@@ -211,7 +211,7 @@ export default function StudyMaterialsPage() {
                     setSelectedSubject(subject.id);
                     setStep('materials');
                   }}
-                  className="p-6 text-left border-2 border-slate-200 rounded-lg hover:border-indigo-400 hover:shadow-md transition-all"
+                  className="p-6 text-left border-2 border-[var(--card-border)] rounded-lg hover:border-indigo-400 hover:shadow-md transition-all"
                 >
                   <p className="font-semibold text-slate-900">{subject.name}</p>
                 </button>
@@ -283,7 +283,7 @@ export default function StudyMaterialsPage() {
                 {materials.map((material) => (
                   <div
                     key={material.id}
-                    className="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                    className="border border-[var(--card-border)] rounded-lg p-6 hover:shadow-md transition-shadow"
                   >
                     <div className="flex flex-col md:flex-row md:items-start gap-4">
                       {/* Content */}
