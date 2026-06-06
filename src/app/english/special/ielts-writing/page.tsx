@@ -135,15 +135,15 @@ export default function IELTSWritingPage() {
   const progressColor = wordCount >= selectedPrompt.wordCount ? "text-green-600" : "text-orange-600";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 py-8 px-4">
+    <div className="min-h-screen bg-[var(--primary-bg)] py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">IELTS Writing Practice</h1>
+            <h1 className="text-3xl font-bold text-[var(--foreground)]">IELTS Writing Practice</h1>
             <button
               onClick={() => router.back()}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium transition"
             >
               ← Back
             </button>
@@ -162,7 +162,7 @@ export default function IELTSWritingPage() {
               className={`flex-1 py-3 px-4 rounded-lg font-semibold transition ${
                 selectedTask === 1
                   ? "bg-purple-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-[var(--hover-bg)] text-[var(--foreground-secondary)] hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)]"
               }`}
             >
               Task 1 - Data Description (150 words)
@@ -178,7 +178,7 @@ export default function IELTSWritingPage() {
               className={`flex-1 py-3 px-4 rounded-lg font-semibold transition ${
                 selectedTask === 2
                   ? "bg-[#4255FF] text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-[var(--hover-bg)] text-[var(--foreground-secondary)] hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)]"
               }`}
             >
               Task 2 - Essay Writing (250 words)
@@ -199,7 +199,7 @@ export default function IELTSWritingPage() {
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedPrompt.id === prompt.id
                     ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-[var(--hover-bg)] text-[var(--foreground-secondary)] hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)]"
                 }`}
               >
                 {prompt.type}
@@ -215,20 +215,20 @@ export default function IELTSWritingPage() {
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <div className="flex items-center gap-2 mb-4">
                 <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                  selectedTask === 1 ? "bg-purple-100 text-purple-700" : "bg-blue-100 text-[#3242CC]"
+                  selectedTask === 1 ? "bg-[rgba(168,85,247,0.15)] text-purple-600 dark:text-purple-400" : "bg-[rgba(66,85,255,0.15)] text-[#4255FF] dark:text-[#6B7EFF]"
                 }`}>
                   Task {selectedTask}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{selectedPrompt.title}</h3>
+                <h3 className="text-xl font-bold text-[var(--foreground)]">{selectedPrompt.title}</h3>
               </div>
 
-              <div className="bg-gray-50 border-l-4 border-[#4255FF] p-4 rounded-lg mb-4">
-                <pre className="whitespace-pre-wrap text-gray-700 font-sans">
+              <div className="bg-[var(--hover-bg)] border-l-4 border-[#4255FF] p-4 rounded-lg mb-4">
+                <pre className="whitespace-pre-wrap text-[var(--foreground-secondary)] font-sans">
                   {selectedPrompt.prompt}
                 </pre>
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-gray-600">
+              <div className="flex items-center gap-4 text-sm text-[var(--foreground-secondary)]">
                 <div className="flex items-center gap-1">
                   <FileText className="w-4 h-4" />
                   <span>Min. {selectedPrompt.wordCount} words</span>
@@ -242,13 +242,13 @@ export default function IELTSWritingPage() {
 
             {/* Tips Card */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-[#4255FF]" />
                 Writing Tips
               </h3>
               <ul className="space-y-2">
                 {selectedPrompt.tips.map((tip, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                  <li key={idx} className="flex items-start gap-2 text-[var(--foreground-secondary)]">
                     <span className="text-[#4255FF] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
@@ -268,15 +268,15 @@ export default function IELTSWritingPage() {
                   </button>
                 ) : (
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Sample Answer (Band 7-8)</h3>
-                    <div className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-4">
-                      <pre className="whitespace-pre-wrap text-gray-700 font-sans text-sm leading-relaxed">
+                    <h3 className="font-semibold text-[var(--foreground)] mb-3">Sample Answer (Band 7-8)</h3>
+                    <div className="bg-[var(--hover-bg)] border-2 border-[var(--card-border)] rounded-lg p-4">
+                      <pre className="whitespace-pre-wrap text-[var(--foreground-secondary)] font-sans text-sm leading-relaxed">
                         {selectedPrompt.sampleAnswer}
                       </pre>
                     </div>
                     <button
                       onClick={() => setShowSample(false)}
-                      className="mt-3 text-sm text-gray-600 hover:text-gray-900"
+                      className="mt-3 text-sm text-[var(--foreground-secondary)] hover:text-[var(--foreground)] transition"
                     >
                       Hide Sample
                     </button>
@@ -298,20 +298,20 @@ export default function IELTSWritingPage() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-gray-600" />
-                  <span className="text-gray-600">{selectedPrompt.timeLimit} min suggested</span>
+                  <Clock className="w-5 h-5 text-[var(--foreground-secondary)]" />
+                  <span className="text-[var(--foreground-secondary)]">{selectedPrompt.timeLimit} min suggested</span>
                 </div>
               </div>
             </div>
 
             {/* Writing Area */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">Your Answer</h3>
+              <h3 className="font-semibold text-[var(--foreground)] mb-3">Your Answer</h3>
               <textarea
                 value={userEssay}
                 onChange={(e) => handleEssayChange(e.target.value)}
                 placeholder="Start writing your answer here..."
-                className="w-full h-[500px] p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition resize-none font-sans text-gray-700"
+                className="w-full h-[500px] p-4 border-2 border-[var(--card-border)] rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition resize-none font-sans text-[var(--foreground)] bg-[var(--primary-bg)]"
               />
 
               <div className="mt-4 flex gap-3">
@@ -320,7 +320,7 @@ export default function IELTSWritingPage() {
                     setUserEssay("");
                     setWordCount(0);
                   }}
-                  className="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition"
+                  className="flex-1 bg-[var(--hover-bg)] text-[var(--foreground-secondary)] py-3 px-6 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)] transition"
                 >
                   Clear
                 </button>
@@ -333,15 +333,15 @@ export default function IELTSWritingPage() {
               </div>
 
               {wordCount < selectedPrompt.wordCount && wordCount > 0 && (
-                <p className="mt-2 text-sm text-orange-600">
+                <p className="mt-2 text-sm text-[rgba(234,179,8,0.8)] dark:text-[rgba(253,224,71,0.7)]">
                   ⚠️ You need {selectedPrompt.wordCount - wordCount} more words to meet the minimum requirement
                 </p>
               )}
             </div>
 
             {/* Note */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <p className="text-sm text-gray-700">
+            <div className="bg-[rgba(253,224,71,0.15)] border border-[rgba(234,179,8,0.3)] dark:border-[rgba(253,224,71,0.3)] rounded-lg p-4">
+              <p className="text-sm text-[var(--foreground-secondary)]">
                 <strong>Note:</strong> AI evaluation and band score prediction is coming soon!
                 For now, compare your answer with the sample answer to self-assess.
               </p>
