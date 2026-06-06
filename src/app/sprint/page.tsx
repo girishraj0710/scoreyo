@@ -378,15 +378,15 @@ export default function SprintPage() {
                   >
                     <div className="flex items-center gap-4">
                       <div
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-sm ${
-                          entry.rank === 1
-                            ? "bg-gradient-to-br from-yellow-400 to-yellow-500 text-white shadow-md"
-                            : entry.rank === 2
-                            ? "bg-gradient-to-br from-slate-300 to-slate-400 text-white shadow-md"
-                            : entry.rank === 3
-                            ? "bg-gradient-to-br from-orange-400 to-orange-500 text-white shadow-md"
-                            : "bg-slate-200 text-slate-700"
-                        }`}
+                        className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-sm text-white shadow-md"
+                        style={entry.rank === 1
+                          ? { background: "linear-gradient(to bottom right, #fbbf24, #f59e0b)" }
+                          : entry.rank === 2
+                          ? { background: "linear-gradient(to bottom right, #d1d5db, #9ca3af)" }
+                          : entry.rank === 3
+                          ? { background: "linear-gradient(to bottom right, #fb923c, #f97316)" }
+                          : { background: "var(--primary-bg)", color: "var(--foreground)" }
+                        }
                       >
                         {entry.rank <= 3 ? (
                           <span className="text-lg">{entry.rank === 1 ? "🥇" : entry.rank === 2 ? "🥈" : "🥉"}</span>
@@ -395,8 +395,8 @@ export default function SprintPage() {
                         )}
                       </div>
                       <div>
-                        <div className="font-semibold text-slate-900 mb-1">{entry.name}</div>
-                        <div className="flex items-center gap-3 text-xs text-slate-600">
+                        <div className="font-semibold mb-1" style={{ color: "var(--foreground)" }}>{entry.name}</div>
+                        <div className="flex items-center gap-3 text-xs" style={{ color: "var(--muted)" }}>
                           <span className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
                             {Math.floor(entry.time / 60)}:{(entry.time % 60).toString().padStart(2, '0')}
@@ -407,11 +407,11 @@ export default function SprintPage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-slate-900 mb-1">
+                      <div className="text-2xl font-bold mb-1" style={{ color: "var(--foreground)" }}>
                         {Math.round((entry.score / entry.total) * 100)}%
                       </div>
                       {entry.isTop10 && (
-                        <div className="inline-flex items-center gap-1 px-2 py-1 bg-yellow-100 border border-yellow-300 text-yellow-700 text-xs font-semibold rounded-full">
+                        <div className="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full" style={{ background: "rgba(251, 191, 36, 0.1)", borderColor: "rgba(251, 191, 36, 0.3)", border: "1px solid", color: "#fbbf24" }}>
                           <Trophy className="w-3 h-3" />
                           Top 10%
                         </div>
@@ -467,17 +467,17 @@ export default function SprintPage() {
                 <div className="relative">
                   <div className="flex justify-between items-start gap-3 mb-4">
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-base font-semibold text-slate-900 mb-1.5 line-clamp-2">
+                      <h3 className="text-base font-semibold mb-1.5 line-clamp-2" style={{ color: "var(--foreground)" }}>
                         {sprintData.sprint?.topic || "Sprint Challenge"}
                       </h3>
-                      <div className="inline-flex items-center gap-1.5 text-xs text-slate-500">
+                      <div className="inline-flex items-center gap-1.5 text-xs" style={{ color: "var(--muted)" }}>
                         <Clock className="w-3.5 h-3.5" />
                         <span className="font-medium">{timeLeft} remaining</span>
                       </div>
                     </div>
                     {sprintData.participated && (
-                      <div className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-semibold px-2 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <div className="shrink-0 inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-1 rounded-full" style={{ background: "rgba(16, 185, 129, 0.1)", borderColor: "#10b981", border: "1px solid", color: "#10b981" }}>
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#10b981" }} />
                         Done
                       </div>
                     )}
