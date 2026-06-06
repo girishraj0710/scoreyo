@@ -157,7 +157,7 @@ export default function IELTSSpeakingPracticePage() {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-[var(--foreground)]">IELTS Speaking Practice</h1>
             <button
-              onClick={() => router.push('/english/foundation/ielts-speaking')}
+              onClick={() => router.push('/english/ielts-toefl/ielts-speaking')}
               className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium transition"
             >
               ← Back
