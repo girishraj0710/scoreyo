@@ -148,20 +148,20 @@ export default function EnglishTopicPage() {
 
         {/* Progress Stats */}
         {progress.completed > 0 && (
-          <div className="mb-8 rounded-2xl p-6 text-white shadow-lg" style={{ background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)" }}>
-            <h2 className="text-lg font-semibold mb-4">Your Progress</h2>
+          <div className="mb-8 rounded-2xl p-6 shadow-lg transition-all" style={{ background: "linear-gradient(135deg, rgba(66, 85, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)", borderColor: "rgba(66, 85, 255, 0.2)", borderWidth: "1px", borderStyle: "solid" }}>
+            <h2 className="text-lg font-semibold mb-4" style={{ color: "var(--foreground)" }}>Your Progress</h2>
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <div className="text-3xl font-bold">{progress.completed}</div>
-                <div className="text-sm" style={{ opacity: 0.7 }}>Questions Completed</div>
+                <div className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>{progress.completed}</div>
+                <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Questions Completed</div>
               </div>
               <div>
-                <div className="text-3xl font-bold">{progress.accuracy.toFixed(0)}%</div>
-                <div className="text-sm" style={{ opacity: 0.7 }}>Accuracy</div>
+                <div className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>{progress.accuracy.toFixed(0)}%</div>
+                <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Accuracy</div>
               </div>
               <div>
-                <div className="text-3xl font-bold">{progress.mastery.toFixed(0)}%</div>
-                <div className="text-sm" style={{ opacity: 0.7 }}>Mastery</div>
+                <div className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>{progress.mastery.toFixed(0)}%</div>
+                <div className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Mastery</div>
               </div>
             </div>
           </div>

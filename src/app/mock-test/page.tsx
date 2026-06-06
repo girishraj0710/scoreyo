@@ -1343,31 +1343,31 @@ export default function MockTestPage() {
             <div className="p-6 space-y-6">
               {/* Test Stats */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-[#E8EAFF] rounded-xl p-4 text-center">
+                <div className="rounded-xl p-4 text-center" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
                   <div className="text-2xl font-bold text-[#4255FF]">{statsQuestions}</div>
-                  <div className="text-xs text-slate-600 mt-1">Questions</div>
+                  <div className="text-xs mt-1" style={{ color: "var(--foreground-secondary)" }}>Questions</div>
                 </div>
-                <div className="bg-[#D6D9FF] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#3242CC]">{statsDuration}m</div>
-                  <div className="text-xs text-slate-600 mt-1">Duration</div>
+                <div className="rounded-xl p-4 text-center" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
+                  <div className="text-2xl font-bold text-[#4255FF]">{statsDuration}m</div>
+                  <div className="text-xs mt-1" style={{ color: "var(--foreground-secondary)" }}>Duration</div>
                 </div>
-                <div className="bg-[#C4C8FF] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#2D43B8]">{baseConfigForStats.sections.length}</div>
-                  <div className="text-xs text-slate-600 mt-1">Sections</div>
+                <div className="rounded-xl p-4 text-center" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
+                  <div className="text-2xl font-bold text-[#4255FF]">{baseConfigForStats.sections.length}</div>
+                  <div className="text-xs mt-1" style={{ color: "var(--foreground-secondary)" }}>Sections</div>
                 </div>
               </div>
 
               {/* Sections Covered */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-700 mb-3">Topics Covered</h3>
+                <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--foreground)" }}>Topics Covered</h3>
                 <div className="grid grid-cols-2 gap-2">
                   {baseConfigForStats.sections.map((s) => {
                     const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
                     return (
-                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-[var(--card-border)]" style={{ background: "var(--primary-bg)" }}>
-                      <div className="w-2 h-2 rounded-full [#E8EAFF]0"></div>
-                      <span className="text-sm text-slate-700 font-medium">{s.subjectName}</span>
-                      <span className="text-xs text-slate-400 ml-auto">({qPerSection}Q)</span>
+                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors" style={{ background: "rgba(66, 85, 255, 0.1)", borderColor: "rgba(66, 85, 255, 0.3)", color: "var(--foreground)" }}>
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#4255FF" }}></div>
+                      <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>{s.subjectName}</span>
+                      <span className="text-xs ml-auto" style={{ color: "var(--foreground-secondary)" }}>({qPerSection}Q)</span>
                     </div>
                     );
                   })}
@@ -1379,27 +1379,39 @@ export default function MockTestPage() {
 
               {/* Test Selector */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-700 mb-3">Select Test Number</h3>
-                <div className="px-4 py-4 rounded-xl border border-[var(--card-border)]" style={{ background: "var(--primary-bg)" }}>
+                <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--foreground)" }}>Select Test Number</h3>
+                <div className="px-4 py-4 rounded-xl border transition-colors" style={{ background: "rgba(66, 85, 255, 0.05)", borderColor: "rgba(66, 85, 255, 0.2)" }}>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {Array.from({ length: Math.min(testCapacity[selectedExam] || 3, 10) }, (_, i) => i + 1).map((num) => (
                       <button
                         key={num}
                         onClick={() => setSelectedTestNumber(num)}
-                        className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
-                          selectedTestNumber === num
-                            ? "[#4255FF] text-white shadow-lg scale-110"
-                            : "bg-white text-slate-700 hover:[#E8EAFF] hover:[#4255FF] border-2 border-[var(--card-border)] hover:border-[#90CAF9]"
-                        }`}
+                        className="w-12 h-12 rounded-xl text-sm font-bold transition-all"
+                        style={selectedTestNumber === num
+                          ? { background: "#4255FF", color: "white", boxShadow: "0 4px 12px rgba(66, 85, 255, 0.3)", transform: "scale(1.1)" }
+                          : { background: "var(--card-bg)", color: "var(--foreground)", border: "2px solid var(--card-border)" }
+                        }
+                        onMouseEnter={(e) => {
+                          if (selectedTestNumber !== num) {
+                            e.currentTarget.style.background = "var(--hover-bg)";
+                            e.currentTarget.style.borderColor = "#4255FF";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (selectedTestNumber !== num) {
+                            e.currentTarget.style.background = "var(--card-bg)";
+                            e.currentTarget.style.borderColor = "var(--card-border)";
+                          }
+                        }}
                       >
                         {num}
                       </button>
                     ))}
                   </div>
                   {testCapacity[selectedExam] > 10 && (
-                    <div className="mt-4 pt-4 border-t border-[var(--card-border)]">
+                    <div className="mt-4 pt-4" style={{ borderTop: "1px solid rgba(66, 85, 255, 0.2)" }}>
                       <div className="flex items-center gap-3 justify-center">
-                        <label htmlFor="test-number-input" className="text-sm text-slate-600 font-medium">
+                        <label htmlFor="test-number-input" className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                           Or enter test number:
                         </label>
                         <input
@@ -1414,9 +1426,16 @@ export default function MockTestPage() {
                               setSelectedTestNumber(num);
                             }
                           }}
-                          className="w-20 px-3 py-2 text-center border-2 border-slate-300 rounded-lg font-bold text-slate-700 focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none"
+                          className="w-20 px-3 py-2 text-center border-2 rounded-lg font-bold outline-none transition-colors"
+                          style={{ background: "var(--card-bg)", color: "var(--foreground)", borderColor: "var(--card-border)" }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = "#4255FF";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = "var(--card-border)";
+                          }}
                         />
-                        <span className="text-sm text-slate-500">of {testCapacity[selectedExam]}</span>
+                        <span className="text-sm" style={{ color: "var(--foreground-secondary)" }}>of {testCapacity[selectedExam]}</span>
                       </div>
                     </div>
                   )}

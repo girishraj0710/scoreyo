@@ -176,7 +176,16 @@ export default function EnglishAssessmentPage() {
 
               <button
                 onClick={handleStart}
-                className="px-8 py-4 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
+                className="px-8 py-4 text-white font-semibold rounded-xl transition-all shadow-lg flex items-center gap-2 mx-auto"
+                style={{ background: "linear-gradient(135deg, #4255FF 0%, #8b5cf6 100%)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 12px 24px rgba(66, 85, 255, 0.4)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(66, 85, 255, 0.3)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
               >
                 Start Assessment
                 <ArrowRight className="w-5 h-5" />

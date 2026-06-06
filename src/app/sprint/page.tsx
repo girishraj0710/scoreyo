@@ -152,9 +152,13 @@ export default function SprintPage() {
               <button
                 onClick={() => router.push("/dashboard")}
                 className="px-6 py-2 font-medium rounded-lg transition-colors shadow-lg"
-                style={{ background: "var(--card-bg)", color: "#4255FF" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "var(--primary-bg)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--card-bg)"; }}
+                style={{ background: "rgba(66, 85, 255, 0.15)", color: "#4255FF" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(66, 85, 255, 0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(66, 85, 255, 0.15)";
+                }}
               >
                 Back to Dashboard
               </button>
