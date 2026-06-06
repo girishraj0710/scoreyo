@@ -445,7 +445,7 @@ function HomePageContent() {
             <div className="flex flex-col sm:flex-row gap-2">
               <a
                 href={`/quiz?examId=${lastQuiz.examId}&subjectId=${lastQuiz.subjectId}&topic=${encodeURIComponent(lastQuiz.topic)}&count=5&difficulty=mixed`}
-                className="flex-1 bg-white text-indigo-600 font-semibold py-3 px-4 rounded-xl text-center hover:bg-indigo-50 transition-colors"
+                className="flex-1 text-indigo-600 font-semibold py-3 px-4 rounded-xl text-center hover:shadow-md transition-colors" style={{ background: "var(--card-bg)" }}
               >
                 Start Quick Quiz (5 Q)
               </a>

@@ -363,7 +363,7 @@ export default function EnglishHubPage() {
                 Take a 10-minute test with 20 questions to accurately find your English level and get a personalized learning path
               </p>
               <Link href="/english/assessment">
-                <button className="bg-white text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-all">
+                <button className="text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover:shadow-md transition-all" style={{ background: "var(--card-bg)" }}>
                   Start Assessment →
                 </button>
               </Link>

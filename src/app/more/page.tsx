@@ -92,16 +92,16 @@ export default function MorePage() {
           <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3 px-2">
             {section.title}
           </h3>
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+          <div className="rounded-xl shadow-sm border border-[var(--card-border)] overflow-hidden" style={{ background: "var(--card-bg)" }}>
             {section.items.map((item, index) => {
               const Icon = item.icon;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center justify-between px-4 py-4 hover:bg-slate-50 transition-colors ${
+                  className={`flex items-center justify-between px-4 py-4 hover:shadow-md transition-colors ${
                     index !== section.items.length - 1
-                      ? "border-b border-slate-100"
+                      ? "border-b border-[var(--card-border)]"
                       : ""
                   }`}
                 >
