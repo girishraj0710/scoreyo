@@ -1011,15 +1011,15 @@ function QuizContent() {
                     key={optIdx}
                     className={`px-3 py-2 rounded-lg text-sm ${
                       optIdx === r.correctAnswer
-                        ? "border border-emerald-300 text-emerald-800 font-medium"
+                        ? "border border-emerald-300 font-medium"
                         : optIdx === r.userAnswer && !r.isCorrect
-                          ? "bg-red-50 border border-red-300 text-red-800"
+                          ? "border border-red-300 font-medium"
                           : ""
                     }`}
                     style={optIdx === r.correctAnswer
-                      ? { background: "var(--hover-bg)" }
+                      ? { background: "rgb(220, 252, 231)", color: "#166534" }
                       : optIdx === r.userAnswer && !r.isCorrect
-                        ? undefined
+                        ? { background: "rgb(254, 226, 226)", color: "#7f1d1d" }
                         : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }
                     }
                   >
@@ -1033,7 +1033,7 @@ function QuizContent() {
                       </span>
                     )}
                     {optIdx === r.userAnswer && !r.isCorrect && (
-                      <span className="ml-2 text-red-600 font-medium">
+                      <span className="ml-2 font-medium" style={{ color: "#7f1d1d" }}>
                         (Your Answer)
                       </span>
                     )}
