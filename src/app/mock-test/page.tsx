@@ -446,8 +446,8 @@ export default function MockTestPage() {
             <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>📋 General Instructions</h2>
 
             <div className="space-y-4" style={{ color: "var(--foreground-secondary)" }}>
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                <p className="font-semibold text-amber-900">⏰ Timer Rules</p>
+              <div className="border rounded-lg p-4" style={{ background: "var(--primary-bg)", borderColor: "rgba(251, 146, 60, 0.3)" }}>
+                <p className="font-semibold" style={{ color: "#fb923c" }}>⏰ Timer Rules</p>
                 <p className="text-sm mt-1">The countdown timer will display the remaining time. When the timer reaches zero, the test will end automatically. You don't need to manually submit.</p>
               </div>
 
@@ -459,11 +459,11 @@ export default function MockTestPage() {
                     <span>Not visited yet</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="w-6 h-6 bg-red-100 border-2 border-red-300 rounded"></span>
+                    <span className="w-6 h-6 border-2 rounded" style={{ background: "rgba(239, 68, 68, 0.1)", borderColor: "#dc2626" }}></span>
                     <span>Not answered</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="w-6 h-6 bg-green-100 border-2 border-green-400 rounded"></span>
+                    <span className="w-6 h-6 border-2 rounded" style={{ background: "rgba(16, 185, 129, 0.1)", borderColor: "#10b981" }}></span>
                     <span>Answered</span>
                   </div>
                 </div>
@@ -479,8 +479,8 @@ export default function MockTestPage() {
                 </ul>
               </div>
 
-              <div className="[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
-                <p className="font-semibold text-[#005A7A]">💡 Pro Tips:</p>
+              <div className="border rounded-lg p-4" style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
+                <p className="font-semibold" style={{ color: "#4255FF" }}>💡 Pro Tips:</p>
                 <ul className="text-sm mt-2 space-y-1 list-disc list-inside">
                   <li>Attempt all questions - there's no negative marking</li>
                   <li>Manage your time wisely across all questions</li>
@@ -589,10 +589,12 @@ export default function MockTestPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-lg mx-auto mb-6">
             {Object.entries(results.sectionResults).map(([subjectId, data]: [string, any]) => {
               const acc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
+              const textColor = acc >= 70 ? "#10b981" : acc >= 50 ? "#d97706" : "#dc2626";
+              const borderColor = acc >= 70 ? "var(--card-border)" : acc >= 50 ? "rgba(217, 119, 6, 0.2)" : "rgba(220, 38, 38, 0.2)";
               return (
-                <div key={subjectId} className={`${acc >= 70 ? "border-[var(--card-border)]" : acc >= 50 ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200"} rounded-xl p-3 border`} style={acc >= 70 ? { background: "var(--hover-bg)" } : undefined}>
+                <div key={subjectId} className="rounded-xl p-3 border" style={{ background: "var(--primary-bg)", borderColor: borderColor }}>
                   <div className="text-xs" style={{ color: "var(--muted)" }}>{data.subjectName}</div>
-                  <div className={`text-lg font-bold ${acc >= 70 ? "text-slate-500" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                  <div className="text-lg font-bold" style={{ color: textColor }}>
                     {data.correct}/{data.total}
                   </div>
                   <div className="text-xs" style={{ color: "var(--muted)" }}>{acc}%</div>
@@ -602,10 +604,19 @@ export default function MockTestPage() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 text-white rounded-lg font-medium" style={{ backgroundColor: "#4255FF" }}>
+            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 text-white rounded-lg font-medium transition-all" style={{ backgroundColor: "#4255FF" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#3242CC";
+                e.currentTarget.style.transform = "scale(1.02)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#4255FF";
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+            >
               {t("takeAnotherTest")}
             </button>
-            <a href="/reports" className="px-6 py-2 rounded-lg font-medium" style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}>
+            <a href="/reports" className="px-6 py-2 rounded-lg font-medium transition-all" style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}>
               {t("viewReports")}
             </a>
           </div>
@@ -658,9 +669,9 @@ export default function MockTestPage() {
             .map((r: any, idx: number) => {
               const globalIdx = results.results.indexOf(r);
               return (
-                <div key={globalIdx} className={`rounded-xl p-5 border-2 ${r.isCorrect ? "" : "border-red-200"}`} style={{ background: "var(--card-bg)", borderColor: r.isCorrect ? "var(--card-border)" : undefined }}>
+                <div key={globalIdx} className="rounded-xl p-5 border-2" style={{ background: "var(--card-bg)", borderColor: r.isCorrect ? "var(--card-border)" : "rgba(220, 38, 38, 0.3)" }}>
                   <div className="flex items-start gap-3 mb-3">
-                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold text-white ${r.isCorrect ? "bg-cyan-400" : "bg-red-500"}`}>
+                    <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{ backgroundColor: r.isCorrect ? "#06b6d4" : "#ef4444" }}>
                       {globalIdx + 1}
                     </span>
                     <div className="flex-1">
@@ -669,18 +680,22 @@ export default function MockTestPage() {
                     </div>
                   </div>
                   <div className="ml-10 space-y-2">
-                    {r.options.map((opt: string, optIdx: number) => (
-                      <div key={optIdx} className={`px-3 py-2 rounded-lg text-sm ${
-                        optIdx === r.correctAnswer ? "border border-[#90CAF9] font-medium"
-                        : optIdx === r.userAnswer && !r.isCorrect ? "bg-red-50 border border-red-300 text-red-800"
-                        : ""
-                      }`} style={optIdx === r.correctAnswer ? { background: "var(--hover-bg)", color: "var(--foreground)" } : (optIdx !== r.userAnswer || r.isCorrect) ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}>
-                        <span className="font-medium mr-2">{String.fromCharCode(65 + optIdx)}.</span>
-                        {opt}
-                        {optIdx === r.correctAnswer && <span className="ml-2 font-medium" style={{ color: "var(--muted)" }}>({t("correct")})</span>}
-                        {optIdx === r.userAnswer && !r.isCorrect && <span className="ml-2 text-red-600 font-medium">({t("yourAnswer")})</span>}
-                      </div>
-                    ))}
+                    {r.options.map((opt: string, optIdx: number) => {
+                      const isCorrect = optIdx === r.correctAnswer;
+                      const isUserWrongChoice = optIdx === r.userAnswer && !r.isCorrect;
+                      return (
+                        <div key={optIdx} className="px-3 py-2 rounded-lg text-sm border transition-colors" style={{
+                          background: isCorrect ? "var(--primary-bg)" : isUserWrongChoice ? "var(--primary-bg)" : "var(--card-bg)",
+                          borderColor: isCorrect ? "#10b981" : isUserWrongChoice ? "#dc2626" : "var(--card-border)",
+                          color: isCorrect ? "#10b981" : isUserWrongChoice ? "#dc2626" : "var(--foreground-secondary)"
+                        }}>
+                          <span className="font-medium mr-2">{String.fromCharCode(65 + optIdx)}.</span>
+                          {opt}
+                          {isCorrect && <span className="ml-2 font-medium">({t("correct")})</span>}
+                          {isUserWrongChoice && <span className="ml-2 font-medium">({t("yourAnswer")})</span>}
+                        </div>
+                      );
+                    })}
                   </div>
                   {r.explanation && (
                     <div className="ml-10 mt-3 p-3 rounded-lg text-sm" style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}>
@@ -732,14 +747,14 @@ export default function MockTestPage() {
               <span className="mx-2" style={{ color: "var(--card-border)" }}>|</span>
               <span className="text-sm" style={{ color: "var(--muted)" }}>{t("mockTest")}</span>
             </div>
-            <div className={`text-lg font-mono font-bold px-4 py-1 rounded-lg ${isCriticalTime ? "bg-red-100 text-red-600 animate-pulse" : isLowTime ? "bg-amber-100 text-amber-600" : ""}`} style={!isCriticalTime && !isLowTime ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}>
+            <div className="text-lg font-mono font-bold px-4 py-1 rounded-lg" style={isCriticalTime ? { background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", animation: "pulse 2s infinite" } : isLowTime ? { background: "rgba(251, 146, 60, 0.1)", color: "#fb923c" } : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}>
               {formatTime(timeRemaining)}
             </div>
           </div>
 
           <div className="flex gap-0.5">
             {questions.map((_, idx) => (
-              <div key={idx} className={`h-1.5 flex-1 rounded-full ${idx === currentQuestion ? "bg-slate-500" : answers[idx] !== null ? "bg-blue-300" : ""}`} style={idx !== currentQuestion && answers[idx] === null ? { background: "var(--card-border)" } : undefined} />
+              <div key={idx} className="h-1.5 flex-1 rounded-full" style={idx === currentQuestion ? { background: "var(--foreground-secondary)" } : answers[idx] !== null ? { background: "#4255FF" } : { background: "var(--card-border)" }} />
             ))}
           </div>
           <div className="flex justify-between mt-1 text-xs" style={{ color: "var(--muted)" }}>
@@ -1235,13 +1250,23 @@ export default function MockTestPage() {
       {/* Past Tests History */}
       {history.length > 0 && (
         <div className="mt-12 mb-24">
-          <h2 className="text-2xl font-bold text-slate-800 mb-5">Past Mock Tests</h2>
+          <h2 className="text-2xl font-bold mb-5" style={{ color: "var(--foreground)" }}>Past Mock Tests</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {history.filter((h: any) => h.status === "completed").slice(0, 6).map((h: any) => {
               const exam = getExamById(h.exam_id);
               const acc = h.total_questions > 0 ? Math.round((h.correct_answers / h.total_questions) * 100) : 0;
+              const textColor = acc >= 70 ? "#10b981" : acc >= 50 ? "#d97706" : "#dc2626";
               return (
-                <div key={h.id} className="bg-white rounded-xl p-4 border border-[var(--card-border)] flex items-center justify-between hover:shadow-md transition-shadow">
+                <div key={h.id} className="rounded-xl p-4 border flex items-center justify-between transition-all" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 flex items-center justify-center">
                       <ColorfulExamIcon
@@ -1250,13 +1275,13 @@ export default function MockTestPage() {
                       />
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-800">{exam?.name || h.exam_id}</div>
-                      <div className="text-xs text-slate-400">
+                      <div className="font-semibold" style={{ color: "var(--foreground)" }}>{exam?.name || h.exam_id}</div>
+                      <div className="text-xs" style={{ color: "var(--muted)" }}>
                         {new Date(h.completed_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {formatTime(h.time_taken_seconds)}
                       </div>
                     </div>
                   </div>
-                  <div className={`text-2xl font-bold ${acc >= 70 ? "text-slate-500" : acc >= 50 ? "text-amber-600" : "text-red-600"}`}>
+                  <div className="text-2xl font-bold" style={{ color: textColor }}>
                     {acc}%
                   </div>
                 </div>
@@ -1271,19 +1296,28 @@ export default function MockTestPage() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowExamModal(false)}>
           <div className="rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ background: "var(--card-bg)" }} onClick={(e) => e.stopPropagation()}>
             {/* Header */}
-            <div className="sticky top-0 border-b border-[var(--card-border)] px-6 py-4 flex items-center justify-between" style={{ background: "var(--card-bg)" }}>
+            <div className="sticky top-0 border-b px-6 py-4 flex items-center justify-between" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
               <div className="flex items-center gap-3">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <ColorfulExamIcon examId={selectedExam} size={64} />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-slate-800">{groupedConfigs[selectedExam][0].examName}</h2>
-                  <p className="text-sm text-slate-500">{getExamById(selectedExam)?.description || ""}</p>
+                  <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>{groupedConfigs[selectedExam][0].examName}</h2>
+                  <p className="text-sm" style={{ color: "var(--muted)" }}>{getExamById(selectedExam)?.description || ""}</p>
                 </div>
               </div>
               <button
                 onClick={() => setShowExamModal(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+                className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
+                style={{ color: "var(--muted)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--primary-bg)";
+                  e.currentTarget.style.color = "var(--foreground)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = "var(--muted)";
+                }}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
