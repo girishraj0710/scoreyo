@@ -220,11 +220,11 @@ export function LandingPageV2() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans" data-version="v101-varied-icons">
+    <div className="min-h-screen font-sans" style={{ background: "var(--primary-bg)" }} data-version="v101-varied-icons">
       {/* Header with Exams Dropdown - Quizlet Style */}
-      <header className="border-b border-slate-200 bg-white sticky top-0 z-50">
+      <header className="sticky top-0 z-50" style={{ background: "var(--card-bg)", borderBottomColor: "var(--card-border)", borderBottomWidth: "1px", borderBottomStyle: "solid" }}>
         {/* Top Bar - Badge */}
-        <div className="bg-indigo-50 border-b border-indigo-100">
+        <div className="border-b border-indigo-100" style={{ background: "var(--primary-bg)" }}>
           <div className="max-w-7xl mx-auto px-6 py-2">
             <div className="flex items-center justify-center gap-2">
               <Sparkles className="w-4 h-4 text-indigo-600" />
@@ -242,14 +242,17 @@ export function LandingPageV2() {
               <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#4F46E5' }}>
                 <span className="text-white font-semibold text-xl">P</span>
               </div>
-              <span className="font-semibold text-xl text-slate-900">PrepGenie</span>
+              <span className="font-semibold text-xl" style={{ color: "var(--foreground)" }}>PrepGenie</span>
             </div>
 
             {/* Exams Dropdown */}
             <div ref={examsDropdownRef} className="relative hidden lg:block">
               <button
                 onClick={() => setShowExamsDropdown(!showExamsDropdown)}
-                className="flex items-center gap-1.5 px-3 py-2 text-slate-700 hover:text-slate-900 font-semibold text-base rounded-lg hover:bg-slate-50 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-2 font-semibold text-base rounded-lg transition-colors"
+                style={{ color: "var(--foreground)", background: "transparent" }}
+                onMouseEnter={(e) => e.currentTarget.style.background = "var(--primary-bg)"}
+                onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
               >
                 <span>Exams</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${showExamsDropdown ? 'rotate-180' : ''}`} />
@@ -257,9 +260,9 @@ export function LandingPageV2() {
 
               {/* Mega Menu Dropdown */}
               {showExamsDropdown && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex" style={{ width: '720px', maxHeight: '500px' }}>
+                <div className="absolute top-full left-0 mt-2 rounded-xl shadow-2xl overflow-hidden flex" style={{ width: '720px', maxHeight: '500px', background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
                   {/* Left Panel - Category List */}
-                  <div className="w-64 bg-slate-50 border-r border-slate-200 overflow-y-auto">
+                  <div className="w-64 overflow-y-auto" style={{ background: "var(--primary-bg)", borderRightColor: "var(--card-border)", borderRightWidth: "1px", borderRightStyle: "solid" }}>
                     <div className="py-2">
                       {examCategories.map((category) => (
                         <button
