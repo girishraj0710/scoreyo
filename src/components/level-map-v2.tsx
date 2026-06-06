@@ -201,7 +201,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
         <div className={`p-4 rounded-xl border-2 text-center ${
           userProgress.filter(l => l.is_completed).length >= 10
             ? 'bg-emerald-50 border-emerald-300'
-            : 'bg-slate-50 border-slate-200'
+            : 'bg-[var(--primary-bg)] border-[var(--card-border)]'
         }`}>
           <div className="text-2xl mb-1">🏅</div>
           <div className="font-semibold text-sm text-slate-700">Beginner</div>
@@ -211,7 +211,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
         <div className={`p-4 rounded-xl border-2 text-center ${
           userProgress.filter(l => l.is_completed).length >= 20
             ? 'bg-violet-50 border-violet-300'
-            : 'bg-slate-50 border-slate-200'
+            : 'bg-[var(--primary-bg)] border-[var(--card-border)]'
         }`}>
           <div className="text-2xl mb-1">🏆</div>
           <div className="font-semibold text-sm text-slate-700">Expert</div>
@@ -221,7 +221,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
         <div className={`p-4 rounded-xl border-2 text-center ${
           userProgress.filter(l => l.is_completed).length >= 30
             ? 'bg-amber-50 border-amber-300'
-            : 'bg-slate-50 border-slate-200'
+            : 'bg-[var(--primary-bg)] border-[var(--card-border)]'
         }`}>
           <div className="text-2xl mb-1">👑</div>
           <div className="font-semibold text-sm text-slate-700">Master</div>

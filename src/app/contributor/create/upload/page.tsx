@@ -40,7 +40,7 @@ function UploadContentPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--card-bg)] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p className="text-slate-600">Loading...</p>
@@ -58,7 +58,7 @@ function UploadContentPage() {
 
   if (!exam || !subject) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--card-bg)] flex items-center justify-center">
         <div className="text-center">
           <p className="text-slate-600 mb-4">Invalid selection</p>
           <button
@@ -171,7 +171,7 @@ function UploadContentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <div className="min-h-screen bg-[var(--card-bg)] pt-8 pb-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -249,11 +249,11 @@ function UploadContentPage() {
         )}
 
         {/* Main Content */}
-        <div className="rounded-2xl border-2 border-slate-200 p-8 shadow-sm">
+        <div className="rounded-2xl border-2 border-[var(--card-border)] p-8 shadow-sm">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">Upload Study Material</h2>
 
           {/* Tabs */}
-          <div className="flex gap-8 mb-6 border-b border-slate-200">
+          <div className="flex gap-8 mb-6 border-b border-[var(--card-border)]">
             <button
               onClick={() => setActiveTab('upload')}
               className={`pb-3 px-2 font-medium transition-colors relative flex items-center gap-2 ${
@@ -353,7 +353,7 @@ function UploadContentPage() {
                 value={pastedText}
                 onChange={(e) => setPastedText(e.target.value)}
                 placeholder="Paste your study material here...&#10;&#10;You can paste text from:&#10;• Lecture notes&#10;• Textbook chapters&#10;• Study guides&#10;• Previous year papers&#10;• Any educational content"
-                className="w-full h-64 p-4 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-indigo-400 text-slate-700 resize-none"
+                className="w-full h-64 p-4 border-2 border-[var(--card-border)] rounded-xl focus:outline-none focus:border-indigo-400 text-slate-700 resize-none"
               />
               <div className="flex items-start gap-2 mt-3">
                 <Icon3DSparkle size={20} />
@@ -367,7 +367,7 @@ function UploadContentPage() {
           {/* Settings */}
           {((activeTab === 'upload' && file) || (activeTab === 'paste' && pastedText.trim())) && (
             <div className="space-y-6">
-              <div className="bg-slate-50 rounded-xl border border-slate-200 p-6">
+              <div className="bg-slate-50 rounded-xl border border-[var(--card-border)] p-6">
                 <h3 className="font-semibold text-slate-900 mb-4 text-lg">Generation Settings</h3>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -384,7 +384,7 @@ function UploadContentPage() {
                           className={`py-3 rounded-lg font-medium text-sm transition-all ${
                             numQuestions === num
                               ? 'bg-indigo-600 text-white shadow-lg scale-105'
-                              : 'bg-white text-slate-700 border border-slate-200 hover:border-indigo-300'
+                              : 'bg-[var(--card-bg)] text-slate-700 border border-[var(--card-border)] hover:border-indigo-300'
                           }`}
                         >
                           {num}
@@ -406,7 +406,7 @@ function UploadContentPage() {
                           className={`py-3 rounded-lg font-medium text-sm capitalize transition-all ${
                             difficulty === level
                               ? 'bg-indigo-600 text-white shadow-lg scale-105'
-                              : 'bg-white text-slate-700 border border-slate-200 hover:border-indigo-300'
+                              : 'bg-[var(--card-bg)] text-slate-700 border border-[var(--card-border)] hover:border-indigo-300'
                           }`}
                         >
                           {level}
@@ -492,7 +492,7 @@ function UploadContentPage() {
 export default function UploadPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--card-bg)] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
           <p className="text-slate-600">Loading...</p>

@@ -105,7 +105,7 @@ export default function AchievementsPage() {
       {/* Header */}
       <div className="bg-[#4255FF] rounded-2xl p-8 mb-8 text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+          <div className="w-16 h-16 bg-[var(--card-bg)]/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
             <Trophy className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -116,19 +116,19 @@ export default function AchievementsPage() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{unlockedBadges.length}</div>
             <div className="text-sm text-indigo-100">Badges Earned</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{badges.length}</div>
             <div className="text-sm text-indigo-100">Total Badges</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{completionPercentage}%</div>
             <div className="text-sm text-indigo-100">Completion</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{stats?.streak || 0}</div>
             <div className="text-sm text-indigo-100">Day Streak</div>
           </div>
@@ -140,9 +140,9 @@ export default function AchievementsPage() {
             <span className="text-sm text-indigo-100">Overall Progress</span>
             <span className="text-sm font-bold">{unlockedBadges.length} / {badges.length}</span>
           </div>
-          <div className="w-full bg-white/20 rounded-full h-3">
+          <div className="w-full bg-[var(--card-bg)]/20 rounded-full h-3">
             <div
-              className="bg-white h-3 rounded-full transition-all duration-500"
+              className="bg-[var(--card-bg)] h-3 rounded-full transition-all duration-500"
               style={{ width: `${completionPercentage}%` }}
             />
           </div>
@@ -274,7 +274,7 @@ export default function AchievementsPage() {
                   <p className="text-sm text-slate-400">{badge.description}</p>
 
                   {/* Requirement Hint */}
-                  <div className="mt-4 p-3 bg-white rounded-lg border border-slate-200">
+                  <div className="mt-4 p-3 bg-[var(--card-bg)] rounded-lg border border-slate-200">
                     <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
                       <TrendingUp className="w-3 h-3" />
                       <span>

@@ -345,7 +345,7 @@ export default function DailyConversationsPage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">Daily Conversations Practice</h1>
             <button
@@ -382,7 +382,7 @@ export default function DailyConversationsPage() {
           {/* Left Column - Info & Tips */}
           <div className="space-y-6">
             {/* Scenario Info */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedScenario.title}</h2>
               <p className="text-gray-600 mb-4">{selectedScenario.description}</p>
               <div className="flex items-center gap-4 text-sm">
@@ -397,7 +397,7 @@ export default function DailyConversationsPage() {
             </div>
 
             {/* Tips */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">💡 Conversation Tips</h3>
               <ul className="space-y-2">
                 {selectedScenario.tips.map((tip, idx) => (
@@ -410,7 +410,7 @@ export default function DailyConversationsPage() {
             </div>
 
             {/* Vocabulary */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               {!showVocabulary ? (
                 <button
                   onClick={() => setShowVocabulary(true)}
@@ -462,7 +462,7 @@ export default function DailyConversationsPage() {
           {/* Right Column - Conversation & Recording */}
           <div className="space-y-6">
             {/* Current Dialogue */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <MessageCircle className="w-5 h-5 text-purple-600" />
                 Current Exchange
@@ -496,7 +496,7 @@ export default function DailyConversationsPage() {
 
             {/* Recording Section */}
             {isRecordingPoint && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                   <Mic className="w-5 h-5 text-purple-600" />
                   Record Your Response
@@ -567,7 +567,7 @@ export default function DailyConversationsPage() {
 
             {/* Conversation Actions */}
             {isLastDialogue && Object.keys(recordedResponses).length > 0 && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 <h3 className="font-semibold text-gray-900 mb-4">🎉 Conversation Complete!</h3>
                 <div className="space-y-3">
                   <button

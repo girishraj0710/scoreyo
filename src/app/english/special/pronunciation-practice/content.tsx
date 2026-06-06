@@ -293,7 +293,7 @@ export default function PronunciationPracticePage() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">Pronunciation Practice</h1>
             <button
@@ -348,7 +348,7 @@ export default function PronunciationPracticePage() {
           {/* Left Column - Word Details */}
           <div className="space-y-6">
             {/* Word Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h2 className="text-4xl font-bold text-gray-900 mb-2">{selectedWord.word}</h2>
@@ -380,7 +380,7 @@ export default function PronunciationPracticePage() {
             </div>
 
             {/* Pronunciation Tips */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600" />
                 Pronunciation Tips
@@ -396,7 +396,7 @@ export default function PronunciationPracticePage() {
             </div>
 
             {/* Common Mistakes */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">⚠️ Common Mistakes</h3>
               <ul className="space-y-2">
                 {selectedWord.commonMistakes.map((mistake, idx) => (
@@ -419,7 +419,7 @@ export default function PronunciationPracticePage() {
           {/* Right Column - Recording Practice */}
           <div className="space-y-6">
             {/* Recording Section */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <Mic className="w-5 h-5 text-green-600" />
                 Practice Your Pronunciation
@@ -512,7 +512,7 @@ export default function PronunciationPracticePage() {
             </div>
 
             {/* Self-Evaluation Checklist */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">✅ Self-Evaluation</h3>
               <p className="text-sm text-gray-600 mb-3">After comparing your recording with the example, check:</p>
               <ul className="space-y-2 text-sm text-gray-700">

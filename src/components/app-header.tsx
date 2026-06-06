@@ -51,7 +51,7 @@ export function AppHeader() {
     `block px-4 py-2 text-sm transition-colors ${
       isActive(href)
         ? "text-[#4255FF] bg-[#E8EAFF] dark:bg-indigo-900/40 font-semibold border-l-2 border-[#4255FF]"
-        : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+        : "text-slate-600 dark:text-slate-400 hover:bg-[var(--primary-bg)] dark:hover:bg-slate-800"
     }`;
 
   // Close menu on any click outside the menu container

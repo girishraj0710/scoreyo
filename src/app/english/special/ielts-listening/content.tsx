@@ -343,7 +343,7 @@ export default function IELTSListeningPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-8">
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-3xl font-bold text-gray-900">IELTS Listening Test</h1>
               <button
@@ -423,7 +423,7 @@ export default function IELTSListeningPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header with Timer */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">IELTS Listening Test</h1>
             <div className="flex items-center gap-4">
@@ -464,7 +464,7 @@ export default function IELTSListeningPage() {
 
         {/* Results Summary */}
         {showResults && (
-          <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+          <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">📊 Test Results</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6 text-center">
@@ -487,7 +487,7 @@ export default function IELTSListeningPage() {
           {/* Left Column - Audio & Info */}
           <div className="space-y-6">
             {/* Section Info */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-2">{section.title}</h2>
               <p className="text-sm text-gray-600 mb-4">{section.description}</p>
 
@@ -563,7 +563,7 @@ export default function IELTSListeningPage() {
           </div>
 
           {/* Right Column - Questions */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
             <h3 className="font-semibold text-gray-900 mb-4">
               Questions {section.questions[0].id} - {section.questions[section.questions.length - 1].id}
             </h3>

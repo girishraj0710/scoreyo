@@ -156,7 +156,7 @@ export function LandingPage() {
                   setShowSearchDropdown(true);
                 }}
                 onFocus={() => setShowSearchDropdown(true)}
-                className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-indigo-500 focus:outline-none text-base"
+                className="w-full px-6 py-4 rounded-xl border-2 border-[var(--card-border)] focus:border-indigo-500 focus:outline-none text-base"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,8 +167,8 @@ export function LandingPage() {
 
             {/* Search Results Dropdown */}
             {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length > 0 && (
-              <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 overflow-hidden">
-                <div className="p-3 border-b border-slate-200 bg-slate-50">
+              <div className="mt-3 bg-[var(--card-bg)] rounded-xl shadow-lg border-2 border-[var(--card-border)] overflow-hidden">
+                <div className="p-3 border-b border-[var(--card-border)] bg-[var(--primary-bg)]">
                   <p className="text-sm font-semibold text-slate-700">
                     Found {searchResults.length} result{searchResults.length !== 1 ? "s" : ""}
                   </p>
@@ -178,7 +178,7 @@ export function LandingPage() {
                     <button
                       key={index}
                       onClick={() => setShowLoginModal(true)}
-                      className="w-full px-4 py-3 hover:bg-slate-50 transition-colors text-left border-b border-slate-100 last:border-b-0"
+                      className="w-full px-4 py-3 hover:bg-[var(--primary-bg)] transition-colors text-left border-b border-slate-100 last:border-b-0"
                     >
                       <div className="flex items-start gap-3">
                         <div className="mt-0.5">
@@ -215,7 +215,7 @@ export function LandingPage() {
                     </button>
                   ))}
                 </div>
-                <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
+                <div className="p-3 bg-[var(--primary-bg)] border-t border-[var(--card-border)] text-center">
                   <button
                     onClick={() => setShowLoginModal(true)}
                     className="text-sm font-semibold text-indigo-600 hover:text-indigo-700"
@@ -228,7 +228,7 @@ export function LandingPage() {
 
             {/* No Results */}
             {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
-              <div className="mt-3 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-6 text-center">
+              <div className="mt-3 bg-[var(--card-bg)] rounded-xl shadow-lg border-2 border-[var(--card-border)] p-6 text-center">
                 <div className="flex justify-center mb-2">
                   <svg className="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -294,7 +294,7 @@ export function LandingPage() {
                   <button
                     key={exam.name}
                     onClick={() => setShowLoginModal(true)}
-                    className="bg-white rounded-lg p-3 border-2 border-slate-200 text-center hover:shadow-md hover:border-indigo-300 transition-all cursor-pointer"
+                    className="bg-[var(--card-bg)] rounded-lg p-3 border-2 border-[var(--card-border)] text-center hover:shadow-md hover:border-indigo-300 transition-all cursor-pointer"
                   >
                     <div className="flex justify-center mb-1">
                       <ColorfulExamIcon examId={exam.examId} size={32} />
@@ -325,7 +325,7 @@ export function LandingPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Feature 1 */}
-                <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
+                <div className="bg-[var(--card-bg)] rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-3">
                     <svg className="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
@@ -338,7 +338,7 @@ export function LandingPage() {
                 </div>
 
                 {/* Feature 2 */}
-                <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
+                <div className="bg-[var(--card-bg)] rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center mb-3">
                     <svg className="w-5 h-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
@@ -351,7 +351,7 @@ export function LandingPage() {
                 </div>
 
                 {/* Feature 3 */}
-                <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
+                <div className="bg-[var(--card-bg)] rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3">
                     <svg className="w-5 h-5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
@@ -364,7 +364,7 @@ export function LandingPage() {
                 </div>
 
                 {/* Feature 4 */}
-                <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
+                <div className="bg-[var(--card-bg)] rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3">
                     <svg className="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -377,7 +377,7 @@ export function LandingPage() {
                 </div>
 
                 {/* Feature 5 */}
-                <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
+                <div className="bg-[var(--card-bg)] rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center mb-3">
                     <svg className="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
@@ -390,7 +390,7 @@ export function LandingPage() {
                 </div>
 
                 {/* Feature 6 */}
-                <div className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
+                <div className="bg-[var(--card-bg)] rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-slate-100">
                   <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-3">
                     <svg className="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -417,7 +417,7 @@ export function LandingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Feature 1: Rich Explanations */}
-            <div className="bg-gradient-to-br from-slate-50 to-indigo-50 rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-400 transition-all hover:shadow-xl">
+            <div className="bg-gradient-to-br from-slate-50 to-indigo-50 rounded-2xl p-6 border-2 border-[var(--card-border)] hover:border-indigo-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -453,7 +453,7 @@ export function LandingPage() {
                   <span>Common mistakes to avoid</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-indigo-300">
+              <div className="mt-4 px-3 py-2 bg-[var(--card-bg)]/60 rounded-lg border border-indigo-300">
                 <p className="text-xs text-slate-600 italic">
                   "Finally understand WHY I got it wrong, not just WHAT is correct!"
                 </p>
@@ -497,7 +497,7 @@ export function LandingPage() {
                   <span><strong>Careless errors</strong> - Silly mistakes</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-purple-300">
+              <div className="mt-4 px-3 py-2 bg-[var(--card-bg)]/60 rounded-lg border border-purple-300">
                 <p className="text-xs text-slate-600 italic">
                   Get personalized practice recommendations based on your weakness patterns
                 </p>
@@ -505,8 +505,8 @@ export function LandingPage() {
             </div>
 
             {/* Feature 3: Midnight Doubt AI */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-400 transition-all hover:shadow-xl">
-              <div className="w-14 h-14 bg-slate-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-[var(--card-border)] hover:border-blue-400 transition-all hover:shadow-xl">
+              <div className="w-14 h-14 bg-[var(--primary-bg)]0 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
@@ -533,7 +533,7 @@ export function LandingPage() {
                   <span>Context-aware (knows the question you're solving)</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-slate-300">
+              <div className="mt-4 px-3 py-2 bg-[var(--card-bg)]/60 rounded-lg border border-slate-300">
                 <p className="text-xs text-slate-600 italic">
                   "Like having a patient tutor available 24/7—even during late night study sessions!"
                 </p>
@@ -569,7 +569,7 @@ export function LandingPage() {
                   <span>Separate tracking to measure performance under stress</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-red-300">
+              <div className="mt-4 px-3 py-2 bg-[var(--card-bg)]/60 rounded-lg border border-red-300">
                 <p className="text-xs text-slate-600 italic">
                   Train your brain to perform when the clock is ticking
                 </p>
@@ -605,7 +605,7 @@ export function LandingPage() {
                   <span>Bite-sized sessions fit your busy schedule</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-amber-300">
+              <div className="mt-4 px-3 py-2 bg-[var(--card-bg)]/60 rounded-lg border border-amber-300">
                 <p className="text-xs text-slate-600 italic">
                   Consistency beats intensity—make daily practice your superpower
                 </p>
@@ -613,7 +613,7 @@ export function LandingPage() {
             </div>
 
             {/* Feature 6: Multilingual Support */}
-            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border-2 border-slate-200 hover:border-indigo-400 transition-all hover:shadow-xl">
+            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border-2 border-[var(--card-border)] hover:border-indigo-400 transition-all hover:shadow-xl">
               <div className="w-14 h-14 bg-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
@@ -649,7 +649,7 @@ export function LandingPage() {
                   <span>Covers 95% of India's exam aspirants</span>
                 </li>
               </ul>
-              <div className="mt-4 px-3 py-2 bg-white/60 rounded-lg border border-indigo-300">
+              <div className="mt-4 px-3 py-2 bg-[var(--card-bg)]/60 rounded-lg border border-indigo-300">
                 <p className="text-xs text-slate-600 italic">
                   Learn in the language you think in—no translation friction
                 </p>
@@ -676,7 +676,7 @@ export function LandingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Exam Card 1 */}
-            <div className="bg-white rounded-xl p-5 border-2 border-amber-200 hover:border-amber-400 transition-colors">
+            <div className="bg-[var(--card-bg)] rounded-xl p-5 border-2 border-amber-200 hover:border-amber-400 transition-colors">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-2xl">📅</div>
                 <div>
@@ -691,7 +691,7 @@ export function LandingPage() {
             </div>
 
             {/* Exam Card 2 */}
-            <div className="bg-white rounded-xl p-5 border-2 border-green-200 hover:border-green-400 transition-colors">
+            <div className="bg-[var(--card-bg)] rounded-xl p-5 border-2 border-green-200 hover:border-green-400 transition-colors">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">🩺</div>
                 <div>
@@ -706,7 +706,7 @@ export function LandingPage() {
             </div>
 
             {/* Exam Card 3 */}
-            <div className="bg-white rounded-xl p-5 border-2 border-slate-200 hover:border-blue-400 transition-colors">
+            <div className="bg-[var(--card-bg)] rounded-xl p-5 border-2 border-[var(--card-border)] hover:border-blue-400 transition-colors">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-2xl">📋</div>
                 <div>
@@ -714,7 +714,7 @@ export function LandingPage() {
                   <p className="text-xs text-slate-500">Tier 1</p>
                 </div>
               </div>
-              <div className="bg-slate-50 rounded-lg px-3 py-2 text-center">
+              <div className="bg-[var(--primary-bg)] rounded-lg px-3 py-2 text-center">
                 <div className="text-xs text-indigo-700 font-medium">Exam Date</div>
                 <div className="text-lg font-bold text-blue-900">June 2026</div>
               </div>
@@ -797,7 +797,7 @@ export function LandingPage() {
               </p>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-slate-50 shadow-xl hover:shadow-2xl transition-all"
+                className="px-8 py-3 bg-[var(--card-bg)] text-indigo-700 font-semibold rounded-xl hover:bg-[var(--primary-bg)] shadow-xl hover:shadow-2xl transition-all"
               >
                 Get Started Free →
               </button>

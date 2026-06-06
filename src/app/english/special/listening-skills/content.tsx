@@ -358,7 +358,7 @@ export default function ListeningSkillsPage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">Listening Skills Practice</h1>
             <button
@@ -411,7 +411,7 @@ export default function ListeningSkillsPage() {
           {/* Left Column - Audio Player & Info */}
           <div className="space-y-6">
             {/* Exercise Info */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-3">{selectedExercise.title}</h2>
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getLevelColor(selectedExercise.level)}`}>
@@ -482,7 +482,7 @@ export default function ListeningSkillsPage() {
             </div>
 
             {/* Transcript */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               {!showTranscript ? (
                 <button
                   onClick={() => setShowTranscript(true)}
@@ -517,7 +517,7 @@ export default function ListeningSkillsPage() {
           <div className="space-y-6">
             {/* Results Summary */}
             {showResults && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">📊 Your Results</h3>
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-[#90CAF9] rounded-lg p-6 text-center">
                   <p className="text-5xl font-bold text-[#4255FF] mb-2">
@@ -537,7 +537,7 @@ export default function ListeningSkillsPage() {
             )}
 
             {/* Questions */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-4">Questions</h3>
               <div className="space-y-6">
                 {selectedExercise.questions.map((question, qIdx) => {

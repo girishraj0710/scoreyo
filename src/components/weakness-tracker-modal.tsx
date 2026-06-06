@@ -41,7 +41,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       IconComponent: AlertCircle,
       title: 'Careless Mistake',
       description: 'Misread question or clicked wrong option',
-      color: 'bg-slate-50 border-slate-300 hover:bg-[#E8EAFF]',
+      color: 'bg-[var(--primary-bg)] border-slate-300 hover:bg-[#E8EAFF]',
       iconColor: 'text-[#4255FF]'
     }
   ];
@@ -55,7 +55,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
-      <div className="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300">
+      <div className="bg-[var(--card-bg)] rounded-2xl p-6 max-w-lg w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300">
         <div className="text-center mb-6">
           <div className="flex justify-center mb-3">
             <svg className="w-16 h-16 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
                   <div className="text-xs text-slate-600">{type.description}</div>
                 </div>
                 {selected === type.id && (
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-slate-500 flex items-center justify-center">
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-[var(--primary-bg)]0 flex items-center justify-center">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>

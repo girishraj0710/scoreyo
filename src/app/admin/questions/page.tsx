@@ -202,7 +202,7 @@ export default function AdminQuestionReviewPage() {
         </div>
 
         {/* Status Filter */}
-        <div className="bg-white rounded-xl shadow-md p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6 mb-6">
           <div className="flex gap-4">
             {["pending", "reviewing", "fixed", "dismissed"].map((status) => (
               <button
@@ -225,7 +225,7 @@ export default function AdminQuestionReviewPage() {
 
         {/* Reports List */}
         {reports.length === 0 ? (
-          <div className="bg-white rounded-xl shadow-md p-12 text-center">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-12 text-center">
             <p className="text-gray-500 text-lg">
               No {statusFilter} reports found
             </p>
@@ -235,7 +235,7 @@ export default function AdminQuestionReviewPage() {
             {reports.map((report) => (
               <div
                 key={report.reportId}
-                className="bg-white rounded-xl shadow-md p-6"
+                className="bg-[var(--card-bg)] rounded-xl shadow-md p-6"
               >
                 {/* Report Header */}
                 <div className="flex justify-between items-start mb-4">
@@ -328,17 +328,17 @@ export default function AdminQuestionReviewPage() {
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 bg-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+              className="px-4 py-2 bg-[var(--card-bg)] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
             >
               ← Previous
             </button>
-            <span className="px-4 py-2 bg-white rounded-lg">
+            <span className="px-4 py-2 bg-[var(--card-bg)] rounded-lg">
               Page {currentPage} of {totalPages}
             </span>
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+              className="px-4 py-2 bg-[var(--card-bg)] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
             >
               Next →
             </button>
@@ -349,7 +349,7 @@ export default function AdminQuestionReviewPage() {
       {/* Edit Modal */}
       {editingQuestion && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8">
             <h2 className="text-2xl font-bold mb-6">Edit Question</h2>
 
             {/* Question Text */}

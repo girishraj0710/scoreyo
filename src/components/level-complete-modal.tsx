@@ -111,7 +111,7 @@ export function LevelCompleteModal({
         {/* Header with gradient */}
         <div className={`bg-gradient-to-r ${getColor()} p-8 rounded-t-3xl text-white text-center`}>
           {isBossLevel && (
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-[var(--card-bg)]/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
               <Trophy className="w-5 h-5" />
               <span className="font-semibold text-sm">Boss Level</span>
             </div>
@@ -122,7 +122,7 @@ export function LevelCompleteModal({
 
           {/* Star Rating */}
           <div className="flex justify-center mb-4">
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4">
+            <div className="bg-[var(--card-bg)]/20 backdrop-blur-sm rounded-2xl px-6 py-4">
               <StarRating stars={stars} animated size="lg" />
             </div>
           </div>

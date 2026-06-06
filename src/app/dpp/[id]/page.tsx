@@ -231,7 +231,7 @@ export default function DPPPage() {
               </button>
 
               {/* Progress Bar */}
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 mb-4">
+              <div className="bg-[var(--card-bg)] rounded-xl p-4 shadow-sm border border-[var(--card-border)] mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <span className="text-sm font-semibold text-[#4255FF]">
@@ -270,7 +270,7 @@ export default function DPPPage() {
             </div>
 
             {/* Question */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 mb-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl p-8 shadow-sm border border-[var(--card-border)] mb-6">
               <div className="mb-2">
                 <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] text-xs font-medium rounded-full">
                   {currentQuestion.difficulty}
@@ -289,7 +289,7 @@ export default function DPPPage() {
                     className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                       userAnswers[currentIndex] === idx
                         ? "border-[#4255FF] bg-[#E8EAFF]"
-                        : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                        : "border-[var(--card-border)] hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -314,7 +314,7 @@ export default function DPPPage() {
               <button
                 onClick={handlePrevious}
                 disabled={currentIndex === 0}
-                className="px-6 py-3 border-2 border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-3 border-2 border-[var(--card-border)] text-slate-700 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Previous
               </button>
@@ -345,7 +345,7 @@ export default function DPPPage() {
             {/* Results Header */}
             <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 rounded-2xl p-8 text-white mb-6">
               <div className="text-center mb-6">
-                <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-4 bg-[var(--card-bg)]/20 rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h1 className="text-3xl font-bold mb-2">DPP Complete!</h1>
@@ -386,7 +386,7 @@ export default function DPPPage() {
                 return (
                   <div
                     key={idx}
-                    className="bg-white rounded-xl p-6 shadow-sm border border-slate-200"
+                    className="bg-[var(--card-bg)] rounded-xl p-6 shadow-sm border border-[var(--card-border)]"
                   >
                     <div className="flex items-start gap-3 mb-3">
                       <div

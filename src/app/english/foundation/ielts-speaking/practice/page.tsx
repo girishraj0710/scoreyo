@@ -153,7 +153,7 @@ export default function IELTSSpeakingPracticePage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">IELTS Speaking Practice</h1>
             <button
@@ -184,7 +184,7 @@ export default function IELTSSpeakingPracticePage() {
 
         {/* Question Card */}
         {question && (
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+          <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-8 mb-6">
             {/* Part 1: Simple Question */}
             {question.part === 1 && (
               <div>
@@ -377,7 +377,7 @@ export default function IELTSSpeakingPracticePage() {
         <div className="flex gap-4">
           <button
             onClick={loadQuestion}
-            className="flex-1 bg-white text-gray-900 py-4 px-6 rounded-lg font-semibold hover:bg-gray-50 transition shadow-lg"
+            className="flex-1 bg-[var(--card-bg)] text-gray-900 py-4 px-6 rounded-lg font-semibold hover:bg-gray-50 transition shadow-lg"
           >
             Next Question
           </button>

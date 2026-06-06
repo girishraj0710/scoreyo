@@ -244,7 +244,7 @@ export default function TOEFLIntegratedPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">TOEFL Integrated Tasks</h1>
             <button
@@ -280,7 +280,7 @@ export default function TOEFLIntegratedPage() {
           {/* Left Column - Instructions & Tips */}
           <div className="space-y-6">
             {/* Task Info */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <div className="flex items-center gap-2 mb-3">
                 <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] rounded-full text-sm font-semibold">
                   {selectedTask.type}
@@ -291,7 +291,7 @@ export default function TOEFLIntegratedPage() {
             </div>
 
             {/* Tips */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">💡 Tips</h3>
               <ul className="space-y-2">
                 {selectedTask.tips.map((tip, idx) => (
@@ -327,7 +327,7 @@ export default function TOEFLIntegratedPage() {
           <div className="lg:col-span-2 space-y-6">
             {/* Reading Stage */}
             {stage === "reading" && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Reading Passage</h3>
                   <div className="flex items-center gap-2 bg-[#E8EAFF] px-4 py-2 rounded-lg">
@@ -349,7 +349,7 @@ export default function TOEFLIntegratedPage() {
 
             {/* Listening Stage */}
             {stage === "listening" && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Listening</h3>
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-8 text-center mb-4">
                   <Volume2 className="w-16 h-16 text-[#4255FF] mx-auto mb-4" />
@@ -381,7 +381,7 @@ export default function TOEFLIntegratedPage() {
 
             {/* Response Stage */}
             {stage === "response" && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Your Response</h3>
                   <div className="flex items-center gap-2 bg-[#E8EAFF] px-4 py-2 rounded-lg">

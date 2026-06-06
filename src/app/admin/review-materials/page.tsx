@@ -155,7 +155,7 @@ export default function AdminReviewMaterialsPage() {
 
   if (userLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--card-bg)] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <Loader className="w-8 h-8 text-indigo-600 animate-spin" />
           <p className="text-slate-600">Loading...</p>
@@ -169,7 +169,7 @@ export default function AdminReviewMaterialsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white pt-8 pb-12 px-4">
+    <div className="min-h-screen bg-[var(--card-bg)] pt-8 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">

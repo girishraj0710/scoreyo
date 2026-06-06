@@ -124,7 +124,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                   <div
                     className={`absolute ${
                       index % 2 === 0 ? "right-full mr-4" : "left-full ml-4"
-                    } top-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg border-2 border-slate-200 p-4 w-64 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-20`}
+                    } top-1/2 -translate-y-1/2 bg-[var(--card-bg)] rounded-xl shadow-lg border-2 border-[var(--card-border)] p-4 w-64 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-20`}
                   >
                     <div className="flex items-start justify-between mb-2">
                       <h3 className="font-bold text-slate-800 text-sm leading-tight flex-1">
@@ -175,7 +175,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                   {state === "completed" ? (
                     <button
                       onClick={() => onLevelClick(level)}
-                      className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#90CAF9] text-[#4255FF] rounded-lg hover:bg-[#E8EAFF] text-sm font-medium transition-all"
+                      className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] border-2 border-[#90CAF9] text-[#4255FF] rounded-lg hover:bg-[#E8EAFF] text-sm font-medium transition-all"
                     >
                       <RotateCcw className="w-4 h-4" />
                       Replay
@@ -197,7 +197,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
       </div>
 
       {/* Progress Summary */}
-      <div className="mt-12 bg-white rounded-2xl shadow-lg border-2 border-slate-200 p-6">
+      <div className="mt-12 bg-[var(--card-bg)] rounded-2xl shadow-lg border-2 border-[var(--card-border)] p-6">
         <h3 className="text-lg font-bold text-slate-800 mb-4">Your Progress</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">

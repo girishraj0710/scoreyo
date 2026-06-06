@@ -416,7 +416,7 @@ export default function ReviewQuestionsPage() {
         {/* Stats */}
         {stats && (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="bg-[var(--card-bg)] dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2 mb-1">
                 <Clock className="w-4 h-4 text-gray-500" />
                 <span className="text-sm text-gray-600 dark:text-gray-400">Total Pending</span>
@@ -424,7 +424,7 @@ export default function ReviewQuestionsPage() {
               <div className="text-2xl font-bold text-gray-900 dark:text-white">{stats.totalPending}</div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="bg-[var(--card-bg)] dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2 mb-1">
                 <TrendingUp className="w-4 h-4 text-green-500" />
                 <span className="text-sm text-gray-600 dark:text-gray-400">High Confidence</span>
@@ -432,7 +432,7 @@ export default function ReviewQuestionsPage() {
               <div className="text-2xl font-bold text-green-600">{stats.highConfidence}</div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="bg-[var(--card-bg)] dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2 mb-1">
                 <AlertCircle className="w-4 h-4 text-yellow-500" />
                 <span className="text-sm text-gray-600 dark:text-gray-400">Needs Review</span>
@@ -440,7 +440,7 @@ export default function ReviewQuestionsPage() {
               <div className="text-2xl font-bold text-yellow-600">{stats.needsReview}</div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="bg-[var(--card-bg)] dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2 mb-1">
                 <XCircle className="w-4 h-4 text-red-500" />
                 <span className="text-sm text-gray-600 dark:text-gray-400">Potential Duplicates</span>
@@ -458,7 +458,7 @@ export default function ReviewQuestionsPage() {
               className={`px-4 py-2 rounded-lg transition-colors ${
                 filter === 'all'
                   ? 'bg-indigo-600 text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'bg-[var(--card-bg)] dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
               All ({stats?.totalPending || 0})
@@ -468,7 +468,7 @@ export default function ReviewQuestionsPage() {
               className={`px-4 py-2 rounded-lg transition-colors ${
                 filter === 'high-confidence'
                   ? 'bg-indigo-600 text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'bg-[var(--card-bg)] dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
               High Confidence ({stats?.highConfidence || 0})
@@ -478,7 +478,7 @@ export default function ReviewQuestionsPage() {
               className={`px-4 py-2 rounded-lg transition-colors ${
                 filter === 'needs-review'
                   ? 'bg-indigo-600 text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'bg-[var(--card-bg)] dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
               Needs Review ({stats?.needsReview || 0})
@@ -517,7 +517,7 @@ export default function ReviewQuestionsPage() {
             <p className="mt-2 text-gray-600 dark:text-gray-400">Loading questions...</p>
           </div>
         ) : questions.length === 0 ? (
-          <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div className="text-center py-12 bg-[var(--card-bg)] dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
             <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3" />
             <p className="text-gray-600 dark:text-gray-400">No pending questions in this category</p>
           </div>
@@ -544,7 +544,7 @@ export default function ReviewQuestionsPage() {
                   className={`p-4 rounded-lg border transition-all ${
                     selectedQuestion?.id === q.id
                       ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                      : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-indigo-300'
+                      : 'border-gray-200 dark:border-gray-700 bg-[var(--card-bg)] dark:bg-gray-800 hover:border-indigo-300'
                   }`}
                 >
                   <div className="flex items-start gap-3 mb-2">
@@ -609,7 +609,7 @@ export default function ReviewQuestionsPage() {
 
             {/* Review Panel */}
             {selectedQuestion && (
-              <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 sticky top-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
+              <div className="bg-[var(--card-bg)] dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 sticky top-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Review Question</h2>
 
                 {/* Classification Info */}

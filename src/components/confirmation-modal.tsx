@@ -58,7 +58,7 @@ export function ConfirmationModal({
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4" role="presentation">
       <div
         ref={focusTrapRef}
-        className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200"
+        className="bg-[var(--card-bg)] dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200"
         role="alertdialog"
         aria-modal="true"
         aria-labelledby="modal-title"
@@ -149,7 +149,7 @@ export function PromptModal({
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4" role="presentation">
       <div
         ref={focusTrapRef}
-        className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200"
+        className="bg-[var(--card-bg)] dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200"
         role="dialog"
         aria-modal="true"
         aria-labelledby="prompt-modal-title"

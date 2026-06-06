@@ -8,7 +8,7 @@ export function LanguageToggle() {
   return (
     <button
       onClick={() => setLocale(locale === "en" ? "hi" : "en")}
-      className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600"
+      className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border border-[var(--card-border)] hover:bg-[var(--primary-bg)] text-slate-600"
       title={locale === "en" ? "हिंदी में बदलें" : "Switch to English"}
     >
       {locale === "en" ? (

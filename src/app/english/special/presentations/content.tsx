@@ -232,7 +232,7 @@ export default function PresentationsPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold text-gray-900">Presentation Practice</h1>
             <button
@@ -271,7 +271,7 @@ export default function PresentationsPage() {
           {/* Left Column - Guidelines */}
           <div className="space-y-6">
             {/* Topic Info */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedTopic.title}</h2>
               <p className="text-gray-600 mb-4">{selectedTopic.description}</p>
               <div className="flex items-center gap-4 text-sm text-gray-600">
@@ -287,7 +287,7 @@ export default function PresentationsPage() {
             </div>
 
             {/* Outline */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <FileText className="w-5 h-5 text-[#4255FF]" />
                 Presentation Outline
@@ -305,7 +305,7 @@ export default function PresentationsPage() {
             </div>
 
             {/* Tips */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">💡 Presentation Tips</h3>
               <ul className="space-y-2">
                 {selectedTopic.tips.map((tip, idx) => (
@@ -319,7 +319,7 @@ export default function PresentationsPage() {
 
             {/* Sample Script */}
             {selectedTopic.sampleScript && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 {!showScript ? (
                   <button
                     onClick={() => setShowScript(true)}
@@ -364,7 +364,7 @@ export default function PresentationsPage() {
             )}
 
             {/* Recording Controls */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <Mic className="w-5 h-5 text-[#4255FF]" />
                 Record Your Presentation
@@ -442,7 +442,7 @@ export default function PresentationsPage() {
             </div>
 
             {/* Evaluation Criteria */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">✅ Self-Evaluation Checklist</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">

@@ -36,7 +36,7 @@ export default function DebugAuthPage() {
 
       <div className="space-y-6">
         {/* CSRF Token Status */}
-        <div className="bg-white rounded-lg p-6 shadow border border-slate-200">
+        <div className="bg-[var(--card-bg)] rounded-lg p-6 shadow border border-[var(--card-border)]">
           <h2 className="text-lg font-semibold mb-4">CSRF Token Status</h2>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ export default function DebugAuthPage() {
         </div>
 
         {/* Visible Cookies */}
-        <div className="bg-white rounded-lg p-6 shadow border border-slate-200">
+        <div className="bg-[var(--card-bg)] rounded-lg p-6 shadow border border-[var(--card-border)]">
           <h2 className="text-lg font-semibold mb-4">Client-Readable Cookies</h2>
           <div className="text-sm text-slate-600 mb-3">
             Note: httpOnly cookies (like prepgenie-user-id and prepgenie-csrf-token) won't appear here.
@@ -65,7 +65,7 @@ export default function DebugAuthPage() {
           ) : (
             <div className="space-y-2">
               {Object.entries(cookies).map(([name, value]) => (
-                <div key={name} className="border-b border-slate-200 pb-2">
+                <div key={name} className="border-b border-[var(--card-border)] pb-2">
                   <div className="font-medium">{name}</div>
                   <div className="text-xs text-slate-600 break-all">{value}</div>
                 </div>
@@ -75,7 +75,7 @@ export default function DebugAuthPage() {
         </div>
 
         {/* Auth Check */}
-        <div className="bg-white rounded-lg p-6 shadow border border-slate-200">
+        <div className="bg-[var(--card-bg)] rounded-lg p-6 shadow border border-[var(--card-border)]">
           <h2 className="text-lg font-semibold mb-4">Server Auth Status (GET /api/auth)</h2>
           {!authCheck ? (
             <div className="text-slate-500">Loading...</div>

@@ -20,7 +20,7 @@ export default function IELTSSpeakingPage() {
         </button>
 
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-xl p-8 mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">IELTS Speaking Practice</h1>
           <p className="text-lg text-slate-600">
             Improve your IELTS speaking skills with structured practice across all three parts of the speaking test.
@@ -29,7 +29,7 @@ export default function IELTSSpeakingPage() {
 
         {/* Speaking Test Overview */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl p-6 border-2 border-slate-200">
+          <div className="bg-[var(--card-bg)] rounded-xl p-6 border-2 border-[var(--card-border)]">
             <div className="text-3xl mb-3">👤</div>
             <h3 className="font-bold text-slate-900 mb-2">Part 1</h3>
             <p className="text-sm text-slate-600 mb-3">Introduction & Interview (4-5 min)</p>
@@ -40,7 +40,7 @@ export default function IELTSSpeakingPage() {
             </ul>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border-2 border-slate-200">
+          <div className="bg-[var(--card-bg)] rounded-xl p-6 border-2 border-[var(--card-border)]">
             <div className="text-3xl mb-3">💬</div>
             <h3 className="font-bold text-slate-900 mb-2">Part 2</h3>
             <p className="text-sm text-slate-600 mb-3">Long Turn (3-4 min)</p>
@@ -51,7 +51,7 @@ export default function IELTSSpeakingPage() {
             </ul>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border-2 border-slate-200">
+          <div className="bg-[var(--card-bg)] rounded-xl p-6 border-2 border-[var(--card-border)]">
             <div className="text-3xl mb-3">🎓</div>
             <h3 className="font-bold text-slate-900 mb-2">Part 3</h3>
             <p className="text-sm text-slate-600 mb-3">Discussion (4-5 min)</p>
@@ -64,7 +64,7 @@ export default function IELTSSpeakingPage() {
         </div>
 
         {/* Practice Button */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-xl p-8 text-center">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
             Ready to Practice?
           </h2>
@@ -80,7 +80,7 @@ export default function IELTSSpeakingPage() {
         </div>
 
         {/* Tips */}
-        <div className="mt-8 bg-white rounded-xl p-6 border border-slate-200">
+        <div className="mt-8 bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--card-border)]">
           <h3 className="font-bold text-slate-900 mb-4">💡 Tips for Success</h3>
           <ul className="space-y-2 text-slate-600">
             <li className="flex items-start gap-2">

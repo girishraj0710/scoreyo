@@ -111,7 +111,7 @@ function ComingSoonContent() {
         </div>
 
         {/* Feature Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-8 mb-8">
           <div className="flex items-center gap-4 mb-6">
             <div className="p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl">
               {icons[type as keyof typeof icons] || icons.writing}

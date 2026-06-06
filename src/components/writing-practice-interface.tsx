@@ -53,7 +53,7 @@ export default function WritingPracticeInterface({
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
@@ -123,7 +123,7 @@ export default function WritingPracticeInterface({
           {/* Left Column - Prompt & Tips */}
           <div className="space-y-6">
             {/* Prompt Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">{selectedPrompt.title}</h3>
 
               <div className="bg-purple-50 border-l-4 border-purple-600 p-4 rounded-lg mb-4">
@@ -145,7 +145,7 @@ export default function WritingPracticeInterface({
             </div>
 
             {/* Tips Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-[#4255FF]" />
                 Writing Tips
@@ -162,7 +162,7 @@ export default function WritingPracticeInterface({
 
             {/* Sample Answer (if available) */}
             {selectedPrompt.sampleAnswer && (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
                 {!showSample ? (
                   <button
                     onClick={() => setShowSample(true)}
@@ -193,7 +193,7 @@ export default function WritingPracticeInterface({
           {/* Right Column - Writing Area */}
           <div className="space-y-6">
             {/* Writing Status */}
-            <div className="bg-white rounded-2xl shadow-lg p-4">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <TrendingUp className={`w-5 h-5 ${progressColor}`} />
@@ -209,7 +209,7 @@ export default function WritingPracticeInterface({
             </div>
 
             {/* Writing Area */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-3">Your Answer</h3>
               <textarea
                 value={userText}

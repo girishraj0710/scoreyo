@@ -268,7 +268,7 @@ export default function AdminDashboardPage() {
     icon: React.ReactNode;
     color?: string;
   }) => (
-    <div className={`bg-white rounded-xl shadow-md p-6 border-l-4 border-${color}-500`}>
+    <div className={`bg-[var(--card-bg)] rounded-xl shadow-md p-6 border-l-4 border-${color}-500`}>
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-gray-600 mb-1">{title}</p>
@@ -355,7 +355,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Question Quality Metrics */}
-        <div className="bg-white rounded-xl shadow-md p-6 mb-8">
+        <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
             <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -423,7 +423,7 @@ export default function AdminDashboardPage() {
         {/* Report Metrics */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Question Reports */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -461,7 +461,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* User Activity */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -503,7 +503,7 @@ export default function AdminDashboardPage() {
         {/* Popular Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Popular Exams */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -528,7 +528,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Average Scores */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
@@ -560,7 +560,7 @@ export default function AdminDashboardPage() {
 
         {/* Low Accuracy Questions */}
         {analytics.questionQuality.lowAccuracy.length > 0 && (
-          <div className="bg-white rounded-xl shadow-md p-6 mb-8">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6 mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -601,7 +601,7 @@ export default function AdminDashboardPage() {
         {/* Daily Activity & Top Exams */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Daily Activity Chart */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -680,7 +680,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Top Exams by Questions */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-[var(--card-bg)] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -770,7 +770,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Detailed Topic-Level Breakdown */}
-        <div className="mt-8 bg-white rounded-xl shadow-md p-6">
+        <div className="mt-8 bg-[var(--card-bg)] rounded-xl shadow-md p-6">
           <div className="mb-6">
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="flex-1">
@@ -815,7 +815,7 @@ export default function AdminDashboardPage() {
                     placeholder="Search topics, exams, subjects, sources..."
                     value={topicSearchQuery}
                     onChange={(e) => setTopicSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[var(--card-bg)]"
                   />
                   {topicSearchQuery && (
                     <button
@@ -841,7 +841,7 @@ export default function AdminDashboardPage() {
                   onChange={(e) => {
                     setSelectedExamFilter(e.target.value);
                   }}
-                  className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white min-w-[200px]"
+                  className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[var(--card-bg)] min-w-[200px]"
                 >
                   <option value="all">All Exams ({getUniqueExamsInBreakdown().length})</option>
                   {getUniqueExamsInBreakdown().map((exam) => (
@@ -880,7 +880,7 @@ export default function AdminDashboardPage() {
 
           <div className="overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg relative">
             {topicBreakdownLoading && (
-              <div className="absolute inset-0 bg-white/60 backdrop-blur-sm z-20 flex items-center justify-center">
+              <div className="absolute inset-0 bg-[var(--card-bg)]/60 backdrop-blur-sm z-20 flex items-center justify-center">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4255FF]"></div>
               </div>
             )}
@@ -934,7 +934,7 @@ export default function AdminDashboardPage() {
                   )}
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-[var(--card-bg)] divide-y divide-gray-200">
                 {getFilteredTopicBreakdown().map((item, idx) => (
                   <tr key={idx} className="hover:bg-gray-50 transition-colors">
                     {analytics?.modelType === "dimensional" ? (
