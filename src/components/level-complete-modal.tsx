@@ -103,9 +103,10 @@ export function LevelCompleteModal({
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div
-        className={`bg-white rounded-3xl shadow-2xl max-w-lg w-full transform transition-all duration-500 ${
+        className={`rounded-3xl shadow-2xl max-w-lg w-full transform transition-all duration-500 ${
           showContent ? "scale-100 opacity-100" : "scale-75 opacity-0"
         }`}
+        style={{ background: "var(--card-bg)" }}
       >
         {/* Header with gradient */}
         <div className={`bg-gradient-to-r ${getColor()} p-8 rounded-t-3xl text-white text-center`}>
@@ -132,25 +133,25 @@ export function LevelCompleteModal({
         {/* Stats Grid */}
         <div className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-slate-50 rounded-xl p-4 text-center">
+            <div className="rounded-xl p-4 text-center" style={{ background: "var(--primary-bg)" }}>
               <Target className="w-6 h-6 text-[#4255FF] mx-auto mb-2" />
-              <div className="text-2xl font-bold text-slate-800">{accuracy}%</div>
-              <div className="text-xs text-slate-500">Accuracy</div>
+              <div className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>{accuracy}%</div>
+              <div className="text-xs" style={{ color: "var(--muted)" }}>Accuracy</div>
             </div>
 
-            <div className="bg-slate-50 rounded-xl p-4 text-center">
+            <div className="rounded-xl p-4 text-center" style={{ background: "var(--primary-bg)" }}>
               <TrendingUp className="w-6 h-6 text-emerald-600 mx-auto mb-2" />
-              <div className="text-2xl font-bold text-slate-800">
+              <div className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>
                 {correctAnswers}/{totalQuestions}
               </div>
-              <div className="text-xs text-slate-500">Correct Answers</div>
+              <div className="text-xs" style={{ color: "var(--muted)" }}>Correct Answers</div>
             </div>
 
             {timeTaken && (
-              <div className="bg-slate-50 rounded-xl p-4 text-center col-span-2">
+              <div className="rounded-xl p-4 text-center col-span-2" style={{ background: "var(--primary-bg)" }}>
                 <Clock className="w-6 h-6 text-violet-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-slate-800">{formatTime(timeTaken)}</div>
-                <div className="text-xs text-slate-500">Time Taken</div>
+                <div className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>{formatTime(timeTaken)}</div>
+                <div className="text-xs" style={{ color: "var(--muted)" }}>Time Taken</div>
               </div>
             )}
           </div>
@@ -196,7 +197,8 @@ export function LevelCompleteModal({
             {stars < 3 && (
               <button
                 onClick={onReplay}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 font-semibold transition-all"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border-2 rounded-xl font-semibold transition-all"
+                style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--primary-bg)" }}
               >
                 <RotateCcw className="w-4 h-4" />
                 Replay
@@ -214,7 +216,8 @@ export function LevelCompleteModal({
             ) : (
               <button
                 onClick={onClose}
-                className="flex-1 px-4 py-3 bg-slate-200 text-slate-700 rounded-xl hover:bg-slate-300 font-semibold transition-all"
+                className="flex-1 px-4 py-3 rounded-xl font-semibold transition-all"
+                style={{ background: "var(--primary-bg)", color: "var(--foreground)" }}
               >
                 Close
               </button>
@@ -224,7 +227,8 @@ export function LevelCompleteModal({
           {stars >= 1 && (
             <button
               onClick={onClose}
-              className="w-full text-sm text-slate-500 hover:text-slate-700 py-2"
+              className="w-full text-sm py-2"
+              style={{ color: "var(--muted)" }}
             >
               Back to Level Map
             </button>

@@ -31,13 +31,13 @@ export function RoleSelectionModal({ isOpen, onRoleSelect }: RoleSelectionModalP
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
-      <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+      <div className="rounded-2xl p-8 max-w-md w-full shadow-2xl" style={{ background: "var(--card-bg)" }}>
         {/* Header */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">
+          <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
             Welcome to PrepGenie! 🎉
           </h2>
-          <p className="text-slate-600">
+          <p style={{ color: "var(--foreground-secondary)" }}>
             We've added new features for teachers and contributors. Tell us what you'd like to do:
           </p>
         </div>
@@ -59,17 +59,17 @@ export function RoleSelectionModal({ isOpen, onRoleSelect }: RoleSelectionModalP
           <button
             onClick={() => handleSelectRole('student')}
             disabled={isLoading}
-            className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-              selectedRole === 'student'
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-slate-200 bg-white hover:border-blue-300'
-            } ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+            className={`w-full p-4 rounded-xl border-2 transition-all text-left ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+            style={{
+              borderColor: selectedRole === 'student' ? '#3b82f6' : 'var(--card-border)',
+              background: selectedRole === 'student' ? 'var(--primary-bg)' : 'transparent'
+            }}
           >
             <div className="flex items-start gap-3">
               <div className="text-3xl mt-1">📚</div>
               <div>
-                <h3 className="font-bold text-slate-900">I'm a Student</h3>
-                <p className="text-sm text-slate-600 mt-1">
+                <h3 className="font-bold" style={{ color: "var(--foreground)" }}>I'm a Student</h3>
+                <p className="text-sm mt-1" style={{ color: "var(--foreground-secondary)" }}>
                   Take quizzes, practice problems, track progress, and prepare for exams
                 </p>
               </div>
@@ -85,17 +85,17 @@ export function RoleSelectionModal({ isOpen, onRoleSelect }: RoleSelectionModalP
           <button
             onClick={() => handleSelectRole('teacher')}
             disabled={isLoading}
-            className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-              selectedRole === 'teacher'
-                ? 'border-emerald-500 bg-emerald-50'
-                : 'border-slate-200 bg-white hover:border-emerald-300'
-            } ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+            className={`w-full p-4 rounded-xl border-2 transition-all text-left ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+            style={{
+              borderColor: selectedRole === 'teacher' ? '#10b981' : 'var(--card-border)',
+              background: selectedRole === 'teacher' ? 'var(--primary-bg)' : 'transparent'
+            }}
           >
             <div className="flex items-start gap-3">
               <div className="text-3xl mt-1">👨‍🏫</div>
               <div>
-                <h3 className="font-bold text-slate-900">I'm a Contributor</h3>
-                <p className="text-sm text-slate-600 mt-1">
+                <h3 className="font-bold" style={{ color: "var(--foreground)" }}>I'm a Contributor</h3>
+                <p className="text-sm mt-1" style={{ color: "var(--foreground-secondary)" }}>
                   Create and submit verified questions, earn contribution points, build the question bank
                 </p>
               </div>
@@ -109,7 +109,7 @@ export function RoleSelectionModal({ isOpen, onRoleSelect }: RoleSelectionModalP
         </div>
 
         {/* Info */}
-        <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="p-4 rounded-lg border border-blue-200" style={{ background: "var(--primary-bg)" }}>
           <p className="text-sm text-blue-900">
             💡 You can change your role later in settings if needed.
           </p>

@@ -85,19 +85,20 @@ export function BottomSheet({
       {/* Sheet - bottom on mobile, centered modal on desktop */}
       <div
         ref={sheetRef}
-        className="fixed bottom-0 left-0 right-0 md:relative md:max-w-lg md:w-full bg-white rounded-t-2xl md:rounded-2xl shadow-2xl z-50 transition-transform duration-300 ease-out"
+        className="fixed bottom-0 left-0 right-0 md:relative md:max-w-lg md:w-full rounded-t-2xl md:rounded-2xl shadow-2xl z-50 transition-transform duration-300 ease-out"
+        style={{ background: "var(--card-bg)" }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         {/* Drag handle (mobile only) */}
         <div className="md:hidden pt-3 pb-2 flex justify-center">
-          <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
+          <div className="w-12 h-1.5 rounded-full" style={{ background: "var(--muted)" }} />
         </div>
 
         {/* Header */}
         {title && (
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+          <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: "var(--card-border)", color: "var(--foreground)" }}>
             <h3 className="text-lg font-semibold text-slate-800">{title}</h3>
             <button
               onClick={onClose}

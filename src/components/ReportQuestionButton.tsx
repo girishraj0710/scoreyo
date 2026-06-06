@@ -74,28 +74,29 @@ export default function ReportQuestionButton({
 
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6">
+          <div className="rounded-xl shadow-2xl max-w-md w-full p-6" style={{ background: "var(--card-bg)" }}>
             {submitted ? (
               <div className="text-center py-8">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Check className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: "var(--foreground)" }}>
                   Thank You!
                 </h3>
-                <p className="text-gray-600">
+                <p style={{ color: "var(--foreground-secondary)" }}>
                   We'll review this question and fix any issues.
                 </p>
               </div>
             ) : (
               <>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold" style={{ color: "var(--foreground)" }}>
                     Report Question Issue
                   </h3>
                   <button
                     onClick={() => setShowModal(false)}
-                    className="text-gray-400 hover:text-gray-600"
+                    style={{ color: "var(--muted)" }}
+                    className="hover:opacity-70"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -103,14 +104,17 @@ export default function ReportQuestionButton({
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium mb-2" style={{ color: "var(--foreground)" }}>
                       What's wrong with this question?
                     </label>
                     <div className="space-y-2">
                       {reasons.map((r) => (
                         <label
                           key={r.value}
-                          className="flex items-center gap-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50"
+                          className="flex items-center gap-2 p-3 border rounded-lg cursor-pointer transition-colors"
+                          style={{ borderColor: "var(--card-border)", background: "var(--primary-bg)" }}
+                          onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"}
+                          onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
                         >
                           <input
                             type="radio"
@@ -120,7 +124,7 @@ export default function ReportQuestionButton({
                             onChange={(e) => setReason(e.target.value)}
                             className="w-4 h-4 text-red-600"
                           />
-                          <span className="text-sm text-gray-700">
+                          <span className="text-sm" style={{ color: "var(--foreground)" }}>
                             {r.label}
                           </span>
                         </label>
@@ -129,7 +133,7 @@ export default function ReportQuestionButton({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium mb-2" style={{ color: "var(--foreground)" }}>
                       Additional Details (Optional)
                     </label>
                     <textarea
@@ -137,6 +141,7 @@ export default function ReportQuestionButton({
                       onChange={(e) => setDetails(e.target.value)}
                       placeholder="Provide more context or suggest a correction..."
                       className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-sm"
+                      style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                       rows={3}
                     />
                   </div>
@@ -144,7 +149,10 @@ export default function ReportQuestionButton({
                   <div className="flex gap-3 pt-2">
                     <button
                       onClick={() => setShowModal(false)}
-                      className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="flex-1 px-4 py-2 border rounded-lg transition-colors"
+                      style={{ borderColor: "var(--card-border)", color: "var(--foreground)" }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = "var(--primary-bg)"}
+                      onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
                     >
                       Cancel
                     </button>
