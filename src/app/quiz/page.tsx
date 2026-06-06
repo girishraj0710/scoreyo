@@ -1170,7 +1170,7 @@ function QuizContent() {
           </div>
           <div className="flex items-center gap-3">
             {pressureMode && (
-              <span className="text-xs font-semibold text-red-600 bg-red-100 px-2 py-1 rounded-full animate-pulse flex items-center gap-1">
+              <span className="text-xs font-semibold px-2 py-1 rounded-full animate-pulse flex items-center gap-1" style={{ color: "#dc2626", backgroundColor: "rgba(220, 38, 38, 0.1)" }}>
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                 </svg>
@@ -1178,7 +1178,7 @@ function QuizContent() {
               </span>
             )}
             {isSprintMode && (
-              <span className="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded-full animate-pulse flex items-center gap-1">
+              <span className="text-xs font-semibold px-2 py-1 rounded-full animate-pulse flex items-center gap-1" style={{ color: "#ea580c", backgroundColor: "rgba(234, 88, 12, 0.1)" }}>
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" />
                 </svg>
@@ -1298,19 +1298,24 @@ function QuizContent() {
               </span>
 
               {/* Difficulty Badge */}
-              <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${
-                (question?.difficulty || "medium") === "easy"
-                  ? "bg-emerald-50"
+              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium" style={{
+                backgroundColor: (question?.difficulty || "medium") === "easy"
+                  ? "rgba(16, 185, 129, 0.1)"
                   : (question?.difficulty || "medium") === "hard"
-                  ? "bg-red-50"
-                  : "bg-amber-50"
-              }`}>
-                <span className={`w-2 h-2 rounded-full mr-2 bg-gradient-to-r ${
+                  ? "rgba(239, 68, 68, 0.1)"
+                  : "rgba(251, 146, 60, 0.1)",
+                color: (question?.difficulty || "medium") === "easy"
+                  ? "#10b981"
+                  : (question?.difficulty || "medium") === "hard"
+                  ? "#ef4444"
+                  : "#fb923c"
+              }}>
+                <span className={`w-2 h-2 rounded-full mr-2 ${
                   (question?.difficulty || "medium") === "easy"
-                    ? "from-emerald-500 to-green-500"
+                    ? "bg-emerald-500"
                     : (question?.difficulty || "medium") === "hard"
-                    ? "from-red-500 to-pink-500"
-                    : "from-amber-500 to-orange-500"
+                    ? "bg-red-500"
+                    : "bg-orange-500"
                 }`} />
                 {((question?.difficulty || "medium").charAt(0).toUpperCase() +
                   (question?.difficulty || "medium").slice(1))}
