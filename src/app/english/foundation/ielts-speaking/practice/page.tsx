@@ -140,25 +140,25 @@ export default function IELTSSpeakingPracticePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--primary-bg)] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading question...</p>
+          <p className="mt-4 text-[var(--foreground-secondary)]">Loading question...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 py-8 px-4">
+    <div className="min-h-screen bg-[var(--primary-bg)] py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">IELTS Speaking Practice</h1>
+            <h1 className="text-3xl font-bold text-[var(--foreground)]">IELTS Speaking Practice</h1>
             <button
               onClick={() => router.push('/english/foundation/ielts-speaking')}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium transition"
             >
               ← Back
             </button>
@@ -173,7 +173,7 @@ export default function IELTSSpeakingPracticePage() {
                 className={`flex-1 py-3 px-4 rounded-lg font-semibold transition ${
                   selectedPart === part
                     ? "bg-purple-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-[var(--hover-bg)] text-[var(--foreground-secondary)] hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)]"
                 }`}
               >
                 Part {part}
@@ -189,13 +189,13 @@ export default function IELTSSpeakingPracticePage() {
             {question.part === 1 && (
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-[rgba(168,85,247,0.15)] text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-sm font-semibold">
                     Part 1: Interview
                   </span>
-                  <span className="text-gray-600 text-sm">Topic: {question.topic}</span>
+                  <span className="text-[var(--foreground-secondary)] text-sm">Topic: {question.topic}</span>
                 </div>
-                <div className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-lg mb-6">
-                  <p className="text-xl font-semibold text-gray-900">{question.question}</p>
+                <div className="bg-[var(--hover-bg)] border-l-4 border-purple-600 p-6 rounded-lg mb-6">
+                  <p className="text-xl font-semibold text-[var(--foreground)]">{question.question}</p>
                 </div>
               </div>
             )}
@@ -204,23 +204,23 @@ export default function IELTSSpeakingPracticePage() {
             {question.part === 2 && question.cueCard && (
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-blue-100 text-[#3242CC] px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-[rgba(66,85,255,0.15)] text-[#4255FF] dark:text-[#6B7EFF] px-3 py-1 rounded-full text-sm font-semibold">
                     Part 2: Long Turn
                   </span>
-                  <span className="text-gray-600 text-sm">Topic: {question.topic}</span>
+                  <span className="text-[var(--foreground-secondary)] text-sm">Topic: {question.topic}</span>
                 </div>
-                <div className="bg-[#E8EAFF] border-l-4 border-[#4255FF] p-6 rounded-lg mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{question.cueCard.title}</h3>
-                  <p className="text-gray-700 mb-3 font-semibold">You should say:</p>
+                <div className="bg-[var(--hover-bg)] border-l-4 border-[#4255FF] p-6 rounded-lg mb-6">
+                  <h3 className="text-xl font-bold text-[var(--foreground)] mb-4">{question.cueCard.title}</h3>
+                  <p className="text-[var(--foreground-secondary)] mb-3 font-semibold">You should say:</p>
                   <ul className="space-y-2 mb-4">
                     {question.cueCard.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-700">
+                      <li key={idx} className="flex items-start gap-2 text-[var(--foreground-secondary)]">
                         <span className="text-[#4255FF] font-bold">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="flex gap-4 text-sm text-gray-600 mt-4 pt-4 border-t border-blue-200">
+                  <div className="flex gap-4 text-sm text-[var(--foreground-secondary)] mt-4 pt-4 border-t border-[var(--card-border)]">
                     <div className="flex items-center gap-1">
                       <span>⏱️</span>
                       <span>Preparation: {question.cueCard.prepTime / 60} minute</span>
@@ -235,7 +235,7 @@ export default function IELTSSpeakingPracticePage() {
                   <button
                     onClick={() => startTimer(question.cueCard!.prepTime, "prep")}
                     disabled={timerType !== null}
-                    className="flex-1 bg-[#4255FF] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#3242CC] disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+                    className="flex-1 bg-[#4255FF] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#3242CC] disabled:bg-[var(--hover-bg)] disabled:text-[var(--foreground-secondary)] disabled:cursor-not-allowed transition"
                   >
                     Start Preparation Timer
                   </button>
@@ -247,35 +247,35 @@ export default function IELTSSpeakingPracticePage() {
             {question.part === 3 && (
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-[rgba(34,197,94,0.15)] text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-sm font-semibold">
                     Part 3: Discussion
                   </span>
-                  <span className="text-gray-600 text-sm">Topic: {question.topic}</span>
+                  <span className="text-[var(--foreground-secondary)] text-sm">Topic: {question.topic}</span>
                 </div>
-                <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg mb-6">
-                  <p className="text-xl font-semibold text-gray-900">{question.question}</p>
+                <div className="bg-[var(--hover-bg)] border-l-4 border-green-600 p-6 rounded-lg mb-6">
+                  <p className="text-xl font-semibold text-[var(--foreground)]">{question.question}</p>
                 </div>
               </div>
             )}
 
             {/* Timer Display */}
             {timerType && (
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 text-center">
-                <p className="text-sm text-yellow-700 mb-1">
+              <div className="bg-[rgba(253,224,71,0.15)] border border-[rgba(234,179,8,0.3)] dark:border-[rgba(253,224,71,0.3)] rounded-lg p-4 mb-6 text-center">
+                <p className="text-sm text-[rgba(234,179,8,0.8)] dark:text-[rgba(253,224,71,0.7)] mb-1">
                   {timerType === "prep" ? "⏱️ Preparation Time" : "🎤 Speaking Time"}
                 </p>
-                <p className="text-3xl font-bold text-yellow-900">{formatTime(timer)}</p>
+                <p className="text-3xl font-bold text-[rgba(180,83,9,0.8)] dark:text-[rgba(253,224,71,0.9)]">{formatTime(timer)}</p>
               </div>
             )}
 
             {/* Recording Controls */}
-            <div className="bg-gray-50 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <div className="bg-[var(--hover-bg)] rounded-lg p-6 mb-6">
+              <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
                 <span>🎙️</span>
                 Voice Recording
               </h3>
               {recordingError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">
+                <div className="bg-[rgba(220,38,38,0.1)] border border-[rgba(220,38,38,0.3)] text-[#DC2626] rounded-lg p-3 mb-4 text-sm">
                   {recordingError}
                 </div>
               )}
@@ -292,7 +292,7 @@ export default function IELTSSpeakingPracticePage() {
                 {isRecording && (
                   <button
                     onClick={stopRecording}
-                    className="flex-1 bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-700 transition flex items-center justify-center gap-2 animate-pulse"
+                    className="flex-1 bg-[var(--muted)] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.5)] dark:hover:bg-[rgba(255,255,255,0.3)] transition flex items-center justify-center gap-2 animate-pulse"
                   >
                     <span className="text-xl">■</span>
                     Stop Recording
@@ -306,7 +306,7 @@ export default function IELTSSpeakingPracticePage() {
                         setAudioBlob(null);
                         setAudioUrl(null);
                       }}
-                      className="bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition"
+                      className="bg-[var(--hover-bg)] text-[var(--foreground-secondary)] py-3 px-6 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)] transition"
                     >
                       Record Again
                     </button>
@@ -316,14 +316,14 @@ export default function IELTSSpeakingPracticePage() {
             </div>
 
             {/* Tips */}
-            <div className="bg-purple-50 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <div className="bg-[var(--hover-bg)] rounded-lg p-6 mb-6">
+              <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
                 <span>💡</span>
                 Tips
               </h3>
               <ul className="space-y-2">
                 {question.tips.map((tip, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                  <li key={idx} className="flex items-start gap-2 text-[var(--foreground-secondary)]">
                     <span className="text-purple-600 font-bold">•</span>
                     <span>{tip}</span>
                   </li>
@@ -332,8 +332,8 @@ export default function IELTSSpeakingPracticePage() {
             </div>
 
             {/* Keywords */}
-            <div className="bg-[#E8EAFF] rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <div className="bg-[var(--hover-bg)] rounded-lg p-6 mb-6">
+              <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
                 <span>🔑</span>
                 Useful Keywords
               </h3>
@@ -341,7 +341,7 @@ export default function IELTSSpeakingPracticePage() {
                 {question.keywords.map((keyword, idx) => (
                   <span
                     key={idx}
-                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                    className="bg-[rgba(66,85,255,0.15)] text-[#4255FF] dark:text-[#6B7EFF] px-3 py-1 rounded-full text-sm font-medium"
                   >
                     {keyword}
                   </span>
@@ -359,12 +359,12 @@ export default function IELTSSpeakingPracticePage() {
                   Show Sample Answer
                 </button>
               ) : (
-                <div className="bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
-                  <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <div className="bg-[var(--hover-bg)] border-2 border-[var(--card-border)] rounded-lg p-6">
+                  <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
                     <span>📝</span>
                     Sample Answer
                   </h3>
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  <p className="text-[var(--foreground-secondary)] leading-relaxed whitespace-pre-line">
                     {question.sampleAnswer}
                   </p>
                 </div>
@@ -377,7 +377,7 @@ export default function IELTSSpeakingPracticePage() {
         <div className="flex gap-4">
           <button
             onClick={loadQuestion}
-            className="flex-1 bg-[var(--card-bg)] text-gray-900 py-4 px-6 rounded-lg font-semibold hover:bg-gray-50 transition shadow-lg"
+            className="flex-1 bg-[var(--card-bg)] text-[var(--foreground)] py-4 px-6 rounded-lg font-semibold hover:bg-[var(--hover-bg)] transition shadow-lg"
           >
             Next Question
           </button>
