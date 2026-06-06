@@ -102,7 +102,8 @@ export function AIClarificationChat({
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-50 to-sky-50 border-2 border-blue-200 text-blue-700 rounded-xl hover:from-blue-100 hover:to-sky-100 transition-all font-medium text-sm"
+        className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-blue-200 text-blue-700 rounded-xl transition-all font-medium text-sm"
+        style={{ background: "var(--primary-bg)" }}
       >
         <span>Still confused? Ask PrepGenie AI for help</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,11 +114,11 @@ export function AIClarificationChat({
   }
 
   return (
-    <div className="p-4 bg-gradient-to-br from-blue-50 to-sky-50 rounded-xl border-2 border-blue-200">
+    <div className="p-4 rounded-xl border-2 border-blue-200" style={{ background: "var(--primary-bg)" }}>
       <div className="flex items-center gap-2 mb-3">
         <div>
           <div className="text-sm font-semibold text-blue-900">PrepGenie AI</div>
-          <div className="text-xs text-slate-500">Get instant clarification</div>
+          <div className="text-xs" style={{ color: "var(--muted)" }}>Get instant clarification</div>
         </div>
       </div>
 
@@ -127,16 +128,17 @@ export function AIClarificationChat({
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`p-3 rounded-lg ${
+              className={`p-3 rounded-lg border border-blue-200 ${
                 msg.type === 'user'
-                  ? 'bg-blue-100 border border-blue-200 ml-8'
-                  : 'bg-white border border-blue-200 mr-8'
+                  ? 'ml-8'
+                  : 'mr-8'
               }`}
+              style={{ background: msg.type === 'user' ? "var(--card-bg)" : "var(--card-bg)" }}
             >
-              <div className="text-xs font-semibold mb-1 ${msg.type === 'ai' ? 'text-blue-700' : 'text-slate-600'}">
+              <div className="text-xs font-semibold mb-1" style={{ color: msg.type === 'ai' ? '#1e40af' : 'var(--foreground)' }}>
                 {msg.type === 'ai' ? 'PrepGenie AI:' : 'You:'}
               </div>
-              <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-wrap">
+              <div className="text-sm leading-relaxed whitespace-pre-wrap" style={{ color: "var(--foreground-secondary)" }}>
                 {msg.text}
               </div>
             </div>
@@ -151,7 +153,8 @@ export function AIClarificationChat({
             <button
               key={i}
               onClick={() => handleQuickQuestion(q)}
-              className="text-xs px-3 py-1.5 bg-white text-blue-700 rounded-full border border-blue-200 hover:bg-blue-100 transition-colors"
+              className="text-xs px-3 py-1.5 text-blue-700 rounded-full border border-blue-200 transition-colors"
+              style={{ background: "var(--card-bg)" }}
             >
               {q}
             </button>
@@ -176,6 +179,7 @@ export function AIClarificationChat({
           onKeyPress={(e) => e.key === 'Enter' && handleAsk()}
           placeholder="Type your question here..."
           className="flex-1 px-3 py-2 border border-blue-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{ background: "var(--card-bg)", color: "var(--foreground)" }}
           disabled={isLoading}
         />
         <button
@@ -190,7 +194,7 @@ export function AIClarificationChat({
       {/* Feedback - Only show after last AI message */}
       {messages.length > 0 && messages[messages.length - 1].type === 'ai' && !hasRated && !isLoading && (
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-blue-200">
-          <span className="text-xs text-slate-500">Was this helpful?</span>
+          <span className="text-xs" style={{ color: "var(--muted)" }}>Was this helpful?</span>
           <div className="flex gap-2">
             <button
               onClick={() => handleRate(true)}
@@ -209,7 +213,7 @@ export function AIClarificationChat({
       )}
 
       {hasRated && (
-        <div className="text-xs text-slate-500 text-center mt-2">
+        <div className="text-xs text-center mt-2" style={{ color: "var(--muted)" }}>
           Thanks for your feedback!
         </div>
       )}
@@ -217,7 +221,8 @@ export function AIClarificationChat({
       {/* Close */}
       <button
         onClick={() => setIsOpen(false)}
-        className="mt-3 w-full text-xs text-slate-500 hover:text-blue-800"
+        className="mt-3 w-full text-xs"
+        style={{ color: "var(--muted)" }}
       >
         Close
       </button>
