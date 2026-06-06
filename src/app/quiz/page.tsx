@@ -1256,7 +1256,13 @@ function QuizContent() {
           <button
             onClick={submitQuiz}
             disabled={isSubmitting}
-            className={`px-4 py-1.5 bg-white ${isSprintMode ? 'text-orange-600 hover:bg-orange-50' : 'text-red-600 hover:bg-red-50'} font-semibold rounded-lg disabled:opacity-50`}
+            className={`px-4 py-1.5 font-semibold rounded-lg disabled:opacity-50`}
+            style={{
+              background: "var(--card-bg)",
+              color: isSprintMode ? "#ea580c" : "#dc2626"
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = isSprintMode ? "#fed7aa" : "#fecaca"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "var(--card-bg)"; }}
           >
             {isSubmitting ? "Submitting..." : "Submit Now"}
           </button>
@@ -1493,8 +1499,18 @@ function QuizContent() {
           {!isLastQuestion && !showExplanation && (
             <button
               onClick={nextQuestion}
-              className="px-4 py-3 text-sm font-semibold border-2 rounded-lg transition-all shadow-sm"
+              className="px-4 py-3 text-sm font-semibold border-2 rounded-lg transition-all shadow-sm cursor-pointer"
               style={{ color: "var(--foreground-secondary)", background: "var(--card-bg)", borderColor: "var(--card-border)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#dc2626";
+                e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                e.currentTarget.style.color = "#dc2626";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--card-border)";
+                e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                e.currentTarget.style.color = "var(--foreground-secondary)";
+              }}
             >
               Skip →
             </button>
@@ -1522,7 +1538,7 @@ function QuizContent() {
               setShowExplanation(false);
               setCurrentQuestion(idx);
             }}
-            className={`w-8 h-8 rounded-full text-xs font-medium ${
+            className={`w-8 h-8 rounded-full text-xs font-medium transition-all cursor-pointer ${
               idx === currentQuestion
                 ? "bg-slate-500 text-white"
                 : answers[idx] !== null
@@ -1530,6 +1546,16 @@ function QuizContent() {
                   : ""
             }`}
             style={idx !== currentQuestion && answers[idx] === null ? { background: "var(--hover-bg)", color: "var(--muted)" } : undefined}
+            onMouseEnter={(e) => {
+              if (idx !== currentQuestion) {
+                e.currentTarget.style.transform = "scale(1.15)";
+                e.currentTarget.style.boxShadow = "0 0 8px rgba(66, 85, 255, 0.3)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             {idx + 1}
           </button>

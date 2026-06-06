@@ -231,19 +231,19 @@ export default function DashboardPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-8">
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
           <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Total Quizzes</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-600">
             {stats.totalSessions}
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
           <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Questions Solved</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">
             {stats.totalQuestions}
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
           <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Accuracy</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-600">
             {stats.accuracy}%
@@ -255,7 +255,7 @@ export default function DashboardPage() {
             />
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm streak-pulse" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm streak-pulse transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
           <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Day Streak</div>
           <div className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">
             {stats.streak}
@@ -344,8 +344,16 @@ export default function DashboardPage() {
                   return (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 rounded-lg"
+                      className="flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer"
                       style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                        e.currentTarget.style.borderColor = "#4255FF";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = "var(--primary-bg)";
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                      }}
                     >
                       <div>
                         <div className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>
@@ -414,7 +422,14 @@ export default function DashboardPage() {
                     return (
                       <tr
                         key={s.id}
+                        className="transition-colors cursor-pointer"
                         style={{ borderBottomColor: "var(--card-border)", borderBottomWidth: "1px", borderBottomStyle: "solid" }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = "transparent";
+                        }}
                       >
                         <td className="py-3">
                           <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>

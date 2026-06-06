@@ -151,7 +151,10 @@ export default function SprintPage() {
               </p>
               <button
                 onClick={() => router.push("/dashboard")}
-                className="px-6 py-2 bg-white text-[#4255FF] hover:bg-white/90 font-medium rounded-lg transition-colors shadow-lg"
+                className="px-6 py-2 font-medium rounded-lg transition-colors shadow-lg"
+                style={{ background: "var(--card-bg)", color: "#4255FF" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "var(--primary-bg)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--card-bg)"; }}
               >
                 Back to Dashboard
               </button>
@@ -481,19 +484,19 @@ export default function SprintPage() {
                   </div>
 
                   <div className="flex gap-2 mb-4">
-                    <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200/70 text-slate-700 text-xs font-medium px-2.5 py-1.5 rounded-lg">
-                      <Users className="w-3.5 h-3.5 text-slate-400" />
+                    <div className="flex items-center gap-1.5 border text-xs font-medium px-2.5 py-1.5 rounded-lg" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)", color: "var(--foreground)" }}>
+                      <Users className="w-3.5 h-3.5" style={{ color: "var(--muted)" }} />
                       <span>{sprintData.totalParticipants}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200/70 text-slate-700 text-xs font-medium px-2.5 py-1.5 rounded-lg">
-                      <Trophy className="w-3.5 h-3.5 text-slate-400" />
+                    <div className="flex items-center gap-1.5 border text-xs font-medium px-2.5 py-1.5 rounded-lg" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)", color: "var(--foreground)" }}>
+                      <Trophy className="w-3.5 h-3.5" style={{ color: "var(--muted)" }} />
                       <span>{sprintData.sprint.questions.length} Qs</span>
                     </div>
                   </div>
 
                   {sprintData.participated ? (
-                    <div className="bg-slate-50/80 backdrop-blur-sm rounded-xl p-3 border border-slate-200/70">
-                      <div className="text-[11px] uppercase tracking-wide text-slate-500 mb-1 font-semibold">Your Score</div>
+                    <div className="backdrop-blur-sm rounded-xl p-3 border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
+                      <div className="text-[11px] uppercase tracking-wide mb-1 font-semibold" style={{ color: "var(--muted)" }}>Your Score</div>
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="text-2xl font-bold text-slate-900 leading-tight">

@@ -569,17 +569,17 @@ export default function MockTestPage() {
   if (pageState === "results" && results) {
     const percentage = results.accuracy;
     const grade =
-      percentage >= 90 ? { label: t("excellent"), color: "text-slate-500", bg: "bg-slate-50" }
-      : percentage >= 70 ? { label: t("goodJob"), color: "[#4255FF]", bg: "bg-slate-50" }
-      : percentage >= 50 ? { label: t("keepPracticing"), color: "text-amber-600", bg: "bg-amber-50" }
-      : { label: t("needsImprovement"), color: "text-red-600", bg: "bg-red-50" };
+      percentage >= 90 ? { label: t("excellent"), color: "text-slate-500", bg: "bg-slate-50", style: { background: "var(--primary-bg)", color: "var(--foreground-secondary)" } }
+      : percentage >= 70 ? { label: t("goodJob"), color: "[#4255FF]", bg: "bg-slate-50", style: { background: "var(--primary-bg)", color: "#4255FF" } }
+      : percentage >= 50 ? { label: t("keepPracticing"), color: "text-amber-600", bg: "bg-amber-50", style: { background: "var(--primary-bg)", color: "#d97706" } }
+      : { label: t("needsImprovement"), color: "text-red-600", bg: "bg-red-50", style: { background: "var(--primary-bg)", color: "#dc2626" } };
 
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Score Card */}
         <div className="rounded-2xl p-8 shadow-lg text-center mb-8" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
           <div className="text-sm font-medium mb-2" style={{ color: "var(--primary)" }}>{t("mockTestResult")}</div>
-          <h2 className={`text-2xl font-bold ${grade.color} mb-2`}>{grade.label}</h2>
+          <h2 className={`text-2xl font-bold mb-2`} style={grade.style}>{grade.label}</h2>
           <div className="text-6xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{percentage}%</div>
           <p className="mb-6" style={{ color: "var(--muted)" }}>
             {results.correctAnswers} / {results.totalQuestions} {t("correct")} | {t("time")}: {formatTime(results.timeTaken)}
@@ -615,8 +615,18 @@ export default function MockTestPage() {
         <div className="flex gap-2 mb-4 flex-wrap">
           <button
             onClick={() => setCurrentSection("all")}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium ${currentSection === "all" ? "bg-slate-500 text-white" : ""}`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all cursor-pointer ${currentSection === "all" ? "bg-slate-500 text-white" : ""}`}
             style={currentSection !== "all" ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}
+            onMouseEnter={(e) => {
+              if (currentSection !== "all") {
+                e.currentTarget.style.borderColor = "#a5b4fc";
+                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             All ({results.totalQuestions})
           </button>
@@ -624,8 +634,18 @@ export default function MockTestPage() {
             <button
               key={subjectId}
               onClick={() => setCurrentSection(subjectId)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium ${currentSection === subjectId ? "bg-slate-500 text-white" : ""}`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all cursor-pointer ${currentSection === subjectId ? "bg-slate-500 text-white" : ""}`}
               style={currentSection !== subjectId ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}
+              onMouseEnter={(e) => {
+                if (currentSection !== subjectId) {
+                  e.currentTarget.style.borderColor = "#a5b4fc";
+                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               {data.subjectName} ({data.correct}/{data.total})
             </button>
@@ -1079,8 +1099,18 @@ export default function MockTestPage() {
               setShowSearchDropdown(true);
             }}
             onFocus={() => setShowSearchDropdown(true)}
-            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 focus:border-[#4255FF] focus:ring-2 focus:ring-[#E8EAFF] outline-none transition-all"
+            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 focus:border-[#4255FF] focus:ring-2 focus:ring-[#E8EAFF] outline-none transition-all cursor-text"
             style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+            onMouseEnter={(e) => {
+              if (!e.currentTarget.matches(":focus")) {
+                e.currentTarget.style.borderColor = "#a5b4fc";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!e.currentTarget.matches(":focus")) {
+                e.currentTarget.style.borderColor = "var(--card-border)";
+              }
+            }}
           />
           <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: "var(--muted)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

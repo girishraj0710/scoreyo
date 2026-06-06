@@ -393,7 +393,17 @@ export default function AdminQuestionReviewPage() {
                       newOptions[idx] = e.target.value;
                       setEditForm({ ...editForm, options: newOptions });
                     }}
-                    className="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors"
+                    onMouseEnter={(e) => {
+                      if (e.currentTarget !== document.activeElement) {
+                        e.currentTarget.style.borderColor = "#93c5fd";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (e.currentTarget !== document.activeElement) {
+                        e.currentTarget.style.borderColor = "#d1d5db";
+                      }
+                    }}
                   />
                 </div>
               ))}
@@ -412,8 +422,18 @@ export default function AdminQuestionReviewPage() {
                 onChange={(e) =>
                   setEditForm({ ...editForm, explanation: e.target.value })
                 }
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors"
                 rows={4}
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#93c5fd";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#d1d5db";
+                  }
+                }}
               />
             </div>
 
@@ -427,7 +447,17 @@ export default function AdminQuestionReviewPage() {
                 onChange={(e) =>
                   setEditForm({ ...editForm, difficulty: e.target.value })
                 }
-                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors"
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#93c5fd";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#d1d5db";
+                  }
+                }}
               >
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
@@ -443,9 +473,19 @@ export default function AdminQuestionReviewPage() {
               <textarea
                 value={adminNotes}
                 onChange={(e) => setAdminNotes(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors"
                 rows={2}
                 placeholder="Internal notes about this fix..."
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#93c5fd";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#d1d5db";
+                  }
+                }}
               />
             </div>
 

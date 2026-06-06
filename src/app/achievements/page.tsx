@@ -158,9 +158,21 @@ export default function AchievementsPage() {
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
               selectedCategory === cat
                 ? "bg-[#4255FF] text-white shadow-lg"
-                : "border"
+                : "border cursor-pointer"
             }`}
             style={selectedCategory === cat ? undefined : { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" }}
+            onMouseEnter={(e) => {
+              if (selectedCategory !== cat) {
+                e.currentTarget.style.borderColor = "#818cf8";
+                e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (selectedCategory !== cat) {
+                e.currentTarget.style.borderColor = "var(--card-border)";
+                e.currentTarget.style.backgroundColor = "var(--card-bg)";
+              }
+            }}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
           </button>
@@ -226,8 +238,16 @@ export default function AchievementsPage() {
                 {/* Share Button */}
                 <button
                   onClick={() => shareBadge(badge)}
-                  className="w-full flex items-center justify-center gap-2 py-2 border-2 rounded-lg transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-2 border-2 rounded-lg transition-all cursor-pointer"
                   style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", color: "var(--foreground-secondary)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#818cf8";
+                    e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                    e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                  }}
                 >
                   <Share2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Share</span>
@@ -274,8 +294,8 @@ export default function AchievementsPage() {
                   <p className="text-sm text-slate-400">{badge.description}</p>
 
                   {/* Requirement Hint */}
-                  <div className="mt-4 p-3 bg-[var(--card-bg)] rounded-lg border border-slate-200">
-                    <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
+                  <div className="mt-4 p-3 rounded-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+                    <div className="flex items-center justify-center gap-2 text-xs" style={{ color: "var(--muted)" }}>
                       <TrendingUp className="w-3 h-3" />
                       <span>
                         {badge.requirement.type.replace(/_/g, " ")}:{" "}

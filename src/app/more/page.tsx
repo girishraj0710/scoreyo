@@ -99,11 +99,26 @@ export default function MorePage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center justify-between px-4 py-4 hover:shadow-md transition-colors ${
+                  className={`flex items-center justify-between px-4 py-4 transition-all cursor-pointer ${
                     index !== section.items.length - 1
                       ? "border-b border-[var(--card-border)]"
                       : ""
                   }`}
+                  style={{ color: "var(--foreground)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                    const icon = e.currentTarget.querySelector('svg');
+                    if (icon && icon.classList.contains('text-slate-600')) {
+                      icon.style.color = "#4255FF";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    const icon = e.currentTarget.querySelector('svg');
+                    if (icon) {
+                      icon.style.color = "var(--muted)";
+                    }
+                  }}
                 >
                   <div className="flex items-center gap-3">
                     <Icon className="w-5 h-5 text-slate-600" />

@@ -253,10 +253,20 @@ export default function SettingsPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Enter your full name"
                 aria-label="Full name"
+                onMouseEnter={(e) => {
+                  if (!e.currentTarget.matches(":focus")) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!e.currentTarget.matches(":focus")) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }
+                }}
               />
             </div>
           </div>
@@ -291,10 +301,20 @@ export default function SettingsPage() {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="+91 98765 43210"
                 aria-label="Phone number"
+                onMouseEnter={(e) => {
+                  if (!e.currentTarget.matches(":focus")) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!e.currentTarget.matches(":focus")) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }
+                }}
               />
             </div>
           </div>
@@ -312,12 +332,22 @@ export default function SettingsPage() {
                     type="number"
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
                     style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                     placeholder="18"
                     min="10"
                     max="60"
                     aria-label="Age"
+                    onMouseEnter={(e) => {
+                      if (!e.currentTarget.matches(":focus")) {
+                        e.currentTarget.style.borderColor = "#a5b4fc";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!e.currentTarget.matches(":focus")) {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                      }
+                    }}
                   />
                 </div>
               </div>
@@ -331,10 +361,20 @@ export default function SettingsPage() {
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
                     style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                     placeholder="City, State"
                     aria-label="Location"
+                    onMouseEnter={(e) => {
+                      if (!e.currentTarget.matches(":focus")) {
+                        e.currentTarget.style.borderColor = "#a5b4fc";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!e.currentTarget.matches(":focus")) {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                      }
+                    }}
                   />
                 </div>
               </div>
@@ -352,9 +392,19 @@ export default function SettingsPage() {
                 <select
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none"
+                  className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none cursor-pointer"
                   aria-label="Exam preparing for"
                   style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  onMouseEnter={(e) => {
+                    if (!e.currentTarget.matches(":focus")) {
+                      e.currentTarget.style.borderColor = "#a5b4fc";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!e.currentTarget.matches(":focus")) {
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }
+                  }}
                 >
                   <option value="">Select an exam</option>
                   {getAllExams().map((exam) => (

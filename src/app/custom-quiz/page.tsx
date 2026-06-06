@@ -147,12 +147,20 @@ export default function CustomQuizPage() {
         <div className="flex gap-8 mb-8 border-b" style={{ borderColor: "var(--card-border)" }}>
           <button
             onClick={() => setActiveTab('upload')}
-            className={`pb-3 px-2 font-medium transition-colors relative ${
+            className={`pb-3 px-2 font-medium transition-all relative cursor-pointer rounded-t-lg ${
               activeTab === 'upload'
                 ? 'text-[#4255FF]'
                 : ''
             }`}
             style={activeTab !== 'upload' ? { color: "var(--muted)" } : undefined}
+            onMouseEnter={(e) => {
+              if (activeTab !== 'upload') {
+                e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
           >
             Upload files
             {activeTab === 'upload' && (
@@ -161,12 +169,20 @@ export default function CustomQuizPage() {
           </button>
           <button
             onClick={() => setActiveTab('paste')}
-            className={`pb-3 px-2 font-medium transition-colors relative ${
+            className={`pb-3 px-2 font-medium transition-all relative cursor-pointer rounded-t-lg ${
               activeTab === 'paste'
                 ? 'text-[#4255FF]'
                 : ''
             }`}
             style={activeTab !== 'paste' ? { color: "var(--muted)" } : undefined}
+            onMouseEnter={(e) => {
+              if (activeTab !== 'paste') {
+                e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
           >
             Paste text
             {activeTab === 'paste' && (
@@ -307,8 +323,18 @@ export default function CustomQuizPage() {
               value={pastedText}
               onChange={(e) => setPastedText(e.target.value)}
               placeholder="Paste your study material here..."
-              className="w-full h-64 p-4 border-2 rounded-lg focus:outline-none focus:border-indigo-400 resize-none"
+              className="w-full h-64 p-4 border-2 rounded-lg focus:outline-none focus:border-indigo-400 resize-none transition-colors"
               style={{ borderColor: "var(--card-border)", color: "var(--foreground-secondary)", background: "var(--card-bg)" }}
+              onMouseEnter={(e) => {
+                if (e.currentTarget !== document.activeElement) {
+                  e.currentTarget.style.borderColor = "#a5b4fc";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (e.currentTarget !== document.activeElement) {
+                  e.currentTarget.style.borderColor = "var(--card-border)";
+                }
+              }}
             />
             <p className="text-xs mt-2" style={{ color: "var(--muted)" }}>
               Paste text from your notes, textbook, or any study material
@@ -333,12 +359,22 @@ export default function CustomQuizPage() {
                       <button
                         key={num}
                         onClick={() => setNumQuestions(num)}
-                        className={`py-3 rounded-lg font-medium transition-all ${
+                        className={`py-3 rounded-lg font-medium transition-all border-2 cursor-pointer ${
                           numQuestions === num
                             ? 'bg-[#4255FF] text-white shadow-lg'
                             : ''
                         }`}
-                        style={numQuestions !== num ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}
+                        style={numQuestions !== num ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : { borderColor: "#4255FF" }}
+                        onMouseEnter={(e) => {
+                          if (numQuestions !== num) {
+                            e.currentTarget.style.borderColor = "#a5b4fc";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (numQuestions !== num) {
+                            e.currentTarget.style.borderColor = "var(--card-border)";
+                          }
+                        }}
                       >
                         {num}
                       </button>
@@ -356,12 +392,22 @@ export default function CustomQuizPage() {
                       <button
                         key={level}
                         onClick={() => setDifficulty(level)}
-                        className={`py-3 rounded-lg font-medium capitalize transition-all ${
+                        className={`py-3 rounded-lg font-medium capitalize transition-all border-2 cursor-pointer ${
                           difficulty === level
                             ? 'bg-[#4255FF] text-white shadow-lg'
                             : ''
                         }`}
-                        style={difficulty !== level ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)" } : undefined}
+                        style={difficulty !== level ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : { borderColor: "#4255FF" }}
+                        onMouseEnter={(e) => {
+                          if (difficulty !== level) {
+                            e.currentTarget.style.borderColor = "#a5b4fc";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (difficulty !== level) {
+                            e.currentTarget.style.borderColor = "var(--card-border)";
+                          }
+                        }}
                       >
                         {level}
                       </button>

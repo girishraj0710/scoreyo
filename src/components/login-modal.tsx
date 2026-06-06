@@ -377,6 +377,16 @@ export function LoginModal() {
                 style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 autoFocus
                 required
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#e2e8f0";
+                  }
+                }}
               />
               {error && <p className="text-red-500 text-sm">{error}</p>}
               <button
@@ -421,6 +431,16 @@ export function LoginModal() {
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   autoFocus
                   required
+                  onMouseEnter={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "#a5b4fc";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "#e2e8f0";
+                    }
+                  }}
                 />
               </div>
 

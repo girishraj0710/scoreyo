@@ -49,7 +49,8 @@ export function ModernQuizCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-2xl border border-slate-200 overflow-hidden"
+      className="rounded-3xl shadow-2xl border overflow-hidden"
+      style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
     >
       {/* Header Strip */}
       <div className={`h-2 bg-gradient-to-r ${difficultyColors[diff]}`} />
@@ -83,7 +84,10 @@ export function ModernQuizCard({
           {/* Report Button */}
           <button
             onClick={onReport}
-            className="p-2 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors"
+            className="p-2 rounded-lg transition-colors"
+            style={{ color: "var(--muted)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "#fee2e2"; e.currentTarget.style.color = "#dc2626"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--muted)"; }}
             title="Report issue"
           >
             <Flag className="w-4 h-4" />
@@ -120,18 +124,25 @@ export function ModernQuizCard({
                       ? "border-red-400 shadow-lg shadow-red-100"
                       : isSelected
                       ? "border-[#4255FF] shadow-lg shadow-indigo-100"
-                      : "border-slate-200 hover:border-[#90CAF9] shadow-sm"
+                      : "shadow-sm"
                   }
                   ${showExplanation ? "cursor-default" : "cursor-pointer"}
                 `}
                 style={{
+                  borderColor: showExplanation && isCorrect
+                    ? "#22c55e"
+                    : isWrong
+                    ? "#ef4444"
+                    : isSelected
+                    ? "#4255FF"
+                    : "var(--card-border)",
                   background: showExplanation && isCorrect
                     ? "rgb(220, 252, 231)"
                     : isWrong
                     ? "rgb(254, 226, 226)"
                     : isSelected
                     ? "#E8EAFF"
-                    : "white",
+                    : "var(--card-bg)",
                   color: showExplanation && isCorrect
                     ? "#166534"
                     : isWrong
@@ -152,9 +163,14 @@ export function ModernQuizCard({
                         ? "bg-gradient-to-br from-red-500 to-pink-500 text-white shadow-md"
                         : isSelected
                         ? "bg-gradient-to-br from-[#4255FF] to-purple-500 text-white shadow-md"
-                        : "bg-slate-100 text-slate-600 border border-slate-200"
+                        : "border"
                     }
                   `}
+                  style={!(showExplanation && isCorrect) && !isWrong && !isSelected ? {
+                    background: "var(--primary-bg)",
+                    color: "var(--foreground-secondary)",
+                    borderColor: "var(--card-border)"
+                  } : {}}
                 >
                   {String.fromCharCode(65 + idx)}
                 </span>

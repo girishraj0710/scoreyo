@@ -295,8 +295,9 @@ function UploadContentPage() {
                 className={`border-2 border-dashed rounded-xl p-12 text-center transition-all ${
                   dragActive
                     ? 'border-indigo-400 bg-indigo-50'
-                    : 'border-slate-300 hover:border-slate-400 bg-slate-50'
+                    : ''
                 }`}
+                style={!dragActive ? { borderColor: "var(--card-border)", background: "var(--primary-bg)" } : {}}
               >
                 {!file ? (
                   <div className="flex flex-col items-center gap-4">
@@ -367,8 +368,8 @@ function UploadContentPage() {
           {/* Settings */}
           {((activeTab === 'upload' && file) || (activeTab === 'paste' && pastedText.trim())) && (
             <div className="space-y-6">
-              <div className="bg-slate-50 rounded-xl border border-[var(--card-border)] p-6">
-                <h3 className="font-semibold text-slate-900 mb-4 text-lg">Generation Settings</h3>
+              <div className="rounded-xl border p-6" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
+                <h3 className="font-semibold mb-4 text-lg" style={{ color: "var(--foreground)" }}>Generation Settings</h3>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Number of Questions */}

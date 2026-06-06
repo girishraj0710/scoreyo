@@ -225,7 +225,8 @@ export default function AdminReviewMaterialsPage() {
             {materials.map((material) => (
               <div
                 key={material.id}
-                className="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                className="border rounded-lg p-6 hover:shadow-md transition-shadow"
+                style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   {/* Content */}
@@ -305,8 +306,8 @@ export default function AdminReviewMaterialsPage() {
 
                 {/* Rejection Reason Input */}
                 {reviewState.materialId === material.id && (
-                  <div className="mt-4 pt-4 border-t border-slate-200 space-y-3">
-                    <p className="font-medium text-slate-900">
+                  <div className="mt-4 pt-4 border-t space-y-3" style={{ borderColor: "var(--card-border)" }}>
+                    <p className="font-medium" style={{ color: "var(--foreground)" }}>
                       Please provide a rejection reason:
                     </p>
                     <textarea

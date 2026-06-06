@@ -289,8 +289,20 @@ export default function DPPPage() {
                     className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                       userAnswers[currentIndex] === idx
                         ? "border-[#4255FF] bg-[#E8EAFF]"
-                        : "border-[var(--card-border)] hover:border-slate-300 hover:bg-slate-50"
+                        : "border-[var(--card-border)]"
                     }`}
+                    onMouseEnter={(e) => {
+                      if (userAnswers[currentIndex] !== idx) {
+                        e.currentTarget.style.borderColor = "var(--foreground-secondary)";
+                        e.currentTarget.style.background = "var(--primary-bg)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (userAnswers[currentIndex] !== idx) {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                        e.currentTarget.style.background = "transparent";
+                      }
+                    }}
                   >
                     <div className="flex items-center gap-3">
                       <div
@@ -314,7 +326,10 @@ export default function DPPPage() {
               <button
                 onClick={handlePrevious}
                 disabled={currentIndex === 0}
-                className="px-6 py-3 border-2 border-[var(--card-border)] text-slate-700 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-3 border-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ borderColor: "var(--card-border)", color: "var(--foreground)" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "var(--primary-bg)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
               >
                 Previous
               </button>

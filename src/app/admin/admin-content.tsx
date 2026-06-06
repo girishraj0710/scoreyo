@@ -815,7 +815,17 @@ export default function AdminDashboardPage() {
                     placeholder="Search topics, exams, subjects, sources..."
                     value={topicSearchQuery}
                     onChange={(e) => setTopicSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[var(--card-bg)]"
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[var(--card-bg)] transition-colors"
+                    onMouseEnter={(e) => {
+                      if (e.currentTarget !== document.activeElement) {
+                        e.currentTarget.style.borderColor = "#93c5fd";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (e.currentTarget !== document.activeElement) {
+                        e.currentTarget.style.borderColor = "#d1d5db";
+                      }
+                    }}
                   />
                   {topicSearchQuery && (
                     <button
@@ -841,7 +851,17 @@ export default function AdminDashboardPage() {
                   onChange={(e) => {
                     setSelectedExamFilter(e.target.value);
                   }}
-                  className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[var(--card-bg)] min-w-[200px]"
+                  className="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[var(--card-bg)] min-w-[200px] transition-colors"
+                  onMouseEnter={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "#93c5fd";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "#d1d5db";
+                    }
+                  }}
                 >
                   <option value="all">All Exams ({getUniqueExamsInBreakdown().length})</option>
                   {getUniqueExamsInBreakdown().map((exam) => (

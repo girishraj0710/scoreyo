@@ -206,11 +206,21 @@ export default function ContributorMaterialsPage() {
                   placeholder="Search exams..."
                   value={examSearch}
                   onChange={(e) => setExamSearch(e.target.value)}
-                  className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50"
+                  className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50 transition-colors"
                   style={{
                     borderColor: "var(--card-border)",
                     background: "var(--card-bg)",
                     color: "var(--foreground)"
+                  }}
+                  onMouseEnter={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "#818cf8";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }
                   }}
                 />
                 {examSearch && (
@@ -296,11 +306,21 @@ export default function ContributorMaterialsPage() {
                   placeholder="Search subjects..."
                   value={subjectSearch}
                   onChange={(e) => setSubjectSearch(e.target.value)}
-                  className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50"
+                  className="w-full pl-12 pr-10 py-3 rounded-lg border-2 focus:outline-none focus:border-indigo-600 placeholder-opacity-50 transition-colors"
                   style={{
                     borderColor: "var(--card-border)",
                     background: "var(--card-bg)",
                     color: "var(--foreground)"
+                  }}
+                  onMouseEnter={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "#818cf8";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (e.currentTarget !== document.activeElement) {
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }
                   }}
                 />
                 {subjectSearch && (

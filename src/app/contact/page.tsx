@@ -65,6 +65,16 @@ export default function ContactPage() {
                 className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Enter your name"
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }
+                }}
               />
             </div>
 
@@ -81,6 +91,16 @@ export default function ContactPage() {
                 className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="your.email@example.com"
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }
+                }}
               />
             </div>
 
@@ -95,6 +115,16 @@ export default function ContactPage() {
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }
+                }}
               >
                 <option value="">Select a subject</option>
                 <option value="general">General Inquiry</option>
@@ -120,6 +150,16 @@ export default function ContactPage() {
                 className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Describe your question or issue in detail..."
+                onMouseEnter={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "#a5b4fc";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (e.currentTarget !== document.activeElement) {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }
+                }}
               />
             </div>
 

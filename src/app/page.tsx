@@ -343,8 +343,14 @@ function HomePageContent() {
                   <button
                     key={index}
                     onClick={() => handleSearchSelect(result)}
-                    className="w-full px-4 py-3 transition-colors text-left border-b last:border-b-0"
+                    className="w-full px-4 py-3 transition-colors text-left border-b last:border-b-0 cursor-pointer"
                     style={{ borderColor: "var(--card-border)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
                   >
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5">
@@ -750,12 +756,24 @@ function HomePageContent() {
                   <button
                     key={n}
                     onClick={() => setQuestionCount(n)}
-                    className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
+                    className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 transition-all cursor-pointer ${
                       questionCount === n
                         ? "border-indigo-500 bg-indigo-600 text-white"
                         : ""
                     }`}
                     style={questionCount !== n ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
+                    onMouseEnter={(e) => {
+                      if (questionCount !== n) {
+                        e.currentTarget.style.borderColor = "#a5b4fc";
+                        e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (questionCount !== n) {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                        e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                      }
+                    }}
                   >
                     {n}
                   </button>
@@ -778,12 +796,24 @@ function HomePageContent() {
                   <button
                     key={d.value}
                     onClick={() => setDifficulty(d.value)}
-                    className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 ${
+                    className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 transition-all cursor-pointer ${
                       difficulty === d.value
                         ? "border-indigo-500 bg-indigo-600 text-white"
                         : ""
                     }`}
                     style={difficulty !== d.value ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
+                    onMouseEnter={(e) => {
+                      if (difficulty !== d.value) {
+                        e.currentTarget.style.borderColor = "#a5b4fc";
+                        e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (difficulty !== d.value) {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                        e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                      }
+                    }}
                   >
                     {d.label}
                   </button>

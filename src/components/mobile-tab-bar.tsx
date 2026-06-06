@@ -35,10 +35,22 @@ export function MobileTabBar() {
               <Link
                 key={tab.href}
                 href={tab.href}
-                className="flex flex-col items-center justify-center gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="flex flex-col items-center justify-center gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                 style={{ color: isActive ? "#4255FF" : "var(--muted)" }}
                 aria-label={tab.label}
                 aria-current={isActive ? "page" : undefined}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                    e.currentTarget.style.color = "#4255FF";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.color = "var(--muted)";
+                  }
+                }}
               >
                 <Icon className="w-6 h-6" strokeWidth={isActive ? 2.5 : 2} />
                 <span className="text-[10px] font-medium">{tab.label}</span>
