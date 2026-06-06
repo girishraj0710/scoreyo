@@ -451,7 +451,15 @@ function HomePageContent() {
             <div className="flex flex-col sm:flex-row gap-2">
               <a
                 href={`/quiz?examId=${lastQuiz.examId}&subjectId=${lastQuiz.subjectId}&topic=${encodeURIComponent(lastQuiz.topic)}&count=5&difficulty=mixed`}
-                className="flex-1 text-indigo-600 font-semibold py-3 px-4 rounded-xl text-center hover:shadow-md transition-colors" style={{ background: "var(--card-bg)" }}
+                className="flex-1 font-semibold py-3 px-4 rounded-xl text-center transition-all" style={{ background: "rgba(0, 0, 0, 0.2)", color: "#ffffff" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.3)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.2)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
                 Start Quick Quiz (5 Q)
               </a>
