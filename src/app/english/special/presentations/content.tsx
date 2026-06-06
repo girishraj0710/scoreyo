@@ -229,15 +229,15 @@ export default function PresentationsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-[var(--primary-bg)] py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">Presentation Practice</h1>
+            <h1 className="text-3xl font-bold text-[var(--foreground)]">Presentation Practice</h1>
             <button
               onClick={() => router.push("/english/real-world/presentations")}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium"
             >
               ← Back
             </button>
@@ -258,7 +258,7 @@ export default function PresentationsPage() {
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedTopic.id === topic.id
                     ? "bg-gradient-to-r from-blue-600 to-[#4255FF] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-[var(--hover-bg)] text-[var(--foreground-secondary)] hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)]"
                 }`}
               >
                 {topic.title}
@@ -272,9 +272,9 @@ export default function PresentationsPage() {
           <div className="space-y-6">
             {/* Topic Info */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedTopic.title}</h2>
-              <p className="text-gray-600 mb-4">{selectedTopic.description}</p>
-              <div className="flex items-center gap-4 text-sm text-gray-600">
+              <h2 className="text-2xl font-bold text-[var(--foreground)] mb-2">{selectedTopic.title}</h2>
+              <p className="text-[var(--foreground-secondary)] mb-4">{selectedTopic.description}</p>
+              <div className="flex items-center gap-4 text-sm text-[var(--foreground-secondary)]">
                 <div className="flex items-center gap-1">
                   <Clock className="w-4 h-4" />
                   <span>{selectedTopic.duration / 60} minutes</span>
@@ -288,14 +288,14 @@ export default function PresentationsPage() {
 
             {/* Outline */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
                 <FileText className="w-5 h-5 text-[#4255FF]" />
                 Presentation Outline
               </h3>
               <ol className="space-y-2">
                 {selectedTopic.outline.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-[#4255FF] flex items-center justify-center text-sm font-semibold">
+                  <li key={idx} className="flex items-start gap-3 text-[var(--foreground-secondary)]">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(66,85,255,0.15)] text-[#4255FF] flex items-center justify-center text-sm font-semibold">
                       {idx + 1}
                     </span>
                     <span>{point}</span>
@@ -306,10 +306,10 @@ export default function PresentationsPage() {
 
             {/* Tips */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">💡 Presentation Tips</h3>
+              <h3 className="font-semibold text-[var(--foreground)] mb-3">💡 Presentation Tips</h3>
               <ul className="space-y-2">
                 {selectedTopic.tips.map((tip, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                  <li key={idx} className="flex items-start gap-2 text-[var(--foreground-secondary)]">
                     <span className="text-[#4255FF] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
@@ -329,15 +329,15 @@ export default function PresentationsPage() {
                   </button>
                 ) : (
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Sample Script</h3>
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-4">
-                      <pre className="whitespace-pre-wrap text-gray-700 font-sans text-sm leading-relaxed">
+                    <h3 className="font-semibold text-[var(--foreground)] mb-3">Sample Script</h3>
+                    <div className="bg-[var(--primary-bg)] border-2 border-[var(--card-border)] rounded-lg p-4">
+                      <pre className="whitespace-pre-wrap text-[var(--foreground-secondary)] font-sans text-sm leading-relaxed">
                         {selectedTopic.sampleScript}
                       </pre>
                     </div>
                     <button
                       onClick={() => setShowScript(false)}
-                      className="mt-3 text-sm text-gray-600 hover:text-gray-900"
+                      className="mt-3 text-sm text-[var(--foreground-secondary)] hover:text-[var(--foreground)]"
                     >
                       Hide Script
                     </button>
@@ -351,13 +351,13 @@ export default function PresentationsPage() {
           <div className="space-y-6">
             {/* Recording Timer */}
             {isRecording && (
-              <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 text-center">
+              <div className="bg-[rgba(220,38,38,0.1)] border-2 border-[rgba(220,38,38,0.3)] rounded-2xl p-6 text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <div className="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
-                  <span className="text-red-700 font-semibold">Recording...</span>
+                  <span className="text-[#DC2626] font-semibold">Recording...</span>
                 </div>
-                <p className="text-4xl font-bold text-red-900">{formatTime(recordingTime)}</p>
-                <p className="text-sm text-red-600 mt-2">
+                <p className="text-4xl font-bold text-[#991B1B]">{formatTime(recordingTime)}</p>
+                <p className="text-sm text-[#991B1B] mt-2">
                   Target: {formatTime(selectedTopic.duration)}
                 </p>
               </div>
@@ -365,13 +365,13 @@ export default function PresentationsPage() {
 
             {/* Recording Controls */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="font-semibold text-[var(--foreground)] mb-4 flex items-center gap-2">
                 <Mic className="w-5 h-5 text-[#4255FF]" />
                 Record Your Presentation
               </h3>
 
               {recordingError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">
+                <div className="bg-[rgba(220,38,38,0.1)] border border-[rgba(220,38,38,0.3)] text-[#DC2626] rounded-lg p-3 mb-4 text-sm">
                   {recordingError}
                 </div>
               )}
@@ -390,7 +390,7 @@ export default function PresentationsPage() {
                 {isRecording && (
                   <button
                     onClick={stopRecording}
-                    className="w-full bg-gray-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-gray-700 transition flex items-center justify-center gap-2"
+                    className="w-full bg-[var(--muted)] text-white py-4 px-6 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.5)] dark:hover:bg-[rgba(255,255,255,0.3)] transition flex items-center justify-center gap-2"
                   >
                     <Square className="w-5 h-5" />
                     Stop Recording
@@ -399,9 +399,9 @@ export default function PresentationsPage() {
 
                 {audioUrl && !isRecording && (
                   <div className="space-y-3">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <p className="text-green-700 font-semibold mb-2">✓ Recording Complete!</p>
-                      <p className="text-sm text-green-600">Duration: {formatTime(recordingTime)}</p>
+                    <div className="bg-[rgba(16,185,129,0.1)] border border-[rgba(16,185,129,0.3)] rounded-lg p-4">
+                      <p className="text-[#10B981] font-semibold mb-2">✓ Recording Complete!</p>
+                      <p className="text-sm text-[#10B981]">Duration: {formatTime(recordingTime)}</p>
                     </div>
                     <audio src={audioUrl} controls className="w-full" />
                     <div className="flex gap-3">
@@ -418,7 +418,7 @@ export default function PresentationsPage() {
                           setAudioUrl(null);
                           setRecordingTime(0);
                         }}
-                        className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-300 transition"
+                        className="flex-1 bg-[var(--hover-bg)] text-[var(--foreground-secondary)] py-3 px-4 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)] transition"
                       >
                         Record Again
                       </button>
@@ -429,9 +429,9 @@ export default function PresentationsPage() {
             </div>
 
             {/* Instructions */}
-            <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">📋 Instructions:</h4>
-              <ol className="text-sm text-gray-700 space-y-1 list-decimal list-inside">
+            <div className="bg-[rgba(66,85,255,0.1)] border border-[var(--card-border)] rounded-lg p-4">
+              <h4 className="font-semibold text-[var(--foreground)] mb-2">📋 Instructions:</h4>
+              <ol className="text-sm text-[var(--foreground-secondary)] space-y-1 list-decimal list-inside">
                 <li>Review the outline and tips</li>
                 <li>Prepare your presentation mentally</li>
                 <li>Click "Start Recording" when ready</li>
@@ -443,8 +443,8 @@ export default function PresentationsPage() {
 
             {/* Evaluation Criteria */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">✅ Self-Evaluation Checklist</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h3 className="font-semibold text-[var(--foreground)] mb-3">✅ Self-Evaluation Checklist</h3>
+              <ul className="space-y-2 text-sm text-[var(--foreground-secondary)]">
                 <li className="flex items-start gap-2">
                   <span>□</span>
                   <span>Clear and confident delivery</span>

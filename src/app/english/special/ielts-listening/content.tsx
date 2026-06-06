@@ -341,23 +341,23 @@ export default function IELTSListeningPage() {
 
   if (!testStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+      <div className="min-h-screen bg-[var(--primary-bg)] py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-8">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="text-3xl font-bold text-gray-900">IELTS Listening Test</h1>
+              <h1 className="text-3xl font-bold text-[var(--foreground)]">IELTS Listening Test</h1>
               <button
                 onClick={() => router.push("/english/ielts-toefl/ielts-listening")}
-                className="text-gray-600 hover:text-gray-900 font-medium"
+                className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium"
               >
                 ← Back
               </button>
             </div>
 
             <div className="space-y-6">
-              <div className="bg-[#E8EAFF] border-2 border-blue-200 rounded-lg p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Test Format</h2>
-                <ul className="space-y-2 text-gray-700">
+              <div className="bg-[rgba(66,85,255,0.15)] border-2 border-[var(--card-border)] rounded-lg p-6">
+                <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Test Format</h2>
+                <ul className="space-y-2 text-[var(--foreground-secondary)]">
                   <li className="flex items-start gap-2">
                     <span className="text-[#4255FF] font-bold">•</span>
                     <span>4 sections with 20 questions total</span>
@@ -377,25 +377,25 @@ export default function IELTSListeningPage() {
                 </ul>
               </div>
 
-              <div className="bg-[#E8EAFF] border-2 border-[#90CAF9] rounded-lg p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Sections Overview</h2>
+              <div className="bg-[rgba(66,85,255,0.15)] border-2 border-[var(--card-border)] rounded-lg p-6">
+                <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Sections Overview</h2>
                 {ieltsListeningTest.map((section, idx) => (
                   <div key={section.id} className="mb-4 last:mb-0">
-                    <h3 className="font-semibold text-gray-900">Section {idx + 1}</h3>
-                    <p className="text-sm text-gray-600">{section.description}</p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <h3 className="font-semibold text-[var(--foreground)]">Section {idx + 1}</h3>
+                    <p className="text-sm text-[var(--foreground-secondary)]">{section.description}</p>
+                    <p className="text-xs text-[var(--muted)] mt-1">
                       {section.questions.length} questions • {section.duration}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+              <div className="bg-[rgba(245,158,11,0.1)] border-2 border-[var(--card-border)] rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+                  <AlertCircle className="w-6 h-6 text-[#F59E0B] flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Important Instructions</h3>
-                    <ul className="space-y-1 text-sm text-gray-700">
+                    <h3 className="font-semibold text-[var(--foreground)] mb-2">Important Instructions</h3>
+                    <ul className="space-y-1 text-sm text-[var(--foreground-secondary)]">
                       <li>• Read questions carefully before listening</li>
                       <li>• You can navigate between sections</li>
                       <li>• Audio plays only once per section (like real IELTS)</li>
@@ -420,20 +420,20 @@ export default function IELTSListeningPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-[var(--primary-bg)] py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header with Timer */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">IELTS Listening Test</h1>
+            <h1 className="text-3xl font-bold text-[var(--foreground)]">IELTS Listening Test</h1>
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-lg">
+              <div className="flex items-center gap-2 bg-[rgba(66,85,255,0.15)] px-4 py-2 rounded-lg">
                 <Clock className="w-5 h-5 text-[#4255FF]" />
-                <span className="font-semibold text-blue-900">{formatTime(testTime)}</span>
+                <span className="font-semibold text-[#4255FF]">{formatTime(testTime)}</span>
               </div>
               <button
                 onClick={() => router.push("/english/ielts-toefl/ielts-listening")}
-                className="text-gray-600 hover:text-gray-900 font-medium"
+                className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium"
               >
                 ← Exit
               </button>
@@ -453,7 +453,7 @@ export default function IELTSListeningPage() {
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   currentSection === idx
                     ? "bg-gradient-to-r from-blue-600 to-[#4255FF] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-[var(--hover-bg)] text-[var(--foreground-secondary)] hover:bg-[var(--card-border)]"
                 }`}
               >
                 Section {idx + 1}
@@ -465,19 +465,19 @@ export default function IELTSListeningPage() {
         {/* Results Summary */}
         {showResults && (
           <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">📊 Test Results</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">📊 Test Results</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6 text-center">
-                <p className="text-sm text-gray-600 mb-2">Correct Answers</p>
+              <div className="bg-[rgba(66,85,255,0.15)] border-2 border-[var(--card-border)] rounded-lg p-6 text-center">
+                <p className="text-sm text-[var(--foreground-secondary)] mb-2">Correct Answers</p>
                 <p className="text-5xl font-bold text-[#4255FF]">{calculateScore()}/{totalQuestions}</p>
               </div>
-              <div className="bg-gradient-to-br from-green-50 to-teal-50 border-2 border-green-200 rounded-lg p-6 text-center">
-                <p className="text-sm text-gray-600 mb-2">Band Score</p>
-                <p className="text-5xl font-bold text-green-600">{getBandScore(calculateScore())}</p>
+              <div className="bg-[rgba(16,185,129,0.1)] border-2 border-[var(--card-border)] rounded-lg p-6 text-center">
+                <p className="text-sm text-[var(--foreground-secondary)] mb-2">Band Score</p>
+                <p className="text-5xl font-bold text-[#10B981]">{getBandScore(calculateScore())}</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-lg p-6 text-center">
-                <p className="text-sm text-gray-600 mb-2">Time Taken</p>
-                <p className="text-5xl font-bold text-purple-600">{formatTime(testTime)}</p>
+              <div className="bg-[rgba(168,85,247,0.1)] border-2 border-[var(--card-border)] rounded-lg p-6 text-center">
+                <p className="text-sm text-[var(--foreground-secondary)] mb-2">Time Taken</p>
+                <p className="text-5xl font-bold text-[#A855F7]">{formatTime(testTime)}</p>
               </div>
             </div>
           </div>
@@ -488,14 +488,14 @@ export default function IELTSListeningPage() {
           <div className="space-y-6">
             {/* Section Info */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">{section.title}</h2>
-              <p className="text-sm text-gray-600 mb-4">{section.description}</p>
+              <h2 className="text-xl font-bold text-[var(--foreground)] mb-2">{section.title}</h2>
+              <p className="text-sm text-[var(--foreground-secondary)] mb-4">{section.description}</p>
 
               {/* Audio Player */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-[rgba(66,85,255,0.15)] border-2 border-[var(--card-border)] rounded-lg p-6">
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Volume2 className="w-6 h-6 text-[#4255FF]" />
-                  <h3 className="font-semibold text-gray-900">Section {currentSection + 1} Audio</h3>
+                  <h3 className="font-semibold text-[var(--foreground)]">Section {currentSection + 1} Audio</h3>
                 </div>
 
                 <audio
@@ -507,11 +507,11 @@ export default function IELTSListeningPage() {
                 />
 
                 <div className="mb-4">
-                  <div className="flex justify-between text-sm text-gray-600 mb-2">
+                  <div className="flex justify-between text-sm text-[var(--foreground-secondary)] mb-2">
                     <span>{formatTime(currentTime)}</span>
                     <span>{formatTime(duration)}</span>
                   </div>
-                  <div className="w-full bg-gray-300 rounded-full h-2">
+                  <div className="w-full bg-[var(--hover-bg)] rounded-full h-2">
                     <div
                       className="bg-gradient-to-r from-blue-600 to-[#4255FF] h-2 rounded-full transition-all"
                       style={{ width: `${(currentTime / duration) * 100 || 0}%` }}
@@ -528,7 +528,7 @@ export default function IELTSListeningPage() {
                   {isPlaying ? "Pause Audio" : "Play Audio"}
                 </button>
 
-                <p className="text-xs text-center text-gray-500 mt-2">
+                <p className="text-xs text-center text-[var(--muted)] mt-2">
                   ⚠️ Audio plays once only (like real IELTS test)
                 </p>
               </div>
@@ -539,7 +539,7 @@ export default function IELTSListeningPage() {
               <button
                 onClick={previousSection}
                 disabled={currentSection === 0}
-                className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-[var(--hover-bg)] text-[var(--foreground-secondary)] py-3 px-4 rounded-lg font-semibold hover:bg-[var(--card-border)] transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 ← Previous Section
               </button>
@@ -564,7 +564,7 @@ export default function IELTSListeningPage() {
 
           {/* Right Column - Questions */}
           <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">
+            <h3 className="font-semibold text-[var(--foreground)] mb-4">
               Questions {section.questions[0].id} - {section.questions[section.questions.length - 1].id}
             </h3>
 
@@ -573,9 +573,9 @@ export default function IELTSListeningPage() {
                 const isCorrect = showResults ? isAnswerCorrect(question.id) : false;
 
                 return (
-                  <div key={question.id} className="border-b border-gray-200 pb-6 last:border-0">
+                  <div key={question.id} className="border-b border-[var(--card-border)] pb-6 last:border-0">
                     <div className="flex items-start justify-between mb-3">
-                      <p className="font-semibold text-gray-900 flex-1">
+                      <p className="font-semibold text-[var(--foreground)] flex-1">
                         {question.id}. {question.question}
                       </p>
                       {showResults && (
@@ -595,15 +595,15 @@ export default function IELTSListeningPage() {
                           const isSelected = userAnswers[question.id] === optIdx.toString();
                           const isCorrectOption = optIdx === question.correctAnswer;
 
-                          let optionClass = "border-gray-200 hover:bg-gray-50";
+                          let optionClass = "border-[var(--card-border)] hover:bg-[var(--hover-bg)]";
                           if (showResults) {
                             if (isCorrectOption) {
-                              optionClass = "border-green-500 bg-green-50";
+                              optionClass = "border-[#10B981] bg-[rgba(16,185,129,0.1)]";
                             } else if (isSelected && !isCorrect) {
-                              optionClass = "border-red-500 bg-red-50";
+                              optionClass = "border-[#EF4444] bg-[rgba(239,68,68,0.1)]";
                             }
                           } else if (isSelected) {
-                            optionClass = "border-blue-500 bg-[#E8EAFF]";
+                            optionClass = "border-blue-500 bg-[rgba(66,85,255,0.15)]";
                           }
 
                           return (
@@ -615,7 +615,7 @@ export default function IELTSListeningPage() {
                                 showResults ? "cursor-default" : "cursor-pointer"
                               }`}
                             >
-                              <span className="text-sm text-gray-800">{option}</span>
+                              <span className="text-sm text-[var(--foreground)]">{option}</span>
                             </button>
                           );
                         })}
@@ -632,24 +632,24 @@ export default function IELTSListeningPage() {
                         className={`w-full p-3 border-2 rounded-lg ${
                           showResults
                             ? isCorrect
-                              ? "border-green-500 bg-green-50"
-                              : "border-red-500 bg-red-50"
-                            : "border-gray-300"
-                        } disabled:cursor-not-allowed`}
+                              ? "border-[#10B981] bg-[rgba(16,185,129,0.1)]"
+                              : "border-[#EF4444] bg-[rgba(239,68,68,0.1)]"
+                            : "border-[var(--card-border)]"
+                        } disabled:cursor-not-allowed text-[var(--foreground)]`}
                       />
                     )}
 
                     {showResults && (
                       <div className="mt-3 space-y-2">
                         {!isCorrect && (
-                          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                            <p className="text-sm text-green-900">
+                          <div className="bg-[rgba(16,185,129,0.1)] border border-[var(--card-border)] rounded-lg p-3">
+                            <p className="text-sm text-[#10B981]">
                               <strong>Correct Answer:</strong> {question.correctAnswer}
                             </p>
                           </div>
                         )}
-                        <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-3">
-                          <p className="text-sm text-blue-900">
+                        <div className="bg-[rgba(66,85,255,0.15)] border border-[var(--card-border)] rounded-lg p-3">
+                          <p className="text-sm text-[#4255FF]">
                             <strong>Explanation:</strong> {question.explanation}
                           </p>
                         </div>

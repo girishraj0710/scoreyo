@@ -334,23 +334,39 @@ export default function DailyConversationsPage() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "Beginner": return "text-green-600 bg-green-100";
-      case "Intermediate": return "text-orange-600 bg-orange-100";
-      case "Advanced": return "text-red-600 bg-red-100";
-      default: return "text-gray-600 bg-gray-100";
+      case "Beginner":
+        return "text-green-600";
+      case "Intermediate":
+        return "text-orange-600";
+      case "Advanced":
+        return "text-red-600";
+      default:
+        return "text-gray-600";
+    }
+  };
+
+  const getDifficultyBg = (difficulty: string) => {
+    switch (difficulty) {
+      case "Beginner": return "rgba(16, 185, 129, 0.1)";
+      case "Intermediate": return "rgba(245, 158, 11, 0.1)";
+      case "Advanced": return "rgba(239, 68, 68, 0.1)";
+      default: return "var(--hover-bg)";
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-8 px-4">
+    <div className="min-h-screen py-8 px-4" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">Daily Conversations Practice</h1>
+            <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>Daily Conversations Practice</h1>
             <button
               onClick={() => router.push("/english/real-world/daily-conversations")}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="font-medium"
+              style={{ color: "var(--foreground-secondary)", cursor: "pointer" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--foreground)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--foreground-secondary)")}
             >
               ← Back
             </button>
@@ -369,8 +385,22 @@ export default function DailyConversationsPage() {
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedScenario.id === scenario.id
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "text-white"
                 }`}
+                style={{
+                  backgroundColor: selectedScenario.id === scenario.id ? undefined : "var(--hover-bg)",
+                  color: selectedScenario.id === scenario.id ? undefined : "var(--foreground-secondary)"
+                }}
+                onMouseEnter={(e) => {
+                  if (selectedScenario.id !== scenario.id) {
+                    (e.currentTarget.style as any).backgroundColor = "var(--card-border)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedScenario.id !== scenario.id) {
+                    (e.currentTarget.style as any).backgroundColor = "var(--hover-bg)";
+                  }
+                }}
               >
                 {scenario.title}
               </button>
@@ -383,14 +413,14 @@ export default function DailyConversationsPage() {
           <div className="space-y-6">
             {/* Scenario Info */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedScenario.title}</h2>
-              <p className="text-gray-600 mb-4">{selectedScenario.description}</p>
+              <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{selectedScenario.title}</h2>
+              <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>{selectedScenario.description}</p>
               <div className="flex items-center gap-4 text-sm">
                 <div className="flex items-center gap-1">
                   <Users className="w-4 h-4 text-purple-600" />
-                  <span className="text-gray-700">{selectedScenario.setting}</span>
+                  <span style={{ color: "var(--foreground-secondary)" }}>{selectedScenario.setting}</span>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getDifficultyColor(selectedScenario.difficulty)}`}>
+                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getDifficultyColor(selectedScenario.difficulty)}`} style={{ backgroundColor: getDifficultyBg(selectedScenario.difficulty) }}>
                   {selectedScenario.difficulty}
                 </span>
               </div>
@@ -398,12 +428,12 @@ export default function DailyConversationsPage() {
 
             {/* Tips */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">💡 Conversation Tips</h3>
+              <h3 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>💡 Conversation Tips</h3>
               <ul className="space-y-2">
                 {selectedScenario.tips.map((tip, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: "var(--foreground-secondary)" }}>
                     <span className="text-purple-600 font-bold">•</span>
-                    <span className="text-sm">{tip}</span>
+                    <span>{tip}</span>
                   </li>
                 ))}
               </ul>
@@ -420,18 +450,21 @@ export default function DailyConversationsPage() {
                 </button>
               ) : (
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">📚 Key Vocabulary</h3>
+                  <h3 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>📚 Key Vocabulary</h3>
                   <div className="space-y-3">
                     {selectedScenario.vocabulary.map((item, idx) => (
-                      <div key={idx} className="bg-purple-50 border border-purple-200 rounded-lg p-3">
-                        <p className="font-semibold text-purple-900">{item.word}</p>
-                        <p className="text-sm text-purple-700">{item.meaning}</p>
+                      <div key={idx} className="border rounded-lg p-3" style={{ backgroundColor: "rgba(168, 85, 247, 0.1)", borderColor: "var(--card-border)" }}>
+                        <p className="font-semibold text-purple-600">{item.word}</p>
+                        <p className="text-sm text-purple-500">{item.meaning}</p>
                       </div>
                     ))}
                   </div>
                   <button
                     onClick={() => setShowVocabulary(false)}
-                    className="mt-3 text-sm text-gray-600 hover:text-gray-900"
+                    className="mt-3 text-sm"
+                    style={{ color: "var(--foreground-secondary)", cursor: "pointer" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--foreground)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--foreground-secondary)")}
                   >
                     Hide Vocabulary
                   </button>
@@ -440,20 +473,20 @@ export default function DailyConversationsPage() {
             </div>
 
             {/* Progress */}
-            <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">Progress</h4>
+            <div className="border rounded-lg p-4" style={{ backgroundColor: "rgba(66, 85, 255, 0.1)", borderColor: "var(--card-border)" }}>
+              <h4 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Progress</h4>
               <div className="flex items-center gap-2">
-                <div className="flex-1 bg-gray-200 rounded-full h-2">
+                <div className="flex-1 rounded-full h-2" style={{ backgroundColor: "var(--hover-bg)" }}>
                   <div
                     className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full transition-all"
                     style={{ width: `${((currentDialogueIndex + 1) / selectedScenario.dialogue.length) * 100}%` }}
                   />
                 </div>
-                <span className="text-sm font-semibold text-gray-700">
+                <span className="text-sm font-semibold" style={{ color: "var(--foreground-secondary)" }}>
                   {currentDialogueIndex + 1}/{selectedScenario.dialogue.length}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mt-2">
+              <p className="text-sm mt-2" style={{ color: "var(--foreground-secondary)" }}>
                 Recorded: {Object.keys(recordedResponses).length} responses
               </p>
             </div>
@@ -463,15 +496,15 @@ export default function DailyConversationsPage() {
           <div className="space-y-6">
             {/* Current Dialogue */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
                 <MessageCircle className="w-5 h-5 text-purple-600" />
                 Current Exchange
               </h3>
 
               <div className="space-y-4">
-                <div className={`p-4 rounded-lg ${currentDialogue?.speaker === "You" ? "bg-[#E8EAFF] border-2 border-blue-200" : "bg-gray-50"}`}>
-                  <p className="text-xs font-semibold text-gray-600 mb-1">{currentDialogue?.speaker}</p>
-                  <p className="text-gray-800">{currentDialogue?.text}</p>
+                <div className={`p-4 rounded-lg border-2 ${currentDialogue?.speaker === "You" ? "border-blue-300" : ""}`} style={{ backgroundColor: currentDialogue?.speaker === "You" ? "rgba(66, 85, 255, 0.1)" : "var(--hover-bg)", borderColor: currentDialogue?.speaker === "You" ? "rgba(66, 85, 255, 0.3)" : "transparent" }}>
+                  <p className="text-xs font-semibold mb-1" style={{ color: "var(--foreground-secondary)" }}>{currentDialogue?.speaker}</p>
+                  <p style={{ color: "var(--foreground)" }}>{currentDialogue?.text}</p>
                 </div>
 
                 {/* Navigation */}
@@ -479,7 +512,16 @@ export default function DailyConversationsPage() {
                   <button
                     onClick={previousDialogue}
                     disabled={currentDialogueIndex === 0}
-                    className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ backgroundColor: "var(--hover-bg)", color: "var(--foreground-secondary)", cursor: "pointer" }}
+                    onMouseEnter={(e) => {
+                      if (!e.currentTarget.disabled) {
+                        e.currentTarget.style.backgroundColor = "var(--card-border)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                    }}
                   >
                     ← Previous
                   </button>
@@ -497,24 +539,24 @@ export default function DailyConversationsPage() {
             {/* Recording Section */}
             {isRecordingPoint && (
               <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-                <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
                   <Mic className="w-5 h-5 text-purple-600" />
                   Record Your Response
                 </h3>
 
                 {recordingError && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">
+                  <div className="border rounded-lg p-3 mb-4 text-sm" style={{ backgroundColor: "rgba(239, 68, 68, 0.1)", borderColor: "rgba(239, 68, 68, 0.3)", color: "#dc2626" }}>
                     {recordingError}
                   </div>
                 )}
 
                 {isRecording && (
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-4 text-center">
+                  <div className="border-2 rounded-lg p-4 mb-4 text-center" style={{ backgroundColor: "rgba(239, 68, 68, 0.1)", borderColor: "rgba(239, 68, 68, 0.3)" }}>
                     <div className="flex items-center justify-center gap-2 mb-2">
                       <div className="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
-                      <span className="text-red-700 font-semibold">Recording...</span>
+                      <span className="font-semibold text-red-600">Recording...</span>
                     </div>
-                    <p className="text-2xl font-bold text-red-900">{formatTime(recordingTime)}</p>
+                    <p className="text-2xl font-bold text-red-700">{formatTime(recordingTime)}</p>
                   </div>
                 )}
 
@@ -532,7 +574,10 @@ export default function DailyConversationsPage() {
                   {isRecording && (
                     <button
                       onClick={stopRecording}
-                      className="w-full bg-gray-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-gray-700 transition flex items-center justify-center gap-2"
+                      className="w-full text-white py-4 px-6 rounded-lg font-semibold transition flex items-center justify-center gap-2"
+                      style={{ backgroundColor: "rgb(55, 65, 81)", cursor: "pointer" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgb(31, 41, 55)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgb(55, 65, 81)")}
                     >
                       <Square className="w-5 h-5" />
                       Stop Recording
@@ -541,8 +586,8 @@ export default function DailyConversationsPage() {
 
                   {audioUrl && !isRecording && (
                     <div className="space-y-3">
-                      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                        <p className="text-green-700 font-semibold mb-2">✓ Response Recorded!</p>
+                      <div className="border rounded-lg p-4" style={{ backgroundColor: "rgba(34, 197, 94, 0.1)", borderColor: "rgba(34, 197, 94, 0.3)" }}>
+                        <p className="font-semibold mb-2 text-green-600">✓ Response Recorded!</p>
                         <p className="text-sm text-green-600">Duration: {formatTime(recordingTime)}</p>
                       </div>
                       <audio src={audioUrl} controls className="w-full" />
@@ -555,7 +600,10 @@ export default function DailyConversationsPage() {
                           delete newResponses[currentDialogueIndex];
                           setRecordedResponses(newResponses);
                         }}
-                        className="w-full bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-300 transition"
+                        className="w-full py-3 px-4 rounded-lg font-semibold transition"
+                        style={{ backgroundColor: "var(--hover-bg)", color: "var(--foreground-secondary)", cursor: "pointer" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--card-border)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--hover-bg)")}
                       >
                         Record Again
                       </button>
@@ -568,7 +616,7 @@ export default function DailyConversationsPage() {
             {/* Conversation Actions */}
             {isLastDialogue && Object.keys(recordedResponses).length > 0 && (
               <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-                <h3 className="font-semibold text-gray-900 mb-4">🎉 Conversation Complete!</h3>
+                <h3 className="font-semibold mb-4" style={{ color: "var(--foreground)" }}>🎉 Conversation Complete!</h3>
                 <div className="space-y-3">
                   <button
                     onClick={downloadAllRecordings}
@@ -588,9 +636,9 @@ export default function DailyConversationsPage() {
             )}
 
             {/* Instructions */}
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">📋 How to Practice:</h4>
-              <ol className="text-sm text-gray-700 space-y-1 list-decimal list-inside">
+            <div className="border rounded-lg p-4" style={{ backgroundColor: "rgba(168, 85, 247, 0.1)", borderColor: "var(--card-border)" }}>
+              <h4 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>📋 How to Practice:</h4>
+              <ol className="text-sm space-y-1 list-decimal list-inside" style={{ color: "var(--foreground-secondary)" }}>
                 <li>Read the dialogue carefully</li>
                 <li>When you see "Your response", click Record</li>
                 <li>Speak your response naturally and clearly</li>

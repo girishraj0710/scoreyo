@@ -341,10 +341,10 @@ export default function ListeningSkillsPage() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case "Beginner": return "text-green-600 bg-green-100";
-      case "Intermediate": return "text-orange-600 bg-orange-100";
-      case "Advanced": return "text-red-600 bg-red-100";
-      default: return "text-gray-600 bg-gray-100";
+      case "Beginner": return "text-green-600";
+      case "Intermediate": return "text-orange-600";
+      case "Advanced": return "text-red-600";
+      default: return "text-gray-600";
     }
   };
 
@@ -355,15 +355,18 @@ export default function ListeningSkillsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 py-8 px-4">
+    <div className="min-h-screen py-8 px-4" style={{ backgroundColor: "var(--primary-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">Listening Skills Practice</h1>
+            <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>Listening Skills Practice</h1>
             <button
               onClick={() => router.push("/english/foundation/listening-skills")}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="font-medium"
+              style={{ color: "var(--foreground-secondary)" }}
+              onMouseEnter={(e) => e.currentTarget.style.color = "var(--foreground)"}
+              onMouseLeave={(e) => e.currentTarget.style.color = "var(--foreground-secondary)"}
             >
               ← Back
             </button>
@@ -378,8 +381,26 @@ export default function ListeningSkillsPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   filterLevel === level
                     ? "bg-gradient-to-r from-[#4255FF] to-purple-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : ""
                 }`}
+                style={
+                  filterLevel === level
+                    ? {}
+                    : {
+                        backgroundColor: "var(--hover-bg)",
+                        color: "var(--foreground-secondary)",
+                      }
+                }
+                onMouseEnter={(e) => {
+                  if (filterLevel !== level) {
+                    e.currentTarget.style.opacity = "0.8";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (filterLevel !== level) {
+                    e.currentTarget.style.opacity = "1";
+                  }
+                }}
               >
                 {level}
               </button>
@@ -398,8 +419,26 @@ export default function ListeningSkillsPage() {
                 className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
                   selectedExercise.id === exercise.id
                     ? "bg-gradient-to-r from-[#4255FF] to-purple-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : ""
                 }`}
+                style={
+                  selectedExercise.id === exercise.id
+                    ? {}
+                    : {
+                        backgroundColor: "var(--hover-bg)",
+                        color: "var(--foreground-secondary)",
+                      }
+                }
+                onMouseEnter={(e) => {
+                  if (selectedExercise.id !== exercise.id) {
+                    e.currentTarget.style.opacity = "0.8";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedExercise.id !== exercise.id) {
+                    e.currentTarget.style.opacity = "1";
+                  }
+                }}
               >
                 {exercise.title}
               </button>
@@ -412,22 +451,33 @@ export default function ListeningSkillsPage() {
           <div className="space-y-6">
             {/* Exercise Info */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">{selectedExercise.title}</h2>
+              <h2 className="text-2xl font-bold mb-3" style={{ color: "var(--foreground)" }}>{selectedExercise.title}</h2>
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getLevelColor(selectedExercise.level)}`}>
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-semibold ${getLevelColor(selectedExercise.level)}`}
+                  style={{
+                    backgroundColor: selectedExercise.level === "Beginner"
+                      ? "rgba(16, 185, 129, 0.1)"
+                      : selectedExercise.level === "Intermediate"
+                      ? "rgba(245, 158, 11, 0.1)"
+                      : selectedExercise.level === "Advanced"
+                      ? "rgba(239, 68, 68, 0.1)"
+                      : "var(--hover-bg)"
+                  }}
+                >
                   {selectedExercise.level}
                 </span>
-                <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] rounded-full text-xs font-semibold">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: "rgba(66, 85, 255, 0.15)", color: "#3242CC" }}>
                   {selectedExercise.category}
                 </span>
-                <span className="text-sm text-gray-600">⏱️ {selectedExercise.duration}</span>
+                <span className="text-sm" style={{ color: "var(--foreground-secondary)" }}>⏱️ {selectedExercise.duration}</span>
               </div>
 
               {/* Audio Player */}
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-[#90CAF9] rounded-lg p-6">
+              <div className="border-2 border-[#90CAF9] rounded-lg p-6" style={{ backgroundColor: "var(--primary-bg)" }}>
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Volume2 className="w-6 h-6 text-[#4255FF]" />
-                  <h3 className="font-semibold text-gray-900">Audio Player</h3>
+                  <h3 className="font-semibold" style={{ color: "var(--foreground)" }}>Audio Player</h3>
                 </div>
 
                 <audio
@@ -439,11 +489,11 @@ export default function ListeningSkillsPage() {
                 />
 
                 <div className="mb-4">
-                  <div className="flex justify-between text-sm text-gray-600 mb-2">
+                  <div className="flex justify-between text-sm mb-2" style={{ color: "var(--foreground-secondary)" }}>
                     <span>{formatTime(currentTime)}</span>
                     <span>{formatTime(duration)}</span>
                   </div>
-                  <div className="w-full bg-gray-300 rounded-full h-2">
+                  <div className="w-full rounded-full h-2" style={{ backgroundColor: "var(--card-border)" }}>
                     <div
                       className="bg-gradient-to-r from-[#4255FF] to-purple-600 h-2 rounded-full transition-all"
                       style={{ width: `${(currentTime / duration) * 100 || 0}%` }}
@@ -454,14 +504,18 @@ export default function ListeningSkillsPage() {
                 <div className="flex gap-3">
                   <button
                     onClick={togglePlayPause}
-                    className="flex-1 bg-[#4255FF] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#3242CC] transition flex items-center justify-center gap-2"
+                    className="flex-1 bg-[#4255FF] text-white py-3 px-4 rounded-lg font-semibold transition flex items-center justify-center gap-2"
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#3242CC"}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#4255FF"}
                   >
                     {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                     {isPlaying ? "Pause" : "Play"}
                   </button>
                   <button
                     onClick={restartAudio}
-                    className="bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-purple-700 transition flex items-center justify-center gap-2"
+                    className="bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold transition flex items-center justify-center gap-2"
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#7c3aed"}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#9333ea"}
                   >
                     <RotateCcw className="w-5 h-5" />
                     Restart
@@ -471,9 +525,9 @@ export default function ListeningSkillsPage() {
             </div>
 
             {/* Instructions */}
-            <div className="bg-[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">📋 Instructions:</h4>
-              <ol className="text-sm text-gray-700 space-y-1 list-decimal list-inside">
+            <div className="border border-[#90CAF9] rounded-lg p-4" style={{ backgroundColor: "rgba(66, 85, 255, 0.15)" }}>
+              <h4 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>📋 Instructions:</h4>
+              <ol className="text-sm space-y-1 list-decimal list-inside" style={{ color: "var(--foreground-secondary)" }}>
                 <li>Listen to the audio carefully (you can replay)</li>
                 <li>Answer all questions below</li>
                 <li>Submit to see your score and explanations</li>
@@ -493,18 +547,21 @@ export default function ListeningSkillsPage() {
                 </button>
               ) : (
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
                     <FileText className="w-5 h-5 text-[#4255FF]" />
                     Transcript
                   </h3>
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 max-h-96 overflow-y-auto">
-                    <p className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">
+                  <div className="border rounded-lg p-4 max-h-96 overflow-y-auto" style={{ backgroundColor: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
+                    <p className="text-sm whitespace-pre-wrap leading-relaxed" style={{ color: "var(--foreground-secondary)" }}>
                       {selectedExercise.transcript}
                     </p>
                   </div>
                   <button
                     onClick={() => setShowTranscript(false)}
-                    className="mt-3 text-sm text-gray-600 hover:text-gray-900"
+                    className="mt-3 text-sm"
+                    style={{ color: "var(--foreground-secondary)" }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = "var(--foreground)"}
+                    onMouseLeave={(e) => e.currentTarget.style.color = "var(--foreground-secondary)"}
                   >
                     Hide Transcript
                   </button>
@@ -518,18 +575,20 @@ export default function ListeningSkillsPage() {
             {/* Results Summary */}
             {showResults && (
               <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">📊 Your Results</h3>
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-[#90CAF9] rounded-lg p-6 text-center">
-                  <p className="text-5xl font-bold text-[#4255FF] mb-2">
+                <h3 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>📊 Your Results</h3>
+                <div className="border-2 border-[#90CAF9] rounded-lg p-6 text-center" style={{ backgroundColor: "var(--primary-bg)" }}>
+                  <p className="text-5xl font-bold mb-2 text-[#4255FF]">
                     {calculateScore()}/{selectedExercise.questions.length}
                   </p>
-                  <p className="text-gray-700 font-semibold">
+                  <p className="font-semibold" style={{ color: "var(--foreground-secondary)" }}>
                     {Math.round((calculateScore() / selectedExercise.questions.length) * 100)}% Correct
                   </p>
                 </div>
                 <button
                   onClick={resetExercise}
-                  className="w-full mt-4 bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-purple-700 transition"
+                  className="w-full mt-4 bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold transition"
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#7c3aed"}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#9333ea"}
                 >
                   Try Again
                 </button>
@@ -538,15 +597,15 @@ export default function ListeningSkillsPage() {
 
             {/* Questions */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Questions</h3>
+              <h3 className="font-semibold mb-4" style={{ color: "var(--foreground)" }}>Questions</h3>
               <div className="space-y-6">
                 {selectedExercise.questions.map((question, qIdx) => {
                   const userAnswer = userAnswers[question.id];
                   const isCorrect = userAnswer === question.correctAnswer;
 
                   return (
-                    <div key={question.id} className="border-b border-gray-200 pb-6 last:border-0">
-                      <p className="font-semibold text-gray-900 mb-3">
+                    <div key={question.id} className="border-b pb-6 last:border-0" style={{ borderColor: "var(--card-border)" }}>
+                      <p className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>
                         {qIdx + 1}. {question.question}
                       </p>
 
@@ -555,15 +614,16 @@ export default function ListeningSkillsPage() {
                           const isSelected = userAnswer === optIdx;
                           const isCorrectOption = optIdx === question.correctAnswer;
 
-                          let optionClass = "border-gray-200 hover:bg-gray-50";
+                          let optionStyle: React.CSSProperties = { borderColor: "var(--card-border)" };
+                          let optionClass = "";
                           if (showResults) {
                             if (isCorrectOption) {
-                              optionClass = "border-green-500 bg-green-50";
+                              optionStyle = { borderColor: "#10b981", backgroundColor: "rgba(16, 185, 129, 0.1)" };
                             } else if (isSelected && !isCorrect) {
-                              optionClass = "border-red-500 bg-red-50";
+                              optionStyle = { borderColor: "#ef4444", backgroundColor: "rgba(239, 68, 68, 0.1)" };
                             }
                           } else if (isSelected) {
-                            optionClass = "border-[#4255FF] bg-[#E8EAFF]";
+                            optionStyle = { borderColor: "#4255FF", backgroundColor: "rgba(66, 85, 255, 0.15)" };
                           }
 
                           return (
@@ -571,12 +631,23 @@ export default function ListeningSkillsPage() {
                               key={optIdx}
                               onClick={() => handleAnswerSelect(question.id, optIdx)}
                               disabled={showResults}
-                              className={`w-full text-left p-3 border-2 rounded-lg transition ${optionClass} ${
+                              className={`w-full text-left p-3 border-2 rounded-lg transition ${
                                 showResults ? "cursor-default" : "cursor-pointer"
                               }`}
+                              style={optionStyle}
+                              onMouseEnter={(e) => {
+                                if (!showResults && !isSelected) {
+                                  e.currentTarget.style.opacity = "0.7";
+                                }
+                              }}
+                              onMouseLeave={(e) => {
+                                if (!showResults && !isSelected) {
+                                  e.currentTarget.style.opacity = "1";
+                                }
+                              }}
                             >
                               <div className="flex items-center justify-between">
-                                <span className="text-sm text-gray-800">{option}</span>
+                                <span className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{option}</span>
                                 {showResults && isCorrectOption && (
                                   <CheckCircle className="w-5 h-5 text-green-600" />
                                 )}
@@ -590,8 +661,8 @@ export default function ListeningSkillsPage() {
                       </div>
 
                       {showResults && (
-                        <div className="mt-3 bg-[#E8EAFF] border border-blue-200 rounded-lg p-3">
-                          <p className="text-sm text-blue-900">
+                        <div className="mt-3 border rounded-lg p-3" style={{ backgroundColor: "rgba(66, 85, 255, 0.15)", borderColor: "#90CAF9" }}>
+                          <p className="text-sm" style={{ color: "#3242CC" }}>
                             <strong>Explanation:</strong> {question.explanation}
                           </p>
                         </div>

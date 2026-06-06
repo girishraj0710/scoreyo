@@ -290,15 +290,18 @@ export default function PronunciationPracticePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50 py-8 px-4">
+    <div className="min-h-screen py-8 px-4" style={{ backgroundColor: 'var(--primary-bg)' }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">Pronunciation Practice</h1>
+            <h1 className="text-3xl font-bold" style={{ color: 'var(--foreground)' }}>Pronunciation Practice</h1>
             <button
               onClick={() => router.push("/english/foundation/pronunciation-practice")}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="font-medium"
+              style={{ color: 'var(--foreground-secondary)', '--tw-text-opacity': 1 } as any}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--foreground)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--foreground-secondary)')}
             >
               ← Back
             </button>
@@ -313,8 +316,19 @@ export default function PronunciationPracticePage() {
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   filterDifficulty === difficulty
                     ? "bg-gradient-to-r from-green-600 to-teal-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "text-white"
                 }`}
+                style={filterDifficulty === difficulty ? {} : { backgroundColor: 'var(--hover-bg)', color: 'var(--foreground)' }}
+                onMouseEnter={(e) => {
+                  if (filterDifficulty !== difficulty) {
+                    e.currentTarget.style.backgroundColor = 'var(--card-border)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (filterDifficulty !== difficulty) {
+                    e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
+                  }
+                }}
               >
                 {difficulty}
               </button>
@@ -335,8 +349,19 @@ export default function PronunciationPracticePage() {
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition ${
                   selectedWord.id === word.id
                     ? "bg-gradient-to-r from-green-600 to-teal-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "text-white"
                 }`}
+                style={selectedWord.id === word.id ? {} : { backgroundColor: 'var(--hover-bg)', color: 'var(--foreground)' }}
+                onMouseEnter={(e) => {
+                  if (selectedWord.id !== word.id) {
+                    e.currentTarget.style.backgroundColor = 'var(--card-border)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedWord.id !== word.id) {
+                    e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
+                  }
+                }}
               >
                 {word.word}
               </button>
@@ -351,8 +376,8 @@ export default function PronunciationPracticePage() {
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-2">{selectedWord.word}</h2>
-                  <p className="text-xl text-gray-600 font-mono">{selectedWord.phonetic}</p>
+                  <h2 className="text-4xl font-bold mb-2" style={{ color: 'var(--foreground)' }}>{selectedWord.word}</h2>
+                  <p className="text-xl font-mono" style={{ color: 'var(--foreground-secondary)' }}>{selectedWord.phonetic}</p>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getDifficultyColor(selectedWord.difficulty)}`}>
                   {selectedWord.difficulty}
@@ -360,14 +385,14 @@ export default function PronunciationPracticePage() {
               </div>
 
               <div className="mb-4">
-                <span className="inline-block px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">
+                <span className="inline-block px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: 'rgba(20, 184, 166, 0.15)', color: 'rgb(13, 148, 136)' }}>
                   {selectedWord.category}
                 </span>
               </div>
 
               {/* Example Audio */}
-              <div className="bg-gradient-to-r from-green-50 to-teal-50 border-2 border-green-200 rounded-lg p-4">
-                <p className="text-sm font-semibold text-gray-700 mb-2">🔊 Listen to Example</p>
+              <div className="border-2 rounded-lg p-4" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', borderColor: 'var(--card-border)' }}>
+                <p className="text-sm font-semibold mb-2" style={{ color: 'var(--foreground-secondary)' }}>🔊 Listen to Example</p>
                 <audio ref={exampleAudioRef} src={selectedWord.audioUrl} />
                 <button
                   onClick={playExample}
@@ -381,13 +406,13 @@ export default function PronunciationPracticePage() {
 
             {/* Pronunciation Tips */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: 'var(--foreground)' }}>
                 <CheckCircle className="w-5 h-5 text-green-600" />
                 Pronunciation Tips
               </h3>
               <ul className="space-y-2">
                 {selectedWord.tips.map((tip, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                  <li key={idx} className="flex items-start gap-2" style={{ color: 'var(--foreground-secondary)' }}>
                     <span className="text-green-600 font-bold text-lg">✓</span>
                     <span className="text-sm">{tip}</span>
                   </li>
@@ -397,11 +422,11 @@ export default function PronunciationPracticePage() {
 
             {/* Common Mistakes */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">⚠️ Common Mistakes</h3>
+              <h3 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>⚠️ Common Mistakes</h3>
               <ul className="space-y-2">
                 {selectedWord.commonMistakes.map((mistake, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-sm text-red-600 font-mono bg-red-50 px-3 py-2 rounded border border-red-200">
+                    <span className="text-sm font-mono px-3 py-2 rounded border" style={{ color: 'rgb(220, 38, 38)', backgroundColor: 'rgba(239, 68, 68, 0.1)', borderColor: 'var(--card-border)' }}>
                       {mistake}
                     </span>
                   </li>
@@ -410,9 +435,9 @@ export default function PronunciationPracticePage() {
             </div>
 
             {/* Example Sentence */}
-            <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">📝 Example Sentence:</h4>
-              <p className="text-gray-700 italic">"{selectedWord.exampleSentence}"</p>
+            <div className="border rounded-lg p-4" style={{ backgroundColor: 'rgba(66, 85, 255, 0.15)', borderColor: 'var(--card-border)' }}>
+              <h4 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>📝 Example Sentence:</h4>
+              <p className="italic" style={{ color: 'var(--foreground-secondary)' }}>"{selectedWord.exampleSentence}"</p>
             </div>
           </div>
 
@@ -420,33 +445,33 @@ export default function PronunciationPracticePage() {
           <div className="space-y-6">
             {/* Recording Section */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--foreground)' }}>
                 <Mic className="w-5 h-5 text-green-600" />
                 Practice Your Pronunciation
               </h3>
 
               {recordingError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">
+                <div className="border rounded-lg p-3 mb-4 text-sm" style={{ backgroundColor: 'rgba(239, 68, 68, 0.1)', borderColor: 'var(--card-border)', color: 'rgb(220, 38, 38)' }}>
                   {recordingError}
                 </div>
               )}
 
               {isRecording && (
-                <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-4 text-center">
+                <div className="border-2 rounded-lg p-4 mb-4 text-center" style={{ backgroundColor: 'rgba(239, 68, 68, 0.1)', borderColor: 'var(--card-border)' }}>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <div className="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
-                    <span className="text-red-700 font-semibold">Recording...</span>
+                    <span className="font-semibold" style={{ color: 'rgb(220, 38, 38)' }}>Recording...</span>
                   </div>
-                  <p className="text-2xl font-bold text-red-900">{formatTime(recordingTime)}</p>
+                  <p className="text-2xl font-bold" style={{ color: 'rgb(159, 18, 57)' }}>{formatTime(recordingTime)}</p>
                 </div>
               )}
 
               <div className="space-y-3">
                 {!isRecording && !audioUrl && (
                   <div>
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-3">
-                      <p className="text-sm text-green-800 font-semibold mb-2">Instructions:</p>
-                      <ol className="text-sm text-green-700 space-y-1 list-decimal list-inside">
+                    <div className="border rounded-lg p-4 mb-3" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', borderColor: 'var(--card-border)' }}>
+                      <p className="text-sm font-semibold mb-2" style={{ color: 'rgb(5, 150, 105)' }}>Instructions:</p>
+                      <ol className="text-sm space-y-1 list-decimal list-inside" style={{ color: 'rgb(13, 148, 136)' }}>
                         <li>Listen to the example pronunciation</li>
                         <li>Click "Start Recording" below</li>
                         <li>Say the word clearly: <strong>{selectedWord.word}</strong></li>
@@ -476,13 +501,13 @@ export default function PronunciationPracticePage() {
 
                 {audioUrl && !isRecording && (
                   <div className="space-y-3">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <p className="text-green-700 font-semibold mb-2">✓ Recording Complete!</p>
-                      <p className="text-sm text-green-600">Duration: {formatTime(recordingTime)}</p>
+                    <div className="border rounded-lg p-4" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', borderColor: 'var(--card-border)' }}>
+                      <p className="font-semibold mb-2" style={{ color: 'rgb(5, 150, 105)' }}>✓ Recording Complete!</p>
+                      <p className="text-sm" style={{ color: 'rgb(13, 148, 136)' }}>Duration: {formatTime(recordingTime)}</p>
                     </div>
 
-                    <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-4">
-                      <p className="text-sm font-semibold text-gray-700 mb-2">Your Recording:</p>
+                    <div className="border-2 rounded-lg p-4" style={{ backgroundColor: 'var(--hover-bg)', borderColor: 'var(--card-border)' }}>
+                      <p className="text-sm font-semibold mb-2" style={{ color: 'var(--foreground-secondary)' }}>Your Recording:</p>
                       <audio src={audioUrl} controls className="w-full" />
                     </div>
 
@@ -500,7 +525,10 @@ export default function PronunciationPracticePage() {
                           setAudioUrl(null);
                           setRecordingTime(0);
                         }}
-                        className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center justify-center gap-2"
+                        className="flex-1 py-3 px-4 rounded-lg font-semibold transition flex items-center justify-center gap-2"
+                        style={{ backgroundColor: 'var(--hover-bg)', color: 'var(--foreground)' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--card-border)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                       >
                         <RefreshCw className="w-4 h-4" />
                         Try Again
@@ -513,9 +541,9 @@ export default function PronunciationPracticePage() {
 
             {/* Self-Evaluation Checklist */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">✅ Self-Evaluation</h3>
-              <p className="text-sm text-gray-600 mb-3">After comparing your recording with the example, check:</p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h3 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>✅ Self-Evaluation</h3>
+              <p className="text-sm mb-3" style={{ color: 'var(--foreground-secondary)' }}>After comparing your recording with the example, check:</p>
+              <ul className="space-y-2 text-sm" style={{ color: 'var(--foreground-secondary)' }}>
                 <li className="flex items-start gap-2">
                   <span>□</span>
                   <span>Correct syllable stress</span>
@@ -540,9 +568,9 @@ export default function PronunciationPracticePage() {
             </div>
 
             {/* Practice Tips */}
-            <div className="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">💡 Practice Tips:</h4>
-              <ul className="text-sm text-gray-700 space-y-1">
+            <div className="border rounded-lg p-4" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', borderColor: 'var(--card-border)' }}>
+              <h4 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>💡 Practice Tips:</h4>
+              <ul className="text-sm space-y-1" style={{ color: 'var(--foreground-secondary)' }}>
                 <li>• Record yourself multiple times</li>
                 <li>• Listen carefully to the differences</li>
                 <li>• Practice slowly at first, then speed up</li>
