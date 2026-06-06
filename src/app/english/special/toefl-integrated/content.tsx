@@ -241,15 +241,22 @@ export default function TOEFLIntegratedPage() {
   const wordCount = userResponse.trim().split(/\s+/).filter(w => w.length > 0).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen py-8 px-4" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6 mb-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">TOEFL Integrated Tasks</h1>
+            <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>TOEFL Integrated Tasks</h1>
             <button
               onClick={() => router.push("/english/ielts-toefl/toefl-integrated")}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="font-medium transition-colors"
+              style={{ color: "var(--foreground-secondary)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--foreground)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--foreground-secondary)";
+              }}
             >
               ← Back
             </button>
@@ -264,11 +271,31 @@ export default function TOEFLIntegratedPage() {
                   setSelectedTask(task);
                   resetTask();
                 }}
-                className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
+                className="px-4 py-2 rounded-lg whitespace-nowrap font-medium transition-all"
+                style={
                   selectedTask.id === task.id
-                    ? "bg-gradient-to-r from-blue-600 to-[#4255FF] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                    ? {
+                        background: "linear-gradient(to right, #4255FF, #4255FF)",
+                        color: "#ffffff"
+                      }
+                    : {
+                        background: "var(--hover-bg)",
+                        color: "var(--foreground-secondary)",
+                        border: "1px solid var(--card-border)"
+                      }
+                }
+                onMouseEnter={(e) => {
+                  if (selectedTask.id !== task.id) {
+                    e.currentTarget.style.background = "rgba(66, 85, 255, 0.1)";
+                    e.currentTarget.style.color = "var(--foreground)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedTask.id !== task.id) {
+                    e.currentTarget.style.background = "var(--hover-bg)";
+                    e.currentTarget.style.color = "var(--foreground-secondary)";
+                  }
+                }}
               >
                 {task.title}
               </button>
@@ -280,22 +307,22 @@ export default function TOEFLIntegratedPage() {
           {/* Left Column - Instructions & Tips */}
           <div className="space-y-6">
             {/* Task Info */}
-            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-3 py-1 bg-[#E8EAFF] text-[#3242CC] rounded-full text-sm font-semibold">
+                <span className="px-3 py-1 text-[#3242CC] rounded-full text-sm font-semibold" style={{ background: "rgba(66, 85, 255, 0.15)" }}>
                   {selectedTask.type}
                 </span>
               </div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">{selectedTask.title}</h2>
-              <p className="text-sm text-gray-600">{selectedTask.prompt}</p>
+              <h2 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{selectedTask.title}</h2>
+              <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{selectedTask.prompt}</p>
             </div>
 
             {/* Tips */}
-            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">💡 Tips</h3>
+            <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+              <h3 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>💡 Tips</h3>
               <ul className="space-y-2">
                 {selectedTask.tips.map((tip, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: "var(--foreground-secondary)" }}>
                     <span className="text-[#4255FF] font-bold">•</span>
                     <span>{tip}</span>
                   </li>
@@ -304,18 +331,18 @@ export default function TOEFLIntegratedPage() {
             </div>
 
             {/* Stage Progress */}
-            <div className="bg-[#E8EAFF] border border-[#90CAF9] rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-3">Task Stages:</h4>
+            <div className="rounded-lg p-4" style={{ background: "rgba(66, 85, 255, 0.1)", borderColor: "rgba(66, 85, 255, 0.3)", borderWidth: "1px", borderStyle: "solid" }}>
+              <h4 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>Task Stages:</h4>
               <div className="space-y-2">
-                <div className={`flex items-center gap-2 ${stage === "reading" ? "text-[#4255FF] font-semibold" : "text-gray-500"}`}>
+                <div className="flex items-center gap-2" style={{ color: stage === "reading" ? "#4255FF" : "var(--muted)", fontWeight: stage === "reading" ? "600" : "400" }}>
                   <BookOpen className="w-4 h-4" />
                   <span className="text-sm">1. Reading ({selectedTask.readingTime / 60} min)</span>
                 </div>
-                <div className={`flex items-center gap-2 ${stage === "listening" ? "text-[#4255FF] font-semibold" : "text-gray-500"}`}>
+                <div className="flex items-center gap-2" style={{ color: stage === "listening" ? "#4255FF" : "var(--muted)", fontWeight: stage === "listening" ? "600" : "400" }}>
                   <Volume2 className="w-4 h-4" />
                   <span className="text-sm">2. Listening (~{Math.round(selectedTask.audioLength / 60)} min)</span>
                 </div>
-                <div className={`flex items-center gap-2 ${stage === "response" ? "text-[#4255FF] font-semibold" : "text-gray-500"}`}>
+                <div className="flex items-center gap-2" style={{ color: stage === "response" ? "#4255FF" : "var(--muted)", fontWeight: stage === "response" ? "600" : "400" }}>
                   {selectedTask.type === "Integrated Writing" ? <FileText className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                   <span className="text-sm">3. Response ({selectedTask.responseTime / 60} min)</span>
                 </div>
@@ -327,20 +354,31 @@ export default function TOEFLIntegratedPage() {
           <div className="lg:col-span-2 space-y-6">
             {/* Reading Stage */}
             {stage === "reading" && (
-              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">Reading Passage</h3>
-                  <div className="flex items-center gap-2 bg-[#E8EAFF] px-4 py-2 rounded-lg">
+                  <h3 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>Reading Passage</h3>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "rgba(66, 85, 255, 0.15)" }}>
                     <Clock className="w-5 h-5 text-[#4255FF]" />
-                    <span className="font-semibold text-[#005A7A]">{formatTime(readingTimeLeft)}</span>
+                    <span className="font-semibold text-[#4255FF]">{formatTime(readingTimeLeft)}</span>
                   </div>
                 </div>
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 max-h-96 overflow-y-auto mb-4">
-                  <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">{selectedTask.readingPassage}</p>
+                <div className="rounded-lg p-6 max-h-96 overflow-y-auto mb-4" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid", color: "var(--foreground)" }}>
+                  <p className="whitespace-pre-wrap leading-relaxed">{selectedTask.readingPassage}</p>
                 </div>
                 <button
                   onClick={startReadingTimer}
-                  className="w-full bg-gradient-to-r from-blue-600 to-[#4255FF] text-white py-4 px-6 rounded-lg font-semibold transition"
+                  className="w-full text-white py-4 px-6 rounded-lg font-semibold transition-all"
+                  style={{
+                    background: "linear-gradient(to right, #4255FF, #4255FF)"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#3242CC";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(66, 85, 255, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "linear-gradient(to right, #4255FF, #4255FF)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
                 >
                   Start Reading Timer
                 </button>
@@ -349,11 +387,11 @@ export default function TOEFLIntegratedPage() {
 
             {/* Listening Stage */}
             {stage === "listening" && (
-              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Listening</h3>
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-8 text-center mb-4">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+                <h3 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Listening</h3>
+                <div className="border-2 rounded-lg p-8 text-center mb-4" style={{ background: "rgba(66, 85, 255, 0.08)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
                   <Volume2 className="w-16 h-16 text-[#4255FF] mx-auto mb-4" />
-                  <p className="text-gray-700 mb-4">Listen to the lecture carefully. You can only play it once.</p>
+                  <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>Listen to the lecture carefully. You can only play it once.</p>
                   <audio
                     ref={audioRef}
                     src={selectedTask.audioUrl}
@@ -368,25 +406,38 @@ export default function TOEFLIntegratedPage() {
                   <button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="bg-[#4255FF] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#3242CC] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="text-white py-3 px-8 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{
+                      background: "#4255FF"
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!e.currentTarget.disabled) {
+                        e.currentTarget.style.background = "#3242CC";
+                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(66, 85, 255, 0.3)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#4255FF";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
                   >
                     {isAudioPlaying ? "Playing..." : "Play Audio"}
                   </button>
                 </div>
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <p className="text-sm text-yellow-800">⚠️ The audio will play only once, just like in the real TOEFL test. Take notes while listening!</p>
+                <div className="rounded-lg p-4" style={{ background: "rgba(245, 158, 11, 0.1)", borderColor: "rgba(245, 158, 11, 0.3)", borderWidth: "1px", borderStyle: "solid" }}>
+                  <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>⚠️ The audio will play only once, just like in the real TOEFL test. Take notes while listening!</p>
                 </div>
               </div>
             )}
 
             {/* Response Stage */}
             {stage === "response" && (
-              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
+              <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">Your Response</h3>
-                  <div className="flex items-center gap-2 bg-[#E8EAFF] px-4 py-2 rounded-lg">
+                  <h3 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>Your Response</h3>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "rgba(66, 85, 255, 0.15)" }}>
                     <Clock className="w-5 h-5 text-[#4255FF]" />
-                    <span className="font-semibold text-[#005A7A]">{formatTime(responseTimeLeft)}</span>
+                    <span className="font-semibold text-[#4255FF]">{formatTime(responseTimeLeft)}</span>
                   </div>
                 </div>
 
@@ -396,12 +447,23 @@ export default function TOEFLIntegratedPage() {
                       value={userResponse}
                       onChange={(e) => setUserResponse(e.target.value)}
                       placeholder="Write your response here..."
-                      className="w-full h-96 p-4 border-2 border-gray-300 rounded-lg focus:border-[#4255FF] focus:outline-none"
+                      className="w-full h-96 p-4 border-2 rounded-lg focus:outline-none transition-colors"
+                      style={{
+                        background: "var(--hover-bg)",
+                        color: "var(--foreground)",
+                        borderColor: "var(--card-border)"
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = "#4255FF";
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                      }}
                     />
-                    <div className="flex justify-between text-sm text-gray-600">
+                    <div className="flex justify-between text-sm" style={{ color: "var(--muted)" }}>
                       <span>Word count: {wordCount}</span>
                       {selectedTask.wordLimit && (
-                        <span className={wordCount < selectedTask.wordLimit.min || wordCount > selectedTask.wordLimit.max ? "text-orange-600 font-semibold" : "text-green-600"}>
+                        <span style={{ color: wordCount < selectedTask.wordLimit.min || wordCount > selectedTask.wordLimit.max ? "#f97316" : "#10b981", fontWeight: wordCount < selectedTask.wordLimit.min || wordCount > selectedTask.wordLimit.max ? "600" : "400" }}>
                           Target: {selectedTask.wordLimit.min}-{selectedTask.wordLimit.max} words
                         </span>
                       )}
@@ -409,13 +471,24 @@ export default function TOEFLIntegratedPage() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    <div className="bg-[#E8EAFF] border border-blue-200 rounded-lg p-6 text-center">
+                    <div className="border rounded-lg p-6 text-center" style={{ background: "rgba(66, 85, 255, 0.08)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
                       <Mic className="w-12 h-12 text-[#4255FF] mx-auto mb-3" />
-                      <p className="text-gray-700 mb-4">Record your spoken response (60 seconds)</p>
+                      <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>Record your spoken response (60 seconds)</p>
                       {!isRecording && !audioBlob && (
                         <button
                           onClick={startRecording}
-                          className="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition"
+                          className="text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                          style={{
+                            background: "#ef4444"
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#dc2626";
+                            e.currentTarget.style.boxShadow = "0 4px 12px rgba(239, 68, 68, 0.3)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "#ef4444";
+                            e.currentTarget.style.boxShadow = "none";
+                          }}
                         >
                           Start Recording
                         </button>
@@ -423,7 +496,16 @@ export default function TOEFLIntegratedPage() {
                       {isRecording && (
                         <button
                           onClick={stopRecording}
-                          className="bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-700 transition flex items-center justify-center gap-2 mx-auto"
+                          className="text-white py-3 px-6 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 mx-auto"
+                          style={{
+                            background: "#6b7280"
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#4b5563";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "#6b7280";
+                          }}
                         >
                           <Square className="w-5 h-5" />
                           Stop Recording
@@ -431,14 +513,26 @@ export default function TOEFLIntegratedPage() {
                       )}
                       {audioBlob && (
                         <div className="space-y-3">
-                          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                          <div className="rounded-lg p-3" style={{ background: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.3)", borderWidth: "1px", borderStyle: "solid" }}>
                             <CheckCircle className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                            <p className="text-green-700 font-semibold">Recording Complete!</p>
+                            <p className="font-semibold" style={{ color: "#10b981" }}>Recording Complete!</p>
                           </div>
-                          <audio src={URL.createObjectURL(audioBlob)} controls className="w-full" />
+                          <audio src={URL.createObjectURL(audioBlob)} controls className="w-full" style={{ accentColor: "#4255FF" }} />
                           <button
                             onClick={() => setAudioBlob(null)}
-                            className="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 transition"
+                            className="py-2 px-4 rounded-lg font-semibold transition-all"
+                            style={{
+                              background: "var(--hover-bg)",
+                              color: "var(--foreground-secondary)"
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "rgba(0, 0, 0, 0.1)";
+                              e.currentTarget.style.color = "var(--foreground)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "var(--hover-bg)";
+                              e.currentTarget.style.color = "var(--foreground-secondary)";
+                            }}
                           >
                             Record Again
                           </button>
@@ -451,14 +545,37 @@ export default function TOEFLIntegratedPage() {
                 <div className="flex gap-3 mt-6">
                   <button
                     onClick={resetTask}
-                    className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-300 transition"
+                    className="flex-1 py-3 px-4 rounded-lg font-semibold transition-all"
+                    style={{
+                      background: "var(--hover-bg)",
+                      color: "var(--foreground-secondary)"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(0, 0, 0, 0.1)";
+                      e.currentTarget.style.color = "var(--foreground)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "var(--hover-bg)";
+                      e.currentTarget.style.color = "var(--foreground-secondary)";
+                    }}
                   >
                     Restart Task
                   </button>
                   {selectedTask.sampleResponse && (
                     <button
                       onClick={() => setShowSample(!showSample)}
-                      className="flex-1 bg-[#4255FF] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#3242CC] transition"
+                      className="flex-1 text-white py-3 px-4 rounded-lg font-semibold transition-all"
+                      style={{
+                        background: "#4255FF"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#3242CC";
+                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(66, 85, 255, 0.3)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "#4255FF";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
                     >
                       {showSample ? "Hide" : "Show"} Sample Response
                     </button>
@@ -466,9 +583,9 @@ export default function TOEFLIntegratedPage() {
                 </div>
 
                 {showSample && selectedTask.sampleResponse && (
-                  <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Sample Response:</h4>
-                    <p className="text-gray-700 whitespace-pre-wrap">{selectedTask.sampleResponse}</p>
+                  <div className="mt-6 rounded-lg p-6" style={{ background: "rgba(16, 185, 129, 0.08)", borderColor: "rgba(16, 185, 129, 0.3)", borderWidth: "2px", borderStyle: "solid" }}>
+                    <h4 className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>Sample Response:</h4>
+                    <p className="whitespace-pre-wrap" style={{ color: "var(--foreground-secondary)" }}>{selectedTask.sampleResponse}</p>
                   </div>
                 )}
               </div>
