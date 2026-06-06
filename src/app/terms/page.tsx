@@ -221,7 +221,7 @@ export default function TermsPage() {
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
               For questions about these Terms, please contact us:
             </p>
-            <ul className="list-none text-slate-600 ml-0">
+            <ul className="list-none ml-0" style={{ color: "var(--foreground-secondary)" }}>
               <li className="mb-2">📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a></li>
               <li className="mb-2">🌐 Website: <a href="https://prepgenie.co.in" className="text-[#4255FF] hover:underline">prepgenie.co.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
