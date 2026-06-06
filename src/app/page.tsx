@@ -465,7 +465,21 @@ function HomePageContent() {
               </a>
               <button
                 onClick={() => setShowFullFlow(true)}
-                className="sm:w-auto bg-indigo-400/30 text-white font-medium py-3 px-4 rounded-xl hover:bg-indigo-400/40 transition-colors"
+                className="sm:w-auto text-white font-medium py-3 px-4 rounded-xl transition-all border-2"
+                style={{
+                  background: "rgba(255, 255, 255, 0.15)",
+                  borderColor: "rgba(255, 255, 255, 0.4)"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.25)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.15)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
                 Browse All Exams
               </button>
