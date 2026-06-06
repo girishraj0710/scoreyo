@@ -102,8 +102,8 @@ export function AIClarificationChat({
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-blue-200 text-blue-700 rounded-xl transition-all font-medium text-sm"
-        style={{ background: "var(--primary-bg)" }}
+        className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 rounded-xl transition-all font-medium text-sm"
+        style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)", color: "#4255FF" }}
       >
         <span>Still confused? Ask PrepGenie AI for help</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,10 +114,10 @@ export function AIClarificationChat({
   }
 
   return (
-    <div className="p-4 rounded-xl border-2 border-blue-200" style={{ background: "var(--primary-bg)" }}>
+    <div className="p-4 rounded-xl border-2" style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
       <div className="flex items-center gap-2 mb-3">
         <div>
-          <div className="text-sm font-semibold text-blue-900">PrepGenie AI</div>
+          <div className="text-sm font-semibold" style={{ color: "#4255FF" }}>PrepGenie AI</div>
           <div className="text-xs" style={{ color: "var(--muted)" }}>Get instant clarification</div>
         </div>
       </div>
@@ -128,17 +128,17 @@ export function AIClarificationChat({
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`p-3 rounded-lg border border-blue-200 ${
+              className={`p-3 rounded-lg border ${
                 msg.type === 'user'
                   ? 'ml-8'
                   : 'mr-8'
               }`}
-              style={{ background: msg.type === 'user' ? "var(--card-bg)" : "var(--card-bg)" }}
+              style={{ background: msg.type === 'user' ? "var(--card-bg)" : "var(--card-bg)", borderColor: "rgba(66, 85, 255, 0.2)" }}
             >
-              <div className="text-xs font-semibold mb-1" style={{ color: msg.type === 'ai' ? '#1e40af' : 'var(--foreground)' }}>
+              <div className="text-xs font-semibold mb-1" style={{ color: msg.type === 'ai' ? '#4255FF' : 'var(--foreground)' }}>
                 {msg.type === 'ai' ? 'PrepGenie AI:' : 'You:'}
               </div>
-              <div className="text-sm leading-relaxed whitespace-pre-wrap" style={{ color: "var(--foreground-secondary)" }}>
+              <div className="text-sm leading-relaxed whitespace-pre-wrap" style={{ color: "var(--foreground)" }}>
                 {msg.text}
               </div>
             </div>
@@ -153,8 +153,14 @@ export function AIClarificationChat({
             <button
               key={i}
               onClick={() => handleQuickQuestion(q)}
-              className="text-xs px-3 py-1.5 text-blue-700 rounded-full border border-blue-200 transition-colors"
-              style={{ background: "var(--card-bg)" }}
+              className="text-xs px-3 py-1.5 rounded-full border transition-colors"
+              style={{ background: "var(--card-bg)", borderColor: "rgba(66, 85, 255, 0.3)", color: "#4255FF" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--card-bg)";
+              }}
             >
               {q}
             </button>
@@ -164,8 +170,8 @@ export function AIClarificationChat({
 
       {/* Loading */}
       {isLoading && (
-        <div className="flex items-center gap-2 text-blue-700 text-sm py-4">
-          <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+        <div className="flex items-center gap-2 text-sm py-4" style={{ color: "#4255FF" }}>
+          <div className="animate-spin h-4 w-4 border-2 border-t-transparent rounded-full" style={{ borderColor: "rgba(66, 85, 255, 0.3)", borderTopColor: "#4255FF" }}></div>
           <span>Thinking...</span>
         </div>
       )}
@@ -178,14 +184,31 @@ export function AIClarificationChat({
           onChange={(e) => setUserQuestion(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && handleAsk()}
           placeholder="Type your question here..."
-          className="flex-1 px-3 py-2 border border-blue-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          style={{ background: "var(--card-bg)", color: "var(--foreground)" }}
+          className="flex-1 px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 transition-colors"
+          style={{ background: "var(--card-bg)", color: "var(--foreground)", borderColor: "rgba(66, 85, 255, 0.2)" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "rgba(66, 85, 255, 0.4)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "rgba(66, 85, 255, 0.2)";
+          }}
           disabled={isLoading}
         />
         <button
           onClick={handleAsk}
           disabled={!userQuestion.trim() || isLoading}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 text-sm font-medium"
+          className="px-4 py-2 text-white rounded-lg disabled:opacity-50 text-sm font-medium transition-all"
+          style={{ backgroundColor: "#4255FF" }}
+          onMouseEnter={(e) => {
+            if (!e.currentTarget.disabled) {
+              e.currentTarget.style.backgroundColor = "#3242CC";
+              e.currentTarget.style.transform = "scale(1.02)";
+            }
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "#4255FF";
+            e.currentTarget.style.transform = "scale(1)";
+          }}
         >
           Ask
         </button>
@@ -193,18 +216,32 @@ export function AIClarificationChat({
 
       {/* Feedback - Only show after last AI message */}
       {messages.length > 0 && messages[messages.length - 1].type === 'ai' && !hasRated && !isLoading && (
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-blue-200">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t" style={{ borderColor: "rgba(66, 85, 255, 0.2)" }}>
           <span className="text-xs" style={{ color: "var(--muted)" }}>Was this helpful?</span>
           <div className="flex gap-2">
             <button
               onClick={() => handleRate(true)}
-              className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition-colors"
+              className="px-3 py-1 text-xs rounded-full transition-colors"
+              style={{ backgroundColor: "rgba(16, 185, 129, 0.1)", color: "#10b981" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(16, 185, 129, 0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(16, 185, 129, 0.1)";
+              }}
             >
               Yes
             </button>
             <button
               onClick={() => handleRate(false)}
-              className="px-3 py-1 text-xs bg-red-100 text-red-700 rounded-full hover:bg-red-200 transition-colors"
+              className="px-3 py-1 text-xs rounded-full transition-colors"
+              style={{ backgroundColor: "rgba(239, 68, 68, 0.1)", color: "#ef4444" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(239, 68, 68, 0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
+              }}
             >
               No
             </button>

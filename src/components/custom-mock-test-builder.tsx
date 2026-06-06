@@ -134,7 +134,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
             // Step 1: Select Exam
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: "var(--foreground)" }}>
                   Search Exam
                 </label>
                 <input
@@ -142,7 +142,14 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search by name..."
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 transition-colors"
+                  style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#4255FF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }}
                 />
               </div>
 
@@ -151,17 +158,26 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   <button
                     key={exam.id}
                     onClick={() => handleExamSelect(exam.id)}
-                    className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#4255FF] dark:hover:border-indigo-400 hover:shadow-lg transition-all text-left group"
+                    className="p-4 border-2 rounded-xl transition-all text-left group"
+                    style={{ borderColor: "var(--card-border)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#4255FF";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 flex-shrink-0">
                         <ColorfulExamIcon examId={exam.id} size={48} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-gray-900 dark:text-white group-hover:text-[#4255FF] dark:group-hover:text-indigo-400 truncate">
+                        <div className="font-semibold truncate" style={{ color: "var(--foreground)" }}>
                           {exam.name}
                         </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400 truncate" title={exam.description}>
+                        <div className="text-sm truncate" style={{ color: "var(--muted)" }} title={exam.description}>
                           {exam.description}
                         </div>
                       </div>
@@ -171,7 +187,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
               </div>
 
               {filteredExams.length === 0 && (
-                <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+                <div className="text-center py-12" style={{ color: "var(--muted)" }}>
                   <FileText className="w-12 h-12 mx-auto mb-3 opacity-50" />
                   <p>No exams found matching "{searchQuery}"</p>
                 </div>
@@ -182,20 +198,27 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
             <div className="space-y-6">
               {/* Exam Info */}
               {exam && (
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 p-4 rounded-xl border border-[#90CAF9] dark:border-gray-600">
+                <div className="p-4 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3 min-w-0 flex-1">
                       <div className="w-12 h-12 flex-shrink-0">
                         <ColorfulExamIcon examId={exam.id} size={48} />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="font-bold text-gray-900 dark:text-white truncate">{exam.name}</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300 truncate" title={exam.fullName}>{exam.fullName}</div>
+                        <div className="font-bold truncate" style={{ color: "var(--foreground)" }}>{exam.name}</div>
+                        <div className="text-sm truncate" style={{ color: "var(--muted)" }} title={exam.fullName}>{exam.fullName}</div>
                       </div>
                     </div>
                     <button
                       onClick={() => setStep(1)}
-                      className="text-sm text-[#4255FF] dark:text-indigo-400 hover:underline whitespace-nowrap flex-shrink-0"
+                      className="text-sm hover:underline whitespace-nowrap flex-shrink-0 transition-colors"
+                      style={{ color: "#4255FF" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#3242CC";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#4255FF";
+                      }}
                     >
                       Change Exam
                     </button>
@@ -205,7 +228,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
 
               {/* Time Limit */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: "var(--foreground)" }}>
                   <Clock className="w-4 h-4 inline mr-1" />
                   Time Limit (minutes)
                 </label>
@@ -219,18 +242,18 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     onChange={(e) => setTimeLimitMinutes(Number(e.target.value))}
                     className="flex-1"
                   />
-                  <div className="w-20 text-right font-semibold text-gray-900 dark:text-white">
+                  <div className="w-20 text-right font-semibold" style={{ color: "var(--foreground)" }}>
                     {timeLimitMinutes} min
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>
                   Recommended: {Math.round(totalQuestions * 1.5)} minutes for {totalQuestions} questions
                 </p>
               </div>
 
               {/* Sections */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--foreground)" }}>
                   Configure Sections
                 </h3>
                 <div className="space-y-4">
@@ -239,16 +262,17 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     return (
                       <div
                         key={section.subjectId}
-                        className="border border-gray-200 dark:border-gray-700 rounded-xl p-4 space-y-3"
+                        className="border rounded-xl p-4 space-y-3"
+                        style={{ borderColor: "var(--card-border)" }}
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <span className="text-xl">{subject?.icon}</span>
                             <div>
-                              <div className="font-semibold text-gray-900 dark:text-white">
+                              <div className="font-semibold" style={{ color: "var(--foreground)" }}>
                                 {section.subjectName}
                               </div>
-                              <div className="text-sm text-gray-500 dark:text-gray-400">
+                              <div className="text-sm" style={{ color: "var(--muted)" }}>
                                 {subject?.topics.length || 0} topics available
                               </div>
                             </div>
@@ -256,23 +280,44 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => handleQuestionCountChange(section.subjectId, -1)}
-                              className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              className="p-1 rounded-lg transition-colors"
+                              style={{ color: "var(--foreground)" }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = "var(--primary-bg)";
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = "transparent";
+                              }}
                             >
                               <Minus className="w-4 h-4" />
                             </button>
-                            <span className="w-12 text-center font-semibold">
+                            <span className="w-12 text-center font-semibold" style={{ color: "var(--foreground)" }}>
                               {section.questionCount}
                             </span>
                             <button
                               onClick={() => handleQuestionCountChange(section.subjectId, 1)}
-                              className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              className="p-1 rounded-lg transition-colors"
+                              style={{ color: "var(--foreground)" }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = "var(--primary-bg)";
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = "transparent";
+                              }}
                             >
                               <Plus className="w-4 h-4" />
                             </button>
                             {sections.length > 1 && (
                               <button
                                 onClick={() => handleRemoveSection(section.subjectId)}
-                                className="p-1 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/20 text-red-600"
+                                className="p-1 rounded-lg transition-colors"
+                                style={{ color: "#ef4444" }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.backgroundColor = "transparent";
+                                }}
                               >
                                 <X className="w-4 h-4" />
                               </button>
@@ -283,14 +328,21 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                         {/* Topic Selection */}
                         {subject && (
                           <details className="text-sm">
-                            <summary className="cursor-pointer text-[#4255FF] dark:text-indigo-400 hover:underline">
+                            <summary className="cursor-pointer hover:underline" style={{ color: "#4255FF" }}>
                               Select specific topics (optional)
                             </summary>
-                            <div className="mt-2 grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                            <div className="mt-2 grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 rounded-lg" style={{ background: "var(--primary-bg)" }}>
                               {subject.topics.map(topic => (
                                 <label
                                   key={topic}
-                                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 p-1 rounded cursor-pointer"
+                                  className="flex items-center gap-2 p-1 rounded cursor-pointer transition-colors"
+                                  style={{ color: "var(--foreground)" }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = "transparent";
+                                  }}
                                 >
                                   <input
                                     type="checkbox"
@@ -302,7 +354,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                                 </label>
                               ))}
                             </div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>
                               {section.selectedTopics.length === 0
                                 ? "All topics will be included"
                                 : `${section.selectedTopics.length} topics selected`}
@@ -316,30 +368,30 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
               </div>
 
               {/* Summary */}
-              <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-200 dark:border-gray-600">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Test Summary</h4>
+              <div className="p-4 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
+                <h4 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Test Summary</h4>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400">Total Questions:</span>
-                    <span className="ml-2 font-semibold text-gray-900 dark:text-white">
+                    <span style={{ color: "var(--muted)" }}>Total Questions:</span>
+                    <span className="ml-2 font-semibold" style={{ color: "var(--foreground)" }}>
                       {totalQuestions}
                     </span>
                   </div>
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400">Time Limit:</span>
-                    <span className="ml-2 font-semibold text-gray-900 dark:text-white">
+                    <span style={{ color: "var(--muted)" }}>Time Limit:</span>
+                    <span className="ml-2 font-semibold" style={{ color: "var(--foreground)" }}>
                       {timeLimitMinutes} minutes
                     </span>
                   </div>
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400">Sections:</span>
-                    <span className="ml-2 font-semibold text-gray-900 dark:text-white">
+                    <span style={{ color: "var(--muted)" }}>Sections:</span>
+                    <span className="ml-2 font-semibold" style={{ color: "var(--foreground)" }}>
                       {sections.length}
                     </span>
                   </div>
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400">Avg per Q:</span>
-                    <span className="ml-2 font-semibold text-gray-900 dark:text-white">
+                    <span style={{ color: "var(--muted)" }}>Avg per Q:</span>
+                    <span className="ml-2 font-semibold" style={{ color: "var(--foreground)" }}>
                       {Math.round((timeLimitMinutes * 60) / totalQuestions)}s
                     </span>
                   </div>
@@ -350,11 +402,18 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
         </div>
 
         {/* Footer */}
-        <div className="border-t border-gray-200 dark:border-gray-700 p-6 bg-gray-50 dark:bg-gray-900">
+        <div className="border-t p-6" style={{ borderColor: "var(--card-border)", background: "var(--primary-bg)" }}>
           <div className="flex items-center justify-between">
             <button
               onClick={onClose}
-              className="px-6 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
+              className="px-6 py-2 rounded-lg transition-colors"
+              style={{ color: "var(--foreground)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--card-bg)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
               Cancel
             </button>
@@ -363,14 +422,30 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                 <>
                   <button
                     onClick={() => setStep(1)}
-                    className="px-6 py-2 text-[#4255FF] dark:text-indigo-400 hover:bg-[#E8EAFF] dark:hover:bg-indigo-900/20 rounded-lg transition-colors"
+                    className="px-6 py-2 rounded-lg transition-colors"
+                    style={{ color: "#4255FF" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
                   >
                     Back
                   </button>
                   <button
                     onClick={handleCreate}
                     disabled={sections.length === 0 || totalQuestions === 0}
-                    className="px-8 py-3 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg"
+                    className="px-8 py-3 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg"
+                    style={{ background: "linear-gradient(to right, #4255FF, #9333ea)" }}
+                    onMouseEnter={(e) => {
+                      if (!e.currentTarget.disabled) {
+                        e.currentTarget.style.transform = "scale(1.02)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
                   >
                     Create Test ({totalQuestions} Questions)
                   </button>

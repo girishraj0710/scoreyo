@@ -104,8 +104,16 @@ export function DPPCard() {
 
             <button
               onClick={() => router.push(`/dpp/${dpp.id}`)}
-              className="w-full px-4 py-3 text-[#00A1E0] font-bold rounded-xl hover:shadow-md transition-colors flex items-center justify-center gap-2"
-              style={{ background: "var(--card-bg)" }}
+              className="w-full px-4 py-3 font-bold rounded-xl transition-all flex items-center justify-center gap-2"
+              style={{ background: "var(--card-bg)", color: "#4255FF" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.02)";
+                e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               <span>Start Today's DPP</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
