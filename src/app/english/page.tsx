@@ -363,7 +363,16 @@ export default function EnglishHubPage() {
                 Take a 10-minute test with 20 questions to accurately find your English level and get a personalized learning path
               </p>
               <Link href="/english/assessment">
-                <button className="text-[#4255FF] px-6 py-3 rounded-lg font-semibold hover:shadow-md transition-all" style={{ background: "var(--card-bg)" }}>
+                <button className="px-6 py-3 rounded-lg font-semibold transition-all" style={{ background: "rgba(0, 0, 0, 0.2)", color: "#ffffff" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(0, 0, 0, 0.3)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgba(0, 0, 0, 0.2)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
                   Start Assessment →
                 </button>
               </Link>
