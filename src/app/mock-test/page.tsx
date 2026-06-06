@@ -815,7 +815,19 @@ export default function MockTestPage() {
             {currentQuestion < questions.length - 1 ? (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
-                className="px-5 py-2 text-sm font-medium [#4255FF] text-white rounded-lg hover:[#3242CC]"
+                className="px-5 py-2 text-sm font-medium text-white rounded-lg transition-all"
+                style={{
+                  background: "#4255FF",
+                  border: "1px solid rgba(66, 85, 255, 0.5)"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#3242CC";
+                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(66, 85, 255, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#4255FF";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
                 {t("next")}
               </button>
@@ -863,7 +875,7 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-4 mt-3 text-xs" style={{ color: "var(--muted)" }}>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-slate-500 inline-block" /> {t("current")}</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8EAFF] inline-block" /> {t("answered", { count: "", total: "" }).trim() || "Answered"}</span>
+            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-[#E8EAFF] inline-block" /> Answered</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded inline-block" style={{ background: "var(--hover-bg)" }} /> {t("notAnswered")}</span>
           </div>
         </div>
