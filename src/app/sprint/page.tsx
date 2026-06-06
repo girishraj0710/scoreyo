@@ -151,13 +151,15 @@ export default function SprintPage() {
               </p>
               <button
                 onClick={() => router.push("/dashboard")}
-                className="px-6 py-2 font-medium rounded-lg transition-colors shadow-lg"
-                style={{ background: "rgba(66, 85, 255, 0.15)", color: "#4255FF" }}
+                className="px-6 py-2 font-medium rounded-lg transition-all shadow-lg"
+                style={{ background: "rgba(0, 0, 0, 0.2)", color: "#ffffff" }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(66, 85, 255, 0.25)";
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.3)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(66, 85, 255, 0.15)";
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.2)";
+                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
                 }}
               >
                 Back to Dashboard
