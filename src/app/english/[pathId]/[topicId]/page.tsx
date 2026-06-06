@@ -79,10 +79,10 @@ export default function EnglishTopicPage() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case "beginner": return "text-green-600 bg-green-100";
-      case "intermediate": return "text-yellow-600 bg-yellow-100";
-      case "advanced": return "text-red-600 bg-red-100";
-      default: return "text-slate-600 bg-slate-100";
+      case "beginner": return { background: "rgba(16, 185, 129, 0.1)", color: "#10b981", border: "1px solid rgba(16, 185, 129, 0.3)" };
+      case "intermediate": return { background: "rgba(251, 146, 60, 0.1)", color: "#fb923c", border: "1px solid rgba(251, 146, 60, 0.3)" };
+      case "advanced": return { background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", border: "1px solid rgba(239, 68, 68, 0.3)" };
+      default: return { background: "var(--primary-bg)", color: "var(--foreground)", border: "1px solid var(--card-border)" };
     }
   };
 
@@ -123,7 +123,7 @@ export default function EnglishTopicPage() {
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>{topic.name}</h1>
-                <span className={`px-3 py-1 text-sm font-medium rounded-full ${getLevelColor(topic.level)}`}>
+                <span className="px-3 py-1 text-sm font-medium rounded-full" style={getLevelColor(topic.level)}>
                   {topic.level}
                 </span>
               </div>

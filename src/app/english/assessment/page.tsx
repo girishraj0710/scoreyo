@@ -85,9 +85,9 @@ export default function EnglishAssessmentPage() {
 
   const getLevelBadge = (level: UserLevel) => {
     const badges = {
-      beginner: { color: "bg-green-100 text-green-700", label: "Beginner" },
-      intermediate: { color: "bg-yellow-100 text-yellow-700", label: "Intermediate" },
-      advanced: { color: "bg-red-100 text-red-700", label: "Advanced" },
+      beginner: { style: { background: "rgba(16, 185, 129, 0.1)", color: "#10b981", border: "1px solid rgba(16, 185, 129, 0.3)" }, label: "Beginner" },
+      intermediate: { style: { background: "rgba(251, 146, 60, 0.1)", color: "#fb923c", border: "1px solid rgba(251, 146, 60, 0.3)" }, label: "Intermediate" },
+      advanced: { style: { background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", border: "1px solid rgba(239, 68, 68, 0.3)" }, label: "Advanced" },
     };
     return badges[level];
   };
@@ -267,7 +267,7 @@ export default function EnglishAssessmentPage() {
                 </p>
 
                 <div className="inline-block">
-                  <span className={`px-6 py-3 ${getLevelBadge(detectedLevel).color} rounded-full text-lg font-bold`}>
+                  <span className="px-6 py-3 rounded-full text-lg font-bold" style={getLevelBadge(detectedLevel).style}>
                     Your Level: {getLevelBadge(detectedLevel).label}
                   </span>
                 </div>

@@ -85,10 +85,10 @@ export default function EnglishPathPage() {
 
   const getLevelBadgeColor = (level: string) => {
     switch (level) {
-      case "beginner": return "bg-green-100 text-green-700";
-      case "intermediate": return "bg-yellow-100 text-yellow-700";
-      case "advanced": return "bg-red-100 text-red-700";
-      default: return "bg-slate-100 text-slate-700";
+      case "beginner": return { background: "rgba(16, 185, 129, 0.1)", color: "#10b981", border: "1px solid rgba(16, 185, 129, 0.3)" };
+      case "intermediate": return { background: "rgba(251, 146, 60, 0.1)", color: "#fb923c", border: "1px solid rgba(251, 146, 60, 0.3)" };
+      case "advanced": return { background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", border: "1px solid rgba(239, 68, 68, 0.3)" };
+      default: return { background: "var(--primary-bg)", color: "var(--foreground)", border: "1px solid var(--card-border)" };
     }
   };
 
@@ -209,7 +209,7 @@ export default function EnglishPathPage() {
 
                       {/* Badges */}
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${getLevelBadgeColor(topic.level)}`}>
+                        <span className="px-3 py-1 text-xs font-medium rounded-full" style={getLevelBadgeColor(topic.level)}>
                           {topic.level}
                         </span>
                         <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
