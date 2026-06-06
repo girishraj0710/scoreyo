@@ -1185,18 +1185,18 @@ function QuizContent() {
                 SPRINT
               </span>
             )}
-            <span className={`text-sm font-mono px-3 py-1 rounded-lg ${
+            <span className="text-sm font-mono px-3 py-1 rounded-lg transition-all" style={
               (pressureMode || isSprintMode)
                 ? (() => {
                     const remaining = maxTime - timeElapsed;
                     const percentage = (remaining / maxTime) * 100;
-                    if (percentage > 50) return "text-green-700 bg-green-100";
-                    if (percentage > 25) return "text-orange-700 bg-orange-100 animate-pulse";
-                    if (percentage > 10) return "text-red-700 bg-red-100 animate-pulse";
-                    return "text-red-900 bg-red-200 animate-bounce font-bold";
+                    if (percentage > 50) return { color: "#10b981", background: "rgba(16, 185, 129, 0.15)" };
+                    if (percentage > 25) return { color: "#fb923c", background: "rgba(251, 146, 60, 0.15)" };
+                    if (percentage > 10) return { color: "#ef4444", background: "rgba(239, 68, 68, 0.15)" };
+                    return { color: "#dc2626", background: "rgba(220, 38, 38, 0.2)", fontWeight: "bold" };
                   })()
-                : ""
-            }`} style={!(pressureMode || isSprintMode) ? { color: "var(--foreground-secondary)", background: "var(--hover-bg)" } : undefined}>
+                : { color: "var(--foreground-secondary)", background: "var(--hover-bg)" }
+            }>
               {(pressureMode || isSprintMode) ? (
                 <span className="flex items-center gap-1">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -1293,7 +1293,7 @@ function QuizContent() {
           <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
             <div className="flex items-center gap-2 flex-wrap">
               {/* Question Number Badge */}
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#E8EAFF] text-[#3242CC] text-xs font-semibold">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold" style={{ background: "rgba(66, 85, 255, 0.15)", color: "#4255FF" }}>
                 Q {currentQuestion + 1}/{quizData.questions.length}
               </span>
 
@@ -1328,9 +1328,17 @@ function QuizContent() {
             {/* Report Button */}
             <button
               onClick={() => setReportQuestion(question)}
-              className="p-2 rounded-lg hover:bg-red-50 hover:text-red-500 transition-colors"
+              className="p-2 rounded-lg transition-colors"
               style={{ color: "var(--muted)" }}
               title="Report issue"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(239, 68, 68, 0.15)";
+                e.currentTarget.style.color = "#ef4444";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = "var(--muted)";
+              }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
