@@ -256,6 +256,7 @@ export default function EmailWritingPage() {
       prompts={emailPrompts}
       categories={["Professional", "Casual"]}
       showCategories={true}
+      backPath="/english/real-world/email-writing"
     />
   );
 }

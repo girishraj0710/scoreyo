@@ -172,6 +172,7 @@ export default function EssayWritingPage() {
       prompts={essayPrompts}
       categories={["Opinion", "Discussion", "Problem-Solution", "Advantages-Disadvantages", "Argumentative"]}
       showCategories={true}
+      backPath="/english/foundation/essay-writing"
     />
   );
 }

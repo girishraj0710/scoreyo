@@ -141,6 +141,7 @@ export default function ParagraphWritingPage() {
       prompts={paragraphPrompts}
       categories={["Descriptive", "Narrative", "Expository", "Persuasive", "Compare & Contrast"]}
       showCategories={true}
+      backPath="/english/foundation/paragraph-writing"
     />
   );
 }

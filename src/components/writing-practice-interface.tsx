@@ -21,6 +21,7 @@ interface WritingPracticeInterfaceProps {
   prompts: WritingPrompt[];
   categories?: string[];
   showCategories?: boolean;
+  backPath?: string;
 }
 
 export default function WritingPracticeInterface({
@@ -29,6 +30,7 @@ export default function WritingPracticeInterface({
   prompts,
   categories = [],
   showCategories = false,
+  backPath = "/english",
 }: WritingPracticeInterfaceProps) {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string>(categories[0] || "all");
@@ -60,7 +62,7 @@ export default function WritingPracticeInterface({
               <p className="text-[var(--foreground-secondary)] mt-1">{description}</p>
             </div>
             <button
-              onClick={() => router.back()}
+              onClick={() => router.push(backPath)}
               className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] font-medium transition"
             >
               ← Back

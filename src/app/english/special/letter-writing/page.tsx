@@ -181,6 +181,7 @@ export default function LetterWritingPage() {
       prompts={letterPrompts}
       categories={["Formal", "Informal"]}
       showCategories={true}
+      backPath="/english/foundation/letter-writing"
     />
   );
 }
