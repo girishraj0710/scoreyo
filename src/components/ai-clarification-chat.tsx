@@ -154,12 +154,12 @@ export function AIClarificationChat({
               key={i}
               onClick={() => handleQuickQuestion(q)}
               className="text-xs px-3 py-1.5 rounded-full border transition-colors"
-              style={{ background: "var(--card-bg)", borderColor: "rgba(66, 85, 255, 0.3)", color: "#4255FF" }}
+              style={{ background: "rgba(66, 85, 255, 0.15)", borderColor: "rgba(66, 85, 255, 0.3)", color: "#4255FF" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.1)";
+                e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.25)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.15)";
               }}
             >
               {q}

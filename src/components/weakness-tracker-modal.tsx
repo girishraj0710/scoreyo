@@ -18,7 +18,8 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       title: 'Calculation Error',
       description: 'Made a math mistake or arithmetic error',
       color: 'bg-red-50 border-red-300 hover:bg-red-100',
-      iconColor: 'text-red-600'
+      iconColor: 'text-red-600',
+      bgStyle: { background: 'rgba(239, 68, 68, 0.1)', borderColor: 'rgba(239, 68, 68, 0.3)' }
     },
     {
       id: 'concept' as const,
@@ -26,7 +27,8 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       title: 'Concept Unclear',
       description: 'Didn\'t understand the fundamental concept',
       color: 'bg-purple-50 border-purple-300 hover:bg-slate-100',
-      iconColor: 'text-slate-500'
+      iconColor: 'text-slate-500',
+      bgStyle: { background: 'rgba(168, 85, 247, 0.1)', borderColor: 'rgba(168, 85, 247, 0.3)' }
     },
     {
       id: 'time' as const,
@@ -34,15 +36,17 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       title: 'Ran Out of Time',
       description: 'Knew the answer but couldn\'t finish in time',
       color: 'bg-amber-50 border-amber-300 hover:bg-amber-100',
-      iconColor: 'text-amber-600'
+      iconColor: 'text-amber-600',
+      bgStyle: { background: 'rgba(251, 146, 60, 0.1)', borderColor: 'rgba(251, 146, 60, 0.3)' }
     },
     {
       id: 'careless' as const,
       IconComponent: AlertCircle,
       title: 'Careless Mistake',
       description: 'Misread question or clicked wrong option',
-      color: 'bg-[var(--primary-bg)] border-slate-300 hover:bg-[#E8EAFF]',
-      iconColor: 'text-[#4255FF]'
+      color: 'bg-indigo-50 border-indigo-300 hover:bg-indigo-100',
+      iconColor: 'text-[#4255FF]',
+      bgStyle: { background: 'rgba(66, 85, 255, 0.15)', borderColor: 'rgba(66, 85, 255, 0.3)' }
     }
   ];
 
@@ -62,10 +66,10 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-slate-800 mb-2">
+          <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
             What went wrong?
           </h3>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
             Help us understand your mistake pattern to give you better recommendations
           </p>
         </div>
@@ -75,20 +79,33 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
             <button
               key={type.id}
               onClick={() => handleSelect(type.id)}
-              className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+              className="w-full text-left p-4 rounded-xl border-2 transition-all"
+              style={
                 selected === type.id
-                  ? 'ring-2 ring-indigo-500 ring-offset-2'
-                  : type.color
-              }`}
+                  ? { background: type.bgStyle.background, borderColor: type.bgStyle.borderColor, boxShadow: '0 0 0 3px var(--card-bg), 0 0 0 5px #4255FF' }
+                  : { ...type.bgStyle }
+              }
+              onMouseEnter={(e) => {
+                if (selected !== type.id) {
+                  e.currentTarget.style.background = type.bgStyle.background;
+                  e.currentTarget.style.opacity = '0.8';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (selected !== type.id) {
+                  e.currentTarget.style.background = type.bgStyle.background;
+                  e.currentTarget.style.opacity = '1';
+                }
+              }}
             >
               <div className="flex items-start gap-3">
                 <type.IconComponent className={`w-6 h-6 shrink-0 ${type.iconColor}`} />
                 <div className="flex-1">
-                  <div className="font-semibold text-slate-800 mb-0.5">{type.title}</div>
-                  <div className="text-xs text-slate-600">{type.description}</div>
+                  <div className="font-semibold mb-0.5" style={{ color: "var(--foreground)" }}>{type.title}</div>
+                  <div className="text-xs" style={{ color: "var(--foreground-secondary)" }}>{type.description}</div>
                 </div>
                 {selected === type.id && (
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-[var(--primary-bg)]0 flex items-center justify-center">
+                  <span className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#4255FF' }}>
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
@@ -101,13 +118,25 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
 
         <button
           onClick={onSkip}
-          className="w-full px-4 py-2.5 text-sm font-medium text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors"
+          className="w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-colors"
+          style={{
+            color: "var(--foreground-secondary)",
+            background: "var(--hover-bg)"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(0, 0, 0, 0.1)";
+            e.currentTarget.style.color = "var(--foreground)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "var(--hover-bg)";
+            e.currentTarget.style.color = "var(--foreground-secondary)";
+          }}
         >
           Skip for now
         </button>
 
         <div className="mt-4 text-center">
-          <div className="text-xs text-slate-500 flex items-center justify-center gap-1">
+          <div className="text-xs flex items-center justify-center gap-1" style={{ color: "var(--muted)" }}>
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
             </svg>

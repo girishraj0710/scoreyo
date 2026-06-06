@@ -1329,7 +1329,7 @@ function QuizContent() {
             <button
               onClick={() => setReportQuestion(question)}
               className="p-2 rounded-lg transition-colors"
-              style={{ color: "var(--muted)" }}
+              style={{ color: "var(--foreground-secondary)" }}
               title="Report issue"
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = "rgba(239, 68, 68, 0.15)";
@@ -1337,7 +1337,7 @@ function QuizContent() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "var(--muted)";
+                e.currentTarget.style.color = "var(--foreground-secondary)";
               }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
