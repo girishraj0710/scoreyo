@@ -1500,10 +1500,22 @@ export default function MockTestPage() {
             })()}
 
             {/* Footer Actions */}
-            <div className="sticky bottom-0 bg-white border-t border-[var(--card-border)] px-6 py-4 flex items-center justify-between">
+            <div className="sticky bottom-0 border-t px-6 py-4 flex items-center justify-between" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
               <button
                 onClick={() => setShowExamModal(false)}
-                className="px-6 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+                className="px-6 py-2 rounded-lg font-medium transition-colors"
+                style={{
+                  color: "var(--foreground-secondary)",
+                  background: "transparent"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                  e.currentTarget.style.color = "var(--foreground)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = "var(--foreground-secondary)";
+                }}
               >
                 Cancel
               </button>
