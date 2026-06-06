@@ -875,6 +875,70 @@ export default function MockTestPage() {
             </button>
           </div>
         )}
+
+        {/* Exit Confirmation Modal */}
+        {showExitConfirmation && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
+            <div className="bg-[var(--card-bg)] rounded-2xl p-6 max-w-sm w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+              <div className="flex justify-center mb-4">
+                <svg className="w-12 h-12 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4v2m0 6v0m0-11V3m0 0L9 6m3-3l3 3" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-center mb-2" style={{ color: "var(--foreground)" }}>
+                Exit Test?
+              </h3>
+              <p className="text-sm text-center mb-6" style={{ color: "var(--foreground-secondary)" }}>
+                Your progress will be lost if you exit now.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowExitConfirmation(false)}
+                  className="flex-1 px-4 py-2.5 rounded-lg font-medium transition-colors"
+                  style={{
+                    background: "var(--hover-bg)",
+                    color: "var(--foreground-secondary)"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(0, 0, 0, 0.1)";
+                    e.currentTarget.style.color = "var(--foreground)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "var(--hover-bg)";
+                    e.currentTarget.style.color = "var(--foreground-secondary)";
+                  }}
+                >
+                  Continue Test
+                </button>
+                <button
+                  onClick={() => {
+                    setShowExitConfirmation(false);
+                    setPageState("select");
+                    setQuestions([]);
+                    setAnswers([]);
+                    setCurrentQuestion(0);
+                    setTimeRemaining(0);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="flex-1 px-4 py-2.5 text-white font-medium rounded-lg transition-all"
+                  style={{
+                    backgroundColor: "#ef4444"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#dc2626";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(239, 68, 68, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#ef4444";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  Exit
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -1547,70 +1611,6 @@ export default function MockTestPage() {
           onClose={() => setShowCustomBuilder(false)}
           onCreateTest={startCustomTest}
         />
-      )}
-
-      {/* Exit Confirmation Modal */}
-      {showExitConfirmation && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
-          <div className="bg-[var(--card-bg)] rounded-2xl p-6 max-w-sm w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300" style={{ borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-            <div className="flex justify-center mb-4">
-              <svg className="w-12 h-12 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4v2m0 6v0m0-11V3m0 0L9 6m3-3l3 3" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-bold text-center mb-2" style={{ color: "var(--foreground)" }}>
-              Exit Test?
-            </h3>
-            <p className="text-sm text-center mb-6" style={{ color: "var(--foreground-secondary)" }}>
-              Your progress will be lost if you exit now.
-            </p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowExitConfirmation(false)}
-                className="flex-1 px-4 py-2.5 rounded-lg font-medium transition-colors"
-                style={{
-                  background: "var(--hover-bg)",
-                  color: "var(--foreground-secondary)"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.1)";
-                  e.currentTarget.style.color = "var(--foreground)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "var(--hover-bg)";
-                  e.currentTarget.style.color = "var(--foreground-secondary)";
-                }}
-              >
-                Continue Test
-              </button>
-              <button
-                onClick={() => {
-                  setShowExitConfirmation(false);
-                  setPageState("select");
-                  setQuestions([]);
-                  setAnswers([]);
-                  setCurrentQuestion(0);
-                  setTimeRemaining(0);
-                  window.scrollTo(0, 0);
-                }}
-                className="flex-1 px-4 py-2.5 text-white font-medium rounded-lg transition-all"
-                style={{
-                  backgroundColor: "#ef4444"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#dc2626";
-                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(239, 68, 68, 0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ef4444";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                Exit
-              </button>
-            </div>
-          </div>
-        </div>
       )}
     </div>
     </AccessibilityWrapper>
