@@ -367,7 +367,6 @@ export default function SettingsPage() {
               </div>
             </div>
           )}
-        </div>
 
           {/* Save Button */}
           <div className="pt-2">
