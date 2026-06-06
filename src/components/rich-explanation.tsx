@@ -23,7 +23,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   if (typeof explanation === 'string') {
     return (
       <div className="mt-6 space-y-4" aria-live="polite" role="region" aria-label="Question explanation">
-        <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+        <div className="p-4 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
           <div className="flex items-center gap-2 mb-2">
             <span className="text-[#4255FF] font-semibold text-sm">💡 Explanation</span>
           </div>
@@ -46,7 +46,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
   return (
     <div className="mt-6 space-y-4" aria-live="polite" role="region" aria-label="Detailed question explanation">
       {/* Core Logic */}
-      <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+      <div className="p-4 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
         <div className="flex items-center gap-2 mb-2">
           <span className="text-lg">💡</span>
           <span className="text-emerald-700 font-semibold text-sm">Core Concept</span>
@@ -56,7 +56,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
 
       {/* Formula & Calculation (if numerical) */}
       {explanation.formula && (
-        <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+        <div className="p-4 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
           <div className="flex items-center gap-2 mb-2">
             <span className="text-lg">📐</span>
             <span className="text-[#3242CC] font-semibold text-sm">Formula</span>
