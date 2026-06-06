@@ -115,15 +115,31 @@ export function ModernQuizCard({
                   w-full flex items-start gap-4 p-5 rounded-2xl border-2 text-left transition-all
                   ${
                     showExplanation && isCorrect
-                      ? "border-green-400 bg-green-50 shadow-lg shadow-green-100"
+                      ? "border-green-400 shadow-lg shadow-green-100"
                       : isWrong
-                      ? "border-red-400 bg-red-50 shadow-lg shadow-red-100"
+                      ? "border-red-400 shadow-lg shadow-red-100"
                       : isSelected
-                      ? "border-[#4255FF] bg-[#E8EAFF] shadow-lg shadow-indigo-100"
-                      : "border-slate-200 bg-white hover:border-[#90CAF9] hover:bg-slate-50 shadow-sm"
+                      ? "border-[#4255FF] shadow-lg shadow-indigo-100"
+                      : "border-slate-200 hover:border-[#90CAF9] shadow-sm"
                   }
                   ${showExplanation ? "cursor-default" : "cursor-pointer"}
                 `}
+                style={{
+                  background: showExplanation && isCorrect
+                    ? "rgb(220, 252, 231)"
+                    : isWrong
+                    ? "rgb(254, 226, 226)"
+                    : isSelected
+                    ? "#E8EAFF"
+                    : "white",
+                  color: showExplanation && isCorrect
+                    ? "#166534"
+                    : isWrong
+                    ? "#7f1d1d"
+                    : isSelected
+                    ? "#1e3a8a"
+                    : "#1f2937"
+                }}
               >
                 {/* Option Letter Circle */}
                 <span
@@ -144,7 +160,7 @@ export function ModernQuizCard({
                 </span>
 
                 {/* Option Text - BETTER TYPOGRAPHY */}
-                <span className="flex-1 text-lg text-slate-800 leading-relaxed pt-1.5">
+                <span className="flex-1 text-lg leading-relaxed pt-1.5" style={{ color: "inherit" }}>
                   {option}
                 </span>
 
