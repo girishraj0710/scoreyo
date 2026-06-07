@@ -244,7 +244,7 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-2.25C3.504 16.5 3 15.996 3 15.375v-2.25zM9.75 12c-.621 0-1.125.504-1.125 1.125v2.25c0 .621.504 1.125 1.125 1.125h2.25c.621 0 1.125-.504 1.125-1.125v-2.25c0-.621-.504-1.125-1.125-1.125h-2.25zM15.75 12c-.621 0-1.125.504-1.125 1.125v2.25c0 .621.504 1.125 1.125 1.125h2.25c.621 0 1.125-.504 1.125-1.125v-2.25c0-.621-.504-1.125-1.125-1.125h-2.25zM4.125 18.75h2.25c.621 0 1.125.504 1.125 1.125V21c0 .621-.504 1.125-1.125 1.125h-2.25C3.504 22.125 3 21.621 3 21v-1.125c0-.621.504-1.125 1.125-1.125zm11.625 0h2.25c.621 0 1.125.504 1.125 1.125V21c0 .621-.504 1.125-1.125 1.125h-2.25c-.621 0-1.125-.504-1.125-1.125v-1.125c0-.621.504-1.125 1.125-1.125z" />
                         </svg>
                         Dashboard
                       </Link>
@@ -270,7 +270,7 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3c.967 0 1.93.02 2.887.06C16.823 3.456 19.5 6.36 19.5 10v3h2.25c1.105 0 2.25.9 2.25 2.25v3.75a2.25 2.25 0 01-2.25 2.25H2.25A2.25 2.25 0 010 18.75v-3.75c0-1.35 1.145-2.25 2.25-2.25H4.5V10c0-3.64 2.677-6.544 6.613-6.94A9.99 9.99 0 0112 3z" />
                         </svg>
                         Achievements
                       </Link>
