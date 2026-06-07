@@ -43,6 +43,8 @@ export default function StudyMaterialsPage() {
   const [error, setError] = useState('');
   const [downloadingIds, setDownloadingIds] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
+  const [filteredExams, setFilteredExams] = useState<any[]>([]);
+  const [filteredSubjects, setFilteredSubjects] = useState<any[]>([]);
 
   const exams = getAllExams();
   const selectedExamObj = selectedExam ? getExamById(selectedExam) : null;
@@ -56,6 +58,34 @@ export default function StudyMaterialsPage() {
   const subjectName = selectedSubject
     ? subjects.find((s) => s.id === selectedSubject)?.name
     : null;
+
+  // Filter exams based on search query
+  useEffect(() => {
+    if (step === 'exam' && searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      setFilteredExams(
+        exams.filter((e) =>
+          e.name.toLowerCase().includes(query)
+        )
+      );
+    } else {
+      setFilteredExams([]);
+    }
+  }, [searchQuery, step, exams]);
+
+  // Filter subjects based on search query
+  useEffect(() => {
+    if (step === 'subject' && searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      setFilteredSubjects(
+        subjects.filter((s) =>
+          s.name.toLowerCase().includes(query)
+        )
+      );
+    } else {
+      setFilteredSubjects([]);
+    }
+  }, [searchQuery, step, subjects]);
 
   // Filter materials based on search query
   useEffect(() => {
@@ -160,25 +190,22 @@ export default function StudyMaterialsPage() {
         {/* Search Bar - Always Visible */}
         {(step === 'exam' || step === 'subject') && (
           <div className="mb-8">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: "var(--muted)" }} />
-              <input
-                type="text"
-                placeholder="🔍 Quick search materials..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-xl border transition-colors"
-                style={{
-                  background: "var(--card-bg)",
-                  borderColor: "var(--card-border)",
-                  borderWidth: "1px",
-                  borderStyle: "solid",
-                  color: "var(--foreground)"
-                }}
-                onFocus={(e) => (e.target.style.borderColor = "#4255FF")}
-                onBlur={(e) => (e.target.style.borderColor = "var(--card-border)")}
-              />
-            </div>
+            <input
+              type="text"
+              placeholder={step === 'exam' ? 'Search exams...' : 'Search subjects...'}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border transition-colors"
+              style={{
+                background: "var(--card-bg)",
+                borderColor: "var(--card-border)",
+                borderWidth: "1px",
+                borderStyle: "solid",
+                color: "var(--foreground)"
+              }}
+              onFocus={(e) => (e.target.style.borderColor = "#4255FF")}
+              onBlur={(e) => (e.target.style.borderColor = "var(--card-border)")}
+            />
           </div>
         )}
 
@@ -216,8 +243,8 @@ export default function StudyMaterialsPage() {
         {step === 'exam' && (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Exam</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {exams.map((exam) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {(filteredExams.length > 0 ? filteredExams : exams).map((exam) => (
                 <button
                   key={exam.id}
                   onClick={() => {
@@ -225,7 +252,7 @@ export default function StudyMaterialsPage() {
                     setSelectedSubject(null);
                     setStep('subject');
                   }}
-                  className="p-4 text-left rounded-lg border transition-all cursor-pointer flex items-center gap-3"
+                  className="p-5 text-left rounded-xl border transition-all cursor-pointer flex items-center gap-4"
                   style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-2px)";
@@ -239,17 +266,22 @@ export default function StudyMaterialsPage() {
                   }}
                 >
                   <div className="flex-shrink-0">
-                    <ColorfulExamIcon examId={exam.id} size={40} />
+                    <ColorfulExamIcon examId={exam.id} size={56} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-sm" style={{ color: "var(--foreground)" }}>{exam.name}</p>
-                    <p className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>
+                    <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
+                    <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
                       {exam.subjects.length} subjects
                     </p>
                   </div>
                 </button>
               ))}
             </div>
+            {searchQuery.trim() && filteredExams.length === 0 && (
+              <div className="text-center py-8">
+                <p style={{ color: "var(--muted)" }}>No exams found matching "{searchQuery}"</p>
+              </div>
+            )}
           </div>
         )}
 
@@ -257,7 +289,7 @@ export default function StudyMaterialsPage() {
         {step === 'subject' && examName && (
           <div className="space-y-6">
             <div className="flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background: "rgba(66, 85, 255, 0.1)", borderLeft: "4px solid #4255FF" }}>
-              <FileText className="w-5 h-5 flex-shrink-0" style={{ color: "#4255FF" }} />
+              <FileText className="w-6 h-6 flex-shrink-0" style={{ color: "#4255FF" }} />
               <p style={{ color: "var(--foreground)" }}>
                 Selected: <span className="font-semibold">{examName}</span>
               </p>
@@ -265,15 +297,15 @@ export default function StudyMaterialsPage() {
 
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Subject</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {subjects.map((subject) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {(filteredSubjects.length > 0 ? filteredSubjects : subjects).map((subject) => (
                 <button
                   key={subject.id}
                   onClick={() => {
                     setSelectedSubject(subject.id);
                     setStep('materials');
                   }}
-                  className="p-4 text-left rounded-lg border transition-all cursor-pointer flex items-center gap-3"
+                  className="p-5 text-left rounded-xl border transition-all cursor-pointer flex items-center gap-4"
                   style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-2px)";
@@ -287,17 +319,24 @@ export default function StudyMaterialsPage() {
                   }}
                 >
                   <div className="flex-shrink-0">
-                    <ColorfulSubjectIcon subjectId={subject.id} size={40} />
+                    <ColorfulSubjectIcon subjectId={subject.id} size={56} />
                   </div>
-                  <p className="font-semibold text-sm" style={{ color: "var(--foreground)" }}>{subject.name}</p>
+                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
                 </button>
               ))}
             </div>
+
+            {searchQuery.trim() && filteredSubjects.length === 0 && (
+              <div className="text-center py-8">
+                <p style={{ color: "var(--muted)" }}>No subjects found matching "{searchQuery}"</p>
+              </div>
+            )}
 
             <button
               onClick={() => {
                 setSelectedExam(null);
                 setStep('exam');
+                setSearchQuery('');
               }}
               className="font-medium"
               style={{ color: "#4255FF" }}
@@ -320,25 +359,22 @@ export default function StudyMaterialsPage() {
             </div>
 
             {/* Search Bar */}
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: "var(--muted)" }} />
-              <input
-                type="text"
-                placeholder="Search materials by title, description, or contributor..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-xl border transition-colors"
-                style={{
-                  background: "var(--card-bg)",
-                  borderColor: "var(--card-border)",
-                  borderWidth: "1px",
-                  borderStyle: "solid",
-                  color: "var(--foreground)"
-                }}
-                onFocus={(e) => (e.target.style.borderColor = "#4255FF")}
-                onBlur={(e) => (e.target.style.borderColor = "var(--card-border)")}
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="Search materials..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-5 py-3 rounded-xl border transition-colors text-base"
+              style={{
+                background: "var(--card-bg)",
+                borderColor: "var(--card-border)",
+                borderWidth: "1px",
+                borderStyle: "solid",
+                color: "var(--foreground)"
+              }}
+              onFocus={(e) => (e.target.style.borderColor = "#4255FF")}
+              onBlur={(e) => (e.target.style.borderColor = "var(--card-border)")}
+            />
 
             {/* Error Message */}
             {error && (
@@ -394,7 +430,7 @@ export default function StudyMaterialsPage() {
                 {filteredMaterials.map((material) => (
                   <div
                     key={material.id}
-                    className="rounded-xl p-6 border transition-all"
+                    className="rounded-xl p-7 border transition-all"
                     style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
@@ -405,42 +441,42 @@ export default function StudyMaterialsPage() {
                       e.currentTarget.style.borderColor = "var(--card-border)";
                     }}
                   >
-                    <div className="flex flex-col md:flex-row md:items-start gap-4">
+                    <div className="flex flex-col md:flex-row md:items-start gap-5">
                       {/* Content */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-start gap-3">
-                          <div className="px-2 py-1 rounded text-xs font-bold flex-shrink-0" style={{ background: "rgba(66, 85, 255, 0.1)", color: "#4255FF" }}>
+                        <div className="flex items-start gap-4">
+                          <div className="px-3 py-2 rounded font-bold flex-shrink-0" style={{ background: "rgba(66, 85, 255, 0.1)", color: "#4255FF" }}>
                             {getFileIcon(material.file_type)}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold truncate" style={{ color: "var(--foreground)" }}>
+                            <h3 className="font-semibold text-lg truncate" style={{ color: "var(--foreground)" }}>
                               {material.title}
                             </h3>
                             {material.description && (
-                              <p className="text-sm mt-1 line-clamp-2" style={{ color: "var(--muted)" }}>
+                              <p className="text-sm mt-2 line-clamp-2" style={{ color: "var(--muted)" }}>
                                 {material.description}
                               </p>
                             )}
 
                             {/* Stats */}
-                            <div className="flex flex-wrap gap-4 mt-3 text-xs" style={{ color: "var(--muted)" }}>
-                              <div className="flex items-center gap-1">
-                                <HardDrive className="w-4 h-4" />
+                            <div className="flex flex-wrap gap-5 mt-4 text-sm" style={{ color: "var(--muted)" }}>
+                              <div className="flex items-center gap-2">
+                                <HardDrive className="w-5 h-5" />
                                 {getFileSizeFormatted(material.file_size)}
                               </div>
-                              <div className="flex items-center gap-1">
-                                <Download className="w-4 h-4" />
+                              <div className="flex items-center gap-2">
+                                <Download className="w-5 h-5" />
                                 {material.download_count} download
                                 {material.download_count !== 1 ? 's' : ''}
                               </div>
-                              <div className="flex items-center gap-1">
-                                <Calendar className="w-4 h-4" />
+                              <div className="flex items-center gap-2">
+                                <Calendar className="w-5 h-5" />
                                 {formatDate(material.created_at)}
                               </div>
                             </div>
 
                             {/* Contributor */}
-                            <p className="text-xs mt-2" style={{ color: "var(--card-border)" }}>
+                            <p className="text-sm mt-3" style={{ color: "var(--card-border)" }}>
                               By <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>{material.contributor_name}</span>
                             </p>
                           </div>
@@ -451,7 +487,7 @@ export default function StudyMaterialsPage() {
                       <button
                         onClick={() => handleDownload(material.id)}
                         disabled={downloadingIds.has(material.id)}
-                        className="px-6 py-2 text-white rounded-lg font-medium flex items-center gap-2 transition-all flex-shrink-0 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-7 py-3 text-white rounded-lg font-medium flex items-center gap-2 transition-all flex-shrink-0 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{ backgroundColor: downloadingIds.has(material.id) ? "#9ca3af" : "#4255FF" }}
                         onMouseEnter={(e) => {
                           if (!downloadingIds.has(material.id)) {
@@ -466,12 +502,12 @@ export default function StudyMaterialsPage() {
                       >
                         {downloadingIds.has(material.id) ? (
                           <>
-                            <Loader className="w-4 h-4 animate-spin" />
+                            <Loader className="w-5 h-5 animate-spin" />
                             Downloading...
                           </>
                         ) : (
                           <>
-                            <Download className="w-4 h-4" />
+                            <Download className="w-5 h-5" />
                             Download
                           </>
                         )}
