@@ -246,9 +246,12 @@ export function AppHeader() {
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
                           <rect x="2" y="3" width="20" height="14" rx="1" strokeWidth={1.2} />
                           <line x1="2" y1="6" x2="22" y2="6" strokeWidth={1.2} />
-                          <rect x="5" y="8" width="1.5" height="6" strokeWidth={1.2} />
-                          <rect x="8" y="7" width="1.5" height="7" strokeWidth={1.2} />
-                          <rect x="11" y="6" width="1.5" height="8" strokeWidth={1.2} />
+                          <circle cx="6" cy="10" r="2" strokeWidth={1.2} />
+                          <path d="M6 12v1M8 11l1 1M7 13l1-2" strokeWidth={1.2} strokeLinecap="round" />
+                          <rect x="11" y="9" width="1" height="4" strokeWidth={1.2} />
+                          <rect x="13" y="8" width="1" height="5" strokeWidth={1.2} />
+                          <rect x="15" y="7" width="1" height="6" strokeWidth={1.2} />
+                          <polyline points="18,12 19,10 20,11 21,9" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         Dashboard
                       </Link>
@@ -274,7 +277,11 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 8h12M6 8c-1 0-1.5.5-1.5 1.5v2c0 1 1 1.5 1.5 2h12c.5-.5 1.5-1 1.5-2v-2c0-1-.5-1.5-1.5-1.5M9 12c0 1.5.5 2 3 2s3-.5 3-2M10 14h4M11 16h2M11 18h2" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 7c0-.55.45-1 1-1h10c.55 0 1 .45 1 1" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M7 7h10v2H7z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M8 9h2v4H8zM14 9h2v4h-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M10 9h4v6c0 1.1-.9 2-2 2s-2-.9-2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M10 17h4M11 19h2" />
                         </svg>
                         Achievements
                       </Link>
