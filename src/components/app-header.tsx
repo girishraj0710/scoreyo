@@ -10,6 +10,7 @@ import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
 import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriangle, FileText } from "lucide-react";
+import { Icon3DGraduationCap } from "./premium-3d-icons";
 
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
@@ -87,8 +88,8 @@ export function AppHeader() {
             {/* For Contributors - Show Contributor Portal */}
             {user && ['contributor', 'admin'].includes(user.role || '') ? (
               <>
-                <Link href="/contributor" className={navLinkClass("/contributor")} style={navLinkStyle("/contributor")} {...navHoverProps("/contributor")}>
-                  👨‍🏫 Contributor Portal
+                <Link href="/contributor" className={navLinkClass("/contributor")} style={navLinkStyle("/contributor")} {...navHoverProps("/contributor")} title="Contributor Portal">
+                  <Icon3DGraduationCap size={20} />
                 </Link>
                 {/* My Submissions link removed - available as tab on main page */}
               </>
@@ -212,7 +213,9 @@ export function AppHeader() {
                   <div className="sm:hidden" style={{ borderBottom: '1px solid var(--divider)' }}>
                     {user.role && ['contributor', 'contributor', 'admin'].includes(user.role) ? (
                       <>
-                        <Link href="/contributor" className={mobileNavLinkClass("/contributor")} onClick={() => setShowMenu(false)}>👨‍🏫 Contributor Portal</Link>
+                        <Link href="/contributor" className={mobileNavLinkClass("/contributor")} onClick={() => setShowMenu(false)} title="Contributor Portal" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <Icon3DGraduationCap size={20} /> Contributor Portal
+                        </Link>
                         {/* My Submissions link removed - available as tab on main page */}
                       </>
                     ) : (
