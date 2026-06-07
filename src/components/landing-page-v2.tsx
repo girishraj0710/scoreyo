@@ -220,11 +220,11 @@ export function LandingPageV2() {
   ];
 
   return (
-    <div className="min-h-screen font-sans" style={{ background: "var(--primary-bg)" }} data-version="v101-varied-icons">
+    <div className="min-h-screen font-sans" style={{ background: "#f8fafc" }} data-version="v101-varied-icons">
       {/* Header with Exams Dropdown - Quizlet Style */}
-      <header className="sticky top-0 z-50" style={{ background: "var(--card-bg)", borderBottomColor: "var(--card-border)", borderBottomWidth: "1px", borderBottomStyle: "solid" }}>
+      <header className="sticky top-0 z-50" style={{ background: "white", borderBottomColor: "#e2e8f0", borderBottomWidth: "1px", borderBottomStyle: "solid" }}>
         {/* Top Bar - Badge */}
-        <div className="border-b border-indigo-100" style={{ background: "var(--primary-bg)" }}>
+        <div className="border-b border-indigo-100" style={{ background: "#f8fafc" }}>
           <div className="max-w-7xl mx-auto px-6 py-2">
             <div className="flex items-center justify-center gap-2">
               <Sparkles className="w-4 h-4 text-indigo-600" />
@@ -242,7 +242,7 @@ export function LandingPageV2() {
               <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#4F46E5' }}>
                 <span className="text-white font-semibold text-xl">P</span>
               </div>
-              <span className="font-semibold text-xl" style={{ color: "var(--foreground)" }}>PrepGenie</span>
+              <span className="font-semibold text-xl" style={{ color: "#0f172a" }}>PrepGenie</span>
             </div>
 
             {/* Exams Dropdown */}
@@ -250,8 +250,8 @@ export function LandingPageV2() {
               <button
                 onClick={() => setShowExamsDropdown(!showExamsDropdown)}
                 className="flex items-center gap-1.5 px-3 py-2 font-semibold text-base rounded-lg transition-colors"
-                style={{ color: "var(--foreground)", background: "transparent" }}
-                onMouseEnter={(e) => e.currentTarget.style.background = "var(--primary-bg)"}
+                style={{ color: "#0f172a", background: "transparent" }}
+                onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"}
                 onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
               >
                 <span>Exams</span>
@@ -260,9 +260,9 @@ export function LandingPageV2() {
 
               {/* Mega Menu Dropdown */}
               {showExamsDropdown && (
-                <div className="absolute top-full left-0 mt-2 rounded-xl shadow-2xl overflow-hidden flex" style={{ width: '720px', maxHeight: '500px', background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+                <div className="absolute top-full left-0 mt-2 rounded-xl shadow-2xl overflow-hidden flex" style={{ width: '720px', maxHeight: '500px', background: "white", borderColor: "#e2e8f0", borderWidth: "1px", borderStyle: "solid" }}>
                   {/* Left Panel - Category List */}
-                  <div className="w-64 overflow-y-auto" style={{ background: "var(--primary-bg)", borderRightColor: "var(--card-border)", borderRightWidth: "1px", borderRightStyle: "solid" }}>
+                  <div className="w-64 overflow-y-auto" style={{ background: "#f8fafc", borderRightColor: "#e2e8f0", borderRightWidth: "1px", borderRightStyle: "solid" }}>
                     <div className="py-2">
                       {examCategories.map((category) => (
                         <button
@@ -271,8 +271,8 @@ export function LandingPageV2() {
                           onClick={() => setSelectedCategory(category.id)}
                           className={`w-full text-left px-4 py-3 transition-colors flex items-start justify-between group ${
                             selectedCategory === category.id
-                              ? 'bg-[var(--card-bg)] text-slate-900 border-l-4 border-blue-500'
-                              : 'text-slate-700 hover:bg-[var(--card-bg)] border-l-4 border-transparent'
+                              ? 'bg-[white] text-slate-900 border-l-4 border-blue-500'
+                              : 'text-slate-700 hover:bg-[white] border-l-4 border-transparent'
                           }`}
                         >
                           <div className="flex-1">
@@ -290,7 +290,7 @@ export function LandingPageV2() {
                   </div>
 
                   {/* Right Panel - Exam Grid */}
-                  <div className="flex-1 bg-[var(--card-bg)] p-5 overflow-y-auto max-h-[500px]">
+                  <div className="flex-1 bg-[white] p-5 overflow-y-auto max-h-[500px]">
                     {selectedCategory ? (
                       <>
                         <h3 className="font-bold text-slate-900 mb-4 text-base">
@@ -306,7 +306,7 @@ export function LandingPageV2() {
                                   setShowExamsDropdown(false);
                                   setShowLoginModal(true);
                                 }}
-                                className="flex items-center gap-3 p-2.5 rounded-lg border border-[var(--card-border)] hover:border-blue-400 hover:bg-blue-50 transition-all group"
+                                className="flex items-center gap-3 p-2.5 rounded-lg border border-[#e2e8f0] hover:border-blue-400 hover:bg-blue-50 transition-all group"
                               >
                                 <ColorfulExamIcon examId={exam.id} size={56} />
                                 <div className="flex-1 text-left">
@@ -340,13 +340,13 @@ export function LandingPageV2() {
                   setShowSearchDropdown(true);
                 }}
                 onFocus={() => setShowSearchDropdown(true)}
-                className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg border border-[var(--card-border)] focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 focus:outline-none transition-all bg-transparent hover:bg-[var(--card-bg)]"
+                className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg border border-[#e2e8f0] focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 focus:outline-none transition-all bg-transparent hover:bg-[white]"
               />
             </div>
 
             {/* Search Results Dropdown */}
             {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-[var(--card-bg)] rounded-xl shadow-2xl border border-[var(--card-border)] overflow-hidden z-50 max-h-[500px] overflow-y-auto">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-[white] rounded-xl shadow-2xl border border-[#e2e8f0] overflow-hidden z-50 max-h-[500px] overflow-y-auto">
                 {searchResults.map((result, index) => (
                   <button
                     key={index}
@@ -457,7 +457,7 @@ export function LandingPageV2() {
               {/* Left Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex - 1)}
-                className="hidden md:flex absolute left-0 top-[204px] z-20 w-14 h-14 bg-[var(--card-bg)] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[var(--card-border)]"
+                className="hidden md:flex absolute left-0 top-[204px] z-20 w-14 h-14 bg-[white] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[#e2e8f0]"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-800" />
               </button>
@@ -465,7 +465,7 @@ export function LandingPageV2() {
               {/* Right Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex + 1)}
-                className="hidden md:flex absolute right-0 top-[204px] z-20 w-14 h-14 bg-[var(--card-bg)] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[var(--card-border)]"
+                className="hidden md:flex absolute right-0 top-[204px] z-20 w-14 h-14 bg-[white] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[#e2e8f0]"
               >
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
@@ -481,7 +481,7 @@ export function LandingPageV2() {
                     >
                       <button
                         onClick={() => setShowLoginModal(true)}
-                        className="bg-[var(--card-bg)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
+                        className="bg-[white] rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
                       >
                         <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
                           <div className="relative w-full h-full flex items-center justify-center">
@@ -494,7 +494,7 @@ export function LandingPageV2() {
                             />
                           </div>
                         </div>
-                        <div className="p-4 flex-1 flex flex-col bg-[var(--card-bg)]">
+                        <div className="p-4 flex-1 flex flex-col bg-[white]">
                           <h3 className="text-base font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
                           <p className="text-slate-600 text-xs leading-relaxed mb-3 flex-1 text-center line-clamp-3">
                             {mode.desc}
@@ -530,7 +530,7 @@ export function LandingPageV2() {
                     >
                     <button
                       onClick={() => setShowLoginModal(true)}
-                      className="bg-[var(--card-bg)] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
+                      className="bg-[white] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
                       style={{
                         minHeight: '360px',
                         transform: 'translateY(0) scale(1)',
@@ -554,7 +554,7 @@ export function LandingPageV2() {
                           />
                         </div>
                       </div>
-                      <div className="p-5 flex-1 flex flex-col bg-[var(--card-bg)]">
+                      <div className="p-5 flex-1 flex flex-col bg-[white]">
                         <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
                         <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1 text-center line-clamp-3">
                           {mode.desc}
@@ -761,7 +761,7 @@ export function LandingPageV2() {
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-3 bg-[var(--card-bg)] text-[#4255FF] font-semibold text-base rounded-xl hover:bg-transparent hover:scale-105 transition-all shadow-xl"
+              className="px-8 py-3 bg-[white] text-[#4255FF] font-semibold text-base rounded-xl hover:bg-transparent hover:scale-105 transition-all shadow-xl"
             >
               Start Free Today
             </button>
@@ -820,7 +820,7 @@ export function LandingPageV2() {
                   key={`exam-1-${exam.id}`}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-[var(--card-bg)] rounded-2xl p-5 border border-[var(--card-border)] hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
+                  <div className="bg-[white] rounded-2xl p-5 border border-[#e2e8f0] hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
                     {/* External Link - Top Right */}
                     <a
                       href={exam.officialWebsite}
@@ -860,7 +860,7 @@ export function LandingPageV2() {
                   key={`exam-2-${exam.id}`}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-[var(--card-bg)] rounded-2xl p-5 border border-[var(--card-border)] hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
+                  <div className="bg-[white] rounded-2xl p-5 border border-[#e2e8f0] hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
                     {/* External Link - Top Right */}
                     <a
                       href={exam.officialWebsite}
@@ -900,7 +900,7 @@ export function LandingPageV2() {
           <div className="text-center mt-10">
             <button
               onClick={() => window.open('https://www.google.com/search?q=india+exam+calendar+2026', '_blank')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--card-bg)] text-indigo-600 font-semibold text-lg rounded-xl border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[white] text-indigo-600 font-semibold text-lg rounded-xl border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300"
             >
               View Full Exam Calendar
               <ArrowRight className="w-5 h-5" />
@@ -941,7 +941,7 @@ export function LandingPageV2() {
                   className="flex-shrink-0 snap-center"
                   style={{ width: 'calc(100vw - 64px)' }}
                 >
-                  <div className="bg-[var(--card-bg)] rounded-3xl p-6 border-2 border-[var(--card-border)] shadow-lg h-full">
+                  <div className="bg-[white] rounded-3xl p-6 border-2 border-[#e2e8f0] shadow-lg h-full">
                     <div className="flex gap-1 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
@@ -965,7 +965,7 @@ export function LandingPageV2() {
               <button
                 onClick={() => setReviewsPage(Math.max(0, reviewsPage - 1))}
                 disabled={reviewsPage === 0}
-                className="absolute -left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-[var(--card-bg)] rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-[var(--card-border)] flex items-center justify-center"
+                className="absolute -left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-[white] rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-[#e2e8f0] flex items-center justify-center"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-800" />
               </button>
@@ -974,7 +974,7 @@ export function LandingPageV2() {
               <button
                 onClick={() => setReviewsPage(Math.min(2, reviewsPage + 1))}
                 disabled={reviewsPage === 2}
-                className="absolute -right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-[var(--card-bg)] rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-[var(--card-border)] flex items-center justify-center"
+                className="absolute -right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-[white] rounded-full shadow-xl hover:shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110 border-2 border-[#e2e8f0] flex items-center justify-center"
               >
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
@@ -982,7 +982,7 @@ export function LandingPageV2() {
               {/* Testimonial Cards Grid */}
               <div className="grid md:grid-cols-3 gap-8">
                 {testimonials.slice(reviewsPage * 3, reviewsPage * 3 + 3).map((testimonial, idx) => (
-                  <div key={idx} className="bg-[var(--card-bg)] rounded-3xl p-8 border-2 border-[var(--card-border)] hover:shadow-xl transition-shadow">
+                  <div key={idx} className="bg-[white] rounded-3xl p-8 border-2 border-[#e2e8f0] hover:shadow-xl transition-shadow">
                     <div className="flex gap-1 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
@@ -1087,8 +1087,8 @@ export function LandingPageV2() {
       {/* Privacy Policy Modal */}
       {showPrivacyModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowPrivacyModal(false)}>
-          <div className="bg-[var(--card-bg)] rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
-            <div className="sticky top-0 bg-[var(--card-bg)] border-b border-[var(--card-border)] px-6 py-4 flex items-center justify-between z-10">
+          <div className="bg-[white] rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-[white] border-b border-[#e2e8f0] px-6 py-4 flex items-center justify-between z-10">
               <h2 className="text-2xl font-bold text-slate-900">Privacy Policy</h2>
               <button onClick={() => setShowPrivacyModal(false)} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
                 <X className="w-6 h-6 text-slate-600" />
@@ -1104,8 +1104,8 @@ export function LandingPageV2() {
       {/* Terms & Conditions Modal */}
       {showTermsModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowTermsModal(false)}>
-          <div className="bg-[var(--card-bg)] rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
-            <div className="sticky top-0 bg-[var(--card-bg)] border-b border-[var(--card-border)] px-6 py-4 flex items-center justify-between z-10">
+          <div className="bg-[white] rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-[white] border-b border-[#e2e8f0] px-6 py-4 flex items-center justify-between z-10">
               <h2 className="text-2xl font-bold text-slate-900">Terms & Conditions</h2>
               <button onClick={() => setShowTermsModal(false)} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
                 <X className="w-6 h-6 text-slate-600" />
