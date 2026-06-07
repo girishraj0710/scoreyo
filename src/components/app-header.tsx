@@ -88,7 +88,7 @@ export function AppHeader() {
             {/* For Contributors - Show Contributor Portal */}
             {user && ['contributor', 'admin'].includes(user.role || '') ? (
               <>
-                <Link href="/contributor" className={navLinkClass("/contributor")} style={navLinkStyle("/contributor")} {...navHoverProps("/contributor")} title="Contributor Portal" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Link href="/contributor" className={navLinkClass("/contributor")} style={{ ...navLinkStyle("/contributor"), display: 'flex', alignItems: 'center', gap: '0.5rem' }} {...navHoverProps("/contributor")} title="Contributor Portal">
                   <Icon3DGraduationCap size={20} /> Contributor Portal
                 </Link>
                 {/* My Submissions link removed - available as tab on main page */}
