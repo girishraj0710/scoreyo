@@ -377,6 +377,64 @@ export function Icon3DLightbulb({ size = 64 }: { size?: number }) {
   );
 }
 
+export function Icon3DTeacher({ size = 64 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Shadow */}
+      <ellipse cx="32" cy="58" rx="16" ry="2" fill="#000000" opacity="0.08" />
+
+      {/* Blackboard/Board */}
+      <rect x="38" y="10" width="18" height="16" rx="1" fill="#1B5E20" />
+      <rect x="39" y="11" width="16" height="14" rx="0.5" fill="#2E7D32" />
+
+      {/* Chalk lines on board */}
+      <line x1="42" y1="15" x2="53" y2="15" stroke="#FFFFFF" strokeWidth="1" opacity="0.8" />
+      <line x1="42" y1="18" x2="51" y2="18" stroke="#FFFFFF" strokeWidth="1" opacity="0.8" />
+      <line x1="42" y1="21" x2="49" y2="21" stroke="#FFFFFF" strokeWidth="1" opacity="0.8" />
+
+      {/* Pointer stick */}
+      <rect x="34" y="24" width="2" height="10" fill="#5D4037" transform="rotate(-30 35 24)" />
+
+      {/* Head */}
+      <circle cx="20" cy="18" r="8" fill="#D7CCC8" />
+
+      {/* Hair */}
+      <path d="M12 18 Q12 10 20 10 Q28 10 28 18" fill="#8D6E63" />
+
+      {/* Face features */}
+      <circle cx="17" cy="16" r="1.5" fill="#424242" />
+      <circle cx="23" cy="16" r="1.5" fill="#424242" />
+      <path d="M17 20 Q20 22 23 20" stroke="#D7CCC8" strokeWidth="1" fill="none" />
+
+      {/* Rosy cheeks */}
+      <circle cx="14" cy="19" r="1.5" fill="#EF9A9A" opacity="0.6" />
+      <circle cx="26" cy="19" r="1.5" fill="#EF9A9A" opacity="0.6" />
+
+      {/* Body/Shirt */}
+      <rect x="14" y="26" width="12" height="16" rx="2" fill="#A1887F" />
+
+      {/* Tie */}
+      <path d="M18 26 L16 32 L20 32 L18 26 Z M22 26 L24 32 L20 32 L22 26 Z" fill="#1565C0" />
+
+      {/* Arms */}
+      <rect x="8" y="28" width="6" height="10" rx="3" fill="#D7CCC8" />
+      <rect x="26" y="28" width="6" height="10" rx="3" fill="#D7CCC8" />
+
+      {/* Books in hand */}
+      <rect x="7" y="38" width="5" height="6" rx="1" fill="#C62828" />
+      <rect x="7.5" y="37.5" width="4" height="5.5" rx="0.8" fill="#E53935" />
+      <line x1="8" y1="39" x2="11" y2="39" stroke="#FFFFFF" strokeWidth="0.5" opacity="0.6" />
+
+      {/* Pants/Skirt */}
+      <path d="M16 42 L14 52 L18 52 Q18 46 18 42 Z M20 42 L22 52 L26 52 Q26 46 26 42 Z" fill="#424242" />
+
+      {/* Shoes */}
+      <ellipse cx="16" cy="52" rx="2" ry="1.5" fill="#263238" />
+      <ellipse cx="24" cy="52" rx="2" ry="1.5" fill="#263238" />
+    </svg>
+  );
+}
+
 // Icon mapping for easy use
 export const Icon3DMap = {
   book: Icon3DBook,
@@ -392,6 +450,7 @@ export const Icon3DMap = {
   clipboard: Icon3DClipboard,
   bell: Icon3DBell,
   lightbulb: Icon3DLightbulb,
+  teacher: Icon3DTeacher,
 };
 
 export type Icon3DType = keyof typeof Icon3DMap;
