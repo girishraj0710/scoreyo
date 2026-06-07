@@ -300,10 +300,10 @@ function HomePageContent() {
         {/* Hero Section */}
         <section className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2" style={{ color: "var(--foreground)" }}>
-            Smart Exam Prep for Success
+            Smart Exam Prep
           </h1>
         <p className="text-base sm:text-lg max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed px-2" style={{ color: "var(--foreground-secondary)" }}>
-          Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 20+ exams.<br className="hidden sm:block" />
+          Expert-curated questions for JEE, NEET, UPSC, SSC, Banking, CAT &amp; 60+ exams.<br className="hidden sm:block" />
           <span className="sm:hidden"> </span>AI-powered practice with progress tracking to master every topic.
         </p>
 
