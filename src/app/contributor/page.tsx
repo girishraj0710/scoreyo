@@ -286,9 +286,9 @@ export default function ContributorPortalPage() {
 
         {/* Guidelines */}
         <div className="mt-8 rounded-xl p-6" style={{
-          background: "light-dark(#f8fafc, var(--card-bg))",
-          borderColor: "var(--card-border)",
-          borderWidth: "1px",
+          background: "light-dark(#ede9fe, var(--card-bg))",
+          borderColor: "light-dark(#ddd6fe, var(--card-border))",
+          borderWidth: "2px",
           borderStyle: "solid"
         }}>
           <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
