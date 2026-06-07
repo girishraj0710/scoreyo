@@ -9,7 +9,7 @@ import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
-import { Moon, Sun, BarChart3, TrendingUp, Award, Settings, LogOut, AlertTriangle, FileText } from "lucide-react";
+import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriangle, FileText } from "lucide-react";
 
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
@@ -265,7 +265,7 @@ export function AppHeader() {
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <Award className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
+                        <Trophy className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Achievements
                       </Link>
                     </div>
