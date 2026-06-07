@@ -16,7 +16,7 @@ import {
   Library,
 } from 'lucide-react';
 import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
-import { getExamIcon, getSubjectIcon } from '@/lib/professional-icons';
+import { ColorfulExamIcon, ColorfulSubjectIcon } from '@/lib/colorful-exam-icons';
 
 interface StudyMaterial {
   id: string;
@@ -220,39 +220,36 @@ export default function StudyMaterialsPage() {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Exam</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {exams.map((exam) => {
-                const IconComponent = getExamIcon(exam.id);
-                return (
-                  <button
-                    key={exam.id}
-                    onClick={() => {
-                      setSelectedExam(exam.id);
-                      setSelectedSubject(null);
-                      setStep('subject');
-                    }}
-                    className="p-6 text-left rounded-xl border transition-all cursor-pointer"
-                    style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-4px)";
-                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                      e.currentTarget.style.borderColor = "#4255FF";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "none";
-                      e.currentTarget.style.borderColor = "var(--card-border)";
-                    }}
-                  >
-                    <div className="mb-3 flex justify-between items-start">
-                      <IconComponent className="w-6 h-6" style={{ color: "#4255FF" }} />
-                    </div>
-                    <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
-                    <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
-                      {exam.subjects.length} subjects
-                    </p>
-                  </button>
-                );
-              })}
+              {exams.map((exam) => (
+                <button
+                  key={exam.id}
+                  onClick={() => {
+                    setSelectedExam(exam.id);
+                    setSelectedSubject(null);
+                    setStep('subject');
+                  }}
+                  className="p-6 text-left rounded-xl border transition-all cursor-pointer"
+                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                    e.currentTarget.style.borderColor = "#4255FF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }}
+                >
+                  <div className="mb-3">
+                    <ColorfulExamIcon examId={exam.id} size={32} />
+                  </div>
+                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
+                  <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
+                    {exam.subjects.length} subjects
+                  </p>
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -270,35 +267,32 @@ export default function StudyMaterialsPage() {
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Subject</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {subjects.map((subject) => {
-                const IconComponent = getSubjectIcon(subject.id);
-                return (
-                  <button
-                    key={subject.id}
-                    onClick={() => {
-                      setSelectedSubject(subject.id);
-                      setStep('materials');
-                    }}
-                    className="p-6 text-left rounded-xl border transition-all cursor-pointer"
-                    style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-4px)";
-                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                      e.currentTarget.style.borderColor = "#4255FF";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "none";
-                      e.currentTarget.style.borderColor = "var(--card-border)";
-                    }}
-                  >
-                    <div className="mb-3">
-                      <IconComponent className="w-6 h-6" style={{ color: "#4255FF" }} />
-                    </div>
-                    <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
-                  </button>
-                );
-              })}
+              {subjects.map((subject) => (
+                <button
+                  key={subject.id}
+                  onClick={() => {
+                    setSelectedSubject(subject.id);
+                    setStep('materials');
+                  }}
+                  className="p-6 text-left rounded-xl border transition-all cursor-pointer"
+                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                    e.currentTarget.style.borderColor = "#4255FF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = "var(--card-border)";
+                  }}
+                >
+                  <div className="mb-3">
+                    <ColorfulSubjectIcon subjectId={subject.id} size={32} />
+                  </div>
+                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
+                </button>
+              ))}
             </div>
 
             <button
