@@ -12,6 +12,7 @@ import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { sounds } from "@/lib/sounds";
 
 // Dynamic import: Only load builder when user clicks "Create Custom Test"
 const CustomMockTestBuilder = dynamic(
@@ -348,6 +349,7 @@ export default function MockTestPage() {
       if (res.ok) {
         setResults(data);
         setPageState("results");
+        sounds.submit();
       } else {
         alert(data.error || "Failed to submit test");
       }

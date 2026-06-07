@@ -268,6 +268,61 @@ class SoundPlayer {
       console.warn("Sound playback failed:", err);
     }
   }
+
+  // Quiz/Test submit sound (celebratory fanfare)
+  playSubmit() {
+    if (!isSoundEnabled()) return;
+
+    try {
+      const ctx = this.getContext();
+
+      // Celebratory ascending notes: C-E-G-C (higher octave)
+      const notes = [523.25, 659.25, 783.99, 1046.5, 1318.51];
+      let time = ctx.currentTime;
+
+      notes.forEach((freq, i) => {
+        const oscillator = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        oscillator.frequency.value = freq;
+        oscillator.type = "triangle";
+
+        const volume = 0.25;
+        const duration = 0.25;
+
+        gainNode.gain.setValueAtTime(volume, time);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, time + duration);
+
+        oscillator.start(time);
+        oscillator.stop(time + duration);
+
+        time += 0.12;
+      });
+
+      // Add a final high note for emphasis
+      setTimeout(() => {
+        const oscillator = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        oscillator.frequency.value = 1318.51;
+        oscillator.type = "sine";
+
+        gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+
+        oscillator.start(ctx.currentTime);
+        oscillator.stop(ctx.currentTime + 0.4);
+      }, 600);
+    } catch (err) {
+      console.warn("Sound playback failed:", err);
+    }
+  }
 }
 
 // Singleton instance
@@ -289,4 +344,5 @@ export const sounds = {
   streakMilestone: () => getPlayer().playStreakMilestone(),
   click: () => getPlayer().playClick(),
   timerWarning: () => getPlayer().playTimerWarning(),
+  submit: () => getPlayer().playSubmit(),
 };

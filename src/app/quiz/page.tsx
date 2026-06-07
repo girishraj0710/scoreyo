@@ -9,6 +9,7 @@ import { calculateStars } from "@/lib/level-definitions";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import { LoadingSpinner } from "@/components/loading-skeleton";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { sounds } from "@/lib/sounds";
 
 // Dynamic imports: Only load these modals when actually needed
 const RichExplanation = dynamic(
@@ -511,6 +512,7 @@ function QuizContent() {
         setResults(localResults);
         setIsSubmitted(true);
         setIsSubmitting(false);
+        sounds.submit();
         return;
       }
 
@@ -542,6 +544,7 @@ function QuizContent() {
       const data = await res.json();
       setResults(data);
       setIsSubmitted(true);
+      sounds.submit();
 
       // Show badge unlock modal if new badges earned
       if (data.newBadges && data.newBadges.length > 0) {
