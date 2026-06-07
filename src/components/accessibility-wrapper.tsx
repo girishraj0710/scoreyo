@@ -1,16 +1,17 @@
 'use client';
 
 /**
- * AccessibilityWrapper - Wraps page content with semantic <main> landmark
+ * AccessibilityWrapper - Wraps page content with semantic landmark
  *
  * Features:
- * - Proper <main> landmark for assistive technology
- * - Semantic HTML for screen readers
+ * - Proper semantic HTML for screen readers
+ * - Accessibility enhancements for page content
+ * Note: Uses <div> instead of <main> because ConditionalLayout already provides <main>
  */
 export function AccessibilityWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <main>
+    <div>
       {children}
-    </main>
+    </div>
   );
 }
