@@ -498,7 +498,7 @@ function UploadContentPage() {
           <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <Icon3DSparkle size={28} /> What Happens Next?
           </h3>
-          <ul className="space-y-2 text-sm" style={{ color: "var(--foreground)" }}>
+          <ul className="space-y-2 text-sm" style={{ color: "var(--foreground-secondary)" }}>
             <li className="flex items-start gap-2">
               <span className="font-bold">1.</span>
               <span>Our AI analyzes your content and generates questions</span>
