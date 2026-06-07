@@ -203,7 +203,7 @@ export default function ContributorPortalPage() {
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
-                <span className="text-2xl font-bold text-white">1</span>
+                <span className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>1</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Select Exam</h3>
               <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
@@ -213,7 +213,7 @@ export default function ContributorPortalPage() {
 
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
-                <span className="text-2xl font-bold text-white">2</span>
+                <span className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>2</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Select Subject</h3>
               <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
@@ -223,7 +223,7 @@ export default function ContributorPortalPage() {
 
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: "var(--hover-bg)" }}>
-                <span className="text-2xl font-bold text-white">3</span>
+                <span className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>3</span>
               </div>
               <h3 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Upload Material</h3>
               <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
@@ -277,7 +277,12 @@ export default function ContributorPortalPage() {
         </div>
 
         {/* Guidelines */}
-        <div className="mt-8 rounded-xl p-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+        <div className="mt-8 rounded-xl p-6" style={{
+          background: "light-dark(#f8fafc, var(--card-bg))",
+          borderColor: "var(--card-border)",
+          borderWidth: "1px",
+          borderStyle: "solid"
+        }}>
           <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
             <Icon3DSparkle size={24} /> Quality Guidelines
           </h3>
