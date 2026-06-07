@@ -244,8 +244,12 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M11 3a8 8 0 110 16 8 8 0 010-16zm0 2a6 6 0 100 12 6 6 0 000-12zm2 2v6m-4 0h6" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M17 8v3h3" />
+                          <rect x="2" y="3" width="20" height="14" rx="1" strokeWidth={1.2} />
+                          <circle cx="7" cy="8" r="3" strokeWidth={1.2} />
+                          <rect x="14" y="9" width="1.5" height="3" strokeWidth={1.2} />
+                          <rect x="16.5" y="7" width="1.5" height="5" strokeWidth={1.2} />
+                          <rect x="19" y="6" width="1.5" height="6" strokeWidth={1.2} />
+                          <polyline points="2,19 4,18 6,17 8,18 10,16 12,17" strokeWidth={1.2} />
                         </svg>
                         Dashboard
                       </Link>
@@ -271,8 +275,8 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 9c0-1 .9-2 2-2h8c1.1 0 2 .9 2 2v3h1c.55 0 1 .45 1 1v5c0 .55-.45 1-1 1h-1v2c0 .55-.45 1-1 1s-1-.45-1-1v-2H9v2c0 .55-.45 1-1 1s-1-.45-1-1v-2H6c-.55 0-1-.45-1-1v-5c0-.55.45-1 1-1h1V9z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 5l1.5 3h3l-2.25 1.5 1 3L12 11l-2.25 1.5 1-3-2.25-1.5h3L12 5z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M8 5h8c1.1 0 2 .9 2 2v3h1c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2h-1v1c0 .55-.45 1-1 1s-1-.45-1-1v-1h-6v1c0 .55-.45 1-1 1s-1-.45-1-1v-1H6c-1.1 0-2-.9-2-2v-6c0-1.1.9-2 2-2h1V7c0-1.1.9-2 2-2zm2 4v3h4V9h-4z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 5.5l.8 1.6h1.7l-1.35 1l.5 1.6L12 9.7l-1.35 1 .5-1.6-1.35-1h1.7l.8-1.6z" />
                         </svg>
                         Achievements
                       </Link>
@@ -347,15 +351,7 @@ export function AppHeader() {
                     >
                       {isDarkMode ? (
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <circle cx="12" cy="12" r="5" strokeWidth={1.2} />
-                          <line x1="12" y1="1" x2="12" y2="3" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="12" y1="21" x2="12" y2="23" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="1" y1="12" x2="3" y2="12" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="21" y1="12" x2="23" y2="12" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" strokeWidth={1.2} strokeLinecap="round" />
-                          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" strokeWidth={1.2} strokeLinecap="round" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
                       ) : (
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
