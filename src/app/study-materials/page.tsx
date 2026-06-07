@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useUser } from '@/context/user-context';
 import { getAllExams, getExamById } from '@/lib/exams';
 import {
@@ -88,36 +88,35 @@ export default function StudyMaterialsPage() {
   }, [searchQuery, step, subjects]);
 
   // Fetch materials when exam and subject are selected
-  const fetchMaterials = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      setError('');
-      const response = await fetch(
-        `/api/study-materials?examId=${selectedExam}&subjectId=${selectedSubject}`
-      );
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch materials');
-      }
-
-      const data = await response.json();
-      setMaterials(data.data || []);
-      setSearchQuery('');
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : 'Failed to load materials'
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  }, [selectedExam, selectedSubject]);
-
-  // Fetch materials when exam and subject are selected
   useEffect(() => {
     if (selectedExam && selectedSubject && step === 'materials') {
+      const fetchMaterials = async () => {
+        try {
+          setIsLoading(true);
+          setError('');
+          const response = await fetch(
+            `/api/study-materials?examId=${selectedExam}&subjectId=${selectedSubject}`
+          );
+
+          if (!response.ok) {
+            throw new Error('Failed to fetch materials');
+          }
+
+          const data = await response.json();
+          setMaterials(data.data || []);
+          setSearchQuery('');
+        } catch (err) {
+          setError(
+            err instanceof Error ? err.message : 'Failed to load materials'
+          );
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
       fetchMaterials();
     }
-  }, [selectedExam, selectedSubject, step, fetchMaterials]);
+  }, [selectedExam, selectedSubject, step]);
 
   // Filter materials based on search query
   useEffect(() => {
