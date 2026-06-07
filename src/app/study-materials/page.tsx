@@ -241,8 +241,8 @@ export default function StudyMaterialsPage() {
                     e.currentTarget.style.borderColor = "var(--card-border)";
                   }}
                 >
-                  <div className="mb-3">
-                    <ColorfulExamIcon examId={exam.id} size={32} />
+                  <div className="mb-4 flex justify-center">
+                    <ColorfulExamIcon examId={exam.id} size={56} />
                   </div>
                   <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
                   <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
@@ -287,8 +287,8 @@ export default function StudyMaterialsPage() {
                     e.currentTarget.style.borderColor = "var(--card-border)";
                   }}
                 >
-                  <div className="mb-3">
-                    <ColorfulSubjectIcon subjectId={subject.id} size={32} />
+                  <div className="mb-4 flex justify-center">
+                    <ColorfulSubjectIcon subjectId={subject.id} size={56} />
                   </div>
                   <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
                 </button>
