@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/user-context';
 import { isAdmin } from '@/lib/admin';
 import { useLocale } from '@/context/locale-context';
 import { StudyMaterialUploader } from '@/components/study-material-uploader';
-import { getAllExams, getExamById } from '@/lib/exams';
+import { getAllExams, getExamById, examCategories } from '@/lib/exams';
 import { ChevronRight, Upload, CheckCircle, AlertCircle, Loader, Search, X } from 'lucide-react';
 import { ColorfulExamIcon, ColorfulCategoryIcon } from '@/lib/colorful-exam-icons';
 import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
@@ -34,11 +34,70 @@ export default function ContributorMaterialsPage() {
   const [uploadMessage, setUploadMessage] = useState('');
   const [examSearch, setExamSearch] = useState('');
   const [subjectSearch, setSubjectSearch] = useState('');
+  const [unifiedSearchQuery, setUnifiedSearchQuery] = useState('');
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
   const isMountedRef = useRef(false);
 
   const exams = getAllExams();
   const selectedExamObj = selectedExam ? getExamById(selectedExam) : null;
   const subjects = selectedExamObj?.subjects || [];
+
+  // Unified search results
+  const searchResults = useMemo(() => {
+    if (!unifiedSearchQuery.trim()) return null;
+
+    const query = unifiedSearchQuery.toLowerCase();
+    const results: Array<{
+      type: 'exam' | 'subject';
+      exam: any;
+      subject?: any;
+      category: string;
+    }> = [];
+
+    examCategories.forEach((category) => {
+      category.exams.forEach((exam) => {
+        // Match exam
+        if (exam.name.toLowerCase().includes(query) ||
+            exam.fullName?.toLowerCase().includes(query)) {
+          results.push({ type: 'exam', exam, category: category.name });
+        }
+
+        // Match subjects
+        exam.subjects.forEach((subject) => {
+          if (subject.name.toLowerCase().includes(query)) {
+            results.push({
+              type: 'subject',
+              exam,
+              subject: { id: subject.id, name: subject.name },
+              category: category.name
+            });
+          }
+        });
+      });
+    });
+
+    return results.slice(0, 10); // Limit to 10 results
+  }, [unifiedSearchQuery]);
+
+  // Handle search result selection
+  const handleSearchSelect = (result: any) => {
+    if (result.type === 'subject' && result.subject) {
+      // Subject selected → auto-fill exam + subject, jump to upload step
+      setSelectedExam(result.exam.id);
+      setSelectedSubject(result.subject.id);
+      setStep('upload');
+      setUnifiedSearchQuery('');
+      setShowSearchDropdown(false);
+    } else if (result.type === 'exam') {
+      // Exam selected → auto-fill exam, jump to subject selection
+      setSelectedExam(result.exam.id);
+      setSelectedSubject(null);
+      setStep('subject');
+      setUnifiedSearchQuery('');
+      setShowSearchDropdown(false);
+    }
+  };
 
   // Check auth
   useEffect(() => {
@@ -51,6 +110,18 @@ export default function ContributorMaterialsPage() {
       router.push('/');
     }
   }, [user, userLoading]);
+
+  // Click outside handler for search dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setShowSearchDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Get exam name
   const examName = selectedExam
@@ -162,6 +233,105 @@ export default function ContributorMaterialsPage() {
           <p className="text-lg" style={{ color: "var(--foreground-secondary)" }}>
             Share your study materials (PDF, DOCX, PPT) with the community
           </p>
+        </div>
+
+        {/* Unified Search Bar */}
+        <div className="mb-8" ref={searchContainerRef}>
+          <div className="relative">
+            <input
+              type="text"
+              value={unifiedSearchQuery}
+              onChange={(e) => {
+                setUnifiedSearchQuery(e.target.value);
+                setShowSearchDropdown(true);
+              }}
+              onFocus={() => setShowSearchDropdown(true)}
+              placeholder="Quick search: exams, subjects..."
+              className="w-full px-5 py-3 pr-12 rounded-xl border-2 text-base transition-all"
+              style={{
+                borderColor: unifiedSearchQuery ? '#4255FF' : 'var(--card-border)',
+                background: 'var(--card-bg)',
+                color: 'var(--foreground)'
+              }}
+            />
+            <Search
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5"
+              style={{ color: 'var(--foreground-secondary)' }}
+            />
+          </div>
+
+          {/* Dropdown Results */}
+          {showSearchDropdown && unifiedSearchQuery && searchResults && searchResults.length > 0 && (
+            <div
+              className="absolute z-50 mt-2 w-full rounded-xl border shadow-xl max-h-96 overflow-y-auto"
+              style={{
+                background: 'var(--card-bg)',
+                borderColor: 'var(--card-border)'
+              }}
+            >
+              <div className="p-3 border-b" style={{ borderColor: 'var(--card-border)' }}>
+                <p className="text-sm font-medium" style={{ color: 'var(--foreground-secondary)' }}>
+                  {searchResults.length} result{searchResults.length !== 1 ? 's' : ''} found
+                </p>
+              </div>
+
+              {searchResults.map((result, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSearchSelect(result)}
+                  className="w-full p-4 flex items-center gap-3 transition-colors text-left"
+                  style={{ color: 'var(--foreground)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  <ColorfulExamIcon examId={result.exam.id} size={40} />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-semibold">{result.exam.name}</span>
+                      <span
+                        className="text-xs px-2 py-0.5 rounded-full"
+                        style={{
+                          background: 'var(--hover-bg)',
+                          color: 'var(--foreground-secondary)'
+                        }}
+                      >
+                        {result.category}
+                      </span>
+                    </div>
+                    {result.subject && (
+                      <div className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+                        {result.subject.name}
+                      </div>
+                    )}
+                  </div>
+                  <ChevronRight className="w-5 h-5" style={{ color: 'var(--muted)' }} />
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* No Results */}
+          {showSearchDropdown && unifiedSearchQuery && searchResults && searchResults.length === 0 && (
+            <div
+              className="absolute z-50 mt-2 w-full rounded-xl border p-8 text-center"
+              style={{
+                background: 'var(--card-bg)',
+                borderColor: 'var(--card-border)'
+              }}
+            >
+              <Search className="w-12 h-12 mx-auto mb-3" style={{ color: 'var(--muted)' }} />
+              <p className="font-medium mb-1" style={{ color: 'var(--foreground)' }}>
+                No results found for "{unifiedSearchQuery}"
+              </p>
+              <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+                Try searching for "JEE", "NEET", "Physics", "Chemistry"
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Step Indicator */}

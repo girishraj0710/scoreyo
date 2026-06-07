@@ -58,7 +58,7 @@ export default function ContributorPortalPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <Link
             href="/contributor/create"
-            className="group p-8 rounded-2xl transition-all"
+            className="group p-8 rounded-2xl transition-all flex flex-col"
             style={{
               background: "var(--card-bg)",
               borderColor: "var(--card-border)",
@@ -76,23 +76,25 @@ export default function ContributorPortalPage() {
               e.currentTarget.style.borderColor = "var(--card-border)";
             }}
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
-              <Icon3DSparkle size={72} />
+            <div>
+              <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+                <Icon3DSparkle size={72} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
+                Create Question Set
+              </h3>
+              <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
+                Upload study material and generate AI-powered questions
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
-              Create Question Set
-            </h3>
-            <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
-              Upload study material and generate AI-powered questions
-            </p>
-            <div className="flex items-center gap-2 text-indigo-600 font-medium">
+            <div className="flex items-center gap-2 text-indigo-600 font-medium mt-auto">
               Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
           <Link
             href="/contributor/materials"
-            className="group p-8 rounded-2xl transition-all"
+            className="group p-8 rounded-2xl transition-all flex flex-col"
             style={{
               background: "var(--card-bg)",
               borderColor: "var(--card-border)",
@@ -110,23 +112,25 @@ export default function ContributorPortalPage() {
               e.currentTarget.style.borderColor = "var(--card-border)";
             }}
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
-              <Upload size={72} className="text-indigo-600" />
+            <div>
+              <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+                <Upload size={72} className="text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
+                Upload Study Materials
+              </h3>
+              <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
+                Share PDF, DOCX, PPT files with the community
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
-              Upload Study Materials
-            </h3>
-            <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
-              Share PDF, DOCX, PPT files with the community
-            </p>
-            <div className="flex items-center gap-2 text-indigo-600 font-medium">
+            <div className="flex items-center gap-2 text-indigo-600 font-medium mt-auto">
               Upload Now <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
           <Link
             href="/contributor/submissions"
-            className="group p-8 rounded-2xl transition-all"
+            className="group p-8 rounded-2xl transition-all flex flex-col"
             style={{
               background: "var(--card-bg)",
               borderColor: "var(--card-border)",
@@ -144,23 +148,25 @@ export default function ContributorPortalPage() {
               e.currentTarget.style.borderColor = "var(--card-border)";
             }}
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
-              <Icon3DNotebook size={72} />
+            <div>
+              <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+                <Icon3DNotebook size={72} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
+                My Submissions
+              </h3>
+              <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
+                Track your submitted questions and approval status
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
-              My Submissions
-            </h3>
-            <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
-              Track your submitted questions and approval status
-            </p>
-            <div className="flex items-center gap-2 text-indigo-600 font-medium">
+            <div className="flex items-center gap-2 text-indigo-600 font-medium mt-auto">
               View All <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
           <Link
             href="/contributor/stats"
-            className="group p-8 rounded-2xl transition-all"
+            className="group p-8 rounded-2xl transition-all flex flex-col"
             style={{
               background: "var(--card-bg)",
               borderColor: "var(--card-border)",
@@ -178,16 +184,18 @@ export default function ContributorPortalPage() {
               e.currentTarget.style.borderColor = "var(--card-border)";
             }}
           >
-            <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
-              <Icon3DChart size={72} />
+            <div>
+              <div className="mb-4 group-hover:scale-110 transition-transform flex justify-center">
+                <Icon3DChart size={72} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
+                Contribution Stats
+              </h3>
+              <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
+                View your contribution analytics and points
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600" style={{ color: "var(--foreground)" }}>
-              Contribution Stats
-            </h3>
-            <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
-              View your contribution analytics and points
-            </p>
-            <div className="flex items-center gap-2 text-indigo-600 font-medium">
+            <div className="flex items-center gap-2 text-indigo-600 font-medium mt-auto">
               See Stats <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
