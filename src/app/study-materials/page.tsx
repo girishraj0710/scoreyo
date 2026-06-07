@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useUser } from '@/context/user-context';
-import { getAllExams, getExamById } from '@/lib/exams';
+import { getAllExams, getExamById, examCategories } from '@/lib/exams';
 import {
   Download,
   ChevronRight,
@@ -45,6 +45,8 @@ export default function StudyMaterialsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredExams, setFilteredExams] = useState<any[]>([]);
   const [filteredSubjects, setFilteredSubjects] = useState<any[]>([]);
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   // Memoize these so they don't change on every render
   const exams = useMemo(() => getAllExams(), []);
@@ -60,33 +62,79 @@ export default function StudyMaterialsPage() {
     ? subjects.find((s) => s.id === selectedSubject)?.name
     : null, [selectedSubject, subjects]);
 
-  // Filter exams based on search query
+  // Handle click outside to close search results
   useEffect(() => {
-    if (step === 'exam' && searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      setFilteredExams(
-        exams.filter((e) =>
-          e.name.toLowerCase().includes(query)
-        )
-      );
-    } else {
-      setFilteredExams([]);
-    }
-  }, [searchQuery, step, exams]);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setShowSearchDropdown(false);
+      }
+    };
 
-  // Filter subjects based on search query
-  useEffect(() => {
-    if (step === 'subject' && searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      setFilteredSubjects(
-        subjects.filter((s) =>
-          s.name.toLowerCase().includes(query)
-        )
-      );
-    } else {
-      setFilteredSubjects([]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Unified search logic for exams and subjects
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return null;
+
+    const query = searchQuery.toLowerCase();
+    const results: Array<{
+      type: "exam" | "subject";
+      exam: any;
+      subject?: { id: string; name: string; icon: string };
+      category: string;
+    }> = [];
+
+    examCategories.forEach((category) => {
+      category.exams.forEach((exam) => {
+        // Check exam name
+        if (exam.name.toLowerCase().includes(query) ||
+            exam.fullName.toLowerCase().includes(query) ||
+            exam.description.toLowerCase().includes(query)) {
+          results.push({
+            type: "exam",
+            exam,
+            category: category.name,
+          });
+        }
+
+        // Check subjects
+        exam.subjects.forEach((subject) => {
+          if (subject.name.toLowerCase().includes(query)) {
+            results.push({
+              type: "subject",
+              exam,
+              subject: { id: subject.id, name: subject.name, icon: subject.icon },
+              category: category.name,
+            });
+          }
+        });
+      });
+    });
+
+    return results.slice(0, 10); // Limit to 10 results
+  }, [searchQuery]);
+
+  const handleSearchSelect = (result: any) => {
+    if (result.type === "subject" && result.subject) {
+      // Auto-fill exam and subject
+      setSelectedExam(result.exam.id);
+      setSelectedSubject(result.subject.id);
+      setStep('materials');
+      setSearchQuery('');
+      setShowSearchDropdown(false);
+    } else if (result.type === "exam") {
+      // Auto-fill exam
+      setSelectedExam(result.exam.id);
+      setSelectedSubject(null);
+      setStep('subject');
+      setSearchQuery('');
+      setShowSearchDropdown(false);
     }
-  }, [searchQuery, step, subjects]);
+  };
 
   // Fetch materials when exam and subject are selected
   useEffect(() => {
@@ -198,27 +246,104 @@ export default function StudyMaterialsPage() {
           </p>
         </div>
 
-        {/* Search Bar - Always Visible */}
-        {(step === 'exam' || step === 'subject') && (
-          <div className="mb-8">
+        {/* Unified Search Bar - Always Visible */}
+        <div ref={searchContainerRef} className="max-w-2xl mx-auto mb-8">
+          <div className="relative">
             <input
               type="text"
-              placeholder={step === 'exam' ? 'Search exams...' : 'Search subjects...'}
+              placeholder="Quick search: exams, subjects..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border transition-colors"
-              style={{
-                background: "var(--card-bg)",
-                borderColor: "var(--card-border)",
-                borderWidth: "1px",
-                borderStyle: "solid",
-                color: "var(--foreground)"
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSearchDropdown(true);
               }}
-              onFocus={(e) => (e.target.style.borderColor = "#4255FF")}
-              onBlur={(e) => (e.target.style.borderColor = "var(--card-border)")}
+              onFocus={(e) => {
+                setShowSearchDropdown(true);
+                e.currentTarget.style.borderColor = 'var(--primary)';
+                e.currentTarget.style.boxShadow = '0 0 0 3px rgba(99, 102, 241, 0.2)';
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.borderColor = 'var(--card-border)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              className="w-full px-6 py-3 rounded-xl border-2 focus:outline-none text-base"
+              style={{ background: "var(--card-bg)", color: "var(--foreground)", borderColor: "var(--card-border)" }}
             />
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 p-2" style={{ color: "var(--muted)" }}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
           </div>
-        )}
+
+          {/* Search Results Dropdown */}
+          {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length > 0 && (
+            <div className="mt-3 rounded-xl shadow-lg border-2 overflow-hidden" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+              <div className="p-3 border-b" style={{ borderColor: "var(--card-border)", background: "var(--hover-bg)" }}>
+                <p className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
+                  Found {searchResults.length} result{searchResults.length !== 1 ? "s" : ""}
+                </p>
+              </div>
+              <div className="max-h-96 overflow-y-auto">
+                {searchResults.map((result, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleSearchSelect(result)}
+                    className="w-full px-4 py-3 transition-colors text-left border-b last:border-b-0 cursor-pointer"
+                    style={{ borderColor: "var(--card-border)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "var(--hover-bg)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5">
+                        <ColorfulExamIcon
+                          examId={result.exam.id}
+                          size={36}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold" style={{ color: "var(--foreground)" }}>{result.exam.name}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "var(--primary-bg)", color: "var(--primary)" }}>
+                            {result.category}
+                          </span>
+                        </div>
+                        {result.type === "exam" && (
+                          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Full exam</p>
+                        )}
+                        {result.type === "subject" && result.subject && (
+                          <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
+                            <span className="font-medium">{result.subject.name}</span>
+                          </p>
+                        )}
+                      </div>
+                      <svg className="w-5 h-5 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: "var(--muted)" }}>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* No Results */}
+          {showSearchDropdown && searchQuery.trim() && searchResults && searchResults.length === 0 && (
+            <div className="mt-3 rounded-xl shadow-lg border-2 p-6 text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+              <div className="flex justify-center mb-2">
+                <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: "var(--muted)" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <p className="font-semibold mb-1" style={{ color: "var(--foreground)" }}>No results found</p>
+              <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>Try searching for JEE, NEET, UPSC, SSC, Physics, etc.</p>
+            </div>
+          )}
+        </div>
 
         {/* Step Indicator */}
         <div className="flex items-center gap-2 mb-8 justify-center flex-wrap">
