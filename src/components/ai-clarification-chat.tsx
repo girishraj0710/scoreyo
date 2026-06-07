@@ -117,8 +117,8 @@ export function AIClarificationChat({
     <div className="p-4 rounded-xl border-2" style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
       <div className="flex items-center gap-2 mb-3">
         <div>
-          <div className="text-sm font-semibold" style={{ color: "#4255FF" }}>PrepGenie AI</div>
-          <div className="text-xs" style={{ color: "var(--muted)" }}>Get instant clarification</div>
+          <div className="text-sm font-semibold" style={{ color: "white" }}>PrepGenie AI</div>
+          <div className="text-xs" style={{ color: "rgba(255, 255, 255, 0.7)" }}>Get instant clarification</div>
         </div>
       </div>
 
@@ -154,12 +154,12 @@ export function AIClarificationChat({
               key={i}
               onClick={() => handleQuickQuestion(q)}
               className="text-xs px-3 py-1.5 rounded-full border transition-colors"
-              style={{ background: "rgba(66, 85, 255, 0.15)", borderColor: "rgba(66, 85, 255, 0.3)", color: "#4255FF" }}
+              style={{ background: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)", color: "white" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.25)";
+                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.15)";
+                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)";
               }}
             >
               {q}
@@ -170,8 +170,8 @@ export function AIClarificationChat({
 
       {/* Loading */}
       {isLoading && (
-        <div className="flex items-center gap-2 text-sm py-4" style={{ color: "#4255FF" }}>
-          <div className="animate-spin h-4 w-4 border-2 border-t-transparent rounded-full" style={{ borderColor: "rgba(66, 85, 255, 0.3)", borderTopColor: "#4255FF" }}></div>
+        <div className="flex items-center gap-2 text-sm py-4" style={{ color: "white" }}>
+          <div className="animate-spin h-4 w-4 border-2 border-t-transparent rounded-full" style={{ borderColor: "rgba(255, 255, 255, 0.3)", borderTopColor: "white" }}></div>
           <span>Thinking...</span>
         </div>
       )}
@@ -259,7 +259,7 @@ export function AIClarificationChat({
       <button
         onClick={() => setIsOpen(false)}
         className="mt-3 w-full text-xs"
-        style={{ color: "var(--muted)" }}
+        style={{ color: "rgba(255, 255, 255, 0.7)" }}
       >
         Close
       </button>
