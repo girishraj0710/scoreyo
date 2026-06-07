@@ -244,7 +244,7 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4 4h16c.55 0 1 .45 1 1v14c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1zm12 2h-2v8h2V6zm-4 0h-2v6h2V6zm-4 0H6v4h2V6z" />
                         </svg>
                         Dashboard
                       </Link>
@@ -270,7 +270,8 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 9l1-1h10l1 1v2H6V9zm-2 3h14v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-8zm4-3V6h4V3H8v6z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 2l1.5 3.5h3.75l-3 2.25 1.125 3.5L12 11.25l-3.375 2.5 1.125-3.5-3-2.25h3.75L12 2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 13c-2.2 0-4 1.8-4 4v3h8v-3c0-2.2-1.8-4-4-4z" />
                         </svg>
                         Achievements
                       </Link>
@@ -349,7 +350,15 @@ export function AppHeader() {
                         </svg>
                       ) : (
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                          <circle cx="12" cy="12" r="5" strokeWidth={1.2} />
+                          <line x1="12" y1="1" x2="12" y2="3" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="12" y1="21" x2="12" y2="23" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="1" y1="12" x2="3" y2="12" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="21" y1="12" x2="23" y2="12" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" strokeWidth={1.2} strokeLinecap="round" />
+                          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" strokeWidth={1.2} strokeLinecap="round" />
                         </svg>
                       )}
                       {isDarkMode ? 'Light mode' : 'Dark mode'}
