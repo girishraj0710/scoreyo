@@ -269,8 +269,9 @@ export function AppHeader() {
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path d="M6 9c0-1.105.895-2 2-2h8c1.105 0 2 .895 2 2v3h2c1.105 0 2 .895 2 2v5c0 1.105-.895 2-2 2h-1v1c0 .552-.448 1-1 1s-1-.448-1-1v-1H9v1c0 .552-.448 1-1 1s-1-.448-1-1v-1H6c-1.105 0-2-.895-2-2v-5c0-1.105.895-2 2-2h2V9zm2 3v5h8v-5H8z"/>
+                          <path d="M9 7c0-.552.448-1 1-1h4c.552 0 1 .448 1 1s-.448 1-1 1h-4c-.552 0-1-.448-1-1z"/>
                         </svg>
                         Achievements
                       </Link>
