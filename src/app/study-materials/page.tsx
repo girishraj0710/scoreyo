@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useUser } from '@/context/user-context';
 import { getAllExams, getExamById } from '@/lib/exams';
 import {
@@ -87,30 +87,8 @@ export default function StudyMaterialsPage() {
     }
   }, [searchQuery, step, subjects]);
 
-  // Filter materials based on search query
-  useEffect(() => {
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      setFilteredMaterials(
-        materials.filter((m) =>
-          m.title.toLowerCase().includes(query) ||
-          m.description.toLowerCase().includes(query) ||
-          m.contributor_name.toLowerCase().includes(query)
-        )
-      );
-    } else {
-      setFilteredMaterials(materials);
-    }
-  }, [searchQuery, materials]);
-
   // Fetch materials when exam and subject are selected
-  useEffect(() => {
-    if (selectedExam && selectedSubject && step === 'materials') {
-      fetchMaterials();
-    }
-  }, [selectedExam, selectedSubject, step]);
-
-  const fetchMaterials = async () => {
+  const fetchMaterials = useCallback(async () => {
     try {
       setIsLoading(true);
       setError('');
@@ -132,7 +110,30 @@ export default function StudyMaterialsPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [selectedExam, selectedSubject]);
+
+  // Fetch materials when exam and subject are selected
+  useEffect(() => {
+    if (selectedExam && selectedSubject && step === 'materials') {
+      fetchMaterials();
+    }
+  }, [selectedExam, selectedSubject, step, fetchMaterials]);
+
+  // Filter materials based on search query
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      setFilteredMaterials(
+        materials.filter((m) =>
+          m.title.toLowerCase().includes(query) ||
+          m.description.toLowerCase().includes(query) ||
+          m.contributor_name.toLowerCase().includes(query)
+        )
+      );
+    } else {
+      setFilteredMaterials(materials);
+    }
+  }, [searchQuery, materials]);
 
   const handleDownload = (materialId: string) => {
     setDownloadingIds((prev) => new Set([...prev, materialId]));
