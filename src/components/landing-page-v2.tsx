@@ -487,7 +487,7 @@ export function LandingPageV2() {
                         <div className="p-4 flex-1 flex flex-col bg-[white] justify-between">
                           <div>
                             <h3 className="text-base font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
-                            <p className="text-slate-600 text-xs leading-relaxed mb-3 text-center line-clamp-2">
+                            <p className="text-slate-600 text-xs leading-relaxed mb-3 text-center">
                               {mode.desc}
                             </p>
                           </div>
@@ -524,7 +524,7 @@ export function LandingPageV2() {
                       onClick={() => setShowLoginModal(true)}
                       className="bg-[white] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
                       style={{
-                        height: '380px',
+                        minHeight: '380px',
                         transform: 'translateY(0) scale(1)',
                         transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                       }}
@@ -549,7 +549,7 @@ export function LandingPageV2() {
                       <div className="p-5 flex-1 flex flex-col bg-[white] justify-between">
                         <div>
                           <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
-                          <p className="text-slate-600 text-sm leading-relaxed mb-4 text-center line-clamp-2">
+                          <p className="text-slate-600 text-sm leading-relaxed mb-4 text-center">
                             {mode.desc}
                           </p>
                         </div>
