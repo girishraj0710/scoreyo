@@ -16,6 +16,7 @@ import {
   Library,
 } from 'lucide-react';
 import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
+import { getExamIcon, getSubjectIcon } from '@/lib/professional-icons';
 
 interface StudyMaterial {
   id: string;
@@ -145,7 +146,6 @@ export default function StudyMaterialsPage() {
 
   return (
     <AccessibilityWrapper>
-      <div className="min-h-screen pb-12 px-4" style={{ background: "var(--primary-bg)" }}>
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -159,6 +159,31 @@ export default function StudyMaterialsPage() {
             Download resources shared by contributors
           </p>
         </div>
+
+        {/* Search Bar - Always Visible */}
+        {(step === 'exam' || step === 'subject') && (
+          <div className="mb-8">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: "var(--muted)" }} />
+              <input
+                type="text"
+                placeholder="🔍 Quick search materials..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 rounded-xl border transition-colors"
+                style={{
+                  background: "var(--card-bg)",
+                  borderColor: "var(--card-border)",
+                  borderWidth: "1px",
+                  borderStyle: "solid",
+                  color: "var(--foreground)"
+                }}
+                onFocus={(e) => (e.target.style.borderColor = "#4255FF")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--card-border)")}
+              />
+            </div>
+          </div>
+        )}
 
         {/* Step Indicator */}
         <div className="flex items-center gap-2 mb-8 justify-center flex-wrap">
@@ -195,33 +220,39 @@ export default function StudyMaterialsPage() {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Exam</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {exams.map((exam) => (
-                <button
-                  key={exam.id}
-                  onClick={() => {
-                    setSelectedExam(exam.id);
-                    setSelectedSubject(null);
-                    setStep('subject');
-                  }}
-                  className="p-6 text-left rounded-xl border transition-all cursor-pointer"
-                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                    e.currentTarget.style.borderColor = "#4255FF";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.borderColor = "var(--card-border)";
-                  }}
-                >
-                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
-                  <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
-                    {exam.subjects.length} subjects
-                  </p>
-                </button>
-              ))}
+              {exams.map((exam) => {
+                const IconComponent = getExamIcon(exam.id);
+                return (
+                  <button
+                    key={exam.id}
+                    onClick={() => {
+                      setSelectedExam(exam.id);
+                      setSelectedSubject(null);
+                      setStep('subject');
+                    }}
+                    className="p-6 text-left rounded-xl border transition-all cursor-pointer"
+                    style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                      e.currentTarget.style.borderColor = "#4255FF";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "none";
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }}
+                  >
+                    <div className="mb-3 flex justify-between items-start">
+                      <IconComponent className="w-6 h-6" style={{ color: "#4255FF" }} />
+                    </div>
+                    <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
+                    <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
+                      {exam.subjects.length} subjects
+                    </p>
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
@@ -239,29 +270,35 @@ export default function StudyMaterialsPage() {
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Subject</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {subjects.map((subject) => (
-                <button
-                  key={subject.id}
-                  onClick={() => {
-                    setSelectedSubject(subject.id);
-                    setStep('materials');
-                  }}
-                  className="p-6 text-left rounded-xl border transition-all cursor-pointer"
-                  style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                    e.currentTarget.style.borderColor = "#4255FF";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.borderColor = "var(--card-border)";
-                  }}
-                >
-                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
-                </button>
-              ))}
+              {subjects.map((subject) => {
+                const IconComponent = getSubjectIcon(subject.id);
+                return (
+                  <button
+                    key={subject.id}
+                    onClick={() => {
+                      setSelectedSubject(subject.id);
+                      setStep('materials');
+                    }}
+                    className="p-6 text-left rounded-xl border transition-all cursor-pointer"
+                    style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                      e.currentTarget.style.borderColor = "#4255FF";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "none";
+                      e.currentTarget.style.borderColor = "var(--card-border)";
+                    }}
+                  >
+                    <div className="mb-3">
+                      <IconComponent className="w-6 h-6" style={{ color: "#4255FF" }} />
+                    </div>
+                    <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
+                  </button>
+                );
+              })}
             </div>
 
             <button
@@ -467,7 +504,6 @@ export default function StudyMaterialsPage() {
           </div>
         )}
       </div>
-    </div>
     </AccessibilityWrapper>
   );
 }
