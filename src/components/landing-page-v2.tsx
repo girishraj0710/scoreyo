@@ -223,16 +223,6 @@ export function LandingPageV2() {
     <div className="min-h-screen font-sans" style={{ background: "#f8fafc" }} data-version="v101-varied-icons">
       {/* Header with Exams Dropdown - Quizlet Style */}
       <header className="sticky top-0 z-50" style={{ background: "white", borderBottomColor: "#e2e8f0", borderBottomWidth: "1px", borderBottomStyle: "solid" }}>
-        {/* Top Bar - Badge */}
-        <div className="border-b border-indigo-100" style={{ background: "#f8fafc" }}>
-          <div className="max-w-7xl mx-auto px-6 py-2">
-            <div className="flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-600" />
-              <span className="text-sm font-medium text-indigo-700">India's Most Loved Exam Prep Platform</span>
-            </div>
-          </div>
-        </div>
-
         {/* Main Header */}
         <div className="max-w-[1400px] mx-auto w-full px-8 py-3 flex items-center gap-4 justify-between">
           {/* Left side: Logo + Exams Dropdown */}
@@ -494,11 +484,13 @@ export function LandingPageV2() {
                             />
                           </div>
                         </div>
-                        <div className="p-4 flex-1 flex flex-col bg-[white]">
-                          <h3 className="text-base font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
-                          <p className="text-slate-600 text-xs leading-relaxed mb-3 flex-1 text-center line-clamp-3">
-                            {mode.desc}
-                          </p>
+                        <div className="p-4 flex-1 flex flex-col bg-[white] justify-between">
+                          <div>
+                            <h3 className="text-base font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
+                            <p className="text-slate-600 text-xs leading-relaxed mb-3 text-center line-clamp-2">
+                              {mode.desc}
+                            </p>
+                          </div>
                           <div className="text-indigo-600 font-semibold text-xs flex items-center justify-center gap-1.5">
                             {mode.cta}
                             <ArrowRight className="w-3 h-3" />
@@ -532,7 +524,7 @@ export function LandingPageV2() {
                       onClick={() => setShowLoginModal(true)}
                       className="bg-[white] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
                       style={{
-                        minHeight: '360px',
+                        height: '380px',
                         transform: 'translateY(0) scale(1)',
                         transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                       }}
@@ -543,7 +535,7 @@ export function LandingPageV2() {
                         e.currentTarget.style.transform = 'translateY(0) scale(1)';
                       }}
                     >
-                      <div className={`${mode.headerColor} h-52 flex items-center justify-center relative overflow-hidden pt-4`}>
+                      <div className={`${mode.headerColor} h-48 flex items-center justify-center relative overflow-hidden pt-4`}>
                         <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                           <Image
                             src={mode.image}
@@ -554,11 +546,13 @@ export function LandingPageV2() {
                           />
                         </div>
                       </div>
-                      <div className="p-5 flex-1 flex flex-col bg-[white]">
-                        <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
-                        <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1 text-center line-clamp-3">
-                          {mode.desc}
-                        </p>
+                      <div className="p-5 flex-1 flex flex-col bg-[white] justify-between">
+                        <div>
+                          <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">{mode.title}</h3>
+                          <p className="text-slate-600 text-sm leading-relaxed mb-4 text-center line-clamp-2">
+                            {mode.desc}
+                          </p>
+                        </div>
                         <div className="text-indigo-600 font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
                           {mode.cta}
                           <ArrowRight className="w-4 h-4" />
