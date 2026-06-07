@@ -245,11 +245,10 @@ export function AppHeader() {
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
                           <rect x="2" y="3" width="20" height="14" rx="1" strokeWidth={1.2} />
-                          <circle cx="7" cy="8" r="3" strokeWidth={1.2} />
-                          <rect x="14" y="9" width="1.5" height="3" strokeWidth={1.2} />
-                          <rect x="16.5" y="7" width="1.5" height="5" strokeWidth={1.2} />
-                          <rect x="19" y="6" width="1.5" height="6" strokeWidth={1.2} />
-                          <polyline points="2,19 4,18 6,17 8,18 10,16 12,17" strokeWidth={1.2} />
+                          <line x1="2" y1="6" x2="22" y2="6" strokeWidth={1.2} />
+                          <rect x="5" y="8" width="1.5" height="6" strokeWidth={1.2} />
+                          <rect x="8" y="7" width="1.5" height="7" strokeWidth={1.2} />
+                          <rect x="11" y="6" width="1.5" height="8" strokeWidth={1.2} />
                         </svg>
                         Dashboard
                       </Link>
@@ -275,8 +274,7 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M8 5h8c1.1 0 2 .9 2 2v3h1c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2h-1v1c0 .55-.45 1-1 1s-1-.45-1-1v-1h-6v1c0 .55-.45 1-1 1s-1-.45-1-1v-1H6c-1.1 0-2-.9-2-2v-6c0-1.1.9-2 2-2h1V7c0-1.1.9-2 2-2zm2 4v3h4V9h-4z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 5.5l.8 1.6h1.7l-1.35 1l.5 1.6L12 9.7l-1.35 1 .5-1.6-1.35-1h1.7l.8-1.6z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 8h12M6 8c-1 0-1.5.5-1.5 1.5v2c0 1 1 1.5 1.5 2h12c.5-.5 1.5-1 1.5-2v-2c0-1-.5-1.5-1.5-1.5M9 12c0 1.5.5 2 3 2s3-.5 3-2M10 14h4M11 16h2M11 18h2" />
                         </svg>
                         Achievements
                       </Link>
@@ -350,8 +348,8 @@ export function AppHeader() {
                       aria-label={`Toggle ${isDarkMode ? 'light' : 'dark'} mode`}
                     >
                       {isDarkMode ? (
-                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                         </svg>
                       ) : (
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
