@@ -244,7 +244,8 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4 4h16c.55 0 1 .45 1 1v14c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1zm12 2h-2v8h2V6zm-4 0h-2v6h2V6zm-4 0H6v4h2V6z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M11 3a8 8 0 110 16 8 8 0 010-16zm0 2a6 6 0 100 12 6 6 0 000-12zm2 2v6m-4 0h6" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M17 8v3h3" />
                         </svg>
                         Dashboard
                       </Link>
@@ -270,8 +271,8 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 2l1.5 3.5h3.75l-3 2.25 1.125 3.5L12 11.25l-3.375 2.5 1.125-3.5-3-2.25h3.75L12 2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 13c-2.2 0-4 1.8-4 4v3h8v-3c0-2.2-1.8-4-4-4z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 9c0-1 .9-2 2-2h8c1.1 0 2 .9 2 2v3h1c.55 0 1 .45 1 1v5c0 .55-.45 1-1 1h-1v2c0 .55-.45 1-1 1s-1-.45-1-1v-2H9v2c0 .55-.45 1-1 1s-1-.45-1-1v-2H6c-.55 0-1-.45-1-1v-5c0-.55.45-1 1-1h1V9z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 5l1.5 3h3l-2.25 1.5 1 3L12 11l-2.25 1.5 1-3-2.25-1.5h3L12 5z" />
                         </svg>
                         Achievements
                       </Link>
@@ -346,10 +347,6 @@ export function AppHeader() {
                     >
                       {isDarkMode ? (
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1m-16 0H1m15.364 1.636l.707.707M4.929 4.929l.707.707m10.728 0l.707-.707M4.929 19.071l.707-.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      ) : (
-                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
                           <circle cx="12" cy="12" r="5" strokeWidth={1.2} />
                           <line x1="12" y1="1" x2="12" y2="3" strokeWidth={1.2} strokeLinecap="round" />
                           <line x1="12" y1="21" x2="12" y2="23" strokeWidth={1.2} strokeLinecap="round" />
@@ -359,6 +356,10 @@ export function AppHeader() {
                           <line x1="21" y1="12" x2="23" y2="12" strokeWidth={1.2} strokeLinecap="round" />
                           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" strokeWidth={1.2} strokeLinecap="round" />
                           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" strokeWidth={1.2} strokeLinecap="round" />
+                        </svg>
+                      ) : (
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1m-16 0H1m15.364 1.636l.707.707M4.929 4.929l.707.707m10.728 0l.707-.707M4.929 19.071l.707-.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       )}
                       {isDarkMode ? 'Light mode' : 'Dark mode'}
