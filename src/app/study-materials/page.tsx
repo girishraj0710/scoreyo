@@ -149,12 +149,9 @@ export default function StudyMaterialsPage() {
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <Library className="w-8 h-8" style={{ color: '#4255FF' }} />
-            <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
-              Study Materials
-            </h1>
-          </div>
+          <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
+            Study Materials
+          </h1>
           <p style={{ color: "var(--muted)" }}>
             Download resources shared by contributors
           </p>
@@ -219,7 +216,7 @@ export default function StudyMaterialsPage() {
         {step === 'exam' && (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Exam</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {exams.map((exam) => (
                 <button
                   key={exam.id}
@@ -228,11 +225,11 @@ export default function StudyMaterialsPage() {
                     setSelectedSubject(null);
                     setStep('subject');
                   }}
-                  className="p-6 text-left rounded-xl border transition-all cursor-pointer"
+                  className="p-4 text-left rounded-lg border transition-all cursor-pointer flex items-center gap-3"
                   style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
                     e.currentTarget.style.borderColor = "#4255FF";
                   }}
                   onMouseLeave={(e) => {
@@ -241,13 +238,15 @@ export default function StudyMaterialsPage() {
                     e.currentTarget.style.borderColor = "var(--card-border)";
                   }}
                 >
-                  <div className="mb-4 flex justify-center">
-                    <ColorfulExamIcon examId={exam.id} size={56} />
+                  <div className="flex-shrink-0">
+                    <ColorfulExamIcon examId={exam.id} size={40} />
                   </div>
-                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{exam.name}</p>
-                  <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>
-                    {exam.subjects.length} subjects
-                  </p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-sm" style={{ color: "var(--foreground)" }}>{exam.name}</p>
+                    <p className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>
+                      {exam.subjects.length} subjects
+                    </p>
+                  </div>
                 </button>
               ))}
             </div>
@@ -266,7 +265,7 @@ export default function StudyMaterialsPage() {
 
             <h2 className="text-2xl font-bold" style={{ color: "var(--foreground)" }}>Select Subject</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {subjects.map((subject) => (
                 <button
                   key={subject.id}
@@ -274,11 +273,11 @@ export default function StudyMaterialsPage() {
                     setSelectedSubject(subject.id);
                     setStep('materials');
                   }}
-                  className="p-6 text-left rounded-xl border transition-all cursor-pointer"
+                  className="p-4 text-left rounded-lg border transition-all cursor-pointer flex items-center gap-3"
                   style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
                     e.currentTarget.style.borderColor = "#4255FF";
                   }}
                   onMouseLeave={(e) => {
@@ -287,10 +286,10 @@ export default function StudyMaterialsPage() {
                     e.currentTarget.style.borderColor = "var(--card-border)";
                   }}
                 >
-                  <div className="mb-4 flex justify-center">
-                    <ColorfulSubjectIcon subjectId={subject.id} size={56} />
+                  <div className="flex-shrink-0">
+                    <ColorfulSubjectIcon subjectId={subject.id} size={40} />
                   </div>
-                  <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
+                  <p className="font-semibold text-sm" style={{ color: "var(--foreground)" }}>{subject.name}</p>
                 </button>
               ))}
             </div>

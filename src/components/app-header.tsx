@@ -114,7 +114,7 @@ export function AppHeader() {
                   Custom Quiz
                 </Link>
                 <Link href="/study-materials" className={navLinkClass("/study-materials")} style={navLinkStyle("/study-materials")} {...navHoverProps("/study-materials")}>
-                  📖 Study Materials
+                  Study Materials
                 </Link>
                 <Link href="/pricing" className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50" : "text-amber-600 hover:text-amber-700 hover:bg-amber-50"}`}>
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -227,7 +227,7 @@ export function AppHeader() {
                         <Link href="/custom-quiz" className={mobileNavLinkClass("/custom-quiz")} onClick={() => setShowMenu(false)}>
                           Custom Quiz
                         </Link>
-                        <Link href="/study-materials" className={mobileNavLinkClass("/study-materials")} onClick={() => setShowMenu(false)}>📖 Study Materials</Link>
+                        <Link href="/study-materials" className={mobileNavLinkClass("/study-materials")} onClick={() => setShowMenu(false)}>Study Materials</Link>
                         <Link href="/pricing" className={`block px-4 py-2 text-sm font-medium transition-colors ${isActive("/pricing") ? "text-amber-700 dark:text-amber-500 bg-amber-50 dark:bg-amber-900/30 border-l-2 border-amber-600" : "text-amber-600 dark:text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/20"}`} onClick={() => setShowMenu(false)}>Upgrade</Link>
                       </>
                     )}
