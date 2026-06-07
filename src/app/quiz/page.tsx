@@ -229,6 +229,7 @@ function QuizContent() {
     subjectId: string;
     topic: string;
   } | null>(null);
+  const [showExitConfirmation, setShowExitConfirmation] = useState(false);
 
   // Level completion modal state
   const [showLevelCompleteModal, setShowLevelCompleteModal] = useState(false);
@@ -1086,13 +1087,15 @@ function QuizContent() {
     : "/";
 
   function handleBack() {
-    if (
-      !isSubmitted &&
-      answers.some((a) => a !== null) &&
-      !window.confirm("Leave this quiz? Your progress will be lost.")
-    ) {
+    if (!isSubmitted && answers.some((a) => a !== null)) {
+      setShowExitConfirmation(true);
       return;
     }
+    router.push(backHref);
+  }
+
+  function confirmExit() {
+    setShowExitConfirmation(false);
     router.push(backHref);
   }
 
@@ -1129,6 +1132,31 @@ function QuizContent() {
             topic={quizData.topic}
             onClose={() => setReportQuestion(null)}
           />
+        )}
+
+        {/* Exit Confirmation Modal */}
+        {showExitConfirmation && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+            <div className="rounded-2xl p-6 max-w-md w-full shadow-2xl" style={{ background: "var(--card-bg)" }}>
+              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--foreground)" }}>Leave this quiz?</h3>
+              <p className="mb-6" style={{ color: "var(--foreground-secondary)" }}>Your progress will be lost.</p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowExitConfirmation(false)}
+                  className="flex-1 px-4 py-3 rounded-lg font-semibold transition-colors"
+                  style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmExit}
+                  className="flex-1 px-4 py-3 bg-[#4255FF] text-white rounded-lg font-semibold hover:bg-[#3242CC] transition-colors"
+                >
+                  Exit Quiz
+                </button>
+              </div>
+            </div>
+          </div>
         )}
 
       {/* Back Button - Standalone Floating */}
