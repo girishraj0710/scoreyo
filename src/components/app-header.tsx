@@ -9,7 +9,7 @@ import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, BarChart3, TrendingUp, Award, Settings, LogOut, AlertTriangle, FileText } from "lucide-react";
 
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
@@ -243,16 +243,7 @@ export function AppHeader() {
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <rect x="2" y="3" width="20" height="14" rx="1" strokeWidth={1.2} />
-                          <line x1="2" y1="6" x2="22" y2="6" strokeWidth={1.2} />
-                          <circle cx="6" cy="10" r="2" strokeWidth={1.2} />
-                          <path d="M6 12v1M8 11l1 1M7 13l1-2" strokeWidth={1.2} strokeLinecap="round" />
-                          <rect x="11" y="9" width="1" height="4" strokeWidth={1.2} />
-                          <rect x="13" y="8" width="1" height="5" strokeWidth={1.2} />
-                          <rect x="15" y="7" width="1" height="6" strokeWidth={1.2} />
-                          <polyline points="18,12 19,10 20,11 21,9" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <BarChart3 className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Dashboard
                       </Link>
                       <Link
@@ -263,9 +254,7 @@ export function AppHeader() {
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                        <TrendingUp className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Reports
                       </Link>
                       <Link
@@ -276,13 +265,7 @@ export function AppHeader() {
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 7c0-.55.45-1 1-1h10c.55 0 1 .45 1 1" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M7 7h10v2H7z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M8 9h2v4H8zM14 9h2v4h-2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M10 9h4v6c0 1.1-.9 2-2 2s-2-.9-2-2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M10 17h4M11 19h2" />
-                        </svg>
+                        <Award className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Achievements
                       </Link>
                     </div>
@@ -298,9 +281,7 @@ export function AppHeader() {
                         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       >
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                        <BarChart3 className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Analytics
                       </Link>
                       <Link
@@ -311,9 +292,7 @@ export function AppHeader() {
                         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       >
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                        </svg>
+                        <AlertTriangle className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Reported Questions
                       </Link>
                       <Link
@@ -324,9 +303,7 @@ export function AppHeader() {
                         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       >
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+                        <FileText className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                         Pending Questions
                       </Link>
                     </div>
@@ -340,10 +317,7 @@ export function AppHeader() {
                       onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       onClick={() => setShowMenu(false)}
                     >
-                      <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
+                      <Settings className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                       Settings
                     </Link>
                     <button
@@ -355,13 +329,9 @@ export function AppHeader() {
                       aria-label={`Toggle ${isDarkMode ? 'light' : 'dark'} mode`}
                     >
                       {isDarkMode ? (
-                        <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                        </svg>
+                        <Sun className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                       ) : (
-                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1m-16 0H1m15.364 1.636l.707.707M4.929 4.929l.707.707m10.728 0l.707-.707M4.929 19.071l.707-.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        <Moon className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                       )}
                       {isDarkMode ? 'Light mode' : 'Dark mode'}
                     </button>
@@ -378,9 +348,7 @@ export function AppHeader() {
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                     aria-label="Logout"
                   >
-                    <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
+                    <LogOut className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--foreground-secondary)' }} />
                     {t("logout")}
                   </button>
                 </div>
