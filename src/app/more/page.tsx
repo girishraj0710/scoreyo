@@ -89,7 +89,7 @@ export default function MorePage() {
       {/* Menu Sections */}
       {menuSections.map((section) => (
         <div key={section.title} className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3 px-2">
+          <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 px-2" style={{ color: "var(--foreground-secondary)" }}>
             {section.title}
           </h3>
           <div className="rounded-xl shadow-sm border border-[var(--card-border)] overflow-hidden" style={{ background: "var(--card-bg)" }}>
@@ -108,7 +108,7 @@ export default function MorePage() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "var(--hover-bg)";
                     const icon = e.currentTarget.querySelector('svg');
-                    if (icon && icon.classList.contains('text-slate-600')) {
+                    if (icon) {
                       icon.style.color = "#4255FF";
                     }
                   }}
@@ -121,8 +121,8 @@ export default function MorePage() {
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-5 h-5 text-slate-600" />
-                    <span className="font-medium text-slate-800">
+                    <Icon className="w-5 h-5" style={{ color: "var(--muted)" }} />
+                    <span className="font-medium" style={{ color: "var(--foreground)" }}>
                       {item.label}
                     </span>
                   </div>
@@ -132,7 +132,8 @@ export default function MorePage() {
                     </span>
                   )}
                   <svg
-                    className="w-5 h-5 text-slate-400"
+                    className="w-5 h-5"
+                    style={{ color: "var(--muted)" }}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
