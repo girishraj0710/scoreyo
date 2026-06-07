@@ -447,7 +447,7 @@ export function LandingPageV2() {
               {/* Left Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex - 1)}
-                className="hidden md:flex absolute left-0 top-[204px] z-20 w-14 h-14 bg-[white] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[#e2e8f0]"
+                className="hidden md:flex absolute left-0 top-[190px] z-20 w-14 h-14 bg-[white] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[#e2e8f0]"
               >
                 <ChevronLeft className="w-6 h-6 text-slate-800" />
               </button>
@@ -455,7 +455,7 @@ export function LandingPageV2() {
               {/* Right Arrow - hidden on mobile, visible on desktop */}
               <button
                 onClick={() => setCarouselIndex(carouselIndex + 1)}
-                className="hidden md:flex absolute right-0 top-[204px] z-20 w-14 h-14 bg-[white] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[#e2e8f0]"
+                className="hidden md:flex absolute right-0 top-[190px] z-20 w-14 h-14 bg-[white] rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[#e2e8f0]"
               >
                 <ChevronRight className="w-6 h-6 text-slate-800" />
               </button>
