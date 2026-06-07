@@ -8,7 +8,7 @@ import { useLocale } from '@/context/locale-context';
 import { StudyMaterialUploader } from '@/components/study-material-uploader';
 import { getAllExams, getExamById, examCategories } from '@/lib/exams';
 import { ChevronRight, Upload, CheckCircle, AlertCircle, Loader, Search, X } from 'lucide-react';
-import { ColorfulExamIcon, ColorfulCategoryIcon } from '@/lib/colorful-exam-icons';
+import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from '@/lib/colorful-exam-icons';
 import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
 
 interface FileUpload {
@@ -539,7 +539,7 @@ export default function ContributorMaterialsPage() {
                       }}
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <ColorfulCategoryIcon categoryId={subject.id} size={40} />
+                        <ColorfulSubjectIcon subjectId={subject.id} size={40} />
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
