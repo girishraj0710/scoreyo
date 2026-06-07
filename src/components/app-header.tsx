@@ -244,7 +244,7 @@ export function AppHeader() {
                         onClick={() => setShowMenu(false)}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3H5a2 2 0 00-2 2v4m0 0H3m4 0v8m0 0H3m4 0v4a2 2 0 002 2h4m0 0h4a2 2 0 002-2v-4m0 0h2m-2 0V9a2 2 0 00-2-2h-4m0 0H9m0 0V5a2 2 0 012-2h4" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Dashboard
                       </Link>
@@ -269,9 +269,8 @@ export function AppHeader() {
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
-                          <path d="M6 9c0-1.105.895-2 2-2h8c1.105 0 2 .895 2 2v3h2c1.105 0 2 .895 2 2v5c0 1.105-.895 2-2 2h-1v1c0 .552-.448 1-1 1s-1-.448-1-1v-1H9v1c0 .552-.448 1-1 1s-1-.448-1-1v-1H6c-1.105 0-2-.895-2-2v-5c0-1.105.895-2 2-2h2V9zm2 3v5h8v-5H8z"/>
-                          <path d="M9 7c0-.552.448-1 1-1h4c.552 0 1 .448 1 1s-.448 1-1 1h-4c-.552 0-1-.448-1-1z"/>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 9l1-1h10l1 1v2H6V9zm-2 3h14v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-8zm4-3V6h4V3H8v6z" />
                         </svg>
                         Achievements
                       </Link>
