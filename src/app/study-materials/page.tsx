@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useUser } from '@/context/user-context';
 import { getAllExams, getExamById } from '@/lib/exams';
 import {
@@ -46,18 +46,19 @@ export default function StudyMaterialsPage() {
   const [filteredExams, setFilteredExams] = useState<any[]>([]);
   const [filteredSubjects, setFilteredSubjects] = useState<any[]>([]);
 
-  const exams = getAllExams();
-  const selectedExamObj = selectedExam ? getExamById(selectedExam) : null;
-  const subjects = selectedExamObj?.subjects || [];
+  // Memoize these so they don't change on every render
+  const exams = useMemo(() => getAllExams(), []);
+  const selectedExamObj = useMemo(() => selectedExam ? getExamById(selectedExam) : null, [selectedExam]);
+  const subjects = useMemo(() => selectedExamObj?.subjects || [], [selectedExamObj]);
 
   // Get names
-  const examName = selectedExam
+  const examName = useMemo(() => selectedExam
     ? exams.find((e) => e.id === selectedExam)?.name
-    : null;
+    : null, [selectedExam, exams]);
 
-  const subjectName = selectedSubject
+  const subjectName = useMemo(() => selectedSubject
     ? subjects.find((s) => s.id === selectedSubject)?.name
-    : null;
+    : null, [selectedSubject, subjects]);
 
   // Filter exams based on search query
   useEffect(() => {
@@ -90,6 +91,7 @@ export default function StudyMaterialsPage() {
   // Fetch materials when exam and subject are selected
   useEffect(() => {
     if (selectedExam && selectedSubject && step === 'materials') {
+      let isMounted = true;
       const fetchMaterials = async () => {
         try {
           setIsLoading(true);
@@ -103,18 +105,27 @@ export default function StudyMaterialsPage() {
           }
 
           const data = await response.json();
-          setMaterials(data.data || []);
-          setSearchQuery('');
+          if (isMounted) {
+            setMaterials(data.data || []);
+            setSearchQuery('');
+          }
         } catch (err) {
-          setError(
-            err instanceof Error ? err.message : 'Failed to load materials'
-          );
+          if (isMounted) {
+            setError(
+              err instanceof Error ? err.message : 'Failed to load materials'
+            );
+          }
         } finally {
-          setIsLoading(false);
+          if (isMounted) {
+            setIsLoading(false);
+          }
         }
       };
 
       fetchMaterials();
+      return () => {
+        isMounted = false;
+      };
     }
   }, [selectedExam, selectedSubject, step]);
 
