@@ -185,24 +185,24 @@ export function AppHeader() {
               </button>
 
               {showMenu && (
-                <div className="absolute right-0 mt-2 w-56 rounded-2xl shadow-2xl z-[70] overflow-hidden" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-                  {/* Premium Header with Avatar Background */}
-                  <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, #4255FF 0%, #3242CC 100%)' }}>
-                    <div className="flex items-start gap-3">
+                <div className="absolute right-0 mt-2 w-64 rounded-2xl shadow-lg z-[70] overflow-hidden" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
+                  {/* Premium Header Section */}
+                  <div className="px-6 py-6" style={{ background: 'var(--card-bg)', borderBottom: '1px solid var(--card-border)' }}>
+                    <div className="flex items-start gap-4">
                       <div
-                        className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0 border-2 border-white shadow-lg"
+                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0"
                         style={{ backgroundColor: user.avatar_color || "#6366f1" }}
                       >
                         {user.name?.charAt(0).toUpperCase()}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-white text-sm" style={{ letterSpacing: '-0.3px' }}>
+                      <div className="flex-1 min-w-0 pt-1">
+                        <h3 className="font-bold text-base" style={{ color: 'var(--foreground)' }}>
                           {user.name}
                         </h3>
-                        <p className="text-xs text-blue-100 truncate">{user.email}</p>
+                        <p className="text-xs truncate" style={{ color: 'var(--foreground-secondary)' }}>{user.email}</p>
                         {user.role && user.role !== 'student' && (
-                          <span className="inline-block text-xs px-2 py-1 rounded-full bg-white/20 text-white font-semibold mt-1">
-                            {user.role === 'contributor' ? '🎯' : '⚙️'} {user.role}
+                          <span className="inline-block text-xs px-2 py-1 rounded-full mt-2" style={{ background: 'var(--hover-bg)', color: 'var(--foreground-secondary)' }}>
+                            {user.role === 'contributor' ? 'Contributor' : 'Admin'}
                           </span>
                         )}
                       </div>
@@ -234,187 +234,142 @@ export function AppHeader() {
                   </div>
                   {/* Student Links - Dashboard, Reports, Badges */}
                   {!['contributor', 'admin'].includes(user.role || '') && (
-                    <div className="border-b border-slate-100 dark:border-slate-700 transition-all" style={{ borderBottomColor: 'var(--card-border)' }}>
+                    <div className="py-2" style={{ borderBottom: '1px solid var(--card-border)' }}>
                       <Link
                         href="/dashboard"
-                        className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors"
+                        className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                         style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                          e.currentTarget.style.color = '#4255FF';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = 'var(--foreground)';
-                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #4255FF 0%, #3242CC 100%)' }}>
-                          📊
-                        </div>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+                        </svg>
                         Dashboard
                       </Link>
                       <Link
                         href="/reports"
-                        className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors"
+                        className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                         style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                          e.currentTarget.style.color = '#22c55e';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = 'var(--foreground)';
-                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)' }}>
-                          📈
-                        </div>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
                         Reports
                       </Link>
                       <Link
                         href="/achievements"
-                        className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors"
+                        className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                         style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                          e.currentTarget.style.color = '#f59e0b';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = 'var(--foreground)';
-                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                         onClick={() => setShowMenu(false)}
                       >
-                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' }}>
-                          🏆
-                        </div>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
                         Achievements
                       </Link>
                     </div>
                   )}
                   {/* Admin Links (if admin role) */}
                   {isAdmin(user.role, user.email) && (
-                    <div className="border-b border-slate-100 dark:border-slate-700 transition-all" style={{ borderBottomColor: 'var(--card-border)' }}>
+                    <div className="py-2" style={{ borderBottom: '1px solid var(--card-border)' }}>
                       <Link
                         href="/admin"
-                        className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors"
+                        className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                         style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
                         onClick={() => setShowMenu(false)}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                          e.currentTarget.style.color = '#8b5cf6';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = 'var(--foreground)';
-                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       >
-                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)' }}>
-                          📊
-                        </div>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
                         Analytics
                       </Link>
                       <Link
                         href="/admin/questions"
-                        className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors"
+                        className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                         style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
                         onClick={() => setShowMenu(false)}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                          e.currentTarget.style.color = '#8b5cf6';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = 'var(--foreground)';
-                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       >
-                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)' }}>
-                          ⚠️
-                        </div>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
                         Reported Questions
                       </Link>
                       <Link
                         href="/admin/review-questions"
-                        className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors"
+                        className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                         style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
                         onClick={() => setShowMenu(false)}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                          e.currentTarget.style.color = '#8b5cf6';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = 'var(--foreground)';
-                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                       >
-                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)' }}>
-                          📋
-                        </div>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
                         Pending Questions
                       </Link>
                     </div>
                   )}
-                  <Link
-                    href="/settings"
-                    className="block px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    style={{ color: 'var(--foreground)', backgroundColor: 'transparent', borderTop: '1px solid var(--card-border)' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                      e.currentTarget.style.color = '#6b7280';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = 'var(--foreground)';
-                    }}
-                    onClick={() => setShowMenu(false)}
-                  >
-                    <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #6b7280 0%, #4b5563 100%)' }}>
-                      ⚙️
-                    </div>
-                    Settings
-                  </Link>
-                  <button
-                    onClick={() => toggleTheme()}
-                    className="w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--hover-bg)';
-                      e.currentTarget.style.color = '#f97316';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = 'var(--foreground)';
-                    }}
-                    aria-label={`Toggle ${isDarkMode ? 'light' : 'dark'} mode`}
-                  >
-                    <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)' }}>
-                      {isDarkMode ? '☀️' : '🌙'}
-                    </div>
-                    {isDarkMode ? 'Light mode' : 'Dark mode'}
-                  </button>
+                  <div className="py-2" style={{ borderTop: '1px solid var(--card-border)', borderBottom: '1px solid var(--card-border)' }}>
+                    <Link
+                      href="/settings"
+                      className="block px-6 py-3 text-sm flex items-center gap-3 transition-colors"
+                      style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                      onClick={() => setShowMenu(false)}
+                    >
+                      <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      Settings
+                    </Link>
+                    <button
+                      onClick={() => toggleTheme()}
+                      className="w-full text-left px-6 py-3 text-sm flex items-center gap-3 transition-colors"
+                      style={{ color: 'var(--foreground)', backgroundColor: 'transparent' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                      aria-label={`Toggle ${isDarkMode ? 'light' : 'dark'} mode`}
+                    >
+                      {isDarkMode ? (
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1m-16 0H1m15.364 1.636l.707.707M4.929 4.929l.707.707m10.728 0l.707-.707M4.929 19.071l.707-.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      ) : (
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                      )}
+                      {isDarkMode ? 'Light mode' : 'Dark mode'}
+                    </button>
+                  </div>
                   <button
                     onClick={() => {
                       setShowMenu(false);
                       router.push("/");
                       logout();
                     }}
-                    className="w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
-                    style={{ color: '#ef4444', backgroundColor: 'transparent' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-                      e.currentTarget.style.color = '#dc2626';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = '#ef4444';
-                    }}
+                    className="w-full text-left px-6 py-3 text-sm flex items-center gap-3 transition-colors"
+                    style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--hover-bg)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                     aria-label="Logout"
                   >
-                    <div className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-sm" style={{ background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)' }}>
-                      🚪
-                    </div>
+                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--foreground-secondary)' }}>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
                     {t("logout")}
                   </button>
                 </div>
