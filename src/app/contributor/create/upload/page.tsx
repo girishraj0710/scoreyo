@@ -495,10 +495,10 @@ function UploadContentPage() {
 
         {/* Info Box */}
         <div className="mt-8 border rounded-xl p-6" style={{ background: "rgba(66, 85, 255, 0.1)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
-          <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "#4255FF" }}>
+          <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "white" }}>
             <Icon3DSparkle size={28} /> What Happens Next?
           </h3>
-          <ul className="space-y-2 text-sm" style={{ color: "#4255FF" }}>
+          <ul className="space-y-2 text-sm" style={{ color: "white" }}>
             <li className="flex items-start gap-2">
               <span className="font-bold">1.</span>
               <span>Our AI analyzes your content and generates questions</span>
