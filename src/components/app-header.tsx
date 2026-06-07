@@ -9,8 +9,7 @@ import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
-import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriangle, FileText } from "lucide-react";
-import { Icon3DGraduationCap } from "./premium-3d-icons";
+import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriangle, FileText, Users } from "lucide-react";
 
 export function AppHeader() {
   const { user, isLoading, logout, setShowLoginModal } = useUser();
@@ -89,7 +88,7 @@ export function AppHeader() {
             {user && ['contributor', 'admin'].includes(user.role || '') ? (
               <>
                 <Link href="/contributor" className={navLinkClass("/contributor")} style={{ ...navLinkStyle("/contributor"), display: 'flex', alignItems: 'center', gap: '0.5rem' }} {...navHoverProps("/contributor")} title="Contributor Portal">
-                  <Icon3DGraduationCap size={20} /> Contributor Portal
+                  <Users size={20} /> Contributor Portal
                 </Link>
                 {/* My Submissions link removed - available as tab on main page */}
               </>
@@ -214,7 +213,7 @@ export function AppHeader() {
                     {user.role && ['contributor', 'contributor', 'admin'].includes(user.role) ? (
                       <>
                         <Link href="/contributor" className={mobileNavLinkClass("/contributor")} onClick={() => setShowMenu(false)} title="Contributor Portal" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <Icon3DGraduationCap size={20} /> Contributor Portal
+                          <Users size={20} /> Contributor Portal
                         </Link>
                         {/* My Submissions link removed - available as tab on main page */}
                       </>
