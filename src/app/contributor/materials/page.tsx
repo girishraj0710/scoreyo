@@ -539,7 +539,7 @@ export default function ContributorMaterialsPage() {
                       }}
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <ColorfulSubjectIcon subjectId={subject.id} size={40} />
+                        <ColorfulSubjectIcon subjectId={subject.id} size={56} />
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold" style={{ color: "var(--foreground)" }}>{subject.name}</p>
