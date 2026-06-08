@@ -564,7 +564,7 @@ export default function IELTSSpeakingPracticePage() {
 
                 {/* Evaluation Results */}
                 {evaluation && !evalError && (
-                  <div className="bg-[rgba(66,85,255,0.1)] border border-[rgba(66,85,255,0.3)] rounded-lg p-6 space-y-4">
+                  <div className="bg-[rgba(66,85,255,0.1)] dark:bg-[rgba(66,85,255,0.05)] border border-[rgba(66,85,255,0.3)] dark:border-[rgba(66,85,255,0.2)] rounded-lg p-6 space-y-4">
                     {/* Header with Band Score */}
                     <div className="flex items-center justify-between">
                       <h4 className="font-bold text-[var(--foreground)] flex items-center gap-2">
@@ -612,7 +612,7 @@ export default function IELTSSpeakingPracticePage() {
                     </div>
 
                     {/* Overall Feedback */}
-                    <div className="border-t border-[rgba(66,85,255,0.3)] pt-3">
+                    <div className="border-t border-[rgba(66,85,255,0.3)] dark:border-[rgba(66,85,255,0.2)] pt-3">
                       <p className="text-sm text-[var(--foreground-secondary)]">{evaluation.overallFeedback}</p>
                     </div>
 

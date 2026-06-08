@@ -472,7 +472,7 @@ export default function WritingPracticeInterface({
                       <div key={idx} className="bg-[var(--primary-bg)] rounded p-3 text-sm">
                         <p className="text-[var(--foreground-secondary)] mb-1">
                           <span className="text-red-600 dark:text-red-400 font-semibold">"{suggestion.original}"</span>{" "}
-                          <span className="text-gray-400">→</span>{" "}
+                          <span className="text-[rgba(100,116,139,0.6)] dark:text-[rgba(203,213,225,0.4)]">→</span>{" "}
                           <span className="text-green-600 dark:text-green-400 font-semibold">"{suggestion.suggestion}"</span>
                         </p>
                         <p className="text-xs text-[var(--foreground-secondary)]">{suggestion.reason}</p>
