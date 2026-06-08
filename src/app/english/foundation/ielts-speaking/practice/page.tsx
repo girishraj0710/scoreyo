@@ -123,7 +123,9 @@ export default function IELTSSpeakingPracticePage() {
 
       mediaRecorder.start();
       setIsRecording(true);
-      startTranscription(); // Start transcription alongside recording
+
+      // Start transcription only AFTER microphone permission is granted
+      startTranscription();
 
       // Auto-stop after speak time for Part 2
       if (question?.part === 2 && question.cueCard) {
@@ -137,7 +139,14 @@ export default function IELTSSpeakingPracticePage() {
       }
     } catch (error) {
       console.error("Recording error:", error);
-      setRecordingError("Microphone access denied. Please enable microphone permissions in your browser.");
+      const errorMessage = error instanceof DOMException
+        ? error.name === 'NotAllowedError'
+          ? "Microphone permission denied. Please grant permission and try again."
+          : error.name === 'NotFoundError'
+          ? "No microphone found. Please connect a microphone and try again."
+          : "Microphone access failed. Please check your settings."
+        : "Microphone access denied. Please enable microphone permissions in your browser.";
+      setRecordingError(errorMessage);
     }
   };
 
@@ -170,39 +179,48 @@ export default function IELTSSpeakingPracticePage() {
       return;
     }
 
-    const recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = "en-US";
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-US";
 
-    recognition.onstart = () => {
-      setIsTranscribing(true);
-      setTranscript("");
-    };
+      recognition.onstart = () => {
+        setIsTranscribing(true);
+        setTranscript("");
+      };
 
-    recognition.onresult = (event: any) => {
-      let interim = "";
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const transcript = event.results[i][0].transcript;
-        if (event.results[i].isFinal) {
-          setTranscript((prev) => (prev ? prev + " " + transcript : transcript));
-        } else {
-          interim += transcript;
+      recognition.onresult = (event: any) => {
+        let interim = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            setTranscript((prev) => (prev ? prev + " " + transcript : transcript));
+          } else {
+            interim += transcript;
+          }
         }
-      }
-    };
+      };
 
-    recognition.onerror = (event: any) => {
-      console.error("Speech recognition error:", event.error);
-      setIsTranscribing(false);
-    };
+      recognition.onerror = (event: any) => {
+        console.error("Speech recognition error:", event.error);
+        // Only show error if it's a permission-related issue
+        if (event.error === "not-allowed" || event.error === "network") {
+          // Silent fail - user can still type transcript manually
+        }
+        setIsTranscribing(false);
+      };
 
-    recognition.onend = () => {
-      setIsTranscribing(false);
-    };
+      recognition.onend = () => {
+        setIsTranscribing(false);
+      };
 
-    recognition.start();
-    recognitionRef.current = recognition;
+      recognition.start();
+      recognitionRef.current = recognition;
+    } catch (error) {
+      console.error("Failed to start speech recognition:", error);
+      // Silent fail - transcription is optional, user can type manually
+    }
   };
 
   // Stop transcription
@@ -508,12 +526,13 @@ export default function IELTSSpeakingPracticePage() {
                 <textarea
                   value={transcript}
                   onChange={(e) => setTranscript(e.target.value)}
-                  placeholder="Your speech will appear here... You can edit it to correct transcription errors"
+                  placeholder="Your speech will appear here... You can also type or edit your answer manually"
                   className="w-full h-[200px] p-4 border-2 border-[var(--card-border)] rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition resize-none font-sans text-[var(--foreground)] bg-[var(--primary-bg)]"
                 />
 
-                <div className="text-xs text-[var(--foreground-secondary)]">
-                  <p>ℹ️ Web Speech API transcribes your spoken answer. You can edit the text above to correct any errors before evaluation.</p>
+                <div className="text-xs text-[var(--foreground-secondary)] space-y-1">
+                  <p>ℹ️ <strong>Speech Recognition:</strong> If enabled, your answer will auto-transcribe here. {isTranscribing ? "🎤 Recording..." : "Or type/paste your answer below."}</p>
+                  <p>✏️ You can edit the transcription to correct any errors before evaluation.</p>
                 </div>
 
                 {/* Evaluation Error */}
