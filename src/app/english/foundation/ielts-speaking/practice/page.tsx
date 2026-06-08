@@ -4,6 +4,21 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { SpeakingQuestion } from "@/lib/ielts-speaking-questions";
 
+interface Criterion {
+  score: number;
+  feedback: string;
+  improvements: string[];
+}
+
+interface SpeakingEvaluation {
+  bandScore: number;
+  fluencyCoherence: Criterion;
+  lexicalResource: Criterion;
+  grammaticalRange: Criterion;
+  pronunciation: Criterion;
+  overallFeedback: string;
+}
+
 export default function IELTSSpeakingPracticePage() {
   const router = useRouter();
   const [selectedPart, setSelectedPart] = useState<1 | 2 | 3>(1);
@@ -16,10 +31,16 @@ export default function IELTSSpeakingPracticePage() {
   const [timer, setTimer] = useState<number>(0);
   const [timerType, setTimerType] = useState<"prep" | "speak" | null>(null);
   const [recordingError, setRecordingError] = useState<string | null>(null);
+  const [transcript, setTranscript] = useState("");
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const [isEvaluating, setIsEvaluating] = useState(false);
+  const [evaluation, setEvaluation] = useState<SpeakingEvaluation | null>(null);
+  const [evalError, setEvalError] = useState<string | null>(null);
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const recognitionRef = useRef<any>(null);
 
   // Load a random question for the selected part
   const loadQuestion = async () => {
@@ -102,6 +123,7 @@ export default function IELTSSpeakingPracticePage() {
 
       mediaRecorder.start();
       setIsRecording(true);
+      startTranscription(); // Start transcription alongside recording
 
       // Auto-stop after speak time for Part 2
       if (question?.part === 2 && question.cueCard) {
@@ -109,6 +131,7 @@ export default function IELTSSpeakingPracticePage() {
         setTimeout(() => {
           if (mediaRecorderRef.current && isRecording) {
             stopRecording();
+            stopTranscription();
           }
         }, question.cueCard.speakTime * 1000);
       }
@@ -123,6 +146,7 @@ export default function IELTSSpeakingPracticePage() {
     if (mediaRecorderRef.current && isRecording) {
       mediaRecorderRef.current.stop();
       setIsRecording(false);
+      stopTranscription(); // Stop transcription when recording stops
       if (timerIntervalRef.current) {
         clearInterval(timerIntervalRef.current);
         timerIntervalRef.current = null;
@@ -136,6 +160,108 @@ export default function IELTSSpeakingPracticePage() {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  // Start transcription using Web Speech API
+  const startTranscription = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      console.warn("Speech Recognition not supported in this browser");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    recognition.onstart = () => {
+      setIsTranscribing(true);
+      setTranscript("");
+    };
+
+    recognition.onresult = (event: any) => {
+      let interim = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          setTranscript((prev) => (prev ? prev + " " + transcript : transcript));
+        } else {
+          interim += transcript;
+        }
+      }
+    };
+
+    recognition.onerror = (event: any) => {
+      console.error("Speech recognition error:", event.error);
+      setIsTranscribing(false);
+    };
+
+    recognition.onend = () => {
+      setIsTranscribing(false);
+    };
+
+    recognition.start();
+    recognitionRef.current = recognition;
+  };
+
+  // Stop transcription
+  const stopTranscription = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+      setIsTranscribing(false);
+    }
+  };
+
+  // Evaluate speaking answer
+  const handleSpeakingEvaluate = async () => {
+    if (!transcript.trim()) {
+      setEvalError("Please provide a transcription or answer to evaluate.");
+      return;
+    }
+
+    setIsEvaluating(true);
+    setEvaluation(null);
+    setEvalError(null);
+
+    try {
+      const questionText = question?.question || (question?.cueCard?.title || "");
+      const res = await fetch("/api/english/evaluate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "speaking",
+          prompt: questionText,
+          userText: transcript,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        setEvalError(data.error || "Failed to evaluate");
+      } else {
+        setEvaluation(data.evaluation);
+      }
+    } catch (error) {
+      setEvalError(error instanceof Error ? error.message : "Evaluation failed");
+    } finally {
+      setIsEvaluating(false);
+    }
+  };
+
+  const getBandScoreColor = (score: number) => {
+    if (score < 5) return "text-red-600";
+    if (score < 6.5) return "text-orange-600";
+    if (score < 8) return "text-green-600";
+    return "text-blue-600";
+  };
+
+  const getBandScoreBarColor = (score: number) => {
+    if (score < 5) return "bg-red-600";
+    if (score < 6.5) return "bg-orange-600";
+    if (score < 8) return "bg-green-600";
+    return "bg-blue-600";
   };
 
   if (loading) {
@@ -370,6 +496,121 @@ export default function IELTSSpeakingPracticePage() {
                 </div>
               )}
             </div>
+
+            {/* Transcription & Evaluation */}
+            {audioUrl && (
+              <div className="mt-6 bg-[var(--card-bg)] border-2 border-[var(--card-border)] rounded-lg p-6 space-y-4">
+                <h3 className="font-semibold text-[var(--foreground)] flex items-center gap-2">
+                  <span>🎤</span> Transcription
+                </h3>
+
+                {/* Transcription Text Area */}
+                <textarea
+                  value={transcript}
+                  onChange={(e) => setTranscript(e.target.value)}
+                  placeholder="Your speech will appear here... You can edit it to correct transcription errors"
+                  className="w-full h-[200px] p-4 border-2 border-[var(--card-border)] rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition resize-none font-sans text-[var(--foreground)] bg-[var(--primary-bg)]"
+                />
+
+                <div className="text-xs text-[var(--foreground-secondary)]">
+                  <p>ℹ️ Web Speech API transcribes your spoken answer. You can edit the text above to correct any errors before evaluation.</p>
+                </div>
+
+                {/* Evaluation Error */}
+                {evalError && (
+                  <div className="bg-[rgba(220,38,38,0.1)] border border-[rgba(220,38,38,0.3)] dark:border-[rgba(220,38,38,0.5)] rounded-lg p-4">
+                    <p className="text-sm text-[#DC2626] dark:text-[#FF6B6B]">
+                      <strong>Evaluation Error:</strong> {evalError}
+                    </p>
+                  </div>
+                )}
+
+                {/* Evaluate Button */}
+                {!evaluation && (
+                  <button
+                    onClick={handleSpeakingEvaluate}
+                    disabled={!transcript.trim() || isEvaluating}
+                    className="w-full bg-[#4255FF] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#3242CC] transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {isEvaluating ? (
+                      <>
+                        <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                        Evaluating...
+                      </>
+                    ) : (
+                      <>✨ Evaluate with AI</>
+                    )}
+                  </button>
+                )}
+
+                {/* Evaluation Results */}
+                {evaluation && !evalError && (
+                  <div className="bg-[rgba(66,85,255,0.1)] border border-[rgba(66,85,255,0.3)] rounded-lg p-6 space-y-4">
+                    {/* Header with Band Score */}
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-bold text-[var(--foreground)] flex items-center gap-2">
+                        <span>🎯</span> AI Evaluation
+                      </h4>
+                      <div className="text-right">
+                        <p className={`text-2xl font-bold ${getBandScoreColor(evaluation.bandScore)}`}>
+                          {evaluation.bandScore.toFixed(1)}
+                        </p>
+                        <p className="text-xs text-[var(--foreground-secondary)]">Band Score</p>
+                      </div>
+                    </div>
+
+                    {/* Criteria */}
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-semibold text-[var(--foreground)] text-sm">Fluency & Coherence</span>
+                          <span className={`font-bold text-sm ${getBandScoreColor(evaluation.fluencyCoherence.score)}`}>
+                            {evaluation.fluencyCoherence.score.toFixed(1)}
+                          </span>
+                        </div>
+                        <p className="text-xs text-[var(--foreground-secondary)]">{evaluation.fluencyCoherence.feedback}</p>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-semibold text-[var(--foreground)] text-sm">Lexical Resource</span>
+                          <span className={`font-bold text-sm ${getBandScoreColor(evaluation.lexicalResource.score)}`}>
+                            {evaluation.lexicalResource.score.toFixed(1)}
+                          </span>
+                        </div>
+                        <p className="text-xs text-[var(--foreground-secondary)]">{evaluation.lexicalResource.feedback}</p>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-semibold text-[var(--foreground)] text-sm">Grammar & Range</span>
+                          <span className={`font-bold text-sm ${getBandScoreColor(evaluation.grammaticalRange.score)}`}>
+                            {evaluation.grammaticalRange.score.toFixed(1)}
+                          </span>
+                        </div>
+                        <p className="text-xs text-[var(--foreground-secondary)]">{evaluation.grammaticalRange.feedback}</p>
+                      </div>
+                    </div>
+
+                    {/* Overall Feedback */}
+                    <div className="border-t border-[rgba(66,85,255,0.3)] pt-3">
+                      <p className="text-sm text-[var(--foreground-secondary)]">{evaluation.overallFeedback}</p>
+                    </div>
+
+                    {/* Action Button */}
+                    <button
+                      onClick={() => {
+                        setEvaluation(null);
+                        setTranscript("");
+                      }}
+                      className="w-full bg-[var(--hover-bg)] text-[var(--foreground)] py-2 px-4 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)] transition text-sm"
+                    >
+                      Try New Question
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
 
