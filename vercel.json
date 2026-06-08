@@ -1,6 +1,10 @@
 {
   "crons": [
     {
+      "path": "/api/cron/create-sprint",
+      "schedule": "0 1 * * *"
+    },
+    {
       "path": "/api/cron/daily-seed",
       "schedule": "0 2 * * *"
     },
