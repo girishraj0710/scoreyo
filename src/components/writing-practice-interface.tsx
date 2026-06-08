@@ -339,179 +339,189 @@ export default function WritingPracticeInterface({
                 </button>
               </div>
             )}
-
-            {/* Evaluation Results */}
-            {evaluation && !evalError && (
-              <div className="bg-[var(--card-bg)] border-2 border-[var(--card-border)] rounded-lg p-6 space-y-4">
-                {/* Header with Band Score */}
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-[var(--foreground)] flex items-center gap-2">
-                    <span>🎯</span> AI Evaluation Results
-                  </h3>
-                  <div className="text-right">
-                    <p className={`text-2xl font-bold ${getBandScoreColor(evaluation.bandScore)}`}>
-                      {evaluation.bandScore.toFixed(1)}
-                    </p>
-                    <p className="text-xs text-[var(--foreground-secondary)]">IELTS Band</p>
-                  </div>
-                </div>
-
-                {/* Band Score Bar */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs text-[var(--foreground-secondary)]">
-                    <span>0</span>
-                    <span>9</span>
-                  </div>
-                  <div className="w-full bg-[var(--hover-bg)] rounded-full h-2">
-                    <div
-                      className={`h-2 rounded-full transition-all ${getBandScoreBarColor(evaluation.bandScore)}`}
-                      style={{ width: `${(evaluation.bandScore / 9) * 100}%` }}
-                    ></div>
-                  </div>
-                </div>
-
-                <div className="border-t border-[var(--card-border)] pt-4">
-                  {/* Criteria */}
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-start gap-3">
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="font-semibold text-[var(--foreground)]">Task Achievement</span>
-                          <span className={`font-bold ${getBandScoreColor(evaluation.taskAchievement.score)}`}>
-                            {evaluation.taskAchievement.score.toFixed(1)}
-                          </span>
-                        </div>
-                        <div className="w-full bg-[var(--hover-bg)] rounded-full h-1.5 mb-1">
-                          <div
-                            className={`h-1.5 rounded-full ${getBandScoreBarColor(evaluation.taskAchievement.score)}`}
-                            style={{ width: `${(evaluation.taskAchievement.score / 9) * 100}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-xs text-[var(--foreground-secondary)]">
-                          {evaluation.taskAchievement.feedback}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="font-semibold text-[var(--foreground)]">Coherence & Cohesion</span>
-                          <span className={`font-bold ${getBandScoreColor(evaluation.coherenceCohesion.score)}`}>
-                            {evaluation.coherenceCohesion.score.toFixed(1)}
-                          </span>
-                        </div>
-                        <div className="w-full bg-[var(--hover-bg)] rounded-full h-1.5 mb-1">
-                          <div
-                            className={`h-1.5 rounded-full ${getBandScoreBarColor(evaluation.coherenceCohesion.score)}`}
-                            style={{ width: `${(evaluation.coherenceCohesion.score / 9) * 100}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-xs text-[var(--foreground-secondary)]">
-                          {evaluation.coherenceCohesion.feedback}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="font-semibold text-[var(--foreground)]">Lexical Resource</span>
-                          <span className={`font-bold ${getBandScoreColor(evaluation.lexicalResource.score)}`}>
-                            {evaluation.lexicalResource.score.toFixed(1)}
-                          </span>
-                        </div>
-                        <div className="w-full bg-[var(--hover-bg)] rounded-full h-1.5 mb-1">
-                          <div
-                            className={`h-1.5 rounded-full ${getBandScoreBarColor(evaluation.lexicalResource.score)}`}
-                            style={{ width: `${(evaluation.lexicalResource.score / 9) * 100}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-xs text-[var(--foreground-secondary)]">
-                          {evaluation.lexicalResource.feedback}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="font-semibold text-[var(--foreground)]">Grammar & Range</span>
-                          <span className={`font-bold ${getBandScoreColor(evaluation.grammaticalRange.score)}`}>
-                            {evaluation.grammaticalRange.score.toFixed(1)}
-                          </span>
-                        </div>
-                        <div className="w-full bg-[var(--hover-bg)] rounded-full h-1.5 mb-1">
-                          <div
-                            className={`h-1.5 rounded-full ${getBandScoreBarColor(evaluation.grammaticalRange.score)}`}
-                            style={{ width: `${(evaluation.grammaticalRange.score / 9) * 100}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-xs text-[var(--foreground-secondary)]">
-                          {evaluation.grammaticalRange.feedback}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Inline Suggestions */}
-                  {evaluation.inlineSuggestions && evaluation.inlineSuggestions.length > 0 && (
-                    <>
-                      <div className="border-t border-[var(--card-border)] pt-4 mb-4">
-                        <h4 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
-                          <span>✏️</span> Suggested Improvements
-                        </h4>
-                        <div className="space-y-2">
-                          {evaluation.inlineSuggestions.map((suggestion, idx) => (
-                            <div key={idx} className="bg-[var(--hover-bg)] rounded p-3 text-sm">
-                              <p className="text-[var(--foreground-secondary)] mb-1">
-                                <span className="text-red-600 font-semibold">"{suggestion.original}"</span>{" "}
-                                <span className="text-gray-500">→</span>{" "}
-                                <span className="text-green-600 font-semibold">"{suggestion.suggestion}"</span>
-                              </p>
-                              <p className="text-xs text-[var(--foreground-secondary)]">{suggestion.reason}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </>
-                  )}
-
-                  {/* Overall Feedback */}
-                  <div className="border-t border-[var(--card-border)] pt-4">
-                    <h4 className="font-semibold text-[var(--foreground)] mb-2 flex items-center gap-2">
-                      <span>💬</span> Overall Feedback
-                    </h4>
-                    <p className="text-sm text-[var(--foreground-secondary)] leading-relaxed">
-                      {evaluation.overallFeedback}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-2 pt-4 border-t border-[var(--card-border)]">
-                  <button
-                    onClick={() => {
-                      setEvaluation(null);
-                      setUserText("");
-                      setWordCount(0);
-                    }}
-                    className="flex-1 bg-[var(--hover-bg)] text-[var(--foreground)] py-2 px-4 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)] transition text-sm"
-                  >
-                    Try New Prompt
-                  </button>
-                  <button
-                    onClick={handleEvaluate}
-                    className="flex-1 bg-[#4255FF] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[#3242CC] transition text-sm"
-                  >
-                    Evaluate Again
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
+
+      {/* Modal Popup for Evaluation Results */}
+      {evaluation && !evalError && (
+        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-[var(--card-bg)] rounded-2xl shadow-2xl max-w-2xl w-full my-8">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-[var(--card-border)]">
+              <h3 className="text-2xl font-bold text-[var(--foreground)] flex items-center gap-2">
+                <span>🎯</span> AI Evaluation Results
+              </h3>
+              <button
+                onClick={() => setEvaluation(null)}
+                className="text-[var(--foreground-secondary)] hover:text-[var(--foreground)] text-2xl transition"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
+              {/* Band Score Display */}
+              <div className="bg-[var(--hover-bg)] rounded-xl p-6 text-center">
+                <p className="text-[var(--foreground-secondary)] text-sm mb-2">Overall Band Score</p>
+                <p className={`text-5xl font-bold ${getBandScoreColor(evaluation.bandScore)}`}>
+                  {evaluation.bandScore.toFixed(1)}
+                </p>
+                <div className="mt-4 flex justify-between text-xs text-[var(--foreground-secondary)] mb-2">
+                  <span>0</span>
+                  <span>9</span>
+                </div>
+                <div className="w-full bg-[var(--card-bg)] rounded-full h-2">
+                  <div
+                    className={`h-2 rounded-full transition-all ${getBandScoreBarColor(evaluation.bandScore)}`}
+                    style={{ width: `${(evaluation.bandScore / 9) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+
+              {/* Criteria Section */}
+              <div className="space-y-3">
+                <h4 className="font-bold text-[var(--foreground)] text-lg">Criterion Breakdown</h4>
+
+                {/* Task Achievement */}
+                <div className="bg-[var(--hover-bg)] rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-[var(--foreground)]">Task Achievement</span>
+                    <span className={`font-bold text-lg ${getBandScoreColor(evaluation.taskAchievement.score)}`}>
+                      {evaluation.taskAchievement.score.toFixed(1)}
+                    </span>
+                  </div>
+                  <div className="w-full bg-[var(--card-bg)] rounded-full h-2 mb-2">
+                    <div
+                      className={`h-2 rounded-full ${getBandScoreBarColor(evaluation.taskAchievement.score)}`}
+                      style={{ width: `${(evaluation.taskAchievement.score / 9) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sm text-[var(--foreground-secondary)]">
+                    {evaluation.taskAchievement.feedback}
+                  </p>
+                </div>
+
+                {/* Coherence & Cohesion */}
+                <div className="bg-[var(--hover-bg)] rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-[var(--foreground)]">Coherence & Cohesion</span>
+                    <span className={`font-bold text-lg ${getBandScoreColor(evaluation.coherenceCohesion.score)}`}>
+                      {evaluation.coherenceCohesion.score.toFixed(1)}
+                    </span>
+                  </div>
+                  <div className="w-full bg-[var(--card-bg)] rounded-full h-2 mb-2">
+                    <div
+                      className={`h-2 rounded-full ${getBandScoreBarColor(evaluation.coherenceCohesion.score)}`}
+                      style={{ width: `${(evaluation.coherenceCohesion.score / 9) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sm text-[var(--foreground-secondary)]">
+                    {evaluation.coherenceCohesion.feedback}
+                  </p>
+                </div>
+
+                {/* Lexical Resource */}
+                <div className="bg-[var(--hover-bg)] rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-[var(--foreground)]">Lexical Resource</span>
+                    <span className={`font-bold text-lg ${getBandScoreColor(evaluation.lexicalResource.score)}`}>
+                      {evaluation.lexicalResource.score.toFixed(1)}
+                    </span>
+                  </div>
+                  <div className="w-full bg-[var(--card-bg)] rounded-full h-2 mb-2">
+                    <div
+                      className={`h-2 rounded-full ${getBandScoreBarColor(evaluation.lexicalResource.score)}`}
+                      style={{ width: `${(evaluation.lexicalResource.score / 9) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sm text-[var(--foreground-secondary)]">
+                    {evaluation.lexicalResource.feedback}
+                  </p>
+                </div>
+
+                {/* Grammar & Range */}
+                <div className="bg-[var(--hover-bg)] rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-[var(--foreground)]">Grammar & Range</span>
+                    <span className={`font-bold text-lg ${getBandScoreColor(evaluation.grammaticalRange.score)}`}>
+                      {evaluation.grammaticalRange.score.toFixed(1)}
+                    </span>
+                  </div>
+                  <div className="w-full bg-[var(--card-bg)] rounded-full h-2 mb-2">
+                    <div
+                      className={`h-2 rounded-full ${getBandScoreBarColor(evaluation.grammaticalRange.score)}`}
+                      style={{ width: `${(evaluation.grammaticalRange.score / 9) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sm text-[var(--foreground-secondary)]">
+                    {evaluation.grammaticalRange.feedback}
+                  </p>
+                </div>
+              </div>
+
+              {/* Inline Suggestions */}
+              {evaluation.inlineSuggestions && evaluation.inlineSuggestions.length > 0 && (
+                <div className="bg-[rgba(168,85,247,0.1)] dark:bg-[rgba(168,85,247,0.05)] rounded-lg p-4">
+                  <h4 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
+                    <span>✏️</span> Suggested Improvements
+                  </h4>
+                  <div className="space-y-2">
+                    {evaluation.inlineSuggestions.map((suggestion, idx) => (
+                      <div key={idx} className="bg-[var(--primary-bg)] rounded p-3 text-sm">
+                        <p className="text-[var(--foreground-secondary)] mb-1">
+                          <span className="text-red-600 dark:text-red-400 font-semibold">"{suggestion.original}"</span>{" "}
+                          <span className="text-gray-400">→</span>{" "}
+                          <span className="text-green-600 dark:text-green-400 font-semibold">"{suggestion.suggestion}"</span>
+                        </p>
+                        <p className="text-xs text-[var(--foreground-secondary)]">{suggestion.reason}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Overall Feedback */}
+              <div className="bg-[rgba(66,85,255,0.1)] dark:bg-[rgba(66,85,255,0.05)] rounded-lg p-4">
+                <h4 className="font-semibold text-[var(--foreground)] mb-2 flex items-center gap-2">
+                  <span>💬</span> Overall Feedback
+                </h4>
+                <p className="text-sm text-[var(--foreground-secondary)] leading-relaxed">
+                  {evaluation.overallFeedback}
+                </p>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex gap-3 p-6 border-t border-[var(--card-border)]">
+              <button
+                onClick={() => {
+                  setEvaluation(null);
+                  setUserText("");
+                  setWordCount(0);
+                }}
+                className="flex-1 bg-[var(--hover-bg)] text-[var(--foreground)] py-3 px-4 rounded-lg font-semibold hover:bg-[rgba(0,0,0,0.1)] dark:hover:bg-[rgba(255,255,255,0.1)] transition"
+              >
+                Try New Prompt
+              </button>
+              <button
+                onClick={handleEvaluate}
+                className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition flex items-center justify-center gap-2"
+              >
+                {isEvaluating ? (
+                  <>
+                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                    Evaluating...
+                  </>
+                ) : (
+                  <>✨ Evaluate Again</>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
