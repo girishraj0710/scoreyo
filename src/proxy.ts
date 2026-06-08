@@ -42,6 +42,7 @@ export function proxy(request: NextRequest) {
     "/api/dpp",
     "/api/sprint",
     "/api/custom-quiz", // Custom quiz from uploaded documents
+    "/api/english/evaluate", // AI evaluation for writing and speaking
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
     "/api/admin/migrate", // Admin endpoint for database migrations
