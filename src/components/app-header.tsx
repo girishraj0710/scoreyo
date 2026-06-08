@@ -340,10 +340,10 @@ export function AppHeader() {
                     </button>
                   </div>
                   <button
-                    onClick={() => {
+                    onClick={async () => {
                       setShowMenu(false);
+                      await logout();
                       router.push("/");
-                      logout();
                     }}
                     className="w-full text-left px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                     style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent' }}

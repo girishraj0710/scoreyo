@@ -55,18 +55,30 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   async function fetchUser() {
     try {
-      const res = await fetch("/api/auth");
+      const res = await fetch("/api/auth", {
+        method: "GET",
+        cache: "no-store", // Prevent caching of auth check
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "Pragma": "no-cache",
+        }
+      });
       const data = await res.json();
       if (data.user) {
         setUser(data.user);
       } else {
+        // Ensure user is cleared
+        setUser(null);
         // Only auto-show modal if NOT on homepage (landing page has inline form)
         const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
         if (!isHomePage) {
           setShowLoginModal(true);
         }
       }
-    } catch {
+    } catch (error) {
+      console.error("Fetch user error:", error);
+      // Ensure user is cleared on error
+      setUser(null);
       // Only auto-show modal if NOT on homepage
       const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
       if (!isHomePage) {
@@ -157,9 +169,18 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }
 
   async function logout() {
-    await fetch("/api/auth", { method: "DELETE" });
-    setUser(null);
-    setShowLoginModal(true);
+    try {
+      const res = await fetch("/api/auth", { method: "DELETE" });
+      if (!res.ok) {
+        console.error("Logout API returned error:", res.status);
+      }
+    } catch (error) {
+      console.error("Logout API error:", error);
+    } finally {
+      // Always clear local state regardless of API response
+      setUser(null);
+      setShowLoginModal(false);
+    }
   }
 
   async function updateProfile(

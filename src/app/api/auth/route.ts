@@ -301,6 +301,8 @@ export async function PUT(request: NextRequest) {
 // DELETE - Logout (clear cookie)
 export async function DELETE() {
   const response = NextResponse.json({ success: true });
+
+  // Clear user ID cookie
   response.cookies.set(COOKIE_NAME, "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -308,5 +310,23 @@ export async function DELETE() {
     maxAge: 0,
     path: "/",
   });
+
+  // Clear CSRF token cookies
+  response.cookies.set(CSRF_COOKIE_NAME, "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 0,
+    path: "/",
+  });
+
+  response.cookies.set(`${CSRF_COOKIE_NAME}-client`, "", {
+    httpOnly: false,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 0,
+    path: "/",
+  });
+
   return response;
 }
