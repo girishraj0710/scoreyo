@@ -331,6 +331,20 @@ export async function POST(request: NextRequest) {
 
         console.log(`[English Quiz] Final: topic="${topicId}", level="${levelToQuery}", found=${dbQuestions.length} questions`);
 
+        // For reading comprehension topics, prioritize questions WITH passages
+        const isReadingComprehension = topicId.includes('reading') || topicId.includes('comprehension') || topicId.includes('passage');
+        if (isReadingComprehension) {
+          // Filter to only questions with passages
+          const questionsWithPassages = dbQuestions.filter((q: any) => q.passage);
+          if (questionsWithPassages.length > 0) {
+            console.log(`[English Quiz] Reading Comp: Found ${questionsWithPassages.length}/${dbQuestions.length} questions with passages`);
+            dbQuestions = questionsWithPassages;
+          } else {
+            console.log(`[English Quiz] Reading Comp: No questions with passages found, will use AI generation`);
+            dbQuestions = []; // Force AI generation for passage-based questions
+          }
+        }
+
           verifiedQuestions = dbQuestions.map((q: any) => ({
             question: q.question,
             options: q.options,
