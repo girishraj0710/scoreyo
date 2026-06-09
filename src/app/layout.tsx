@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ConditionalLayout } from "@/components/conditional-layout";
 
-// Plus Jakarta Sans - Variable font (200-800) for premium EdTech typography
-// Professional, modern, highly readable multi-million dollar platform aesthetic
-const plusJakartaSans = Plus_Jakarta_Sans({
+// Work Sans - Variable font (100-900) for professional EdTech typography
+// Geometric, clean, highly readable multi-million dollar platform aesthetic
+const workSans = Work_Sans({
   variable: "--font-main",
   subsets: ["latin"],
   display: "swap",
-  weight: "variable", // Enables all weights 200-800
+  weight: "variable", // Enables all weights 100-900
   preload: true,
   fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
   adjustFontFallback: true,
@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} h-full antialiased`}
+      className={`${workSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
