@@ -338,6 +338,7 @@ export async function POST(request: NextRequest) {
             explanation: q.explanation,
             difficulty: q.difficulty as 'easy' | 'medium' | 'hard',
             source: 'verified' as const,
+            ...(q.passage && { passage: q.passage }), // Include passage if present
           }));
         } catch (error) {
           console.error('Error fetching English questions from DB:', error);

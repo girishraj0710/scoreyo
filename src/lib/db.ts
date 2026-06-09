@@ -1003,6 +1003,7 @@ export async function saveVerifiedQuestions(
     explanation: string | { logic: string; formula?: string | null; calculation?: string | null; trapAlerts: string[]; commonMistakes: string[]; };
     difficulty: string;
     source?: string;
+    passage?: string; // Optional passage for reading comprehension questions
   }>
 )  {
   await ensureInitialized();
@@ -1078,22 +1079,38 @@ export async function saveVerifiedQuestions(
       ? q.explanation
       : JSON.stringify(q.explanation);
 
+    const columns = q.passage
+      ? '(topic_id, question, options, correct_answer, explanation, difficulty, source, valid_from, valid_until, passage)'
+      : '(topic_id, question, options, correct_answer, explanation, difficulty, source, valid_from, valid_until)';
+
+    const values = q.passage ? '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)' : '(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
     statements.push({
-      sql: `INSERT INTO fact_exam_questions
-            (topic_id, question, options, correct_answer, explanation,
-             difficulty, source, valid_from, valid_until)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      args: [
-        topicDim.id,
-        q.question,
-        JSON.stringify(q.options),
-        q.correctAnswer,
-        explanationStr,
-        q.difficulty || "medium",
-        q.source || "ai-validated",  // Mark as ai-validated instead of ai-cached
-        currentYear,
-        currentYear + 10  // Valid for 10 years
-      ] as any[],
+      sql: `INSERT INTO fact_exam_questions ${columns} VALUES ${values}`,
+      args: q.passage
+        ? [
+            topicDim.id,
+            q.question,
+            JSON.stringify(q.options),
+            q.correctAnswer,
+            explanationStr,
+            q.difficulty || "medium",
+            q.source || "ai-validated",
+            currentYear,
+            currentYear + 10,
+            q.passage,
+          ]
+        : [
+            topicDim.id,
+            q.question,
+            JSON.stringify(q.options),
+            q.correctAnswer,
+            explanationStr,
+            q.difficulty || "medium",
+            q.source || "ai-validated",
+            currentYear,
+            currentYear + 10,
+          ],
     });
     existingTexts.add(q.question?.toLowerCase().trim());
     added++;
@@ -1929,6 +1946,7 @@ export async function getExamQuestions(
     explanation: row.explanation,
     difficulty: row.difficulty,
     source: row.source || 'dimensional',
+    ...(row.passage && { passage: row.passage }), // Include passage if present (for reading comprehension)
   }));
 }
 
@@ -2134,6 +2152,7 @@ export async function getEnglishQuestions(pathId: string, topicId: string, level
     explanation: row.explanation,
     difficulty: row.difficulty,
     level: row.level,
+    ...(row.passage && { passage: row.passage }), // Include passage if present (for reading comprehension)
   }));
 }
 
@@ -2147,6 +2166,7 @@ export async function saveEnglishQuestions(
     correctAnswer: number;
     explanation: string;
     difficulty: string;
+    passage?: string; // Optional passage for reading comprehension questions
   }>
 ) {
   await ensureInitialized();
@@ -2159,8 +2179,14 @@ export async function saveEnglishQuestions(
     await client.query('BEGIN');
 
     for (const q of questions) {
-      const sql = "INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
-      const params = [q.pathId, q.topicId, q.level, q.question, JSON.stringify(q.options), q.correctAnswer, q.explanation, q.difficulty];
+      const sql = q.passage
+        ? "INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty, passage) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)"
+        : "INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
+
+      const params = q.passage
+        ? [q.pathId, q.topicId, q.level, q.question, JSON.stringify(q.options), q.correctAnswer, q.explanation, q.difficulty, q.passage]
+        : [q.pathId, q.topicId, q.level, q.question, JSON.stringify(q.options), q.correctAnswer, q.explanation, q.difficulty];
+
       await client.query(sql, params);
     }
 
