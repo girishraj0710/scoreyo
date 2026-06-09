@@ -2134,6 +2134,7 @@ async function getExamQuestionsDimensional_OLD(
     explanation: row.explanation,
     difficulty: row.difficulty,
     source: row.source || 'dimensional',
+    ...(row.passage && { passage: row.passage }), // Include passage if present (for reading comprehension)
   }));
 }
 
