@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { Fredoka } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ConditionalLayout } from "@/components/conditional-layout";
-
-// Fredoka - Rounded, friendly, playful sans-serif
-// Perfect for modern, approachable educational platforms
-const fredoka = Fredoka({
-  variable: "--font-fredoka",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-  preload: true,
-  fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
-  adjustFontFallback: true,
-});
 
 export const metadata: Metadata = {
   title: "PrepGenie - Smart Exam Prep for India",
@@ -49,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fredoka.variable} h-full antialiased`}
+      className="h-full antialiased"
       suppressHydrationWarning
     >
       <head>
