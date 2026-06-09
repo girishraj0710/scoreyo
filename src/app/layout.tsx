@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
+import { Lexend } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ConditionalLayout } from "@/components/conditional-layout";
+
+// Lexend - Modern, readable, geometric sans-serif
+// Optimized for readability and contemporary design
+const lexend = Lexend({
+  variable: "--font-lexend",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  preload: true,
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+  adjustFontFallback: true,
+});
 
 export const metadata: Metadata = {
   title: "PrepGenie - Smart Exam Prep for India",
@@ -36,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={`${lexend.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
