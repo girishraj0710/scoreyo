@@ -230,7 +230,7 @@ export function LandingPageV2() {
             {/* Logo */}
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#4F46E5' }}>
-                <span className="text-white font-semibold text-xl">P</span>
+                <span className="text-white font-semibold text-xl">K</span>
               </div>
               <span className="font-semibold text-xl" style={{ color: "#0f172a" }}>Krakkify</span>
             </div>
