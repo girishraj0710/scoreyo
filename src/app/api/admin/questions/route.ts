@@ -3,7 +3,7 @@ import { queryOne, queryAll, execute } from "@/lib/db";
 
 // Simple admin check (you can enhance this later with proper admin roles)
 // Move admin emails to environment variable for security
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "admin@prepgenie.co.in").split(",").map(e => e.trim());
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "admin@krakkify.co.in").split(",").map(e => e.trim());
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {
