@@ -15,7 +15,7 @@ async function isAdmin(userId: string): Promise<boolean> {
 
 export async function POST(req: NextRequest) {
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
 // GET: Fetch reports (admin only)
 export async function GET(req: NextRequest) {
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -147,7 +147,7 @@ export async function GET(req: NextRequest) {
 // PATCH: Update report status (admin only)
 export async function PATCH(req: NextRequest) {
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

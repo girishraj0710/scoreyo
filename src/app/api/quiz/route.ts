@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Require authentication for quiz generation
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json(
         { error: "Authentication required to generate quizzes" },
@@ -548,7 +548,7 @@ export async function PUT(request: NextRequest) {
       timeTaken,
     } = body;
 
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
 
     if (!userId) {
       return NextResponse.json(

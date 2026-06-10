@@ -23,7 +23,7 @@ export function getPool(): Pool {
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 10000,
       maxUses: 7500,  // Recycle connections (prevents memory leaks)
-      application_name: 'prepgenie-api',
+      application_name: 'krakkify-api',
     });
 
     pool.on('error', (err) => {

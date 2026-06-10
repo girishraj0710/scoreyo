@@ -58,7 +58,7 @@ export default function DebugAuthPage() {
         <div className="bg-[var(--card-bg)] rounded-lg p-6 shadow border border-[var(--card-border)]">
           <h2 className="text-lg font-semibold mb-4">Client-Readable Cookies</h2>
           <div className="text-sm text-slate-600 mb-3">
-            Note: httpOnly cookies (like prepgenie-user-id and prepgenie-csrf-token) won't appear here.
+            Note: httpOnly cookies (like krakkify-user-id and krakkify-csrf-token) won't appear here.
           </div>
           {Object.keys(cookies).length === 0 ? (
             <div className="text-red-600">No cookies found</div>
@@ -100,7 +100,7 @@ export default function DebugAuthPage() {
                     <span className="font-medium text-red-700">Not Logged In</span>
                   </div>
                   <div className="ml-5 text-sm text-red-600">
-                    Server cannot find your session. The prepgenie-user-id cookie is missing or invalid.
+                    Server cannot find your session. The krakkify-user-id cookie is missing or invalid.
                   </div>
                 </div>
               )}

@@ -8,7 +8,7 @@ import { getLevelsForSubject } from "@/lib/level-definitions";
 
 // GET /api/quiz/levels?examId=jee&subjectId=physics
 export async function GET(req: NextRequest) {
-  const userId = req.cookies.get("prepgenie-user-id")?.value;
+  const userId = req.cookies.get("krakkify-user-id")?.value;
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

@@ -1,11 +1,11 @@
 // Client-side CSRF token utilities
-export const CSRF_COOKIE_NAME = "prepgenie-csrf-token";
+export const CSRF_COOKIE_NAME = "krakkify-csrf-token";
 export const CSRF_HEADER_NAME = "x-csrf-token";
 
 // Get CSRF token from cookie
 // Note: The server sets two cookies:
-// 1. prepgenie-csrf-token (httpOnly) - for server validation
-// 2. prepgenie-csrf-token-client (readable) - for client to send in headers
+// 1. krakkify-csrf-token (httpOnly) - for server validation
+// 2. krakkify-csrf-token-client (readable) - for client to send in headers
 export function getCsrfToken(): string | null {
   if (typeof document === 'undefined') return null;
 

@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
 
     if (!userId) {
       return NextResponse.json(

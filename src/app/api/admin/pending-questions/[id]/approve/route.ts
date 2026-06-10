@@ -12,7 +12,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const adminId = request.cookies.get("prepgenie-user-id")?.value;
+    const adminId = request.cookies.get("krakkify-user-id")?.value;
     if (!adminId) {
       return NextResponse.json(
         { error: "Authentication required" },

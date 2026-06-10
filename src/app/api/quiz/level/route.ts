@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -236,7 +236,7 @@ export async function PUT(request: NextRequest) {
     const body = await request.json();
     const { examId, subjectId, levelNumber } = body;
 
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

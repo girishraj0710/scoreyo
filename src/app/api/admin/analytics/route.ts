@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
   const examFilter = searchParams.get("examId") || null;
 
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

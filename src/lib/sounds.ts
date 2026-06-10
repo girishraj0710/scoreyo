@@ -6,13 +6,13 @@
 // Check if sound is enabled in localStorage
 function isSoundEnabled(): boolean {
   if (typeof window === "undefined") return false;
-  const setting = localStorage.getItem("prepgenie-sound-enabled");
+  const setting = localStorage.getItem("krakkify-sound-enabled");
   return setting === null ? true : setting === "true"; // Default: enabled
 }
 
 export function setSoundEnabled(enabled: boolean) {
   if (typeof window === "undefined") return;
-  localStorage.setItem("prepgenie-sound-enabled", enabled.toString());
+  localStorage.setItem("krakkify-sound-enabled", enabled.toString());
 }
 
 export function getSoundEnabled(): boolean {

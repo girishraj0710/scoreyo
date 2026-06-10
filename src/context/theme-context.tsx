@@ -23,7 +23,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setMounted(true);
     // Read saved theme from localStorage
-    const saved = localStorage.getItem("prepgenie-theme") as Theme | null;
+    const saved = localStorage.getItem("krakkify-theme") as Theme | null;
     if (saved === "dark" || saved === "light") {
       setThemeState(saved);
       document.documentElement.setAttribute("data-theme", saved);
@@ -38,7 +38,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem("prepgenie-theme", newTheme);
+    localStorage.setItem("krakkify-theme", newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 

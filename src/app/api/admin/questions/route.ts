@@ -17,7 +17,7 @@ async function isAdmin(userId: string): Promise<boolean> {
 // GET: Fetch all reported questions with pagination
 export async function GET(req: NextRequest) {
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -119,7 +119,7 @@ export async function GET(req: NextRequest) {
 // PUT: Update a question (admin edit)
 export async function PUT(req: NextRequest) {
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -222,7 +222,7 @@ export async function PUT(req: NextRequest) {
 // PATCH: Update report status
 export async function PATCH(req: NextRequest) {
   try {
-    const userId = req.cookies.get("prepgenie-user-id")?.value;
+    const userId = req.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

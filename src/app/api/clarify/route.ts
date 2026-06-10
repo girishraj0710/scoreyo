@@ -11,7 +11,7 @@ const TIMEOUT_MS = 30000; // 30 seconds
 
 export async function POST(request: Request) {
   try {
-    const userId = (await cookies()).get("prepgenie-user-id")?.value;
+    const userId = (await cookies()).get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -161,7 +161,7 @@ function generateIntelligentFallback(
 // Mark clarification as helpful/not helpful
 export async function PATCH(request: Request) {
   try {
-    const userId = (await cookies()).get("prepgenie-user-id")?.value;
+    const userId = (await cookies()).get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

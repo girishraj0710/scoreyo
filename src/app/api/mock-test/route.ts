@@ -44,7 +44,7 @@ function shuffle<T>(array: T[]): T[] {
 
 // GET - Get mock test configs or user's mock test history
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("prepgenie-user-id")?.value;
+  const userId = request.cookies.get("krakkify-user-id")?.value;
   if (!userId) {
     return NextResponse.json({ error: "Not logged in" }, { status: 401 });
   }
@@ -109,7 +109,7 @@ export async function GET(request: NextRequest) {
 // POST - Start a new mock test
 export async function POST(request: NextRequest) {
   try {
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Not logged in" }, { status: 401 });
     }
@@ -432,7 +432,7 @@ export async function POST(request: NextRequest) {
 // PUT - Submit mock test
 export async function PUT(request: NextRequest) {
   try {
-    const userId = request.cookies.get("prepgenie-user-id")?.value;
+    const userId = request.cookies.get("krakkify-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Not logged in" }, { status: 401 });
     }

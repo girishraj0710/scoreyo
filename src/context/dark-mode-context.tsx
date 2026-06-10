@@ -22,13 +22,13 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
     if (!user) {
       // Remove dark mode for unauthenticated users
       document.documentElement.classList.remove("dark");
-      localStorage.removeItem("prepgenie-dark-mode");
+      localStorage.removeItem("krakkify-dark-mode");
       setIsDarkMode(false);
       return;
     }
 
     // Check if dark mode is saved
-    const savedMode = localStorage.getItem("prepgenie-dark-mode");
+    const savedMode = localStorage.getItem("krakkify-dark-mode");
     if (savedMode === "true") {
       setIsDarkMode(true);
       document.documentElement.classList.add("dark");
@@ -45,10 +45,10 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
     setIsDarkMode(newMode);
 
     if (newMode) {
-      localStorage.setItem("prepgenie-dark-mode", "true");
+      localStorage.setItem("krakkify-dark-mode", "true");
       document.documentElement.classList.add("dark");
     } else {
-      localStorage.setItem("prepgenie-dark-mode", "false");
+      localStorage.setItem("krakkify-dark-mode", "false");
       document.documentElement.classList.remove("dark");
     }
   };

@@ -17,7 +17,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
-    const saved = localStorage.getItem("prepgenie-locale") as Locale;
+    const saved = localStorage.getItem("krakkify-locale") as Locale;
     const validLocales = ["en", "hi", "ta", "te", "bn", "mr", "gu", "kn"];
     if (saved && validLocales.includes(saved)) {
       setLocaleState(saved);
@@ -27,7 +27,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
-    localStorage.setItem("prepgenie-locale", newLocale);
+    localStorage.setItem("krakkify-locale", newLocale);
     document.documentElement.lang = newLocale;
   }, []);
 
