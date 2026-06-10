@@ -217,7 +217,7 @@ You should see:
 ### English Hub Main Page:
 ```
 ┌─────────────────────────────────────────────┐
-│  PrepGenie                    🔥 0 days     │
+│  Krakkify                    🔥 0 days     │
 ├─────────────────────────────────────────────┤
 │  English Learning Hub                       │
 │  Master English for competitive exams...    │

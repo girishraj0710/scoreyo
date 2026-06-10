@@ -1,4 +1,4 @@
-// PrepGenie - Curated & Verified Question Bank
+// Krakkify - Curated & Verified Question Bank
 // These are hand-verified previous year questions and standard textbook questions
 // Source: verified = true means expert-checked, from known exam papers/NCERT
 

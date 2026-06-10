@@ -78,7 +78,7 @@ export function AppHeader() {
             P
           </div>
           <span className="text-xl font-bold bg-[#4255FF] bg-clip-text text-transparent">
-            PrepGenie
+            Krakkify
           </span>
         </a>
 

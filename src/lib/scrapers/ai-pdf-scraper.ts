@@ -31,8 +31,8 @@ export async function extractQuestionsWithAI(
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://prepgenie.co.in',
-        'X-Title': 'PrepGenie NCERT Scraper',
+        'HTTP-Referer': 'https://krakkify.co.in',
+        'X-Title': 'Krakkify NCERT Scraper',
       },
       body: JSON.stringify({
         model: 'openai/gpt-4o-mini',

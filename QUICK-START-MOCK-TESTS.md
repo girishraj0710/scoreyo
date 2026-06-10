@@ -1,4 +1,4 @@
-# 🚀 PrepGenie Mock Tests - Quick Reference
+# 🚀 Krakkify Mock Tests - Quick Reference
 
 ## ✅ Generation: IN PROGRESS
 

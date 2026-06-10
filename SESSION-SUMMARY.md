@@ -1,4 +1,4 @@
-# 📋 PrepGenie Session Summary - May 7, 2026
+# 📋 Krakkify Session Summary - May 7, 2026
 
 ## 🎉 What We Accomplished This Session
 
@@ -48,7 +48,7 @@
 
 ## 🚀 Current Status
 
-### ✅ What's Deployed (Live on prepgenie.co.in):
+### ✅ What's Deployed (Live on krakkify.co.in):
 - Mock test search functionality
 - Multiple tests per exam (Test #1, #2, #3)
 - 89 mock test configurations
@@ -97,7 +97,7 @@ bash scripts/generate-all-exams.sh 10
 ### **Step 3: Set Monthly Reminder**
 
 **Calendar Event:**
-- **Title:** "Generate PrepGenie Questions"
+- **Title:** "Generate Krakkify Questions"
 - **When:** First Monday of every month
 - **Duration:** 1 hour
 - **Command:** `bash scripts/generate-all-exams.sh`
@@ -318,7 +318,7 @@ bash scripts/generate-all-exams.sh
 **Branch:** main  
 **Last Commit:** b00ba88  
 **Status:** ✅ All changes pushed  
-**Deployed:** ✅ prepgenie.co.in  
+**Deployed:** ✅ krakkify.co.in  
 
 **Latest commits:**
 1. Added single-command script for all exams

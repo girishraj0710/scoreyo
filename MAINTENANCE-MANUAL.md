@@ -1,4 +1,4 @@
-# 🔧 PrepGenie Maintenance Manual
+# 🔧 Krakkify Maintenance Manual
 
 **Purpose:** Complete guide for all manual maintenance tasks after launch  
 **Last Updated:** May 17, 2026  
@@ -224,7 +224,7 @@ console.table(popular.rows);
 **Steps:**
 1. Verify Turso auto-backup:
 ```bash
-turso db show prepgenie-girishraj0710
+turso db show krakkify-girishraj0710
 ```
 
 2. Check:
@@ -243,7 +243,7 @@ turso db show prepgenie-girishraj0710
 **Manual backup (optional, monthly):**
 ```bash
 # Export to JSON
-turso db shell prepgenie-girishraj0710 .dump > backup-$(date +%Y%m%d).sql
+turso db shell krakkify-girishraj0710 .dump > backup-$(date +%Y%m%d).sql
 ```
 
 ---
@@ -681,14 +681,14 @@ console.table(result.rows);
 
 **Steps:**
 
-1. **Domain renewal** (prepgenie.co.in):
+1. **Domain renewal** (krakkify.co.in):
    - Registrar: (your domain provider)
    - Cost: ~₹1,000/year
    - Action: Enable auto-renewal ✅
 
 2. **SSL certificate**:
    - Vercel handles automatically ✅
-   - Check: https://prepgenie.co.in (should show 🔒)
+   - Check: https://krakkify.co.in (should show 🔒)
    - No action needed (auto-renews)
 
 **Set calendar reminder:**
@@ -867,15 +867,15 @@ UPDATE reported_questions SET status = 'resolved' WHERE id = 123
 
 ### **Site Down**
 
-**Symptoms:** Users can't access prepgenie.co.in
+**Symptoms:** Users can't access krakkify.co.in
 
 **Steps:**
 1. Check Vercel status: https://www.vercel-status.com/
 2. If Vercel is down: Wait (usually <30 min)
 3. If Vercel is up:
    - Check deployment: Vercel Dashboard
-   - Check DNS: `dig prepgenie.co.in`
-   - Check SSL: `curl -I https://prepgenie.co.in`
+   - Check DNS: `dig krakkify.co.in`
+   - Check SSL: `curl -I https://krakkify.co.in`
 4. If recent deployment caused it:
    - Rollback: Vercel Dashboard → Previous deployment → Promote
 5. Notify users (if downtime > 1 hour):
@@ -902,7 +902,7 @@ UPDATE reported_questions SET status = 'resolved' WHERE id = 123
 3. **Restore from backup:**
 ```bash
 # Turso provides point-in-time recovery
-turso db restore prepgenie-girishraj0710 --to <timestamp>
+turso db restore krakkify-girishraj0710 --to <timestamp>
 ```
 4. **Verify restoration:**
    - Check key tables: users, subscriptions, exam_questions

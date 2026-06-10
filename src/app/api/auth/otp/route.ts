@@ -130,16 +130,16 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const { error } = await resend.emails.send({
-      from: "PrepGenie <noreply@prepgenie.co.in>",
+      from: "Krakkify <noreply@krakkify.co.in>",
       to: cleanEmail,
-      subject: `${code} is your PrepGenie verification code`,
+      subject: `${code} is your Krakkify verification code`,
       html: `
         <div style="font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 20px;">
             <div style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #9333ea); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; line-height: 50px;">P</div>
           </div>
           <h2 style="text-align: center; color: #1e293b; margin-bottom: 8px;">Your Verification Code</h2>
-          <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px;">Enter this code in PrepGenie to sign in</p>
+          <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px;">Enter this code in Krakkify to sign in</p>
           <div style="background: #f1f5f9; border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 24px;">
             <span style="font-size: 32px; font-weight: bold; letter-spacing: 8px; color: #6366f1;">${code}</span>
           </div>

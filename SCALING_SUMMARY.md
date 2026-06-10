@@ -1,4 +1,4 @@
-# 🚀 PrepGenie Million-User Scaling - Executive Summary
+# 🚀 Krakkify Million-User Scaling - Executive Summary
 
 ## 📊 Current State vs Target State
 
@@ -60,7 +60,7 @@ vercel --prod            # Deploy (5 min)
 **Setup:**
 ```bash
 # 1. Add indexes
-turso db shell prepgenie-girishraj0710
+turso db shell krakkify-girishraj0710
 .read scripts/add-database-indexes.sql
 
 # 2. Upgrade Turso (go to turso.tech/pricing)
@@ -421,7 +421,7 @@ turso db shell prepgenie-girishraj0710
 
 ---
 
-**🎯 Mission: Take PrepGenie from 1K → 1M users in 12 weeks**
+**🎯 Mission: Take Krakkify from 1K → 1M users in 12 weeks**
 
 **✅ You have everything you need. Now execute! 🚀**
 

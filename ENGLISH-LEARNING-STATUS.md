@@ -69,7 +69,7 @@ Available topics (51 questions total):
 
 ## 🎯 Competitive Advantage:
 
-| Feature | PrepGenie | British Council | Wall Street | IDP |
+| Feature | Krakkify | British Council | Wall Street | IDP |
 |---------|-----------|----------------|-------------|-----|
 | Curriculum Depth | ✅ Full A1-B1 | ✅ Full | ✅ Full | ✅ Full |
 | Topics Mapped | ✅ 40 topics | ~30-35 | ~35-40 | ~30-35 |
@@ -118,7 +118,7 @@ Options for expanding question bank:
 
 ## 💡 Current Value Proposition:
 
-**PrepGenie English Learning Hub offers:**
+**Krakkify English Learning Hub offers:**
 
 ✅ **Complete Curriculum** - Every topic from basics to advanced  
 ✅ **Structured Learning** - 8 modules, step-by-step progression  

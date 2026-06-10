@@ -2,7 +2,7 @@
 
 ## What We Built
 
-A **comprehensive, multi-source question scraping system** for PrepGenie with:
+A **comprehensive, multi-source question scraping system** for Krakkify with:
 
 ### ✅ 1. NCERT Textbook Scraper
 - Downloads PDFs from NCERT servers

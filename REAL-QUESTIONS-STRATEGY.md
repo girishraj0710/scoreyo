@@ -1,4 +1,4 @@
-# 🎯 Real Question Bank Strategy for PrepGenie
+# 🎯 Real Question Bank Strategy for Krakkify
 
 **Goal:** Build a credible, legal, high-quality question bank  
 **Approach:** Multi-source hybrid strategy  
@@ -62,7 +62,7 @@
 
 **Legal Protection:**
 ```
-"PrepGenie offers a mix of:
+"Krakkify offers a mix of:
 - AI-Generated exam-style practice questions
 - Public domain questions from official sources
 - Community-contributed questions
@@ -233,7 +233,7 @@ node scripts/import-questions.js upsc-2015.csv
 
 ### **Free Tier:**
 ```
-PrepGenie Free:
+Krakkify Free:
 ✅ 1,000+ AI-Generated Practice Questions
 ✅ Exam-Style Questions for 18+ Exams
 ✅ Based on Official Syllabi & Patterns
@@ -245,7 +245,7 @@ Not official previous year questions.
 
 ### **Pro Tier (Future):**
 ```
-PrepGenie Pro:
+Krakkify Pro:
 ✅ Everything in Free
 ✅ Official Previous Year Questions*
 ✅ NCERT/NCERT Exemplar Questions

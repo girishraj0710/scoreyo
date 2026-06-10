@@ -57,7 +57,7 @@ npx tsx scripts/migrate-add-syllabus-year.ts
 
 ```bash
 # If you prefer Turso CLI
-turso db shell prepgenie
+turso db shell krakkify
 
 # Then run:
 ALTER TABLE exam_questions ADD COLUMN syllabus_year INTEGER DEFAULT 2024;
@@ -88,7 +88,7 @@ console.table(result.rows);
 
 Generate a quiz and verify it works:
 
-1. Go to: https://prepgenie.co.in/quiz
+1. Go to: https://krakkify.co.in/quiz
 2. Select any exam/subject/topic
 3. Start a quiz
 4. Questions should load normally ✅
@@ -269,7 +269,7 @@ npx tsx -e "import {db} from './src/lib/db'; /* query here */"
 **Next annual action:**
 - **May-June 2027**: Check if any exam syllabus changed (after April announcements), update config
 
-**This ensures PrepGenie always stays current with exam patterns!** 🎯
+**This ensures Krakkify always stays current with exam patterns!** 🎯
 
 ---
 

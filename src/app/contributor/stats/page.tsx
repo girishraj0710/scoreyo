@@ -99,7 +99,7 @@ export default function StatsPage() {
               </h1>
             </div>
             <p className="text-lg" style={{ color: "var(--foreground-secondary)" }}>
-              Track your contribution to PrepGenie's question bank
+              Track your contribution to Krakkify's question bank
             </p>
           </div>
           <Link

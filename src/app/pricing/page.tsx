@@ -94,7 +94,7 @@ export default function PricingPage() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: orderData.amount,
         currency: orderData.currency,
-        name: "PrepGenie",
+        name: "Krakkify",
         description: orderData.planLabel,
         order_id: orderData.orderId,
         prefill: {

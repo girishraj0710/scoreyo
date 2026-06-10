@@ -207,7 +207,7 @@ node scripts/generate-with-ollama.js --exam jee-main --count 20
 ### Set Monthly Reminder:
 
 **In your calendar:**
-- **Title:** "Generate PrepGenie Questions"
+- **Title:** "Generate Krakkify Questions"
 - **When:** First Monday of every month
 - **Duration:** 30 minutes
 - **Command:** `node scripts/generate-with-ollama.js --exam jee-main --count 100`

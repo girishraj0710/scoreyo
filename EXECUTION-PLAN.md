@@ -1,4 +1,4 @@
-# 🚀 PrepGenie - Transparent Hybrid Question Bank
+# 🚀 Krakkify - Transparent Hybrid Question Bank
 
 **Goal:** 500+ questions per exam, properly labeled, high quality  
 **Approach:** Path C - Hybrid (AI + Public Domain)  

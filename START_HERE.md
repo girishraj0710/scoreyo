@@ -1,4 +1,4 @@
-# 🚀 START HERE: Scale PrepGenie to 1M Users
+# 🚀 START HERE: Scale Krakkify to 1M Users
 
 ## ⚡ Quick Summary
 
@@ -25,7 +25,7 @@ This single change will give you:
 
 #### 1. Run Setup Script (5 minutes)
 ```bash
-cd /Users/girish.raj/prepgenie
+cd /Users/girish.raj/krakkify
 
 # Make script executable
 chmod +x scripts/setup-redis.sh
@@ -186,7 +186,7 @@ This is enough for 10K users. At 50K users, upgrade to:
 ### When to Upgrade:
 
 **Upgrade Turso ($29/mo) when:**
-- Storage > 8GB (check: `turso db show prepgenie-girishraj0710`)
+- Storage > 8GB (check: `turso db show krakkify-girishraj0710`)
 - Reads > 900M/month (check dashboard)
 - Users > 20K
 
@@ -358,6 +358,6 @@ Before moving to Phase 2:
 
 ---
 
-**Mission: Transform PrepGenie into a million-user platform in 12 weeks!**
+**Mission: Transform Krakkify into a million-user platform in 12 weeks!**
 
 **You got this! 🎉**

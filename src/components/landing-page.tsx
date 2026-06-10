@@ -314,10 +314,10 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* Why Choose PrepGenie Section */}
+        {/* Why Choose Krakkify Section */}
         <section className="mb-12 max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Why Students Choose PrepGenie
+                Why Students Choose Krakkify
               </h2>
               <p className="text-slate-600 mb-8">
                 Powerful features designed to help you crack your target exam with confidence
@@ -408,7 +408,7 @@ export function LandingPage() {
         <section className="mb-12 max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              What Makes PrepGenie <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500">Different</span>
+              What Makes Krakkify <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500">Different</span>
             </h2>
             <p className="text-slate-600 text-lg">
               India's first exam prep platform with intelligent AI features that actually help you learn
@@ -669,7 +669,7 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* Comparison Section - Why PrepGenie vs Others */}
+        {/* Comparison Section - Why Krakkify vs Others */}
         {/* Upcoming Exam Calendar Section */}
         <section className="mb-12 max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Upcoming Exam Calendar</h2>
@@ -736,7 +736,7 @@ export function LandingPage() {
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-4">Practice Anytime, Anywhere</h2>
             <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-              Download PrepGenie mobile app and prepare for your exams on the go. Available on Android and iOS.
+              Download Krakkify mobile app and prepare for your exams on the go. Available on Android and iOS.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-6">

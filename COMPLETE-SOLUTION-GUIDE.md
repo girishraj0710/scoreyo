@@ -14,7 +14,7 @@
 - ✅ 275 real questions from GitHub
 - ✅ NIMCET (2 mock tests) = 200 questions
 - ✅ CUET MCA (1 mock test) = 75 questions
-- ✅ All converted to PrepGenie CSV format
+- ✅ All converted to Krakkify CSV format
 - ✅ Ready to import
 
 **Files created:**
@@ -104,7 +104,7 @@ git commit -m "feat: Add 275 real questions from community datasets"
 git push origin main
 ```
 
-**Result:** 275 real questions live on prepgenie.co.in in 5 minutes!
+**Result:** 275 real questions live on krakkify.co.in in 5 minutes!
 
 ---
 

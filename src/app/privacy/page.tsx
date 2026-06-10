@@ -1,8 +1,8 @@
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export const metadata = {
-  title: "Privacy Policy | PrepGenie",
-  description: "Privacy Policy for PrepGenie - How we collect, use, and protect your data",
+  title: "Privacy Policy | Krakkify",
+  description: "Privacy Policy for Krakkify - How we collect, use, and protect your data",
 };
 
 export default function PrivacyPage() {
@@ -18,11 +18,11 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>1. Introduction</h2>
             <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>
-              PrepGenie (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains
+              Krakkify (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains
               how we collect, use, disclose, and safeguard your information when you use our Service.
             </p>
             <p style={{ color: "var(--foreground-secondary)" }}>
-              By using PrepGenie, you agree to the collection and use of information in accordance with this policy.
+              By using Krakkify, you agree to the collection and use of information in accordance with this policy.
             </p>
           </section>
 
@@ -133,7 +133,7 @@ export default function PrivacyPage() {
 
             <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--foreground)" }}>5.4 Business Transfers</h3>
             <p style={{ color: "var(--foreground-secondary)" }}>
-              If PrepGenie is acquired or merged with another company, your information may be transferred to
+              If Krakkify is acquired or merged with another company, your information may be transferred to
               the new owners. We will notify you of any such change.
             </p>
           </section>
@@ -176,7 +176,7 @@ export default function PrivacyPage() {
             <h3 className="text-xl font-semibold mb-3 mt-6" style={{ color: "var(--foreground)" }}>8.1 Access and Export</h3>
             <ul className="list-disc list-inside mb-4 ml-4" style={{ color: "var(--foreground-secondary)" }}>
               <li>View your personal information and quiz history in your dashboard</li>
-              <li>Request a copy of your data (email us at support@prepgenie.co.in)</li>
+              <li>Request a copy of your data (email us at support@krakkify.co.in)</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--foreground)" }}>8.2 Correction and Update</h3>
@@ -186,7 +186,7 @@ export default function PrivacyPage() {
 
             <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--foreground)" }}>8.3 Delete Account</h3>
             <ul className="list-disc list-inside mb-4 ml-4" style={{ color: "var(--foreground-secondary)" }}>
-              <li>Request account deletion (contact support@prepgenie.co.in)</li>
+              <li>Request account deletion (contact support@krakkify.co.in)</li>
               <li>All personal data will be deleted within 30 days</li>
             </ul>
 
@@ -215,13 +215,13 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>10. Children&apos;s Privacy</h2>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
-              PrepGenie is intended for users aged 13 and above. We do not knowingly collect information from
+              Krakkify is intended for users aged 13 and above. We do not knowingly collect information from
               children under 13. If we discover that a child under 13 has provided us with personal information,
               we will delete it immediately.
             </p>
             <p style={{ color: "var(--foreground-secondary)" }}>
               Parents or guardians who believe their child has provided us with information should contact us at
-              support@prepgenie.co.in.
+              support@krakkify.co.in.
             </p>
           </section>
 
@@ -229,7 +229,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>11. International Data Transfers</h2>
             <p style={{ color: "var(--foreground-secondary)" }}>
               Your data is stored on servers located in India and the United States (via our cloud providers).
-              By using PrepGenie, you consent to the transfer of your information to these locations.
+              By using Krakkify, you consent to the transfer of your information to these locations.
             </p>
           </section>
 
@@ -248,8 +248,8 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy or wish to exercise your data rights, contact us:
             </p>
             <ul className="list-none ml-0" style={{ color: "var(--foreground-secondary)" }}>
-              <li className="mb-2">📧 Email: <a href="mailto:support@prepgenie.co.in" className="text-[#4255FF] hover:underline">support@prepgenie.co.in</a></li>
-              <li className="mb-2">🌐 Website: <a href="https://prepgenie.co.in" className="text-[#4255FF] hover:underline">prepgenie.co.in</a></li>
+              <li className="mb-2">📧 Email: <a href="mailto:support@krakkify.co.in" className="text-[#4255FF] hover:underline">support@krakkify.co.in</a></li>
+              <li className="mb-2">🌐 Website: <a href="https://krakkify.co.in" className="text-[#4255FF] hover:underline">krakkify.co.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
             </ul>
           </section>

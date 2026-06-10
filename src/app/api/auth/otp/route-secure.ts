@@ -87,12 +87,12 @@ export const POST = withValidation(
       // ── STEP 5: Send Email ──────────────────────────────────
       try {
         await resend.emails.send({
-          from: "PrepGenie <noreply@prepgenie.co.in>",
+          from: "Krakkify <noreply@krakkify.co.in>",
           to: cleanEmail,
-          subject: "Your PrepGenie OTP Code",
+          subject: "Your Krakkify OTP Code",
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #6366f1;">Welcome to PrepGenie!</h2>
+              <h2 style="color: #6366f1;">Welcome to Krakkify!</h2>
               <p>Your OTP code is:</p>
               <div style="background: #f3f4f6; padding: 20px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 8px; margin: 20px 0;">
                 ${otp}

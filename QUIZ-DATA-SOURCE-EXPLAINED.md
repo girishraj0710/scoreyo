@@ -7,7 +7,7 @@
 
 ## 🔍 Where Quiz Data Comes From
 
-PrepGenie uses a **3-tier hierarchical system** to generate quizzes:
+Krakkify uses a **3-tier hierarchical system** to generate quizzes:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -281,7 +281,7 @@ SELECT COUNT(*) FROM exam_questions
 WHERE topic = 'Topic Name';
 
 # Test quiz generation
-# Go to https://prepgenie.co.in
+# Go to https://krakkify.co.in
 # Select exam → subject → topic → Generate quiz
 # Should work instantly ✅
 ```
@@ -313,7 +313,7 @@ WHERE topic = 'Topic Name';
 
 ## 🔄 Cache Auto-Warming
 
-PrepGenie has **automatic cache warming** via cron jobs:
+Krakkify has **automatic cache warming** via cron jobs:
 
 ### **Daily Prewarm** (GitHub Actions)
 ```yaml
@@ -429,8 +429,8 @@ Most topics have verified questions in Tier 1 and load instantly. "AI warming up
 
 ---
 
-**Check Vercel deployment**: https://vercel.com/girishraj0710/prepgenie  
-**Test the fix**: https://prepgenie.co.in → NEET → Physics → Semiconductors & Communication
+**Check Vercel deployment**: https://vercel.com/girishraj0710/krakkify  
+**Test the fix**: https://krakkify.co.in → NEET → Physics → Semiconductors & Communication
 
 ---
 

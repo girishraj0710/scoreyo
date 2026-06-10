@@ -1,4 +1,4 @@
-# PrepGenie - Smart Exam Prep for Indian Competitive Exams
+# Krakkify - Smart Exam Prep for Indian Competitive Exams
 
 ## Project Overview
 AI-powered exam preparation app for 20+ Indian competitive exams (JEE, NEET, UPSC, SSC, Banking, CAT, GATE, etc.). Features quiz engine, mock tests, spaced repetition review, performance reports, and Razorpay payments.
@@ -63,7 +63,7 @@ For multi-step tasks, state a brief plan:
 - **AI**: OpenRouter API (Gemini) for question generation
 - **Payments**: Razorpay (test mode)
 - **Email OTP**: Resend
-- **Auth**: Cookie-based (`prepgenie-user-id`)
+- **Auth**: Cookie-based (`krakkify-user-id`)
 
 ## Key Files
 - `src/lib/db.ts` — All database functions (async, Turso)
@@ -104,12 +104,12 @@ RESEND_API_KEY=...
 RAZORPAY_KEY_ID=rzp_test_...
 RAZORPAY_KEY_SECRET=...
 NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_...
-TURSO_DATABASE_URL=libsql://prepgenie-girishraj0710.aws-ap-south-1.turso.io
+TURSO_DATABASE_URL=libsql://krakkify-girishraj0710.aws-ap-south-1.turso.io
 TURSO_AUTH_TOKEN=...
 ```
 
 ## GitHub
-- Repo: https://github.com/girishraj0710/prepgenie (private)
+- Repo: https://github.com/girishraj0710/krakkify (private)
 - Branch: main
 
 ## Current Status (May 2026)
@@ -117,9 +117,9 @@ TURSO_AUTH_TOKEN=...
 - ✅ Phase 2: OTP email auth, multilingual support (8 languages)
 - ✅ Phase 3: Razorpay payments, mock tests, performance reports
 - ✅ Database migrated from local SQLite to Turso (cloud)
-- ✅ Deployed to Vercel: https://prepgenie.co.in
-- ✅ Custom domain setup: prepgenie.co.in (DNS + SSL configured)
-- ✅ Custom email domain: noreply@prepgenie.co.in (Resend verified)
+- ✅ Deployed to Vercel: https://krakkify.co.in
+- ✅ Custom domain setup: krakkify.co.in (DNS + SSL configured)
+- ✅ Custom email domain: noreply@krakkify.co.in (Resend verified)
 - ✅ Production code cleanup: Removed debug logs, security fixes
 - ✅ Multilingual: 8 Indian languages (English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada)
 - ✅ **NEW: Gemini AI Recommendations Implemented (6 of 7 priorities = 86%):**

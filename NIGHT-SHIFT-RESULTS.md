@@ -33,7 +33,7 @@
 - **Files:**
   - `scripts/convert-github-json.js`
   - `scripts/convert-offline-exam.js`
-- **Purpose:** Convert community datasets to PrepGenie format
+- **Purpose:** Convert community datasets to Krakkify format
 - **Status:** Working & tested
 - **Result:** Converted 2 repos successfully
 
@@ -265,7 +265,7 @@ npm run dev
 git add .
 git commit -m "feat: Add 130 real questions from community sources + complete extraction pipeline"
 git push origin main
-# Auto-deploys to prepgenie.co.in
+# Auto-deploys to krakkify.co.in
 ```
 
 **Total time to live: 20 minutes**

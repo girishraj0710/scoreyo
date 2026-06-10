@@ -4,10 +4,10 @@ I've set up everything! Here's what you need to do in your **terminal** (outside
 
 ## Step 1: Install Dependencies
 
-Open your terminal in the PrepGenie directory and run:
+Open your terminal in the Krakkify directory and run:
 
 ```bash
-cd /Users/girish.raj/prepgenie
+cd /Users/girish.raj/krakkify
 npm install
 ```
 
@@ -25,7 +25,7 @@ npm run test-scraper
 
 You should see output like:
 ```
-🧪 Testing PrepGenie NCERT Scraper
+🧪 Testing Krakkify NCERT Scraper
 ============================================================
 
 1️⃣  Checking environment variables...

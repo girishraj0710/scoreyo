@@ -19,10 +19,10 @@ As per the MIT license terms, we provide the following attribution:
 **TOEFL vocabulary content powered by [WordLevel.net](https://wordlevel.net)**
 
 This attribution must be displayed in:
-- PrepGenie app footer or credits page
+- Krakkify app footer or credits page
 - Any public documentation referencing this vocabulary
 
-## Usage in PrepGenie
+## Usage in Krakkify
 We use this dataset to generate:
 - Synonym selection questions
 - Definition matching questions

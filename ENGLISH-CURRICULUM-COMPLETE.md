@@ -1,4 +1,4 @@
-# Complete English Curriculum - PrepGenie
+# Complete English Curriculum - Krakkify
 ## Professional Institute-Level English Teaching (A1 to C2)
 
 ---
@@ -450,7 +450,7 @@ Week 23-24: Module 7-8 - Writing & Speaking (A2-B1)
 
 ## 🆚 How This Compares to Professional Institutes
 
-| Feature | PrepGenie | British Council | Wall Street | IDP |
+| Feature | Krakkify | British Council | Wall Street | IDP |
 |---------|-----------|----------------|-------------|-----|
 | **Curriculum Depth** | ✅ Complete A1-B1 | ✅ Complete | ✅ Complete | ✅ Complete |
 | **Grammar Coverage** | ✅ All 12 tenses + rules | ✅ Yes | ✅ Yes | ✅ Yes |

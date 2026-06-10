@@ -7,7 +7,7 @@
 
 ## 📋 Summary
 
-Expanded PrepGenie's mock test system to include all 14 state engineering entrance exams and built a powerful custom mock test builder that lets users create personalized tests with custom question counts, topics, and time limits.
+Expanded Krakkify's mock test system to include all 14 state engineering entrance exams and built a powerful custom mock test builder that lets users create personalized tests with custom question counts, topics, and time limits.
 
 ---
 
@@ -395,7 +395,7 @@ custom-mock-test-builder.tsx
 4. **White Label**: Sell custom builder to coaching institutes
 
 ### User Acquisition
-- **Social Sharing**: "I just created my perfect mock test on PrepGenie!"
+- **Social Sharing**: "I just created my perfect mock test on Krakkify!"
 - **Word of Mouth**: Unique feature competitors don't have
 - **SEO**: "Create custom [exam name] mock test online"
 

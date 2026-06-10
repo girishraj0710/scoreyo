@@ -149,7 +149,7 @@ export function determineDifficulty(
 }
 
 /**
- * Map NCERT subjects to PrepGenie exam relevance
+ * Map NCERT subjects to Krakkify exam relevance
  */
 export function getExamRelevance(subject: string, classNum: number): string[] {
   const relevance: string[] = [];

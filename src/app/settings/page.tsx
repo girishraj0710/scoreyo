@@ -95,13 +95,13 @@ export default function SettingsPage() {
 
   // Load preferences from localStorage
   useEffect(() => {
-    const savedGoal = localStorage.getItem("prepgenie-daily-goal");
+    const savedGoal = localStorage.getItem("krakkify-daily-goal");
     if (savedGoal) setDailyGoal(parseInt(savedGoal));
 
-    const savedDifficulty = localStorage.getItem("prepgenie-difficulty");
+    const savedDifficulty = localStorage.getItem("krakkify-difficulty");
     if (savedDifficulty) setDifficulty(savedDifficulty);
 
-    const savedDarkMode = localStorage.getItem("prepgenie-theme");
+    const savedDarkMode = localStorage.getItem("krakkify-theme");
     if (savedDarkMode === "dark") {
       setDarkMode(true);
     }
@@ -145,19 +145,19 @@ export default function SettingsPage() {
 
   const handleDailyGoalChange = (goal: number) => {
     setDailyGoal(goal);
-    localStorage.setItem("prepgenie-daily-goal", goal.toString());
+    localStorage.setItem("krakkify-daily-goal", goal.toString());
   };
 
   const handleDifficultyChange = (diff: string) => {
     setDifficulty(diff);
-    localStorage.setItem("prepgenie-difficulty", diff);
+    localStorage.setItem("krakkify-difficulty", diff);
   };
 
   const handleDarkModeToggle = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
     const theme = newMode ? "dark" : "light";
-    localStorage.setItem("prepgenie-theme", theme);
+    localStorage.setItem("krakkify-theme", theme);
     document.documentElement.setAttribute("data-theme", theme);
   };
 
@@ -191,7 +191,7 @@ export default function SettingsPage() {
         setModal({
           isOpen: true,
           title: "Contact Support",
-          message: "To delete your account, please email us at support@prepgenie.co.in with your registered email address.",
+          message: "To delete your account, please email us at support@krakkify.co.in with your registered email address.",
           type: "info",
           onConfirm: () => setModal(prev => ({ ...prev, isOpen: false })),
         });
@@ -618,19 +618,19 @@ export default function SettingsPage() {
               label="Daily Reminder"
               description="Get reminded to practice every day"
               defaultChecked={true}
-              storageKey="prepgenie-notif-daily"
+              storageKey="krakkify-notif-daily"
             />
             <NotificationToggle
               label="Streak Alerts"
               description="Alert when your streak is about to break"
               defaultChecked={true}
-              storageKey="prepgenie-notif-streak"
+              storageKey="krakkify-notif-streak"
             />
             <NotificationToggle
               label="New Features"
               description="Get notified about new features and updates"
               defaultChecked={false}
-              storageKey="prepgenie-notif-features"
+              storageKey="krakkify-notif-features"
             />
           </div>
 
@@ -693,7 +693,7 @@ export default function SettingsPage() {
         {/* App Version */}
         <div className="text-center py-4">
           <p className="text-xs" style={{ color: "var(--muted)" }}>
-            PrepGenie v2.0 | Made with ❤️ in India
+            Krakkify v2.0 | Made with ❤️ in India
           </p>
         </div>
 

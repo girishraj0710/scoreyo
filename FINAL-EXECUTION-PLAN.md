@@ -1,4 +1,4 @@
-# PrepGenie Quality-First Execution Plan
+# Krakkify Quality-First Execution Plan
 **Combining: Verified Sources + Multi-AI Validation + Gradual Growth**
 
 ## 🎯 Goal: 20,000 HIGH-QUALITY Questions in 4 Weeks

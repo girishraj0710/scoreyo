@@ -215,7 +215,7 @@ Constitution guarantees the Right to Life and Personal Liberty..."
 **Our Labeling:**
 ```
 ✅ Official Question - UPSC CSE 2023
-   Explanation by AI (Verified by PrepGenie)
+   Explanation by AI (Verified by Krakkify)
    
 vs.
 

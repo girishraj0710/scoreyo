@@ -133,7 +133,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -175,7 +175,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -233,7 +233,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 
@@ -369,7 +369,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "दोस्तों के साथ तुलना — जल्द आ रहा है!",
 
     // Login
-    welcomeTo: "PrepGenie में आपका स्वागत है",
+    welcomeTo: "Krakkify में आपका स्वागत है",
     enterName: "शुरू करने के लिए अपना नाम दर्ज करें",
     yourName: "आपका नाम",
     emailOptional: "ईमेल (वैकल्पिक)",
@@ -411,7 +411,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "प्रो में अपग्रेड करें",
     processing: "प्रोसेसिंग...",
     paymentSuccess: "भुगतान सफल!",
-    proWelcome: "अब आपके पास सभी PrepGenie सुविधाओं तक असीमित पहुंच है। शुभ अध्ययन!",
+    proWelcome: "अब आपके पास सभी Krakkify सुविधाओं तक असीमित पहुंच है। शुभ अध्ययन!",
     expiresOn: "समाप्ति तिथि",
     faqTitle: "अक्सर पूछे जाने वाले प्रश्न",
     faqQ1: "क्या मैं कभी भी रद्द कर सकता हूं?",
@@ -469,7 +469,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "अपनी विस्तृत प्रदर्शन रिपोर्ट देखने के लिए कुछ क्विज़ पूरे करें।",
 
     // Footer
-    footerText: "PrepGenie - भारत के लिए स्मार्ट परीक्षा तैयारी",
+    footerText: "Krakkify - भारत के लिए स्मार्ट परीक्षा तैयारी",
     footerExams: "JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA और अधिक",
   },
 
@@ -605,7 +605,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -647,7 +647,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -705,7 +705,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 
@@ -841,7 +841,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -883,7 +883,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -941,7 +941,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 
@@ -1077,7 +1077,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -1119,7 +1119,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -1177,7 +1177,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 
@@ -1313,7 +1313,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -1355,7 +1355,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -1413,7 +1413,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 
@@ -1549,7 +1549,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -1591,7 +1591,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -1649,7 +1649,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 
@@ -1785,7 +1785,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     comingSoon: "Compare with Friends - Coming Soon!",
 
     // Login
-    welcomeTo: "Welcome to PrepGenie",
+    welcomeTo: "Welcome to Krakkify",
     enterName: "Enter your name to get started",
     yourName: "Your Name",
     emailOptional: "Email (optional)",
@@ -1827,7 +1827,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     upgradeToPro: "Upgrade to Pro",
     processing: "Processing...",
     paymentSuccess: "Payment Successful!",
-    proWelcome: "You now have unlimited access to all PrepGenie features. Happy studying!",
+    proWelcome: "You now have unlimited access to all Krakkify features. Happy studying!",
     expiresOn: "Expires on",
     faqTitle: "Frequently Asked Questions",
     faqQ1: "Can I cancel anytime?",
@@ -1885,7 +1885,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     noReportDataDesc: "Complete some quizzes to see your detailed performance reports.",
 
     // Footer
-    footerText: "PrepGenie - Smart Exam Preparation for India",
+    footerText: "Krakkify - Smart Exam Preparation for India",
     footerExams: "Covering JEE, NEET, UPSC, SSC, Banking, CAT, GATE, CLAT, NDA & more",
   },
 };

@@ -7,7 +7,7 @@
 
 ## 📋 Summary
 
-Expanded PrepGenie's engineering exam coverage by adding 7 important state-level entrance exams, bringing better coverage for students across India who want to pursue engineering in their home states.
+Expanded Krakkify's engineering exam coverage by adding 7 important state-level entrance exams, bringing better coverage for students across India who want to pursue engineering in their home states.
 
 **Note**: MHT-CET (Maharashtra) was already present in the system, so we added the remaining 7 state exams.
 
@@ -190,7 +190,7 @@ npm run seed:continuous
 - **Toppr**: Limited state exam coverage (~8 state exams)
 - **Unacademy**: Focuses mainly on national exams (~6 state exams)
 - **Vedantu**: Better state coverage, but not all exams (~10 state exams)
-- **PrepGenie**: Now covers **14 state exams** - most comprehensive in the market! 🏆
+- **Krakkify**: Now covers **14 state exams** - most comprehensive in the market! 🏆
 
 ---
 
@@ -281,7 +281,7 @@ After deployment, monitor:
 ## 🙏 Credits
 
 **Feature Request**: User feedback - "Add more state exams (UPSEE, BCECE, OJEE, etc.)"  
-**Implementation**: Claude Code + PrepGenie Team  
+**Implementation**: Claude Code + Krakkify Team  
 **Date**: May 18, 2026  
 **Effort**: 1.5 hours (code) + 7-10 hours (content generation)
 **Exams Added**: UPSEE, BCECE, OJEE, TNEA, GUJCET, REAP, JCECE
@@ -291,8 +291,8 @@ After deployment, monitor:
 ## 📞 Support
 
 For issues or questions:
-- GitHub: https://github.com/girishraj0710/prepgenie
-- Email: support@prepgenie.co.in
+- GitHub: https://github.com/girishraj0710/krakkify
+- Email: support@krakkify.co.in
 - Documentation: /docs/state-exams
 
 ---

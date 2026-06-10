@@ -1,5 +1,5 @@
 /**
- * Iconify Icon System for PrepGenie Exams
+ * Iconify Icon System for Krakkify Exams
  *
  * Uses 200,000+ free open-source icons from Iconify
  * No downloads needed - icons loaded on-demand via CDN

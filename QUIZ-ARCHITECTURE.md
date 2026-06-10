@@ -20,7 +20,7 @@
 
 ## 🎯 System Overview
 
-PrepGenie's quiz system serves **20+ competitive exams** with **100+ subjects** and **500+ topics**.
+Krakkify's quiz system serves **20+ competitive exams** with **100+ subjects** and **500+ topics**.
 
 ### **Key Components**:
 
@@ -479,8 +479,8 @@ Format: JSON array with { question, options: [4 options], correctAnswer: 0-3, ex
       headers: {
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://prepgenie.co.in",
-        "X-Title": "PrepGenie Quiz Generator",
+        "HTTP-Referer": "https://krakkify.co.in",
+        "X-Title": "Krakkify Quiz Generator",
       },
       body: JSON.stringify({
         model: "google/gemini-2.0-flash-exp:free",

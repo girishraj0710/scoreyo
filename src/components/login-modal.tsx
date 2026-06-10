@@ -308,7 +308,7 @@ export function LoginModal() {
         {step === "method" && (
           <div>
             <h2 className="text-3xl font-bold mb-3" style={{ color: "#0f172a" }}>
-              Welcome to PrepGenie
+              Welcome to Krakkify
             </h2>
             <p className="mb-8" style={{ color: "#64748b" }}>
               Choose how you'd like to continue
@@ -342,7 +342,7 @@ export function LoginModal() {
 
             <div className="mt-8 pt-6 text-center" style={{ borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "#e2e8f0" }}>
               <p className="text-xs" style={{ color: "#94a3b8" }}>
-                By continuing, you agree to PrepGenie's{" "}
+                By continuing, you agree to Krakkify's{" "}
                 <a href="/terms" className="text-[#4255FF] hover:underline">Terms of Use</a> and{" "}
                 <a href="/privacy" className="text-[#4255FF] hover:underline">Privacy Policy</a>.
               </p>

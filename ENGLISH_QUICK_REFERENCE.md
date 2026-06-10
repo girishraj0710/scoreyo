@@ -1,4 +1,4 @@
-# PrepGenie English - Quick Reference
+# Krakkify English - Quick Reference
 
 ## 🎯 Current Status (May 11, 2026)
 
@@ -63,7 +63,7 @@ npx tsx scripts/import-toefl-vocabulary.ts
 curl -X POST http://localhost:3000/api/english/practice \
   -H "Content-Type: application/json" \
   -d '{"pathId":"competitive-exam","topicId":"toefl-vocabulary","level":"intermediate","count":10}' \
-  --cookie "prepgenie-user-id=test"
+  --cookie "krakkify-user-id=test"
 ```
 
 ---
@@ -125,7 +125,7 @@ curl -X POST http://localhost:3000/api/english/practice \
 - Commercial Use: ✅ ALLOWED
 
 **Manual Questions:**
-- Source: Created by PrepGenie team
+- Source: Created by Krakkify team
 - Copyright: You own them
 - Inspired by: Cambridge/Oxford standards
 - Risk: ZERO

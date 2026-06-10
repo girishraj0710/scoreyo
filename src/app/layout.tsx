@@ -17,7 +17,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PrepGenie - Smart Exam Prep for India",
+  title: "Krakkify - Smart Exam Prep for India",
   description:
     "Expert-curated exam preparation for JEE, NEET, UPSC, SSC, Banking, CAT and 20+ Indian competitive exams. Previous year questions, NCERT-based practice, smart progress tracking.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "competitive exams India",
     "previous year questions",
     "NCERT questions",
-    "PrepGenie",
+    "Krakkify",
   ],
   viewport: {
     width: "device-width",
@@ -58,7 +58,7 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var t = localStorage.getItem('prepgenie-theme');
+                  var t = localStorage.getItem('krakkify-theme');
                   if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                     document.documentElement.setAttribute('data-theme', 'dark');
                   }

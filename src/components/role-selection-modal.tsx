@@ -35,7 +35,7 @@ export function RoleSelectionModal({ isOpen, onRoleSelect }: RoleSelectionModalP
         {/* Header */}
         <div className="mb-6">
           <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
-            Welcome to PrepGenie! 🎉
+            Welcome to Krakkify! 🎉
           </h2>
           <p style={{ color: "var(--foreground-secondary)" }}>
             We've added new features for teachers and contributors. Tell us what you'd like to do:

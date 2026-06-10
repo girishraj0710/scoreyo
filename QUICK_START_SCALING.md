@@ -1,4 +1,4 @@
-# 🚀 Quick Start: Scale PrepGenie to 1M Users
+# 🚀 Quick Start: Scale Krakkify to 1M Users
 
 **TL;DR:** Follow these 4 phases to scale from 10K → 1M users while keeping costs under $1000/month.
 
@@ -92,7 +92,7 @@ brew install tursodatabase/tap/turso
 turso auth login
 
 # Connect to your database
-turso db shell prepgenie-girishraj0710
+turso db shell krakkify-girishraj0710
 
 # Run optimization SQL
 .read scripts/add-database-indexes.sql
@@ -112,8 +112,8 @@ SELECT COUNT(*) FROM sqlite_master WHERE type='index' AND name LIKE 'idx_%';
 # Add payment method
 
 # Add read replicas for global users
-turso db replicas create prepgenie-girishraj0710 --location sgn  # Singapore
-turso db replicas create prepgenie-girishraj0710 --location iad  # US East
+turso db replicas create krakkify-girishraj0710 --location sgn  # Singapore
+turso db replicas create krakkify-girishraj0710 --location iad  # US East
 ```
 
 #### 3. Add Connection Pooling (1 hour)
@@ -283,7 +283,7 @@ if (remaining > 0) {
 Add to `.env.local`:
 ```bash
 QSTASH_TOKEN=your-token-here
-NEXT_PUBLIC_APP_URL=https://prepgenie.co.in
+NEXT_PUBLIC_APP_URL=https://krakkify.co.in
 ```
 
 #### 2. Add Error Tracking (1 hour)
@@ -696,7 +696,7 @@ vercel logs --follow
 # Go to: https://console.upstash.com → Your DB → Metrics
 
 # Check Turso usage
-turso db show prepgenie-girishraj0710
+turso db show krakkify-girishraj0710
 ```
 
 ---
