@@ -9,6 +9,12 @@
  *   npx ts-node scripts/generate-questions.ts
  */
 
+// Load environment variables from .env.local
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+config({ path: resolve(process.cwd(), '.env.local') });
+
 import AIQuestionGenerator from '../src/lib/ai-question-generator';
 
 // Configuration: What to generate

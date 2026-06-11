@@ -35,7 +35,7 @@ interface GenerationResult {
 
 export class AIQuestionGenerator {
   private apiKey: string;
-  private model = 'google/gemini-2.0-flash-exp:free';
+  private model = 'openai/gpt-4o-mini'; // Same model as quiz-generator.ts
 
   constructor() {
     this.apiKey = process.env.OPENROUTER_API_KEY || '';
