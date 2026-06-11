@@ -130,7 +130,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const { error } = await resend.emails.send({
-      from: "Krakkify <noreply@krakkify.in>",
+      from: "Krakkify <noreply@prepgenie.co.in>",
       to: cleanEmail,
       subject: `${code} is your Krakkify verification code`,
       html: `
