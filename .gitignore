@@ -57,3 +57,16 @@ daily-seed-cron.log
 *.tsbuildinfo
 next-env.d.ts
 migration-data/*.json
+
+# capacitor mobile platforms (generated, don't commit)
+/ios/App/Pods/
+/ios/App/App.xcworkspace
+/ios/App/build/
+/android/.gradle/
+/android/app/build/
+/android/build/
+/android/local.properties
+/android/.idea/
+*.apk
+*.aab
+*.ipa

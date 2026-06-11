@@ -132,4 +132,17 @@ TURSO_AUTH_TOKEN=...
   - ✅ Priority 5: Live Leaderboard Sprints (MVP - backend ready, UI pending)
   - ✅ Priority 7: Daily Practice Problems (10-min micro-learning with streaks)
 - ⏳ Deferred: Priority 6 (True Offline Mode - complex, requires Service Worker + IndexedDB)
-- ⏳ Later: Mobile app (Capacitor), Razorpay live keys
+- ✅ **Mobile App Conversion (Capacitor - iOS & Android)**
+  - ✅ Capacitor 8.4 integrated (hybrid mode - loads from https://krakkify.in)
+  - ✅ iOS platform configured (requires Xcode + CocoaPods for building)
+  - ✅ Android platform configured (requires Android Studio + SDK for building)
+  - ✅ Native plugins: StatusBar, Keyboard, SplashScreen, Haptics, Browser, App
+  - ✅ Mobile-optimized CSS (safe areas, keyboard handling, 44px touch targets)
+  - ✅ Deep link support (OTP emails, payment callbacks)
+  - ✅ Platform detection utilities (`isNative`, `isIOS`, `isAndroid` in `@/lib/capacitor`)
+  - ✅ Razorpay works identically on mobile (no code changes needed)
+  - ⏳ App icons & splash screens (need design assets - see `resources/README.md`)
+  - ⏳ Testing on physical devices (iPhone + Android)
+  - ⏳ App Store & Play Store submissions (post-testing)
+  - 📖 Full guide: `MOBILE-APP-SETUP.md`
+- ⏳ Later: Razorpay live keys (after app store approval)

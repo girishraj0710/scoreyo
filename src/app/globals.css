@@ -676,3 +676,155 @@ textarea:focus-visible,
     transform: none !important;
   }
 }
+
+/* ============================================
+   CAPACITOR MOBILE APP STYLES
+   ============================================ */
+
+/* iOS Safe Area Support (notches, home indicator) */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    /* Respect iOS safe areas */
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+  }
+
+  /* Fixed headers need safe area top padding */
+  .header-fixed {
+    padding-top: calc(1rem + env(safe-area-inset-top));
+  }
+
+  /* Fixed bottom navigation needs safe area bottom padding */
+  .nav-bottom-fixed {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Prevent pull-to-refresh on mobile (conflicts with quiz swipe) */
+body {
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Improve touch responsiveness */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Hide browser UI chrome in standalone mode */
+@media (display-mode: standalone) {
+  /* Remove any top margins/padding that assume browser chrome */
+  body {
+    padding-top: 0;
+  }
+}
+
+/* Mobile app-specific: hide elements that don't make sense in native app */
+.capacitor-native .hide-on-native {
+  display: none !important;
+}
+
+/* Show mobile-specific elements only in app */
+.show-on-native {
+  display: none;
+}
+
+.capacitor-native .show-on-native {
+  display: block;
+}
+
+/* Keyboard handling: prevent body scroll when keyboard is open */
+.keyboard-open {
+  position: fixed;
+  width: 100%;
+}
+
+/* Better mobile input styling */
+input, textarea, select {
+  /* Prevent iOS zoom on focus */
+  font-size: 16px !important;
+
+  /* Better touch targets */
+  min-height: 44px;
+  padding: 12px 16px;
+
+  /* Remove iOS default styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Smooth transitions */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Haptic feedback visual cue */
+@keyframes haptic-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.haptic-feedback {
+  animation: haptic-pulse 0.1s ease-in-out;
+}
+
+/* Loading spinner for native app (no connection) */
+.native-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Status bar color inheritance (Android) */
+meta[name="theme-color"] {
+  content: var(--primary);
+}
+
+/* Improve scrolling performance on mobile */
+.scroll-smooth {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Swipe gesture indicators */
+.swipeable {
+  position: relative;
+}
+
+.swipeable::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 4px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: 2px;
+  opacity: 0.3;
+  transform: translateY(-50%);
+}
+
+/* Bottom sheet / modal adjustments for mobile */
+.modal-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 20px 20px 0 0;
+  max-height: 90vh;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Reduce animations on low-end Android devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
