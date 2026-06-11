@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import dynamic from "next/dynamic";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { examCategories, type Exam, getExamById } from "@/lib/exams";
 import { useUser } from "@/context/user-context";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { Zap, Flame } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
+import { isNative } from "@/lib/capacitor";
 
 // Dynamic import: Only load landing page for non-logged users
 // Toggle between V1 (old) and V2 (new Quizlet-inspired)
@@ -18,8 +19,18 @@ const LandingPage = dynamic(() => import("@/components/landing-page-v2").then(mo
 
 function HomePageContent() {
   const { user, isLoading } = useUser();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  // IMMEDIATE DEBUG - runs as soon as component loads
+  if (typeof window !== 'undefined' && !window.location.href.includes('alerted')) {
+    const hasCapacitor = 'Capacitor' in window;
+    const platform = hasCapacitor ? (window as any).Capacitor?.getPlatform() : 'no-capacitor';
+    alert(`Platform Check:\nCapacitor exists: ${hasCapacitor}\nPlatform: ${platform}`);
+    // Prevent re-alerting on re-renders
+    window.history.replaceState({}, '', window.location.pathname + '?alerted=1');
+  }
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
@@ -260,6 +271,36 @@ function HomePageContent() {
     }
   };
 
+  // MOBILE APP: Skip landing page, go straight to dashboard or auth
+  useEffect(() => {
+    const nativeCheck = isNative();
+    const hasCapacitor = typeof window !== 'undefined' && 'Capacitor' in window;
+
+    // Debug logging
+    console.log('🔍 Platform detection:', {
+      isNative: nativeCheck,
+      isLoading,
+      hasUser: !!user,
+      windowCapacitor: hasCapacitor,
+    });
+
+    // TEMP: Force alert to debug
+    if (typeof window !== 'undefined') {
+      alert(`DEBUG:\nisNative=${nativeCheck}\nCapacitor=${hasCapacitor}\nUser=${!!user}`);
+    }
+
+    if (nativeCheck && !isLoading) {
+      console.log('✅ Native app detected! Redirecting...');
+      if (user) {
+        console.log('→ User logged in, going to dashboard');
+        router.push('/dashboard');
+      } else {
+        console.log('→ No user, going to auth');
+        router.push('/auth');
+      }
+    }
+  }, [user, isLoading, router]);
+
   // Redirect contributors to contributor portal
   useEffect(() => {
     if (user && (user.role === 'contributor' || user.role === 'admin')) {
@@ -276,9 +317,32 @@ function HomePageContent() {
     );
   }
 
+  // DEBUG: Show platform detection on screen
+  const showDebug = true; // Set to false after testing
+
   // Show landing page if not logged in
   if (!user) {
-    return <LandingPage />;
+    return (
+      <>
+        {showDebug && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 9999,
+            background: 'red',
+            color: 'white',
+            padding: '10px',
+            fontSize: '12px',
+          }}>
+            DEBUG: isNative={String(isNative())} |
+            Capacitor={String(typeof window !== 'undefined' && 'Capacitor' in window)}
+          </div>
+        )}
+        <LandingPage />
+      </>
+    );
   }
 
   // Show loading state while redirecting contributors

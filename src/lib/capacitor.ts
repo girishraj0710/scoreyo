@@ -13,26 +13,41 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Browser } from '@capacitor/browser';
 import { App } from '@capacitor/app';
 
-// Platform detection
-export const isNative = Capacitor.isNativePlatform();
-export const isIOS = Capacitor.getPlatform() === 'ios';
-export const isAndroid = Capacitor.getPlatform() === 'android';
-export const isWeb = Capacitor.getPlatform() === 'web';
+// Platform detection (dynamic functions for client-side)
+export const isNative = () => {
+  if (typeof window === 'undefined') return false;
+  return Capacitor.isNativePlatform();
+};
+
+export const isIOS = () => {
+  if (typeof window === 'undefined') return false;
+  return Capacitor.getPlatform() === 'ios';
+};
+
+export const isAndroid = () => {
+  if (typeof window === 'undefined') return false;
+  return Capacitor.getPlatform() === 'android';
+};
+
+export const isWeb = () => {
+  if (typeof window === 'undefined') return true;
+  return Capacitor.getPlatform() === 'web';
+};
 
 /**
  * Initialize Capacitor plugins on app load
  */
 export async function initCapacitor() {
-  if (!isNative) return;
+  if (!isNative()) return;
 
   try {
     // Hide splash screen after app is ready
     await SplashScreen.hide();
 
     // Configure status bar
-    if (isIOS || isAndroid) {
+    if (isIOS() || isAndroid()) {
       await StatusBar.setStyle({ style: StatusBarStyle.Dark });
-      if (isAndroid) {
+      if (isAndroid()) {
         await StatusBar.setBackgroundColor({ color: '#4F46E5' }); // Indigo-600
       }
     }
@@ -98,7 +113,7 @@ function handleDeepLink(url: string) {
  * Haptic feedback (vibration)
  */
 export async function hapticImpact(style: 'light' | 'medium' | 'heavy' = 'light') {
-  if (!isNative) return;
+  if (!isNative()) return;
 
   try {
     const styleMap = {
@@ -117,7 +132,7 @@ export async function hapticImpact(style: 'light' | 'medium' | 'heavy' = 'light'
  * (Better than <a> tag on mobile - uses system browser)
  */
 export async function openUrl(url: string) {
-  if (!isNative) {
+  if (!isNative()) {
     window.open(url, '_blank');
     return;
   }
@@ -134,7 +149,7 @@ export async function openUrl(url: string) {
  * Close native browser (for OAuth flows)
  */
 export async function closeBrowser() {
-  if (!isNative) return;
+  if (!isNative()) return;
 
   try {
     await Browser.close();
@@ -147,7 +162,7 @@ export async function closeBrowser() {
  * Get safe area insets (iOS notch handling)
  */
 export function getSafeAreaInsets() {
-  if (!isNative) {
+  if (!isNative()) {
     return { top: 0, right: 0, bottom: 0, left: 0 };
   }
 
@@ -165,9 +180,10 @@ export function getSafeAreaInsets() {
  * Check if app is running in standalone mode (mobile app vs browser)
  */
 export function isStandalone() {
-  if (isNative) return true;
+  if (isNative()) return true;
 
   // Check for PWA standalone mode
+  if (typeof window === 'undefined') return false;
   return window.matchMedia('(display-mode: standalone)').matches;
 }
 
@@ -175,7 +191,7 @@ export function isStandalone() {
  * Get app version (from native platform)
  */
 export async function getAppVersion() {
-  if (!isNative) return '0.0.0';
+  if (!isNative()) return '0.0.0';
 
   try {
     const info = await App.getInfo();
@@ -189,7 +205,7 @@ export async function getAppVersion() {
  * Exit app (Android only)
  */
 export async function exitApp() {
-  if (!isAndroid) return;
+  if (!isAndroid()) return;
 
   try {
     await App.exitApp();

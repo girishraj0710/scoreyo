@@ -5,12 +5,11 @@ const config: CapacitorConfig = {
   appName: 'Krakkify',
   webDir: 'out',
 
-  // Using Vercel preview URL (working deployment)
+  // LOCAL DEVELOPMENT: Load from Mac's network IP
   server: {
-    url: 'https://krakkify-rkmstv9ne-girishraj0710-1629s-projects.vercel.app',
-    cleartext: false,
-    androidScheme: 'https',
-    iosScheme: 'https',
+    url: 'http://192.168.31.225:3000',
+    cleartext: true,
+    androidScheme: 'http',
   },
 
   ios: {
@@ -20,7 +19,7 @@ const config: CapacitorConfig = {
   },
 
   android: {
-    allowMixedContent: false,
+    allowMixedContent: true, // Required for HTTP development
     captureInput: true,
     webContentsDebuggingEnabled: true,
   },
