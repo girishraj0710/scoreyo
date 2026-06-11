@@ -26,7 +26,7 @@
     "seed:questions": "tsx scripts/seed-questions-ollama.ts",
     "seed:setup": "tsx scripts/setup-ollama.ts",
     "fill:gaps": "tsx scripts/fill-question-gaps-ollama.ts",
-    "generate-questions": "tsx scripts/generate-questions.ts",
+    "generate-questions": "tsx scripts/generate-via-api.ts",
     "scale:setup": "chmod +x scripts/setup-redis.sh && ./scripts/setup-redis.sh",
     "scale:test": "npm run dev",
     "scale:deploy": "vercel --prod",

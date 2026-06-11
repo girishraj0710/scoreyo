@@ -51,6 +51,7 @@ export function proxy(request: NextRequest) {
     "/api/admin/debug-pending", // Admin endpoint for debugging pending questions
     "/api/admin/check-dimensions", // Admin endpoint to check dimension tables
     "/api/admin/migrate-roles", // Admin endpoint to add user roles
+    "/api/admin/generate-questions", // Admin endpoint for AI question generation
     "/api/user/select-role", // User endpoint for role selection
   ];
 
