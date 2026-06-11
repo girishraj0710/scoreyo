@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
       model: openrouter('openai/gpt-4o-mini'),
       prompt,
       temperature: 0.8,
-      maxTokens: Math.min(8000, count * 150),
+      maxOutputTokens: Math.min(8000, count * 150),
     });
 
     // Parse questions

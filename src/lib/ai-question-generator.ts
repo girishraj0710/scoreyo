@@ -84,7 +84,7 @@ export class AIQuestionGenerator {
         model: openrouter(this.model),
         prompt,
         temperature: 0.8,
-        maxTokens: 8000,
+        maxOutputTokens: 8000,
       });
 
       // Parse JSON response

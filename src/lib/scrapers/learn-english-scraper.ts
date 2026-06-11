@@ -8,7 +8,6 @@
 
 import axios, { AxiosInstance } from 'axios';
 import * as cheerio from 'cheerio';
-import pdfParse from 'pdf-parse';
 
 export interface ScrapedQuestion {
   exam: 'IELTS' | 'TOEFL' | 'Cambridge';
@@ -333,7 +332,7 @@ export async function runLearEnglishScraper() {
       console.log(`\n${r.exam}:`);
       console.log(`  Found: ${r.questionsFound}`);
       console.log(`  Parsed: ${r.questionsParsed}`);
-      console.log(`  Duplicates: ${r.totalDuplicates}`);
+      console.log(`  Duplicates: ${r.duplicatesFound}`);
       if (r.errors.length > 0) {
         console.log(`  Errors: ${r.errors.join(', ')}`);
       }

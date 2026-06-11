@@ -9,7 +9,6 @@
  * - Difficulty estimation
  */
 
-import pdfParse from 'pdf-parse';
 import axios from 'axios';
 
 export interface PdfExtractionOptions {
@@ -32,6 +31,7 @@ class PdfParser {
    */
   static async extractText(pdfBuffer: Buffer, options?: PdfExtractionOptions): Promise<string> {
     try {
+      const pdfParse = require('pdf-parse');
       const data = await pdfParse(pdfBuffer);
 
       if (options?.maxPages && data.text.split(/\f/).length > options.maxPages) {
@@ -50,6 +50,7 @@ class PdfParser {
    */
   static async extractMetadata(pdfBuffer: Buffer): Promise<Record<string, any>> {
     try {
+      const pdfParse = require('pdf-parse');
       const data = await pdfParse(pdfBuffer);
       return {
         numPages: data.numpages,

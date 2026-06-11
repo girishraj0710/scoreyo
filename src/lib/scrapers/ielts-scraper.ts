@@ -8,7 +8,6 @@
  */
 
 import axios from 'axios';
-import pdfParse from 'pdf-parse';
 
 export interface IELTSPassage {
   passageNumber: 1 | 2 | 3;
@@ -48,6 +47,8 @@ class IELTSReadingScraper {
    */
   async extractPdfText(pdfBuffer: Buffer): Promise<string> {
     try {
+      // Dynamic import to avoid ESM/CommonJS issues
+      const pdfParse = require('pdf-parse');
       const data = await pdfParse(pdfBuffer);
       return data.text;
     } catch (err) {
