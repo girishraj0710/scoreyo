@@ -55,7 +55,7 @@ export default function GenerateSimplePage() {
         const batchSize = Math.min(10, target.count - batch * 10);
 
         try {
-          const response = await fetch('/api/quiz', {
+          const response = await fetch('/api/admin/bulk-generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -69,10 +69,10 @@ export default function GenerateSimplePage() {
 
           const data = await response.json();
 
-          if (data.questions && Array.isArray(data.questions)) {
-            taskTotal += data.questions.length;
-            setTotalGenerated(prev => prev + data.questions.length);
-            addLog(`   ✅ Batch ${batch + 1}/${batches}: Generated ${data.questions.length} questions`);
+          if (data.success && data.generated) {
+            taskTotal += data.generated;
+            setTotalGenerated(prev => prev + data.generated);
+            addLog(`   ✅ Batch ${batch + 1}/${batches}: Generated ${data.generated} questions`);
           } else if (data.error) {
             addLog(`   ❌ Batch ${batch + 1}/${batches}: ${data.error}`);
           }

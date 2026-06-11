@@ -52,6 +52,7 @@ export function proxy(request: NextRequest) {
     "/api/admin/check-dimensions", // Admin endpoint to check dimension tables
     "/api/admin/migrate-roles", // Admin endpoint to add user roles
     "/api/admin/generate-questions", // Admin endpoint for AI question generation
+    "/api/admin/bulk-generate", // Admin endpoint for bulk generation (no auth)
     "/api/user/select-role", // User endpoint for role selection
   ];
 
