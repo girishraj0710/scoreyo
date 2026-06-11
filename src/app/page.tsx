@@ -23,14 +23,6 @@ function HomePageContent() {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // IMMEDIATE DEBUG - runs as soon as component loads
-  if (typeof window !== 'undefined' && !window.location.href.includes('alerted')) {
-    const hasCapacitor = 'Capacitor' in window;
-    const platform = hasCapacitor ? (window as any).Capacitor?.getPlatform() : 'no-capacitor';
-    alert(`Platform Check:\nCapacitor exists: ${hasCapacitor}\nPlatform: ${platform}`);
-    // Prevent re-alerting on re-renders
-    window.history.replaceState({}, '', window.location.pathname + '?alerted=1');
-  }
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
@@ -273,29 +265,10 @@ function HomePageContent() {
 
   // MOBILE APP: Skip landing page, go straight to dashboard or auth
   useEffect(() => {
-    const nativeCheck = isNative();
-    const hasCapacitor = typeof window !== 'undefined' && 'Capacitor' in window;
-
-    // Debug logging
-    console.log('🔍 Platform detection:', {
-      isNative: nativeCheck,
-      isLoading,
-      hasUser: !!user,
-      windowCapacitor: hasCapacitor,
-    });
-
-    // TEMP: Force alert to debug
-    if (typeof window !== 'undefined') {
-      alert(`DEBUG:\nisNative=${nativeCheck}\nCapacitor=${hasCapacitor}\nUser=${!!user}`);
-    }
-
-    if (nativeCheck && !isLoading) {
-      console.log('✅ Native app detected! Redirecting...');
+    if (isNative() && !isLoading) {
       if (user) {
-        console.log('→ User logged in, going to dashboard');
         router.push('/dashboard');
       } else {
-        console.log('→ No user, going to auth');
         router.push('/auth');
       }
     }
@@ -317,32 +290,9 @@ function HomePageContent() {
     );
   }
 
-  // DEBUG: Show platform detection on screen
-  const showDebug = true; // Set to false after testing
-
   // Show landing page if not logged in
   if (!user) {
-    return (
-      <>
-        {showDebug && (
-          <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            zIndex: 9999,
-            background: 'red',
-            color: 'white',
-            padding: '10px',
-            fontSize: '12px',
-          }}>
-            DEBUG: isNative={String(isNative())} |
-            Capacitor={String(typeof window !== 'undefined' && 'Capacitor' in window)}
-          </div>
-        )}
-        <LandingPage />
-      </>
-    );
+    return <LandingPage />;
   }
 
   // Show loading state while redirecting contributors
