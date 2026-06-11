@@ -176,7 +176,7 @@ export default function PrivacyPage() {
             <h3 className="text-xl font-semibold mb-3 mt-6" style={{ color: "var(--foreground)" }}>8.1 Access and Export</h3>
             <ul className="list-disc list-inside mb-4 ml-4" style={{ color: "var(--foreground-secondary)" }}>
               <li>View your personal information and quiz history in your dashboard</li>
-              <li>Request a copy of your data (email us at support@krakkify.co.in)</li>
+              <li>Request a copy of your data (email us at support@krakkify.in)</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--foreground)" }}>8.2 Correction and Update</h3>
@@ -186,7 +186,7 @@ export default function PrivacyPage() {
 
             <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--foreground)" }}>8.3 Delete Account</h3>
             <ul className="list-disc list-inside mb-4 ml-4" style={{ color: "var(--foreground-secondary)" }}>
-              <li>Request account deletion (contact support@krakkify.co.in)</li>
+              <li>Request account deletion (contact support@krakkify.in)</li>
               <li>All personal data will be deleted within 30 days</li>
             </ul>
 
@@ -221,7 +221,7 @@ export default function PrivacyPage() {
             </p>
             <p style={{ color: "var(--foreground-secondary)" }}>
               Parents or guardians who believe their child has provided us with information should contact us at
-              support@krakkify.co.in.
+              support@krakkify.in.
             </p>
           </section>
 
@@ -248,8 +248,8 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy or wish to exercise your data rights, contact us:
             </p>
             <ul className="list-none ml-0" style={{ color: "var(--foreground-secondary)" }}>
-              <li className="mb-2">📧 Email: <a href="mailto:support@krakkify.co.in" className="text-[#4255FF] hover:underline">support@krakkify.co.in</a></li>
-              <li className="mb-2">🌐 Website: <a href="https://krakkify.co.in" className="text-[#4255FF] hover:underline">krakkify.co.in</a></li>
+              <li className="mb-2">📧 Email: <a href="mailto:support@krakkify.in" className="text-[#4255FF] hover:underline">support@krakkify.in</a></li>
+              <li className="mb-2">🌐 Website: <a href="https://krakkify.in" className="text-[#4255FF] hover:underline">krakkify.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
             </ul>
           </section>

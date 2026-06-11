@@ -8,7 +8,7 @@
 export const ADMIN_EMAILS = [
   // "girish.raj0710@gmail.com", // Owner/developer account - keep as student to test all features
   "grgowda07.1992@gmail.com",
-  "admin@krakkify.co.in",
+  "admin@krakkify.in",
 ];
 
 /**

@@ -1061,8 +1061,8 @@ export function LandingPageV2() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:support@krakkify.co.in" className="text-slate-600 hover:text-slate-900 transition-colors">
-                    support@krakkify.co.in
+                  <a href="mailto:support@krakkify.in" className="text-slate-600 hover:text-slate-900 transition-colors">
+                    support@krakkify.in
                   </a>
                 </li>
               </ul>

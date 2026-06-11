@@ -222,8 +222,8 @@ export default function TermsPage() {
               For questions about these Terms, please contact us:
             </p>
             <ul className="list-none ml-0" style={{ color: "var(--foreground-secondary)" }}>
-              <li className="mb-2">📧 Email: <a href="mailto:support@krakkify.co.in" className="text-[#4255FF] hover:underline">support@krakkify.co.in</a></li>
-              <li className="mb-2">🌐 Website: <a href="https://krakkify.co.in" className="text-[#4255FF] hover:underline">krakkify.co.in</a></li>
+              <li className="mb-2">📧 Email: <a href="mailto:support@krakkify.in" className="text-[#4255FF] hover:underline">support@krakkify.in</a></li>
+              <li className="mb-2">🌐 Website: <a href="https://krakkify.in" className="text-[#4255FF] hover:underline">krakkify.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
             </ul>
           </section>

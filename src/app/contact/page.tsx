@@ -186,8 +186,8 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-lg font-bold mb-2" style={{ color: "var(--foreground)" }}>Email Support</h3>
                 <p className="mb-2" style={{ color: "var(--foreground-secondary)" }}>Get help via email</p>
-                <a href="mailto:support@krakkify.co.in" className="text-[#4255FF] hover:underline font-medium">
-                  support@krakkify.co.in
+                <a href="mailto:support@krakkify.in" className="text-[#4255FF] hover:underline font-medium">
+                  support@krakkify.in
                 </a>
                 <p className="text-sm mt-2" style={{ color: "var(--muted)" }}>Response time: Within 24 hours</p>
               </div>

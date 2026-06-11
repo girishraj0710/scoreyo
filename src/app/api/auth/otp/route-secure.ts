@@ -87,7 +87,7 @@ export const POST = withValidation(
       // ── STEP 5: Send Email ──────────────────────────────────
       try {
         await resend.emails.send({
-          from: "Krakkify <noreply@krakkify.co.in>",
+          from: "Krakkify <noreply@krakkify.in>",
           to: cleanEmail,
           subject: "Your Krakkify OTP Code",
           html: `

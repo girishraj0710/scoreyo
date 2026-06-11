@@ -52,7 +52,7 @@ export default function AchievementsPage() {
   }
 
   async function shareBadge(badge: BadgeWithStatus) {
-    const text = `🎉 Just unlocked "${badge.name}" badge on Krakkify!\n${badge.description}\n\nJoin me: https://krakkify.co.in`;
+    const text = `🎉 Just unlocked "${badge.name}" badge on Krakkify!\n${badge.description}\n\nJoin me: https://krakkify.in`;
 
     if (navigator.share) {
       try {

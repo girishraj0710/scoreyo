@@ -39,6 +39,12 @@ export const metadata: Metadata = {
     maximumScale: 5,
     userScalable: true,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://krakkify.in',
+    siteName: 'Krakkify - Smart Exam Prep',
+  },
 };
 
 export default function RootLayout({

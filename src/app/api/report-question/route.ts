@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { queryOne, queryAll, execute } from "@/lib/db";
 
-// Admin email whitelist
-const ADMIN_EMAILS = ["girish.raj0710@gmail.com", "grgowda07.1992@gmail.com", "admin@krakkify.co.in"];
+// Admin emails from environment - uses ADMIN_EMAILS env var
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@krakkify.in").split(",").map(e => e.trim());
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {

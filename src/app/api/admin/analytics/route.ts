@@ -21,7 +21,7 @@ const db = {
   }
 };
 
-const ADMIN_EMAILS = ["girish.raj0710@gmail.com", "grgowda07.1992@gmail.com", "admin@krakkify.co.in"];
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@krakkify.in").split(",").map(e => e.trim());
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {

@@ -191,7 +191,7 @@ export default function SettingsPage() {
         setModal({
           isOpen: true,
           title: "Contact Support",
-          message: "To delete your account, please email us at support@krakkify.co.in with your registered email address.",
+          message: "To delete your account, please email us at support@krakkify.in with your registered email address.",
           type: "info",
           onConfirm: () => setModal(prev => ({ ...prev, isOpen: false })),
         });

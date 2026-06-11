@@ -112,15 +112,17 @@ TURSO_AUTH_TOKEN=...
 - Repo: https://github.com/girishraj0710/krakkify (private)
 - Branch: main
 
-## Current Status (May 2026)
+## Current Status (June 2026)
 - ✅ Phase 1: Quiz engine, auth, dashboard, review, leaderboard
 - ✅ Phase 2: OTP email auth, multilingual support (8 languages)
 - ✅ Phase 3: Razorpay payments, mock tests, performance reports
 - ✅ Database migrated from local SQLite to Turso (cloud)
-- ✅ Deployed to Vercel: https://krakkify.co.in
-- ✅ Custom domain setup: krakkify.co.in (DNS + SSL configured)
-- ✅ Custom email domain: noreply@krakkify.co.in (Resend verified)
-- ✅ Production code cleanup: Removed debug logs, security fixes
+- ✅ Deployed to Vercel: https://krakkify.in
+- ✅ **PRIMARY DOMAIN**: https://krakkify.in (GoDaddy + Vercel, DNS synced)
+- ✅ **ALTERNATE DOMAIN**: https://crackify.in (redirects to krakkify.in via 308 permanent redirect)
+- ✅ **LEGACY DOMAIN**: https://krakkify.co.in (kept for backward compatibility, can redirect later)
+- ✅ Custom email domain: noreply@krakkify.in (Resend verified, admin: admin@krakkify.in)
+- ✅ Production code cleanup: Removed debug logs, security fixes, all hardcoded admin emails updated
 - ✅ Multilingual: 8 Indian languages (English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada)
 - ✅ **NEW: Gemini AI Recommendations Implemented (6 of 7 priorities = 86%):**
   - ✅ Priority 1: Rich Explanations (logic links, trap alerts, formulas, common mistakes)

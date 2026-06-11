@@ -31,7 +31,7 @@ export async function extractQuestionsWithAI(
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://krakkify.co.in',
+        'HTTP-Referer': 'https://krakkify.in',
         'X-Title': 'Krakkify NCERT Scraper',
       },
       body: JSON.stringify({
