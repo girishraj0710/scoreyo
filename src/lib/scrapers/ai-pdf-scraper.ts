@@ -197,10 +197,9 @@ function getNCERTUrl(
  */
 async function extractTextFromPDF(buffer: Buffer): Promise<string> {
   try {
-    // Import PDFParse class from pdf-parse
-    const { PDFParse } = require('pdf-parse');
-    const parser = new PDFParse({ data: buffer });
-    const result = await parser.getText();
+    // pdf-parse exports a function, not a class
+    const pdfParse = require('pdf-parse');
+    const result = await pdfParse(buffer);
     return result.text;
   } catch (error) {
     console.error('PDF parsing error:', error);

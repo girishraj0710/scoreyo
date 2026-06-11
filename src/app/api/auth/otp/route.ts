@@ -129,14 +129,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email via Resend
-    const { error } = await resend.emails.send({
-      from: "Krakkify <noreply@prepgenie.co.in>",
+    console.log(`[OTP] 📧 Attempting to send email to ${cleanEmail} with code ${code}`);
+    console.log(`[OTP] 📧 Resend API Key exists: ${!!process.env.RESEND_API_KEY}`);
+    console.log(`[OTP] 📧 From: Krakkify <noreply@krakkify.in>`);
+
+    const { data, error } = await resend.emails.send({
+      from: "Krakkify <noreply@krakkify.in>",
       to: cleanEmail,
       subject: `${code} is your Krakkify verification code`,
       html: `
         <div style="font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #9333ea); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; line-height: 50px;">P</div>
+            <div style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #9333ea); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; line-height: 50px;">K</div>
           </div>
           <h2 style="text-align: center; color: #1e293b; margin-bottom: 8px;">Your Verification Code</h2>
           <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px;">Enter this code in Krakkify to sign in</p>
@@ -149,9 +153,11 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error("[OTP] ❌ Resend error:", error);
       return NextResponse.json({ error: "Failed to send verification email. Please try again." }, { status: 500 });
     }
+
+    console.log(`[OTP] ✅ Email sent successfully! ID: ${data?.id}`);
 
     return NextResponse.json({
       success: true,
