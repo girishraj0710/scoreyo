@@ -8,19 +8,19 @@
 import { useState } from 'react';
 
 const TARGETS = [
-  { exam: 'ielts', subject: 'reading', topic: 'Academic Reading', count: 50 },
-  { exam: 'ielts', subject: 'reading', topic: 'General Training', count: 50 },
-  { exam: 'ielts', subject: 'writing', topic: 'Task 1', count: 25 },
-  { exam: 'ielts', subject: 'writing', topic: 'Task 2', count: 25 },
-  { exam: 'jee', subject: 'physics', topic: 'Mechanics', count: 30 },
-  { exam: 'jee', subject: 'chemistry', topic: 'Organic Chemistry', count: 35 },
-  { exam: 'jee', subject: 'math', topic: 'Calculus', count: 35 },
-  { exam: 'neet', subject: 'biology', topic: 'Cell Biology', count: 40 },
-  { exam: 'neet', subject: 'chemistry', topic: 'Inorganic Chemistry', count: 40 },
-  { exam: 'upsc', subject: 'polity', topic: 'Indian Constitution', count: 25 },
-  { exam: 'upsc', subject: 'history', topic: 'Modern India', count: 25 },
-  { exam: 'ssc', subject: 'reasoning', topic: 'Logical Reasoning', count: 25 },
-  { exam: 'ssc', subject: 'quantitative', topic: 'Arithmetic', count: 25 },
+  { exam: 'ielts', subject: 'ielts-reading', topic: 'Academic Reading', count: 50 },
+  { exam: 'ielts', subject: 'ielts-reading', topic: 'General Training', count: 50 },
+  { exam: 'ielts', subject: 'ielts-writing', topic: 'Task 1', count: 25 },
+  { exam: 'ielts', subject: 'ielts-writing', topic: 'Task 2', count: 25 },
+  { exam: 'jee-main', subject: 'jee-physics', topic: 'Mechanics', count: 30 },
+  { exam: 'jee-main', subject: 'jee-chemistry', topic: 'Organic Chemistry', count: 35 },
+  { exam: 'jee-main', subject: 'jee-maths', topic: 'Calculus', count: 35 },
+  { exam: 'neet', subject: 'neet-biology', topic: 'Cell Biology', count: 40 },
+  { exam: 'neet', subject: 'neet-chemistry', topic: 'Inorganic Chemistry', count: 40 },
+  { exam: 'upsc-prelims', subject: 'upsc-polity', topic: 'Indian Constitution', count: 25 },
+  { exam: 'upsc-prelims', subject: 'upsc-history', topic: 'Modern India', count: 25 },
+  { exam: 'ssc-cgl', subject: 'ssc-reasoning', topic: 'Logical Reasoning', count: 25 },
+  { exam: 'ssc-cgl', subject: 'ssc-quantitative', topic: 'Arithmetic', count: 25 },
 ];
 
 export default function GenerateSimplePage() {
