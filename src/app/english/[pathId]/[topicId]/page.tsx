@@ -6,7 +6,7 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPathById, getTopicById } from "@/lib/english-content";
 import { getTopicIcon } from "@/lib/english-icons";
-import { ChevronLeft, Play, Clock, BookOpen, Award, Target } from "lucide-react";
+import { ChevronLeft, Play, Clock, BookOpen, Award, Target, GraduationCap } from "lucide-react";
 
 export default function EnglishTopicPage() {
   const { user, isLoading } = useUser();
@@ -196,6 +196,41 @@ export default function EnglishTopicPage() {
           </div>
         </div>
 
+        {/* Study First Option */}
+        <div
+          className="mb-6 rounded-2xl p-6 shadow-sm transition-all"
+          style={{ background: "linear-gradient(135deg, rgba(66, 85, 255, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
+            e.currentTarget.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-xl bg-[#4255FF] flex items-center justify-center flex-shrink-0">
+              <GraduationCap className="w-8 h-8 text-white" />
+            </div>
+            <div className="flex-1">
+              <h2 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>📚 Study First, Then Practice</h2>
+              <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>
+                Want to learn the concepts before testing yourself? We've got comprehensive study material ready for you!
+              </p>
+              <Link href={`/english/${pathId}/${topicId}/study`}>
+                <button
+                  className="px-6 py-3 bg-[#4255FF] text-white rounded-xl font-semibold hover:shadow-lg transition-all flex items-center gap-2"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  View Study Material
+                  <span className="text-xs opacity-90">(~30-45 min)</span>
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Practice Options */}
         <div
           className="rounded-2xl p-6 shadow-sm transition-all"
@@ -209,7 +244,7 @@ export default function EnglishTopicPage() {
             e.currentTarget.style.transform = "translateY(0)";
           }}
         >
-          <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Start Practice</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Or Jump Straight to Practice</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               onClick={() => handleStartPractice(5)}
