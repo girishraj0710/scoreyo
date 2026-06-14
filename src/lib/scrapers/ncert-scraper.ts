@@ -10,7 +10,7 @@
  * freely available for educational purposes under open access policy.
  */
 
-import { createClient } from '@libsql/client';
+import { Pool } from 'pg';
 
 export interface ScrapedQuestion {
   question: string;
