@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { getPool } from "@/lib/db";
 
 /**
  * GET /api/study-content
@@ -24,6 +24,8 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    const pool = getPool();
+
     let query = `
       SELECT
         id,
@@ -44,19 +46,19 @@ export async function GET(request: NextRequest) {
         created_at,
         updated_at
       FROM topic_study_content
-      WHERE subject_id = ? AND topic_id = ?
+      WHERE subject_id = $1 AND topic_id = $2
     `;
 
-    const params: string[] = [subject, topic];
+    const params: any[] = [subject, topic];
 
     if (pathId) {
-      query += ` AND path_id = ?`;
+      query += ` AND path_id = $3`;
       params.push(pathId);
     } else {
       query += ` AND path_id IS NULL`;
     }
 
-    const result = await db.execute(query, params);
+    const result = await pool.query(query, params);
 
     if (!result.rows || result.rows.length === 0) {
       return NextResponse.json(
