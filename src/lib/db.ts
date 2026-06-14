@@ -1008,6 +1008,10 @@ export async function saveVerifiedQuestions(
 )  {
   await ensureInitialized();
 
+  // Convert exam-specific subject to shared subject
+  const { toSharedSubject } = await import('./subject-mapper');
+  const sharedSubject = toSharedSubject(subjectId);
+
   // Get dimensional IDs for exam, subject, and topic
   const examDim = await queryOne(
     "SELECT id FROM dim_exams WHERE exam_code = ?",
@@ -1015,11 +1019,11 @@ export async function saveVerifiedQuestions(
   );
   const subjectDim = await queryOne(
     "SELECT id FROM dim_subjects WHERE subject_code = ?",
-    [subjectId]
+    [sharedSubject]
   );
 
   if (!examDim || !subjectDim) {
-    console.error(`Cannot save to fact table: exam=${examId} or subject=${subjectId} not found in dimensions`);
+    console.error(`Cannot save to fact table: exam=${examId} or subject=${subjectId} (shared=${sharedSubject}) not found in dimensions`);
     return 0;
   }
 
@@ -1152,9 +1156,13 @@ export async function markCachedQuestionsUsed(cacheIds: number[]) {
  * Get question count for a topic (dimensional model)
  */
 export async function getCachedQuestionCount(examId: string, subjectId: string, topic: string) {
+  // Convert exam-specific subject to shared subject
+  const { toSharedSubject } = await import('./subject-mapper');
+  const sharedSubject = toSharedSubject(subjectId);
+
   // Get dimensional IDs
   const examDim = await queryOne(`SELECT id FROM dim_exams WHERE exam_code = ?`, [examId]);
-  const subjectDim = await queryOne(`SELECT id FROM dim_subjects WHERE subject_code = ?`, [subjectId]);
+  const subjectDim = await queryOne(`SELECT id FROM dim_subjects WHERE subject_code = ?`, [sharedSubject]);
 
   if (!examDim || !subjectDim) {
     return 0;
@@ -1798,6 +1806,10 @@ export async function getExamQuestions(
 
   const currentYear = new Date().getFullYear();
 
+  // Convert exam-specific subject to shared subject
+  const { toSharedSubject } = await import('./subject-mapper');
+  const sharedSubject = toSharedSubject(subjectId);
+
   // Step 1: Get dimension IDs for exam and subject
   // Schema uses exam_code and subject_code (flat dimensions, not snowflake)
   const examDim = await queryOne(
@@ -1807,11 +1819,11 @@ export async function getExamQuestions(
 
   const subjectDim = await queryOne(
     `SELECT id FROM dim_subjects WHERE subject_code = ?`,
-    [subjectId]
+    [sharedSubject]
   );
 
   if (!examDim || !subjectDim) {
-    console.warn(`⚠️ Exam or subject not found in dimensional model: exam=${examId}, subject=${subjectId}`);
+    console.warn(`⚠️ Exam or subject not found in dimensional model: exam=${examId}, subject=${subjectId} (shared=${sharedSubject})`);
     return [];
   }
 

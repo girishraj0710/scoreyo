@@ -10,6 +10,7 @@ import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { Zap, Flame } from "lucide-react";
 import { ColorfulExamIcon, ColorfulCategoryIcon, ColorfulSubjectIcon } from "@/lib/colorful-exam-icons";
 import { isNative } from "@/lib/capacitor";
+import { toSharedSubject } from "@/lib/subject-mapper";
 
 // Dynamic import: Only load landing page for non-logged users
 // Toggle between V1 (old) and V2 (new Quizlet-inspired)
@@ -913,12 +914,12 @@ function HomePageContent() {
             {/* Study First Option */}
             <button
               onClick={() => {
-                // Extract base subject (remove exam prefix like 'jee-' or 'neet-')
-                const baseSubject = selectedSubject?.replace(/^(jee|neet|upsc|ssc|cat|gate|banking|cuet)-/, '') || '';
+                // Use subject mapper to convert exam-specific to shared subject
+                const sharedSubject = toSharedSubject(selectedSubject || '');
                 // Lowercase the topic to match database format
                 const topicLower = selectedTopic?.toLowerCase() || '';
                 // Pass original values for quiz fallback
-                window.location.href = `/study?exam=${selectedExam?.id}&subject=${baseSubject}&topic=${topicLower}&originalSubject=${selectedSubject}&originalTopic=${selectedTopic}`;
+                window.location.href = `/study?exam=${selectedExam?.id}&subject=${sharedSubject}&topic=${topicLower}&originalSubject=${selectedSubject}&originalTopic=${selectedTopic}`;
               }}
               className="w-full py-3 mb-3 border-2 border-indigo-500 text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950 shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
             >
