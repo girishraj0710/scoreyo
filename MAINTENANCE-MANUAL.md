@@ -90,10 +90,10 @@ tail -50 daily-seed-cron.log
 1. Check for reported questions:
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 const result = await db.execute(
   \"SELECT COUNT(*) as count FROM reported_questions WHERE status = 'pending'\"
@@ -105,10 +105,10 @@ console.log(\`Pending reports: \${result.rows[0].count}\`);
 2. If reports > 0, review them:
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 const result = await db.execute(
   \"SELECT * FROM reported_questions WHERE status = 'pending' ORDER BY created_at DESC LIMIT 10\"
@@ -139,10 +139,10 @@ UPDATE reported_questions SET status = 'resolved' WHERE id = ?
 1. **Check user growth:**
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 
 // Total users
@@ -166,10 +166,10 @@ console.log(\`Active users: \${active.rows[0].count}\`);
 2. **Check quiz stats:**
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 
 // Quizzes this week
@@ -219,31 +219,31 @@ console.table(popular.rows);
 ### 3. **Database Backup Verification**
 **Frequency:** Every Monday (10 AM IST)  
 **Time:** 2 minutes  
-**Tools:** Turso CLI
+**Tools:** Supabase CLI
 
 **Steps:**
-1. Verify Turso auto-backup:
+1. Verify Supabase auto-backup:
 ```bash
-turso db show krakkify-girishraj0710
+# Check database in Supabase Dashboard
 ```
 
 2. Check:
    - Last backup date: Within 24 hours ✅
    - Backup size: Increasing (means data growing)
 
-**Turso Backup Policy:**
+**Supabase Backup Policy:**
 - Automatic daily backups ✅
 - 30-day retention
 - Point-in-time recovery available
 
 **When to act:**
-- If no recent backup: Contact Turso support
+- If no recent backup: Contact Supabase support
 - If backup size decreasing: Data loss? Investigate
 
 **Manual backup (optional, monthly):**
 ```bash
 # Export to JSON
-turso db shell krakkify-girishraj0710 .dump > backup-$(date +%Y%m%d).sql
+# Use Supabase SQL Editor for queries
 ```
 
 ---
@@ -265,10 +265,10 @@ turso db shell krakkify-girishraj0710 .dump > backup-$(date +%Y%m%d).sql
 2. **Cross-check with database:**
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 
 // Payments last month
@@ -308,10 +308,10 @@ Month 6: ₹50,000 - ₹75,000 (800-1000 Pro users)
 1. **Check question quality metrics:**
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 
 // Questions by source
@@ -340,10 +340,10 @@ console.table(lowStock.rows);
 2. **Manually review 10 random questions:**
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 
 // Random sample
@@ -391,10 +391,10 @@ console.table(sample.rows);
 ```bash
 # Run a few typical queries and time them
 time npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 await db.execute(
   \"SELECT * FROM exam_questions WHERE exam_id = 'jee-main' AND subject_id = 'physics' AND valid_from <= 2026 AND (valid_until IS NULL OR valid_until >= 2026) ORDER BY RANDOM() LIMIT 10\"
@@ -425,10 +425,10 @@ await db.execute(
 ```bash
 # Unusual signup patterns
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 
 // Signups by day (last 30 days)
@@ -443,7 +443,7 @@ console.table(signups.rows);
    - OpenRouter: https://openrouter.ai/keys
    - Razorpay: https://dashboard.razorpay.com/
    - Resend: https://resend.com/api-keys
-   - Turso: Run `turso auth whoami`
+   - Supabase: Run `# Check connection in Supabase Dashboard`
 
 3. **Review Vercel logs for unusual patterns:**
    - High failure rate from single IP
@@ -487,7 +487,7 @@ npm run dev
 ```bash
 # One at a time
 npm install next@latest
-npm install @libsql/client@latest
+npm install pg@latest
 # Test after each
 ```
 
@@ -520,8 +520,8 @@ git push
 - Check: Function executions, bandwidth
 - Decision: Upgrade if hitting limits
 
-**Turso:**
-- Go to: Turso Dashboard → Billing
+**Supabase:**
+- Go to: Supabase Dashboard → Billing
 - Current plan: Free (500 MB) or Paid
 - Check: Database size, query count
 - Decision: Upgrade if needed
@@ -544,7 +544,7 @@ git push
 2. **Calculate total costs:**
 ```
 Vercel: $0-20/month
-Turso: $0-25/month
+Supabase: $0-25/month
 OpenRouter: $0/month (after $10 top-up, unlimited free tier)
 Razorpay: 2% of revenue
 Resend: $0-20/month
@@ -580,10 +580,10 @@ Target: 100+ Pro users = Profitable! ✅
 ```bash
 # Mock test usage
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 const mockTests = await db.execute(
   \"SELECT COUNT(*) as count FROM quiz_sessions WHERE exam_id LIKE '%mock%'\"
@@ -655,10 +655,10 @@ git push
 ```bash
 # Check validity distribution
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 const result = await db.execute(
   'SELECT exam_id, valid_from, valid_until, COUNT(*) as count FROM exam_questions GROUP BY exam_id, valid_from, valid_until ORDER BY exam_id'
@@ -812,10 +812,10 @@ git push
 ```bash
 # View reports
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 const reports = await db.execute(
   \"SELECT id, exam_id, subject_id, topic, question_text, reported_issue, created_at FROM reported_questions WHERE status = 'pending' ORDER BY created_at DESC\"
@@ -898,11 +898,11 @@ UPDATE reported_questions SET status = 'resolved' WHERE id = 123
    - Set site to maintenance mode (if possible)
 2. **Assess damage:**
    - Query database for corrupt tables
-   - Check Turso logs
+   - Check Supabase logs
 3. **Restore from backup:**
 ```bash
-# Turso provides point-in-time recovery
-turso db restore krakkify-girishraj0710 --to <timestamp>
+# Supabase provides point-in-time recovery
+# Use Supabase Dashboard: Database → Backups → Restore
 ```
 4. **Verify restoration:**
    - Check key tables: users, subscriptions, exam_questions
@@ -912,7 +912,7 @@ turso db restore krakkify-girishraj0710 --to <timestamp>
 **Prevention:**
 - Regular backup verification (weekly)
 - Test restoration procedure (quarterly)
-- Turso auto-backups enabled ✅
+- Supabase auto-backups enabled ✅
 
 ---
 
@@ -927,10 +927,10 @@ turso db restore krakkify-girishraj0710 --to <timestamp>
 2. **Check database:**
 ```bash
 npx tsx -e "
-import { createClient } from '@libsql/client';
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+import { Pool } from 'pg';
+const pool = new Pool({
+  url: process.env.POSTGRES_URL,
+  authToken: process.env.POSTGRES_PASSWORD
 });
 const result = await db.execute(
   \"SELECT * FROM subscriptions WHERE razorpay_payment_id = 'pay_xxx'\"
@@ -1046,7 +1046,7 @@ Total: ~22 hours/month (45 min/day)
 Most daily/weekly tasks can be automated further:
 - Health monitoring: Set up alerts (email if error)
 - Analytics: Weekly auto-email reports
-- Backups: Already automatic (Turso)
+- Backups: Already automatic (Supabase)
 
 Reduced to: ~15 hours/month (30 min/day)
 ```
@@ -1090,9 +1090,9 @@ Reduced to: ~15 hours/month (30 min/day)
 - Email: support@vercel.com
 - Response: 24-48 hours (Hobby), <4 hours (Pro)
 
-**Turso Support:**
-- Discord: https://discord.gg/turso
-- Email: support@turso.tech
+**Supabase Support:**
+- Discord: https://supabase.com/dashboard
+- Email: support@supabase.com
 - Response: 12-24 hours
 
 **OpenRouter Support:**

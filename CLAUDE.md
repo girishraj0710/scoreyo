@@ -59,14 +59,14 @@ For multi-step tasks, state a brief plan:
 
 ## Tech Stack
 - **Framework**: Next.js 16.2.4 (App Router, TypeScript, Tailwind CSS)
-- **Database**: Turso (cloud SQLite via @libsql/client) — Mumbai region
+- **Database**: Supabase PostgreSQL (cloud) — Mumbai region
 - **AI**: OpenRouter API (Gemini) for question generation
 - **Payments**: Razorpay (test mode)
 - **Email OTP**: Resend
 - **Auth**: Cookie-based (`krakkify-user-id`)
 
 ## Key Files
-- `src/lib/db.ts` — All database functions (async, Turso)
+- `src/lib/db.ts` — All database functions (async, PostgreSQL via pg pool)
 - `src/lib/exams.ts` — Exam/subject/topic definitions
 - `src/lib/quiz-generator.ts` — AI question generation via OpenRouter
 - `src/lib/question-bank.ts` — Verified question bank
@@ -91,6 +91,7 @@ For multi-step tasks, state a brief plan:
 - `/api/clarify` — AI instant clarification chat (NEW)
 - `/api/dpp` — Daily Practice Problems management (NEW)
 - `/api/sprint` — Live leaderboard sprint competitions (NEW)
+- `/api/study-content` — Fetch study materials for topics (Study Mode)
 
 ## Monetization
 - **Free**: 3 quizzes/day, basic features
@@ -104,8 +105,7 @@ RESEND_API_KEY=...
 RAZORPAY_KEY_ID=rzp_test_...
 RAZORPAY_KEY_SECRET=...
 NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_...
-TURSO_DATABASE_URL=libsql://krakkify-girishraj0710.aws-ap-south-1.turso.io
-TURSO_AUTH_TOKEN=...
+POSTGRES_URL=postgresql://...
 ```
 
 ## GitHub
@@ -116,7 +116,7 @@ TURSO_AUTH_TOKEN=...
 - ✅ Phase 1: Quiz engine, auth, dashboard, review, leaderboard
 - ✅ Phase 2: OTP email auth, multilingual support (8 languages)
 - ✅ Phase 3: Razorpay payments, mock tests, performance reports
-- ✅ Database migrated from local SQLite to Turso (cloud)
+- ✅ Database migrated from Turso to Supabase PostgreSQL (cloud, production-ready)
 - ✅ Deployed to Vercel: https://krakkify.in
 - ✅ **PRIMARY DOMAIN**: https://krakkify.in (GoDaddy + Vercel, DNS synced)
 - ✅ **ALTERNATE DOMAIN**: https://crackify.in (redirects to krakkify.in via 308 permanent redirect)
@@ -132,6 +132,15 @@ TURSO_AUTH_TOKEN=...
   - ✅ Priority 5: Live Leaderboard Sprints (MVP - backend ready, UI pending)
   - ✅ Priority 7: Daily Practice Problems (10-min micro-learning with streaks)
 - ⏳ Deferred: Priority 6 (True Offline Mode - complex, requires Service Worker + IndexedDB)
+- ✅ **Study Mode (Learn Before Quiz):**
+  - ✅ Universal study pages work for all exams (JEE, NEET, UPSC, SSC, etc.)
+  - ✅ Structured content: sections, examples, formulas, common mistakes, practice problems
+  - ✅ Progress tracking, table of contents, section navigation
+  - ✅ "Study First" button on all quiz topic selections
+  - ✅ Dark mode compatible, mobile responsive
+  - ✅ Database: `topic_study_content` table in Supabase
+  - ✅ Sample content: Thermodynamics (Physics) ready
+  - ⏳ Content generation: Need to add more topics (English, Chemistry, Biology, etc.)
 - ✅ **Mobile App Conversion (Capacitor - iOS & Android)**
   - ✅ Capacitor 8.4 integrated (hybrid mode - loads from https://krakkify.in)
   - ✅ iOS platform configured (requires Xcode + CocoaPods for building)

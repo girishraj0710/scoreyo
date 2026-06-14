@@ -32,7 +32,7 @@
     "scale:deploy": "vercel --prod",
     "scale:check": "echo '✅ Checking scaling setup...' && npm run scale:check-redis && npm run scale:check-db",
     "scale:check-redis": "node -e \"const {Redis}=require('@upstash/redis');const r=new Redis({url:process.env.UPSTASH_REDIS_REST_URL,token:process.env.UPSTASH_REDIS_REST_TOKEN});r.ping().then(()=>console.log('✅ Redis: Connected')).catch(()=>console.log('❌ Redis: Failed'))\"",
-    "scale:check-db": "turso db show prepgenie-girishraj0710 || echo '⚠️  Turso CLI not installed'"
+    "scale:check-db": "node -e \"const {Pool}=require('pg');const p=new Pool({connectionString:process.env.POSTGRES_URL});p.query('SELECT 1').then(()=>{console.log('✅ PostgreSQL: Connected');p.end()}).catch(e=>{console.log('❌ PostgreSQL: Failed',e.message);p.end()})\""
   },
   "dependencies": {
     "@capacitor/android": "^8.4.0",
@@ -47,7 +47,6 @@
     "@capacitor/status-bar": "^8.0.2",
     "@iconify/json": "^2.2.471",
     "@iconify/react": "^6.0.2",
-    "@libsql/client": "^0.17.3",
     "@openrouter/ai-sdk-provider": "^2.9.0",
     "@supabase/supabase-js": "^2.106.2",
     "@upstash/qstash": "^2.11.0",
