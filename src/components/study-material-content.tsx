@@ -209,7 +209,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
             ))}
           </ul>
         </div>
-      ))}
+      )}
 
       {/* Practice Problems */}
       {section.problems?.map((problem, idx) => (
