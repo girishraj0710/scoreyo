@@ -14,10 +14,12 @@ try:
     import psycopg2
     from psycopg2.extras import RealDictCursor
 except ImportError:
-    print("Installing psycopg2-binary...")
-    os.system("pip3 install -q psycopg2-binary")
-    import psycopg2
-    from psycopg2.extras import RealDictCursor
+    print("\n❌ Error: psycopg2 not installed")
+    print("\nPlease run this script using:")
+    print("  ./scripts/run-validation.sh")
+    print("\nOr install manually:")
+    print("  pip install --user psycopg2-binary")
+    sys.exit(1)
 
 # Load .env.local
 env_path = os.path.join(os.path.dirname(__file__), '..', '.env.local')

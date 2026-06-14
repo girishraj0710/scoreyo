@@ -82,7 +82,7 @@ COMMIT
 **Option B: Run Python script (Automated)**
 ```bash
 cd /Users/girish.raj/prepgenie
-python3 scripts/post-migration-validation.py
+./scripts/run-validation.sh
 ```
 
 **Expected output:**
