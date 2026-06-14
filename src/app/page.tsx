@@ -917,7 +917,8 @@ function HomePageContent() {
                 const baseSubject = selectedSubject?.replace(/^(jee|neet|upsc|ssc|cat|gate|banking|cuet)-/, '') || '';
                 // Lowercase the topic to match database format
                 const topicLower = selectedTopic?.toLowerCase() || '';
-                window.location.href = `/study?exam=${selectedExam?.id}&subject=${baseSubject}&topic=${topicLower}`;
+                // Pass original values for quiz fallback
+                window.location.href = `/study?exam=${selectedExam?.id}&subject=${baseSubject}&topic=${topicLower}&originalSubject=${selectedSubject}&originalTopic=${selectedTopic}`;
               }}
               className="w-full py-3 mb-3 border-2 border-indigo-500 text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950 shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
             >

@@ -29,6 +29,9 @@ function StudyPageContent() {
   const examId = searchParams.get("exam");
   const subjectId = searchParams.get("subject");
   const topic = searchParams.get("topic");
+  // Original values for quiz navigation (with exam prefix and original case)
+  const originalSubject = searchParams.get("originalSubject") || subjectId;
+  const originalTopic = searchParams.get("originalTopic") || topic;
 
   const [studyMaterial, setStudyMaterial] = useState<StudyMaterial | null>(null);
   const [currentSection, setCurrentSection] = useState(0);
@@ -105,7 +108,8 @@ function StudyPageContent() {
 
   const goToQuiz = () => {
     markSectionComplete();
-    router.push(`/quiz?examId=${examId}&subjectId=${subjectId}&topic=${encodeURIComponent(topic || "")}`);
+    // Use original values (with exam prefix and original case) for quiz
+    router.push(`/quiz?examId=${examId}&subjectId=${originalSubject}&topic=${encodeURIComponent(originalTopic || "")}`);
   };
 
   if (isLoading) {
