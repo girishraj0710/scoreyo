@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
       response.cookies.set(COOKIE_NAME, user.id, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "lax", // Changed from "strict" to "lax" to allow cookies on navigation
         maxAge: 365 * 24 * 60 * 60,
         path: "/",
       });
@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
       response.cookies.set(CSRF_COOKIE_NAME, csrfToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "lax", // Changed from "strict" to "lax" to allow cookies on navigation
         maxAge: 365 * 24 * 60 * 60,
         path: "/",
       });
@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
       response.cookies.set(`${CSRF_COOKIE_NAME}-client`, csrfToken, {
         httpOnly: false, // Client can read this
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "lax", // Changed from "strict" to "lax" to allow cookies on navigation
         maxAge: 365 * 24 * 60 * 60,
         path: "/",
       });
@@ -221,7 +221,7 @@ export async function POST(request: NextRequest) {
     response.cookies.set(COOKIE_NAME, user!.id as string, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "lax", // Changed from "strict" to "lax" to allow cookies on navigation
       maxAge: 365 * 24 * 60 * 60,
       path: "/",
     });
@@ -231,7 +231,7 @@ export async function POST(request: NextRequest) {
     response.cookies.set(CSRF_COOKIE_NAME, csrfToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "lax", // Changed from "strict" to "lax" to allow cookies on navigation
       maxAge: 365 * 24 * 60 * 60,
       path: "/",
     });
@@ -239,7 +239,7 @@ export async function POST(request: NextRequest) {
     response.cookies.set(`${CSRF_COOKIE_NAME}-client`, csrfToken, {
       httpOnly: false, // Client can read this
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "lax", // Changed from "strict" to "lax" to allow cookies on navigation
       maxAge: 365 * 24 * 60 * 60,
       path: "/",
     });

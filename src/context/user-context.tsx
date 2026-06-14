@@ -51,6 +51,16 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     fetchUser();
+
+    // Re-check auth on visibility change (when tab regains focus)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        fetchUser();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
   async function fetchUser() {
@@ -58,6 +68,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
       const res = await fetch("/api/auth", {
         method: "GET",
         cache: "no-store", // Prevent caching of auth check
+        credentials: 'same-origin', // CRITICAL: Include cookies in request
         headers: {
           "Cache-Control": "no-cache, no-store, must-revalidate",
           "Pragma": "no-cache",
@@ -65,8 +76,10 @@ export function UserProvider({ children }: { children: ReactNode }) {
       });
       const data = await res.json();
       if (data.user) {
+        console.log('[UserContext] fetchUser: User authenticated', data.user.email);
         setUser(data.user);
       } else {
+        console.log('[UserContext] fetchUser: No user found, clearing state');
         // Ensure user is cleared
         setUser(null);
         // Only auto-show modal if NOT on homepage (landing page has inline form)
@@ -145,6 +158,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        credentials: 'same-origin', // CRITICAL: Ensure cookies are sent/received
       });
 
       const data = await res.json();
@@ -159,6 +173,13 @@ export function UserProvider({ children }: { children: ReactNode }) {
       if (data.user) {
         setUser(data.user);
         setShowLoginModal(false);
+
+        // CRITICAL: Force a context refresh after login to ensure cookies are loaded
+        // This prevents the "logged out on navigation" bug
+        setTimeout(() => {
+          fetchUser();
+        }, 100);
+
         return { success: true };
       }
       return { success: false, error: "Unexpected error" };

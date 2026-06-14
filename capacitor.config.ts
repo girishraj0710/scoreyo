@@ -5,9 +5,9 @@ const config: CapacitorConfig = {
   appName: 'Krakkify',
   webDir: 'out',
 
-  // Using Vercel preview URL (working deployment)
+  // Using latest Vercel deployment (with landing page skip)
   server: {
-    url: 'https://krakkify-rkmstv9ne-girishraj0710-1629s-projects.vercel.app',
+    url: 'https://krakkify-52ykfabc7-girishraj0710-1629s-projects.vercel.app',
     cleartext: false,
     androidScheme: 'https',
     iosScheme: 'https',
