@@ -1,7 +1,18 @@
 # Krakkify - Smart Exam Prep for Indian Competitive Exams
 
 ## Project Overview
-AI-powered exam preparation app for 20+ Indian competitive exams (JEE, NEET, UPSC, SSC, Banking, CAT, GATE, etc.). Features quiz engine, mock tests, spaced repetition review, performance reports, and Razorpay payments.
+AI-powered exam preparation app for **74+ Indian competitive exams** covering ALL major categories: Engineering (JEE, NEET, GATE, State CETs), Government Jobs (UPSC, SSC, Banking, Railways, Police), MBA (CAT, XAT), Law (CLAT, AILET), Teaching (CTET), Defense (NDA, CDS), and more.
+
+**CRITICAL**: We serve ALL 74 exams with equal priority - not just top 10. Every exam must have:
+- ✅ Complete subject mappings (exam-specific → shared subjects)
+- ✅ All topics linked correctly in bridge table
+- ✅ Questions accessible via quiz generation
+- ✅ Study materials available
+- ✅ Mock tests configured (for major exams)
+
+**One broken exam = students fail to prepare = platform reputation at stake.**
+
+Features: Quiz engine with 3-tier question sourcing (verified bank → cached → AI generation), mock tests, spaced repetition review, performance reports, mistake tracking, AI clarifications, and Razorpay payments.
 
 ## This is your instruction 
 1. Think Before CodingDon't assume. Don't hide confusion. Surface tradeoffs.
