@@ -910,6 +910,11 @@ function HomePageContent() {
               </div>
             )}
 
+            {/* VERCEL DEPLOYMENT TEST - Study First Button */}
+            <div className="mb-3 p-2 bg-yellow-100 dark:bg-yellow-900 border-2 border-yellow-500 rounded-xl text-center">
+              <p className="text-xs text-yellow-800 dark:text-yellow-200">🚀 Deployment Test Active</p>
+            </div>
+
             {/* Study First Option */}
             <button
               onClick={() => {
