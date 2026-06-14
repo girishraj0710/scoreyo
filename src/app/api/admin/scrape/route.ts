@@ -15,6 +15,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { processNCERTChapter } from '@/lib/scrapers/ai-pdf-scraper';
+import { getPool } from '@/lib/db';
 
 const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY;
 
@@ -138,14 +139,10 @@ export async function GET(request: NextRequest) {
   }
 
   // Return scraper statistics
-  const { createClient } = await import('@libsql/client');
-  const db = createClient({
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN!,
-  });
+  const pool = getPool();
 
   try {
-    const stats = await db.execute(`
+    const stats = await pool.query(`
       SELECT
         source,
         COUNT(*) as count,

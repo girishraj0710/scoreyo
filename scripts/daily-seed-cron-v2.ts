@@ -13,7 +13,7 @@
  * - Easy toggle: Switch modes via environment variable
  */
 
-import { createClient } from "@libsql/client";
+import { Pool } from "pg";
 import { readFileSync, appendFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { examCategories } from "../src/lib/exams";
@@ -32,9 +32,8 @@ if (require("fs").existsSync(envPath)) {
   });
 }
 
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL!,
 });
 
 // ============================================================================
@@ -167,7 +166,7 @@ function markTopicSeeded(
 async function dbExecuteWithRetry(query: any, maxRetries = 3): Promise<any> {
   for (let i = 0; i < maxRetries; i++) {
     try {
-      return await db.execute(query);
+      return await pool.query(query);
     } catch (error: any) {
       if (i === maxRetries - 1) throw error;
       log(`  ⚠️  Database error (attempt ${i + 1}/${maxRetries}): ${error.message}. Retrying in 5s...`);

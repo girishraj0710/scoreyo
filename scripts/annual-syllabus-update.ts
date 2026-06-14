@@ -21,7 +21,7 @@
  *   Result: Quiz in 2027 only gets questions with valid_from<=2027 AND (valid_until=NULL OR valid_until>=2027)
  */
 
-import { createClient } from "@libsql/client";
+import { Pool } from "pg";
 import { readFileSync, appendFileSync } from "fs";
 import { join } from "path";
 import { CURRENT_SYLLABUS, getCurrentSyllabusYear } from "../src/lib/syllabus-config";
@@ -39,9 +39,8 @@ if (require("fs").existsSync(envPath)) {
   });
 }
 
-const db = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL!,
 });
 
 const LOG_FILE = join(process.cwd(), "annual-syllabus-update.log");
@@ -83,16 +82,16 @@ async function runAnnualUpdate() {
       // Check if there are questions with old valid_from (syllabus changed)
       // Old questions: valid_from < currentSyllabusYear AND valid_until IS NULL (still showing as valid)
       // Action: Set valid_until = currentYear - 1 (expire them)
-      const outdatedResult = await db.execute({
-        sql: `UPDATE exam_questions
-              SET valid_until = ?
-              WHERE exam_id = ?
-                AND valid_from < ?
-                AND valid_until IS NULL`,
-        args: [currentYear - 1, examId, currentSyllabusYear],
-      });
+      const outdatedResult = await pool.query(
+        `UPDATE exam_questions
+         SET valid_until = $1
+         WHERE exam_id = $2
+           AND valid_from < $3
+           AND valid_until IS NULL`,
+        [currentYear - 1, examId, currentSyllabusYear]
+      );
 
-      const outdated = outdatedResult.rowsAffected || 0;
+      const outdated = outdatedResult.rowCount || 0;
 
       // No need to "mark as current" - questions with valid_from = currentSyllabusYear and valid_until = NULL are already current
       // They will automatically be picked up by quiz generator (valid_from <= currentYear AND (valid_until IS NULL OR valid_until >= currentYear))
@@ -117,7 +116,7 @@ async function runAnnualUpdate() {
     log("");
 
     // Get stats by exam (Validity Period System)
-    const stats = await db.execute(`
+    const stats = await pool.query(`
       SELECT
         exam_id,
         valid_from,

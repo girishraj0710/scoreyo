@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateQuiz } from "@/lib/quiz-generator";
-import { saveVerifiedQuestions } from "@/lib/db";
+import { saveVerifiedQuestions, getPool } from "@/lib/db";
 import { getAllExams } from "@/lib/exams";
-import { createClient } from "@libsql/client";
 
 // Scheduled cache prewarmer. Walks the exam catalog, finds the (exam,
 // subject, topic) cells with the LOWEST question count in fact_exam_questions,
@@ -30,10 +29,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const db = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN!,
-    });
+    const pool = getPool();
 
     // 1) Load per-(exam, subject, topic) counts from dimensional model
     type CountMap = Map<string, number>;
@@ -42,7 +38,7 @@ export async function GET(request: NextRequest) {
 
     async function loadCounts(): Promise<CountMap> {
       const m: CountMap = new Map();
-      const r = await db.execute(`
+      const r = await pool.query(`
         SELECT
           e.exam_code as exam_id,
           s.subject_code as subject_id,
