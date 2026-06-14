@@ -1,7 +1,25 @@
 "use client";
 
-import ReactMarkdown from 'react-markdown';
 import { Lightbulb, AlertTriangle, BookOpen, Target, CheckCircle } from 'lucide-react';
+
+// Simple markdown-like text formatter
+function FormattedText({ children }: { children: string }) {
+  return (
+    <div className="whitespace-pre-wrap">
+      {children.split('\n').map((line, i) => (
+        <span key={i}>
+          {line.split(/(\*\*[^*]+\*\*)/g).map((part, j) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+              return <strong key={j}>{part.slice(2, -2)}</strong>;
+            }
+            return <span key={j}>{part}</span>;
+          })}
+          {i < children.split('\n').length - 1 && <br />}
+        </span>
+      ))}
+    </div>
+  );
+}
 
 interface Example {
   title: string;
@@ -65,7 +83,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
         </h2>
         {section.content && (
           <div className="prose prose-lg dark:prose-invert max-w-none" style={{ color: "var(--foreground)" }}>
-            <ReactMarkdown>{section.content}</ReactMarkdown>
+            <FormattedText>{section.content}</FormattedText>
           </div>
         )}
       </div>
@@ -77,7 +95,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
             {subsection.title}
           </h3>
           <div className="prose dark:prose-invert max-w-none" style={{ color: "var(--foreground)" }}>
-            <ReactMarkdown>{subsection.content}</ReactMarkdown>
+            <FormattedText>{subsection.content}</FormattedText>
           </div>
 
           {/* Examples */}
@@ -102,7 +120,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
                   <div className="p-4 rounded-lg" style={{ background: "var(--card-bg)" }}>
                     <p className="font-semibold text-emerald-500 mb-2">Solution:</p>
                     <div className="prose dark:prose-invert" style={{ color: "var(--foreground-secondary)" }}>
-                      <ReactMarkdown>{example.solution}</ReactMarkdown>
+                      <FormattedText>{example.solution}</FormattedText>
                     </div>
                   </div>
                   {example.key_insight && (
@@ -242,7 +260,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
                 Answer: {problem.answer}
               </p>
               <div className="prose dark:prose-invert" style={{ color: "var(--foreground-secondary)" }}>
-                <ReactMarkdown>{problem.explanation}</ReactMarkdown>
+                <FormattedText>{problem.explanation}</FormattedText>
               </div>
             </div>
           </details>
