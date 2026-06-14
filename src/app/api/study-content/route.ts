@@ -29,9 +29,9 @@ export async function GET(request: NextRequest) {
     let query = `
       SELECT
         id,
-        exam_code,
-        subject_code,
-        topic_name,
+        subject_id,
+        topic_id,
+        path_id,
         title,
         subtitle,
         overview,
@@ -46,10 +46,17 @@ export async function GET(request: NextRequest) {
         created_at,
         updated_at
       FROM topic_study_content
-      WHERE subject_code = $1 AND topic_name = $2
+      WHERE subject_id = $1 AND topic_id = $2
     `;
 
     const params: any[] = [subject, topic];
+
+    if (pathId) {
+      query += ` AND path_id = $3`;
+      params.push(pathId);
+    } else {
+      query += ` AND path_id IS NULL`;
+    }
 
     const result = await pool.query(query, params);
 

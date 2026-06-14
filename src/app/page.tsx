@@ -910,16 +910,14 @@ function HomePageContent() {
               </div>
             )}
 
-            {/* VERCEL DEPLOYMENT TEST - Study First Button */}
-            <div className="mb-3 p-2 bg-yellow-100 dark:bg-yellow-900 border-2 border-yellow-500 rounded-xl text-center">
-              <p className="text-xs text-yellow-800 dark:text-yellow-200">🚀 Deployment Test Active</p>
-            </div>
-
             {/* Study First Option */}
             <button
               onClick={() => {
-                const subjectName = currentSubjects.find((s) => s.id === selectedSubject)?.name.toLowerCase();
-                window.location.href = `/study?exam=${selectedExam?.id}&subject=${selectedSubject}&topic=${selectedTopic}`;
+                // Extract base subject (remove exam prefix like 'jee-' or 'neet-')
+                const baseSubject = selectedSubject?.replace(/^(jee|neet|upsc|ssc|cat|gate|banking|cuet)-/, '') || '';
+                // Lowercase the topic to match database format
+                const topicLower = selectedTopic?.toLowerCase() || '';
+                window.location.href = `/study?exam=${selectedExam?.id}&subject=${baseSubject}&topic=${topicLower}`;
               }}
               className="w-full py-3 mb-3 border-2 border-indigo-500 text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950 shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
             >
