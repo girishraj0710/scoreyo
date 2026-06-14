@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
         textbook_references,
         created_at,
         updated_at
-      FROM study_materials
+      FROM topic_study_content
       WHERE subject_id = ? AND topic_id = ?
     `;
 
