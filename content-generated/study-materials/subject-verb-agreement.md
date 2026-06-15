@@ -22,7 +22,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 # Core Concepts
 
-### . Basic Agreement Rule (The Foundation)
+### Basic Agreement Rule (The Foundation)
 
 **Rule:** Singular subject takes singular verb. Plural subject takes plural verb.
 
@@ -42,7 +42,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Singular Subjects - The Tricky Ones
+### Singular Subjects - The Tricky Ones
 
 **Rule:** These words are ALWAYS singular, even if they sound plural:
 
@@ -70,7 +70,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . "One of the + Plural Noun" - The #1 Error
+### "One of the + Plural Noun" - The #1 Error
 
 **Rule:** "One of the + plural noun" takes SINGULAR verb because the subject is "one", not the plural noun.
 
@@ -92,7 +92,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Plural Subjects
+### Plural Subjects
 
 **Rule:** These words are ALWAYS plural:
 
@@ -118,7 +118,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Collective Nouns - When Singular? When Plural?
+### Collective Nouns - When Singular? When Plural?
 
 **Rule:** Collective nouns can be singular OR plural depending on context:
 - **Singular:** When the group acts as ONE UNIT (focus on the group)
@@ -149,7 +149,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Compound Subjects with "and", "or", "nor"
+### Compound Subjects with "and", "or", "nor"
 
 **Rule 1 - Compound Subject with "and":** Takes PLURAL verb (because two subjects = more than one)
 
@@ -183,7 +183,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Quantifiers - Some, Most, All, None, Majority
+### Quantifiers - Some, Most, All, None, Majority
 
 **Rule:** These quantifiers can be singular OR plural depending on the noun they refer to:
 
@@ -216,7 +216,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Distance, Time, Money, Weight - Always Singular
+### Distance, Time, Money, Weight - Always Singular
 
 **Rule:** When distance, time, money, or weight is mentioned as a SINGLE UNIT or TOTAL AMOUNT, use SINGULAR verb.
 
@@ -250,7 +250,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Subjects with Prepositional Phrases - Ignore the Middle Words
+### Subjects with Prepositional Phrases - Ignore the Middle Words
 
 **Rule:** The verb must agree with the MAIN SUBJECT, NOT the object of the preposition. Ignore words between subject and verb.
 
@@ -281,7 +281,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Inverted Sentence Structure - Verb Before Subject
+### Inverted Sentence Structure - Verb Before Subject
 
 **Rule:** In questions or sentences starting with "There/Here", the verb comes BEFORE the subject. Identify the subject first, then match the verb.
 
@@ -311,7 +311,7 @@ In SSC CGL, SSC CHSL, and Banking exams, 80% of Error Spotting questions are Sub
 
 ---
 
-### . Titles, Names, Plural-Looking Singular Nouns
+### Titles, Names, Plural-Looking Singular Nouns
 
 **Rule:** Titles of books/movies/organizations, proper names, and certain plural-looking words take SINGULAR verbs.
 

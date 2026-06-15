@@ -20,7 +20,7 @@ In SSC CGL and Banking exams, voice-related questions appear in three forms: dir
 
 # Core Concepts
 
-### . Active Voice: Subject Performs the Action
+### Active Voice: Subject Performs the Action
 
 **Definition:** In active voice, the subject of the sentence performs the action expressed by the verb. The structure is straightforward: Subject → Verb → Object.
 
@@ -53,7 +53,7 @@ In SSC CGL and Banking exams, voice-related questions appear in three forms: dir
 
 ---
 
-### . Passive Voice: Subject Receives the Action
+### Passive Voice: Subject Receives the Action
 
 **Definition:** In passive voice, the subject of the sentence receives the action expressed by the verb. The doer of the action (agent) is either introduced by "by" or omitted entirely. The structure is: Subject + Auxiliary Verb (be) + Past Participle + (by Agent).
 
@@ -96,7 +96,7 @@ Step-by-step:
 
 ---
 
-### . Active to Passive Conversion: Complete Tense Chart
+### Active to Passive Conversion: Complete Tense Chart
 
 This is the MOST tested concept in SSC and Banking exams. You must memorize how each tense converts from active to passive.
 
@@ -122,7 +122,7 @@ This is the MOST tested concept in SSC and Banking exams. You must memorize how 
 
 ---
 
-### . Special Cases in Active-Passive Conversion
+### Special Cases in Active-Passive Conversion
 
 **Case 1: Sentences with Two Objects (Direct and Indirect)**
 
@@ -199,7 +199,7 @@ Modal verbs (can, could, should, would, must, may, might, will, shall) follow a 
 
 ---
 
-### . When to Omit "By + Agent" in Passive Voice
+### When to Omit "By + Agent" in Passive Voice
 
 In passive voice, the doer (agent) is introduced by "by." However, you can and SHOULD omit "by + agent" in these situations:
 

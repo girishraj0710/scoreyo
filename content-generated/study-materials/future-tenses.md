@@ -18,7 +18,7 @@ For practical communication—whether writing emails at work, making presentatio
 
 # Core Concepts
 
-### . Simple Future (Will/Shall)
+### Simple Future (Will/Shall)
 
 **Definition:** The simple future tense expresses actions that will happen in the future, spontaneous decisions made at the moment of speaking, predictions based on opinions, promises, offers, threats, or future facts. It is formed using "will" (or "shall" in formal British English for first person) + base form of the verb.
 
@@ -44,7 +44,7 @@ For practical communication—whether writing emails at work, making presentatio
 
 ---
 
-### . Going To Future
+### Going To Future
 
 **Definition:** The "going to" future expresses pre-planned intentions, decisions made before the moment of speaking, and predictions based on present evidence (something you can see or know right now). It emphasizes that you have already thought about or planned something.
 
@@ -70,7 +70,7 @@ For practical communication—whether writing emails at work, making presentatio
 
 ---
 
-### . Future Continuous
+### Future Continuous
 
 **Definition:** The future continuous (or future progressive) tense describes actions that will be in progress at a specific time in the future. It emphasizes the duration or ongoing nature of a future action. It's formed using "will be" + verb-ing.
 
@@ -96,7 +96,7 @@ For practical communication—whether writing emails at work, making presentatio
 
 ---
 
-### . Future Perfect
+### Future Perfect
 
 **Definition:** The future perfect tense describes an action that will be completed before a specific time or another action in the future. It shows that something will be finished by a certain point. It's formed using "will have" + past participle (third form of verb).
 
@@ -122,7 +122,7 @@ For practical communication—whether writing emails at work, making presentatio
 
 ---
 
-### . Future Perfect Continuous
+### Future Perfect Continuous
 
 **Definition:** The future perfect continuous tense describes an ongoing action that will continue up to a specific point in the future, emphasizing the duration of the activity. It's formed using "will have been" + verb-ing. This tense is less common but appears in advanced English exams.
 

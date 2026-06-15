@@ -16,7 +16,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 # Core Concepts
 
-### . Nouns (Person, Place, Thing, Idea)
+### Nouns (Person, Place, Thing, Idea)
 
 **Definition:** A noun is a word that names a person, place, thing, or idea.
 
@@ -34,7 +34,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Pronouns (I, you, he, she, it, they)
+### Pronouns (I, you, he, she, it, they)
 
 **Definition:** A pronoun is a word that replaces a noun to avoid repetition.
 
@@ -51,7 +51,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Verbs (Action Words and State Verbs)
+### Verbs (Action Words and State Verbs)
 
 **Definition:** A verb is a word that shows action or state of being.
 
@@ -68,7 +68,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Adjectives (Describing Words)
+### Adjectives (Describing Words)
 
 **Definition:** An adjective is a word that describes or modifies a noun.
 
@@ -85,7 +85,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Adverbs (Describing Actions)
+### Adverbs (Describing Actions)
 
 **Definition:** An adverb is a word that describes or modifies a verb, adjective, or another adverb.
 
@@ -102,7 +102,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Prepositions (in, on, at, by, with)
+### Prepositions (in, on, at, by, with)
 
 **Definition:** A preposition is a word that shows the relationship between a noun/pronoun and other words in the sentence.
 
@@ -119,7 +119,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Conjunctions (and, but, or, because)
+### Conjunctions (and, but, or, because)
 
 **Definition:** A conjunction is a word that joins words, phrases, or clauses.
 
@@ -135,7 +135,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-### . Interjections (Wow!, Ouch!, Hey!)
+### Interjections (Wow!, Ouch!, Hey!)
 
 **Definition:** An interjection is a word that expresses strong emotion or sudden feeling.
 
@@ -153,13 +153,15 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 ---
 
 
-## Beginner Level (30%)
+## Practice Problems
+
+### Beginner Level (30%)
 
 1. **Identify the noun in this sentence:** "Mumbai is the financial capital of India."  **Answer:** Mumbai, capital, India - All three are nouns. Mumbai and India are proper nouns (capitalized), capital is a common noun.
 
 2. **Choose the correct pronoun:** "Priya and ___ are going to Delhi." (I / me)  **Answer:** I - Subject pronoun needed (Priya and I are performing the action of going)
 
-## Intermediate Level (50%)
+### Intermediate Level (50%)
 
 3. **Fill in the blank with correct preposition:** "The train arrived ___ platform 5 ___ 3 PM." (in, on, at)  **Answer:** at, at - "arrived at platform 5 at 3 PM" (use 'at' for specific location and specific time)
 
@@ -167,7 +169,7 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 5. **Choose the correct word:** "She speaks English very ___." (fluent / fluently)  **Answer:** fluently - Need adverb to modify verb "speaks" (adjective = fluent, adverb = fluently)
 
-## Advanced Level (20%)
+### Advanced Level (20%)
 
 6. **Error spotting:** "The informations provided by the RBI is very useful for bankers."  **Answer:** Error in "informations" → Should be "information" (uncountable noun, no plural form)
 

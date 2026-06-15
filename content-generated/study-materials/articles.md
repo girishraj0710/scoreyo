@@ -18,7 +18,7 @@ In SSC CGL, Banking PO, IELTS, and other competitive exams, article-based questi
 
 # Core Concepts
 
-### . Indefinite Articles: A / AN (General or Unknown)
+### Indefinite Articles: A / AN (General or Unknown)
 
 **Definition:** "A" and "an" are used with singular countable nouns when referring to something general, non-specific, or mentioned for the first time. They mean "one" or "any one of."
 
@@ -48,7 +48,7 @@ In SSC CGL, Banking PO, IELTS, and other competitive exams, article-based questi
 
 ---
 
-### . Definite Article: THE (Specific or Known)
+### Definite Article: THE (Specific or Known)
 
 **Definition:** "The" is used when referring to something specific, already known to both speaker and listener, or unique in context. It works with singular, plural, and uncountable nouns.
 
@@ -84,7 +84,7 @@ In SSC CGL, Banking PO, IELTS, and other competitive exams, article-based questi
 
 ---
 
-### . Zero Article (No Article Needed)
+### Zero Article (No Article Needed)
 
 **Definition:** Zero article means no article is used before a noun. This applies to plural countable nouns in general statements, uncountable nouns, proper nouns, and abstract nouns used in a general sense.
 
