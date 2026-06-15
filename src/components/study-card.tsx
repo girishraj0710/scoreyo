@@ -88,9 +88,6 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
         }}></div>
 
         <div className="flex items-center gap-3 relative z-10">
-          <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-bold text-xl shadow-lg">
-            {index}
-          </div>
           <h3 className="text-2xl font-bold text-white drop-shadow-md">
             {title.replace(/^###\s*\.?\s*/, '').replace(/\([^)]+\)$/, '').trim()}
           </h3>
