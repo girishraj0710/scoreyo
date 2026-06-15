@@ -66,17 +66,6 @@ function extractPracticeProblems(content: string): string | null {
 export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
   if (!section) return null;
 
-  // DEBUG: Log section structure
-  console.log('🔍 StudyMaterialContent received:', {
-    title: section.title,
-    hasContent: !!section.content,
-    contentType: typeof section.content,
-    contentLength: typeof section.content === 'string' ? section.content?.length : 'N/A',
-    contentPreview: typeof section.content === 'string' ? section.content?.substring(0, 100) : 'Not a string',
-    hasSubsections: !!(section as any).subsections,
-    sectionKeys: Object.keys(section)
-  });
-
   const cleanTitle = section.title
     ? section.title.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim()
     : '';
@@ -86,6 +75,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
 
   // Check if section has subsections (JSON format from Thermodynamics)
   const hasSubsections = (section as any).subsections && Array.isArray((section as any).subsections);
+  const hasItems = (section as any).items && Array.isArray((section as any).items);
 
   // For "What is..." section - simple intro
   if (isIntroSection && section.content) {
@@ -104,6 +94,74 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <PremiumMarkdownRenderer content={section.content} />
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle sections with items (formulas, mistakes lists)
+  if (hasItems) {
+    const items = (section as any).items;
+    return (
+      <div className="space-y-6">
+        <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--foreground)" }}>
+          {cleanTitle}
+        </h2>
+        <div className="grid gap-4">
+          {items.map((item: any, idx: number) => (
+            <div
+              key={idx}
+              className="p-6 rounded-xl border-2"
+              style={{
+                background: 'var(--card-bg)',
+                borderColor: 'var(--card-border)'
+              }}
+            >
+              {/* Formula/Title */}
+              {item.formula && (
+                <div className="mb-4 p-4 rounded-lg font-mono text-xl font-bold text-center"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(66, 85, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
+                    color: 'var(--foreground)'
+                  }}>
+                  {item.formula}
+                </div>
+              )}
+
+              {/* Name */}
+              {item.name && (
+                <h3 className="text-lg font-semibold mb-3 text-indigo-600 dark:text-indigo-400">
+                  {item.name}
+                </h3>
+              )}
+
+              {/* Explanation */}
+              {item.explanation && (
+                <p className="mb-3" style={{ color: 'var(--foreground-secondary)' }}>
+                  {item.explanation}
+                </p>
+              )}
+
+              {/* When to use */}
+              {item.when_to_use && (
+                <div className="p-3 rounded-lg mb-3"
+                  style={{
+                    background: 'rgba(16, 185, 129, 0.1)',
+                    borderLeft: '4px solid #10B981'
+                  }}>
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">When to use: </span>
+                  <span style={{ color: 'var(--foreground-secondary)' }}>{item.when_to_use}</span>
+                </div>
+              )}
+
+              {/* Units */}
+              {item.units && (
+                <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
+                  <span className="font-semibold">Units:</span> {item.units}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     );
