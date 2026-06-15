@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { BookOpen, CheckCircle, ArrowRight, ArrowLeft, Clock, Target } from "lucide-react";
-import { StudyMaterialContent } from "@/components/study-material-content";
+import { StudyMaterialContent } from "@/components/study-material-content-v2";
 import { getPathById, getTopicById } from "@/lib/english-content";
 
 interface StudyMaterial {

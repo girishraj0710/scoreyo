@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { BookOpen, CheckCircle, ArrowRight, ArrowLeft, Clock } from "lucide-react";
-import { StudyMaterialContent } from "@/components/study-material-content";
+import { StudyMaterialContent } from "@/components/study-material-content-v2";
 import { getExamById } from "@/lib/exams";
 
 interface StudyMaterial {
