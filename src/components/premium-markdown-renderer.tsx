@@ -238,7 +238,7 @@ export function PremiumMarkdownRenderer({ content }: MarkdownRendererProps) {
 /**
  * Format text with **bold** patterns
  */
-function formatBoldText(text: string): (string | JSX.Element)[] {
+function formatBoldText(text: string): (string | React.ReactElement)[] {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
@@ -255,7 +255,7 @@ function formatBoldText(text: string): (string | JSX.Element)[] {
 /**
  * Render markdown tables
  */
-function renderTable(lines: string[], key: number): JSX.Element {
+function renderTable(lines: string[], key: number): React.ReactElement {
   const rows = lines.map(line =>
     line
       .split('|')
