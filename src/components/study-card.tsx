@@ -39,7 +39,7 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
   const rules = rulesText
     .split(/\n\d+\.\s+/)
     .filter(r => r.trim())
-    .map(r => r.trim());
+    .map(r => r.trim().replace(/^\d+\.\s*/, '')); // Remove leading numbers like "1. "
 
   // Extract examples
   const correctExamples: string[] = [];
