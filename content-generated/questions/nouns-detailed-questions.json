@@ -1,0 +1,1022 @@
+[
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which of the following is an uncountable noun?",
+    "options": ["Book", "Information", "Chair", "Student"],
+    "correct_answer": 1,
+    "explanation": "Information is uncountable and never takes plural form. Indian learners often say 'informations' influenced by Hindi patterns where such concepts can be pluralized. SSC exams frequently test this - remember: information, furniture, luggage, advice are always singular.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["She gave me many advices", "She gave me much advice", "She gave me many advice", "She gave me much advices"],
+    "correct_answer": 1,
+    "explanation": "Advice is uncountable, so we use 'much' (not 'many') and no plural -s. To count advice, say 'pieces of advice' or 'some advice'. This error is common in Indian English due to literal translation from Hindi where 'salah' can be counted.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'child'?",
+    "options": ["Childs", "Childes", "Children", "Childrens"],
+    "correct_answer": 2,
+    "explanation": "Child has an irregular plural: children (not childs). This Old English plural doesn't follow the regular -s/-es pattern. Similar irregular plurals: man→men, woman→women, tooth→teeth, foot→feet. Banking exams often test these exceptions.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the collective noun:",
+    "options": ["Students", "Team", "Books", "Teachers"],
+    "correct_answer": 1,
+    "explanation": "Team is a collective noun representing a group as one unit. Collective nouns (team, family, committee, staff, jury) can take singular or plural verbs depending on context. In British English: 'The team are playing' (focus on members); American English: 'The team is playing' (focus on unit).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence is correct?",
+    "options": ["I bought two furnitures", "I bought two furniture", "I bought two pieces of furniture", "I bought two furnitures items"],
+    "correct_answer": 2,
+    "explanation": "Furniture is uncountable; we cannot say 'furnitures'. Use quantifiers: 'two pieces of furniture' or 'some furniture'. This is a frequent error in Indian English where Hindi 'furniture' can be pluralized. SSC CGL Tier 2 regularly tests this pattern.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the proper noun:",
+    "options": ["city", "Mumbai", "river", "mountain"],
+    "correct_answer": 1,
+    "explanation": "Mumbai is a proper noun (specific name) and starts with a capital letter. Common nouns (city, river) name general things. Proper nouns: Delhi, India, Taj Mahal, IIT, UPSC. Indian exams test capitalization rules - remember proper nouns always start with capitals.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'ox'?",
+    "options": ["Oxs", "Oxes", "Oxen", "Ox"],
+    "correct_answer": 2,
+    "explanation": "Ox has an irregular plural: oxen (not oxs). This is an Old English survival. Similar patterns: child→children, brother→brethren (archaic). Regular plurals add -s/-es, but these exceptions must be memorized for competitive exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is an abstract noun?",
+    "options": ["Table", "Happiness", "Book", "Tree"],
+    "correct_answer": 1,
+    "explanation": "Happiness is an abstract noun (cannot be seen/touched). Abstract nouns name ideas, qualities, emotions: love, freedom, knowledge, courage. Concrete nouns (table, book) can be perceived by senses. SSC exams ask you to identify abstract vs concrete nouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct plural:",
+    "options": ["Sheeps", "Sheep", "Sheepes", "Sheepen"],
+    "correct_answer": 1,
+    "explanation": "Sheep has the same singular and plural form (zero plural). Similar words: deer, fish, aircraft, series, species. Say 'one sheep, ten sheep' (not sheeps). This pattern confuses learners expecting -s plurals, but these are tested in all banking and SSC exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence uses the possessive form correctly?",
+    "options": ["Rahul book is here", "Rahuls book is here", "Rahul's book is here", "Rahuls' book is here"],
+    "correct_answer": 2,
+    "explanation": "Use apostrophe + s ('s) for singular possession: Rahul's book. Indian learners often omit the apostrophe due to Hindi influence where possession is shown differently (Rahul ki kitab). For singular nouns, always add 's before the possessed item.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the material noun:",
+    "options": ["Gold", "Ring", "Jeweller", "Shop"],
+    "correct_answer": 0,
+    "explanation": "Gold is a material noun (raw material/substance). Material nouns: silver, wood, cotton, iron, milk. They're usually uncountable. 'Ring' is a concrete noun made from gold. Competitive exams test your ability to distinguish material from concrete nouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'lady'?",
+    "options": ["Ladys", "Ladies", "Ladyes", "Ladie"],
+    "correct_answer": 1,
+    "explanation": "For nouns ending in consonant + y, change y to i and add -es: lady→ladies. Similar: baby→babies, city→cities, story→stories. But if vowel + y, just add -s: boy→boys, key→keys. This spelling rule is essential for SSC descriptive tests.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["The India is a democratic country", "India is a democratic country", "An India is a democratic country", "India are a democratic country"],
+    "correct_answer": 1,
+    "explanation": "Don't use 'the' with country names (India, China, Japan). Exception: use 'the' with plural/republic names (the USA, the UK, the Netherlands). Indian learners often add 'the' due to Hindi 'Bharat desh' patterns. This is tested in IELTS and all banking exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the countable noun:",
+    "options": ["Water", "Sugar", "Apple", "Rice"],
+    "correct_answer": 2,
+    "explanation": "Apple is countable (one apple, two apples). Water, sugar, rice are uncountable mass nouns. Countable nouns have singular/plural forms and use a/an. Uncountable nouns use quantifiers: some water, a glass of water, a grain of rice. Banking exams frequently test this distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["I have many luggages", "I have much luggage", "I have many luggage", "I have much luggages"],
+    "correct_answer": 1,
+    "explanation": "Luggage is uncountable; use 'much' (not 'many') and no plural -s. To count: 'three pieces of luggage' or 'three bags'. This is a classic Indian English error (influenced by Hindi 'saman') tested heavily in SSC CGL Tier 2.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'tooth'?",
+    "options": ["Tooths", "Teeths", "Teeth", "Toothes"],
+    "correct_answer": 2,
+    "explanation": "Tooth has an irregular plural: teeth (vowel change). Similar: foot→feet, goose→geese, mouse→mice. These Old English plurals don't follow regular -s rules. Memorize these exceptions - they appear in error spotting questions in all competitive exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is a concrete noun?",
+    "options": ["Love", "Beauty", "Chair", "Knowledge"],
+    "correct_answer": 2,
+    "explanation": "Chair is a concrete noun (can be seen, touched, perceived by senses). Abstract nouns (love, beauty, knowledge) represent ideas/qualities. Concrete nouns are physical: book, desk, mango, Ganges river. SSC asks you to classify nouns as concrete or abstract.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct possessive for multiple boys:",
+    "options": ["Boy's toys", "Boys toy", "Boys' toys", "Boyes' toys"],
+    "correct_answer": 2,
+    "explanation": "For plural nouns ending in -s, add only apostrophe: boys' toys (toys belonging to multiple boys). Singular: boy's toy (one boy). This distinction is crucial: students' books (many students) vs student's book (one student). Banking descriptive exams test this rule.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["I bought two breads", "I bought two bread", "I bought two loaves of bread", "I bought two breads loaf"],
+    "correct_answer": 2,
+    "explanation": "Bread is uncountable. To count, use 'loaves': two loaves of bread, a slice of bread. Indian learners say 'two breads' influenced by Hindi (do roti, do bread). Similar patterns: two bars of chocolate, three bottles of water. IELTS penalizes 'breads'.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'man'?",
+    "options": ["Mans", "Mens", "Men", "Manes"],
+    "correct_answer": 2,
+    "explanation": "Man has an irregular plural: men (vowel change, no -s). Similar: woman→women. Don't say 'mans' or 'mens'. This Germanic plural pattern is preserved in English. Regular plurals add -s, but these high-frequency exceptions are tested in all competitive exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the common noun:",
+    "options": ["Taj Mahal", "building", "Gandhi", "December"],
+    "correct_answer": 1,
+    "explanation": "Building is a common noun (general, not specific). Taj Mahal, Gandhi, December are proper nouns (specific names, capitalized). Common nouns: teacher, city, month. Proper nouns: Ms. Sharma, Delhi, January. SSC tests capitalization rules based on this distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["The staff are helpful", "The staffs are helpful", "The staff is helpful", "The staffs is helpful"],
+    "correct_answer": 2,
+    "explanation": "Staff is a collective noun, usually singular in American English: 'The staff is helpful.' British English allows plural: 'The staff are helpful.' Never add -s: 'staffs' is wrong. Similar words: police, cattle (always plural); team, family (singular or plural). Banking exams test subject-verb agreement with collective nouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'knife'?",
+    "options": ["Knifes", "Knives", "Knifees", "Knife"],
+    "correct_answer": 1,
+    "explanation": "For nouns ending in -f or -fe, change to -ves: knife→knives. Similar: wife→wives, life→lives, leaf→leaves, thief→thieves. Exceptions: roof→roofs, chief→chiefs. This spelling rule appears in SSC CGL Tier 2 and all banking descriptive tests.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is an irregular plural?",
+    "options": ["Books", "Tables", "Mice", "Dogs"],
+    "correct_answer": 2,
+    "explanation": "Mice is an irregular plural (mouse→mice, vowel change). Books, tables, dogs follow regular -s pattern. Irregular plurals: child→children, ox→oxen, person→people, fish→fish. Competitive exams test these exceptions - memorize common irregular plurals.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the abstract noun:",
+    "options": ["Teacher", "Honesty", "Desk", "Mango"],
+    "correct_answer": 1,
+    "explanation": "Honesty is an abstract noun (quality/idea, cannot be touched). Teacher, desk, mango are concrete nouns. Abstract nouns often end in: -ness (kindness), -tion (education), -ty (loyalty), -ment (excitement), -hood (childhood). SSC asks to identify or form abstract nouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence is correct?",
+    "options": ["He gave me a good advices", "He gave me a good advice", "He gave me good advice", "He gave me good advices"],
+    "correct_answer": 2,
+    "explanation": "Advice is uncountable; don't use 'a/an' or plural -s. Say 'good advice' or 'some advice' or 'a piece of advice'. Indian learners often say 'an advice' or 'advices' influenced by Hindi (ek salah, do salah). This error is tested in IELTS and all banking exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'hero'?",
+    "options": ["Heros", "Heroes", "Herois", "Heroies"],
+    "correct_answer": 1,
+    "explanation": "For nouns ending in consonant + o, add -es: hero→heroes. Similar: potato→potatoes, tomato→tomatoes, echo→echoes. Exceptions: photo→photos, piano→pianos (vowel before o or foreign words). This spelling rule is tested in SSC descriptive papers.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the collective noun:",
+    "options": ["Players", "Crowd", "People", "Students"],
+    "correct_answer": 1,
+    "explanation": "Crowd is a collective noun (group seen as one unit). Players, people, students are plural common nouns (individuals counted). Collective nouns: army, audience, committee, jury, fleet, herd. They take singular or plural verbs depending on whether the group acts as one unit or as individuals.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["Three deers", "Three deer", "Three deeres", "Three deeren"],
+    "correct_answer": 1,
+    "explanation": "Deer has the same singular and plural form (zero plural): one deer, three deer. Similar: sheep, fish, aircraft, series. Don't add -s. This pattern confuses learners expecting regular plurals, but it's standard and tested in all competitive exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the material noun:",
+    "options": ["Ring", "Silver", "Jeweller", "Customer"],
+    "correct_answer": 1,
+    "explanation": "Silver is a material noun (raw substance). Ring is a concrete noun (object made from silver). Material nouns: gold, wood, plastic, cotton, iron. They're usually uncountable. SSC asks you to identify material nouns or distinguish them from concrete nouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'bus'?",
+    "options": ["Bus", "Buss", "Buses", "Busies"],
+    "correct_answer": 2,
+    "explanation": "For nouns ending in -s, -ss, -x, -ch, -sh, add -es: bus→buses (or busses). Similar: class→classes, box→boxes, watch→watches, dish→dishes. This makes pronunciation easier. Spelling rules like this are tested in SSC CGL Tier 2 descriptive papers.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which possessive form is correct for James?",
+    "options": ["James book", "James's book", "Jame's book", "Jameses book"],
+    "correct_answer": 1,
+    "explanation": "For singular nouns ending in -s, add 's: James's book (or James' book, both acceptable). Never change the name. Indian learners sometimes write 'Jame's' incorrectly. Modern style prefers 's even after -s: boss's office, class's performance. Banking exams test possessive apostrophe rules.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the countable noun:",
+    "options": ["Milk", "Sugar", "Egg", "Water"],
+    "correct_answer": 2,
+    "explanation": "Egg is countable (one egg, two eggs, an egg). Milk, sugar, water are uncountable. Countable nouns can use a/an and have plurals. To count uncountables, use containers: a glass of milk, two kilos of sugar, a bottle of water. IELTS tests this distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'half'?",
+    "options": ["Halfs", "Halves", "Halfes", "Half"],
+    "correct_answer": 1,
+    "explanation": "For nouns ending in -f, change to -ves: half→halves. Similar: shelf→shelves, wolf→wolves, calf→calves. Exceptions: chief→chiefs, belief→beliefs. This spelling transformation is tested in SSC and banking descriptive exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is a proper noun?",
+    "options": ["cricket player", "Sachin Tendulkar", "batsman", "stadium"],
+    "correct_answer": 1,
+    "explanation": "Sachin Tendulkar is a proper noun (specific person's name, capitalized). Cricket player, batsman, stadium are common nouns (general). Proper nouns name specific: people (Virat Kohli), places (Eden Gardens), organizations (BCCI). Capitalization is tested in all competitive exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["I need some informations", "I need some information", "I need an information", "I need many informations"],
+    "correct_answer": 1,
+    "explanation": "Information is uncountable; use 'some' (not 'an' or 'many') and never add -s. To count: 'a piece of information' or 'some information'. This is the most common Indian English error, tested heavily in SSC CGL Tier 2. Hindi allows 'jaankari' to be plural, but English 'information' is always singular.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the correct plural of 'mother-in-law'?",
+    "options": ["Mother-in-laws", "Mothers-in-law", "Mothers-in-laws", "Mother-in-lawes"],
+    "correct_answer": 1,
+    "explanation": "For compound nouns with prepositions, pluralize the main noun: mothers-in-law (multiple mothers). Similar: passers-by, sisters-in-law, attorneys-general. Indian learners often pluralize the last word incorrectly. SSC frequently tests compound noun plurals in error spotting sections.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence shows correct subject-verb agreement?",
+    "options": ["The committee have made their decision", "The committee has made its decision", "The committee have made its decision", "The committee has made their decision"],
+    "correct_answer": 1,
+    "explanation": "Committee is a collective noun, typically singular in American English: 'has made its decision' (committee = one unit). British English allows plural: 'have made their decision' (focus on members). Be consistent: singular verb + singular pronoun OR plural verb + plural pronoun. Banking exams test this extensively.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'The teacher gave us many useful advices.'",
+    "options": ["teacher", "gave", "useful", "advices"],
+    "correct_answer": 3,
+    "explanation": "'Advices' is wrong; advice is uncountable (no plural). Correct: 'many useful pieces of advice' or 'much useful advice'. Indian learners pluralize advice due to Hindi influence. SSC error spotting questions frequently test uncountable nouns: information, furniture, luggage, equipment, machinery, advice.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'analysis'?",
+    "options": ["Analysises", "Analysis", "Analysies", "Analyses"],
+    "correct_answer": 3,
+    "explanation": "Analysis (singular) → analyses (plural). Greek-origin nouns ending in -is change to -es: crisis→crises, thesis→theses, hypothesis→hypotheses. Pronounce analyses as 'uh-NAL-ih-seez'. These academic terms appear in banking and UPSC exams; memorize the pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct possessive form:",
+    "options": ["The childrens' toys", "The children's toys", "The childrens toys", "The children toys"],
+    "correct_answer": 1,
+    "explanation": "Children is already plural (irregular), so add 's: children's toys (not childrens'). Rule: if plural doesn't end in -s (children, men, people), add 's. If plural ends in -s (students, teachers), add only apostrophe (students', teachers'). This is tested in SSC descriptive exams.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["I bought three furnitures for my office", "I bought three furniture for my office", "I bought three pieces of furniture for my office", "I bought three furniture pieces for my office"],
+    "correct_answer": 2,
+    "explanation": "Furniture is uncountable; use 'three pieces of furniture' or 'some furniture'. 'Furnitures' and 'three furniture' are wrong. Indian English commonly errors here (Hindi 'furniture' can be counted). SSC CGL Tier 2 tests this heavily - remember: furniture, equipment, machinery are always uncountable.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'honest'?",
+    "options": ["Honestness", "Honesting", "Honesty", "Honestyness"],
+    "correct_answer": 2,
+    "explanation": "Honest (adjective) → honesty (abstract noun). Pattern: adjective + -ty/-ity = abstract noun. Examples: loyal→loyalty, cruel→cruelty, able→ability, similar→similarity. SSC asks to form abstract nouns from adjectives. Remove -t and add -ty for words ending in -ent/-ant.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the sentence with correct noun usage:",
+    "options": ["The police is investigating the case", "The police are investigating the case", "The police investigates the case", "A police are investigating the case"],
+    "correct_answer": 1,
+    "explanation": "Police is always plural in English: 'The police are...' (not is). Similar always-plural nouns: cattle, people, clergy. Say 'a police officer' (singular) or 'the police' (plural). Indian learners often use singular verb due to Hindi 'police' usage. Banking exams frequently test this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'datum'?",
+    "options": ["Datums", "Datum", "Datas", "Data"],
+    "correct_answer": 3,
+    "explanation": "Datum (singular) → data (plural). In modern usage, 'data' is often treated as uncountable (like 'information'): 'The data is accurate.' In formal/scientific writing, use plural: 'The data are accurate.' Latin-origin plurals: medium→media, curriculum→curricula. UPSC and academic exams prefer formal plural usage.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'Please give me two breads and a butter.'",
+    "options": ["give", "two breads", "a butter", "Both B and C"],
+    "correct_answer": 3,
+    "explanation": "Both 'two breads' and 'a butter' are wrong. Bread and butter are uncountable. Correct: 'two slices of bread' or 'two loaves of bread' and 'some butter'. Indian English commonly errors with food nouns due to Hindi patterns. IELTS Writing heavily penalizes these mistakes.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["My cousin brother works in Mumbai", "My cousin works in Mumbai", "My brother cousin works in Mumbai", "My cousin-brother works in Mumbai"],
+    "correct_answer": 1,
+    "explanation": "'Cousin brother' is Indian English (not international). Just say 'cousin' (gender-neutral). If needed, specify: 'my male cousin' or 'my female cousin'. Similarly, avoid 'cousin sister'. This localism is incorrect in IELTS, SSC, and banking exams. Standard English uses 'cousin' for both genders.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'criterion'?",
+    "options": ["Criterions", "Criterias", "Criteria", "Criterion"],
+    "correct_answer": 2,
+    "explanation": "Criterion (singular) → criteria (plural). Greek-origin nouns ending in -on change to -a: phenomenon→phenomena, automaton→automata. Don't say 'a criteria' or 'the criteria is'; use 'a criterion' (singular) or 'the criteria are' (plural). UPSC and banking exams test these academic terms.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which possessive form is correct?",
+    "options": ["The students's results", "The students results", "The students' results", "The student's results"],
+    "correct_answer": 2,
+    "explanation": "For plural nouns ending in -s, add only apostrophe: students' results (multiple students' results). If singular: student's result (one student). Distinguish: teachers' lounge (many teachers) vs teacher's desk (one teacher). Banking descriptive exams test possessive apostrophes extensively.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'decide'?",
+    "options": ["Decidement", "Decision", "Deciding", "Decideness"],
+    "correct_answer": 1,
+    "explanation": "Decide (verb) → decision (abstract noun). Pattern: verbs ending in -de change to -sion. Examples: divide→division, conclude→conclusion, collide→collision. SSC asks to convert verbs to abstract nouns. Other patterns: -tion (act→action), -ment (enjoy→enjoyment), -ance (perform→performance).",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct sentence:",
+    "options": ["The jury are divided in their opinion", "The jury is divided in their opinion", "The jury are divided in its opinion", "The jury is divided in his opinion"],
+    "correct_answer": 0,
+    "explanation": "When collective noun members act individually (divided opinion), use plural verb + pronoun: 'The jury are divided in their opinion.' When acting as one unit, use singular: 'The jury has reached its verdict.' Be consistent in verb-pronoun agreement. Banking exams test this nuance.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'synopsis'?",
+    "options": ["Synopsis", "Synopsises", "Synopses", "Synopsies"],
+    "correct_answer": 2,
+    "explanation": "Synopsis (singular) → synopses (plural). Greek-origin nouns ending in -is change to -es: crisis→crises, analysis→analyses, diagnosis→diagnoses. Pronounce synopses as 'sin-OP-seez'. These academic terms appear in UPSC descriptive exams; memorize the -is to -es pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'The furnitures in this room is expensive.'",
+    "options": ["furnitures", "in", "is", "Both A and C"],
+    "correct_answer": 0,
+    "explanation": "'Furnitures' is wrong; furniture is uncountable (no plural). Correct: 'The furniture in this room is expensive' (furniture = singular). If the error said 'are', that would also be wrong because furniture takes singular verb. Indian English commonly pluralizes furniture; SSC error spotting questions exploit this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct possessive form for a car belonging to Ross:",
+    "options": ["Ross car", "Rosses car", "Ross's car", "Ross' car"],
+    "correct_answer": 2,
+    "explanation": "For singular nouns ending in -s, modern style adds 's: Ross's car. Older style allows Ross' car (both acceptable). Never change the name to 'Rosses'. Indian learners often omit apostrophes. Banking exams test possessive rules - be consistent with your chosen style.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'aircraft'?",
+    "options": ["Aircrafts", "Aircraftes", "Aircraft", "Aircraftses"],
+    "correct_answer": 2,
+    "explanation": "Aircraft has the same singular and plural form (zero plural): one aircraft, ten aircraft. Similar: spacecraft, hovercraft. Don't add -s. Also zero plural: sheep, deer, fish, series. These invariant plurals confuse learners but are tested in all competitive exams.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence is correct?",
+    "options": ["I have less books than you", "I have fewer books than you", "I have less book than you", "I have fewer book than you"],
+    "correct_answer": 1,
+    "explanation": "Use 'fewer' with countable nouns (books): 'fewer books'. Use 'less' with uncountable nouns: 'less water', 'less time'. Countable plurals take 'fewer'; uncountable singulars take 'less'. SSC and banking exams test this distinction frequently. Rule: Can you count it? Use fewer. Can't count? Use less.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'friend'?",
+    "options": ["Friendness", "Friendship", "Friendment", "Friendity"],
+    "correct_answer": 1,
+    "explanation": "Friend (noun) → friendship (abstract noun). Pattern: noun + -ship = abstract relationship/state. Examples: relation→relationship, scholar→scholarship, leader→leadership, member→membership. SSC asks to form abstract nouns - memorize suffixes: -ship, -hood, -ness, -ty, -tion, -ment.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct sentence:",
+    "options": ["The class have submitted its homework", "The class has submitted their homework", "The class has submitted its homework", "The class have submitted their homework"],
+    "correct_answer": 2,
+    "explanation": "Class as one unit uses singular: 'The class has submitted its homework.' If emphasizing individual students, plural is possible in British English: 'The class have submitted their homework.' Be consistent: singular verb + singular pronoun OR plural verb + plural pronoun. Banking exams test collective noun agreement.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'passer-by'?",
+    "options": ["Passer-bys", "Passers-by", "Passer-bies", "Passers-bies"],
+    "correct_answer": 1,
+    "explanation": "For compound nouns, pluralize the main noun: passers-by (multiple passers). Similar: mothers-in-law, attorneys-general, commanders-in-chief. The main noun is the first important word. Indian learners often pluralize the last word. SSC tests compound noun plurals in error spotting.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'He gave me many useful informations about IIT entrance.'",
+    "options": ["gave", "many", "informations", "entrance"],
+    "correct_answer": 2,
+    "explanation": "'Informations' is wrong; information is uncountable (no plural). Correct: 'much useful information' or 'many useful pieces of information'. This is the #1 Indian English error, heavily tested in SSC CGL Tier 2. Remember: information, advice, furniture, luggage, equipment are always singular.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct noun collocation:",
+    "options": ["A piece of cake (meaning easy task)", "A slice of cake (meaning easy task)", "A portion of cake (meaning easy task)", "A part of cake (meaning easy task)"],
+    "correct_answer": 0,
+    "explanation": "'A piece of cake' is an idiom meaning 'very easy'. For literal cake, use 'a piece/slice of cake'. Noun collocations with 'piece': a piece of advice, a piece of furniture, a piece of information, a piece of news. SSC tests idiomatic noun phrases - memorize common collocations.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'child'?",
+    "options": ["Childness", "Children", "Childhood", "Childship"],
+    "correct_answer": 2,
+    "explanation": "Child (noun) → childhood (abstract noun). Pattern: noun + -hood = state/period. Examples: boy→boyhood, man→manhood, neighbor→neighborhood, adult→adulthood. Don't confuse with children (plural of child). SSC asks to form abstract nouns - know your suffixes.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["I need some new equipments for the lab", "I need some new equipment for the lab", "I need some new equipmentes for the lab", "I need a new equipment for the lab"],
+    "correct_answer": 1,
+    "explanation": "Equipment is uncountable (no plural, no 'a/an'). Say 'some equipment' or 'pieces of equipment'. Indian English commonly says 'equipments' due to Hindi influence. Similar uncountables: furniture, machinery, luggage. SSC CGL Tier 2 tests these heavily - memorize uncountable nouns.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'index'?",
+    "options": ["Indexs", "Index", "Indices", "Indexies"],
+    "correct_answer": 2,
+    "explanation": "Index has two plurals: indices (formal/mathematical) or indexes (general). Latin-origin -ex/-ix nouns change to -ices: appendix→appendices, matrix→matrices. In general writing, 'indexes' is acceptable. Academic/UPSC exams prefer 'indices' for mathematical/scientific contexts.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct possessive form for items belonging to women:",
+    "options": ["Women's rights", "Womens' rights", "Womens rights", "Women rights"],
+    "correct_answer": 0,
+    "explanation": "Women is already plural (irregular), so add 's: women's rights (not womens'). Rule: if plural doesn't end in -s (women, children, people), add 's. If plural ends in -s (doctors, teachers), add only apostrophe (doctors', teachers'). Banking descriptive exams test this distinction.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'succeed'?",
+    "options": ["Succeedment", "Succeeding", "Success", "Succession"],
+    "correct_answer": 2,
+    "explanation": "Succeed (verb) → success (abstract noun). Don't confuse with succession (act of following). Pattern: -ceed verbs often become -cess nouns: proceed→process, exceed→excess. SSC asks to convert verbs to abstract nouns. Learn common verb-to-noun transformations for descriptive papers.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["The team are winning their matches", "The team is winning their matches", "The team is winning its matches", "The team are winning its matches"],
+    "correct_answer": 2,
+    "explanation": "Team as one unit uses singular: 'The team is winning its matches.' Be consistent: singular verb + singular pronoun. British English allows plural (are...their) if focusing on individual members. American English strongly prefers singular. Banking exams test subject-verb-pronoun agreement with collective nouns.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'thesis'?",
+    "options": ["Thesises", "Thesiss", "Theses", "Thesis"],
+    "correct_answer": 2,
+    "explanation": "Thesis (singular) → theses (plural). Greek-origin nouns ending in -is change to -es: crisis→crises, analysis→analyses, parenthesis→parentheses. Pronounce theses as 'THEE-seez'. These academic terms appear in UPSC and banking exams; memorize the -is to -es pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'The cattle is grazing in the field.'",
+    "options": ["cattle", "is", "grazing", "field"],
+    "correct_answer": 1,
+    "explanation": "'Is' is wrong; cattle is always plural: 'The cattle are grazing.' Similar always-plural nouns: police, people, clergy. For one animal, say 'a cow' or 'a bull' (not 'a cattle'). Indian learners sometimes use singular verb due to Hindi 'janwar' patterns. Banking exams test this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["I ordered two coffees", "I ordered two coffee", "I ordered two coffeeses", "I ordered two piece of coffee"],
+    "correct_answer": 0,
+    "explanation": "Coffee is uncountable, but 'two coffees' means 'two cups of coffee' (contextual countability). In cafes/restaurants, drinks can be counted by servings: two teas, three beers, four waters. Formally: 'two cups of coffee'. Both are acceptable. IELTS and banking exams accept contextual plurals.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'strong'?",
+    "options": ["Strongness", "Strongity", "Strength", "Stronghood"],
+    "correct_answer": 2,
+    "explanation": "Strong (adjective) → strength (abstract noun). Irregular transformation (not strong + suffix). Similar: long→length, wide→width, deep→depth, true→truth. SSC asks to form abstract nouns - memorize irregular adjective-to-noun conversions. Don't assume adding -ness always works.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct sentence:",
+    "options": ["My family are going to Goa", "My family is going to Goa", "My families are going to Goa", "My families is going to Goa"],
+    "correct_answer": 1,
+    "explanation": "Family as one unit uses singular: 'My family is going.' British English allows plural if emphasizing members: 'My family are' (but 'families' is wrong here). American English strongly prefers singular. Don't pluralize family unless talking about multiple families. Banking exams test collective noun agreement.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'foot'?",
+    "options": ["Foots", "Feets", "Feet", "Footes"],
+    "correct_answer": 2,
+    "explanation": "Foot has an irregular plural: feet (vowel change). Similar: tooth→teeth, goose→geese. Don't add -s. For measurement unit, some use 'feet' or 'foot': 'six foot tall' (informal) vs 'six feet tall' (standard). Competitive exams test irregular plurals - memorize these exceptions.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct possessive form for a book belonging to Charles:",
+    "options": ["Charles book", "Charles's book", "Charle's book", "Charleses book"],
+    "correct_answer": 1,
+    "explanation": "For singular nouns ending in -s, add 's: Charles's book (modern style). Older style: Charles' book (both acceptable). Never change the name. Indian learners often omit apostrophes. Be consistent: either always add 's or always add only apostrophe after names ending in -s. Banking exams test possessive rules.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'know'?",
+    "options": ["Knowment", "Knowing", "Knowledge", "Knowledgity"],
+    "correct_answer": 2,
+    "explanation": "Know (verb) → knowledge (abstract noun). Irregular transformation (spelling change). Don't confuse with knowing (gerund/present participle). SSC asks to convert verbs to abstract nouns. Other irregular conversions: choose→choice, please→pleasure, laugh→laughter.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence is correct?",
+    "options": ["The news are very sad", "The news is very sad", "A news is very sad", "The news have been sad"],
+    "correct_answer": 1,
+    "explanation": "News is uncountable and singular: 'The news is...' (not are). Don't say 'a news'; say 'a piece of news' or 'some news'. Indian learners often use plural verb or 'a news' due to Hindi 'khabar' patterns. Banking exams frequently test this - memorize: news is always singular.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'phenomenon'?",
+    "options": ["Phenomenons", "Phenomenas", "Phenomena", "Phenomenon"],
+    "correct_answer": 2,
+    "explanation": "Phenomenon (singular) → phenomena (plural). Greek-origin nouns ending in -on change to -a: criterion→criteria, automaton→automata. Don't say 'a phenomena' (wrong); use 'a phenomenon' (singular). UPSC and academic exams test these formal plurals - memorize the -on to -a pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'The sceneries of Kashmir are beautiful.'",
+    "options": ["sceneries", "of", "are", "beautiful"],
+    "correct_answer": 0,
+    "explanation": "'Sceneries' is wrong; scenery is uncountable (no plural). Correct: 'The scenery of Kashmir is beautiful' (singular). To count: 'beautiful scenes' or 'beautiful views' (not sceneries). Indian English commonly pluralizes scenery. SSC error spotting tests this - remember: scenery, poetry, machinery are uncountable.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["The audience was clapping loudly", "The audience were clapping loudly", "The audiences was clapping loudly", "The audiences were clapping loudly"],
+    "correct_answer": 0,
+    "explanation": "Audience as one group uses singular: 'The audience was clapping.' British English allows plural if focusing on individuals: 'The audience were clapping.' Don't pluralize audience unless talking about multiple audiences (rare). Banking exams test collective noun agreement - be consistent with verb tense.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'loaf'?",
+    "options": ["Loafs", "Loaves", "Loafes", "Loaf"],
+    "correct_answer": 1,
+    "explanation": "For nouns ending in -f, change to -ves: loaf→loaves. Similar: leaf→leaves, shelf→shelves, wife→wives. Exceptions: chef→chefs, roof→roofs. This spelling transformation is tested in SSC descriptive exams. Remember: two loaves of bread (not two breads).",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct possessive form for a house belonging to Mr. and Mrs. Singh:",
+    "options": ["The Singh's house", "The Singhs house", "The Singhs' house", "The Singh house"],
+    "correct_answer": 2,
+    "explanation": "For plural family names ending in -s, add only apostrophe: the Singhs' house (the Singh family's house). First pluralize the name (Singh→Singhs), then add apostrophe. Never write 'Singh's' for plural possession. Banking descriptive exams test possessive apostrophes with family names.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'advise'?",
+    "options": ["Advisement", "Advising", "Advice", "Advisery"],
+    "correct_answer": 2,
+    "explanation": "Advise (verb, with -s- sound) → advice (noun, with -c- sound). Spelling change: s→c. Don't confuse them: 'I advise you' (verb) vs 'I need advice' (noun). SSC tests verb-noun pairs: practise→practice (British), lose→loss. American English uses 'advice' (noun) and 'advise' (verb) consistently.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which is correct?",
+    "options": ["I bought two luggages for my trip", "I bought two luggage for my trip", "I bought two pieces of luggage for my trip", "I bought two luggage pieces for my trip"],
+    "correct_answer": 2,
+    "explanation": "Luggage is uncountable; use 'two pieces of luggage' or 'two bags'. 'Luggages' and 'two luggage' are wrong. Indian English commonly errors here (Hindi 'saman' can be counted). SSC CGL Tier 2 heavily tests this. Remember: luggage, baggage, furniture are always uncountable.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'attorney-general'?",
+    "options": ["Attorney-generals", "Attorneys-general", "Attorneys-generals", "Attorney-generales"],
+    "correct_answer": 1,
+    "explanation": "For compound nouns with postpositive adjectives (adjective after noun), pluralize the noun: attorneys-general. Similar: courts-martial, poets laureate, notaries public. This French-influenced pattern is rare. Indian learners pluralize the last word. UPSC and banking exams test formal compound plurals.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'He has so much of books that he needs a new shelf.'",
+    "options": ["has", "much of", "books", "new shelf"],
+    "correct_answer": 1,
+    "explanation": "'Much of' is wrong with countable plural 'books'. Correct: 'so many books' (countable) or 'so much knowledge' (uncountable). Use 'much/much of' with uncountables; 'many/many of' with countables. Indian learners confuse these due to Hindi translation patterns. Banking exams test much/many distinction.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct sentence:",
+    "options": ["The United States are a developed country", "The United States is a developed country", "The United State is a developed country", "The United States are developed countries"],
+    "correct_answer": 1,
+    "explanation": "The United States is singular (one country): 'The United States is...' Despite 'States' being plural, it's treated as one entity. Similar: the Netherlands, the Philippines (plural form, singular meaning). Don't change to 'State' or use plural verb. UPSC and IELTS test proper noun agreement.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'species'?",
+    "options": ["Specieses", "Species", "Specii", "Speciess"],
+    "correct_answer": 1,
+    "explanation": "Species has the same singular and plural form (zero plural): one species, many species. Similar: series, headquarters, means. Don't add -es. Latin-origin words ending in -ies often don't change. Academic and UPSC exams test these invariant plurals - memorize the pattern.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the sentence with correct noun usage:",
+    "options": ["The clergy is meeting today", "The clergy are meeting today", "The clergies are meeting today", "A clergy is meeting today"],
+    "correct_answer": 1,
+    "explanation": "Clergy is a collective noun, always plural: 'The clergy are...' (like police, cattle). For singular, say 'a clergyman' or 'a member of the clergy' (not 'a clergy'). Don't pluralize to 'clergies'. Banking exams test always-plural collective nouns vs standard collective nouns.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'obey'?",
+    "options": ["Obeyment", "Obeying", "Obedience", "Obeyance"],
+    "correct_answer": 2,
+    "explanation": "Obey (verb) → obedience (abstract noun). Irregular transformation (y→i + ence). Similar: disobey→disobedience, rely→reliance, defy→defiance. Don't confuse with obeying (gerund). SSC asks to form abstract nouns - learn irregular verb-to-noun patterns with spelling changes.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'The majority of the students has passed the exam.'",
+    "options": ["majority", "students", "has", "passed"],
+    "correct_answer": 2,
+    "explanation": "'Has' is wrong. 'Majority of + plural noun' takes plural verb: 'The majority of the students have passed.' But 'The majority of the work has been done' (uncountable = singular). Agreement depends on the noun after 'of'. Banking exams test subject-verb agreement with fractions/majority/percentage.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct possessive form for joint possession by Amit and Rohit:",
+    "options": ["Amit's and Rohit's company", "Amit and Rohit's company", "Amits and Rohits company", "Amit's and Rohits company"],
+    "correct_answer": 1,
+    "explanation": "For joint possession (one company owned by both), add 's only to the last noun: Amit and Rohit's company. For separate possession (each has their own), both get 's: Amit's and Rohit's companies. Banking descriptive exams test joint vs separate possession - context determines apostrophe placement.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'curriculum'?",
+    "options": ["Curriculums", "Curricula", "Curriculumes", "Curriculum"],
+    "correct_answer": 1,
+    "explanation": "Curriculum (singular) → curricula (plural). Latin-origin nouns ending in -um change to -a: datum→data, medium→media, memorandum→memoranda. Modern usage also accepts 'curriculums'. Academic and UPSC exams prefer Latin plurals 'curricula' in formal contexts.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence is correct?",
+    "options": ["Either of the boys have done their homework", "Either of the boys has done his homework", "Either of the boys have done his homework", "Either of the boys has done their homework"],
+    "correct_answer": 1,
+    "explanation": "'Either of + plural noun' takes singular verb and pronoun: 'Either of the boys has done his homework' (meaning one boy, not both). 'Either' = one or the other (singular). Similarly: 'Each of the students has...' Banking exams test indefinite pronoun agreement - memorize: either, each, every = singular.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct sentence:",
+    "options": ["Physics are my favorite subject", "Physics is my favorite subject", "A physics is my favorite subject", "Physics were my favorite subject"],
+    "correct_answer": 1,
+    "explanation": "Physics is a singular subject name: 'Physics is...' (not are). Similar subjects ending in -ics: mathematics, economics, politics (singular when referring to the subject/field). But 'The politics of the region are complex' (plural = political activities). UPSC and banking exams test -ics nouns.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'fish' when referring to different species?",
+    "options": ["Fish", "Fishes", "Fishs", "Fishees"],
+    "correct_answer": 1,
+    "explanation": "Fish has zero plural (one fish, ten fish) when same species. Use 'fishes' for multiple species: 'The aquarium has many tropical fishes' (different types). Context matters: 'We caught five fish' (same kind) vs 'The ocean contains many fishes' (various species). Academic exams test this nuance.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'A number of students was absent yesterday.'",
+    "options": ["A number", "students", "was", "yesterday"],
+    "correct_answer": 2,
+    "explanation": "'Was' is wrong. 'A number of + plural noun' takes plural verb: 'A number of students were absent' (focus on the students). But 'The number of students is increasing' (focus on the number = singular). Banking exams heavily test 'a number of' vs 'the number of' distinction.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Choose the correct possessive form for time:",
+    "options": ["Two weeks notice", "Two weeks' notice", "Two week's notice", "Two weeks's notice"],
+    "correct_answer": 1,
+    "explanation": "For plural time expressions, add apostrophe after -s: two weeks' notice (notice of two weeks). Singular: one week's notice. Similar: three months' salary, five years' experience. Time and distance take possessive form. Banking descriptive exams test possessive with time/money expressions.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the abstract noun form of 'justify'?",
+    "options": ["Justification", "Justifying", "Justifyment", "Justifness"],
+    "correct_answer": 0,
+    "explanation": "Justify (verb) → justification (abstract noun). Pattern: -fy verbs change to -fication: simplify→simplification, clarify→clarification, classify→classification. Don't use -fyment or gerund as abstract noun. SSC asks to convert verbs to abstract nouns - memorize -fy to -fication pattern.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Which sentence is correct?",
+    "options": ["Every student must bring their book", "Every student must bring his or her book", "Every students must bring their books", "Every student must bring his book"],
+    "correct_answer": 1,
+    "explanation": "'Every' is singular, so 'student' (singular) and traditionally 'his or her book' (singular pronoun). Modern usage accepts 'their' as gender-neutral singular: 'Every student must bring their book.' Never pluralize after 'every' (not 'every students'). Banking exams test every/each + singular agreement.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Select the correct sentence:",
+    "options": ["The economics of the project are sound", "The economics of the project is sound", "An economics of the project is sound", "The economic of the project are sound"],
+    "correct_answer": 1,
+    "explanation": "'Economics' (the study/aspects) is singular: 'The economics of the project is sound.' But 'economics' as a subject is also singular: 'Economics is interesting.' Don't confuse with 'economic' (adjective). UPSC exams test -ics nouns - context determines singular/plural treatment.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "What is the plural of 'appendix'?",
+    "options": ["Appendixes", "Appendices", "Appendixs", "Both A and B"],
+    "correct_answer": 3,
+    "explanation": "Appendix has two acceptable plurals: appendices (formal/medical) or appendixes (general). Latin-origin -ex/-ix nouns traditionally change to -ices: index→indices. Modern usage accepts both forms. Academic exams prefer 'appendices' for body organs, 'appendixes' for book sections.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "nouns-detailed",
+    "question": "Identify the error: 'None of the information were correct.'",
+    "options": ["None", "information", "were", "correct"],
+    "correct_answer": 2,
+    "explanation": "'Were' is wrong. 'None of + uncountable noun' takes singular verb: 'None of the information was correct.' But 'None of the students were present' (plural countable noun = plural verb). Agreement depends on the noun after 'of'. Banking exams test 'none of' with countable vs uncountable nouns.",
+    "difficulty": "hard",
+    "level": "A2"
+  }
+]

@@ -1,0 +1,262 @@
+[
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word has a different vowel sound?",
+    "options": ["ship", "sheep", "keep", "deep"],
+    "correct_answer": 0,
+    "explanation": "'Ship' has a short /ɪ/ sound, while 'sheep', 'keep', and 'deep' all have the long /iː/ sound. This is a minimal pair that commonly confuses Indian learners because Hindi doesn't distinguish between short and long vowel sounds in the same way. Practice: 'ship' (short) vs 'sheep' (long).",
+    "difficulty": "easy",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Identify the word where 'ch' is pronounced differently:",
+    "options": ["chair", "school", "cheese", "church"],
+    "correct_answer": 1,
+    "explanation": "In 'school', 'ch' makes a /k/ sound (Greek origin), while in 'chair', 'cheese', and 'church', it makes the /tʃ/ sound. This is a spelling-pronunciation rule that Indian students must memorize, as Hindi च (cha) is consistently pronounced as /tʃ/.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word has the 'th' sound as in 'think'?",
+    "options": ["that", "these", "thank", "they"],
+    "correct_answer": 2,
+    "explanation": "'Thank' has the voiceless /θ/ sound (like in 'think'), while 'that', 'these', and 'they' have the voiced /ð/ sound. Indian speakers often replace 'th' with 't' or 'd' because neither /θ/ nor /ð/ exists in Hindi. Practice by placing your tongue between your teeth.",
+    "difficulty": "easy",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Choose the word with the correct stress pattern for 'record' (noun):",
+    "options": ["re-CORD", "RE-cord", "Both are correct", "Neither is correct"],
+    "correct_answer": 1,
+    "explanation": "As a noun, 'record' is stressed on the first syllable: RE-cord. As a verb, it's re-CORD. This noun-verb stress shift pattern is common in English (e.g., PERmit vs perMIT, PRESent vs preSENT). Hindi doesn't use stress to change word meaning, so this requires extra attention.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word rhymes with 'cough'?",
+    "options": ["rough", "though", "through", "dough"],
+    "correct_answer": 0,
+    "explanation": "'Cough' rhymes with 'rough' (/kɒf/, /rʌf/ - both have 'f' sound at end). 'Though' ends in /oʊ/, 'through' in /uː/, and 'dough' in /oʊ/. English spelling is notoriously irregular for 'ough' combinations - each word must be learned individually.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The letter 'a' in 'cat' and 'father' have:",
+    "options": ["The same sound", "Different sounds", "No sound", "Similar sounds"],
+    "correct_answer": 1,
+    "explanation": "'Cat' has the /æ/ sound (short 'a'), while 'father' has the /ɑː/ sound (long 'a'). These are two distinct vowel sounds in English. Indian learners often use one Hindi 'अ' sound for both, making words hard to distinguish.",
+    "difficulty": "easy",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which pair is a minimal pair (words differing by only one sound)?",
+    "options": ["cat / bat", "pen / pencil", "book / notebook", "run / running"],
+    "correct_answer": 0,
+    "explanation": "'Cat' and 'bat' differ by only one sound (/k/ vs /b/), making them a minimal pair. The others differ by more than one sound or are morphologically related. Minimal pairs are crucial for pronunciation practice and listening comprehension.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "In 'Wednesday', which letter is silent?",
+    "options": ["W", "d", "e", "y"],
+    "correct_answer": 1,
+    "explanation": "The 'd' in 'Wednesday' is silent - pronounced as 'WENZ-day', not 'WED-nes-day'. Many English words have silent letters (knife, knock, psychology, receipt). Indian learners often pronounce every letter, so these need explicit teaching.",
+    "difficulty": "easy",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Choose the word where 'ea' sounds like 'e' in 'bed':",
+    "options": ["eat", "bread", "tea", "sea"],
+    "correct_answer": 1,
+    "explanation": "'Bread' has 'ea' pronounced as /e/ (like 'bed'), while 'eat', 'tea', and 'sea' have /iː/ (long 'e'). Other 'ea' = /e/ words: head, dead, ready, heavy. This irregularity must be memorized.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The primary stress in 'university' falls on:",
+    "options": ["First syllable (U-ni)", "Second syllable (ni-VER)", "Third syllable (VER-si)", "Fourth syllable (si-ty)"],
+    "correct_answer": 2,
+    "explanation": "University is stressed on the third syllable: uni-VER-si-ty. Multi-syllable words in English have unpredictable stress patterns that don't follow Hindi rules. Wrong stress can make words incomprehensible, so learning stress is as important as learning sounds.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word has a different 'oo' sound?",
+    "options": ["book", "food", "good", "look"],
+    "correct_answer": 1,
+    "explanation": "'Food' has /uː/ (long 'oo'), while 'book', 'good', and 'look' have /ʊ/ (short 'oo'). Other long 'oo': moon, soon, tool. Other short 'oo': foot, cook, took. This distinction doesn't exist in Hindi, so practice is essential.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The 'ed' ending in 'wanted' is pronounced as:",
+    "options": ["/d/ (wanted)", "/t/ (wantT)", "/ɪd/ (wantED)", "Silent"],
+    "correct_answer": 2,
+    "explanation": "After 't' or 'd', the '-ed' ending is pronounced as /ɪd/ (extra syllable: want-ED). After voiced sounds, it's /d/ (played). After voiceless sounds, it's /t/ (walked). This three-way rule is systematic and must be learned for fluent speech.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Choose the word where 'g' is silent:",
+    "options": ["garden", "foreign", "great", "garden"],
+    "correct_answer": 1,
+    "explanation": "'Foreign' has a silent 'g' (pronounced FOR-in). Other silent 'g' words: sign, design, campaign. Indian learners often pronounce every letter, leading to errors. Silent letters are historical relics and must be memorized.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word has three syllables?",
+    "options": ["chocolate", "important", "university", "interesting"],
+    "correct_answer": 1,
+    "explanation": "'Important' has three syllables: im-POR-tant. 'Chocolate' has two (CHOC-late, not CHOC-o-late), 'university' has four, 'interesting' has three officially but often reduced to two in speech. Syllable counting helps with rhythm and stress.",
+    "difficulty": "easy",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The 's' in 'cats' and 'dogs' is pronounced:",
+    "options": ["Same in both (/s/)", "Same in both (/z/)", "Different (/s/ in cats, /z/ in dogs)", "Different (/z/ in cats, /s/ in dogs)"],
+    "correct_answer": 2,
+    "explanation": "'Cats' ends with /s/ (voiceless), 'dogs' ends with /z/ (voiced). The plural 's' pronunciation depends on the final sound of the base word: after voiceless sounds (t, k, p, f), use /s/; after voiced sounds (d, g, b, v, vowels), use /z/; after sibilants (s, z, sh, ch), use /ɪz/.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word pair shows the 'v/w' confusion common for Indian speakers?",
+    "options": ["pen / pan", "van / wan", "ship / sheep", "think / sink"],
+    "correct_answer": 1,
+    "explanation": "'Van' (vehicle) vs 'wan' (pale) - /v/ is produced with teeth on bottom lip (voiced), /w/ is produced with rounded lips (voiced). Hindi व is somewhere between, causing confusion. Practice: van (teeth touch lip), wan (lips rounded, no teeth).",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "In 'comfortable', which syllables are typically reduced in natural speech?",
+    "options": ["None - all pronounced clearly", "The second syllable 'for'", "The third syllable 'ta'", "Both second and third"],
+    "correct_answer": 3,
+    "explanation": "'Comfortable' in natural speech is often pronounced COMF-table (reducing 'for' and 'ta'). English uses vowel reduction (schwa /ə/) in unstressed syllables, while Hindi pronounces all syllables clearly. This makes listening comprehension challenging for Indian learners.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The word 'live' can be pronounced two ways. Which meaning goes with which pronunciation?",
+    "options": ["Both pronounced the same", "/lɪv/ for verb (to live), /laɪv/ for adjective (live broadcast)", "/laɪv/ for verb, /lɪv/ for adjective", "Pronunciation varies by dialect only"],
+    "correct_answer": 1,
+    "explanation": "Verb 'live' (to reside) = /lɪv/ (short 'i', like 'give'). Adjective 'live' (not recorded) = /laɪv/ (long 'i', rhymes with 'five'). This heteronym (same spelling, different pronunciation and meaning) can confuse learners. Context is key.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word demonstrates linking sounds (the final consonant of one word connects to the vowel of the next)?",
+    "options": ["I am (pronounced I-yam)", "Take it (pronounced take-kit)", "An apple (pronounced a-napple)", "Come on (pronounced co-mon)"],
+    "correct_answer": 2,
+    "explanation": "'An apple' links as 'a-napple' (the /n/ connects to /æ/). Linking is a key feature of fluent English. Indians often pause between words, making speech sound choppy. Other linking types: consonant-vowel (take it → 'tay-kit'), vowel-vowel (I am → 'I-yam'), consonant-consonant (good day → 'goo-day').",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The word 'often' can be pronounced with or without the 't' sound. Which is more common in modern English?",
+    "options": ["With /t/ (off-TEN)", "Without /t/ (OFF-en)", "Both equally common", "Depends on region only"],
+    "correct_answer": 1,
+    "explanation": "Historically and in modern usage, 'often' is more commonly pronounced OFF-en (silent 't'), though OFF-ten is also accepted. The 't' was originally silent, then revived in some dialects. Indian learners often pronounce all letters, so the silent 't' version should be taught as standard.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Identify the correct intonation pattern for the question: 'Do you like coffee?'",
+    "options": ["Rising intonation ↗", "Falling intonation ↘", "Rising-falling ↗↘", "Flat intonation →"],
+    "correct_answer": 0,
+    "explanation": "Yes/no questions (starting with do/does/did/can/will) typically use rising intonation ↗. Wh-questions (what/where/when/why/how) use falling intonation ↘. Hindi doesn't use intonation for grammatical purposes, so this must be explicitly taught.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word has the same vowel sound as 'bird'?",
+    "options": ["beard", "word", "hard", "board"],
+    "correct_answer": 1,
+    "explanation": "'Bird' and 'word' both have the /ɜː/ sound (r-colored vowel). 'Beard' has /ɪə/, 'hard' has /ɑː/, 'board' has /ɔː/. The /ɜː/ sound (also in: girl, turn, learn, work) doesn't exist in Hindi, so Indian speakers often substitute /ar/ or /er/, saying 'bard' or 'berd'.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The stress in compound nouns like 'BLACKboard' and 'black BOARD' determines:",
+    "options": ["Nothing - both are identical", "Meaning (one object vs two words)", "Dialect difference only", "Speaker's preference"],
+    "correct_answer": 1,
+    "explanation": "'BLACKboard' (stress on first word) = one object, a teaching board. 'black BOARD' (stress on second) = a board that is black. Compound noun stress is on the first element; phrase stress is on the last element. This distinction affects meaning and must be mastered.",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Which word shows intrusive 'r' in British English (pronouncing 'r' where it's not written)?",
+    "options": ["Car (ca-r)", "Idea of (idea-r-of)", "Run (r-un)", "Read (r-ead)"],
+    "correct_answer": 1,
+    "explanation": "British speakers often add an intrusive 'r' between 'idea' and 'of': 'idea-r-of'. This linking 'r' appears when a word ending in a vowel is followed by a word starting with a vowel. It's a feature of non-rhotic accents (where 'r' at word end is not pronounced unless followed by a vowel).",
+    "difficulty": "hard",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "Choose the word where the first syllable has a schwa (ə) sound:",
+    "options": ["about", "apple", "actor", "after"],
+    "correct_answer": 0,
+    "explanation": "'About' starts with a schwa: ə-BOUT. The schwa is the most common vowel sound in English (the weak, unstressed 'uh' sound). Words: ago, away, police, today. Hindi pronounces all vowels clearly, so the schwa concept is foreign to Indian learners.",
+    "difficulty": "medium",
+    "level": "A1"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronunciation",
+    "question": "The word 'tear' has two pronunciations. Which pair shows the correct meaning-pronunciation match?",
+    "options": ["Tear (rip) = /tɛər/, Tear (cry) = /tɪər/", "Tear (rip) = /tɛər/, Tear (cry) = /tɛər/", "Tear (rip) = /tɪər/, Tear (cry) = /tɛər/", "Both have the same pronunciation"],
+    "correct_answer": 0,
+    "explanation": "Tear (to rip) = /tɛər/ (rhymes with 'air'). Tear (from crying) = /tɪər/ (rhymes with 'ear'). These heteronyms confuse learners. Context is crucial for understanding which meaning and pronunciation to use.",
+    "difficulty": "hard",
+    "level": "A1"
+  }
+]

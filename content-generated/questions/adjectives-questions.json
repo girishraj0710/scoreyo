@@ -1,0 +1,1532 @@
+[
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "She is a kind woman.",
+      "She is a woman kind.",
+      "She is kind a woman.",
+      "She a kind is woman."
+    ],
+    "correct_answer": 0,
+    "explanation": "Adjectives in English typically come BEFORE the noun they modify (attributive position). 'Kind' describes 'woman', so it must precede it. This is a basic rule tested in SSC CGL error spotting questions.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Fill in the blank: This mango is _____ than that one.",
+    "options": [
+      "sweet",
+      "sweeter",
+      "more sweet",
+      "sweetest"
+    ],
+    "correct_answer": 1,
+    "explanation": "For one-syllable adjectives like 'sweet', we add -er for the comparative form. 'More sweet' is incorrect. This pattern is crucial for SSC CGL sentence improvement questions. Remember: short adjectives take -er/-est, not more/most.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Identify the error: 'He is more taller than his brother.'",
+    "options": [
+      "No error",
+      "Remove 'more'",
+      "Change 'taller' to 'tall'",
+      "Change 'than' to 'then'"
+    ],
+    "correct_answer": 1,
+    "explanation": "This is a DOUBLE COMPARATIVE error—very common in Indian English. You cannot use 'more' with '-er' endings. Correct form: 'He is taller than his brother.' SSC CGL frequently tests this mistake. Never combine 'more' with comparative forms.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "Mumbai is very bigger than Pune.",
+      "Mumbai is much bigger than Pune.",
+      "Mumbai is more bigger than Pune.",
+      "Mumbai is too bigger than Pune."
+    ],
+    "correct_answer": 1,
+    "explanation": "Comparatives are modified by 'much', 'far', 'a lot', 'even'—NOT 'very'. 'Very' is used with positive adjectives only. Banking PO exams test this distinction. Remember: very big (positive) vs much bigger (comparative).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Select the superlative form of 'good':",
+    "options": [
+      "gooder",
+      "goodest",
+      "better",
+      "best"
+    ],
+    "correct_answer": 3,
+    "explanation": "Good-better-best is an IRREGULAR comparison. Never add -er/-est to 'good'. Other irregular adjectives: bad-worse-worst, far-farther-farthest. SSC CGL tests irregular forms heavily. Memorize these exceptions.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct order: 'She wore a _____ sari.'",
+    "options": [
+      "silk beautiful red Indian",
+      "beautiful red Indian silk",
+      "red beautiful silk Indian",
+      "Indian red beautiful silk"
+    ],
+    "correct_answer": 1,
+    "explanation": "Adjective order rule: Opinion-Size-Age-Shape-Color-Origin-Material-Purpose. Here: beautiful (opinion), red (color), Indian (origin), silk (material). Banking PO sentence rearrangement tests this. Incorrect order sounds unnatural to native speakers.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "I am _____ in cricket.",
+    "options": [
+      "interesting",
+      "interested",
+      "interest",
+      "interests"
+    ],
+    "correct_answer": 1,
+    "explanation": "Participle adjectives: -ED shows how YOU FEEL (interested, bored, excited), -ING shows what CAUSES the feeling (interesting, boring, exciting). Classic Indian English error: 'I am interesting' means you make others interested! SSC CHSL tests this extensively.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The movie was _____.",
+    "options": [
+      "bored",
+      "boring",
+      "bore",
+      "bores"
+    ],
+    "correct_answer": 1,
+    "explanation": "The movie CAUSES boredom, so use -ING. YOU feel bored (-ED). Think: the movie is boring (it bores you), but you are bored (you feel boredom). IELTS Writing candidates lose marks for this mistake.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "She is good at maths.",
+      "She is good in maths.",
+      "She is good for maths.",
+      "She is good on maths."
+    ],
+    "correct_answer": 0,
+    "explanation": "Adjective + preposition collocations are FIXED. 'Good at' (skill), 'afraid of' (fear), 'interested in' (interest), 'proud of' (pride). Banking PO fill-in-the-blanks test these. Learn common pairs by heart.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is afraid _____ dogs.",
+    "options": [
+      "from",
+      "with",
+      "of",
+      "for"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Afraid of' is the correct collocation. Other common pairs: proud of, fond of, tired of, full of. SSC CGL preposition questions heavily test adjective collocations. Using wrong prepositions is a frequent Indian English error.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Identify the adjective: 'The Taj Mahal is a beautiful monument.'",
+    "options": [
+      "Taj Mahal",
+      "beautiful",
+      "monument",
+      "is"
+    ],
+    "correct_answer": 1,
+    "explanation": "Adjectives DESCRIBE nouns. 'Beautiful' describes what kind of monument. Descriptive adjectives (like beautiful, tall, red) are the most common type. Basic identification is tested in SSC foundation-level exams.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which sentence uses a possessive adjective?",
+    "options": [
+      "This is my book.",
+      "The book is mine.",
+      "Give me the book.",
+      "The book is on the table."
+    ],
+    "correct_answer": 0,
+    "explanation": "Possessive adjectives (my, your, his, her, its, our, their) come BEFORE nouns. Possessive pronouns (mine, yours, his, hers, ours, theirs) stand alone. 'My book' (adjective) vs 'The book is mine' (pronoun). Banking PO tests this distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the demonstrative adjective:",
+    "options": [
+      "I like that book.",
+      "I like it.",
+      "I like books.",
+      "I like reading."
+    ],
+    "correct_answer": 0,
+    "explanation": "Demonstrative adjectives (this, that, these, those) point to specific nouns. 'That book' specifies which book. 'It' is a pronoun (not adjective). SSC exams test the difference between demonstrative adjectives and pronouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She is very beautiful and very intelligent.'",
+    "options": [
+      "No error",
+      "Remove first 'very'",
+      "Remove second 'very'",
+      "Remove both 'very'"
+    ],
+    "correct_answer": 0,
+    "explanation": "This sentence is correct. 'Beautiful' and 'intelligent' are GRADABLE adjectives (they have degrees). You CAN use 'very' with gradable adjectives. Contrast with non-gradable: you cannot say 'very perfect' or 'very excellent'. Banking PO tests this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is incorrect?",
+    "options": [
+      "She is quite tired.",
+      "She is very tired.",
+      "She is extremely tired.",
+      "She is very perfect."
+    ],
+    "correct_answer": 3,
+    "explanation": "'Perfect' is NON-GRADABLE (absolute)—something is either perfect or not. You cannot say 'very perfect', 'more perfect', 'quite perfect'. Use 'absolutely perfect' or just 'perfect'. Other non-gradable adjectives: excellent, unique, impossible, dead. Common IELTS Writing mistake.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The Taj Mahal is _____ building in India.",
+    "options": [
+      "famous",
+      "more famous",
+      "most famous",
+      "the most famous"
+    ],
+    "correct_answer": 3,
+    "explanation": "Superlatives (showing the highest degree among three or more) ALWAYS take 'the' before them. 'The most famous', 'the tallest', 'the best'. Comparative (two things) does not need 'the': 'more famous than'. SSC CGL tests article usage with superlatives.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He works _____.",
+    "options": [
+      "hardly",
+      "hard",
+      "harder",
+      "hardest"
+    ],
+    "correct_answer": 1,
+    "explanation": "TRICKY! 'Hard' is both adjective and adverb. 'Hardly' means 'barely/scarcely' (different meaning). 'He works hard' (a lot), 'He hardly works' (he doesn't work much). Similarly: late (time) vs lately (recently). Banking PO tests adjective-adverb confusion.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She speaks English _____.",
+    "options": [
+      "good",
+      "well",
+      "better",
+      "best"
+    ],
+    "correct_answer": 1,
+    "explanation": "MAJOR ERROR! 'Good' is an ADJECTIVE (good book, good person). 'Well' is an ADVERB (speaks well, works well). Exception: 'I feel good/well' (both accepted). 'She is good at English' (adjective) vs 'She speaks English well' (adverb). SSC CGL tests this heavily.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct comparative: 'This problem is _____ than the last one.'",
+    "options": [
+      "difficult",
+      "difficulter",
+      "more difficult",
+      "most difficult"
+    ],
+    "correct_answer": 2,
+    "explanation": "Three-syllable adjectives use MORE/MOST (not -er/-est). More difficult, more beautiful, more expensive. One-syllable: -er/-est (tall-taller-tallest). Two-syllable: varies (happy-happier, careful-more careful). Banking PO tests syllable rules.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She is elder than me.'",
+    "options": [
+      "No error",
+      "Change 'elder' to 'older'",
+      "Remove 'than'",
+      "Change 'me' to 'I'"
+    ],
+    "correct_answer": 1,
+    "explanation": "CRITICAL INDIAN ENGLISH ERROR! 'Elder' is used ONLY for family members WITHOUT 'than' (my elder brother). For comparisons with 'than', use 'older' (She is older than me). 'Elder than' is grammatically incorrect. SSC CGL error spotting favorite.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is my _____ brother.",
+    "options": [
+      "older",
+      "elder",
+      "more old",
+      "oldest"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Elder' is correct when talking about family members (elder brother/sister) WITHOUT comparison. Use 'older' with 'than' or for non-family (older friend, older than me). Banking PO tests this distinction frequently.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Delhi is _____ Bangalore in summer.",
+    "options": [
+      "as hot as",
+      "as hotter as",
+      "so hot as",
+      "more hot than"
+    ],
+    "correct_answer": 0,
+    "explanation": "'As...as' shows EQUAL comparison (same degree). Structure: as + positive adjective + as. For negative: 'not as hot as' or 'not so hot as'. Never use comparative form (hotter) inside 'as...as'. SSC CGL tests this structure.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which sentence shows unequal comparison correctly?",
+    "options": [
+      "He is as tall than me.",
+      "He is taller as me.",
+      "He is taller than me.",
+      "He is more tall from me."
+    ],
+    "correct_answer": 2,
+    "explanation": "COMPARATIVE + THAN is the correct structure for unequal comparison. 'Taller than', 'more beautiful than', 'better than'. Common errors: 'as tall than' (mixing structures), 'taller from' (wrong preposition). Banking PO sentence improvement tests this.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "He is one of the best player.",
+      "He is one of the best players.",
+      "He is one of the better players.",
+      "He is one of best players."
+    ],
+    "correct_answer": 1,
+    "explanation": "'One of the + superlative + plural noun' is the correct pattern. 'One of the best players' (comparing among many). Common errors: singular noun after 'one of', missing 'the' before superlative. SSC CGL tests this frequently.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She is the most beautifulest girl.'",
+    "options": [
+      "No error",
+      "Remove 'most'",
+      "Change 'beautifulest' to 'beautiful'",
+      "Use 'more' instead of 'most'"
+    ],
+    "correct_answer": 2,
+    "explanation": "DOUBLE SUPERLATIVE error! Never combine 'most' with '-est'. Correct: 'She is the most beautiful girl' OR 'She is the prettiest girl' (one-syllable adjective). Similar to 'more better' mistake. Banking PO error spotting classic.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "He is very unique person.",
+      "He is a very unique person.",
+      "He is a unique person.",
+      "He is more unique person."
+    ],
+    "correct_answer": 2,
+    "explanation": "'Unique' is NON-GRADABLE (absolute). Something is either unique or not. Cannot say 'very unique', 'more unique', 'most unique'. Use 'completely unique', 'absolutely unique', or just 'unique'. Other absolutes: perfect, impossible, dead, eternal. IELTS Writing penalizes this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She is _____ than her sister.",
+    "options": [
+      "more happy",
+      "happier",
+      "more happier",
+      "most happy"
+    ],
+    "correct_answer": 1,
+    "explanation": "Two-syllable adjectives ending in -Y change to -IER/-IEST. Happy-happier-happiest, easy-easier-easiest, busy-busier-busiest. Drop the Y and add -IER. Never use 'more happier' (double comparative). SSC CGL tests two-syllable adjective rules.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct order: 'He bought a _____ car.'",
+    "options": [
+      "German expensive new",
+      "expensive new German",
+      "new expensive German",
+      "German new expensive"
+    ],
+    "correct_answer": 1,
+    "explanation": "Adjective order: Opinion-Size-Age-Shape-Color-Origin-Material-Purpose. Here: expensive (opinion), new (age), German (origin). Banking PO tests ordering in sentence improvement. Wrong order confuses readers.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The weather is getting _____ day by day.",
+    "options": [
+      "hot",
+      "hotter",
+      "more hot",
+      "hottest"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Getting + comparative' shows gradual change. 'Getting hotter', 'getting better', 'getting more expensive'. Never use positive (hot) or superlative (hottest) here. SSC exams test progressive comparison structures.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is the superlative of 'bad'?",
+    "options": [
+      "badder",
+      "baddest",
+      "worse",
+      "worst"
+    ],
+    "correct_answer": 3,
+    "explanation": "Bad-worse-worst (irregular). Never add -er/-est to 'bad'. Other irregulars: good-better-best, far-farther-farthest, little-less-least. SSC CGL heavily tests irregular comparatives/superlatives. Memorize these exceptions.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is _____ than his brother.",
+    "options": [
+      "more clever",
+      "cleverer",
+      "both A and B",
+      "cleverest"
+    ],
+    "correct_answer": 2,
+    "explanation": "Two-syllable adjectives like 'clever' accept BOTH forms: cleverer OR more clever (both correct). Other examples: simple-simpler/more simple, narrow-narrower/more narrow. Banking PO tests this flexibility. Use the form that sounds natural.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'This is more better solution.'",
+    "options": [
+      "No error",
+      "Remove 'more'",
+      "Change 'better' to 'good'",
+      "Change 'solution' to 'solutions'"
+    ],
+    "correct_answer": 1,
+    "explanation": "DOUBLE COMPARATIVE! 'Better' already IS the comparative of 'good'. Never add 'more' to irregular comparatives. Correct: 'This is a better solution' or 'This is the best solution'. SSC CGL's most tested error. Avoid combining 'more/most' with -er/-est.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She is not _____ her mother.",
+    "options": [
+      "as tall as",
+      "so tall than",
+      "taller as",
+      "as taller as"
+    ],
+    "correct_answer": 0,
+    "explanation": "Negative equal comparison uses 'not as...as' or 'not so...as'. Structure: not + as/so + positive adjective + as. Never mix with comparative forms or 'than'. Banking PO tests negative comparison structures.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which adjective + preposition is correct?",
+    "options": [
+      "She is proud for her son.",
+      "She is proud with her son.",
+      "She is proud of her son.",
+      "She is proud in her son."
+    ],
+    "correct_answer": 2,
+    "explanation": "'Proud of' is the fixed collocation. Other common pairs: afraid of, fond of, tired of, full of, capable of. SSC CGL preposition fill-ins test these extensively. Learning collocations prevents errors.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is capable _____ doing this work.",
+    "options": [
+      "to",
+      "of",
+      "for",
+      "in"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Capable of' is the correct collocation. Other adjective + of: proud of, afraid of, fond of, tired of, full of. Banking PO tests preposition usage after adjectives. These are FIXED combinations—learn them.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "I am boring with this movie.",
+      "I am bored with this movie.",
+      "I am boring of this movie.",
+      "I am bored of this movie."
+    ],
+    "correct_answer": 1,
+    "explanation": "Two rules: (1) -ED for feelings (bored, not boring), (2) 'bored WITH' is the correct preposition. Common Indian error: 'boring with'. SSC CHSL tests both participle adjectives AND prepositions. 'Bored of' is informal British, 'bored with' is standard.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The presentation was _____.",
+    "options": [
+      "confused",
+      "confusing",
+      "confuse",
+      "confuses"
+    ],
+    "correct_answer": 1,
+    "explanation": "The presentation CAUSES confusion, so use -ING. YOU feel confused (-ED). 'Confusing presentation' (it confuses you), 'confused student' (student feels confusion). Banking PO tests -ed/-ing distinction in various contexts.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She felt _____ after the exam.",
+    "options": [
+      "relaxing",
+      "relaxed",
+      "relax",
+      "relaxes"
+    ],
+    "correct_answer": 1,
+    "explanation": "SHE feels relaxed (-ED shows her feeling). The exam would be 'relaxing' if it caused relaxation. Common pairs: excited/exciting, tired/tiring, interested/interesting. IELTS Speaking candidates confuse these frequently.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She drives very fastly.'",
+    "options": [
+      "No error",
+      "Change 'fastly' to 'fast'",
+      "Remove 'very'",
+      "Change 'drives' to 'drive'"
+    ],
+    "correct_answer": 1,
+    "explanation": "MAJOR INDIAN ENGLISH ERROR! 'Fast' is BOTH adjective and adverb. There is NO WORD 'fastly'. Correct: 'She drives fast' or 'She drives very fast'. Similar words: hard (NOT hardly has different meaning), late (NOT lately has different meaning). SSC CGL tests this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He arrived _____.",
+    "options": [
+      "lately",
+      "late",
+      "later",
+      "latest"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Late' (time—opposite of early) vs 'lately' (recently). 'He arrived late' (after scheduled time), 'He has been working hard lately' (recently). Common confusion. Banking PO tests adjective-adverb pairs with different meanings.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "I have seen him _____.",
+    "options": [
+      "late",
+      "lately",
+      "later",
+      "latest"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Lately' means 'recently' (used with present perfect). 'Late' refers to time. 'I have seen him lately' = I have seen him recently. 'He came late' = He came after the scheduled time. SSC exams test this distinction.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "She is a ten years old girl.",
+      "She is a ten year old girl.",
+      "She is a ten-year-old girl.",
+      "She is a ten-years-old girl."
+    ],
+    "correct_answer": 2,
+    "explanation": "Compound adjectives (multiple words acting as one adjective) use HYPHENS and SINGULAR nouns. 'Ten-year-old girl', 'five-minute break', 'three-hour movie'. Never pluralize the middle word. Banking PO tests hyphenation rules.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He solved the problem in a _____ minutes.",
+    "options": [
+      "few",
+      "little",
+      "less",
+      "least"
+    ],
+    "correct_answer": 0,
+    "explanation": "'Few' is used with COUNTABLE nouns (few minutes, few books, few people). 'Little' is used with UNCOUNTABLE nouns (little water, little money, little time). 'Minutes' are countable, so 'few' is correct. SSC CGL tests few/little distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "There is _____ water in the bottle.",
+    "options": [
+      "few",
+      "little",
+      "less",
+      "least"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Little' is used with UNCOUNTABLE nouns. 'Water' cannot be counted (you can't say 'one water, two waters'). Use 'little' for uncountable. Use 'few' for countable (few bottles). Banking PO tests countable vs uncountable adjectives.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She has _____ patience.",
+    "options": [
+      "few",
+      "a few",
+      "little",
+      "a little"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Patience' is UNCOUNTABLE, so use 'little' (negative—almost none) or 'a little' (positive—some). 'She has little patience' = She is impatient. 'She has a little patience' = She has some patience. SSC tests little/a little nuance.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which quantitative adjective is correct: '_____ books are on the table.'",
+    "options": [
+      "Much",
+      "Many",
+      "Little",
+      "Less"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Many' with COUNTABLE plurals (many books, many students). 'Much' with UNCOUNTABLE (much water, much money). 'Books' are countable, so 'many' is correct. Banking PO tests many/much distinction frequently.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "How _____ sugar do you need?",
+    "options": [
+      "many",
+      "much",
+      "more",
+      "most"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Much' with UNCOUNTABLE nouns (sugar, water, rice). Questions: 'How much...?' for uncountable, 'How many...?' for countable. 'Sugar' is uncountable, so 'How much sugar?'. SSC CGL tests question formation with quantifiers.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He has _____ money than me.",
+    "options": [
+      "few",
+      "little",
+      "less",
+      "least"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Less' is the COMPARATIVE of 'little' (used with uncountable nouns). 'Money' is uncountable. Less money (comparative), least money (superlative). For countable: fewer books, fewest books. Banking PO tests less/fewer distinction.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "There are less students today.",
+      "There are fewer students today.",
+      "There are lesser students today.",
+      "There are few students today."
+    ],
+    "correct_answer": 1,
+    "explanation": "'Fewer' with COUNTABLE plurals (fewer students, fewer books). 'Less' with UNCOUNTABLE (less water, less money). 'Lesser' is rarely used (lesser evil). Common Indian error: 'less students'. SSC CHSL tests fewer/less distinction.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She is very excellent student.'",
+    "options": [
+      "No error",
+      "Remove 'very'",
+      "Add 'an' before 'excellent'",
+      "Both B and C"
+    ],
+    "correct_answer": 3,
+    "explanation": "Two errors: (1) 'Excellent' is NON-GRADABLE—cannot use 'very' with it. Use 'absolutely excellent' or just 'excellent'. (2) Missing article 'an' before 'excellent'. Correct: 'She is an excellent student'. SSC CGL tests both issues.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The Himalayas are _____ mountain range in the world.",
+    "options": [
+      "high",
+      "higher",
+      "highest",
+      "the highest"
+    ],
+    "correct_answer": 3,
+    "explanation": "Superlatives ALWAYS use 'the'. 'The highest', 'the best', 'the most beautiful'. Never omit 'the' before superlatives. Comparative does not need 'the': 'higher than'. Banking PO tests article usage with comparatives/superlatives.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct order: 'She bought a _____ handbag.'",
+    "options": [
+      "leather small black Italian",
+      "small black Italian leather",
+      "Italian black small leather",
+      "black Italian leather small"
+    ],
+    "correct_answer": 1,
+    "explanation": "Adjective order: Opinion-Size-Age-Shape-Color-Origin-Material-Purpose. Here: small (size), black (color), Italian (origin), leather (material). Banking PO sentence rearrangement tests ordering rules extensively.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "IIT is _____ engineering college in India.",
+    "options": [
+      "a premier",
+      "the premier",
+      "premier",
+      "more premier"
+    ],
+    "correct_answer": 0,
+    "explanation": "'Premier' means 'first in importance/rank' but is NOT a superlative form grammatically. Use 'a premier college' (one of the best) or 'the premier college' (THE best). Context determines article choice. SSC tests premier/premiere confusion.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is _____ the two brothers.",
+    "options": [
+      "taller of",
+      "the taller of",
+      "tallest of",
+      "the tallest of"
+    ],
+    "correct_answer": 1,
+    "explanation": "When comparing ONLY TWO, use COMPARATIVE (not superlative) with 'the'. 'The taller of the two', 'the better of the two'. For three or more, use superlative: 'the tallest of the three'. Banking PO tests this distinction.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "She is senior than me.",
+      "She is senior to me.",
+      "She is more senior than me.",
+      "She is senior from me."
+    ],
+    "correct_answer": 1,
+    "explanation": "SPECIAL COMPARATIVES! 'Senior', 'junior', 'superior', 'inferior', 'prior', 'preferable' take TO (not than). 'Senior to', 'junior to', 'superior to'. Never use 'than' with these. SSC CGL heavily tests these exceptions.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "This product is superior _____ that one.",
+    "options": [
+      "than",
+      "to",
+      "from",
+      "with"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Superior to', 'inferior to', 'senior to', 'junior to', 'prior to', 'preferable to' take TO (not than). These are Latin comparatives. Never use 'than' with them. Banking PO preposition questions test these exceptions.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'He is junior than me in office.'",
+    "options": [
+      "No error",
+      "Change 'than' to 'to'",
+      "Remove 'in office'",
+      "Change 'junior' to 'younger'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Junior' takes TO (not than). Correct: 'He is junior to me in office'. Other Latin comparatives: senior to, superior to, inferior to, prior to, preferable to. SSC CGL error spotting frequently tests this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "This book is preferable _____ that one.",
+    "options": [
+      "than",
+      "to",
+      "from",
+      "over"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Preferable to' (not than). Other special comparatives: senior/junior/superior/inferior/prior to. These Latin-derived adjectives take TO instead of THAN. Banking PO tests these preposition exceptions.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The news was _____.",
+    "options": [
+      "shocked",
+      "shocking",
+      "shock",
+      "shocks"
+    ],
+    "correct_answer": 1,
+    "explanation": "The news CAUSES shock, so use -ING. YOU feel shocked (-ED). 'Shocking news' (news that shocks), 'shocked people' (people who feel shock). Common pairs: surprising/surprised, disappointing/disappointed. IELTS Writing tests this.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "I was _____ by the movie.",
+    "options": [
+      "amazing",
+      "amazed",
+      "amaze",
+      "amazes"
+    ],
+    "correct_answer": 1,
+    "explanation": "YOU feel amazed (-ED). The movie is amazing (-ING). 'I was amazed' (passive—movie amazed me). 'The movie was amazing' (active—movie causes amazement). Banking PO tests both active/passive and -ed/-ing forms.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The results were _____.",
+    "options": [
+      "disappointed",
+      "disappointing",
+      "disappoint",
+      "disappoints"
+    ],
+    "correct_answer": 1,
+    "explanation": "Results CAUSE disappointment, so use -ING. WE feel disappointed (-ED). 'Disappointing results' (results that disappoint), 'disappointed students' (students who feel disappointment). SSC CHSL tests this in various contexts.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which sentence is correct?",
+    "options": [
+      "He is a five-feet-tall boy.",
+      "He is a five feet tall boy.",
+      "He is a five-foot-tall boy.",
+      "He is a five foot tall boy."
+    ],
+    "correct_answer": 2,
+    "explanation": "Compound adjectives use SINGULAR form with hyphens. 'Five-foot-tall' (not feet), 'ten-year-old' (not years), 'three-hour-long' (not hours). When acting as adjective, always singular. Banking PO tests compound adjective formation.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She needs a _____ break.",
+    "options": [
+      "five-minutes",
+      "five-minute",
+      "five minutes",
+      "five minute"
+    ],
+    "correct_answer": 1,
+    "explanation": "Compound adjectives before nouns use SINGULAR + HYPHENS. 'Five-minute break', 'ten-year journey', 'three-hour movie'. After nouns, no hyphens: 'a break of five minutes'. SSC CGL tests hyphenation rules.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct form: '_____ pen is this?'",
+    "options": [
+      "Who",
+      "Whom",
+      "Whose",
+      "Which"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Whose' is an INTERROGATIVE ADJECTIVE (asks about possession) + noun. 'Whose pen?', 'Whose book?', 'Whose idea?'. 'Who' (subject pronoun), 'Whom' (object pronoun), 'Which' (choice). Banking PO tests interrogative adjectives vs pronouns.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "_____ book do you want?",
+    "options": [
+      "What",
+      "Which",
+      "Who",
+      "Whose"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Which' (specific choice from limited options) vs 'What' (open-ended). 'Which book?' = select from available books. 'What book?' = any book (less common). Generally use 'which' with nouns for choice. SSC tests interrogative adjective usage.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'He is more cleverer than his brother.'",
+    "options": [
+      "No error",
+      "Remove 'more'",
+      "Change 'cleverer' to 'clever'",
+      "Change 'than' to 'then'"
+    ],
+    "correct_answer": 1,
+    "explanation": "DOUBLE COMPARATIVE! 'Cleverer' OR 'more clever' (both accepted for two-syllable adjectives), but NEVER 'more cleverer'. Choose one form only. SSC CGL's favorite error. Never combine more/most with -er/-est.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She is the _____ girl in the class.",
+    "options": [
+      "intelligent",
+      "more intelligent",
+      "most intelligent",
+      "much intelligent"
+    ],
+    "correct_answer": 2,
+    "explanation": "Superlative of long adjectives uses MOST + adjective. 'Most intelligent', 'most beautiful', 'most expensive'. Always use 'the' before superlatives. Banking PO tests superlative formation for multi-syllable adjectives.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "This is _____ interesting book I have ever read.",
+    "options": [
+      "more",
+      "most",
+      "the more",
+      "the most"
+    ],
+    "correct_answer": 3,
+    "explanation": "'The most interesting' (superlative with present perfect 'have ever read'). 'The most...I have ever...' is a common pattern. Always use 'the' with superlatives. SSC CGL tests superlative + present perfect structures.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is getting _____ and _____.",
+    "options": [
+      "tall, tall",
+      "taller, taller",
+      "more tall, more tall",
+      "tallest, tallest"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Comparative + and + comparative' shows continuous increase. 'Taller and taller', 'better and better', 'more beautiful and more beautiful'. Never use positive or superlative here. Banking PO tests progressive comparison structures.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The _____ you study, the _____ you score.",
+    "options": [
+      "hard, high",
+      "harder, higher",
+      "more hard, more high",
+      "hardest, highest"
+    ],
+    "correct_answer": 1,
+    "explanation": "'The + comparative..., the + comparative...' shows proportional relationship. 'The harder you study, the higher you score'. 'The more you practice, the better you get'. SSC CGL tests this double comparative structure.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "He is more stronger than me.",
+      "He is much stronger than me.",
+      "He is very stronger than me.",
+      "He is too stronger than me."
+    ],
+    "correct_answer": 1,
+    "explanation": "Comparatives are modified by MUCH/FAR/A LOT/EVEN (not very/too). 'Much stronger', 'far better', 'a lot bigger'. 'Very' with positive only (very strong). Common Indian error: 'very stronger'. Banking PO tests comparative modifiers.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She is very more intelligent than him.'",
+    "options": [
+      "No error",
+      "Remove 'very'",
+      "Change 'more' to 'much'",
+      "Both B and C"
+    ],
+    "correct_answer": 1,
+    "explanation": "Remove 'very'—comparatives use MUCH/FAR (not very). Correct: 'She is much more intelligent than him' or 'She is more intelligent than him'. Never use 'very' with comparatives. SSC CGL tests comparative modifiers.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "This question is _____ easier than the last one.",
+    "options": [
+      "very",
+      "much",
+      "more",
+      "too"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Much easier' (comparative modifier). Use much/far/a lot/even with comparatives. 'Very' only with positive adjectives (very easy). Banking PO tests which words can modify comparatives.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is _____ than he looks.",
+    "options": [
+      "more strong",
+      "stronger",
+      "more stronger",
+      "strongest"
+    ],
+    "correct_answer": 1,
+    "explanation": "One-syllable adjectives take -ER (not more). 'Strong-stronger-strongest'. Common error: 'more strong'. Three syllables use more/most: 'more intelligent'. Two syllables vary: happier/more careful. SSC tests syllable-based rules.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct order: 'They live in a _____ house.'",
+    "options": [
+      "big old beautiful",
+      "beautiful big old",
+      "old big beautiful",
+      "big beautiful old"
+    ],
+    "correct_answer": 1,
+    "explanation": "Adjective order: Opinion-Size-Age-Shape-Color-Origin-Material-Purpose. Here: beautiful (opinion), big (size), old (age). Banking PO tests ordering in sentence improvement questions. Correct order sounds natural.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which adjective cannot be used with 'very'?",
+    "options": [
+      "tired",
+      "happy",
+      "beautiful",
+      "excellent"
+    ],
+    "correct_answer": 3,
+    "explanation": "'Excellent' is NON-GRADABLE (absolute)—cannot use 'very' with it. Use 'absolutely excellent' or just 'excellent'. Gradable adjectives (tired, happy, beautiful) can use 'very'. Other non-gradables: perfect, unique, impossible, dead. IELTS Writing tests this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'He is absolutely tired after the match.'",
+    "options": [
+      "No error",
+      "Change 'absolutely' to 'very'",
+      "Remove 'absolutely'",
+      "Change 'tired' to 'exhausted'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Tired' is GRADABLE—use 'very/quite/extremely' (not absolutely). 'Absolutely' is used with NON-GRADABLE adjectives (absolutely perfect, absolutely impossible). Correct: 'He is very tired' or 'He is absolutely exhausted' (exhausted is stronger/closer to absolute). Banking PO tests gradable vs non-gradable.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "The solution is _____ impossible.",
+    "options": [
+      "very",
+      "absolutely",
+      "quite",
+      "extremely"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Impossible' is NON-GRADABLE—use 'absolutely/completely/totally' (not very/quite/extremely). Something is either impossible or not. Other absolutes: perfect, unique, dead, eternal, infinite. SSC tests absolute adjective modifiers.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "She is quite perfect for this job.",
+      "She is absolutely perfect for this job.",
+      "She is very perfect for this job.",
+      "She is extremely perfect for this job."
+    ],
+    "correct_answer": 1,
+    "explanation": "'Perfect' is NON-GRADABLE—use 'absolutely/completely' (not very/quite/extremely). 'Absolutely perfect', 'completely perfect', or just 'perfect'. Common Indian error: 'very perfect'. Banking PO tests non-gradable adjective modifiers.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He runs _____ than his friend.",
+    "options": [
+      "fast",
+      "faster",
+      "fastly",
+      "more fast"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Fast' is both adjective and adverb. Comparative: 'faster' (NOT more fast, NOT fastly—'fastly' does not exist). 'He runs faster', 'He is faster'. Common Indian error: 'fastly'. SSC CGL tests fast/faster usage.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She sings _____ in the class.",
+    "options": [
+      "good",
+      "well",
+      "better",
+      "best"
+    ],
+    "correct_answer": 3,
+    "explanation": "'Sings' is a verb, so use ADVERB 'well' (not adjective 'good'). Superlative: 'best' (irregular: well-better-best). 'She sings best' = She sings better than everyone in the class. Banking PO tests good/well distinction.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'This is the more important question.'",
+    "options": [
+      "No error",
+      "Change 'more' to 'most'",
+      "Remove 'the'",
+      "Change 'important' to 'importantly'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'The' signals SUPERLATIVE (not comparative). Correct: 'the most important question' (among all questions). Comparative would be: 'This is more important than that question' (no 'the'). SSC CGL tests the + superlative structure.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "UPSC is one of _____ exams in India.",
+    "options": [
+      "tough",
+      "tougher",
+      "toughest",
+      "the toughest"
+    ],
+    "correct_answer": 3,
+    "explanation": "'One of the + superlative + plural noun' is the correct pattern. 'One of the toughest exams' (comparing among many exams). Always use 'the' before superlative. Banking PO tests this structure frequently.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is the comparative form of 'little'?",
+    "options": [
+      "littler",
+      "more little",
+      "less",
+      "least"
+    ],
+    "correct_answer": 2,
+    "explanation": "Little-less-least (irregular for quantity). 'Less water', 'least effort'. For size, use 'smaller-smallest' (not littler). Distinguish: little (quantity—uncountable) vs small (size—countable). SSC CGL tests irregular comparatives.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "This is the best movie I have ever seen.",
+      "This is the better movie I have ever seen.",
+      "This is best movie I have ever seen.",
+      "This is the most best movie I have ever seen."
+    ],
+    "correct_answer": 0,
+    "explanation": "'The best' (superlative with present perfect 'have ever seen'). Never use comparative (better) with 'ever' (implies comparison with all movies = superlative). Never use 'most best' (double superlative). SSC tests superlative + present perfect.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She is the _____ of all her siblings.",
+    "options": [
+      "young",
+      "younger",
+      "youngest",
+      "most young"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Of all' signals SUPERLATIVE (three or more). 'Youngest' (one-syllable: -est). 'Most young' is incorrect. Always use 'the' with superlatives: 'the youngest'. Banking PO tests superlative identification.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'Sachin is one of the best batsman.'",
+    "options": [
+      "No error",
+      "Change 'batsman' to 'batsmen'",
+      "Remove 'the'",
+      "Change 'best' to 'better'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'One of the + superlative + PLURAL noun'. Correct: 'one of the best batsmen' (comparing among many batsmen). Common error: singular noun after 'one of'. SSC CGL heavily tests this structure.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is _____ all his classmates.",
+    "options": [
+      "taller than",
+      "taller to",
+      "the tallest of",
+      "tall than"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Of all' = comparing with entire group = SUPERLATIVE. 'Taller than' needs individual comparison (He is taller than Ram). 'The tallest of all classmates' = comparing with entire group. Banking PO tests than vs of distinction.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which sentence is correct?",
+    "options": [
+      "Delhi is hotter than any city in India.",
+      "Delhi is hotter than any other city in India.",
+      "Delhi is hottest than any city in India.",
+      "Delhi is hotter from any city in India."
+    ],
+    "correct_answer": 1,
+    "explanation": "'Hotter than any OTHER city'—must add 'other' to exclude Delhi itself (Delhi is also a city in India). Without 'other', you're comparing Delhi to itself (illogical). SSC CGL tests 'any other' in comparisons.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'He is more wiser than his brother.'",
+    "options": [
+      "No error",
+      "Remove 'more'",
+      "Change 'wiser' to 'wise'",
+      "Change 'than' to 'then'"
+    ],
+    "correct_answer": 1,
+    "explanation": "DOUBLE COMPARATIVE! 'Wiser' OR 'more wise' (both accepted), but NEVER 'more wiser'. Two-syllable adjectives ending in -E usually take -er/-est (wise-wiser-wisest). SSC CGL's classic error. Never combine more/most with -er/-est.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "She is fond _____ classical music.",
+    "options": [
+      "with",
+      "of",
+      "for",
+      "in"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Fond of' is the correct collocation. Other adjective + of: proud of, afraid of, tired of, full of, capable of, ashamed of. Banking PO heavily tests fixed adjective + preposition combinations. Learn these by heart.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He is ashamed _____ his behavior.",
+    "options": [
+      "for",
+      "with",
+      "of",
+      "at"
+    ],
+    "correct_answer": 2,
+    "explanation": "'Ashamed of' is the correct collocation. Other adjective + of: proud of, afraid of, fond of, tired of, full of, capable of. SSC CGL preposition fill-ins test these fixed combinations extensively.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct order: 'She wants a _____ dress.'",
+    "options": [
+      "cotton long white",
+      "long white cotton",
+      "white long cotton",
+      "cotton white long"
+    ],
+    "correct_answer": 1,
+    "explanation": "Adjective order: Opinion-Size-Age-Shape-Color-Origin-Material-Purpose. Here: long (size), white (color), cotton (material). Banking PO sentence rearrangement tests this rule. Incorrect order sounds unnatural.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She is very much tired today.'",
+    "options": [
+      "No error",
+      "Remove 'much'",
+      "Remove 'very'",
+      "Change 'tired' to 'tiring'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Very tired' is correct (gradable adjective). 'Very much' is used with verbs (I very much enjoyed it), not adjectives. Remove 'much': 'She is very tired'. Common confusion: very vs very much. Banking PO tests this distinction.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He feels _____ today.",
+    "options": [
+      "good",
+      "well",
+      "better",
+      "best"
+    ],
+    "correct_answer": 1,
+    "explanation": "EXCEPTION! 'Feel' is a linking verb—can use BOTH 'good' (adjective) and 'well' (adverb/adjective for health). 'Feel good' = emotional state, 'feel well' = physical health. Both accepted. Other linking verbs: look, seem, appear, sound. SSC tests linking verb + adjective.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "The food smells badly.",
+      "The food smells bad.",
+      "The food smells worse.",
+      "The food smells worst."
+    ],
+    "correct_answer": 1,
+    "explanation": "'Smell' is a LINKING verb—takes ADJECTIVE (not adverb). 'Smells bad' (adjective), NOT 'smells badly' (badly = adverb). Other linking verbs: taste, feel, look, sound, seem. Banking PO tests linking verb + adjective structure.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "This pizza tastes _____.",
+    "options": [
+      "deliciously",
+      "delicious",
+      "more delicious",
+      "most delicious"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Taste' is a LINKING verb—takes ADJECTIVE. 'Tastes delicious' (adjective), NOT 'tastes deliciously' (adverb). Common error: using adverb after linking verbs. Other linking verbs: smell, feel, look, sound, seem, appear. SSC CGL tests this.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'She looks beautifully in that dress.'",
+    "options": [
+      "No error",
+      "Change 'beautifully' to 'beautiful'",
+      "Change 'looks' to 'looking'",
+      "Remove 'in that dress'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'Look' is a LINKING verb—takes ADJECTIVE. 'She looks beautiful' (adjective), NOT 'looks beautifully' (adverb). If you can replace 'looks' with 'is', use adjective: 'She is beautiful' = 'She looks beautiful'. Banking PO tests linking verb + adjective.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Which is correct?",
+    "options": [
+      "The plan sounds good.",
+      "The plan sounds well.",
+      "The plan sounds goodly.",
+      "The plan sounds greatly."
+    ],
+    "correct_answer": 0,
+    "explanation": "'Sound' is a LINKING verb—takes ADJECTIVE 'good' (NOT adverb 'well'). Exception: 'well' can be adjective for health (I am well). But for plans/ideas, use 'sounds good'. 'Goodly' and 'greatly' are incorrect here. SSC tests linking verb + adjective.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "He appears _____ confident.",
+    "options": [
+      "very",
+      "much",
+      "more",
+      "most"
+    ],
+    "correct_answer": 0,
+    "explanation": "'Appear' is a linking verb + adjective. 'Very confident' (positive adjective). Use 'very' with positive adjectives. If comparing, use 'more confident' (comparative). Banking PO tests modifiers with linking verbs.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "Find the error: 'No other student is as intelligent as than her.'",
+    "options": [
+      "No error",
+      "Remove 'than'",
+      "Remove 'as' before 'than'",
+      "Change 'as' to 'than'"
+    ],
+    "correct_answer": 1,
+    "explanation": "'As...as' structure does not use 'than'. Correct: 'No other student is as intelligent as her' (equal comparison). Don't mix 'as...as' with 'than'. Banking PO tests comparison structure errors.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "adjectives",
+    "question": "No other city in India is _____ Mumbai.",
+    "options": [
+      "as large as",
+      "larger than",
+      "the largest of",
+      "so large than"
+    ],
+    "correct_answer": 0,
+    "explanation": "'No other...as...as' shows superlative meaning in comparative form. 'No other city is as large as Mumbai' = Mumbai is the largest city. This structure is tested in SSC CGL sentence transformation questions.",
+    "difficulty": "hard",
+    "level": "A2"
+  }
+]

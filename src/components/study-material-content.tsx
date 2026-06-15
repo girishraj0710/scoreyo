@@ -1,25 +1,7 @@
 "use client";
 
 import { Lightbulb, AlertTriangle, BookOpen, Target, CheckCircle } from 'lucide-react';
-
-// Simple markdown-like text formatter
-function FormattedText({ children }: { children: string }) {
-  return (
-    <div className="whitespace-pre-wrap">
-      {children.split('\n').map((line, i) => (
-        <span key={i}>
-          {line.split(/(\*\*[^*]+\*\*)/g).map((part, j) => {
-            if (part.startsWith('**') && part.endsWith('**')) {
-              return <strong key={j}>{part.slice(2, -2)}</strong>;
-            }
-            return <span key={j}>{part}</span>;
-          })}
-          {i < children.split('\n').length - 1 && <br />}
-        </span>
-      ))}
-    </div>
-  );
-}
+import { PremiumMarkdownRenderer } from './premium-markdown-renderer';
 
 interface Example {
   title: string;
@@ -74,16 +56,21 @@ interface StudyMaterialContentProps {
 export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
   if (!section) return null;
 
+  // Clean section title by removing emojis
+  const cleanTitle = section.title
+    ? section.title.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim()
+    : '';
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Section Title */}
       <div>
-        <h2 className="text-3xl font-bold mb-4" style={{ color: "var(--foreground)" }}>
-          {section.title}
+        <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--foreground)" }}>
+          {cleanTitle}
         </h2>
         {section.content && (
-          <div className="prose prose-lg dark:prose-invert max-w-none" style={{ color: "var(--foreground)" }}>
-            <FormattedText>{section.content}</FormattedText>
+          <div className="max-w-none">
+            <PremiumMarkdownRenderer content={section.content} />
           </div>
         )}
       </div>
@@ -95,7 +82,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
             {subsection.title}
           </h3>
           <div className="prose dark:prose-invert max-w-none" style={{ color: "var(--foreground)" }}>
-            <FormattedText>{subsection.content}</FormattedText>
+            <PremiumMarkdownRenderer content={{subsection.content}} />
           </div>
 
           {/* Examples */}
@@ -120,7 +107,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
                   <div className="p-4 rounded-lg" style={{ background: "var(--card-bg)" }}>
                     <p className="font-semibold text-emerald-500 mb-2">Solution:</p>
                     <div className="prose dark:prose-invert" style={{ color: "var(--foreground-secondary)" }}>
-                      <FormattedText>{example.solution}</FormattedText>
+                      <PremiumMarkdownRenderer content={{example.solution}} />
                     </div>
                   </div>
                   {example.key_insight && (
@@ -260,7 +247,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
                 Answer: {problem.answer}
               </p>
               <div className="prose dark:prose-invert" style={{ color: "var(--foreground-secondary)" }}>
-                <FormattedText>{problem.explanation}</FormattedText>
+                <PremiumMarkdownRenderer content={{problem.explanation}} />
               </div>
             </div>
           </details>

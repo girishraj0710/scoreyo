@@ -1,0 +1,942 @@
+[
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ am a teacher. (Choose the correct subject pronoun)",
+    "options": ["Myself", "I", "Me", "Mine"],
+    "correct_answer": 1,
+    "explanation": "Use 'I' as a subject pronoun before a verb. 'Myself' is reflexive and cannot start a sentence as subject. Common Indian English error: 'Myself Rajesh' should be 'I am Rajesh' or 'My name is Rajesh'. Hindi speakers often overuse 'myself' for self-introduction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "This book belongs to Priya. It is _____.",
+    "options": ["her", "hers", "she", "herself"],
+    "correct_answer": 1,
+    "explanation": "'Hers' is a possessive pronoun used without a noun. 'Her' is a possessive adjective (her book). Since no noun follows, use 'hers'. This is similar to mine/yours/theirs. Remember: possessive pronouns stand alone.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Ravi and _____ are going to the market.",
+    "options": ["me", "I", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Use subject pronoun 'I' when it's part of a compound subject (Ravi and I). Test by removing 'Ravi and': 'I are going' sounds wrong but follow the rule. Never use 'myself' here. Common SSC error: many choose 'me' incorrectly.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Please give the keys to _____.",
+    "options": ["I", "me", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Use object pronoun 'me' after preposition 'to'. Object pronouns (me, him, her, us, them) receive the action. 'I' is subject only. 'Myself' is reflexive (I hurt myself). Hindi speakers often confuse this because Hindi has different postpositions.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The students finished _____ homework on time.",
+    "options": ["they", "them", "their", "theirs"],
+    "correct_answer": 2,
+    "explanation": "'Their' is a possessive adjective used before a noun (their homework). 'Theirs' stands alone. 'They' is subject, 'them' is object. Always use possessive adjective + noun. This pattern appears in SSC and banking exams frequently.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ car is parked outside? (asking about ownership)",
+    "options": ["Who", "Whose", "Whom", "Which"],
+    "correct_answer": 1,
+    "explanation": "'Whose' asks about possession/ownership. 'Who' asks about people (subject), 'whom' is object form. Remember: whose = किसका/किसकी in Hindi. Common in error spotting questions. 'Which' is for choices among known options.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "I made this cake _____. (emphasizing I did it alone)",
+    "options": ["me", "I", "myself", "mine"],
+    "correct_answer": 2,
+    "explanation": "'Myself' is reflexive pronoun for emphasis (I did it without help). Also used when subject and object are same (I hurt myself). Hindi speakers correctly understand this as 'khud' (खुद). Use myself/yourself/himself/herself/itself/ourselves/themselves correctly.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is your name? (interrogative pronoun)",
+    "options": ["Who", "Whom", "What", "Which"],
+    "correct_answer": 2,
+    "explanation": "'What' asks for information about things/names. 'Who' is for people's identity. 'Whom' is object form. 'Which' is for choices. In Hindi: क्या (kya) = what, कौन (kaun) = who. Banking exams test this distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ pen do you want? The red one or the blue one?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' is used when choosing from limited known options. 'What' is more open-ended. Since two clear choices are given (red/blue), use 'which'. Common SSC pattern: which = specific choice, what = general question.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ are my friends, and _____ are my neighbors. (pointing to two different groups)",
+    "options": ["This, that", "These, those", "This, those", "These, that"],
+    "correct_answer": 1,
+    "explanation": "'These' (plural, near) and 'those' (plural, far) for multiple items. 'This/that' are singular. Demonstrative pronouns show distance: this/these = यह/ये (near), that/those = वह/वे (far). Both groups are plural here.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The cat licked _____ paws clean.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) is possessive adjective. 'It's' = it is/it has. No apostrophe for possessive pronouns (his, hers, ours, theirs, yours, its). Common IELTS Writing error. Remember: apostrophe shows contraction, not possession here.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Between you and _____, I think he is lying.",
+    "options": ["I", "me", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Use object pronoun 'me' after preposition 'between'. 'Between you and I' is WRONG despite sounding formal. Prepositions always take object pronouns (me, him, her, us, them). Common error in SSC exams. Test: remove 'you and' → 'between me'.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Sneha and _____ went to the temple yesterday.",
+    "options": ["me", "I", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Subject pronoun 'I' in compound subject. Even though 'me' sounds natural to many Indians, grammatically it must be 'I'. Formal rule: remove the other person (Sneha and) → 'I went'. Banking exams frequently test this.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Nobody came to the meeting. _____ was busy.",
+    "options": ["Everyone", "Anyone", "No one", "Someone"],
+    "correct_answer": 0,
+    "explanation": "'Nobody' already stated. Second sentence explains why nobody came: everyone (all people) was busy. Indefinite pronouns: everyone = सभी, someone = कोई, anyone = कोई भी, no one/nobody = कोई नहीं. Context determines choice.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The man _____ called you is my uncle.",
+    "options": ["who", "whom", "which", "whose"],
+    "correct_answer": 0,
+    "explanation": "'Who' is relative pronoun for people as subject (who called). 'Whom' is object. 'Which' is for things. 'Whose' shows possession. Rule: who did the action (subject). The man called = subject, so 'who'. SSC favorite pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ wants to join us for dinner?",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 0,
+    "explanation": "'Who' asks about the subject (person doing the action: wanting to join). 'Whom' is for objects. Simple test: answer would be 'He/She wants' (subject), not 'him/her' (object). Hindi: कौन चाहता है? = Who wants?",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The teacher praised _____ for completing the project early.",
+    "options": ["we", "us", "our", "ours"],
+    "correct_answer": 1,
+    "explanation": "'Us' is object pronoun receiving the action (praised us). 'We' is subject (we praised). 'Our' is possessive adjective (our project). 'Ours' is possessive pronoun (the project is ours). Verb 'praised' needs object.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "This is the house _____ roof was damaged in the storm.",
+    "options": ["who", "whom", "whose", "which"],
+    "correct_answer": 2,
+    "explanation": "'Whose' shows possession with relative clause (the house's roof = whose roof). 'Which' is for things but doesn't show ownership. 'Who/whom' are for people. Whose works for people AND things in possessive sense. Banking exam pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "My sister and _____ are twins.",
+    "options": ["me", "I", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Subject pronoun 'I' in compound subject (sister and I are). Standard rule: remove 'My sister and' → 'I are twins'. Though 'me' is common in speech, formal grammar requires 'I'. Appears in error spotting sections.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Everyone must bring _____ own laptop to the workshop.",
+    "options": ["his", "their", "his or her", "its"],
+    "correct_answer": 2,
+    "explanation": "'Everyone' is grammatically singular but refers to multiple people. Traditionally 'his', but modern inclusive usage prefers 'his or her' or singular 'their'. In formal exams, 'his or her' is safest. Avoid 'its' (for objects only).",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The book _____ cover is torn belongs to Amit.",
+    "options": ["who", "whose", "which", "that"],
+    "correct_answer": 1,
+    "explanation": "'Whose' shows possession (the book's cover = whose cover). Even for objects, use 'whose' for possession. 'Which' and 'that' are relative pronouns but don't show ownership. 'Who' is only for people. Common SSC error spotting question.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ did you meet at the station?",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 1,
+    "explanation": "'Whom' is correct as object (you met whom = him/her, not he/she). However, 'who' is acceptable in informal usage. Formal grammar: whom after verb as object. Test: answer is 'him/her' (object) not 'he/she' (subject). Banking exams test formal usage.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The children enjoyed _____ at the birthday party.",
+    "options": ["them", "they", "themselves", "their"],
+    "correct_answer": 2,
+    "explanation": "'Themselves' is reflexive pronoun when subject and object are same (children enjoyed themselves = खुद को मज़ा आया). Not 'theirselves' (wrong). Reflexive: myself, yourself, himself, herself, itself, ourselves, yourselves, themselves.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ of the students passed the exam. (meaning all students passed)",
+    "options": ["Each", "Every", "All", "None"],
+    "correct_answer": 2,
+    "explanation": "'All' means 100% collectively. 'Each' focuses on individuals separately. 'Every' is similar to each but used differently. 'None' means zero. Sentence means collectively all passed, so 'all' fits. All + plural verb, each/every + singular verb.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "It was _____ who broke the window, not me.",
+    "options": ["he", "him", "his", "himself"],
+    "correct_answer": 0,
+    "explanation": "After 'It was' use subject pronoun 'he'. Formal grammar: 'It was he'. Though 'It was him' is common in speech, standard written form uses 'he'. SSC and banking exams prefer formal grammar. Linking verb 'was' takes subject pronoun.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The dog wagged _____ tail happily.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) = possessive. 'It's' = it is. Common mistake even for native speakers. Rule: possessive pronouns (his, hers, its, ours, theirs) NEVER use apostrophe. IELTS Writing frequently penalizes this error.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "To _____ did you give the letter? (formal)",
+    "options": ["who", "whom", "whose", "which"],
+    "correct_answer": 1,
+    "explanation": "After preposition 'to' use object form 'whom'. 'Who' is subject. Formal: 'To whom did you give?' Informal: 'Who did you give it to?' (ending preposition). Banking exams test formal grammar. Remember: preposition + whom/me/him/her (objects).",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is raining heavily today.",
+    "options": ["It", "Its", "It's", "This"],
+    "correct_answer": 0,
+    "explanation": "'It' is used for weather, time, distance (impersonal 'it'). 'It is raining' = बारिश हो रही है। Not 'this' or 'that'. 'Its' is possessive. 'It's' = it is (but here we need subject only, not contracted form).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Rahul is taller than _____.",
+    "options": ["I", "me", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "After 'than' in informal usage, use object pronoun 'me'. Formal: 'than I (am)'. Most exams accept 'me' as standard. 'Myself' is wrong. Think: comparison with object case in everyday English. Some strict grammarians prefer 'I'.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ bag is this? It's not mine.",
+    "options": ["Who", "Whose", "Whom", "Which"],
+    "correct_answer": 1,
+    "explanation": "'Whose' asks about ownership (किसका बैग). 'Who' asks identity. 'Whom' is object form. 'Which' is for choices. Pattern: Whose + noun + verb. Common in SSC Whose + noun questions test possession interrogatives.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Either Priya or Sneha left _____ phone on the table.",
+    "options": ["their", "her", "his or her", "its"],
+    "correct_answer": 1,
+    "explanation": "With 'either...or', pronoun agrees with the nearest subject (Sneha = her). Both are female, so 'her'. If mixed genders, match nearest. Not 'their' (plural). Banking exams test either...or agreement rules frequently.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The decision is _____. You have to live with it.",
+    "options": ["your", "yours", "you", "yourself"],
+    "correct_answer": 1,
+    "explanation": "'Yours' is possessive pronoun standing alone. 'Your' needs a noun (your decision). Since no noun follows, use 'yours'. Similar: mine, hers, ours, theirs. 'You' is subject/object. 'Yourself' is reflexive.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "She completed the assignment by _____.",
+    "options": ["her", "herself", "she", "hers"],
+    "correct_answer": 1,
+    "explanation": "'By herself' = alone, without help (अकेले). Reflexive pronoun for emphasis. 'She' is subject, 'her' is object/possessive adjective, 'hers' is possessive pronoun. 'By + reflexive' shows independence. Common SSC pattern.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is knocking at the door?",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 0,
+    "explanation": "'Who' asks about the subject (person doing the knocking). Answer: He/She is knocking (subject form). 'Whom' is for objects. Interrogative who = कौन. Simple rule: who does the action = who (subject).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The workers completed _____ tasks before lunch.",
+    "options": ["they", "them", "their", "theirs"],
+    "correct_answer": 2,
+    "explanation": "'Their' is possessive adjective before noun (their tasks). 'Theirs' stands alone. 'They' is subject, 'them' is object. Pattern: possessive adjective + noun. Banking exams test this basic pattern regularly.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Is this notebook yours or _____? (asking about Neha's)",
+    "options": ["her", "hers", "she", "herself"],
+    "correct_answer": 1,
+    "explanation": "'Hers' is possessive pronoun (Neha's notebook = hers). 'Yours or hers' = parallel structure. 'Her' is adjective needing noun. 'She' is subject. 'Herself' is reflexive. Remember: mine, yours, his, hers, ours, theirs stand alone.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "We should help _____ other in times of need. (reciprocal)",
+    "options": ["one another", "each other", "ourselves", "themselves"],
+    "correct_answer": 1,
+    "explanation": "'Each other' is reciprocal pronoun (mutual action between two or more). 'One another' also works (traditional: 2 people = each other, 3+ = one another, but modern usage accepts both). Not reflexive (ourselves). Reciprocal shows mutual exchange.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ has left their umbrella here. (singular indefinite)",
+    "options": ["Someone", "Anyone", "No one", "Everyone"],
+    "correct_answer": 0,
+    "explanation": "'Someone' = unknown single person (कोई ने). 'Anyone' is used in questions/negatives. 'Everyone' = all. 'No one' = none. Context shows one person left umbrella. Note: 'their' with singular 'someone' is modern inclusive usage (vs. his/her).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The prize was divided between Ravi, Amit and _____.",
+    "options": ["I", "me", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "After preposition 'between' use object pronoun 'me'. Never 'I' after prepositions. Test: remove others → 'between me' is correct. Common error: 'between Ravi, Amit and I' is WRONG. SSC frequently tests preposition + pronoun.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The girl _____ won the competition is my classmate.",
+    "options": ["who", "whom", "which", "whose"],
+    "correct_answer": 0,
+    "explanation": "'Who' is relative pronoun for people as subject (girl won = subject). 'Whom' is object. 'Which' is for things. Relative clause describes 'girl'. Rule: who did the action = who. Banking exams love this pattern.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ of the options is correct? A, B, or C?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' for choosing from limited known options (A, B, C given). 'What' is open-ended. Clear choices provided = which. Common pattern in SSC and banking exams. Which = किस (when specific options exist).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ left the gate open? (asking who did it)",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 0,
+    "explanation": "'Who' asks about subject (person who left gate open). Answer: He/She left (subject). 'Whom' is for objects. Simple interrogative who for subject questions. SSC basic pattern: who + verb = subject question.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "My house is bigger than _____. (Seema's house)",
+    "options": ["her", "hers", "she", "herself"],
+    "correct_answer": 1,
+    "explanation": "'Hers' = Seema's house (possessive pronoun replaces noun). 'Bigger than hers' = bigger than her house. 'Her' is adjective (her house). Possessive pronouns avoid repetition. Compare: mine, yours, his, hers, ours, theirs.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Neither of the girls brought _____ books.",
+    "options": ["her", "their", "his or her", "its"],
+    "correct_answer": 1,
+    "explanation": "'Neither of the girls' is grammatically singular but 'their' is acceptable in modern usage. Strictly: 'her' (singular). However, 'their' avoids awkwardness and is widely accepted. Exams may accept both, but 'their' is safer for clarity.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The company will announce _____ new policy tomorrow.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) = possessive adjective (company's policy). 'It's' = it is. Common IELTS error. Remember: its/his/hers/ours/yours/theirs = no apostrophe for possession. Apostrophe only for contractions (it's = it is).",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ shall we invite to the wedding?",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 1,
+    "explanation": "'Whom' is object (we shall invite whom = him/her, not he/she). Formal grammar requires 'whom' as object of verb 'invite'. Though 'who' is common in speech, banking exams test formal rules. Test: invite him/her (object).",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "This is the doctor _____ I consulted last week.",
+    "options": ["who", "whom", "which", "whose"],
+    "correct_answer": 1,
+    "explanation": "'Whom' is object (I consulted whom/the doctor = object). Subject = I, Object = doctor/whom. Though 'who' is acceptable informally, 'whom' is grammatically correct. Relative pronoun as object of verb 'consulted'. Banking exam prefers 'whom'.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ wants some tea?",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 0,
+    "explanation": "'Who' asks about subject (who wants = he/she wants). 'Whom' is object. Interrogative for subject = who. Hindi: कौन चाहता है? Simple rule: who does the action = who (subject). SSC basic interrogative pattern.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The students must submit _____ assignments by Friday.",
+    "options": ["they", "them", "their", "theirs"],
+    "correct_answer": 2,
+    "explanation": "'Their' = possessive adjective before noun (their assignments). 'They' is subject, 'them' is object, 'theirs' stands alone. Basic pattern: possessive adjective + noun. Banking exams test this regularly. Hindi: उनके assignments.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is the best solution to this problem? (open-ended question)",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 0,
+    "explanation": "'What' asks for general information (no specific choices given). 'Which' is for limited options. Since problem is open-ended (no A/B/C options), use 'what'. What = क्या, which = कौन सा. SSC tests this distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "He hurt _____ while playing cricket.",
+    "options": ["him", "he", "himself", "his"],
+    "correct_answer": 2,
+    "explanation": "'Himself' is reflexive when subject and object are same person (he hurt himself). 'Him' is different person. Reflexive: subject acts on self. Pattern: hurt myself/yourself/himself/herself/itself/ourselves/yourselves/themselves. Hindi: खुद को चोट लगी।",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Let's keep this matter between you and _____. (confidential)",
+    "options": ["I", "me", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "After preposition 'between' use object 'me'. 'Between you and I' is WRONG (common mistake). Always: preposition + object pronoun (me, him, her, us, them). Test: remove 'you and' → 'between me'. SSC error spotting favorite.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ knows the answer to this question?",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 0,
+    "explanation": "'Who' asks about subject (who knows = he/she knows). Answer in subject form (he/she, not him/her). 'Whom' is object. Interrogative subject question = who. Simple pattern in SSC exams. कौन जानता है?",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The responsibility is _____ alone. (emphasizing only yours)",
+    "options": ["your", "yours", "you", "yourself"],
+    "correct_answer": 1,
+    "explanation": "'Yours' = possessive pronoun standing alone (no noun after). 'Yours alone' emphasizes exclusive ownership. 'Your' needs noun (your responsibility). 'You' is subject/object. 'Yourself' is reflexive. Possessive pronouns: mine/yours/his/hers/ours/theirs.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ did the manager choose for the project? (asking object)",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 1,
+    "explanation": "'Whom' is object (manager chose whom = him/her). Subject = manager, object = whom. Though 'who' is acceptable informally, formal grammar requires 'whom' as object. Banking exams test formal usage. किसको चुना? = whom.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ pencil is broken. Can I borrow yours?",
+    "options": ["My", "Mine", "Me", "Myself"],
+    "correct_answer": 0,
+    "explanation": "'My' is possessive adjective before noun (my pencil). 'Mine' stands alone. 'Me' is object. 'Myself' is reflexive. Rule: possessive adjective + noun, possessive pronoun stands alone. Sentence ends with 'yours' (possessive pronoun) showing parallel.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is waiting outside: Ravi or Amit?",
+    "options": ["Who", "Whom", "Which", "Whose"],
+    "correct_answer": 0,
+    "explanation": "'Who' asks about subject (who is waiting). Two specific people named, but asking identity of subject. Though 'which' might seem right due to choice, 'who' is correct for people questions. 'Whom' is object. कौन इंतज़ार कर रहा है?",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The team celebrated _____ victory with enthusiasm.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) = possessive (team's victory). 'It's' = it is. Collective noun 'team' = singular pronoun 'its'. Common IELTS error. Remember: its/his/hers/ours/yours/theirs never have apostrophe for possession.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "For _____ did you buy this gift?",
+    "options": ["who", "whom", "whose", "which"],
+    "correct_answer": 1,
+    "explanation": "After preposition 'for' use object 'whom'. 'For whom' is formal. Informal: 'Who did you buy it for?' (ending preposition). Banking exams test formal: preposition + whom. किसके लिए? = for whom.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ did you speak to on the phone? (informal accepted)",
+    "options": ["Who", "Whom", "Whose", "Which"],
+    "correct_answer": 0,
+    "explanation": "'Who' is acceptable here (informal: who did you speak to). Formal would be 'To whom did you speak?' But ending with preposition is now standard. Most exams accept 'who' in this position. Context: informal usage.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Nobody raised _____ hand to answer the question.",
+    "options": ["his", "their", "his or her", "its"],
+    "correct_answer": 2,
+    "explanation": "'Nobody' is singular, traditionally takes 'his'. Modern inclusive: 'his or her' or singular 'their'. Formal exams prefer 'his or her'. 'Its' is for objects only. SSC may test traditional vs. modern usage.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The winners congratulated _____ other on their success. (reciprocal)",
+    "options": ["each", "one another", "themselves", "their"],
+    "correct_answer": 0,
+    "explanation": "'Each other' is reciprocal pronoun (mutual congratulation). 'One another' also works. Not 'themselves' (reflexive). Reciprocal shows mutual action between two or more people. Pattern: verb + each other/one another. एक दूसरे को बधाई दी।",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is the capital of India?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 0,
+    "explanation": "'What' asks for information about things (capital = thing/place). 'Who' is for people. 'Which' is for choices among known options. Open-ended fact question = what. क्या राजधानी है? Basic interrogative pattern.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "She prides _____ on her punctuality. (reflexive with pride)",
+    "options": ["her", "herself", "she", "hers"],
+    "correct_answer": 1,
+    "explanation": "'Pride herself' = reflexive expression (takes pride in herself). Fixed pattern: pride oneself on something. Subject and object same = reflexive. Similar: yourself, himself, themselves. Not 'pride her' (wrong). अपने आप पर गर्व करना।",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ color do you prefer? Red or blue?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' for choosing between limited known options (red or blue given). 'What' is open-ended. Clear binary choice = which. Which color = कौन सा रंग? (specific choice). SSC tests what vs. which distinction.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The passengers were asked to show _____ tickets.",
+    "options": ["they", "them", "their", "theirs"],
+    "correct_answer": 2,
+    "explanation": "'Their' = possessive adjective before noun (their tickets). 'They' is subject, 'them' is object, 'theirs' stands alone. Basic pattern tested in banking exams. Passengers' tickets = their tickets. उनके टिकट।",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "He is someone _____ you can trust completely.",
+    "options": ["who", "whom", "which", "whose"],
+    "correct_answer": 1,
+    "explanation": "'Whom' is object (you can trust whom). Subject = you, object = whom/someone. Though 'who' is common, grammatically 'whom' is correct as object of 'trust'. Banking exams prefer correct form. Test: trust him (object).",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ story sounds more believable? His or hers?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' for choosing between two specific options (his story or her story). 'What' is open-ended. Clear binary choice given = which. Which story = कौन सी कहानी? SSC pattern: which for limited choices.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ of you finished the homework?",
+    "options": ["Who", "Whom", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' when choosing from a known group (you = specific group). 'Who' is more open. 'Which of you' = known limited set. Both may be acceptable, but 'which' is more precise for subset selection. तुम में से कौन?",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The company announced _____ new CEO yesterday. (it's or its)",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) = possessive (company's CEO). 'It's' = it is/it has. Test: replace with 'it is' → 'announced it is new CEO' (wrong). Use 'its'. IELTS Writing major error. Its/his/hers/ours = no apostrophe.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ mobile phone is ringing?",
+    "options": ["Who", "Whose", "Whom", "Which"],
+    "correct_answer": 1,
+    "explanation": "'Whose' asks about ownership (whose phone). 'Who' asks identity. Pattern: Whose + noun + verb. किसका मोबाइल? = whose mobile. Common SSC interrogative possession question. 'Whom' is object form.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Anyone can join the club if _____ interested.",
+    "options": ["he is", "they are", "he or she is", "it is"],
+    "correct_answer": 1,
+    "explanation": "'Anyone' is singular but modern usage accepts 'they are' (singular they). Traditional: 'he is' or 'he or she is'. Most current exams accept 'they are' for gender-neutral reference. 'It is' is for objects only.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The baby smiled at _____ reflection in the mirror.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' = possessive (baby's reflection). 'It's' = it is. Common error. Baby = 'it' (object/animal without known gender). Its reflection = अपना प्रतिबिंब। Possessive its = no apostrophe. IELTS error.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "My sister and _____ share a room.",
+    "options": ["me", "I", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Subject pronoun 'I' in compound subject (sister and I share). Test: remove 'sister and' → 'I share'. Not 'me' (object). Common spoken error, but grammar requires 'I'. SSC tests compound subjects regularly.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ nothing left in the fridge.",
+    "options": ["There's", "Their's", "Theirs", "There is"],
+    "correct_answer": 0,
+    "explanation": "'There's' = there is (existential 'there'). 'Their/theirs' = possession. 'There is nothing' = कुछ नहीं है। Not about possession, about existence. 'There's' is contracted form of 'there is'. SSC tests there/their/they're.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The teacher asked _____ to wait outside.",
+    "options": ["he and I", "him and me", "he and me", "him and I"],
+    "correct_answer": 1,
+    "explanation": "After verb 'asked' (transitive), use object pronouns (him and me). Both are objects of verb. Not 'he and I' (subjects). Test each separately: asked him (✓), asked me (✓). SSC tests compound objects: him/her/us/them/me.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Each of the boys must bring _____ own lunch.",
+    "options": ["his", "their", "his or her", "its"],
+    "correct_answer": 0,
+    "explanation": "'Each' is singular, takes singular pronoun. 'Boys' indicates male, so 'his'. Traditional grammar: each takes singular. Modern may use 'their', but formal exams prefer 'his' when gender is clear. 'Its' is for objects.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "She introduced _____ as the new manager.",
+    "options": ["her", "herself", "she", "hers"],
+    "correct_answer": 1,
+    "explanation": "'Introduced herself' = reflexive (she introduced herself). Subject and object same person = reflexive. Not 'introduced her' (different person). Pattern: introduce myself/yourself/himself/herself. अपना परिचय दिया। Common reflexive verb pattern.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ should we meet? Today or tomorrow?",
+    "options": ["When", "Where", "Which", "What"],
+    "correct_answer": 0,
+    "explanation": "'When' asks about time (today or tomorrow = time options). Not a pronoun question, but context matters. Though 'which' could work, 'when' is most natural for time questions. कब मिलें? SSC tests interrogatives contextually.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "This is the house _____ I grew up.",
+    "options": ["where", "which", "that", "in which"],
+    "correct_answer": 3,
+    "explanation": "'In which' = where (formal). 'I grew up in the house' → 'the house in which I grew up'. 'Where' also works but isn't in options. Relative clause needs preposition 'in'. Banking exams test relative pronouns with prepositions.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ bag shall I carry? The heavy one or the light one?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' for choosing between specific options (heavy or light given). 'What' is open-ended. Clear choice = which. Which bag = कौन सा बैग? SSC pattern: which + noun + choice context.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Everyone has _____ own opinion on this matter.",
+    "options": ["his", "their", "his or her", "its"],
+    "correct_answer": 2,
+    "explanation": "'Everyone' is singular, traditional: 'his'. Modern inclusive: 'his or her' or singular 'their'. In formal exams, 'his or her' is safest. 'Its' is for objects. Banking exams may prefer traditional or modern depending on context.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The dog chased _____ tail in circles.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) = possessive (dog's tail). 'It's' = it is. Dog = 'it'. Classic error. Remember: its/his/hers/yours/ours/theirs = no apostrophe for possession. IELTS Writing frequently tests this.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ is more important: money or happiness?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' for choosing between two specific options (money or happiness given). Binary choice = which. 'What' is open-ended. Which is more important = कौन सा ज़्यादा महत्वपूर्ण है? SSC comparison with choice.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The doctor _____ treated me was very kind.",
+    "options": ["who", "whom", "which", "whose"],
+    "correct_answer": 0,
+    "explanation": "'Who' is relative pronoun for people as subject (doctor treated = subject). 'Whom' is object. Relative clause describes doctor. Who did the treating = who (subject). Banking exam standard pattern for relative pronouns.",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "Neither Ravi nor Amit brought _____ cricket bat.",
+    "options": ["his", "their", "his or her", "its"],
+    "correct_answer": 0,
+    "explanation": "With 'neither...nor', pronoun agrees with nearest subject (Amit = his). Both male, so 'his'. Not 'their' (plural). 'Neither...nor' takes singular. Banking exams test neither/either agreement rules. निकटतम subject से agree करना।",
+    "difficulty": "medium",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ wants to volunteer can sign up here.",
+    "options": ["Who", "Whoever", "Whom", "Whose"],
+    "correct_answer": 1,
+    "explanation": "'Whoever' = anyone who (compound relative pronoun). 'Who' is simple interrogative. 'Whoever wants' = कोई भी जो चाहता है। Different from 'who wants?' (question). SSC tests whoever/whomever vs. who/whom. Subject of subordinate clause.",
+    "difficulty": "hard",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "My parents and _____ are planning a trip to Goa.",
+    "options": ["me", "I", "myself", "mine"],
+    "correct_answer": 1,
+    "explanation": "Subject pronoun 'I' in compound subject (parents and I are planning). Test: remove 'parents and' → 'I are planning'. Not 'me' (object). Standard SSC compound subject test. Formal grammar requires 'I'.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The committee will submit _____ report by next week.",
+    "options": ["it's", "its", "it", "itself"],
+    "correct_answer": 1,
+    "explanation": "'Its' (no apostrophe) = possessive (committee's report). 'It's' = it is. Collective noun 'committee' = singular 'its'. Common error. Committee = 'it' (collective treated as singular). Possessive = no apostrophe.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ are you talking about?",
+    "options": ["Who", "Whom", "What", "Which"],
+    "correct_answer": 2,
+    "explanation": "'What' asks about the topic/thing being discussed (not person). 'Who' is for people. 'Talking about what' = किस बारे में बात कर रहे हो? Context shows thing/topic, not person. SSC tests what vs. who contextually.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "She blamed _____ for the mistake.",
+    "options": ["her", "herself", "she", "hers"],
+    "correct_answer": 1,
+    "explanation": "'Blamed herself' = reflexive (she blamed herself). Subject and object same = reflexive. Not 'blamed her' (different person). Pattern: blame myself/yourself/himself/herself. अपने आप को दोष दिया। Subject acts on self.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ of the two answers is correct?",
+    "options": ["What", "Who", "Which", "Whose"],
+    "correct_answer": 2,
+    "explanation": "'Which' for choosing from known limited set (two answers). 'What' is open-ended. 'Which of the two' = specific binary choice. Which answer = कौन सा उत्तर? SSC tests which with limited options.",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "The visitors were impressed by _____ hospitality. (our hospitality)",
+    "options": ["we", "us", "our", "ours"],
+    "correct_answer": 2,
+    "explanation": "'Our' is possessive adjective before noun (our hospitality). 'Ours' stands alone. 'We' is subject, 'us' is object. Pattern: possessive adjective + noun. Banking exam tests possessive adjective usage. हमारी आतिथ्य।",
+    "difficulty": "easy",
+    "level": "A2"
+  },
+  {
+    "path_id": "foundation",
+    "topic_id": "pronouns-detailed",
+    "question": "_____ finished _____ work before leaving. (he finished his work)",
+    "options": ["He, his", "Him, his", "He, him", "His, he"],
+    "correct_answer": 0,
+    "explanation": "'He' is subject (who finished). 'His' is possessive adjective (his work). Subject + possessive adjective pattern. Not 'him' (object). Banking exams test dual pronoun usage in one sentence. First blank = subject, second = possessive.",
+    "difficulty": "medium",
+    "level": "A2"
+  }
+]
