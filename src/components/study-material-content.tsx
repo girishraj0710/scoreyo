@@ -107,7 +107,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
                   <div className="p-4 rounded-lg" style={{ background: "var(--card-bg)" }}>
                     <p className="font-semibold text-emerald-500 mb-2">Solution:</p>
                     <div className="prose dark:prose-invert" style={{ color: "var(--foreground-secondary)" }}>
-                      <PremiumMarkdownRenderer content={{example.solution}} />
+                      <PremiumMarkdownRenderer content={example.solution} />
                     </div>
                   </div>
                   {example.key_insight && (
@@ -247,7 +247,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
                 Answer: {problem.answer}
               </p>
               <div className="prose dark:prose-invert" style={{ color: "var(--foreground-secondary)" }}>
-                <PremiumMarkdownRenderer content={{problem.explanation}} />
+                <PremiumMarkdownRenderer content={problem.explanation} />
               </div>
             </div>
           </details>
