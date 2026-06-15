@@ -193,6 +193,18 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
       </div>
 
       {/* Show "Start Practice" button ALWAYS after last card */}
+      {(() => {
+        const isLastCard = currentIndex === totalCards - 1;
+        const hasPracticeComponent = !!practiceProblemsComponent;
+        console.log('🔍 Button condition check:', {
+          currentIndex,
+          totalCards,
+          isLastCard,
+          hasPracticeComponent,
+          shouldShowButton: isLastCard && hasPracticeComponent
+        });
+        return null;
+      })()}
       {currentIndex === totalCards - 1 && practiceProblemsComponent && (
         <div className="mt-8">
           <div
