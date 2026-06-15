@@ -30,24 +30,21 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
   const currentCard = cards[currentIndex];
   const allCardsCompleted = completedCards.size === totalCards;
 
-  // Keyboard navigation
+  // Keyboard navigation (arrow keys only)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (showAllCards) return;
+      if (showAllCards || showPracticeProblems) return;
 
       if (e.key === 'ArrowLeft' && currentIndex > 0) {
         setCurrentIndex(currentIndex - 1);
       } else if (e.key === 'ArrowRight' && currentIndex < totalCards - 1) {
         setCurrentIndex(currentIndex + 1);
-      } else if (e.key === ' ') {
-        e.preventDefault();
-        markAsCompleted();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex, totalCards, showAllCards]);
+  }, [currentIndex, totalCards, showAllCards, showPracticeProblems]);
 
   const goToNext = () => {
     if (currentIndex < totalCards - 1) {
@@ -213,27 +210,10 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
           content={currentCard.content}
           index={currentIndex + 1}
         />
-
-        {/* Mark as completed button */}
-        {!completedCards.has(currentIndex) && (
-          <div className="mt-4 flex justify-center">
-            <button
-              onClick={markAsCompleted}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg"
-              style={{
-                background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-                color: 'white'
-              }}
-            >
-              <CheckCircle className="w-5 h-5" />
-              Got It!
-            </button>
-          </div>
-        )}
       </div>
 
-      {/* Navigation Controls */}
-      <div className="flex items-center justify-between gap-4">
+      {/* Simple Navigation - Previous and Next only */}
+      <div className="flex items-center justify-center gap-4 mt-6">
         {/* Previous Button */}
         <button
           onClick={goToPrevious}
@@ -247,16 +227,6 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
           <ChevronLeft className="w-5 h-5" />
           Previous
         </button>
-
-        {/* Center Info */}
-        <div className="text-center">
-          <p className="text-sm font-semibold" style={{ color: 'var(--foreground-secondary)' }}>
-            {completedCards.size} / {totalCards} completed
-          </p>
-          <p className="text-xs mt-1" style={{ color: 'var(--foreground-secondary)' }}>
-            Use ← → arrow keys to navigate
-          </p>
-        </div>
 
         {/* Next Button */}
         <button
@@ -273,32 +243,8 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
         </button>
       </div>
 
-      {/* Keyboard Shortcuts Hint */}
-      <div className="text-center py-4">
-        <div className="inline-flex items-center gap-4 px-6 py-3 rounded-xl" style={{ background: 'var(--hover-bg)' }}>
-          <div className="flex items-center gap-2">
-            <kbd className="px-2 py-1 rounded text-xs font-semibold" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-              ←
-            </kbd>
-            <span className="text-xs" style={{ color: 'var(--foreground-secondary)' }}>Previous</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <kbd className="px-2 py-1 rounded text-xs font-semibold" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-              Space
-            </kbd>
-            <span className="text-xs" style={{ color: 'var(--foreground-secondary)' }}>Got It!</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <kbd className="px-2 py-1 rounded text-xs font-semibold" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-              →
-            </kbd>
-            <span className="text-xs" style={{ color: 'var(--foreground-secondary)' }}>Next</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Show "Start Practice" button when all cards are completed */}
-      {allCardsCompleted && practiceProblemsComponent && (
+      {/* Show "Start Practice" button ALWAYS after last card */}
+      {currentIndex === totalCards - 1 && practiceProblemsComponent && (
         <div className="mt-8">
           <div
             className="p-8 rounded-2xl border-2 text-center"
@@ -311,10 +257,10 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
               <CheckCircle className="w-16 h-16 mx-auto text-emerald-500" />
             </div>
             <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>
-              🎉 All Concepts Mastered!
+              🎉 Ready to Practice?
             </h3>
             <p className="text-lg mb-6" style={{ color: 'var(--foreground-secondary)' }}>
-              You've completed all {totalCards} concept cards. Ready to test your understanding?
+              You've gone through all {totalCards} concept cards. Test your understanding with practice problems!
             </p>
             <button
               onClick={() => setShowPracticeProblems(true)}
