@@ -82,7 +82,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
             {subsection.title}
           </h3>
           <div className="prose dark:prose-invert max-w-none" style={{ color: "var(--foreground)" }}>
-            <PremiumMarkdownRenderer content={{subsection.content}} />
+            <PremiumMarkdownRenderer content={subsection.content} />
           </div>
 
           {/* Examples */}
