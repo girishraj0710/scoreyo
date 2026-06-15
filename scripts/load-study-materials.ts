@@ -106,23 +106,28 @@ function extractMetadata(content: string): {
 
 /**
  * Parse markdown content into structured sections
- * Splits by ## headings and preserves all content including examples, tables, etc.
+ * Splits by # headings (level 1) to capture all major sections like "Core Concepts", "Common Mistakes", etc.
  */
 function parseMarkdownIntoSections(markdown: string, title: string): any[] {
   const sections: any[] = [];
 
-  // Split by ## headings (level 2)
-  const parts = markdown.split(/^##\s+/m);
+  // Split by # headings (level 1) - NOT ## which are subsections
+  const parts = markdown.split(/^#\s+(?!#)/m);
 
-  // Skip the first part (metadata before first ##)
+  // Skip the first part (title) and process remaining sections
   for (let i = 1; i < parts.length; i++) {
     const part = parts[i];
     const lines = part.split('\n');
     const sectionTitle = lines[0].trim();
     const sectionContent = lines.slice(1).join('\n').trim();
 
-    // Skip empty sections and navigation sections
-    if (!sectionContent || sectionTitle.includes('---')) {
+    // Skip empty sections and horizontal rule lines
+    if (!sectionContent || sectionTitle.includes('---') || sectionContent.length < 10) {
+      continue;
+    }
+
+    // Skip metadata sections (title is already extracted)
+    if (sectionTitle === title) {
       continue;
     }
 
