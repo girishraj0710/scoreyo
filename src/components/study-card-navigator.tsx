@@ -151,57 +151,6 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
   // Single card view
   return (
     <div className="max-w-5xl mx-auto space-y-6">
-      {/* Progress Bar */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="text-sm font-semibold" style={{ color: 'var(--foreground-secondary)' }}>
-            Concept {currentIndex + 1} of {totalCards}
-          </div>
-          <button
-            onClick={() => setShowAllCards(true)}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105"
-            style={{
-              background: 'var(--hover-bg)',
-              color: 'var(--foreground)'
-            }}
-          >
-            <Grid3x3 className="w-4 h-4" />
-            View All
-          </button>
-        </div>
-
-        {/* Progress bar */}
-        <div className="w-full h-2 rounded-full" style={{ background: 'var(--hover-bg)' }}>
-          <div
-            className="h-full rounded-full transition-all duration-500"
-            style={{
-              width: `${((currentIndex + 1) / totalCards) * 100}%`,
-              background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)'
-            }}
-          />
-        </div>
-
-        {/* Completion dots */}
-        <div className="flex items-center justify-center gap-2">
-          {cards.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${
-                index === currentIndex ? 'w-8' : ''
-              }`}
-              style={{
-                background: completedCards.has(index)
-                  ? '#10B981'
-                  : index === currentIndex
-                  ? 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)'
-                  : 'var(--card-border)'
-              }}
-              aria-label={`Go to concept ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
 
       {/* Current Card */}
       <div className="relative">

@@ -228,49 +228,6 @@ export default function StudyMaterialPage() {
         </div>
       </div>
 
-      {/* Table of Contents Sidebar (Fixed, Desktop Only) */}
-      <div className="hidden lg:block fixed right-8 top-32 w-64">
-        <div
-          className="p-4 rounded-xl border shadow-sm"
-          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
-        >
-          <h3 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
-            <BookOpen className="w-4 h-4" />
-            Contents
-          </h3>
-          <div className="space-y-2">
-            {sections.map((section: any, idx: number) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSection(idx)}
-                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
-                  idx === currentSection
-                    ? "bg-[#4255FF] text-white"
-                    : ""
-                }`}
-                style={idx !== currentSection ? { color: "var(--foreground-secondary)" } : {}}
-                onMouseEnter={(e) => {
-                  if (idx !== currentSection) {
-                    e.currentTarget.style.background = "var(--hover-bg)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (idx !== currentSection) {
-                    e.currentTarget.style.background = "transparent";
-                  }
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  {completedSections.has(idx) && (
-                    <CheckCircle className="w-4 h-4 text-emerald-500" />
-                  )}
-                  <span className="flex-1 truncate">{section.title}</span>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
