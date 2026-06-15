@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { StudyCard } from './study-card';
+import { StudyCardNavigator } from './study-card-navigator';
 import { PremiumMarkdownRenderer } from './premium-markdown-renderer';
 
 interface Section {
@@ -83,38 +84,19 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
     );
   }
 
-  // For Core Concepts - parse into cards
+  // For Core Concepts - use card navigator (one at a time)
   if (isCoreConceptsSection && section.content) {
     const cards = parseCoreConceptsIntoCards(section.content);
     const practiceProblems = extractPracticeProblems(section.content);
 
     return (
-      <div className="space-y-8">
-        {/* Section Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-            {cleanTitle}
-          </h2>
-          <p className="text-lg" style={{ color: 'var(--foreground-secondary)' }}>
-            {cards.length} key concepts to master
-          </p>
-        </div>
-
-        {/* Concept Cards */}
-        <div className="space-y-6">
-          {cards.map((card, index) => (
-            <StudyCard
-              key={index}
-              title={card.title}
-              content={card.content}
-              index={index + 1}
-            />
-          ))}
-        </div>
+      <div className="space-y-12">
+        {/* Card Navigator (Flashcard Style) */}
+        <StudyCardNavigator cards={cards} sectionTitle={cleanTitle} />
 
         {/* Practice Problems Section */}
         {practiceProblems && (
-          <div className="mt-12">
+          <div className="max-w-5xl mx-auto">
             <div
               className="p-8 rounded-2xl border-2"
               style={{
