@@ -118,14 +118,20 @@ export function PracticeProblemsSection({ content }: PracticeProblemsProps) {
 
                   {/* Explanation */}
                   {problem.explanation && (
-                    <div className="p-4 rounded-lg" style={{ background: 'var(--hover-bg)' }}>
+                    <div
+                      className="p-4 rounded-lg border-2"
+                      style={{
+                        background: 'rgba(99, 102, 241, 0.1)',
+                        borderColor: 'rgba(99, 102, 241, 0.3)'
+                      }}
+                    >
                       <div className="flex items-start gap-3">
-                        <Target className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" />
+                        <Target className="w-5 h-5 text-indigo-500 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
                         <div className="flex-1">
                           <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
                             EXPLANATION
                           </p>
-                          <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>
+                          <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground)' }}>
                             {problem.explanation}
                           </p>
                         </div>
