@@ -180,13 +180,13 @@ function parsePracticeProblems(content: string): PracticeProblem[] {
 }
 
 function parseLevel(text: string, level: string, problems: PracticeProblem[]) {
-  // Match pattern: 1. **Question** ... **Answer:** ... - explanation
-  const questionPattern = /(\d+)\.\s*\*\*(.+?)\*\*.*?\*\*Answer:\*\*\s*(.+?)(?=\d+\.\s*\*\*|$)/gs;
+  // Match pattern: 1. [full question text] **Answer:** [answer text]
+  const questionPattern = /(\d+)\.\s*(.+?)\s*\*\*Answer:\*\*\s*(.+?)(?=\d+\.\s*|$)/gs;
 
   let match;
   while ((match = questionPattern.exec(text)) !== null) {
     const number = parseInt(match[1]);
-    const question = match[2].trim();
+    const question = match[2].trim().replace(/\*\*/g, ''); // Remove all ** markers from question
     const answerText = match[3].trim();
 
     // Split answer and explanation (usually separated by " - ")
