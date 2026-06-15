@@ -12,6 +12,7 @@
   --success: #059669;
   --danger: #ef4444;
   --card-bg: #ffffff;
+  --card-bg-rgb: 255, 255, 255;
   --card-border: #e2e8f0;
   --muted: #64748b;
   --hover-bg: #f1f5f9;
@@ -33,6 +34,7 @@
   --success: #34d399;
   --danger: #f87171;
   --card-bg: #1e293b;
+  --card-bg-rgb: 30, 41, 59;
   --card-border: #4b5e78;
   --muted: #cbd5e1;
   --hover-bg: rgba(148, 163, 184, 0.15);
