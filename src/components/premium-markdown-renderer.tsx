@@ -118,11 +118,11 @@ export function PremiumMarkdownRenderer({ content }: MarkdownRendererProps) {
       }
     }
 
-    // Example boxes: - ✅ CORRECT / - ❌ INCORRECT (with or without leading dash)
-    const exampleMatch = line.match(/^-?\s*(✅|❌)\s*(\*\*)?(?:CORRECT|INCORRECT|WRONG)?(:)?(\*\*)?\s*(.+)$/i);
+    // Example boxes: - CORRECT / - INCORRECT (with or without leading dash, emojis already removed)
+    const exampleMatch = line.match(/^-?\s*(CORRECT|INCORRECT|WRONG)(:)?\s*(.+)$/i);
     if (exampleMatch) {
-      const isCorrect = exampleMatch[1] === '✅';
-      const text = exampleMatch[5];
+      const isCorrect = exampleMatch[1].toUpperCase() === 'CORRECT';
+      const text = exampleMatch[3];
 
       elements.push(
         <div
@@ -134,18 +134,20 @@ export function PremiumMarkdownRenderer({ content }: MarkdownRendererProps) {
           }}
         >
           <div className="flex items-start gap-3">
-            {isCorrect ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-            ) : (
-              <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-            )}
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${isCorrect ? 'bg-emerald-500' : 'bg-red-500'}`}>
+              {isCorrect ? (
+                <CheckCircle2 className="w-5 h-5 text-white" />
+              ) : (
+                <XCircle className="w-5 h-5 text-white" />
+              )}
+            </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
                 <span className={`text-sm font-semibold ${isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
-                  {isCorrect ? 'Correct' : 'Incorrect'}
+                  {isCorrect ? 'CORRECT' : 'INCORRECT'}
                 </span>
               </div>
-              <div className="text-sm font-mono" style={{ color: 'var(--foreground)' }}>
+              <div className="text-sm" style={{ color: 'var(--foreground)' }}>
                 {text}
               </div>
             </div>

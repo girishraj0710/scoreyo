@@ -36,14 +36,14 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
   if (examplesMatch) {
     const examplesText = examplesMatch[1];
 
-    // Find CORRECT examples
-    const correctMatches = examplesText.matchAll(/(?:✅|CORRECT:)\s*(.+?)(?=\n|$)/g);
+    // Find CORRECT examples (remove emoji from regex)
+    const correctMatches = examplesText.matchAll(/(?:CORRECT:)\s*(.+?)(?=\n|$)/g);
     for (const match of correctMatches) {
       correctExamples.push(match[1].trim().replace(/^["']|["']$/g, ''));
     }
 
-    // Find INCORRECT examples with reasons
-    const incorrectMatches = examplesText.matchAll(/(?:❌|INCORRECT:)\s*(.+?)\s*→\s*WHY:\s*(.+?)(?=\n|$)/g);
+    // Find INCORRECT examples with reasons (remove emoji from regex)
+    const incorrectMatches = examplesText.matchAll(/(?:INCORRECT:)\s*(.+?)\s*→\s*WHY:\s*(.+?)(?=\n|$)/g);
     for (const match of incorrectMatches) {
       incorrectExamples.push({
         text: match[1].trim().replace(/^["']|["']$/g, ''),
@@ -62,17 +62,23 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
     >
       {/* Card Header */}
       <div
-        className="px-6 py-4 border-b-2"
+        className="px-6 py-4 border-b-2 relative overflow-hidden"
         style={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
           borderColor: 'var(--card-border)'
         }}
       >
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-lg">
+        {/* Decorative pattern overlay */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}></div>
+
+        <div className="flex items-center gap-3 relative z-10">
+          <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-bold text-xl shadow-lg">
             {index}
           </div>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-white drop-shadow-md">
             {title.replace(/^###\s*\.?\s*/, '').replace(/\([^)]+\)$/, '').trim()}
           </h3>
         </div>
@@ -145,10 +151,14 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
                   style={{ background: 'rgba(16, 185, 129, 0.05)' }}
                 >
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center">
+                        <CheckCircle2 className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
                     <div className="flex-1">
                       <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm mb-2">
-                        ✓ CORRECT
+                        CORRECT
                       </p>
                       <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">
                         {example}
@@ -166,17 +176,23 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
                   style={{ background: 'rgba(239, 68, 68, 0.05)' }}
                 >
                   <div className="flex items-start gap-3">
-                    <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                        <XCircle className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
                     <div className="flex-1">
                       <p className="font-semibold text-red-600 dark:text-red-400 text-sm mb-2">
-                        ✗ INCORRECT
+                        INCORRECT
                       </p>
                       <p className="text-red-700 dark:text-red-300 leading-relaxed mb-2">
                         {example.text}
                       </p>
-                      <p className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-2 rounded">
-                        <strong>Why?</strong> {example.reason}
-                      </p>
+                      <div className="mt-3 p-3 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800">
+                        <p className="text-sm text-red-700 dark:text-red-300">
+                          <strong className="text-red-800 dark:text-red-200">Why?</strong> {example.reason}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
