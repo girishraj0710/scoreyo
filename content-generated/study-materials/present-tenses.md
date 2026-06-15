@@ -162,7 +162,7 @@ This is THE most confusing distinction for Indian students because Hindi doesn't
 
 ---
 
-## Practice Problems
+# Practice Problems
 
 ### Beginner Level (30%)
 
