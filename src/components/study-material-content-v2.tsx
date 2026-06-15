@@ -90,6 +90,11 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
     const cards = parseCoreConceptsIntoCards(section.content);
     const practiceProblems = extractPracticeProblems(section.content);
 
+    // DEBUG: Check if Practice Problems exists in content
+    console.log('🔍 Section content length:', section.content.length);
+    console.log('🔍 Practice Problems found:', practiceProblems ? 'YES' : 'NO');
+    console.log('🔍 Content sample (last 500 chars):', section.content.slice(-500));
+
     return (
       <div className="space-y-12">
         {/* Card Navigator (Flashcard Style) */}
@@ -100,16 +105,6 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
             practiceProblems ? <PracticeProblemsSection content={practiceProblems} /> : undefined
           }
         />
-      </div>
-    );
-  }
-
-  // For Practice Problems section - use PracticeProblemsSection component
-  const isPracticeProblemsSection = cleanTitle.toLowerCase().includes('practice');
-  if (isPracticeProblemsSection && section.content) {
-    return (
-      <div className="space-y-6">
-        <PracticeProblemsSection content={section.content} />
       </div>
     );
   }
