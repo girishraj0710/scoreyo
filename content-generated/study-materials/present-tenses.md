@@ -22,7 +22,7 @@ For SSC, Banking, and IELTS exams, mastering present tenses is CRITICAL. About 3
 
 # Core Concepts
 
-### . Present Simple Tense (I work, She works)
+### Present Simple Tense (I work, She works)
 
 **Definition:** Used for habits, routines, facts, and general truths.
 
@@ -43,7 +43,7 @@ For SSC, Banking, and IELTS exams, mastering present tenses is CRITICAL. About 3
 
 ---
 
-### . Present Continuous Tense (I am working)
+### Present Continuous Tense (I am working)
 
 **Definition:** Used for actions happening NOW or around NOW, and for temporary situations.
 
@@ -70,7 +70,7 @@ State verbs: know, understand, believe, want, need, like, love, hate, remember, 
 
 ---
 
-### . Present Perfect Tense (I have worked)
+### Present Perfect Tense (I have worked)
 
 **Definition:** Used for completed actions that have a connection to the present. Focus is on the RESULT, not when it happened.
 
@@ -96,7 +96,7 @@ State verbs: know, understand, believe, want, need, like, love, hate, remember, 
 
 ---
 
-### . Present Perfect Continuous (I have been working)
+### Present Perfect Continuous (I have been working)
 
 **Definition:** Used for actions that started in the past and are STILL CONTINUING, or just stopped with present evidence.
 
@@ -116,7 +116,7 @@ State verbs: know, understand, believe, want, need, like, love, hate, remember, 
 
 ---
 
-### . Time Expressions for Each Tense
+### Time Expressions for Each Tense
 
 | Tense | Common Time Words | Example |
 |-------|-------------------|---------|
@@ -127,7 +127,7 @@ State verbs: know, understand, believe, want, need, like, love, hate, remember, 
 
 ---
 
-### . Present Simple vs Present Continuous
+### Present Simple vs Present Continuous
 
 **Permanent situations → Present Simple**
 -  "I work at TCS." (permanent job)
@@ -146,7 +146,7 @@ State verbs: know, understand, believe, want, need, like, love, hate, remember, 
 
 ---
 
-### . Present Perfect vs Past Simple (MOST TESTED!)
+### Present Perfect vs Past Simple (MOST TESTED!)
 
 This is THE most confusing distinction for Indian students because Hindi doesn't make this difference.
 
@@ -162,14 +162,15 @@ This is THE most confusing distinction for Indian students because Hindi doesn't
 
 ---
 
+## Practice Problems
 
-## Beginner Level (30%)
+### Beginner Level (30%)
 
 1. **Choose the correct form:** "The sun ___ in the east." (rise / rises / is rising)  **Answer:** rises - Universal truth = Present Simple, 3rd person singular adds -s
 
 2. **Fill in the blank:** "Look! The children ___ in the park." (play / are playing / have played)  **Answer:** are playing - "Look!" = happening now = Present Continuous
 
-## Intermediate Level (50%)
+### Intermediate Level (50%)
 
 3. **Present Simple or Continuous?** "I usually ___ (drink) coffee, but today I ___ (drink) tea."  **Answer:** drink (habit = Simple), am drinking (today = temporary, happening now = Continuous)
 
@@ -177,7 +178,7 @@ This is THE most confusing distinction for Indian students because Hindi doesn't
 
 5. **Error Spotting:** "Since three months, she is preparing for IELTS."  **Answer:** Error: "Since three months" and "is preparing" → Correct: "For three months, she has been preparing for IELTS" (duration = FOR not SINCE with numbers, and Present Perfect Continuous)
 
-## Advanced Level (20%)
+### Advanced Level (20%)
 
 6. **Choose all correct sentences:**  A) "I know him for five years."  B) "I have known him for five years."  C) "I am knowing him for five years."  D) "I have been knowing him for five years."  **Answer:** Only B is correct  - A is wrong: duration from past needs Present Perfect ("have known")  - C is wrong: "know" is a state verb, not used in continuous  - D is wrong: "know" is a state verb, Present Perfect Continuous not used
 

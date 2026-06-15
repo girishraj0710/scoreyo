@@ -31,13 +31,13 @@ function parseCoreConceptsIntoCards(content: string): Array<{ title: string; con
     const title = lines[0].trim();
     const conceptContent = lines.slice(1).join('\n').trim();
 
-    // Skip if no content
-    if (!conceptContent || conceptContent.length < 50) continue;
-
     // Stop at Practice Problems section
     if (title.toLowerCase().includes('practice') || title.toLowerCase().includes('beginner level')) {
       break;
     }
+
+    // Skip if no meaningful content (but don't check length - tables can be short)
+    if (!conceptContent) continue;
 
     cards.push({ title, content: conceptContent });
   }
