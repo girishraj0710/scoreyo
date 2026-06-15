@@ -66,6 +66,17 @@ function extractPracticeProblems(content: string): string | null {
 export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
   if (!section) return null;
 
+  // DEBUG: Log section structure
+  console.log('🔍 StudyMaterialContent received:', {
+    title: section.title,
+    hasContent: !!section.content,
+    contentType: typeof section.content,
+    contentLength: typeof section.content === 'string' ? section.content?.length : 'N/A',
+    contentPreview: typeof section.content === 'string' ? section.content?.substring(0, 100) : 'Not a string',
+    hasSubsections: !!(section as any).subsections,
+    sectionKeys: Object.keys(section)
+  });
+
   const cleanTitle = section.title
     ? section.title.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim()
     : '';
