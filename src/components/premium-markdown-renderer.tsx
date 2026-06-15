@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import { Lightbulb, AlertCircle, CheckCircle2, XCircle, BookOpen, Target, TrendingUp } from 'lucide-react';
 
 interface MarkdownRendererProps {
@@ -24,7 +25,7 @@ export function PremiumMarkdownRenderer({ content }: MarkdownRendererProps) {
     .trim();
 
   const lines = cleanContent.split('\n');
-  const elements: JSX.Element[] = [];
+  const elements: React.ReactElement[] = [];
   let currentIndex = 0;
 
   for (let i = 0; i < lines.length; i++) {
