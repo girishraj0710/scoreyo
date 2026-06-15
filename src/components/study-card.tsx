@@ -10,6 +10,19 @@ interface StudyCardProps {
 }
 
 /**
+ * Render text with bold markdown (**text** -> <strong>)
+ */
+function renderBoldText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
+/**
  * Individual concept card - Quizlet/Duolingo style
  */
 export function StudyCard({ title, content, index }: StudyCardProps) {
@@ -126,7 +139,7 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
                       {idx + 1}
                     </div>
                     <p style={{ color: 'var(--foreground)' }} className="leading-relaxed flex-1">
-                      {rule}
+                      {renderBoldText(rule)}
                     </p>
                   </div>
                 </div>

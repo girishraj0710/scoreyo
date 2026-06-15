@@ -257,7 +257,7 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
               <CheckCircle className="w-16 h-16 mx-auto text-emerald-500" />
             </div>
             <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>
-              🎉 Ready to Practice?
+              Ready to Practice?
             </h3>
             <p className="text-lg mb-6" style={{ color: 'var(--foreground-secondary)' }}>
               You've gone through all {totalCards} concept cards. Test your understanding with practice problems!
