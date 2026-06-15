@@ -1,0 +1,60 @@
+🚨🚨🚨 URGENT: RUN THIS COMMAND NOW! 🚨🚨🚨
+
+═══════════════════════════════════════════════════════════════
+
+WHY "Start Practice Problems" BUTTON DOESN'T WORK:
+
+The button exists in the code (deployed), but it tries to load Practice
+Problems from the DATABASE. The database still has OLD content WITHOUT
+the "## Practice Problems" section.
+
+Without this section in database, the button appears but does nothing.
+
+═══════════════════════════════════════════════════════════════
+
+RUN THIS COMMAND IN YOUR TERMINAL:
+
+cd ~/prepgenie && npx tsx scripts/load-study-materials.ts
+
+═══════════════════════════════════════════════════════════════
+
+WHAT IT DOES:
+
+1. Reads fixed markdown files (with Practice Problems sections)
+2. Updates database (20 entries)
+3. Safe to run (uses UPDATE, won't create duplicates)
+4. Takes 15 seconds
+
+═══════════════════════════════════════════════════════════════
+
+AFTER RUNNING THE COMMAND:
+
+1. Wait 2 minutes for Vercel deployment to complete
+2. Refresh: https://krakkify.in/english/foundation/parts-of-speech/study
+3. Navigate to Card 8 (last card)
+4. Click "Start Practice Problems" button
+5. You will see practice questions!
+
+═══════════════════════════════════════════════════════════════
+
+FIXED IN THIS DEPLOYMENT (commit f5ebce7):
+
+✅ Removed Contents sidebar (right side)
+✅ Removed progress indicators (1 of 8, progress bar, dots)
+✅ Clean minimal UI
+
+═══════════════════════════════════════════════════════════════
+
+STILL NEED TO FIX AFTER DATABASE RELOAD:
+
+The "duplicate 1" issue and "Start Quiz Now" button showing - I'll fix
+these AFTER you confirm Practice Problems are working (need to see the
+actual rendered output first).
+
+═══════════════════════════════════════════════════════════════
+
+COPY AND PASTE THIS INTO YOUR TERMINAL NOW:
+
+cd ~/prepgenie && npx tsx scripts/load-study-materials.ts
+
+═══════════════════════════════════════════════════════════════

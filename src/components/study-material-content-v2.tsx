@@ -104,6 +104,16 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
     );
   }
 
+  // For Practice Problems section - use PracticeProblemsSection component
+  const isPracticeProblemsSection = cleanTitle.toLowerCase().includes('practice');
+  if (isPracticeProblemsSection && section.content) {
+    return (
+      <div className="space-y-6">
+        <PracticeProblemsSection content={section.content} />
+      </div>
+    );
+  }
+
   // Fallback for other sections
   return (
     <div className="space-y-6">
