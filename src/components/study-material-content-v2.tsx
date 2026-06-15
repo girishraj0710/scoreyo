@@ -36,8 +36,18 @@ function parseCoreConceptsIntoCards(content: string): Array<{ title: string; con
       break;
     }
 
-    // Skip if no meaningful content (but don't check length - tables can be short)
+    // Skip if no meaningful content
     if (!conceptContent) continue;
+
+    // Skip sections that don't have the required structure (Definition, Rules, or Examples)
+    // These are usually summary tables or comparison sections
+    const hasDefinition = conceptContent.includes('**Definition:**');
+    const hasRules = conceptContent.includes('**Rules:**');
+    const hasExamples = conceptContent.includes('**Examples:**');
+
+    if (!hasDefinition && !hasRules && !hasExamples) {
+      continue; // Skip this section - likely a table or summary
+    }
 
     cards.push({ title, content: conceptContent });
   }
