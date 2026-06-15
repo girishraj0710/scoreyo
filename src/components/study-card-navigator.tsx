@@ -12,19 +12,23 @@ interface ConceptCard {
 interface StudyCardNavigatorProps {
   cards: ConceptCard[];
   sectionTitle: string;
+  practiceProblemsComponent?: React.ReactNode;
 }
 
 /**
  * Flashcard-style navigation for study concepts
  * Shows one card at a time with Previous/Next controls
+ * Shows practice problems ONLY after all cards are completed
  */
-export function StudyCardNavigator({ cards, sectionTitle }: StudyCardNavigatorProps) {
+export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsComponent }: StudyCardNavigatorProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [completedCards, setCompletedCards] = useState<Set<number>>(new Set());
   const [showAllCards, setShowAllCards] = useState(false);
+  const [showPracticeProblems, setShowPracticeProblems] = useState(false);
 
   const totalCards = cards.length;
   const currentCard = cards[currentIndex];
+  const allCardsCompleted = completedCards.size === totalCards;
 
   // Keyboard navigation
   useEffect(() => {
@@ -72,6 +76,38 @@ export function StudyCardNavigator({ cards, sectionTitle }: StudyCardNavigatorPr
     setCurrentIndex(index);
     setShowAllCards(false);
   };
+
+  // Show Practice Problems view ONLY after all cards completed
+  if (showPracticeProblems && allCardsCompleted && practiceProblemsComponent) {
+    return (
+      <div className="space-y-6">
+        {/* Header with Back button */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
+              Practice Problems
+            </h2>
+            <p className="text-lg mt-2" style={{ color: 'var(--foreground-secondary)' }}>
+              Test your understanding
+            </p>
+          </div>
+          <button
+            onClick={() => setShowPracticeProblems(false)}
+            className="px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white'
+            }}
+          >
+            ← Back to Study
+          </button>
+        </div>
+
+        {/* Practice Problems Component */}
+        {practiceProblemsComponent}
+      </div>
+    );
+  }
 
   if (showAllCards) {
     // Grid view of all cards
@@ -260,6 +296,39 @@ export function StudyCardNavigator({ cards, sectionTitle }: StudyCardNavigatorPr
           </div>
         </div>
       </div>
+
+      {/* Show "Start Practice" button when all cards are completed */}
+      {allCardsCompleted && practiceProblemsComponent && (
+        <div className="mt-8">
+          <div
+            className="p-8 rounded-2xl border-2 text-center"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%)',
+              borderColor: '#10B981'
+            }}
+          >
+            <div className="mb-4">
+              <CheckCircle className="w-16 h-16 mx-auto text-emerald-500" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>
+              🎉 All Concepts Mastered!
+            </h3>
+            <p className="text-lg mb-6" style={{ color: 'var(--foreground-secondary)' }}>
+              You've completed all {totalCards} concept cards. Ready to test your understanding?
+            </p>
+            <button
+              onClick={() => setShowPracticeProblems(true)}
+              className="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
+              style={{
+                background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                color: 'white'
+              }}
+            >
+              Start Practice Problems →
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React from 'react';
 import { StudyCard } from './study-card';
 import { StudyCardNavigator } from './study-card-navigator';
 import { PremiumMarkdownRenderer } from './premium-markdown-renderer';
+import { PracticeProblemsSection } from './practice-problems-section';
 
 interface Section {
   id: string;
@@ -45,7 +46,7 @@ function parseCoreConceptsIntoCards(content: string): Array<{ title: string; con
 }
 
 /**
- * Extract Practice Problems section
+ * Extract Practice Problems section (everything after ## Practice Problems or ## Beginner Level)
  */
 function extractPracticeProblems(content: string): string | null {
   const match = content.match(/##\s+(Practice Problems|Beginner Level)(.*)/is);
@@ -92,25 +93,13 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
     return (
       <div className="space-y-12">
         {/* Card Navigator (Flashcard Style) */}
-        <StudyCardNavigator cards={cards} sectionTitle={cleanTitle} />
-
-        {/* Practice Problems Section */}
-        {practiceProblems && (
-          <div className="max-w-5xl mx-auto">
-            <div
-              className="p-8 rounded-2xl border-2"
-              style={{
-                background: 'var(--card-bg)',
-                borderColor: 'var(--card-border)'
-              }}
-            >
-              <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                Practice Problems
-              </h2>
-              <PremiumMarkdownRenderer content={practiceProblems} />
-            </div>
-          </div>
-        )}
+        <StudyCardNavigator
+          cards={cards}
+          sectionTitle={cleanTitle}
+          practiceProblemsComponent={
+            practiceProblems ? <PracticeProblemsSection content={practiceProblems} /> : undefined
+          }
+        />
       </div>
     );
   }
