@@ -161,10 +161,10 @@ export function PracticeProblemsSection({ content }: PracticeProblemsProps) {
 function parsePracticeProblems(content: string): PracticeProblem[] {
   const problems: PracticeProblem[] = [];
 
-  // Split by difficulty levels
-  const beginnerMatch = content.match(/##\s*Beginner Level.*?\n([\s\S]*?)(?=##|$)/i);
-  const intermediateMatch = content.match(/##\s*Intermediate Level.*?\n([\s\S]*?)(?=##|$)/i);
-  const advancedMatch = content.match(/##\s*Advanced Level.*?\n([\s\S]*?)(?=##|$)/i);
+  // Split by difficulty levels (### headings)
+  const beginnerMatch = content.match(/###\s*Beginner Level.*?\n([\s\S]*?)(?=###|$)/i);
+  const intermediateMatch = content.match(/###\s*Intermediate Level.*?\n([\s\S]*?)(?=###|$)/i);
+  const advancedMatch = content.match(/###\s*Advanced Level.*?\n([\s\S]*?)(?=###|$)/i);
 
   if (beginnerMatch) {
     parseLevel(beginnerMatch[1], 'Beginner', problems);

@@ -78,16 +78,8 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
   if (showPracticeProblems && practiceProblemsComponent) {
     return (
       <div className="space-y-6">
-        {/* Header with Back button */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-              Practice Problems
-            </h2>
-            <p className="text-lg mt-2" style={{ color: 'var(--foreground-secondary)' }}>
-              Test your understanding
-            </p>
-          </div>
+        {/* Back to Study button */}
+        <div className="flex justify-end mb-6">
           <button
             onClick={() => setShowPracticeProblems(false)}
             className="px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105"
