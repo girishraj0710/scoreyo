@@ -162,20 +162,6 @@ This is THE most confusing distinction for Indian students because Hindi doesn't
 
 ---
 
-# Common Mistakes (Indian Students)
-
-| Mistake | Why It Happens | Correct Form |
-|---------|----------------|--------------|
-| "I am knowing Hindi" | Hindi: मैं जानता हूँ (continuous feel) | "I know Hindi" (state verbs NOT in continuous) |
-| "She is having a car" | Hindi: उसके पास कार है (literal translation) | "She has a car" (have = possession, not continuous) |
-| "Since two years, I am working here" | Hindi word order: दो साल से, मैं यहाँ काम कर रहा हूँ | "I have been working here for two years" (Present Perfect Continuous with FOR, not SINCE + number) |
-| "I have gone there yesterday" | Confusion between Present Perfect and Past Simple | "I went there yesterday" (specific time = Past Simple) |
-| "He is going to office daily" | Using Continuous for routine | "He goes to office daily" (routine = Simple, not Continuous) |
-| "I am living in Delhi since 2020" | Hindi: मैं 2020 से दिल्ली में रह रहा हूँ | "I have been living in Delhi since 2020" (duration from past = Perfect Continuous) |
-
----
-
-# Practice Problems
 
 ## Beginner Level (30%)
 
@@ -199,41 +185,4 @@ This is THE most confusing distinction for Indian students because Hindi doesn't
 
 ---
 
-# Cambridge Reference
 
-**CEFR Level:** A2
-
-**Can-Do Statements:**
-- Can use Present Simple to describe habits, routines, and general facts
-- Can use Present Continuous to describe actions happening now or temporary situations
-- Can distinguish between Present Perfect and Past Simple in context
-- Can use time expressions correctly with each present tense
-
-**Alignment:** This topic aligns with Cambridge English A2 descriptors for temporal reference and tense control.
-
----
-
-# Quick Revision Checklist
-
-- [ ] Master Present Simple for habits and facts
-- [ ] Use Present Continuous for actions happening now
-- [ ] Understand Present Perfect shows result, not time
-- [ ] Remember: state verbs are NEVER continuous
-- [ ] Learn the key distinction: Present Perfect (no specific time) vs Past Simple (specific time)
-- [ ] Memorize which time expressions go with which tense
-- [ ] Practice: since = Present Perfect, ago = Past Simple
-
----
-
-# Next Steps
-
-**After mastering this:**
-- **Move to:** Past Tenses (Simple, Continuous, Perfect, Perfect Continuous)
-- **Practice:** Take a quiz on Present Tenses
-- **Review:** Focus especially on Present Perfect vs Past Simple - this is the #1 confusion
-
----
-
-**Last Updated:** 2026-06-14
-**Contributors:** AI Generation + Human Review
-**Quality Reviewed:**  Cambridge-Aligned

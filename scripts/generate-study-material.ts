@@ -44,7 +44,7 @@ LEVEL: ${request.level}
 TARGET EXAMS: ${request.targetExams.join(", ")}
 WORD COUNT: ${request.wordCount}
 
-Create a comprehensive study material following this exact structure:
+Create a clean, focused study material with ONLY these sections:
 
 # ${request.topic}
 
@@ -52,38 +52,19 @@ Create a comprehensive study material following this exact structure:
 
 ---
 
-## 📖 What is ${request.topic}?
+# What is ${request.topic}?
 
-[2-3 paragraph introduction explaining the concept clearly. Use simple language accessible to non-native speakers.]
-
----
-
-## 🎯 Why Learn This?
-
-- **Exams:** Used in ${request.targetExams.join(", ")}
-- **Real-World:** [How students will use this in daily life and professional contexts]
-- **Marks Impact:** [Weightage in exams if applicable, mention which sections test this]
+[2-3 paragraph introduction explaining the concept clearly. Use simple language accessible to non-native speakers. Include why this is important for competitive exams.]
 
 ---
 
-## 📚 Core Concepts
+# Core Concepts
 
 ${sectionsFormatted}
 
 ---
 
-## ⚠️ Common Mistakes (Indian Students)
-
-| Mistake | Why It Happens | Correct Form |
-|---------|----------------|--------------|
-| [Error 1 - actual example] | [Hindi/regional language influence explanation] | [Correction with example] |
-| [Error 2 - actual example] | [Literal translation issue] | [Correction with example] |
-| [Error 3 - actual example] | [Exam pressure/speed mistake] | [Correction with example] |
-| [Error 4 - actual example] | [Common conceptual error] | [Correction with example] |
-
----
-
-## 🧪 Practice Problems
+## Practice Problems
 
 ### Beginner Level (30%)
 1. [Question with 4 options]
@@ -123,44 +104,6 @@ ${sectionsFormatted}
 [Explain how this topic appears in IELTS (if applicable) with sample usage]
 
 ---
-
-## 🎓 Cambridge Reference
-
-**CEFR Level:** ${request.level}
-
-**Can-Do Statements:**
-- [What students at this level can do - specific capability 1]
-- [What students at this level can do - specific capability 2]
-- [What students at this level can do - specific capability 3]
-
-**Alignment:** This topic aligns with Cambridge English ${request.level} descriptors for [specific competency area].
-
----
-
-## ✅ Quick Revision Checklist
-
-- [ ] Understand the core concept and definition
-- [ ] Learn all sub-rules with examples
-- [ ] Memorize common mistake patterns
-- [ ] Practice 10+ questions with explanations
-- [ ] Apply in sentence construction
-- [ ] Review before exam
-
----
-
-## 📖 Next Steps
-
-**After mastering this:**
-- **Move to:** [Next logical topic in the learning path]
-- **Practice:** Take a quiz on ${request.topic}
-- **Review:** Revisit common mistakes weekly
-- **Apply:** Write 5 sentences using this concept
-
----
-
-**Last Updated:** ${new Date().toISOString().split('T')[0]}
-**Contributors:** AI Generation + Human Review
-**Quality Reviewed:** ✅ Cambridge-Aligned
 
 ---
 

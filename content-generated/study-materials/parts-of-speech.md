@@ -152,18 +152,6 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-# Common Mistakes (Indian Students)
-
-| Mistake | Why It Happens | Correct Form |
-|---------|----------------|--------------|
-| "He runs fastly" | Hindi influence: तेजी से (tezi se) literally translates to "fastly" | "He runs fast" (fast can be both adjective and adverb) |
-| "I am knowing Hindi" | Direct translation from Hindi: मैं जानता हूँ (main jaanta hun) | "I know Hindi" (state verbs NOT used in continuous tense) |
-| "She is elder than me" | Hindi: बड़ी (badi) used for both old/older | "She is older than me" (elder = older sibling; older = age comparison) |
-| "Please do the needful" | Indian English expression, not used in British/American English | "Please take the necessary action" or "Please help" |
-
----
-
-# Practice Problems
 
 ## Beginner Level (30%)
 
@@ -187,40 +175,4 @@ For Indian students preparing for competitive exams, mastering parts of speech i
 
 ---
 
-# Cambridge Reference
 
-**CEFR Level:** A1
-
-**Can-Do Statements:**
-- Can identify and name the eight parts of speech in simple sentences
-- Can use basic nouns, pronouns, and verbs correctly in everyday contexts
-- Can distinguish between adjectives and adverbs in familiar situations
-
-**Alignment:** This topic aligns with Cambridge English A1 descriptors for grammatical accuracy and range of language.
-
----
-
-# Quick Revision Checklist
-
-- [ ] Understand the 8 parts of speech and their functions
-- [ ] Master noun types (common, proper, countable, uncountable)
-- [ ] Learn pronoun categories (subject, object, possessive)
-- [ ] Distinguish between state verbs and action verbs
-- [ ] Avoid adjective-adverb confusion (quick vs quickly)
-- [ ] Learn preposition rules (in/on/at for time and place)
-- [ ] Practice error spotting with focus on parts of speech
-
----
-
-# Next Steps
-
-**After mastering this:**
-- **Move to:** Nouns in Detail (learn all 5 types of nouns)
-- **Practice:** Take a quiz on Parts of Speech
-- **Review:** Revisit common mistakes weekly, especially adjective-adverb confusion
-
----
-
-**Last Updated:** 2026-06-14
-**Contributors:** AI Generation + Human Review
-**Quality Reviewed:**  Cambridge-Aligned
