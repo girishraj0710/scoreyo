@@ -80,7 +80,26 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
   const hasPoints = (section as any).points && Array.isArray((section as any).points);
   const hasProblems = (section as any).problems && Array.isArray((section as any).problems);
 
-  // For "What is..." or other simple content sections
+  // For Core Concepts - use card navigator (one at a time) - CHECK THIS FIRST!
+  if (isCoreConceptsSection && section.content) {
+    const cards = parseCoreConceptsIntoCards(section.content);
+    const practiceProblems = extractPracticeProblems(section.content);
+
+    return (
+      <div className="space-y-12">
+        {/* Card Navigator (Flashcard Style) */}
+        <StudyCardNavigator
+          cards={cards}
+          sectionTitle={cleanTitle}
+          practiceProblemsComponent={
+            practiceProblems ? <PracticeProblemsSection content={practiceProblems} /> : undefined
+          }
+        />
+      </div>
+    );
+  }
+
+  // For "What is..." or other simple content sections (but NOT Core Concepts!)
   if (section.content && !hasSubsections && !hasItems && !hasMistakes && !hasPoints && !hasProblems) {
     return (
       <div className="space-y-6">
@@ -406,25 +425,6 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
             )}
           </div>
         ))}
-      </div>
-    );
-  }
-
-  // For Core Concepts - use card navigator (one at a time)
-  if (isCoreConceptsSection && section.content) {
-    const cards = parseCoreConceptsIntoCards(section.content);
-    const practiceProblems = extractPracticeProblems(section.content);
-
-    return (
-      <div className="space-y-12">
-        {/* Card Navigator (Flashcard Style) */}
-        <StudyCardNavigator
-          cards={cards}
-          sectionTitle={cleanTitle}
-          practiceProblemsComponent={
-            practiceProblems ? <PracticeProblemsSection content={practiceProblems} /> : undefined
-          }
-        />
       </div>
     );
   }
