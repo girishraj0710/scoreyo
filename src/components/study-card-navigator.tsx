@@ -143,6 +143,12 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
   // Single card view
   return (
     <div className="max-w-5xl mx-auto space-y-6">
+      {/* Card Progress Indicator */}
+      <div className="text-center mb-4">
+        <p className="text-sm font-medium" style={{ color: 'var(--foreground-secondary)' }}>
+          Card {currentIndex + 1} of {totalCards}
+        </p>
+      </div>
 
       {/* Current Card */}
       <div className="relative">
