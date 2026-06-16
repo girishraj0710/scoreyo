@@ -236,7 +236,7 @@ function StudyPageContent() {
           <button
             onClick={goToPreviousSection}
             disabled={currentSection === 0}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}
           >
             <ArrowLeft className="w-5 h-5" />
@@ -246,7 +246,7 @@ function StudyPageContent() {
           {currentSection === sections.length - 1 ? (
             <button
               onClick={goToQuiz}
-              className="flex items-center gap-2 px-8 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+              className="flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all"
             >
               <CheckCircle className="w-5 h-5" />
               Start Quiz Now
