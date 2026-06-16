@@ -35,8 +35,20 @@ export default function EnglishPracticePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [error, setError] = useState("");
   const [warning, setWarning] = useState("");
+
+  // Timer - updates every second
+  useEffect(() => {
+    if (quizState !== "quiz") return;
+
+    const interval = setInterval(() => {
+      setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [quizState, startTime]);
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -254,7 +266,7 @@ export default function EnglishPracticePage() {
                   </span>
                   <span className="text-sm flex items-center gap-1" style={{ color: "var(--foreground-secondary)" }}>
                     <Clock className="w-4 h-4" />
-                    {Math.floor((Date.now() - startTime) / 1000 / 60)}m {Math.floor((Date.now() - startTime) / 1000 % 60)}s
+                    {Math.floor(elapsedSeconds / 60)}m {elapsedSeconds % 60}s
                   </span>
                 </div>
                 <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
@@ -403,7 +415,7 @@ export default function EnglishPracticePage() {
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold mb-1">
-                    {Math.floor((Date.now() - startTime) / 1000 / 60)}m
+                    {Math.floor(elapsedSeconds / 60)}m
                   </div>
                   <div className="text-sm" style={{ opacity: 0.8 }}>Time</div>
                 </div>
