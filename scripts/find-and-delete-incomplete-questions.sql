@@ -10,12 +10,13 @@ SELECT
   question,
   options,
   correct_answer,
-  LENGTH(question) as question_length
+  LENGTH(question) as question_length,
+  jsonb_array_length(options::jsonb) as options_count
 FROM english_questions
 WHERE
   LENGTH(question) < 20  -- Very short questions
   OR options IS NULL
-  OR jsonb_array_length(options) < 4  -- Less than 4 options
+  OR jsonb_array_length(options::jsonb) < 4  -- Less than 4 options
   OR explanation IS NULL
   OR explanation = ''
   OR question !~ ' '  -- Single word questions (no spaces)
@@ -32,7 +33,7 @@ DELETE FROM english_questions
 WHERE
   LENGTH(question) < 20  -- Very short questions
   OR options IS NULL
-  OR jsonb_array_length(options) < 4  -- Less than 4 options
+  OR jsonb_array_length(options::jsonb) < 4  -- Less than 4 options
   OR explanation IS NULL
   OR explanation = ''
   OR question !~ ' '  -- Single word questions (no spaces)
@@ -64,7 +65,7 @@ SELECT
   'Missing options' as issue,
   COUNT(*) as count
 FROM english_questions
-WHERE options IS NULL OR jsonb_array_length(options) < 4
+WHERE options IS NULL OR jsonb_array_length(options::jsonb) < 4
 
 UNION ALL
 
