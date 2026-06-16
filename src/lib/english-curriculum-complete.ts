@@ -244,6 +244,689 @@ export const foundationPath: EnglishPath = {
       ],
     },
 
+    // ========== MODULE 2.5: MICRO-LESSONS (A1-B1) ==========
+    {
+      id: "module-2.5-micro-lessons",
+      name: "Module 2.5: Foundation Micro-Lessons",
+      description: "41 bite-sized lessons covering A1 to B1 grammar",
+      icon: "📝",
+      topics: [
+        // ===== PHASE 1: ABSOLUTE BASICS (A1) =====
+        {
+          id: "be-verb-present",
+          name: "I Am, You Are, They Are",
+          description: "Describing yourself and others using am, is, are",
+          icon: "👤",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "I + am + description",
+            "He/She/It + is + description",
+            "You/We/They + are + description",
+            "Present state descriptions",
+            "Common mistakes with be-verb"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "demonstratives-basic",
+          name: "This Is My...",
+          description: "Pointing to things near and far (this, that, these, those)",
+          icon: "👉",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "This/That for singular",
+            "These/Those for plural",
+            "Near vs far distinctions",
+            "Introducing people and things"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "have-got-basic",
+          name: "I Have, You Have",
+          description: "Talking about possessions and relationships",
+          icon: "🎒",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "I/You/We/They have",
+            "He/She/It has",
+            "Don't have / Doesn't have",
+            "Questions with have/has"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "articles",
+          name: "Using A, An, The",
+          description: "When to use articles correctly",
+          icon: "📰",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "A vs An (consonant vs vowel sounds)",
+            "The (specific things)",
+            "Zero article (no article needed)",
+            "Common article mistakes"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "adjectives-basic",
+          name: "Describing Things",
+          description: "Colors, sizes, qualities - basic adjectives",
+          icon: "🎨",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Common adjectives",
+            "Order of adjectives",
+            "Comparative forms (bigger, more beautiful)",
+            "Superlative forms (biggest, most beautiful)"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 2: DAILY ACTIONS (A1) =====
+        {
+          id: "present-simple",
+          name: "What I Do Every Day",
+          description: "Daily routines and habits",
+          icon: "☀️",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Subject + V1 (base form)",
+            "Daily routines",
+            "Habits and facts",
+            "Time expressions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-simple-third-person",
+          name: "What He/She Does",
+          description: "Talking about others' routines (adds -s/-es)",
+          icon: "👥",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "He/She/It + V1+s/es",
+            "Adding -s/-es rules",
+            "Irregular third person (go→goes, do→does)",
+            "Describing others' habits"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-simple-negative",
+          name: "I Don't, He Doesn't",
+          description: "Saying what you don't do",
+          icon: "🚫",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "I/You/We/They + don't + V1",
+            "He/She/It + doesn't + V1",
+            "Negative statements",
+            "Common mistakes"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-simple-questions",
+          name: "Do You...? Does She...?",
+          description: "Asking about habits and routines",
+          icon: "❓",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Do + I/you/we/they + V1?",
+            "Does + he/she/it + V1?",
+            "Yes/No answers",
+            "Wh- questions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-continuous",
+          name: "What I'm Doing Right Now",
+          description: "Actions happening at this moment",
+          icon: "▶️",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Subject + am/is/are + V-ing",
+            "Actions happening now",
+            "Temporary situations",
+            "Adding -ing to verbs"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-continuous-negative",
+          name: "Not Doing Something Now",
+          description: "Negative continuous actions (I'm not working)",
+          icon: "⏸️",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Am/Is/Are + not + V-ing",
+            "Contractions (I'm not, isn't, aren't)",
+            "Negative continuous statements"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-continuous-questions",
+          name: "What Are You Doing?",
+          description: "Asking about actions happening now",
+          icon: "🤔",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Am/Is/Are + subject + V-ing?",
+            "Wh- questions with continuous",
+            "Answering continuous questions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 3: TALKING ABOUT THE PAST (A1-A2) =====
+        {
+          id: "past-simple",
+          name: "What I Did Yesterday",
+          description: "Completed actions in the past",
+          icon: "📅",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Subject + V2 (past form)",
+            "Regular verbs (-ed)",
+            "Time expressions (yesterday, last week)",
+            "Past statements"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "past-simple-irregular",
+          name: "Common Irregular Verbs",
+          description: "Go→Went, See→Saw, Eat→Ate",
+          icon: "🔀",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Top 50 irregular verbs",
+            "No -ed pattern",
+            "Common irregular patterns",
+            "Practice with irregular verbs"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "past-simple-negative",
+          name: "I Didn't Do That",
+          description: "Negative past statements",
+          icon: "⛔",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Subject + didn't + V1",
+            "Did not (formal) vs didn't",
+            "Negative past statements"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "past-simple-questions",
+          name: "Did You...?",
+          description: "Asking about the past",
+          icon: "❔",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Did + subject + V1?",
+            "Yes/No past questions",
+            "Wh- past questions",
+            "Short answers"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "past-continuous",
+          name: "What I Was Doing",
+          description: "Actions in progress in the past",
+          icon: "⏪",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Was/Were + V-ing",
+            "Actions in progress (past)",
+            "Background actions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "past-continuous-while-when",
+          name: "While I Was...",
+          description: "Two actions at the same time (past)",
+          icon: "⏯️",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "While + past continuous",
+            "When + past simple",
+            "Interrupted actions",
+            "Simultaneous past actions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 4: TALKING ABOUT THE FUTURE (A2) =====
+        {
+          id: "future-simple",
+          name: "I Will...",
+          description: "Future predictions and promises",
+          icon: "🔮",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Will + V1",
+            "Predictions",
+            "Spontaneous decisions",
+            "Promises and offers"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "going-to-future",
+          name: "I'm Going To...",
+          description: "Plans and intentions",
+          icon: "📅",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Am/Is/Are + going to + V1",
+            "Future plans",
+            "Intentions",
+            "Evidence-based predictions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "future-comparison",
+          name: "Will vs Going To",
+          description: "Choosing the right future tense",
+          icon: "⚖️",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "Will for spontaneous decisions",
+            "Going to for plans",
+            "Will for predictions",
+            "Going to for evidence-based predictions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 5: CONNECTING IDEAS (A2) =====
+        {
+          id: "present-perfect",
+          name: "I Have Done This Before",
+          description: "Past with present connection",
+          icon: "✅",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Has/Have + V3",
+            "Life experiences",
+            "Unfinished time periods",
+            "Recent past actions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-perfect-time-markers",
+          name: "Ever, Never, Already, Yet",
+          description: "Time words with present perfect",
+          icon: "🕐",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Ever (questions)",
+            "Never (negative)",
+            "Already (affirmative)",
+            "Yet (negative/questions)",
+            "Just, recently"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "present-perfect-for-since",
+          name: "For vs Since",
+          description: "Duration vs starting point",
+          icon: "⏱️",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "For + duration (for 3 years)",
+            "Since + starting point (since 2020)",
+            "How long questions",
+            "Common mistakes"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "conjunctions-basic",
+          name: "And, But, Or, Because",
+          description: "Joining sentences with connectors",
+          icon: "🔗",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "And (addition)",
+            "But (contrast)",
+            "Or (choice)",
+            "Because (reason)",
+            "So (result)"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "time-connectors",
+          name: "When, Before, After, While",
+          description: "Sequencing events in time",
+          icon: "⏰",
+          level: "beginner",
+          category: "foundation",
+          subtopics: [
+            "When (at the time)",
+            "Before (earlier)",
+            "After (later)",
+            "While (during)",
+            "As soon as"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 6: ADVANCED STRUCTURES (A2-B1) =====
+        {
+          id: "modals-can-could",
+          name: "Can, Could",
+          description: "Ability and possibility",
+          icon: "💪",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Can (present ability)",
+            "Could (past ability)",
+            "Could (polite requests)",
+            "Could (possibility)"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "modals-should-must",
+          name: "Should, Must",
+          description: "Advice and obligation",
+          icon: "📋",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Should (advice)",
+            "Must (strong obligation)",
+            "Must (logical deduction)",
+            "Have to vs must"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "modals-possibility",
+          name: "May, Might, Will",
+          description: "Degrees of possibility",
+          icon: "🎲",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Will (certain)",
+            "May (possible)",
+            "Might (less certain)",
+            "Could (also possible)"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "passive-voice-basic",
+          name: "It Is Made, It Was Built",
+          description: "Passive voice basics",
+          icon: "🔄",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Be + V3 (past participle)",
+            "Present passive (is made)",
+            "Past passive (was built)",
+            "When to use passive"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "passive-voice-tenses",
+          name: "Passive in Different Tenses",
+          description: "Beyond present and past passive",
+          icon: "🔃",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Future passive (will be done)",
+            "Present perfect passive (has been done)",
+            "Modal passive (can be done)",
+            "By agent (optional)"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "reported-speech-statements",
+          name: "He Said That...",
+          description: "Reporting what others said",
+          icon: "💬",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Said that + statement",
+            "Tense backshift",
+            "Pronoun changes",
+            "Time/place changes"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "reported-speech-questions",
+          name: "He Asked If...",
+          description: "Reporting questions",
+          icon: "❓💬",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Asked if/whether (yes/no)",
+            "Asked + wh- word (wh- questions)",
+            "Question word order changes",
+            "Tense backshift in questions"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 7: SPECIAL TOPICS (A2-B1) =====
+        {
+          id: "conditionals-first",
+          name: "If I Do, I Will",
+          description: "Real future conditions",
+          icon: "🌦️",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "If + present simple, will + V1",
+            "Real future situations",
+            "Unless (if not)",
+            "When vs if"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "conditionals-second",
+          name: "If I Did, I Would",
+          description: "Hypothetical present situations",
+          icon: "💭",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "If + past simple, would + V1",
+            "Unreal present situations",
+            "Imaginary scenarios",
+            "Advice with would"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "conditionals-third",
+          name: "If I Had Done, I Would Have",
+          description: "Hypothetical past (regrets)",
+          icon: "⏮️",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "If + past perfect, would have + V3",
+            "Unreal past situations",
+            "Regrets about the past",
+            "Different past outcomes"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "relative-clauses-defining",
+          name: "Who, Which, That",
+          description: "Defining relative clauses",
+          icon: "🔗",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Who (for people)",
+            "Which (for things)",
+            "That (for people/things)",
+            "Defining vs non-defining"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "relative-clauses-advanced",
+          name: "Where, When, Whose",
+          description: "Advanced relative clauses",
+          icon: "🔗➕",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Where (for places)",
+            "When (for time)",
+            "Whose (for possession)",
+            "Whom (formal, for people)"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+
+        // ===== PHASE 8: POLISH & PRACTICE (B1) =====
+        {
+          id: "common-mistakes-indian-learners",
+          name: "Common Mistakes Indians Make",
+          description: "L1 interference fixes",
+          icon: "🇮🇳",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Article mistakes",
+            "Preposition confusion",
+            "Tense errors",
+            "Word order issues",
+            "Hindi-to-English traps"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "tricky-grammar",
+          name: "Tricky Grammar Points",
+          description: "Much/Many, Few/Little, etc.",
+          icon: "🧩",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Much vs Many",
+            "Few vs Little",
+            "Less vs Fewer",
+            "Some vs Any",
+            "Each vs Every"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+        {
+          id: "phrasal-verbs-basic",
+          name: "Phrasal Verbs Basics",
+          description: "Get Up, Look After, Turn On",
+          icon: "🔗",
+          level: "intermediate",
+          category: "foundation",
+          subtopics: [
+            "Most common 50 phrasal verbs",
+            "Separable vs inseparable",
+            "Literal vs idiomatic meaning",
+            "Phrasal verbs in context"
+          ],
+          estimatedTime: 5,
+          questionCount: 10,
+        },
+      ],
+    },
+
     // ========== MODULE 3: TENSES (A1-A2) ==========
     {
       id: "module-3-tenses",
