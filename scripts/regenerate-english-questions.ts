@@ -107,7 +107,7 @@ Return ONLY valid JSON array:
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'google/gemini-2.0-flash-exp:free',
+      model: 'anthropic/claude-3.5-sonnet',
       messages: [
         {
           role: 'system',

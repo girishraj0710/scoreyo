@@ -14,13 +14,10 @@
 
 ### Generate Study Material (3 Steps)
 
-**Step 1: Choose format**
+**Step 1: Run generation**
 ```bash
-# Markdown format (preferred - easier to edit)
-npm run generate:study-markdown
-
-# JSON format (for programmatic insertion)
-npm run generate:study-json
+# Generate study materials using Claude 3.5 Sonnet
+npx tsx scripts/generate-study-materials-claude.ts
 ```
 
 **Step 2: Review generated content**

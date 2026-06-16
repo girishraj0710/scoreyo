@@ -16,11 +16,11 @@
 
 **Step 1: Choose your target**
 ```bash
-# Option A: English questions
-npm run generate:english-questions
+# Option A: English questions (Claude 3.5 Sonnet)
+npx tsx scripts/generate-english-questions-claude.ts
 
 # Option B: Main exam questions (JEE, NEET, UPSC, etc.)
-npm run generate:exam-questions
+npx tsx scripts/generate-exam-questions-claude.ts
 ```
 
 **Step 2: Review generated questions**
@@ -368,17 +368,24 @@ npm run generate:banking-english
 
 ---
 
-## API Rate Limits
+## API Usage and Costs
 
-**OpenRouter (Gemini 2.0 Flash):**
-- Free tier: 10 requests/minute
-- Rate limit: 200 requests/day
-- Cost: $0 (free model)
+**Claude 3.5 Sonnet via OpenRouter:**
+- Input: $3 per 1M tokens
+- Output: $15 per 1M tokens
+- Rate limit: ~50 requests/minute
+- No daily limit
+
+**Cost Estimates:**
+- 100 questions: ~$0.05-0.10
+- 1000 questions: ~$0.50-1.00
+- 10,000 questions: ~$5-10
 
 **Strategy:**
-- Generate in batches of 50-100
-- Add 2-second delay between batches
-- Monitor usage on OpenRouter dashboard
+- Generate in batches of 50-100 questions per call
+- Add 3-second delay between topics
+- Monitor costs on OpenRouter dashboard
+- Budget: ~$20-30 for complete English question bank (2000+ questions)
 
 ---
 
