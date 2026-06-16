@@ -82,32 +82,28 @@ If you want to run commands directly in terminal:
 ```bash
 # Find incomplete questions (review first)
 psql $POSTGRES_URL -c "
-SELECT id, topic, question_text, LENGTH(question_text) as len
-FROM questions
-WHERE subject_id = 'english'
-AND LENGTH(question_text) < 20
+SELECT id, topic_id, question, LENGTH(question) as len
+FROM english_questions
+WHERE LENGTH(question) < 20
 LIMIT 10;
 "
 
 # Delete incomplete questions
 psql $POSTGRES_URL -c "
-DELETE FROM questions
-WHERE subject_id = 'english'
-AND (
-  LENGTH(question_text) < 20
+DELETE FROM english_questions
+WHERE
+  LENGTH(question) < 20
   OR options IS NULL
   OR jsonb_array_length(options) < 4
   OR explanation IS NULL
   OR explanation = ''
-  OR question_text !~ ' '
-);
+  OR question !~ ' ';
 "
 
 # Verify
 psql $POSTGRES_URL -c "
 SELECT COUNT(*) as total
-FROM questions
-WHERE subject_id = 'english';
+FROM english_questions;
 "
 ```
 
@@ -120,9 +116,9 @@ If you want to **fix** incomplete questions instead of deleting them:
 1. **Export incomplete questions** to CSV:
    ```sql
    COPY (
-     SELECT id, topic, question_text, options, correct_answer, explanation
-     FROM questions
-     WHERE subject_id = 'english' AND LENGTH(question_text) < 20
+     SELECT id, topic_id, question, options, correct_answer, explanation
+     FROM english_questions
+     WHERE LENGTH(question) < 20
    ) TO '/tmp/incomplete_questions.csv' WITH CSV HEADER;
    ```
 
@@ -130,8 +126,8 @@ If you want to **fix** incomplete questions instead of deleting them:
 
 3. **Update** database with fixed questions:
    ```sql
-   UPDATE questions
-   SET question_text = 'Fixed question text here...'
+   UPDATE english_questions
+   SET question = 'Fixed question text here...'
    WHERE id = 123;
    ```
 
@@ -145,10 +141,9 @@ After deleting incomplete questions, if some topics have too few questions:
 
 1. Check question count by topic:
    ```sql
-   SELECT topic, COUNT(*) as count
-   FROM questions
-   WHERE subject_id = 'english'
-   GROUP BY topic
+   SELECT topic_id, COUNT(*) as count
+   FROM english_questions
+   GROUP BY topic_id
    ORDER BY count ASC;
    ```
 

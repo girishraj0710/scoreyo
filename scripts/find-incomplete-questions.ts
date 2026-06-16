@@ -21,26 +21,22 @@ async function findIncompleteQuestions() {
     const result = await pool.query(`
       SELECT
         id,
-        subject_id,
-        topic,
-        question_text,
+        topic_id,
+        question,
         options,
         correct_answer,
         explanation,
-        passage_id,
-        LENGTH(question_text) as question_length
-      FROM questions
+        passage,
+        LENGTH(question) as question_length
+      FROM english_questions
       WHERE
-        subject_id = 'english'
-        AND (
-          LENGTH(question_text) < 20  -- Very short questions
-          OR options IS NULL
-          OR jsonb_array_length(options) < 4  -- Less than 4 options
-          OR explanation IS NULL
-          OR explanation = ''
-          OR question_text ILIKE '%[%'  -- Contains placeholder like [sentence]
-          OR question_text ILIKE '%____%'  -- Contains blank like ____
-        )
+        LENGTH(question) < 20  -- Very short questions
+        OR options IS NULL
+        OR jsonb_array_length(options) < 4  -- Less than 4 options
+        OR explanation IS NULL
+        OR explanation = ''
+        OR question ILIKE '%[%'  -- Contains placeholder like [sentence]
+        OR question ILIKE '%____%'  -- Contains blank like ____
       ORDER BY id
       LIMIT 50;
     `);
@@ -49,8 +45,8 @@ async function findIncompleteQuestions() {
 
     result.rows.forEach((row, idx) => {
       console.log(`${idx + 1}. ID: ${row.id}`);
-      console.log(`   Topic: ${row.topic}`);
-      console.log(`   Question (${row.question_length} chars): "${row.question_text}"`);
+      console.log(`   Topic: ${row.topic_id}`);
+      console.log(`   Question (${row.question_length} chars): "${row.question}"`);
       console.log(`   Options: ${row.options ? JSON.stringify(row.options).substring(0, 100) : 'NULL'}`);
       console.log(`   Answer: ${row.correct_answer}`);
       console.log(`   Explanation: ${row.explanation ? row.explanation.substring(0, 100) : 'NULL'}`);
@@ -61,21 +57,19 @@ async function findIncompleteQuestions() {
     const singleWordQuestions = await pool.query(`
       SELECT
         id,
-        subject_id,
-        topic,
-        question_text,
+        topic_id,
+        question,
         options
-      FROM questions
+      FROM english_questions
       WHERE
-        subject_id = 'english'
-        AND question_text !~ ' '  -- No spaces (single word)
+        question !~ ' '  -- No spaces (single word)
       ORDER BY id;
     `);
 
     if (singleWordQuestions.rows.length > 0) {
       console.log(`\n⚠️  Found ${singleWordQuestions.rows.length} single-word questions:\n`);
       singleWordQuestions.rows.forEach((row) => {
-        console.log(`ID ${row.id}: "${row.question_text}" (Topic: ${row.topic})`);
+        console.log(`ID ${row.id}: "${row.question}" (Topic: ${row.topic_id})`);
       });
     }
 
