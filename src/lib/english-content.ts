@@ -31,33 +31,8 @@ export interface EnglishPath {
   estimatedWeeks: number;
 }
 
-// Topics that have study materials in database (Modules 1, 2, 2.5 only - 49 topics)
-const topicsWithContent = new Set([
-  // Module 1: Alphabet & Phonics
-  "alphabet-basics", "phonics-vowels", "pronunciation-basics",
-  // Module 2: Basic Grammar
-  "parts-of-speech", "nouns-detailed", "pronouns-detailed", "articles", "adjectives", "verbs-basics",
-  // Module 2.5: Foundation Micro-Lessons (41 topics)
-  "be-verb-present", "demonstratives-basic", "have-got-basic", "adjectives-basic",
-  "present-simple", "present-simple-third-person", "present-simple-negative", "present-simple-questions",
-  "present-continuous", "present-continuous-negative", "present-continuous-questions",
-  "past-simple", "past-simple-irregular", "past-simple-negative", "past-simple-questions",
-  "past-continuous", "past-continuous-while-when",
-  "future-simple", "going-to-future", "future-comparison",
-  "present-perfect", "present-perfect-time-markers", "present-perfect-for-since",
-  "conjunctions-basic", "time-connectors",
-  "modals-can-could", "modals-should-must", "modals-possibility",
-  "passive-voice-basic", "passive-voice-tenses",
-  "reported-speech-statements", "reported-speech-questions",
-  "conditionals-first", "conditionals-second", "conditionals-third",
-  "relative-clauses-defining", "relative-clauses-advanced",
-  "common-mistakes-indian-learners", "tricky-grammar", "phrasal-verbs-basic"
-]);
-
-// Flatten all modules and filter to only topics with content
-const foundationTopics: EnglishTopic[] = foundationPath.modules
-  .flatMap(module => module.topics)
-  .filter(topic => topicsWithContent.has(topic.id));
+// Flatten Module 1, 2, 2.5 topics from foundationPath into a single topics array
+const foundationTopics: EnglishTopic[] = foundationPath.modules.flatMap(module => module.topics);
 
 // English Learning Paths
 export const englishPaths: EnglishPath[] = [
