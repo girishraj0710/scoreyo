@@ -61,7 +61,7 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
 
   return (
     <div
-      className="mb-6 rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+      className="mb-6 rounded-2xl border-2 overflow-hidden"
       style={{
         background: 'var(--card-bg)',
         borderColor: 'var(--card-border)'

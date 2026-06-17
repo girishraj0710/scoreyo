@@ -13,6 +13,7 @@ interface StudyCardNavigatorProps {
   cards: ConceptCard[];
   sectionTitle: string;
   practiceProblemsComponent?: React.ReactNode;
+  onComplete?: () => void;
 }
 
 /**
@@ -20,7 +21,7 @@ interface StudyCardNavigatorProps {
  * Shows one card at a time with Previous/Next controls
  * Shows practice problems ONLY after all cards are completed
  */
-export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsComponent }: StudyCardNavigatorProps) {
+export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsComponent, onComplete }: StudyCardNavigatorProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [completedCards, setCompletedCards] = useState<Set<number>>(new Set());
   const [showAllCards, setShowAllCards] = useState(false);
@@ -190,36 +191,29 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
         </button>
       </div>
 
-      {/* Show "Start Practice" button ALWAYS after last card */}
-      {currentIndex === totalCards - 1 && practiceProblemsComponent && (
+      {/* Show completion message and Next Section button on last card */}
+      {currentIndex === totalCards - 1 && (
         <div className="mt-8">
-          <div
-            className="p-8 rounded-2xl border-2 text-center"
-            style={{
-              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%)',
-              borderColor: '#10B981'
-            }}
-          >
-            <div className="mb-4">
-              <CheckCircle className="w-16 h-16 mx-auto text-emerald-500" />
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl" style={{ background: 'var(--hover-bg)' }}>
+              <CheckCircle className="w-5 h-5 text-emerald-500" />
+              <span style={{ color: 'var(--foreground)' }}>
+                Completed all {totalCards} concept cards
+              </span>
             </div>
-            <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--foreground)' }}>
-              Ready to Practice?
-            </h3>
-            <p className="text-lg mb-6" style={{ color: 'var(--foreground-secondary)' }}>
-              You've gone through all {totalCards} concept cards. Test your understanding with practice problems!
-            </p>
-            <button
-              onClick={() => setShowPracticeProblems(true)}
-              className="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
-              style={{
-                background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-                color: 'white'
-              }}
-            >
-              Start Practice Problems →
-            </button>
           </div>
+
+          {onComplete && (
+            <div className="flex justify-end pt-6 border-t" style={{ borderColor: 'var(--card-border)' }}>
+              <button
+                onClick={onComplete}
+                className="flex items-center gap-2 px-6 py-3 bg-[#4255FF] text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+              >
+                Next Section
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -193,7 +193,10 @@ export default function StudyMaterialPage() {
 
       {/* Content */}
       <div className="max-w-5xl mx-auto px-4 py-8">
-        <StudyMaterialContent section={currentSectionData} />
+        <StudyMaterialContent
+          section={currentSectionData}
+          onSectionComplete={goToNextSection}
+        />
 
         {/* Navigation - Hidden on Core Concepts section (flashcard navigation handles it) */}
         {!currentSectionData?.title?.toLowerCase().includes('core concepts') && (

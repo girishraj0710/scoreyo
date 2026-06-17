@@ -15,6 +15,7 @@ interface Section {
 
 interface StudyMaterialContentProps {
   section: Section;
+  onSectionComplete?: () => void;
 }
 
 /**
@@ -105,7 +106,7 @@ function extractPracticeProblems(content: string): string | null {
   return match ? '## ' + match[1] + match[2] : null;
 }
 
-export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
+export function StudyMaterialContent({ section, onSectionComplete }: StudyMaterialContentProps) {
   if (!section) return null;
 
   const cleanTitle = section.title
@@ -138,6 +139,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
         <StudyCardNavigator
           cards={cards}
           sectionTitle={cleanTitle}
+          onComplete={onSectionComplete}
         />
       </div>
     );

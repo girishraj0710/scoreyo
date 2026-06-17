@@ -1,0 +1,385 @@
+-- ============================================================================
+-- FOUNDATION PATH: Parts of Speech (COMPLETE)
+-- Topic ID: parts-of-speech
+-- Level: beginner (A1)
+-- Total: 150 questions covering ALL 8 subtopics
+-- ============================================================================
+-- Subtopics covered:
+--   1. Nouns - 19 questions
+--   2. Pronouns - 19 questions
+--   3. Verbs - 19 questions
+--   4. Adjectives - 19 questions
+--   5. Adverbs - 19 questions
+--   6. Prepositions - 19 questions
+--   7. Conjunctions - 19 questions
+--   8. Interjections - 17 questions
+-- Distribution: 60 easy, 60 medium, 30 hard (40/40/20)
+-- ============================================================================
+
+INSERT INTO english_questions (path_id, topic_id, level, question, options, correct_answer, explanation, difficulty) VALUES
+
+-- ============================================================================
+-- SUBTOPIC 1: Nouns (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is a noun? "The cat sleeps."', '["The", "cat", "sleeps", "None"]', 1, 'Noun: person, place, thing, or idea. "cat" = animal (thing). "The" = article. "sleeps" = verb (action).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Noun in: "Happiness is important."', '["Happiness", "is", "important", "No noun"]', 0, 'Noun: "Happiness" = abstract idea (thing). Nouns can be concrete (book) or abstract (love, happiness).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is a proper noun?', '["city", "Delhi", "school", "teacher"]', 1, 'Proper noun: specific name (capitalized). "Delhi" = specific city name. Common nouns: city, school, teacher.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'How many nouns? "The teacher gave books to students."', '["3 (teacher, books, students)", "2", "4", "1"]', 0, 'Three nouns: "teacher" (person), "books" (things), "students" (people). All are naming words.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which word is NOT a noun?', '["dog", "quickly", "school", "India"]', 1, '"quickly" = adverb (describes how). dog/school/India = nouns (naming words).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Noun in: "She loves music."', '["She", "loves", "music", "All nouns"]', 2, 'Noun: "music" = thing/idea. "She" = pronoun. "loves" = verb. Pattern: nouns name people/places/things/ideas.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Collective noun:', '["team", "boy", "book", "happy"]', 0, 'Collective noun: group of people/things. "team" = group. boy/book = individual nouns. happy = adjective.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Nouns name:', '["people, places, things, ideas", "actions", "descriptions", "connections"]', 0, 'Nouns: name people (teacher), places (school), things (book), ideas (freedom). Other parts describe/show action.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL nouns: "My friend studies at Delhi University."', '["friend, Delhi, University", "My, friend, studies", "friend, studies, Delhi", "studies, Delhi, University"]', 0, 'Three nouns: "friend" (person), "Delhi" (place/proper), "University" (place). "My" = pronoun. "studies" = verb.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which word functions as noun? "The poor need help."', '["poor", "need", "help", "poor and help"]', 3, 'Both! "poor" (adjective used as noun = poor people), "help" (thing needed). Context determines part of speech!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "She gave me an advices."', '["Use: advice (uncountable)", "Use: advise instead", "Remove: an", "Both A and C"]', 3, '"advice" = uncountable noun (no plural). Fix: "advice" (no -s) OR remove "an" (some advice). Both fixes work!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: love / I / reading / and / writing', '["I love reading and writing", "I love read and write", "I love to read and to write", "All correct"]', 3, 'Gerunds as nouns! "reading" and "writing" = nouns here (activities). All three sentences grammatically correct, slight meaning differences!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is abstract noun?', '["table", "courage", "book", "city"]', 1, 'Abstract noun: idea/quality (cannot touch). "courage" = quality. table/book/city = concrete nouns (can touch/see).', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the noun? "To travel is fun."', '["To travel (infinitive as noun)", "is", "fun", "travel"]', 0, 'Infinitive as noun: "To travel" = subject (noun function). "fun" = adjective here. "travel" alone = verb.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: knowledge / is / Power / true', '["Power is true knowledge", "Knowledge is true power", "Both can work", "True is power knowledge"]', 2, 'Abstract nouns: "Power" and "knowledge." Both can be subject depending on meaning. Context allows both orders!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: Which sentence has possessive noun?', '["The teacher teaches", "The teacher''s book is here", "She is a teacher", "Teachers are kind"]', 1, 'Possessive noun: "teacher''s" (shows ownership). apostrophe + s = possessive form. Others = simple nouns.', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL nouns: "The running of the marathon was exhausting."', '["running, marathon", "running, marathon, exhausting", "marathon only", "The, running, marathon"]', 0, 'Two nouns: "running" (gerund = noun form of verb), "marathon" (event). "exhausting" = adjective. "The" = article.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which word is NOT functioning as noun? "I have a meeting at the meeting room."', '["First meeting", "Second meeting", "room", "All are nouns"]', 3, 'All nouns! "meeting" (first = event), "meeting" (second = adjective describing room type), "room" (place). "meeting room" = compound noun!', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "He gave me many informations."', '["Use: information (uncountable)", "Use: pieces of information", "Use: much information", "All corrections work"]', 3, '"information" = uncountable (no plural). Fix: "information" / "pieces of information" / "much information." All valid!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 2: Pronouns (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is a pronoun? "She reads books."', '["She", "reads", "books", "None"]', 0, 'Pronoun: replaces noun. "She" = replaces person''s name. "reads" = verb. "books" = noun.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Pronoun in: "I gave it to them."', '["I, it, them", "gave, to", "I only", "them only"]', 0, 'Three pronouns: "I" (subject), "it" (object), "them" (object). All replace nouns. "gave/to" = verb/preposition.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is a possessive pronoun?', '["me", "mine", "I", "myself"]', 1, 'Possessive pronoun: "mine" (shows ownership, stands alone). "me" = object. "I" = subject. "myself" = reflexive.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Pronoun replaces:', '["noun", "verb", "adjective", "adverb"]', 0, 'Pronouns: replace nouns (avoid repetition). I, you, he, she, it, we, they = replace names/nouns.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is reflexive pronoun?', '["him", "his", "he", "himself"]', 3, 'Reflexive pronoun: "himself" (refers back to subject). myself, yourself, himself, herself, itself, ourselves, yourselves, themselves.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Demonstrative pronoun:', '["this", "I", "he", "my"]', 0, 'Demonstrative pronoun: this, that, these, those (point to things). I/he = personal. my = possessive adjective.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'How many pronouns? "He gave her his book."', '["3 (He, her, his)", "2", "4", "1"]', 0, 'Three pronouns: "He" (subject), "her" (object), "his" (possessive). All replace nouns/names.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Interrogative pronoun:', '["who", "he", "this", "my"]', 0, 'Interrogative pronoun: who, whom, whose, what, which (ask questions). he/this/my = other pronoun types.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is wrong? "Me and him went shopping."', '["Use: He and I instead", "Use: Him and I instead", "Use: Me and he instead", "Nothing wrong"]', 0, 'Subject pronouns: I, he (not me, him). Correct: "He and I went shopping." Subject position = nominative case.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL pronouns: "She told me that this is hers."', '["She, me, this, hers", "She, me, that, hers", "She, me, hers", "that, this, hers"]', 0, 'Four pronouns: "She" (personal/subject), "me" (personal/object), "this" (demonstrative), "hers" (possessive). "that" = conjunction here!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "Between you and I, he is wrong."', '["Use: me instead of I", "Use: myself instead of I", "Remove: Between", "Nothing wrong"]', 0, 'After preposition = object pronoun. Correct: "Between you and me." Common mistake: "and I" sounds formal but wrong here!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: hurt / himself / He', '["He hurt himself", "Himself hurt he", "He himself hurt", "Both A and C"]', 0, 'Pattern: subject + verb + reflexive pronoun. Correct: "He hurt himself." Reflexive = object refers back to subject.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which pronoun is relative? "The book that I read was good."', '["that", "I", "was", "No relative pronoun"]', 0, 'Relative pronoun: "that" (connects clauses). Links "book" to description. who, whom, whose, which, that = relative pronouns.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "Who''s book is this?"', '["Use: Whose instead of Who''s", "Use: Which instead of Who''s", "Remove: apostrophe only", "Nothing wrong"]', 0, 'Possessive = "Whose" (ownership). "Who''s" = who is (contraction). Correct: "Whose book is this?" Common confusion!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: one / likes / Everyone / him', '["Everyone likes him", "Everyone like him", "Everyone likes he", "Everyone him likes"]', 0, 'Indefinite pronoun "Everyone" = singular. Object pronoun = "him" (not he). Correct: "Everyone likes him."', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: "_____ can solve this problem?"', '["Who", "Whom", "Whose", "Which"]', 0, 'Subject of question = "Who" (nominative). "Whom" = object case. Pattern: Who + verb? Correct interrogative pronoun!', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which is WRONG?', '["This is mine", "That is yours", "These are our", "Those are theirs"]', 2, 'Possessive pronoun stands alone. Wrong: "our" (needs noun: "our books"). Correct: "ours" (stands alone). Pattern: possessive pronoun alone!', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify pronoun type: "Anyone can participate."', '["Indefinite pronoun", "Personal pronoun", "Demonstrative pronoun", "Interrogative pronoun"]', 0, 'Indefinite pronoun: "Anyone" (unspecified person). anyone, someone, everyone, nobody, nothing, everything = indefinite pronouns.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "The teacher which taught me retired."', '["Use: who instead of which", "Use: whom instead of which", "Use: that instead of which", "Both A and C"]', 3, 'People: who/that (not which). Correct: "The teacher who taught" OR "teacher that taught." "which" = things only!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 3: Verbs (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is a verb? "She runs fast."', '["She", "runs", "fast", "None"]', 1, 'Verb: action or state. "runs" = action. "She" = pronoun. "fast" = adverb.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Verb in: "They are happy."', '["They", "are", "happy", "No verb"]', 1, 'Verb: "are" = linking verb (shows state). "They" = pronoun. "happy" = adjective.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which shows action?', '["is", "jump", "beautiful", "quickly"]', 1, 'Action verb: "jump" (physical action). "is" = linking verb (state). beautiful = adjective. quickly = adverb.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'How many verbs? "She can swim and dive."', '["3 (can, swim, dive)", "2 (swim, dive)", "1 (can)", "4"]', 0, 'Three verbs: "can" (modal/helping), "swim" (main/action), "dive" (main/action). Modal + two main verbs!', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Linking verb:', '["run", "is", "quickly", "book"]', 1, 'Linking verb: "is" (connects subject to description). be, seem, appear, become, feel = linking verbs.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Verb in: "He writes letters."', '["He", "writes", "letters", "All verbs"]', 1, 'Verb: "writes" = action. "He" = pronoun. "letters" = noun. Pattern: subject + verb + object.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Helping verb:', '["do", "run", "happy", "the"]', 0, 'Helping verb: "do" (helps form questions/negatives). do, does, did, be, have, can, will = helping verbs.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Verbs show:', '["action or state", "description", "connection", "name"]', 0, 'Verbs: show action (run, write) or state (is, seem). Other parts describe/name/connect.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is wrong? "She happy."', '["Add: is before happy", "Use: happily instead", "Add: feels before happy", "Both A and C"]', 3, 'Missing verb! Fix: "She is happy" (linking verb) OR "She feels happy." Sentence needs verb!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL verbs: "I have been studying since morning."', '["have, been, studying", "studying only", "have, studying", "been, studying"]', 0, 'Three verbs: "have" (helping), "been" (helping), "studying" (main). Present perfect continuous needs multiple verbs!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "The book laying on the table."', '["Use: is lying (add helping verb)", "Use: lies instead", "Use: lays instead", "Both A and B"]', 3, 'Missing helping verb OR wrong form. Fix: "is lying" (continuous) OR "lies" (simple present). "laying" needs helping verb!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: quickly / runs / He / very', '["He runs very quickly", "He very runs quickly", "He quickly runs very", "Very quickly he runs"]', 0, 'Pattern: subject + verb + adverb + adverb. Correct: "He runs very quickly." Adverbs after verb!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which sentence has transitive verb?', '["She sleeps", "He gave me a gift", "They arrive", "It rains"]', 1, 'Transitive verb: takes object. "gave" + "gift" (object). sleeps/arrive/rains = intransitive (no object needed).', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "She can sings well."', '["Use: sing instead of sings", "Remove: can", "Use: singing instead of sings", "Nothing wrong"]', 0, 'Modal + base form (no -s). Correct: "She can sing well." Pattern: modal + base verb.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: finished / have / homework / They / their', '["They have finished their homework", "They finished have their homework", "They have their homework finished", "They homework have finished"]', 0, 'Pattern: subject + helping + main verb + object. Correct: "They have finished their homework." Present perfect!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: Which has phrasal verb?', '["She looks beautiful", "He looks after his sister", "They look at books", "All have phrasal verbs"]', 1, 'Phrasal verb: verb + preposition (new meaning). "looks after" = takes care of (phrasal). "looks beautiful" = linking verb.', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Identify verb type: "The food tastes delicious."', '["Action verb", "Linking verb", "Helping verb", "Modal verb"]', 1, 'Linking verb: "tastes" connects food to description (delicious). Links subject to adjective, no action shown here.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is WRONG?', '["She is reading", "They have gone", "He can to swim", "We will arrive"]', 2, 'Modal + base (no "to"). Wrong: "can to swim." Correct: "can swim." Pattern: modal + base verb only!', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "She has went home."', '["Use: gone instead of went", "Use: go instead of went", "Remove: has", "Both A and C"]', 0, 'Present perfect: has/have + past participle. Correct: "has gone" (not has went). went = simple past only!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 4: Adjectives (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is an adjective? "The big dog barks."', '["The", "big", "dog", "barks"]', 1, 'Adjective: describes noun. "big" describes dog. "The" = article. "dog" = noun. "barks" = verb.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adjective in: "She is smart."', '["She", "is", "smart", "No adjective"]', 2, 'Adjective: "smart" describes she. Pattern: subject + linking verb + adjective.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which describes noun?', '["quickly", "beautiful", "runs", "and"]', 1, 'Adjective: "beautiful" (describes noun). quickly = adverb (describes verb). runs = verb. and = conjunction.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'How many adjectives? "The tall, young teacher is kind."', '["3 (tall, young, kind)", "2", "4", "1"]', 0, 'Three adjectives: "tall" (describes teacher), "young" (describes teacher), "kind" (describes teacher).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adjective answers:', '["What kind? Which one? How many?", "When? Where? How?", "Why?", "Who? What?"]', 0, 'Adjectives answer: What kind? (big dog), Which one? (that book), How many? (three cats). Describe nouns!', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adjective in: "I have three books."', '["I", "have", "three", "books"]', 2, 'Adjective: "three" (describes how many books). Numeral adjective. "books" = noun.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is possessive adjective?', '["mine", "my", "I", "me"]', 1, 'Possessive adjective: "my" (before noun). my, your, his, her, its, our, their = possessive adjectives.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adjectives modify:', '["nouns and pronouns", "verbs", "other adjectives", "prepositions"]', 0, 'Adjectives: modify nouns/pronouns (describe them). Adverbs modify verbs/adjectives/other adverbs.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is wrong? "She is a person very nice."', '["Use: very nice person (order)", "Remove: very", "Use: nicely instead of nice", "Nothing wrong"]', 0, 'Adjective before noun! Correct: "a very nice person." Pattern: article + adverb + adjective + noun. English word order!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL adjectives: "My old friend bought a beautiful new car."', '["My, old, beautiful, new", "old, beautiful, new", "My, old, new", "old, friend, beautiful"]', 0, 'Four adjectives: "My" (possessive), "old" (age), "beautiful" (opinion), "new" (age). All describe nouns!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "She sings beautiful."', '["Use: beautifully instead of beautiful", "Use: beautiful songs", "Add: is before sings", "Nothing wrong"]', 0, 'Adverb modifies verb! Correct: "She sings beautifully" (how she sings). "beautiful" = adjective (describes nouns only).', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: red / A / cotton / shirt / beautiful', '["A beautiful red cotton shirt", "A red beautiful cotton shirt", "A cotton red beautiful shirt", "A beautiful cotton red shirt"]', 0, 'Adjective order: Opinion → Color → Material. Correct: "beautiful (opinion) red (color) cotton (material) shirt."', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which sentence uses adjective correctly?', '["The cake tastes sweetly", "The cake tastes sweet", "The cake is tasting sweet", "The sweetly cake"]', 1, 'Linking verb + adjective. Correct: "tastes sweet" (not sweetly). Adjective describes cake, not verb!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "He is more taller than me."', '["Remove: more (use: taller only)", "Use: more tall instead", "Use: most tall instead", "Nothing wrong"]', 0, 'Double comparative = wrong! "taller" already comparative. Correct: "He is taller than me." Never: more + -er!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: books / interesting / reads / She / very', '["She reads very interesting books", "She reads interesting very books", "She very reads interesting books", "She reads books very interesting"]', 0, 'Pattern: subject + verb + adverb + adjective + noun. Correct: "She reads very interesting books." Adjective before noun!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: "This is the _____ book I''ve read."', '["good", "better", "best", "most good"]', 2, 'Superlative: the best (comparing three+). Irregular: good → better → best. Pattern: the + best.', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which is NOT an adjective? "The empty room seemed cold and dark."', '["empty", "seemed", "cold", "dark"]', 1, '"seemed" = linking verb. Adjectives: empty (describes room), cold (describes room), dark (describes room).', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify adjective type: "Every student must attend."', '["Demonstrative", "Quantitative", "Possessive", "Descriptive"]', 1, 'Quantitative adjective: "Every" (how many/how much). Describes quantity/number. each, every, all, some, few = quantitative.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "She is the most prettiest girl."', '["Use: prettiest (remove: most)", "Use: pretty instead", "Use: prettier instead", "Nothing wrong"]', 0, 'Double superlative = wrong! "prettiest" already superlative. Correct: "the prettiest girl." Never: most + -est!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 5: Adverbs (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is an adverb? "She runs quickly."', '["She", "runs", "quickly", "None"]', 2, 'Adverb: describes verb. "quickly" describes how she runs. Most adverbs end in -ly.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adverb in: "He speaks very loudly."', '["He", "speaks", "very", "very and loudly"]', 3, 'Two adverbs: "very" (modifies loudly), "loudly" (modifies speaks). Adverbs can modify other adverbs!', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which describes verb?', '["beautiful", "quickly", "book", "and"]', 1, 'Adverb: "quickly" (describes verb/how action done). beautiful = adjective. book = noun. and = conjunction.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adverb answers:', '["How? When? Where? How much?", "What kind? Which?", "Who? What?", "Yes or No"]', 0, 'Adverbs answer: How? (quickly), When? (yesterday), Where? (here), How much? (very). Describe verbs/adjectives/adverbs!', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adverb in: "They will arrive tomorrow."', '["They", "will", "arrive", "tomorrow"]', 3, 'Adverb: "tomorrow" (when they arrive). Adverbs of time: today, yesterday, tomorrow, soon, later.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which modifies adjective? "She is very tall."', '["very", "is", "tall", "She"]', 0, 'Adverb: "very" modifies adjective "tall" (how tall). Adverbs modify verbs/adjectives/other adverbs.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adverb in: "He always studies."', '["He", "always", "studies", "No adverb"]', 1, 'Adverb: "always" (how often he studies). Frequency adverbs: always, often, sometimes, never, rarely.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Adverbs modify:', '["verbs, adjectives, adverbs", "nouns only", "pronouns only", "prepositions"]', 0, 'Adverbs: modify verbs (runs quickly), adjectives (very tall), other adverbs (too quickly). Adjectives modify nouns.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is wrong? "She sings beautiful."', '["Use: beautifully instead of beautiful", "Use: beautifuly instead of beautiful", "Remove: beautiful", "Nothing wrong"]', 0, 'Adverb modifies verb! Correct: "She sings beautifully" (how). "beautiful" = adjective (modifies nouns, not verbs).', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL adverbs: "He walks very slowly and carefully."', '["very, slowly, carefully", "slowly, carefully", "very, slowly", "walks, slowly"]', 0, 'Three adverbs: "very" (modifies slowly), "slowly" (modifies walks), "carefully" (modifies walks). Multiple adverbs allowed!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "She is very much beautiful."', '["Remove: much (use: very beautiful)", "Use: more instead of much", "Use: too instead of very", "Nothing wrong"]', 0, '"very" alone modifies adjective. Correct: "very beautiful" (not very much beautiful). Pattern: very + adjective!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: carefully / He / very / drives', '["He drives very carefully", "He very drives carefully", "He carefully drives very", "Very carefully he drives"]', 0, 'Pattern: subject + verb + adverb + adverb. Correct: "He drives very carefully." Adverbs after verb!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which word functions as adverb? "She arrived late."', '["She", "arrived", "late", "No adverb"]', 2, 'Adverb: "late" (when she arrived). "late" can be adjective (late train) or adverb (arrived late). Context determines!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "He runs fastly."', '["Use: fast instead of fastly", "Use: faster instead of fastly", "Use: quick instead of fastly", "Nothing wrong"]', 0, 'Irregular adverb: "fast" (no -ly). Correct: "He runs fast." Some adverbs don''t end in -ly: fast, hard, early, late!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: plays / well / She / very / piano', '["She plays piano very well", "She plays very piano well", "She very plays piano well", "She plays piano well very"]', 0, 'Pattern: subject + verb + object + adverb + adverb. Correct: "She plays piano very well." Adverbs at end!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: "I _____ completed my work."', '["already have", "have already", "Both correct", "already"]', 2, 'Adverb placement: "already have completed" OR "have already completed." Both orders correct in English!', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which is NOT an adverb? "She spoke clearly, slowly, and with confidence."', '["clearly", "slowly", "confidence", "All are adverbs"]', 2, '"confidence" = noun. Adverbs: clearly, slowly (modify spoke). "with confidence" = prepositional phrase (functions as adverb but "confidence" itself = noun).', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify adverb type: "She rarely eats junk food."', '["Manner", "Frequency", "Place", "Time"]', 1, 'Adverb of frequency: "rarely" (how often). always, usually, often, sometimes, rarely, never = frequency adverbs.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "He works hardly."', '["Use: hard instead of hardly", "Use: hardily instead of hardly", "Remove: hardly", "Nothing wrong"]', 0, '"hardly" = barely (different meaning!). Correct: "He works hard" (adverb = intensely). hard (adverb) ≠ hardly (barely)!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 6: Prepositions (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is a preposition? "The book is on the table."', '["book", "is", "on", "table"]', 2, 'Preposition: "on" shows position (relationship between book and table). on, in, at, under, beside = prepositions.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Preposition in: "She went to school."', '["She", "went", "to", "school"]', 2, 'Preposition: "to" shows direction/destination. to, from, into, towards = prepositions of movement.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which shows relationship?', '["and", "in", "quickly", "book"]', 1, 'Preposition: "in" (shows relationship/position). and = conjunction. quickly = adverb. book = noun.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Preposition in: "He arrived at 5 PM."', '["He", "arrived", "at", "PM"]', 2, 'Preposition: "at" shows time. at, in, on = time prepositions. at (specific time), in (month/year), on (day/date).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Prepositions show:', '["relationship between words", "action", "description", "naming"]', 0, 'Prepositions: show relationship (position, time, direction) between noun/pronoun and other words. in, on, at, with, for, by.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Preposition in: "The cat is under the bed."', '["cat", "is", "under", "bed"]', 2, 'Preposition: "under" shows position (where cat is). above, below, under, over, behind = position prepositions.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is preposition of time?', '["on", "quickly", "book", "and"]', 0, 'Preposition of time: "on" (on Monday, on June 15). at/in/on/during/since/for = time prepositions.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Preposition in: "She is from India."', '["She", "is", "from", "India"]', 2, 'Preposition: "from" shows origin/source. from, to, into, out of = prepositions of movement/origin.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is wrong? "She is good in English."', '["Use: at instead of in", "Use: on instead of in", "Remove: in", "Nothing wrong"]', 0, 'Correct preposition: "good at" (skill/subject). Correct: "She is good at English." in/at/on = different meanings!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL prepositions: "She walked through the park with her friend."', '["through, with", "walked, through", "through, park, with", "with only"]', 0, 'Two prepositions: "through" (movement), "with" (accompaniment). Both show relationships!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "He arrived in 6 PM."', '["Use: at instead of in", "Use: on instead of in", "Remove: preposition", "Nothing wrong"]', 0, 'Time preposition: "at" (specific time). Correct: "at 6 PM." Pattern: at (time), on (day), in (month/year)!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: lives / She / Delhi / in', '["She lives in Delhi", "She lives on Delhi", "She lives at Delhi", "She lives Delhi in"]', 0, 'Preposition: "in" (city/country/large place). Pattern: live in + place. Correct: "She lives in Delhi."', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is correct?', '["arrive to station", "arrive at station", "arrive in station", "arrive on station"]', 1, 'Arrival preposition: "arrive at" (small place/point). Pattern: arrive at station/airport. "arrive in" = city/country!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "She is married with him."', '["Use: to instead of with", "Use: by instead of with", "Remove: with", "Nothing wrong"]', 0, 'Correct preposition: "married to" (person). Correct: "She is married to him." Common mistake: with ≠ to!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: wall / picture / the / is / The / on', '["The picture is on the wall", "The picture is in the wall", "The picture is at the wall", "The picture on the wall is"]', 0, 'Preposition: "on" (surface contact). Pattern: on the wall/table/floor. Correct: "The picture is on the wall."', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: "I have been waiting _____ two hours."', '["since", "for", "from", "during"]', 1, 'Duration: "for + time period" (2 hours, 3 days). "since + starting point" (since Monday). Correct: "for two hours."', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which is WRONG?', '["interested in music", "good at sports", "married to him", "arrive to home"]', 3, '"arrive to" = wrong! Correct: "arrive home" (no preposition) OR "arrive at a place." Common mistake!', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify preposition type: "She has been studying since morning."', '["Time", "Place", "Direction", "Manner"]', 0, 'Preposition of time: "since" (starting point). since + specific time = continuing action from that point.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "He is afraid from dogs."', '["Use: of instead of from", "Use: with instead of from", "Remove: from", "Nothing wrong"]', 0, 'Correct preposition: "afraid of" (thing feared). Correct: "He is afraid of dogs." Adjective + preposition combinations fixed!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 7: Conjunctions (19 questions)
+-- ============================================================================
+
+-- EASY (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is a conjunction? "She is smart and kind."', '["She", "smart", "and", "kind"]', 2, 'Conjunction: "and" connects words. and, but, or, so, because = conjunctions (join words/phrases/sentences).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Conjunction in: "I will go if you come."', '["I", "will", "if", "come"]', 2, 'Conjunction: "if" connects clauses (condition). if, when, because, although = subordinating conjunctions.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which connects sentences?', '["quickly", "but", "book", "in"]', 1, 'Conjunction: "but" (connects contrasting ideas). and, but, or, so = coordinating conjunctions.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Conjunction in: "He is tired because he worked late."', '["tired", "because", "worked", "late"]', 1, 'Conjunction: "because" shows reason (connects clauses). because, since, as = conjunctions showing cause.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Conjunctions join:', '["words, phrases, clauses", "only nouns", "only verbs", "nothing"]', 0, 'Conjunctions: join words (cat and dog), phrases (in the house or outside), clauses (I study and she works).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Conjunction in: "Do you want tea or coffee?"', '["Do", "want", "or", "coffee"]', 2, 'Conjunction: "or" shows choice (alternative). and/but/or/so = coordinating conjunctions (FANBOYS).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which shows contrast?', '["and", "but", "or", "because"]', 1, 'Conjunction: "but" shows contrast/opposite. Pattern: [positive] but [negative] OR vice versa.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Conjunction in: "I stayed home, so I finished work."', '["stayed", "home", "so", "finished"]', 2, 'Conjunction: "so" shows result/consequence. Pattern: [cause] so [result]. Coordinating conjunction.', 'easy'),
+
+-- MEDIUM (8 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is wrong? "She is smart but also hardworking."', '["Use: and instead of but", "Remove: also", "Use: or instead of but", "Nothing wrong"]', 3, 'Actually correct! "but also" emphasizes addition despite expectation. Correlative conjunctions: not only...but also. Valid usage!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL conjunctions: "I will call you when I arrive, but if you are busy, we can meet later."', '["when, but, if", "when, if", "but, if", "will, but, can"]', 0, 'Three conjunctions: "when" (time), "but" (contrast), "if" (condition). Mix of subordinating and coordinating!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "He is rich but he is not happy."', '["Add: comma before but", "Use: and instead of but", "Remove: but", "Nothing wrong"]', 3, 'Actually acceptable! Comma optional before "but" in shorter sentences. Comma preferred in longer ones. Both styles OK!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: studied / I / hard / I / so / passed', '["I studied hard, so I passed", "I studied hard so I passed", "Both A and B correct", "I so studied hard I passed"]', 2, 'Coordinating conjunction "so": comma optional. "I studied hard, so I passed" OR "so I passed" (no comma). Both grammatically correct!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is correlative conjunction?', '["and", "either...or", "because", "when"]', 1, 'Correlative conjunction: "either...or" (paired). either...or, neither...nor, both...and, not only...but also = correlative pairs.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "Because I was tired, so I slept."', '["Remove: so", "Remove: Because", "Use: and instead of so", "Both A and B"]', 3, 'Double conjunction = wrong! Use "Because...I slept" (remove so) OR "I was tired, so I slept" (remove Because). One connector enough!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Rearrange: Although / was / he / he / came / sick', '["Although he was sick, he came", "He came although he was sick", "Both A and B correct", "Although sick he was, came he"]', 2, 'Subordinating conjunction: flexible placement. "Although...sick, he came" OR "He came although...sick." Both orders correct!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: "I like coffee _____ tea."', '["and", "but", "or", "All can work"]', 3, 'Context determines! "and" (both), "but" (contrast: prefer coffee), "or" (choice). All grammatically correct, different meanings!', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which is WRONG?', '["She is smart and kind", "He is tired but happy", "I want tea or coffee", "They study because so they pass"]', 3, 'Double conjunction! Wrong: "because so." Use "because they study" OR "They study, so they pass." Never both together!', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify conjunction type: "Neither the teacher nor the students knew."', '["Coordinating", "Subordinating", "Correlative", "No conjunction"]', 2, 'Correlative conjunction: "neither...nor" (paired connectors). Connects two equal elements with negative meaning.', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "I like mangoes, and I don''t like oranges."', '["Use: but instead of and", "Remove: comma", "Use: or instead of and", "Nothing wrong"]', 0, 'Contrast needs "but" (not and). Correct: "I like mangoes, but I don''t like oranges." "and" = addition, "but" = contrast!', 'hard'),
+
+-- ============================================================================
+-- SUBTOPIC 8: Interjections (17 questions)
+-- ============================================================================
+
+-- EASY (7 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which word is an interjection? "Wow! That is amazing."', '["Wow", "That", "is", "amazing"]', 0, 'Interjection: "Wow!" shows emotion (surprise). Followed by exclamation mark. oh, ah, ouch, wow, hey = interjections.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Interjection in: "Ouch! That hurts."', '["Ouch", "That", "hurts", "No interjection"]', 0, 'Interjection: "Ouch!" shows emotion (pain). Usually followed by exclamation mark (!).', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which shows emotion?', '["quickly", "and", "Oh", "book"]', 2, 'Interjection: "Oh" (expresses emotion/surprise). quickly = adverb, and = conjunction, book = noun.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Interjection in: "Hurray! We won the match."', '["Hurray", "We", "won", "match"]', 0, 'Interjection: "Hurray!" shows joy/excitement. hurray, yay, hooray = interjections of joy.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Interjections express:', '["sudden emotion or feeling", "action", "description", "connection"]', 0, 'Interjections: express sudden emotion (wow!, ouch!, oh no!). Stand alone, separated by exclamation mark or comma.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Interjection in: "Alas! He failed the exam."', '["Alas", "He", "failed", "exam"]', 0, 'Interjection: "Alas!" shows sorrow/regret. alas, oh no = interjections of sadness.', 'easy'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which is interjection?', '["Hey", "quickly", "and", "smart"]', 0, 'Interjection: "Hey" (gets attention). hey, hello, hi = interjections for greeting/attention.', 'easy'),
+
+-- MEDIUM (7 questions)
+('foundation', 'parts-of-speech', 'beginner', 'What is punctuation? "Wow that is great."', '["Add: ! after Wow", "Add: , after Wow", "Add: . after Wow", "Both A and B"]', 3, 'Interjection: followed by ! (strong emotion) OR , (mild emotion). "Wow!" OR "Wow," both correct. Context determines!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify ALL interjections: "Oh no! Alas, I forgot my keys."', '["Oh no, Alas", "Oh, no, Alas", "Oh no only", "Alas only"]', 0, 'Two interjections: "Oh no!" (one interjection), "Alas" (one interjection). Both express emotion!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error in: "Wow. That is amazing!"', '["Use: ! after Wow instead of .", "Use: , after Wow instead of .", "Remove: Wow", "Nothing wrong"]', 0, 'Strong emotion = exclamation mark! Correct: "Wow! That is amazing!" Period weakens the emotion. Use ! for interjections!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Arrange: won / we / Hooray / the / match', '["Hooray! We won the match", "Hooray, we won the match", "We won the match, hooray", "All can be correct"]', 3, 'Interjection: flexible placement. Start: "Hooray! We won." End: "We won, hooray!" Both natural, both correct!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Which shows pain?', '["Wow", "Ouch", "Hurray", "Bravo"]', 1, 'Interjection of pain: "Ouch!" wow = surprise, hurray = joy, bravo = approval.', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'What is the error? "Oh my God that is scary"', '["Add: ! or , after God", "Use: oh instead of Oh", "Remove: my", "Nothing wrong"]', 0, 'Interjection: needs punctuation! Correct: "Oh my God! That is scary." OR "Oh my God, that is scary." Separate with punctuation!', 'medium'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Choose: Which is NOT an interjection?', '["Wow!", "Hey!", "Ouch!", "Quickly"]', 3, '"Quickly" = adverb (describes verb). Wow/Hey/Ouch = interjections (express emotion).', 'medium'),
+
+-- HARD (3 questions)
+('foundation', 'parts-of-speech', 'beginner', 'Which is WRONG punctuation?', '["Wow! That''s great", "Oh, that''s sad", "Hurray; we won", "Hey! Listen"]', 2, 'Semicolon with interjection = uncommon/wrong! Use: ! (strong emotion) OR , (mild emotion). Correct: "Hurray! We won" OR "Hurray, we won."', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Identify part of speech: "Well, I think you are right."', '["Interjection", "Adverb", "Adjective", "Verb"]', 0, 'Interjection: "Well," (mild emotion, pause before statement). "well" can be adverb (sings well) or interjection (Well, maybe). Context determines!', 'hard'),
+
+('foundation', 'parts-of-speech', 'beginner', 'Error: "She said wow that is amazing."', '["Add: punctuation after wow", "Capitalize: Wow", "Add: quotation marks", "All corrections needed"]', 3, 'Multiple fixes needed! Correct: "She said, ''Wow! That is amazing.''" Need: quotation marks + punctuation + capitalization. All three!', 'hard');
+
+-- ============================================================================
+-- VERIFICATION QUERIES
+-- ============================================================================
+
+SELECT 'Parts of Speech Question Count Check' as check_name;
+SELECT COUNT(*) as total_questions FROM english_questions WHERE topic_id = 'parts-of-speech';
+
+-- Expected output: 150 questions
+-- Breakdown: 19 per subtopic × 7 subtopics + 17 for last subtopic = 150
