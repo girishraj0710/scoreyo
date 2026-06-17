@@ -1,8 +1,7 @@
 // English Learning Content Structure
-// Re-exports from english-curriculum-complete.ts for Foundation path
-// and adds other paths (Competitive Exam, IELTS, Real-World)
+// Uses COMPLETE Foundation curriculum (43 topics - Cambridge-aligned A1-B2)
 
-import { foundationPath, type EnglishPath as CompletePath, type EnglishTopic as CompleteTopic } from './english-curriculum-complete';
+import { foundationPathComplete, getAllFoundationTopics } from './english-foundation-complete-43';
 
 export type EnglishLevel = "beginner" | "intermediate" | "advanced";
 export type EnglishGoal = "competitive-exam" | "ielts-toefl" | "foundation" | "real-world";
@@ -31,21 +30,21 @@ export interface EnglishPath {
   estimatedWeeks: number;
 }
 
-// Flatten Module 1, 2, 2.5 topics from foundationPath into a single topics array
-const foundationTopics: EnglishTopic[] = foundationPath.modules.flatMap(module => module.topics);
+// Flatten all 10 modules into a single topics array (43 topics total)
+const foundationTopics: EnglishTopic[] = getAllFoundationTopics();
 
 // English Learning Paths
 export const englishPaths: EnglishPath[] = [
   {
     id: "foundation",
-    name: foundationPath.name,
-    description: foundationPath.description,
-    icon: foundationPath.icon,
-    color: foundationPath.color,
+    name: foundationPathComplete.name,
+    description: foundationPathComplete.description,
+    icon: foundationPathComplete.icon,
+    color: foundationPathComplete.color,
     goal: "foundation",
-    totalQuestions: foundationPath.totalQuestions,
-    estimatedWeeks: foundationPath.estimatedWeeks,
-    topics: foundationTopics, // ✅ All 50 topics from comprehensive curriculum
+    totalQuestions: foundationPathComplete.totalQuestions,
+    estimatedWeeks: foundationPathComplete.estimatedWeeks,
+    topics: foundationTopics, // ✅ 43 comprehensive topics (complete A1-B2 curriculum)
   },
   {
     id: "competitive-exam",

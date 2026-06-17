@@ -1,0 +1,740 @@
+// Foundation English - Complete 43-Topic Curriculum (CEFR A1-B2)
+// Ordered by proper learning sequence with difficulty levels
+
+export interface EnglishTopic {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  level: "beginner" | "intermediate" | "advanced";
+  cefrLevel: "A1" | "A2" | "B1" | "B2"; // Added for precise tracking
+  category: "foundation";
+  subtopics: string[];
+  estimatedTime: number; // minutes
+  questionCount: number;
+  prerequisite?: string[]; // Topics that should be learned before this
+}
+
+export interface EnglishModule {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  level: "beginner" | "intermediate" | "advanced";
+  topics: EnglishTopic[];
+}
+
+export interface EnglishPath {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+  goal: "foundation";
+  modules: EnglishModule[];
+  totalQuestions: number;
+  estimatedWeeks: number;
+}
+
+// 43 Topics - Ordered by Learning Sequence (A1 → A2 → B1 → B2)
+export const foundationPathComplete: EnglishPath = {
+  id: "foundation",
+  name: "Foundation Builder (Complete)",
+  description: "Complete English from A1 to B2 - Cambridge-aligned curriculum with 43 comprehensive topics",
+  icon: "📚",
+  color: "#10B981",
+  goal: "foundation",
+  totalQuestions: 2150,
+  estimatedWeeks: 28,
+
+  modules: [
+    // ==================== MODULE 1: Absolute Basics (A1) ====================
+    {
+      id: "basics",
+      name: "Module 1: Absolute Basics",
+      description: "Start from zero - alphabet, sounds, and basic words",
+      icon: "🔤",
+      level: "beginner",
+      topics: [
+        {
+          id: "alphabet-basics",
+          name: "English Alphabet",
+          description: "26 letters, capital and small forms",
+          icon: "🔤",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Capital letters", "Small letters", "Letter sounds"],
+          estimatedTime: 30,
+          questionCount: 20,
+        },
+        {
+          id: "phonics-vowels",
+          name: "Vowels & Consonants",
+          description: "Understand sounds and letter combinations",
+          icon: "🗣️",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["5 vowels", "21 consonants", "Short vs long sounds"],
+          estimatedTime: 45,
+          questionCount: 30,
+          prerequisite: ["alphabet-basics"],
+        },
+        {
+          id: "pronunciation-basics",
+          name: "Pronunciation Fundamentals",
+          description: "Speak clearly with correct stress and intonation",
+          icon: "🎤",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Word stress", "Syllables", "Common pronunciation mistakes"],
+          estimatedTime: 60,
+          questionCount: 40,
+          prerequisite: ["phonics-vowels"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 2: Grammar Foundation (A1) ====================
+    {
+      id: "grammar-foundation",
+      name: "Module 2: Grammar Foundation",
+      description: "Building blocks - parts of speech, basic sentence structure",
+      icon: "🏗️",
+      level: "beginner",
+      topics: [
+        {
+          id: "parts-of-speech",
+          name: "Parts of Speech",
+          description: "8 types of words and their roles",
+          icon: "🧩",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Noun", "Pronoun", "Verb", "Adjective", "Adverb", "Preposition", "Conjunction", "Interjection"],
+          estimatedTime: 60,
+          questionCount: 40,
+        },
+        {
+          id: "nouns-detailed",
+          name: "Nouns Mastery",
+          description: "Types, plurals, countable vs uncountable",
+          icon: "📦",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Common vs proper", "Singular vs plural", "Countable vs uncountable", "Gender"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["parts-of-speech"],
+        },
+        {
+          id: "pronouns-detailed",
+          name: "Pronouns Complete",
+          description: "Subject, object, possessive, reflexive pronouns",
+          icon: "👤",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Personal pronouns", "Possessive pronouns", "Reflexive pronouns", "Demonstrative pronouns"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["parts-of-speech"],
+        },
+        {
+          id: "articles",
+          name: "Articles (a, an, the)",
+          description: "When to use a, an, the, or no article",
+          icon: "📝",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Indefinite articles (a/an)", "Definite article (the)", "Zero article", "Common mistakes"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["nouns-detailed"],
+        },
+        {
+          id: "adjectives",
+          name: "Adjectives & Comparisons",
+          description: "Describe and compare things",
+          icon: "🎨",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Descriptive adjectives", "Comparative", "Superlative", "Order of adjectives"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["parts-of-speech"],
+        },
+        {
+          id: "adverbs-complete",
+          name: "Adverbs Mastery",
+          description: "Frequency, manner, time, place, degree",
+          icon: "⚡",
+          level: "beginner",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Frequency adverbs", "Adverbs of manner", "Comparative/superlative adverbs", "Position in sentence"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["adjectives"],
+        },
+        {
+          id: "verbs-basics",
+          name: "Verbs - Action Words",
+          description: "Main verbs, auxiliary verbs, verb forms",
+          icon: "⚙️",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Action verbs", "Auxiliary verbs (be/do/have)", "Regular vs irregular", "Verb forms"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["parts-of-speech"],
+        },
+        {
+          id: "prepositions-mastery",
+          name: "Prepositions Complete",
+          description: "in/on/at (time & place), movement, position",
+          icon: "📍",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Prepositions of time (in/on/at)", "Prepositions of place", "Prepositions of movement", "Common prepositional phrases"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["parts-of-speech"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 3: Basic Sentence Structure (A1) ====================
+    {
+      id: "sentence-basics",
+      name: "Module 3: Basic Sentences",
+      description: "Build your first sentences - questions, statements, commands",
+      icon: "💬",
+      level: "beginner",
+      topics: [
+        {
+          id: "there-is-are",
+          name: "There is / There are",
+          description: "Talk about existence and location",
+          icon: "🔍",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["There is + singular", "There are + plural", "Negative forms", "Questions"],
+          estimatedTime: 60,
+          questionCount: 40,
+          prerequisite: ["verbs-basics", "nouns-detailed"],
+        },
+        {
+          id: "question-formation",
+          name: "Question Formation",
+          description: "Wh- questions, Yes/No questions, word order",
+          icon: "❓",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Yes/No questions", "Wh- questions (what/where/when/who/why/how)", "Subject questions", "Word order in questions"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["verbs-basics"],
+        },
+        {
+          id: "imperative-mood",
+          name: "Imperative Mood",
+          description: "Give commands, instructions, and requests",
+          icon: "⚠️",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Affirmative commands", "Negative commands (Don't...)", "Polite requests (Please...)", "Let's suggestions"],
+          estimatedTime: 60,
+          questionCount: 40,
+          prerequisite: ["verbs-basics"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 4: Essential Tenses (A1-A2) ====================
+    {
+      id: "essential-tenses",
+      name: "Module 4: Essential Tenses",
+      description: "Master all major verb tenses - present, past, future",
+      icon: "⏰",
+      level: "beginner",
+      topics: [
+        {
+          id: "present-simple-complete",
+          name: "Present Simple Tense",
+          description: "Habits, facts, routines - affirmative, negative, questions",
+          icon: "🔄",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Affirmative (I play)", "Third person (He plays)", "Negative (I don't play)", "Questions (Do you play?)"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["verbs-basics", "question-formation"],
+        },
+        {
+          id: "present-continuous-complete",
+          name: "Present Continuous Tense",
+          description: "Actions happening now - structure and usage",
+          icon: "▶️",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Affirmative (I am studying)", "Negative (I'm not studying)", "Questions (Are you studying?)", "Spelling rules (-ing)"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-simple-complete"],
+        },
+        {
+          id: "past-simple-complete",
+          name: "Past Simple Tense",
+          description: "Completed actions - regular/irregular verbs",
+          icon: "⏮️",
+          level: "beginner",
+          cefrLevel: "A1",
+          category: "foundation",
+          subtopics: ["Affirmative (I went)", "Regular verbs (-ed)", "Irregular verbs", "Negative (didn't)", "Questions (Did you?)"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-simple-complete"],
+        },
+        {
+          id: "past-continuous-complete",
+          name: "Past Continuous Tense",
+          description: "Actions in progress in the past - was/were + -ing",
+          icon: "🔙",
+          level: "beginner",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Structure (was/were + V-ing)", "While + when usage", "Interrupted actions", "Two simultaneous actions"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["past-simple-complete", "present-continuous-complete"],
+        },
+        {
+          id: "future-tenses",
+          name: "Future Tenses",
+          description: "will vs going to - predictions and plans",
+          icon: "⏭️",
+          level: "beginner",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Will (predictions/promises)", "Going to (plans/intentions)", "Differences between will and going to", "Time expressions"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-simple-complete"],
+        },
+        {
+          id: "present-perfect-complete",
+          name: "Present Perfect Tense",
+          description: "Past actions with present relevance - has/have + V3",
+          icon: "✅",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Structure (has/have + V3)", "Ever/never/already/yet/just", "For/since", "Difference from past simple"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["past-simple-complete"],
+        },
+        {
+          id: "present-perfect-continuous",
+          name: "Present Perfect Continuous",
+          description: "Actions that started in past and continue - has/have been + -ing",
+          icon: "🔄",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Structure (has/have been + V-ing)", "How long questions", "Difference from present perfect simple", "Time expressions"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-perfect-complete", "present-continuous-complete"],
+        },
+        {
+          id: "past-perfect",
+          name: "Past Perfect Tense",
+          description: "Earlier past actions - had + V3",
+          icon: "⏪",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Structure (had + V3)", "Before/after/when", "Past perfect vs past simple", "Time sequences"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["past-simple-complete", "present-perfect-complete"],
+        },
+        {
+          id: "tense-comparison",
+          name: "All Tenses Comparison",
+          description: "Master timeline and choose the right tense",
+          icon: "📊",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Present tenses comparison", "Past tenses comparison", "Future tenses comparison", "Mixed tense exercises"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-perfect-continuous", "past-perfect"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 5: Modals & Voice (A2-B1) ====================
+    {
+      id: "modals-voice",
+      name: "Module 5: Modals & Voice",
+      description: "Express ability, permission, advice - active/passive voice",
+      icon: "🎭",
+      level: "intermediate",
+      topics: [
+        {
+          id: "modal-verbs",
+          name: "Modal Verbs",
+          description: "can/could, may/might, must/should, will/would",
+          icon: "🔐",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Ability (can/could)", "Permission (may/can)", "Advice (should/ought to)", "Obligation (must/have to)"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-simple-complete"],
+        },
+        {
+          id: "passive-voice",
+          name: "Passive Voice",
+          description: "Focus on action, not doer - be + V3",
+          icon: "🔄",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Structure (be + past participle)", "Passive in different tenses", "By + agent", "When to use passive"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["tense-comparison"],
+        },
+        {
+          id: "active-passive-conversion",
+          name: "Voice Conversion Practice",
+          description: "Transform between active and passive",
+          icon: "↔️",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Active to passive", "Passive to active", "Different tenses", "Questions in passive"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["passive-voice"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 6: Advanced Grammar (A2-B1) ====================
+    {
+      id: "advanced-grammar",
+      name: "Module 6: Advanced Grammar",
+      description: "Gerunds, infinitives, quantifiers, advanced patterns",
+      icon: "🧠",
+      level: "intermediate",
+      topics: [
+        {
+          id: "gerunds-infinitives",
+          name: "Gerunds & Infinitives",
+          description: "to do vs doing - verb patterns",
+          icon: "🎯",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Gerund (verb + -ing as noun)", "Infinitive (to + verb)", "Verbs followed by gerund", "Verbs followed by infinitive", "Change in meaning"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-continuous-complete"],
+        },
+        {
+          id: "quantifiers-determiners",
+          name: "Quantifiers & Determiners",
+          description: "some/any, much/many, a lot of, few/little",
+          icon: "🔢",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Some/any", "Much/many", "A lot of/lots of", "Few/little", "All/most/some/no"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["nouns-detailed"],
+        },
+        {
+          id: "tag-questions",
+          name: "Tag Questions",
+          description: "Confirmation questions - isn't it? don't you?",
+          icon: "🏷️",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Positive → negative tags", "Negative → positive tags", "Modal verbs in tags", "Intonation patterns"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["question-formation", "modal-verbs"],
+        },
+        {
+          id: "used-to-would",
+          name: "Used to / Would (Past Habits)",
+          description: "Talk about past habits and states",
+          icon: "🕰️",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Used to + infinitive", "Would for past habits", "Difference between used to and would", "Negative and question forms"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["past-simple-complete"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 7: Complex Structures (B1-B2) ====================
+    {
+      id: "complex-structures",
+      name: "Module 7: Complex Structures",
+      description: "Reported speech, conditionals, relative clauses",
+      icon: "🏛️",
+      level: "intermediate",
+      topics: [
+        {
+          id: "reported-speech",
+          name: "Direct & Indirect Speech",
+          description: "Report what people said - tense backshift",
+          icon: "💬",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Say vs tell", "Tense backshift", "Reporting statements", "Reporting questions", "Time/place changes"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["tense-comparison"],
+        },
+        {
+          id: "conditionals",
+          name: "Conditionals (Zero to Third)",
+          description: "If clauses - real and hypothetical situations",
+          icon: "🔀",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Zero conditional (facts)", "First conditional (real future)", "Second conditional (unreal present)", "Third conditional (unreal past)"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["tense-comparison", "modal-verbs"],
+        },
+        {
+          id: "relative-clauses",
+          name: "Relative Clauses (Defining & Non-defining)",
+          description: "who, which, that, whose - add information",
+          icon: "🔗",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Defining clauses", "Non-defining clauses", "Who/which/that/whose", "Where/when", "Omitting relative pronouns"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["pronouns-detailed"],
+        },
+        {
+          id: "sentence-types",
+          name: "Sentence Types",
+          description: "Simple, compound, complex, compound-complex",
+          icon: "📐",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Simple sentences", "Compound (and/but/or)", "Complex (subordinate clauses)", "Compound-complex", "Avoiding fragments/run-ons"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["relative-clauses"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 8: Connecting Ideas (A2-B1) ====================
+    {
+      id: "connecting-ideas",
+      name: "Module 8: Connecting Ideas",
+      description: "Link sentences smoothly with conjunctions and connectors",
+      icon: "🔗",
+      level: "intermediate",
+      topics: [
+        {
+          id: "conjunctions-connectors",
+          name: "Conjunctions & Connectors",
+          description: "and, but, or, because, although, however",
+          icon: "🧲",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Coordinating conjunctions", "Subordinating conjunctions", "Correlative conjunctions", "Transition words"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["sentence-types"],
+        },
+        {
+          id: "time-sequence",
+          name: "Time Sequence Words",
+          description: "first, then, after that, finally, meanwhile",
+          icon: "⏳",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Beginning words (first, initially)", "Middle words (then, next, after that)", "Ending words (finally, eventually)", "Simultaneous actions (meanwhile, while)"],
+          estimatedTime: 90,
+          questionCount: 60,
+          prerequisite: ["conjunctions-connectors"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 9: Vocabulary Building (A2-B1) ====================
+    {
+      id: "vocabulary-building",
+      name: "Module 9: Vocabulary Building",
+      description: "1000+ essential words, synonyms, phrasal verbs, idioms",
+      icon: "📖",
+      level: "intermediate",
+      topics: [
+        {
+          id: "essential-vocabulary",
+          name: "Essential 1000 Words",
+          description: "Most common words by themes - home, work, travel",
+          icon: "📚",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Home and daily life", "Work and education", "Travel and places", "Emotions and feelings", "Food and health"],
+          estimatedTime: 180,
+          questionCount: 120,
+          prerequisite: ["parts-of-speech"],
+        },
+        {
+          id: "synonyms-antonyms",
+          name: "Synonyms & Antonyms",
+          description: "100+ word pairs for competitive exams",
+          icon: "🔄",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Common synonyms", "Common antonyms", "Context and connotation", "Academic vocabulary"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["essential-vocabulary"],
+        },
+        {
+          id: "phrasal-verbs",
+          name: "Common Phrasal Verbs",
+          description: "50+ essential phrasal verbs with multiple meanings",
+          icon: "🎯",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Separable phrasal verbs", "Inseparable phrasal verbs", "Three-word phrasal verbs", "Common meanings"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["verbs-basics", "prepositions-mastery"],
+        },
+        {
+          id: "idioms-expressions",
+          name: "Idioms & Expressions",
+          description: "50+ common British English idioms",
+          icon: "💡",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Emotions idioms", "Success/failure idioms", "Time idioms", "Communication idioms"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["essential-vocabulary"],
+        },
+      ],
+    },
+
+    // ==================== MODULE 10: Practical English (A2-B1) ====================
+    {
+      id: "practical-english",
+      name: "Module 10: Practical English",
+      description: "Real-world communication - speaking, writing, common mistakes",
+      icon: "💼",
+      level: "intermediate",
+      topics: [
+        {
+          id: "speaking-basics",
+          name: "Daily Conversations",
+          description: "Greetings, shopping, directions, phone calls, restaurant",
+          icon: "🗣️",
+          level: "intermediate",
+          cefrLevel: "A2",
+          category: "foundation",
+          subtopics: ["Greetings and introductions", "Shopping transactions", "Asking for directions", "Phone conversations", "Restaurant orders"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["present-simple-complete", "question-formation"],
+        },
+        {
+          id: "writing-basics",
+          name: "Basic Writing Skills",
+          description: "Letters, emails, paragraphs - formal and informal",
+          icon: "✍️",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Informal letters", "Formal letters", "Email writing", "Paragraph structure", "Tone and register"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["sentence-types", "time-sequence"],
+        },
+        {
+          id: "common-mistakes",
+          name: "Common Mistakes for Indian Learners",
+          description: "Hindi L1 interference - word order, articles, prepositions",
+          icon: "⚠️",
+          level: "intermediate",
+          cefrLevel: "B1",
+          category: "foundation",
+          subtopics: ["Word order (SOV → SVO)", "Article errors", "Preposition mistakes", "Tense confusion", "Literal translations from Hindi"],
+          estimatedTime: 120,
+          questionCount: 80,
+          prerequisite: ["tense-comparison", "articles", "prepositions-mastery"],
+        },
+      ],
+    },
+  ],
+};
+
+// Helper to flatten all topics for quiz generation
+export const getAllFoundationTopics = (): EnglishTopic[] => {
+  return foundationPathComplete.modules.flatMap(module => module.topics);
+};
+
+// Helper to get topics by CEFR level
+export const getTopicsByLevel = (level: "A1" | "A2" | "B1" | "B2"): EnglishTopic[] => {
+  return getAllFoundationTopics().filter(topic => topic.cefrLevel === level);
+};
+
+// Helper to get topic prerequisites
+export const getPrerequisites = (topicId: string): string[] => {
+  const topic = getAllFoundationTopics().find(t => t.id === topicId);
+  return topic?.prerequisite || [];
+};
+
+// Learning path validation - check if prerequisites are completed
+export const canStartTopic = (topicId: string, completedTopics: string[]): boolean => {
+  const prerequisites = getPrerequisites(topicId);
+  return prerequisites.every(prereq => completedTopics.includes(prereq));
+};
