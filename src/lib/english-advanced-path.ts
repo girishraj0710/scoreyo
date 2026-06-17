@@ -1,7 +1,8 @@
 // Advanced English - B2 to C1 Level Topics
 // Upper-Intermediate to Advanced English for competitive exams
 
-export interface EnglishTopic {
+// Internal interfaces for module structure
+interface AdvancedTopicInternal {
   id: string;
   name: string;
   description: string;
@@ -15,16 +16,16 @@ export interface EnglishTopic {
   prerequisite?: string[]; // Topics that should be learned before this
 }
 
-export interface EnglishModule {
+interface EnglishModule {
   id: string;
   name: string;
   description: string;
   icon: string;
   level: "intermediate" | "advanced";
-  topics: EnglishTopic[];
+  topics: AdvancedTopicInternal[];
 }
 
-export interface EnglishPath {
+interface AdvancedPathInternal {
   id: string;
   name: string;
   description: string;
@@ -37,7 +38,7 @@ export interface EnglishPath {
 }
 
 // Advanced English Path - B2 to C1
-export const advancedEnglishPath: EnglishPath = {
+export const advancedEnglishPath: AdvancedPathInternal = {
   id: "advanced",
   name: "Advanced English Mastery",
   description: "Upper-Intermediate to Advanced English (B2-C1) - Complex grammar, advanced vocabulary, and professional communication",
@@ -494,12 +495,50 @@ export const advancedEnglishPath: EnglishPath = {
   ],
 };
 
-// Helper to flatten all topics for quiz generation
+// Import the correct types from english-content.ts to match interface
+export interface EnglishTopic {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  level: "beginner" | "intermediate" | "advanced";
+  category: "ielts-toefl" | "foundation" | "advanced" | "real-world";
+  subtopics: string[];
+  estimatedTime: number;
+  questionCount: number;
+}
+
+// Helper to flatten all topics and convert to EnglishTopic format
 export const getAllAdvancedTopics = (): EnglishTopic[] => {
-  return advancedEnglishPath.modules.flatMap(module => module.topics);
+  return advancedEnglishPath.modules.flatMap(module =>
+    module.topics.map(topic => ({
+      id: topic.id,
+      name: topic.name,
+      description: topic.description,
+      icon: topic.icon,
+      level: topic.level as "intermediate" | "advanced", // Already correct
+      category: "advanced" as const,
+      subtopics: topic.subtopics,
+      estimatedTime: topic.estimatedTime,
+      questionCount: topic.questionCount,
+    }))
+  );
 };
 
-// Helper to get topics by CEFR level
+// Helper to get topics by CEFR level (internal use)
 export const getAdvancedTopicsByLevel = (level: "B2" | "C1"): EnglishTopic[] => {
-  return getAllAdvancedTopics().filter(topic => topic.cefrLevel === level);
+  const allTopics = advancedEnglishPath.modules.flatMap(module => module.topics);
+  return allTopics
+    .filter(topic => topic.cefrLevel === level)
+    .map(topic => ({
+      id: topic.id,
+      name: topic.name,
+      description: topic.description,
+      icon: topic.icon,
+      level: topic.level as "intermediate" | "advanced",
+      category: "advanced" as const,
+      subtopics: topic.subtopics,
+      estimatedTime: topic.estimatedTime,
+      questionCount: topic.questionCount,
+    }));
 };
