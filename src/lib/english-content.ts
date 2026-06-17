@@ -5,7 +5,7 @@ import { foundationPathComplete, getAllFoundationTopics } from './english-founda
 import { advancedEnglishPath, getAllAdvancedTopics } from './english-advanced-path';
 
 export type EnglishLevel = "beginner" | "intermediate" | "advanced";
-export type EnglishGoal = "competitive-exam" | "ielts-toefl" | "foundation" | "advanced" | "real-world";
+export type EnglishGoal = "ielts-toefl" | "foundation" | "advanced" | "real-world";
 
 export interface EnglishTopic {
   id: string;
@@ -58,103 +58,6 @@ export const englishPaths: EnglishPath[] = [
     totalQuestions: advancedEnglishPath.totalQuestions,
     estimatedWeeks: advancedEnglishPath.estimatedWeeks,
     topics: advancedTopics, // ✅ 22 topics (B2-C1 advanced)
-  },
-  {
-    id: "competitive-exam",
-    name: "Competitive Exam English",
-    description: "Master English for SSC, Banking, UPSC, and Railway exams",
-    icon: "🎯",
-    color: "#3B82F6",
-    goal: "competitive-exam",
-    totalQuestions: 500,
-    estimatedWeeks: 8,
-    topics: [
-      {
-        id: "grammar-basics",
-        name: "Grammar Fundamentals",
-        description: "Tenses, Articles, Prepositions, Voice, Narration",
-        icon: "📝",
-        level: "beginner",
-        category: "competitive-exam",
-        subtopics: [
-          "Present Tenses",
-          "Past Tenses",
-          "Future Tenses",
-          "Articles (a, an, the)",
-          "Prepositions",
-          "Active & Passive Voice",
-          "Direct & Indirect Speech",
-        ],
-        estimatedTime: 120,
-        questionCount: 100,
-      },
-      {
-        id: "vocabulary-ssc",
-        name: "Vocabulary for SSC/Banking",
-        description: "Synonyms, Antonyms, One-word substitution, Idioms",
-        icon: "📚",
-        level: "intermediate",
-        category: "competitive-exam",
-        subtopics: [
-          "Synonyms & Antonyms",
-          "One Word Substitution",
-          "Idioms & Phrases",
-          "Spelling Correction",
-          "Word Meanings",
-        ],
-        estimatedTime: 90,
-        questionCount: 80,
-      },
-      {
-        id: "sentence-improvement",
-        name: "Sentence Improvement",
-        description: "Error spotting, Fill in the blanks, Sentence rearrangement",
-        icon: "✍️",
-        level: "intermediate",
-        category: "competitive-exam",
-        subtopics: [
-          "Error Spotting",
-          "Fill in the Blanks",
-          "Sentence Rearrangement",
-          "Para Jumbles",
-          "Sentence Completion",
-        ],
-        estimatedTime: 80,
-        questionCount: 70,
-      },
-      {
-        id: "comprehension",
-        name: "Reading Comprehension",
-        description: "Passage reading, inference, theme identification",
-        icon: "📖",
-        level: "advanced",
-        category: "competitive-exam",
-        subtopics: [
-          "Short Passages",
-          "Long Passages",
-          "Main Theme",
-          "Inference Questions",
-          "Vocabulary in Context",
-        ],
-        estimatedTime: 100,
-        questionCount: 50,
-      },
-      {
-        id: "cloze-test",
-        name: "Cloze Test",
-        description: "Fill blanks in passages, context-based learning",
-        icon: "🔤",
-        level: "advanced",
-        category: "competitive-exam",
-        subtopics: [
-          "Grammar-based Cloze",
-          "Vocabulary-based Cloze",
-          "Mixed Cloze Tests",
-        ],
-        estimatedTime: 60,
-        questionCount: 40,
-      },
-    ],
   },
   {
     id: "ielts-toefl",

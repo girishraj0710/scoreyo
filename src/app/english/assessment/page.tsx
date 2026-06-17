@@ -58,10 +58,10 @@ export default function EnglishAssessmentPage() {
         path = "foundation";
       } else if (score <= 14) {
         level = "intermediate";
-        path = "competitive-exam";
+        path = "foundation"; // Continue with Foundation for intermediate
       } else {
         level = "advanced";
-        path = "ielts-toefl";
+        path = "advanced"; // Changed from ielts-toefl to advanced
       }
 
       setDetectedLevel(level);
@@ -96,15 +96,15 @@ export default function EnglishAssessmentPage() {
     const paths = {
       foundation: {
         name: "Foundation Builder",
-        description: "Build strong English basics from scratch",
+        description: "Build strong English basics from A1 to B1 level",
         icon: "🏗️",
         color: "#10B981",
       },
-      "competitive-exam": {
-        name: "Competitive Exam English",
-        description: "Master English for SSC, Banking, UPSC, and Railway exams",
-        icon: "🎯",
-        color: "#3B82F6",
+      advanced: {
+        name: "Advanced English Mastery",
+        description: "Upper-Intermediate to Advanced English (B2-C1)",
+        icon: "🎓",
+        color: "#7C3AED",
       },
       "ielts-toefl": {
         name: "IELTS & TOEFL Preparation",
