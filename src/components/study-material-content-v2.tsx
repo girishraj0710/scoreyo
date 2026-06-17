@@ -109,7 +109,8 @@ function extractPracticeProblems(content: string): string | null {
 export function StudyMaterialContent({ section, onSectionComplete }: StudyMaterialContentProps) {
   if (!section) return null;
 
-  const cleanTitle = section.title
+  // Handle title safely - it might be a string or undefined
+  const cleanTitle = section.title && typeof section.title === 'string'
     ? section.title.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim()
     : '';
 
@@ -123,6 +124,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
   const hasPoints = (section as any).points && Array.isArray((section as any).points);
   const hasProblems = (section as any).problems && Array.isArray((section as any).problems);
   const hasCards = (section as any).cards && Array.isArray((section as any).cards);
+  const hasContentArray = (section as any).content && Array.isArray((section as any).content);
 
   // For Core Concepts - use card navigator (one at a time) - CHECK THIS FIRST!
   // New format: section has cards array directly (no markdown parsing needed)
@@ -164,8 +166,191 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
     );
   }
 
+  // Handle array-based content structure (Advanced English topics)
+  if (hasContentArray && !isCoreConceptsSection) {
+    const contentBlocks = (section as any).content;
+    return (
+      <div className="space-y-6">
+        <div
+          className="p-8 rounded-2xl border-2"
+          style={{
+            background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
+            borderColor: 'var(--card-border)'
+          }}
+        >
+          <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+            {cleanTitle}
+          </h2>
+          <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
+            {contentBlocks.map((block: any, idx: number) => {
+              // Render based on block type
+              if (block.type === 'paragraph') {
+                return (
+                  <p key={idx} className="text-base leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>
+                    {block.text}
+                  </p>
+                );
+              }
+
+              if (block.type === 'formula') {
+                return (
+                  <div key={idx} className="my-6 p-6 rounded-xl border-2" style={{ background: 'rgba(66, 85, 255, 0.05)', borderColor: 'rgba(66, 85, 255, 0.2)' }}>
+                    {block.title && <h4 className="text-lg font-bold mb-3 text-indigo-600">{block.title}</h4>}
+                    <div className="p-4 rounded-lg font-mono text-center text-lg font-semibold mb-4" style={{ background: 'rgba(66, 85, 255, 0.1)' }}>
+                      {block.formula}
+                    </div>
+                    {block.explanation && <p className="text-sm mb-3" style={{ color: 'var(--foreground-secondary)' }}>{block.explanation}</p>}
+                    {block.examples && block.examples.length > 0 && (
+                      <div className="space-y-2 mt-4">
+                        {block.examples.map((ex: string, exIdx: number) => (
+                          <div key={exIdx} className="p-3 rounded-lg" style={{ background: 'var(--hover-bg)' }}>
+                            <span className="text-emerald-600 font-semibold mr-2">✓</span>
+                            <span style={{ color: 'var(--foreground)' }}>{ex}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (block.type === 'example') {
+                return (
+                  <div key={idx} className="my-6">
+                    {block.title && <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{block.title}</h4>}
+                    <div className="space-y-3">
+                      {block.examples && Array.isArray(block.examples) && block.examples.map((ex: any, exIdx: number) => {
+                        const exampleText = typeof ex === 'string' ? ex : ex.text;
+                        const exampleContext = typeof ex === 'object' && ex.context ? ex.context : null;
+                        const exampleMeaning = typeof ex === 'object' && ex.meaning ? ex.meaning : null;
+                        const exampleBreakdown = typeof ex === 'object' && ex.breakdown ? ex.breakdown : null;
+
+                        return (
+                          <div key={exIdx} className="p-4 rounded-lg border-l-4" style={{ background: 'var(--hover-bg)', borderColor: '#10B981' }}>
+                            <p className="font-medium mb-2" style={{ color: 'var(--foreground)' }}>{exampleText}</p>
+                            {exampleContext && <p className="text-sm italic" style={{ color: 'var(--foreground-secondary)' }}>Context: {exampleContext}</p>}
+                            {exampleMeaning && <p className="text-sm mt-2" style={{ color: 'var(--foreground-secondary)' }}>Meaning: {exampleMeaning}</p>}
+                            {exampleBreakdown && <p className="text-sm mt-2 font-mono" style={{ color: 'var(--foreground-secondary)' }}>{exampleBreakdown}</p>}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+
+              if (block.type === 'note') {
+                const icon = block.icon || '💡';
+                return (
+                  <div key={idx} className="my-6 p-5 rounded-xl border-l-4" style={{ background: 'rgba(245, 158, 11, 0.05)', borderColor: '#F59E0B' }}>
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl">{icon}</span>
+                      <div className="flex-1">
+                        {block.title && <h4 className="font-bold mb-2 text-amber-700 dark:text-amber-400">{block.title}</h4>}
+                        <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>{block.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (block.type === 'table') {
+                return (
+                  <div key={idx} className="my-6 overflow-x-auto">
+                    {block.title && <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{block.title}</h4>}
+                    <table className="w-full border-collapse">
+                      {block.headers && (
+                        <thead>
+                          <tr style={{ background: 'rgba(66, 85, 255, 0.1)' }}>
+                            {block.headers.map((header: string, hIdx: number) => (
+                              <th key={hIdx} className="p-3 text-left font-semibold border" style={{ borderColor: 'var(--card-border)', color: 'var(--foreground)' }}>
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                      )}
+                      <tbody>
+                        {block.rows && block.rows.map((row: string[], rIdx: number) => (
+                          <tr key={rIdx} style={{ background: rIdx % 2 === 0 ? 'var(--card-bg)' : 'var(--hover-bg)' }}>
+                            {row.map((cell: string, cIdx: number) => (
+                              <td key={cIdx} className="p-3 border text-sm" style={{ borderColor: 'var(--card-border)', color: 'var(--foreground-secondary)' }}>
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              }
+
+              if (block.type === 'list') {
+                return (
+                  <div key={idx} className="my-6">
+                    {block.title && <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{block.title}</h4>}
+                    <ul className="space-y-2 ml-6">
+                      {block.items && block.items.map((item: string, itemIdx: number) => (
+                        <li key={itemIdx} className="text-base list-disc" style={{ color: 'var(--foreground-secondary)' }}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    {block.examples && block.examples.length > 0 && (
+                      <div className="mt-4 space-y-2">
+                        {block.examples.map((ex: string, exIdx: number) => (
+                          <div key={exIdx} className="p-3 rounded-lg ml-6" style={{ background: 'var(--hover-bg)' }}>
+                            <span className="text-emerald-600 font-semibold mr-2">✓</span>
+                            <span className="text-sm" style={{ color: 'var(--foreground)' }}>{ex}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (block.type === 'practice') {
+                return (
+                  <div key={idx} className="my-8">
+                    {block.title && <h4 className="text-xl font-bold mb-2 text-indigo-600">{block.title}</h4>}
+                    {block.instructions && <p className="text-sm mb-4 italic" style={{ color: 'var(--foreground-secondary)' }}>{block.instructions}</p>}
+                    <div className="space-y-4">
+                      {block.questions && block.questions.map((q: any, qIdx: number) => (
+                        <div key={qIdx} className="p-5 rounded-xl border-2" style={{ background: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
+                          <p className="font-medium mb-3" style={{ color: 'var(--foreground)' }}>
+                            <span className="text-indigo-600 font-bold mr-2">{qIdx + 1}.</span>
+                            {q.question}
+                          </p>
+                          <div className="p-3 rounded-lg mb-2" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
+                            <span className="font-semibold text-emerald-700 dark:text-emerald-300">✓ Answer: </span>
+                            <span className="text-sm" style={{ color: 'var(--foreground)' }}>{q.answer}</span>
+                          </div>
+                          {q.explanation && (
+                            <p className="text-sm mt-2 p-3 rounded-lg" style={{ background: 'rgba(99, 102, 241, 0.05)', color: 'var(--foreground-secondary)' }}>
+                              <span className="font-semibold text-indigo-600">💡 Explanation: </span>
+                              {q.explanation}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Fallback for unknown types
+              return <div key={idx} className="text-sm text-red-500">Unknown content type: {block.type}</div>;
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // For "What is..." or other simple content sections (but NOT Core Concepts!)
-  if (section.content && !hasSubsections && !hasItems && !hasMistakes && !hasPoints && !hasProblems) {
+  if (section.content && !hasSubsections && !hasItems && !hasMistakes && !hasPoints && !hasProblems && !hasContentArray) {
     return (
       <div className="space-y-6">
         <div
