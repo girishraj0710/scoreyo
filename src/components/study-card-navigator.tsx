@@ -50,12 +50,16 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
   const goToNext = () => {
     if (currentIndex < totalCards - 1) {
       setCurrentIndex(currentIndex + 1);
+      // Auto-scroll to top when moving to next card (except on last card)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const goToPrevious = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
+      // Auto-scroll to top when moving to previous card
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
