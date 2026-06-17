@@ -495,8 +495,8 @@ export const advancedEnglishPath: AdvancedPathInternal = {
   ],
 };
 
-// Import the correct types from english-content.ts to match interface
-export interface EnglishTopic {
+// Type for exported topics (matches english-content.ts EnglishTopic)
+type ExportedEnglishTopic = {
   id: string;
   name: string;
   description: string;
@@ -506,10 +506,10 @@ export interface EnglishTopic {
   subtopics: string[];
   estimatedTime: number;
   questionCount: number;
-}
+};
 
 // Helper to flatten all topics and convert to EnglishTopic format
-export const getAllAdvancedTopics = (): EnglishTopic[] => {
+export const getAllAdvancedTopics = (): ExportedEnglishTopic[] => {
   return advancedEnglishPath.modules.flatMap(module =>
     module.topics.map(topic => ({
       id: topic.id,
@@ -526,7 +526,7 @@ export const getAllAdvancedTopics = (): EnglishTopic[] => {
 };
 
 // Helper to get topics by CEFR level (internal use)
-export const getAdvancedTopicsByLevel = (level: "B2" | "C1"): EnglishTopic[] => {
+export const getAdvancedTopicsByLevel = (level: "B2" | "C1"): ExportedEnglishTopic[] => {
   const allTopics = advancedEnglishPath.modules.flatMap(module => module.topics);
   return allTopics
     .filter(topic => topic.cefrLevel === level)
