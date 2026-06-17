@@ -18,6 +18,48 @@ interface StudyMaterialContentProps {
 }
 
 /**
+ * Formats clean JSON card data into StudyCard content format
+ */
+function formatCardContent(card: any): string {
+  let formatted = '';
+
+  // Definition
+  if (card.definition) {
+    formatted += `DEFINITION: ${card.definition}\n\n`;
+  }
+
+  // Rules
+  if (card.rules && Array.isArray(card.rules) && card.rules.length > 0) {
+    formatted += 'RULES:\n';
+    card.rules.forEach((rule: string, idx: number) => {
+      formatted += `${idx + 1}. ${rule}\n`;
+    });
+    formatted += '\n';
+  }
+
+  // Examples
+  if (card.examples) {
+    formatted += 'EXAMPLES:\n';
+
+    // Correct examples
+    if (card.examples.correct && Array.isArray(card.examples.correct)) {
+      card.examples.correct.forEach((ex: string) => {
+        formatted += `CORRECT: ${ex}\n`;
+      });
+    }
+
+    // Incorrect examples
+    if (card.examples.incorrect && Array.isArray(card.examples.incorrect)) {
+      card.examples.incorrect.forEach((ex: any) => {
+        formatted += `INCORRECT: ${ex.text} → WHY: ${ex.reason}\n`;
+      });
+    }
+  }
+
+  return formatted.trim();
+}
+
+/**
  * Parses Core Concepts section into individual concept cards
  */
 function parseCoreConceptsIntoCards(content: string): Array<{ title: string; content: string }> {
@@ -79,8 +121,29 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
   const hasMistakes = (section as any).mistakes && Array.isArray((section as any).mistakes);
   const hasPoints = (section as any).points && Array.isArray((section as any).points);
   const hasProblems = (section as any).problems && Array.isArray((section as any).problems);
+  const hasCards = (section as any).cards && Array.isArray((section as any).cards);
 
   // For Core Concepts - use card navigator (one at a time) - CHECK THIS FIRST!
+  // New format: section has cards array directly (no markdown parsing needed)
+  if (isCoreConceptsSection && hasCards) {
+    const cardsData = (section as any).cards;
+    const cards = cardsData.map((card: any) => ({
+      title: card.title,
+      content: formatCardContent(card)
+    }));
+
+    return (
+      <div className="space-y-12">
+        {/* Card Navigator (Flashcard Style) */}
+        <StudyCardNavigator
+          cards={cards}
+          sectionTitle={cleanTitle}
+        />
+      </div>
+    );
+  }
+
+  // Legacy format: Core Concepts with markdown content
   if (isCoreConceptsSection && section.content) {
     const cards = parseCoreConceptsIntoCards(section.content);
     const practiceProblems = extractPracticeProblems(section.content);

@@ -10,16 +10,10 @@ interface StudyCardProps {
 }
 
 /**
- * Render text with bold markdown (**text** -> <strong>)
+ * Render text (no markdown processing)
  */
-function renderBoldText(text: string) {
-  const parts = text.split(/(\*\*.*?\*\*)/g);
-  return parts.map((part, i) => {
-    if (part.startsWith('**') && part.endsWith('**')) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>;
-    }
-    return part;
-  });
+function renderText(text: string) {
+  return text;
 }
 
 /**
@@ -29,37 +23,37 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
   // Parse the content into structured parts
   const lines = content.split('\n').filter(line => line.trim());
 
-  // Extract definition
-  const definitionMatch = content.match(/\*\*Definition:\*\*\s*(.+?)(?=\*\*|$)/s);
+  // Extract definition (no markdown symbols)
+  const definitionMatch = content.match(/DEFINITION:\s*(.+?)(?=\n(?:RULES:|EXAMPLES:)|$)/s);
   const definition = definitionMatch ? definitionMatch[1].trim() : '';
 
-  // Extract rules
-  const rulesMatch = content.match(/\*\*Rules:\*\*(.*?)(?=\*\*Examples:|$)/s);
+  // Extract rules (no markdown symbols)
+  const rulesMatch = content.match(/RULES:\s*(.*?)(?=\nEXAMPLES:|$)/s);
   const rulesText = rulesMatch ? rulesMatch[1].trim() : '';
   const rules = rulesText
     .split(/\n\d+\.\s+/)
     .filter(r => r.trim())
-    .map(r => r.trim().replace(/^\d+\.\s*/, '')); // Remove leading numbers like "1. "
+    .map(r => r.trim().replace(/^\d+\.\s*/, ''));
 
-  // Extract examples
+  // Extract examples (no markdown symbols)
   const correctExamples: string[] = [];
   const incorrectExamples: { text: string; reason: string }[] = [];
 
-  const examplesMatch = content.match(/\*\*Examples:\*\*(.*)/s);
+  const examplesMatch = content.match(/EXAMPLES:\s*(.*)/s);
   if (examplesMatch) {
     const examplesText = examplesMatch[1];
 
-    // Find CORRECT examples (remove emoji from regex)
-    const correctMatches = examplesText.matchAll(/(?:CORRECT:)\s*(.+?)(?=\n|$)/g);
+    // Find CORRECT examples
+    const correctMatches = examplesText.matchAll(/CORRECT:\s*(.+?)(?=\n|$)/g);
     for (const match of correctMatches) {
-      correctExamples.push(match[1].trim().replace(/^["']|["']$/g, ''));
+      correctExamples.push(match[1].trim());
     }
 
-    // Find INCORRECT examples with reasons (remove emoji from regex)
-    const incorrectMatches = examplesText.matchAll(/(?:INCORRECT:)\s*(.+?)\s*→\s*WHY:\s*(.+?)(?=\n|$)/g);
+    // Find INCORRECT examples with reasons
+    const incorrectMatches = examplesText.matchAll(/INCORRECT:\s*(.+?)\s*→\s*WHY:\s*(.+?)(?=\n|$)/g);
     for (const match of incorrectMatches) {
       incorrectExamples.push({
-        text: match[1].trim().replace(/^["']|["']$/g, ''),
+        text: match[1].trim(),
         reason: match[2].trim()
       });
     }
@@ -89,7 +83,7 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
 
         <div className="flex items-center gap-3 relative z-10">
           <h3 className="text-2xl font-bold text-white drop-shadow-md">
-            {title.replace(/^###\s*\.?\s*/, '').replace(/\([^)]+\)$/, '').trim()}
+            {title.trim()}
           </h3>
         </div>
       </div>
@@ -136,7 +130,7 @@ export function StudyCard({ title, content, index }: StudyCardProps) {
                       {idx + 1}
                     </div>
                     <p style={{ color: 'var(--foreground)' }} className="leading-relaxed flex-1">
-                      {renderBoldText(rule)}
+                      {rule}
                     </p>
                   </div>
                 </div>
