@@ -1,10 +1,11 @@
 // English Learning Content Structure
-// Uses COMPLETE Foundation curriculum (43 topics - Cambridge-aligned A1-B2)
+// Foundation: A1-B1 (43 topics) | Advanced: B2-C1 (22 topics)
 
 import { foundationPathComplete, getAllFoundationTopics } from './english-foundation-complete-43';
+import { advancedEnglishPath, getAllAdvancedTopics } from './english-advanced-path';
 
 export type EnglishLevel = "beginner" | "intermediate" | "advanced";
-export type EnglishGoal = "competitive-exam" | "ielts-toefl" | "foundation" | "real-world";
+export type EnglishGoal = "competitive-exam" | "ielts-toefl" | "foundation" | "advanced" | "real-world";
 
 export interface EnglishTopic {
   id: string;
@@ -30,8 +31,9 @@ export interface EnglishPath {
   estimatedWeeks: number;
 }
 
-// Flatten all 10 modules into a single topics array (43 topics total)
-const foundationTopics: EnglishTopic[] = getAllFoundationTopics();
+// Flatten all modules into topics arrays
+const foundationTopics: EnglishTopic[] = getAllFoundationTopics(); // 43 topics (A1-B1)
+const advancedTopics: EnglishTopic[] = getAllAdvancedTopics(); // 22 topics (B2-C1)
 
 // English Learning Paths
 export const englishPaths: EnglishPath[] = [
@@ -44,7 +46,18 @@ export const englishPaths: EnglishPath[] = [
     goal: "foundation",
     totalQuestions: foundationPathComplete.totalQuestions,
     estimatedWeeks: foundationPathComplete.estimatedWeeks,
-    topics: foundationTopics, // ✅ 43 comprehensive topics (complete A1-B2 curriculum)
+    topics: foundationTopics, // ✅ 43 topics (A1-B1 complete)
+  },
+  {
+    id: "advanced",
+    name: advancedEnglishPath.name,
+    description: advancedEnglishPath.description,
+    icon: advancedEnglishPath.icon,
+    color: advancedEnglishPath.color,
+    goal: "advanced",
+    totalQuestions: advancedEnglishPath.totalQuestions,
+    estimatedWeeks: advancedEnglishPath.estimatedWeeks,
+    topics: advancedTopics, // ✅ 22 topics (B2-C1 advanced)
   },
   {
     id: "competitive-exam",
