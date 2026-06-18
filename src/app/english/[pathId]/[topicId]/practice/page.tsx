@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
 import { getPathById, getTopicById } from "@/lib/english-content";
-import { ChevronLeft, Clock, CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { ChevronLeft, Clock, CheckCircle2, XCircle, Loader2, BookOpen } from "lucide-react";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 
 interface Question {
