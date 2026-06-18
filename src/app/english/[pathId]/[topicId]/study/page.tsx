@@ -88,7 +88,8 @@ export default function StudyMaterialPage() {
 
   const goToQuiz = () => {
     markSectionComplete();
-    router.push(`/english/${pathId}/${topicId}/practice?count=10`);
+    // Add referrer parameter so practice page can link back to study
+    router.push(`/english/${pathId}/${topicId}/practice?count=10&from=study`);
   };
 
   if (isLoading) {

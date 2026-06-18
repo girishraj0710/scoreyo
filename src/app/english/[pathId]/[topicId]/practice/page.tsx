@@ -489,8 +489,46 @@ export default function EnglishPracticePage() {
               })}
             </div>
 
+            {/* Study Material Recommendation (if score < 70%) */}
+            {accuracy < 70 && (
+              <div
+                className="mb-6 rounded-xl p-6 border-2"
+                style={{
+                  background: "var(--card-bg)",
+                  borderColor: "#4255FF"
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
+                    <BookOpen className="w-6 h-6 text-[#4255FF]" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-2" style={{ color: "var(--foreground)" }}>
+                      📚 Review Study Material
+                    </h3>
+                    <p className="text-sm mb-4" style={{ color: "var(--foreground-secondary)" }}>
+                      Your score is {accuracy.toFixed(0)}%. We recommend reviewing the study material for this topic to strengthen your understanding before practicing again.
+                    </p>
+                    <button
+                      onClick={() => router.push(`/english/${pathId}/${topicId}/study`)}
+                      className="px-6 py-2.5 bg-[#4255FF] text-white rounded-lg hover:bg-[#3242CC] transition-colors font-medium"
+                    >
+                      Go to Study Material →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Action Buttons */}
             <div className="flex gap-4">
+              <button
+                onClick={() => router.push(`/english/${pathId}/${topicId}/study`)}
+                className="flex-1 px-6 py-3 border-2 rounded-lg hover:transition-colors"
+                style={{ borderColor: "#4255FF", color: "#4255FF", background: "var(--card-bg)" }}
+              >
+                📖 Study Material
+              </button>
               <button
                 onClick={() => router.push(`/english/${pathId}/${topicId}`)}
                 className="flex-1 px-6 py-3 border-2 rounded-lg hover:transition-colors"
