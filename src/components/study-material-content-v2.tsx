@@ -241,13 +241,14 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
 
               if (block.type === 'note') {
                 const icon = block.icon || '💡';
+                const noteContent = block.content || block.text || '';
                 return (
                   <div key={idx} className="my-6 p-5 rounded-xl border-l-4" style={{ background: 'rgba(245, 158, 11, 0.05)', borderColor: '#F59E0B' }}>
                     <div className="flex items-start gap-3">
                       <span className="text-2xl">{icon}</span>
                       <div className="flex-1">
                         {block.title && <h4 className="font-bold mb-2 text-amber-700 dark:text-amber-400">{block.title}</h4>}
-                        <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>{block.text}</p>
+                        <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>{noteContent}</p>
                       </div>
                     </div>
                   </div>
