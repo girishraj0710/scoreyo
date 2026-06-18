@@ -521,17 +521,10 @@ export default function EnglishPracticePage() {
             )}
 
             {/* Action Buttons */}
-            <div className="flex gap-4">
-              <button
-                onClick={() => router.push(`/english/${pathId}/${topicId}/study`)}
-                className="flex-1 px-6 py-3 border-2 rounded-lg hover:transition-colors"
-                style={{ borderColor: "#4255FF", color: "#4255FF", background: "var(--card-bg)" }}
-              >
-                📖 Study Material
-              </button>
+            <div className="flex gap-4 justify-center">
               <button
                 onClick={() => router.push(`/english/${pathId}/${topicId}`)}
-                className="flex-1 px-6 py-3 border-2 rounded-lg hover:transition-colors"
+                className="px-8 py-3 border-2 rounded-lg hover:transition-colors"
                 style={{ borderColor: "var(--card-border)", color: "var(--foreground)", background: "var(--card-bg)" }}
               >
                 Back to Topic
@@ -543,7 +536,7 @@ export default function EnglishPracticePage() {
                   setUserAnswers([]);
                   fetchQuestions();
                 }}
-                className="flex-1 px-6 py-3 text-white rounded-lg hover:transition-colors"
+                className="px-8 py-3 text-white rounded-lg hover:transition-colors"
                 style={{ background: "var(--foreground)" }}
               >
                 Practice Again
