@@ -199,15 +199,30 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                     <div className="p-4 rounded-lg font-mono text-center text-lg font-semibold mb-4" style={{ background: 'rgba(66, 85, 255, 0.1)' }}>
                       {block.formula}
                     </div>
+                    {block.description && <p className="text-sm mb-3 italic" style={{ color: 'var(--foreground-secondary)' }}>{block.description}</p>}
                     {block.explanation && <p className="text-sm mb-3" style={{ color: 'var(--foreground-secondary)' }}>{block.explanation}</p>}
                     {block.examples && block.examples.length > 0 && (
-                      <div className="space-y-2 mt-4">
-                        {block.examples.map((ex: string, exIdx: number) => (
-                          <div key={exIdx} className="p-3 rounded-lg" style={{ background: 'var(--hover-bg)' }}>
-                            <span className="text-emerald-600 font-semibold mr-2">✓</span>
-                            <span style={{ color: 'var(--foreground)' }}>{ex}</span>
-                          </div>
-                        ))}
+                      <div className="space-y-3 mt-4">
+                        {block.examples.map((ex: any, exIdx: number) => {
+                          const exampleText = typeof ex === 'string' ? ex : (ex?.text || String(ex));
+                          const exampleExplanation = typeof ex === 'object' && ex?.explanation ? String(ex.explanation) : null;
+
+                          return (
+                            <div key={exIdx} className="p-3 rounded-lg border-l-4" style={{ background: 'var(--hover-bg)', borderColor: '#10B981' }}>
+                              <div className="flex items-start gap-2">
+                                <span className="text-emerald-600 font-semibold">✓</span>
+                                <div className="flex-1">
+                                  <p className="font-medium" style={{ color: 'var(--foreground)' }}>{exampleText}</p>
+                                  {exampleExplanation && (
+                                    <p className="text-sm mt-1 italic" style={{ color: 'var(--foreground-secondary)' }}>
+                                      {exampleExplanation}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -220,10 +235,11 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                     {block.title && <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{block.title}</h4>}
                     <div className="space-y-3">
                       {block.examples && Array.isArray(block.examples) && block.examples.map((ex: any, exIdx: number) => {
-                        const exampleText = typeof ex === 'string' ? ex : ex.text;
-                        const exampleContext = typeof ex === 'object' && ex.context ? ex.context : null;
-                        const exampleMeaning = typeof ex === 'object' && ex.meaning ? ex.meaning : null;
-                        const exampleBreakdown = typeof ex === 'object' && ex.breakdown ? ex.breakdown : null;
+                        const exampleText = typeof ex === 'string' ? ex : (ex?.text || String(ex));
+                        const exampleContext = typeof ex === 'object' && ex?.context ? String(ex.context) : null;
+                        const exampleMeaning = typeof ex === 'object' && ex?.meaning ? String(ex.meaning) : null;
+                        const exampleBreakdown = typeof ex === 'object' && ex?.breakdown ? String(ex.breakdown) : null;
+                        const exampleExplanation = typeof ex === 'object' && ex?.explanation ? String(ex.explanation) : null;
 
                         return (
                           <div key={exIdx} className="p-4 rounded-lg border-l-4" style={{ background: 'var(--hover-bg)', borderColor: '#10B981' }}>
@@ -231,6 +247,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                             {exampleContext && <p className="text-sm italic" style={{ color: 'var(--foreground-secondary)' }}>Context: {exampleContext}</p>}
                             {exampleMeaning && <p className="text-sm mt-2" style={{ color: 'var(--foreground-secondary)' }}>Meaning: {exampleMeaning}</p>}
                             {exampleBreakdown && <p className="text-sm mt-2 font-mono" style={{ color: 'var(--foreground-secondary)' }}>{exampleBreakdown}</p>}
+                            {exampleExplanation && <p className="text-sm mt-2 italic" style={{ color: 'var(--foreground-secondary)' }}>💡 {exampleExplanation}</p>}
                           </div>
                         );
                       })}
@@ -300,12 +317,24 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                     </ul>
                     {block.examples && block.examples.length > 0 && (
                       <div className="mt-4 space-y-2">
-                        {block.examples.map((ex: string, exIdx: number) => (
-                          <div key={exIdx} className="p-3 rounded-lg ml-6" style={{ background: 'var(--hover-bg)' }}>
-                            <span className="text-emerald-600 font-semibold mr-2">✓</span>
-                            <span className="text-sm" style={{ color: 'var(--foreground)' }}>{ex}</span>
-                          </div>
-                        ))}
+                        {block.examples.map((ex: any, exIdx: number) => {
+                          const exampleText = typeof ex === 'string' ? ex : (ex?.text || String(ex));
+                          const exampleExplanation = typeof ex === 'object' && ex?.explanation ? String(ex.explanation) : null;
+
+                          return (
+                            <div key={exIdx} className="p-3 rounded-lg ml-6" style={{ background: 'var(--hover-bg)' }}>
+                              <span className="text-emerald-600 font-semibold mr-2">✓</span>
+                              <div className="text-sm" style={{ color: 'var(--foreground)' }}>
+                                <span>{exampleText}</span>
+                                {exampleExplanation && (
+                                  <p className="mt-1 italic text-xs" style={{ color: 'var(--foreground-secondary)' }}>
+                                    {exampleExplanation}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
