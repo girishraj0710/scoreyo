@@ -1,4 +1,3 @@
-◇ injected env (28) from .env.local // tip: ⌘ suppress logs { quiet: true }
 {
   "total_topics": 116,
   "issues": [
