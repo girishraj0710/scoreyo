@@ -1,0 +1,451 @@
+{
+  "topic_id": "proverbs-sayings",
+  "title": "Proverbs & Sayings",
+  "subtitle": "Common English proverbs and their meanings",
+  "overview": "Proverbs are short, memorable sayings that express universal truths, advice, or observations about life. They are a vital part of English language and culture, often used to make speech more colorful, persuasive, and wise. For advanced learners, understanding proverbs is essential for comprehending literature, excelling in competitive exams like UPSC, and communicating effectively in professional and social contexts. This comprehensive guide covers 50+ essential proverbs, their cultural significance, Indian equivalents, and practical usage strategies.",
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "What Are Proverbs?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A proverb is a short, well-known saying that expresses a general truth or piece of advice. Proverbs are passed down through generations and reflect the collective wisdom of a culture. They use simple language but convey profound meanings, making them memorable and impactful."
+        },
+        {
+          "type": "paragraph",
+          "text": "Key characteristics of proverbs: (1) Brief and concise, (2) Metaphorical or figurative, (3) Universally applicable, (4) Traditional and time-tested, (5) Memorable through rhythm or rhyme."
+        },
+        {
+          "type": "example",
+          "text": "Actions speak louder than words.",
+          "explanation": "This proverb means that what people do is more important than what they say. It's used to emphasize the importance of deeds over promises."
+        },
+        {
+          "type": "note",
+          "text": "Proverbs differ from idioms. While idioms are figurative expressions (e.g., 'piece of cake'), proverbs offer advice or state truths (e.g., 'Practice makes perfect')."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "title": "When to Use Proverbs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Proverbs are powerful tools in writing and speaking, but they must be used appropriately. Overusing proverbs can make your language sound clichéd or pretentious, while using them incorrectly can confuse your audience."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Essays and speeches: To add authority and wisdom to arguments",
+            "Debates and discussions: To support opinions with traditional wisdom",
+            "Creative writing: To convey character wisdom or cultural background",
+            "Professional communication: To offer advice diplomatically",
+            "Informal conversations: To lighten mood or share wisdom humorously"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid using proverbs in: Technical writing, scientific papers, formal business reports, or situations where literal clarity is paramount."
+        },
+        {
+          "type": "example",
+          "text": "In a UPSC essay on 'Youth and Nation Building': 'As the saying goes, the youth are the future of the nation. However, we must remember that Rome wasn't built in a day—meaningful change requires sustained effort and patience.'",
+          "explanation": "Here, the proverb adds depth and traditional wisdom to support the argument without sounding forced."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "title": "50 Essential English Proverbs (Part 1: Life & Success)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These 15 proverbs focus on life lessons, hard work, and achieving success. Master these for essays on perseverance, motivation, and personal development."
+        },
+        {
+          "type": "table",
+          "headers": ["English Proverb", "Meaning", "Hindi/Indian Equivalent"],
+          "rows": [
+            ["Actions speak louder than words", "Deeds are more important than promises", "करनी से बढ़कर कथनी नहीं"],
+            ["A journey of a thousand miles begins with a single step", "Great achievements start with small actions", "बूंद-बूंद से सागर भरता है"],
+            ["Rome wasn't built in a day", "Great things take time", "धीरे-धीरे चलने से मंजिल मिलती है"],
+            ["Practice makes perfect", "Repeated effort leads to mastery", "करत-करत अभ्यास के जड़मति होत सुजान"],
+            ["Where there's a will, there's a way", "Determination overcomes obstacles", "जहाँ चाह वहाँ राह"],
+            ["No pain, no gain", "Success requires hard work", "बिना कष्ट के सुख नहीं"],
+            ["The early bird catches the worm", "Those who act early succeed", "जो सोवे सो खोवे, जो जागे सो पावे"],
+            ["Strike while the iron is hot", "Act when opportunity arises", "समय के साथ चलो"],
+            ["Make hay while the sun shines", "Use opportunities when available", "मौका हाथ से मत जाने दो"],
+            ["Fortune favors the brave", "Courage leads to success", "हिम्मत-ए-मर्दा, मदद-ए-खुदा"],
+            ["Nothing ventured, nothing gained", "You must take risks to succeed", "दांव पर लगाए बिना जीत नहीं"],
+            ["Time and tide wait for no man", "Don't waste time; opportunities pass", "समय किसी का इंतजार नहीं करता"],
+            ["Better late than never", "It's good to do something late than not at all", "देर आए दुरुस्त आए"],
+            ["Every cloud has a silver lining", "Every difficulty has a positive aspect", "हर रात के बाद सवेरा होता है"],
+            ["When the going gets tough, the tough get going", "Strong people thrive in adversity", "मुश्किल में असली वीर दिखते हैं"]
+          ]
+        },
+        {
+          "type": "note",
+          "text": "These proverbs are frequently used in UPSC essays on topics like 'Perseverance', 'Youth Power', 'Success Stories', and 'Overcoming Challenges'."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "title": "50 Essential English Proverbs (Part 2: Wisdom & Caution)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These 15 proverbs emphasize wisdom, prudence, and learning from mistakes. Ideal for essays on decision-making, planning, and life philosophy."
+        },
+        {
+          "type": "table",
+          "headers": ["English Proverb", "Meaning", "Hindi/Indian Equivalent"],
+          "rows": [
+            ["Look before you leap", "Think before acting", "पहले तोलो फिर बोलो"],
+            ["A stitch in time saves nine", "Early action prevents bigger problems", "समय रहते संभल जाओ"],
+            ["Prevention is better than cure", "Avoid problems rather than fixing them", "इलाज से बचाव बेहतर है"],
+            ["Don't put all your eggs in one basket", "Don't risk everything on one option", "एक ही डाल पर मत बैठो"],
+            ["Too many cooks spoil the broth", "Too many people interfere with results", "अधिक हाथों से काम बिगड़ता है"],
+            ["Don't count your chickens before they hatch", "Don't assume success prematurely", "आशा पर दुनिया कायम है पर भरोसा नहीं"],
+            ["All that glitters is not gold", "Appearances can be deceiving", "सब सोना नहीं जो चमकता है"],
+            ["The grass is always greener on the other side", "Others' situations seem better than ours", "दूर के ढोल सुहावने"],
+            ["A bird in the hand is worth two in the bush", "What you have is more valuable than uncertain gains", "हाथ की चिड़िया भली, जंगल के हजार से"],
+            ["You can't have your cake and eat it too", "You can't enjoy both conflicting options", "एक साथ दो नावों पर पैर नहीं रख सकते"],
+            ["Don't bite the hand that feeds you", "Don't harm those who help you", "जिसकी रोटी उसका काम"],
+            ["Let sleeping dogs lie", "Don't reopen old conflicts", "सोए को जगाना ठीक नहीं"],
+            ["Curiosity killed the cat", "Excessive curiosity can be dangerous", "अधिक जानने से नुकसान"],
+            ["Haste makes waste", "Rushing leads to mistakes", "जल्दी का काम शैतान का"],
+            ["Fools rush in where angels fear to tread", "Foolish people take risks without thinking", "नासमझ खतरे नहीं देखते"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": "50 Essential English Proverbs (Part 3: Relationships & Society)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These 10 proverbs focus on human relationships, society, and moral values. Perfect for essays on social issues, ethics, and human behavior."
+        },
+        {
+          "type": "table",
+          "headers": ["English Proverb", "Meaning", "Hindi/Indian Equivalent"],
+          "rows": [
+            ["Birds of a feather flock together", "Similar people associate with each other", "जैसे को तैसा"],
+            ["Blood is thicker than water", "Family bonds are stronger than others", "अपना अपना, पराया पराया"],
+            ["A friend in need is a friend indeed", "True friends help in difficult times", "मुसीबत में काम आने वाला ही सच्चा दोस्त"],
+            ["Two heads are better than one", "Collaboration produces better results", "दो दिमाग एक से बेहतर"],
+            ["United we stand, divided we fall", "Unity gives strength", "एकता में बल है"],
+            ["Honesty is the best policy", "Truthfulness is always beneficial", "सच्चाई सबसे बड़ी नीति"],
+            ["The pen is mightier than the sword", "Ideas are more powerful than violence", "कलम तलवार से ताकतवर"],
+            ["You reap what you sow", "Your actions determine your results", "जैसा बोओगे वैसा काटोगे"],
+            ["What goes around comes around", "Your actions return to you", "जैसा करोगे वैसा भरोगे"],
+            ["Charity begins at home", "Help your family first before others", "पहले अपनों की मदद करो"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "title": "50 Essential English Proverbs (Part 4: Learning & Knowledge)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These 10 proverbs celebrate learning, experience, and the pursuit of knowledge. Essential for essays on education, lifelong learning, and intellectual growth."
+        },
+        {
+          "type": "table",
+          "headers": ["English Proverb", "Meaning", "Hindi/Indian Equivalent"],
+          "rows": [
+            ["Knowledge is power", "Education gives strength and authority", "ज्ञान ही शक्ति है"],
+            ["Experience is the best teacher", "Learning from life is most effective", "अनुभव सबसे बड़ा गुरु"],
+            ["You can lead a horse to water, but you can't make it drink", "You can offer opportunities, but can't force acceptance", "घोड़े को पानी तक ले जा सकते हो, पर पिला नहीं सकते"],
+            ["A little knowledge is a dangerous thing", "Incomplete understanding can be harmful", "अधूरा ज्ञान खतरनाक"],
+            ["The more you learn, the more you realize you don't know", "Learning reveals the vastness of ignorance", "जितना जानो उतना कम"],
+            ["Never judge a book by its cover", "Don't judge by appearances alone", "ऊपरी दिखावे से मत आंको"],
+            ["Two wrongs don't make a right", "Revenge doesn't justify wrongdoing", "बुराई का जवाब बुराई नहीं"],
+            ["When in Rome, do as the Romans do", "Adapt to local customs", "जिस देश में जाओ वहीं की रीत"],
+            ["The proof of the pudding is in the eating", "True value is revealed by experience", "असली परीक्षा अनुभव से होती है"],
+            ["Don't cry over spilled milk", "Don't regret past mistakes", "जो हो गया सो हो गया"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": "Cultural Context: Using Proverbs Appropriately",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Proverbs carry cultural weight and must be used with awareness. In English-speaking cultures, proverbs are seen as markers of wisdom and experience. However, overuse can make you sound old-fashioned or preachy."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Formal contexts: Use 1-2 proverbs maximum in essays or speeches",
+            "Casual conversations: Proverbs add humor or wisdom, but don't overdo it",
+            "Cross-cultural communication: Be aware that not all proverbs translate well",
+            "Modern vs. traditional: Some proverbs sound outdated (e.g., 'A woman's place is in the home')",
+            "Ironic usage: Sometimes proverbs are used sarcastically or humorously"
+          ]
+        },
+        {
+          "type": "example",
+          "text": "In a debate on environmental conservation: 'We often hear that necessity is the mother of invention, but when it comes to climate change, prevention is better than cure. We cannot wait for disasters to force innovation.'",
+          "explanation": "Here, two proverbs are woven naturally into the argument, supporting the point without sounding forced."
+        },
+        {
+          "type": "note",
+          "text": "In UPSC essays, use proverbs to introduce sections, conclude arguments, or add philosophical depth. Avoid starting every paragraph with a proverb—it reduces impact."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "title": "Indian Equivalents: Bridging Cultures",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Many English proverbs have direct or near equivalents in Indian languages. Understanding these connections helps you appreciate universal wisdom and use proverbs confidently in bilingual contexts."
+        },
+        {
+          "type": "table",
+          "headers": ["English Proverb", "Hindi/Sanskrit Equivalent", "Cultural Note"],
+          "rows": [
+            ["A rolling stone gathers no moss", "ठहरा हुआ पानी सड़ता है", "Both warn against stagnation"],
+            ["Empty vessels make the most noise", "थोथा चना बाजे घना", "Both criticize hollow boasting"],
+            ["God helps those who help themselves", "भगवान उन्हीं की मदद करते हैं जो अपनी मदद करते हैं", "Emphasizes self-reliance"],
+            ["Cleanliness is next to godliness", "स्वच्छता ईश्वरत्व के समीप है", "Reflects Hindu values"],
+            ["As you sow, so shall you reap", "कर्म का फल भोगना पड़ता है", "Karma philosophy"],
+            ["Time is money", "समय ही धन है", "Modern, capitalist value"],
+            ["Where there's smoke, there's fire", "जहाँ धुआँ वहाँ आग", "Universal observation"],
+            ["Don't judge a book by its cover", "हीरा कोयले में मिलता है", "Appearances deceive"],
+            ["Absence makes the heart grow fonder", "दूर के ढोल सुहावने", "Distance creates longing"],
+            ["Necessity is the mother of invention", "आवश्यकता आविष्कार की जननी", "Universal truth"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "When writing for bilingual audiences (common in Indian civil services), you can reference both English and Hindi proverbs to show cultural depth and connect with diverse readers."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "title": "Common Mistakes in Using Proverbs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Even advanced learners often misuse proverbs. Here are the most common errors and how to avoid them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mistake 1: Mixing proverbs incorrectly (e.g., 'Don't count your chickens while the iron is hot')",
+            "Mistake 2: Using outdated or offensive proverbs (e.g., gender-biased sayings)",
+            "Mistake 3: Overusing proverbs, making writing sound clichéd",
+            "Mistake 4: Using proverbs out of context (e.g., 'Rome wasn't built in a day' for a quick task)",
+            "Mistake 5: Translating proverbs literally from native language",
+            "Mistake 6: Forgetting that proverbs are figurative, not literal commands",
+            "Mistake 7: Using proverbs in technical or scientific writing where clarity is paramount"
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Incorrect: 'We should strike while the iron is hot and not count our chickens before they hatch.' Correct: 'We should strike while the iron is hot—act now while the opportunity lasts.'",
+          "explanation": "The first sentence mixes two proverbs awkwardly. Use one proverb at a time for clarity."
+        },
+        {
+          "type": "note",
+          "text": "When in doubt, explain the proverb briefly or rephrase it in your own words. This shows understanding and avoids misuse."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "title": "50+ Example Sentences Using Proverbs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Study these examples to understand how proverbs fit naturally into sentences. Notice the context, tone, and purpose of each usage."
+        },
+        {
+          "type": "list",
+          "items": [
+            "He promised to help, but actions speak louder than words—he never showed up.",
+            "Starting a business is daunting, but remember, a journey of a thousand miles begins with a single step.",
+            "The infrastructure project will take years; after all, Rome wasn't built in a day.",
+            "She practiced violin daily, knowing that practice makes perfect.",
+            "Despite setbacks, she believed where there's a will, there's a way.",
+            "Athletes train rigorously because no pain, no gain.",
+            "He woke at 5 AM to study; the early bird catches the worm.",
+            "The minister addressed corruption immediately, choosing to strike while the iron is hot.",
+            "Farmers work hard during harvest season, making hay while the sun shines.",
+            "Entrepreneurs know that fortune favors the brave.",
+            "If you don't apply for the scholarship, nothing ventured, nothing gained.",
+            "Deadlines are strict; time and tide wait for no man.",
+            "She submitted her thesis late but insisted better late than never.",
+            "Though the company faced losses, the CEO reminded everyone that every cloud has a silver lining.",
+            "When the project stalled, the team leader said, 'When the going gets tough, the tough get going.'",
+            "Before investing, look before you leap—research thoroughly.",
+            "Fixing minor bugs early is wise; a stitch in time saves nine.",
+            "Vaccinations are crucial because prevention is better than cure.",
+            "Diversify investments; don't put all your eggs in one basket.",
+            "The committee was inefficient; too many cooks spoil the broth.",
+            "He celebrated before the results; don't count your chickens before they hatch.",
+            "The luxury car wasn't reliable; all that glitters is not gold.",
+            "She envied her friend's job, forgetting the grass is always greener on the other side.",
+            "Accept the job offer; a bird in the hand is worth two in the bush.",
+            "You can't work full-time and travel the world simultaneously; you can't have your cake and eat it too.",
+            "He criticized his mentor harshly, forgetting not to bite the hand that feeds you.",
+            "Avoid reopening the old dispute; let sleeping dogs lie.",
+            "Her nosiness caused trouble; curiosity killed the cat.",
+            "He rushed the report and made errors; haste makes waste.",
+            "Inexperienced hikers ventured into dangerous terrain; fools rush in where angels fear to tread.",
+            "Successful people often share similar traits; birds of a feather flock together.",
+            "Despite disagreements, she stood by her brother; blood is thicker than water.",
+            "He helped during her crisis; a friend in need is a friend indeed.",
+            "The project succeeded because two heads are better than one.",
+            "The movement's slogan was united we stand, divided we fall.",
+            "The leader's integrity proved honesty is the best policy.",
+            "Writers change society peacefully; the pen is mightier than the sword.",
+            "His laziness led to failure; you reap what you sow.",
+            "His kindness returned when he needed help; what goes around comes around.",
+            "Support your family first; charity begins at home.",
+            "Educated citizens build nations; knowledge is power.",
+            "Veterans teach recruits because experience is the best teacher.",
+            "You can offer advice, but you can lead a horse to water, you can't make it drink.",
+            "Overconfidence after one success is dangerous; a little knowledge is a dangerous thing.",
+            "His PhD taught humility; the more you learn, the more you realize you don't know.",
+            "First impressions mislead; never judge a book by its cover.",
+            "Retaliation isn't justice; two wrongs don't make a right.",
+            "In Japan, he bowed respectfully; when in Rome, do as the Romans do.",
+            "Only using the software reveals its flaws; the proof of the pudding is in the eating.",
+            "He regretted his mistake but moved on; don't cry over spilled milk."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "title": "Practice Exercises",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Test your understanding with these 15 exercises. Try to answer without looking back, then verify your answers."
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 1: Match the proverb to the situation: A student who studies 12 hours a day but still fails exams.",
+          "answer": "'All work and no play makes Jack a dull boy' or 'A little knowledge is a dangerous thing' (if studying wrongly). The student may be overworking without understanding, or studying inefficiently."
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 2: Complete the proverb: 'A journey of a thousand miles...'",
+          "answer": "'...begins with a single step.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 3: What proverb warns against wasting time?",
+          "answer": "'Time and tide wait for no man' or 'Make hay while the sun shines.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 4: Which proverb would you use to comfort someone facing temporary difficulties?",
+          "answer": "'Every cloud has a silver lining' or 'This too shall pass.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 5: What's wrong with this sentence? 'He counted his chickens while the iron was hot.'",
+          "answer": "Two proverbs are mixed incorrectly. Use one: 'He counted his chickens before they hatched' (assumed success prematurely) or 'He struck while the iron was hot' (acted quickly)."
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 6: Write a sentence using 'Birds of a feather flock together' about social media influencers.",
+          "answer": "Example: 'Instagram influencers often collaborate because birds of a feather flock together—they share audiences and lifestyles.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 7: What proverb emphasizes the importance of family?",
+          "answer": "'Blood is thicker than water' or 'Charity begins at home.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 8: Identify the proverb: 'Don't judge someone by their appearance.'",
+          "answer": "'Never judge a book by its cover' or 'All that glitters is not gold.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 9: What proverb would a teacher use to motivate a lazy student?",
+          "answer": "'Practice makes perfect' or 'Where there's a will, there's a way.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 10: Which proverb means 'Be cautious before taking action'?",
+          "answer": "'Look before you leap' or 'A stitch in time saves nine.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 11: Complete: 'You can lead a horse to water...'",
+          "answer": "'...but you can't make it drink.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 12: What proverb supports the idea of teamwork?",
+          "answer": "'Two heads are better than one' or 'United we stand, divided we fall.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 13: Write the Hindi equivalent of 'Actions speak louder than words.'",
+          "answer": "'करनी से बढ़कर कथनी नहीं' or 'काम बोलता है, बातें नहीं.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 14: What proverb warns against greed?",
+          "answer": "'You can't have your cake and eat it too' or 'Don't put all your eggs in one basket.'"
+        },
+        {
+          "type": "practice",
+          "question": "Exercise 15: Use 'The pen is mightier than the sword' in a sentence about journalism.",
+          "answer": "Example: 'Investigative journalists expose corruption peacefully, proving that the pen is mightier than the sword.'"
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "title": "Proverbs in UPSC & Competitive Exams",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Proverbs are highly valued in UPSC essays, comprehension passages, and interview questions. They demonstrate cultural literacy, depth of thought, and the ability to synthesize traditional wisdom with modern issues."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Essay writing: Use 1-2 proverbs to introduce themes or conclude sections (e.g., 'Integrity in Public Life' → 'Honesty is the best policy')",
+            "Comprehension: Questions may ask you to identify the meaning or context of a proverb in a passage",
+            "Ethics paper (UPSC): Proverbs illustrate moral dilemmas (e.g., 'Two wrongs don't make a right')",
+            "Interview questions: You may be asked to explain or apply a proverb to current affairs",
+            "Precis writing: Proverbs help condense complex ideas into concise statements"
+          ]
+        },
+        {
+          "type": "example",
+          "text": "UPSC Essay Topic (2023): 'Technology cannot replace humanity.' Opening line: 'While artificial intelligence promises efficiency, it cannot replicate empathy. As the proverb goes, the pen is mightier than the sword—ideas and compassion, not algorithms, drive true progress.'",
+          "explanation": "The proverb is used metaphorically to contrast human values with technological advancement, adding depth to the argument."
+        },
+        {
+          "type": "note",
+          "text": "In UPSC interviews, if asked about a proverb, explain its literal meaning, figurative meaning, real-life application, and cultural significance. This shows comprehensive understanding."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sample UPSC interview question: 'What does the proverb A stitch in time saves nine mean, and how does it apply to governance?' Answer: 'The proverb means that addressing small problems early prevents larger crises. In governance, this applies to timely policy interventions—for example, addressing farmer distress early prevents suicides and social unrest. Proactive governance is more cost-effective than reactive measures.'"
+        }
+      ]
+    }
+  ]
+}

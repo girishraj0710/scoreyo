@@ -1,0 +1,867 @@
+{
+  "topic_id": "writing-basics",
+  "title": "Basic Writing Skills",
+  "subtitle": "Mastering informal letters, formal letters, email writing, and paragraph construction for effective communication",
+  "overview": "This module introduces fundamental writing skills essential for English learners at A1-B1 levels. You will learn to distinguish between informal and formal writing styles, structure letters and emails appropriately, construct coherent paragraphs, and avoid common errors arising from Hindi language interference. The focus is on British English conventions, practical application, and building confidence in written communication for academic, professional, and personal contexts.",
+  "sections": [
+    {
+      "section_id": "introduction",
+      "section_title": "Introduction to Basic Writing Skills",
+      "cards": [
+        {
+          "card_id": "intro-1",
+          "title": "What is Effective Writing?",
+          "definition": "Effective writing is clear, purposeful communication that conveys ideas accurately to the intended audience. It requires understanding the context, choosing appropriate language register, organising thoughts logically, and following grammatical conventions.",
+          "rules": [
+            "Always consider your audience before writing",
+            "Choose the appropriate tone: formal for official communication, informal for personal messages",
+            "Structure your writing with clear beginning, middle, and end",
+            "Use simple, direct language rather than unnecessarily complex vocabulary",
+            "Proofread your work to eliminate errors"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Dear Mr Sharma, I am writing to enquire about the vacancy advertised on your website.",
+                "reason": "Formal tone appropriate for business correspondence, with polite, direct opening"
+              },
+              {
+                "text": "Hi Priya! Hope you're doing well. I just wanted to tell you about my new job.",
+                "reason": "Informal, friendly tone suitable for personal communication with a friend"
+              },
+              {
+                "text": "The library opens at 9 a.m. and closes at 6 p.m. on weekdays.",
+                "reason": "Clear, factual statement with precise information and standard time notation"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Dear Sir, Hope you are fine. I am writing this letter for job.",
+                "reason": "Mixing casual expression with formal salutation; 'for job' is grammatically incomplete"
+              },
+              {
+                "text": "Hey Mr Sharma! I want job in your company, please give me.",
+                "reason": "Inappropriate informal greeting for formal context; overly direct request lacks politeness"
+              },
+              {
+                "text": "Library is opening 9 o'clock morning, closing 6 o'clock evening, Monday to Friday.",
+                "reason": "Incorrect verb forms; missing articles and prepositions; informal style for factual information"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "core-concepts",
+      "section_title": "Core Writing Concepts",
+      "cards": [
+        {
+          "card_id": "core-1",
+          "title": "Informal Letters: Structure and Purpose",
+          "definition": "Informal letters are personal communications written to friends, family members, or close acquaintances. They use casual language, contractions, and a conversational tone whilst maintaining basic letter structure.",
+          "rules": [
+            "Begin with the sender's address in the top right corner, followed by the date",
+            "Use informal salutations: Dear [First Name], Hi [Name], Hello [Name]",
+            "Write in a friendly, conversational tone using first and second person pronouns",
+            "Include personal details, emotions, and casual expressions",
+            "End with informal closings: Best wishes, Take care, Love, Yours"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Dear Rahul,\nHow are you? I hope this letter finds you in good health. I'm writing to tell you about my recent trip to Shimla.",
+                "reason": "Appropriate informal salutation, friendly opening enquiry, clear statement of purpose"
+              },
+              {
+                "text": "I can't wait to see you next month! We'll have such a great time together.",
+                "reason": "Contractions and enthusiastic tone appropriate for informal writing"
+              },
+              {
+                "text": "Take care and give my regards to your family.\nYours lovingly,\nPriya",
+                "reason": "Warm closing with appropriate informal sign-off"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Respected Rahul,\nI am writing this letter to inform you about my Shimla tour.",
+                "reason": "'Respected' is overly formal for a friend; 'inform you about' is stiff and formal"
+              },
+              {
+                "text": "I am not able to wait for next month. We will be having great time.",
+                "reason": "Literal translation from Hindi; lacks the natural contraction and flow of informal English"
+              },
+              {
+                "text": "With best compliments to your family.\nYours faithfully,\nPriya",
+                "reason": "'Best compliments' is awkward (influenced by Hindi); 'Yours faithfully' is for formal letters"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "core-2",
+          "title": "Formal Letters: Professional Communication",
+          "definition": "Formal letters are official communications written to employers, government offices, educational institutions, or businesses. They require standard formatting, polite formal language, and professional tone without contractions or casual expressions.",
+          "rules": [
+            "Include sender's address (top right), date, and recipient's address (left, below date)",
+            "Use formal salutations: Dear Sir/Madam, Dear Mr/Ms/Dr [Surname]",
+            "State the purpose clearly in the opening paragraph",
+            "Maintain respectful, impersonal tone using complete sentences",
+            "End formally: Yours sincerely (if named), Yours faithfully (if Dear Sir/Madam)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Dear Sir/Madam,\nI am writing to apply for the position of Marketing Assistant advertised in The Times of India on 15th June 2026.",
+                "reason": "Formal salutation, clear purpose statement, specific reference to advertisement source"
+              },
+              {
+                "text": "I have completed my Bachelor of Commerce from Delhi University with a first-class distinction.",
+                "reason": "Formal tone, complete sentence, relevant qualification stated professionally"
+              },
+              {
+                "text": "I look forward to hearing from you.\nYours faithfully,\nRajesh Kumar",
+                "reason": "Polite closing, correct formal sign-off for unnamed recipient"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Respected Sir/Madam,\nI'm writing this application for Marketing Assistant post which I saw in newspaper.",
+                "reason": "'Respected' is non-standard; contraction inappropriate; missing article before 'newspaper'"
+              },
+              {
+                "text": "I have done B.Com from Delhi University and I got first division.",
+                "reason": "'Have done' is incorrect tense; 'got first division' is informal and vague"
+              },
+              {
+                "text": "Hope to hear from you soon.\nThanking you,\nRajesh Kumar",
+                "reason": "Missing subject in 'Hope'; 'Thanking you' is non-standard closing in British English"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "core-3",
+          "title": "Email Writing: Digital Communication Etiquette",
+          "definition": "Email writing combines elements of letter writing with digital communication norms. Professional emails require clear subject lines, appropriate greetings, concise body text, and professional signatures, whilst personal emails allow more flexibility in tone and structure.",
+          "rules": [
+            "Write a clear, specific subject line that summarises the email's purpose",
+            "Use appropriate greetings based on formality: 'Hi [Name]' (informal) or 'Dear [Title Surname]' (formal)",
+            "Keep paragraphs short and focused on one main idea each",
+            "Use professional language in work emails; avoid text speak and excessive punctuation",
+            "Include a signature with your name and contact information in formal emails"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Subject: Application for Software Developer Position\nDear Ms Gupta,\nI am writing to apply for the Software Developer position advertised on your company website.",
+                "reason": "Specific subject line, formal greeting with title and surname, clear opening"
+              },
+              {
+                "text": "Could you please confirm the meeting time? I want to ensure I have the correct details in my diary.",
+                "reason": "Polite request using modal verb, clear purpose, professional tone"
+              },
+              {
+                "text": "Best regards,\nAnil Mehta\nSoftware Engineer\nanil.mehta@email.com\n+91 98765 43210",
+                "reason": "Professional closing with complete signature block including contact details"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Subject: Job\nRespected Madam,\nI am writing this mail for applying the Software Developer post in your company.",
+                "reason": "Vague subject line; 'Respected' is non-standard; 'for applying' is incorrect preposition use"
+              },
+              {
+                "text": "Plz confirm the meeting time?? I want to make sure I have correct details.",
+                "reason": "Text speak ('Plz') inappropriate for professional email; multiple question marks unprofessional"
+              },
+              {
+                "text": "Thanking you,\nAnil Mehta",
+                "reason": "'Thanking you' is non-standard closing; missing professional contact information"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "core-4",
+          "title": "Paragraph Writing: Structure and Coherence",
+          "definition": "A paragraph is a group of related sentences that develop a single main idea. Effective paragraphs contain a topic sentence, supporting sentences with details or examples, and a concluding sentence that reinforces the main point or provides transition.",
+          "rules": [
+            "Begin with a clear topic sentence that states the main idea",
+            "Develop the idea with 3-5 supporting sentences providing details, examples, or explanations",
+            "Use linking words to connect ideas: firstly, moreover, however, therefore, finally",
+            "Maintain unity: all sentences must relate to the topic sentence",
+            "End with a concluding sentence that summarises or transitions to the next idea"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Regular exercise provides numerous health benefits. Firstly, it strengthens the cardiovascular system and reduces the risk of heart disease. Moreover, physical activity helps maintain healthy body weight and improves mental health by reducing stress and anxiety. Finally, exercise enhances sleep quality and boosts overall energy levels. Therefore, incorporating daily exercise into one's routine is essential for long-term wellbeing.",
+                "reason": "Clear topic sentence, three supporting points with linking words, strong concluding sentence"
+              },
+              {
+                "text": "Delhi, the capital of India, is a city of contrasts. Ancient monuments such as the Red Fort stand alongside modern skyscrapers. The bustling markets of Chandni Chowk contrast sharply with the planned layouts of New Delhi. This blend of old and new makes Delhi a fascinating destination for visitors.",
+                "reason": "Topic sentence establishes main idea, supporting sentences provide specific examples, conclusion reinforces theme"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Exercise is good. It makes health better. Heart becomes strong. Weight is less. Sleep is good also. Mind is happy. So do exercise daily.",
+                "reason": "Choppy, disconnected sentences; no linking words; lacks development; overly simplistic structure"
+              },
+              {
+                "text": "Delhi is capital of India. Red Fort is there. Chandni Chowk has markets. Many people are visiting Delhi. New Delhi is planned city. Delhi is old and new both.",
+                "reason": "Missing articles; simple listing without coherent development; lacks sophisticated connectors; awkward final sentence"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "core-5",
+          "title": "Tone and Register in Writing",
+          "definition": "Tone refers to the attitude conveyed through writing (friendly, formal, persuasive, informative), whilst register is the level of formality appropriate to the context and audience. Matching tone and register to purpose is crucial for effective communication.",
+          "rules": [
+            "Formal register: Use complete sentences, avoid contractions, employ polite modal verbs (could, would, may)",
+            "Informal register: Use contractions, personal pronouns, casual expressions, and shorter sentences",
+            "Maintain consistent register throughout a single piece of writing",
+            "Consider the relationship with your reader: stranger (formal), colleague (neutral), friend (informal)",
+            "Adjust vocabulary complexity to match the formality level required"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I would be grateful if you could provide further information regarding the course admission requirements.",
+                "reason": "Formal register appropriate for institutional correspondence, using polite modal verbs"
+              },
+              {
+                "text": "Thanks so much for your help yesterday! I really appreciate it.",
+                "reason": "Informal register with contraction and casual expression, suitable for personal thanks"
+              },
+              {
+                "text": "The research indicates that climate change poses significant risks to coastal communities.",
+                "reason": "Neutral-formal academic tone with precise vocabulary and impersonal structure"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I will be very happy if you will give me more information about course admission.",
+                "reason": "Mixing informal expression with formal context; incorrect modal verb use; awkward phrasing"
+              },
+              {
+                "text": "Thanks a lot for help yesterday! I am very much grateful to you.",
+                "reason": "Mixing informal opening with overly formal closing; 'very much grateful' is awkward (Hindi influence)"
+              },
+              {
+                "text": "The research is showing that climate change is having significant risks for coastal communities.",
+                "reason": "Incorrect continuous tense for general statement; 'having risks' is non-standard collocation"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "key-rules",
+      "section_title": "Essential Writing Rules",
+      "cards": [
+        {
+          "card_id": "rules-1",
+          "title": "Subject-Verb Agreement in Written Communication",
+          "definition": "Subject-verb agreement requires the verb to match the subject in number (singular or plural) and person. In formal writing, this consistency is essential for grammatical accuracy and professional appearance.",
+          "rules": [
+            "Singular subjects take singular verbs: 'The manager is', 'Each student has'",
+            "Plural subjects take plural verbs: 'The managers are', 'Students have'",
+            "Collective nouns (team, committee, family) typically take singular verbs in British English",
+            "Subjects joined by 'and' take plural verbs; subjects with 'or'/'nor' agree with the nearest subject",
+            "Indefinite pronouns (everyone, anybody, nothing) take singular verbs"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The committee has decided to postpone the meeting until next week.",
+                "reason": "Collective noun 'committee' treated as singular unit, appropriate for British English"
+              },
+              {
+                "text": "Neither the students nor the teacher was aware of the schedule change.",
+                "reason": "Verb agrees with nearest subject 'teacher' (singular) in 'neither...nor' construction"
+              },
+              {
+                "text": "Everyone in the office is required to attend the training session.",
+                "reason": "Indefinite pronoun 'everyone' correctly takes singular verb 'is'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The committee have decided to postpone the meeting until next week.",
+                "reason": "Plural verb 'have' with collective noun acceptable in British English but inconsistent for learners"
+              },
+              {
+                "text": "Neither the students nor the teacher were aware of the schedule change.",
+                "reason": "Verb should agree with nearest subject 'teacher' (singular), not distant 'students'"
+              },
+              {
+                "text": "Everyone in the office are required to attend the training session.",
+                "reason": "Indefinite pronoun 'everyone' always takes singular verb; Hindi speakers often pluralise incorrectly"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "rules-2",
+          "title": "Article Usage in Formal Writing",
+          "definition": "Articles (a, an, the) specify whether nouns are definite or indefinite. Correct article usage distinguishes professional writing from non-native patterns, particularly for Hindi speakers whose language lacks articles.",
+          "rules": [
+            "Use 'a' before consonant sounds, 'an' before vowel sounds: 'a university', 'an honest man'",
+            "Use 'the' for specific, known items: 'the manager I mentioned', 'the Mumbai office'",
+            "Use 'a/an' for non-specific items introduced for the first time: 'I need a pen'",
+            "Omit articles with plural generalisations and abstract nouns: 'Students need support', 'Success requires effort'",
+            "Use 'the' with unique entities: 'the sun', 'the government', 'the Internet'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I submitted an application for the position advertised in The Hindu newspaper.",
+                "reason": "Indefinite 'an' for first mention of application; definite 'the' for specific position and newspaper name"
+              },
+              {
+                "text": "Education is the key to success in modern society.",
+                "reason": "No article with abstract noun 'education' used generally; 'the key' is specific metaphor"
+              },
+              {
+                "text": "A customer complained about the service he received yesterday.",
+                "reason": "Indefinite 'a' for non-specific customer; definite 'the' for specific service being referenced"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I submitted application for position advertised in Hindu newspaper.",
+                "reason": "Missing articles throughout; typical Hindi L1 error due to absence of articles in Hindi"
+              },
+              {
+                "text": "The education is the key to success in the modern society.",
+                "reason": "Unnecessary 'the' before 'education' and 'modern society' used in general sense"
+              },
+              {
+                "text": "One customer complained about service he received yesterday.",
+                "reason": "Using 'one' instead of 'a' (Hindi 'ek' interference); missing 'the' before specific 'service'"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "rules-3",
+          "title": "Preposition Usage: Common Combinations",
+          "definition": "Prepositions show relationships between words in time, space, and logic. English preposition usage often differs from Hindi, requiring specific combinations with verbs, adjectives, and nouns that must be memorised rather than translated literally.",
+          "rules": [
+            "Time: 'on' (specific days), 'in' (months, years, periods), 'at' (clock times, moments)",
+            "Place: 'at' (specific points), 'in' (enclosed spaces, cities, countries), 'on' (surfaces)",
+            "Verb combinations: 'apply for', 'depend on', 'consist of', 'apologise for', 'wait for'",
+            "Adjective combinations: 'interested in', 'good at', 'afraid of', 'similar to', 'different from'",
+            "Do not translate prepositions directly from Hindi; learn English collocations"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The meeting is scheduled on Monday at 10 a.m. in the conference room.",
+                "reason": "'On' for specific day, 'at' for clock time, 'in' for enclosed space—all correct combinations"
+              },
+              {
+                "text": "I am interested in applying for the scholarship offered by the university.",
+                "reason": "Correct preposition collocations: 'interested in', 'applying for', 'offered by'"
+              },
+              {
+                "text": "Success depends on hard work and dedication to one's goals.",
+                "reason": "Standard combinations: 'depends on' (not 'depends upon' unnecessarily), 'dedication to'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The meeting is scheduled in Monday at 10 a.m. on the conference room.",
+                "reason": "Wrong prepositions: should be 'on Monday' and 'in the conference room'"
+              },
+              {
+                "text": "I am interested for applying the scholarship offered from the university.",
+                "reason": "Hindi interference: 'interested for' (Hindi 'ke liye'), 'applying' needs 'for', 'from' should be 'by'"
+              },
+              {
+                "text": "Success depends upon hard work and dedication for one's goals.",
+                "reason": "'Depends upon' is archaic (Hindi 'par nirbhar'); 'dedication for' is incorrect (should be 'to')"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "rules-4",
+          "title": "Sentence Connectors and Linking Words",
+          "definition": "Connectors (linking words and phrases) join ideas within and between sentences, creating logical flow and coherence. They show relationships such as addition, contrast, cause-effect, sequence, and exemplification.",
+          "rules": [
+            "Addition: furthermore, moreover, in addition, besides, also",
+            "Contrast: however, nevertheless, on the other hand, whereas, although",
+            "Cause-effect: therefore, consequently, as a result, thus, because of this",
+            "Sequence: firstly, secondly, finally, subsequently, meanwhile",
+            "Example: for instance, for example, such as, namely, specifically"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The project deadline is tight. Moreover, we have limited resources. Nevertheless, the team is confident of success.",
+                "reason": "'Moreover' adds information; 'Nevertheless' introduces contrast—both positioned correctly"
+              },
+              {
+                "text": "Firstly, outline your main points. Secondly, develop each point with examples. Finally, summarise your argument.",
+                "reason": "Sequence connectors create clear, logical progression through process"
+              },
+              {
+                "text": "The company offers excellent benefits. For instance, employees receive health insurance and annual bonuses.",
+                "reason": "'For instance' correctly introduces specific examples supporting general statement"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The project deadline is tight. Also, we have limited resources. But, the team is confident of success.",
+                "reason": "'Also' too informal for formal writing; 'But' should not start sentence with comma"
+              },
+              {
+                "text": "Firstly, outline your main points. After that, develop each point. In the end, summarise your argument.",
+                "reason": "Inconsistent connectors; 'After that' too casual; 'In the end' means 'finally after time/difficulty'"
+              },
+              {
+                "text": "The company offers excellent benefits. Like employees get health insurance and annual bonuses.",
+                "reason": "'Like' is incorrect connector (Hindi 'jaise'); should be 'For example' or 'For instance'"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "rules-5",
+          "title": "Punctuation in Professional Writing",
+          "definition": "Punctuation marks organise text, clarify meaning, and indicate pauses or intonation. Correct punctuation is essential in formal writing to convey professionalism and ensure clarity, particularly in letters, emails, and reports.",
+          "rules": [
+            "Full stop: End declarative sentences; use only one space after full stops in modern writing",
+            "Comma: Separate items in lists, after introductory phrases, before coordinating conjunctions in compound sentences",
+            "Colon: Introduce lists, explanations, or quotations; use after complete independent clause",
+            "Semicolon: Join closely related independent clauses; separate complex list items",
+            "Apostrophe: Show possession (Rahul's book) or contraction (don't, we're)—never use for plurals"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Dear Sir, I am writing to enquire about the position. I have attached my CV, cover letter, and certificates.",
+                "reason": "Comma after salutation; full stops end sentences; commas separate list items correctly"
+              },
+              {
+                "text": "The candidates must meet the following criteria: a bachelor's degree, three years' experience, and excellent communication skills.",
+                "reason": "Colon introduces list; apostrophes show possession correctly; commas separate items"
+              },
+              {
+                "text": "The report is complete; however, it requires final approval from management.",
+                "reason": "Semicolon joins related clauses; comma after 'however' (conjunctive adverb)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Dear Sir I am writing to enquire about the position. I have attached my CV cover letter and certificates.",
+                "reason": "Missing comma after salutation; missing commas between list items"
+              },
+              {
+                "text": "The candidates must meet the following criteria, a bachelors degree, three years experience and excellent communication skills.",
+                "reason": "Comma instead of colon before list; missing apostrophes in possessives"
+              },
+              {
+                "text": "The report is complete, however it requires final approval from management.",
+                "reason": "Comma splice error; should use semicolon before 'however' or full stop"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "common-mistakes",
+      "section_title": "Common Mistakes (Hindi L1 Interference)",
+      "cards": [
+        {
+          "card_id": "mistakes-1",
+          "title": "Word Order Errors from Hindi Syntax",
+          "definition": "Hindi follows Subject-Object-Verb (SOV) word order, whilst English uses Subject-Verb-Object (SVO). Hindi speakers often place verbs at sentence end, create awkward adjective placement, and misposition adverbs due to first language interference.",
+          "rules": [
+            "English basic order: Subject + Verb + Object ('I wrote a letter', not 'I a letter wrote')",
+            "Place adjectives before nouns: 'a beautiful garden', not 'a garden beautiful'",
+            "Adverbs typically after main verb or before adjective/adverb, not at sentence end randomly",
+            "Question order: Auxiliary + Subject + Main Verb ('Do you know?', not 'You know?')",
+            "Avoid literal translation of Hindi sentence structure into English"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have submitted my application for the scholarship.",
+                "reason": "Standard SVO order: subject 'I', verb 'have submitted', object 'my application'"
+              },
+              {
+                "text": "She is an extremely talented musician who performs regularly at concerts.",
+                "reason": "Adjective 'talented' before noun; adverb 'extremely' before adjective; 'regularly' after verb"
+              },
+              {
+                "text": "Could you please explain the procedure again?",
+                "reason": "Correct question structure with modal auxiliary before subject"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I my application for the scholarship have submitted.",
+                "reason": "Hindi SOV interference: verb placed at end instead of after subject"
+              },
+              {
+                "text": "She is a musician talented extremely who at concerts performs regularly.",
+                "reason": "Multiple word order errors: adjectives after noun, awkward adverb placement, verb at end"
+              },
+              {
+                "text": "You please the procedure again can explain?",
+                "reason": "Hindi question structure: modal 'can' misplaced, subject-auxiliary inversion missing"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "mistakes-2",
+          "title": "Literal Translation of Hindi Phrases",
+          "definition": "Hindi idioms, expressions, and polite formulae do not translate directly into English. Common errors include 'do' for various actions, 'take' for consumption, repetitive courtesy phrases, and non-English constructions that sound awkward to native speakers.",
+          "rules": [
+            "Do not use 'do' for all actions: Hindi 'karna' ≠ English 'do' always (do breakfast ✗, have breakfast ✓)",
+            "Avoid excessive courtesy: 'Please do the needful' is dated; 'Could you please help?' is modern",
+            "Use specific verbs: 'write an exam' (not 'give an exam'), 'take medicine' (not 'eat medicine')",
+            "Avoid redundant politeness: 'Kindly request you to' is wordy; 'Could you' is sufficient",
+            "Replace Hindi constructions: 'what is your good name?' → 'what is your name?'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I will complete the report by Friday. Please let me know if you need any further information.",
+                "reason": "Direct, professional language without unnecessary courtesy formulas"
+              },
+              {
+                "text": "Students must write the examination in the main hall at 10 a.m.",
+                "reason": "Correct verb 'write' for examination; clear, specific instructions"
+              },
+              {
+                "text": "May I know your name and contact number?",
+                "reason": "Polite, standard English request without literal Hindi translation"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I will do the completion of report by Friday. Kindly do the needful and revert back.",
+                "reason": "'Do the completion' is non-standard; 'do the needful' and 'revert back' are outdated/redundant"
+              },
+              {
+                "text": "Students must give the examination in the main hall at 10 a.m.",
+                "reason": "'Give the examination' is literal translation of Hindi 'pariksha dena'; should be 'write/take'"
+              },
+              {
+                "text": "What is your good name and what is your mobile number?",
+                "reason": "'Good name' is literal Hindi translation ('shubh naam'); redundant 'what is' construction"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "mistakes-3",
+          "title": "Tense and Aspect Confusion",
+          "definition": "Hindi tense system differs from English, lacking perfect and continuous aspects in the same way. Hindi speakers often confuse simple and continuous forms, misuse present perfect, and create awkward progressive constructions where simple tenses are needed.",
+          "rules": [
+            "Use present simple for habits, facts, scheduled events (not continuous): 'The train leaves at 5 p.m.'",
+            "Use present perfect for past actions with present relevance: 'I have completed the work' (just now)",
+            "Do not use continuous for stative verbs: 'I know' (not 'I am knowing'), 'I have' (not 'I am having')",
+            "Use simple past for completed past actions with specific time: 'I studied yesterday'",
+            "Avoid mixing tenses unnecessarily within related sentences"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have lived in Delhi for five years and still reside here.",
+                "reason": "Present perfect for ongoing situation starting in past; 'still' shows continuation"
+              },
+              {
+                "text": "The library opens at 9 a.m. every morning.",
+                "reason": "Present simple for scheduled, habitual action (not continuous)"
+              },
+              {
+                "text": "I understand your concern and will address it immediately.",
+                "reason": "Stative verb 'understand' in simple form; future 'will' for promise"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I am living in Delhi since five years and I am still residing here.",
+                "reason": "Should use present perfect 'have lived' with 'for'; unnecessary continuous forms"
+              },
+              {
+                "text": "The library is opening at 9 a.m. every morning.",
+                "reason": "Scheduled habitual action requires simple present, not continuous (Hindi influence)"
+              },
+              {
+                "text": "I am understanding your concern and I will be addressing it immediately.",
+                "reason": "Stative verb incorrectly in continuous; future continuous unnecessary for simple promise"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "mistakes-4",
+          "title": "Overuse of Progressive Verb Forms",
+          "definition": "Hindi uses continuous forms more liberally than English, particularly with stative verbs (know, understand, believe, have, seem) and in formal statements. Excessive use of progressive forms creates non-standard English, especially in written communication.",
+          "rules": [
+            "Stative verbs (mental states, possession, senses) rarely take continuous: 'I think', 'I have', 'I see'",
+            "Do not use continuous for general truths or permanent situations: 'Water boils at 100°C'",
+            "Avoid continuous in formal statements: 'I am writing to inform' → 'I write to inform'",
+            "Use simple forms for scheduled events: 'The meeting begins at 3 p.m.' (not 'is beginning')",
+            "Reserve continuous for actions genuinely in progress at a specific moment"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I write to express my interest in the position advertised on your website.",
+                "reason": "Formal opening uses simple present, not continuous (standard business English)"
+              },
+              {
+                "text": "The solution seems appropriate for the current problem.",
+                "reason": "Stative verb 'seems' in simple form, expressing state rather than action"
+              },
+              {
+                "text": "I believe that climate change poses a serious threat to future generations.",
+                "reason": "Mental state verb 'believe' in simple form; formal, academic tone"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I am writing to express my interest in the position advertised on your website.",
+                "reason": "Continuous form acceptable but less formal; simple 'I write' is preferred in British formal style"
+              },
+              {
+                "text": "The solution is seeming appropriate for the current problem.",
+                "reason": "Stative verb 'seem' incorrectly used in continuous form (Hindi 'lag raha hai' influence)"
+              },
+              {
+                "text": "I am believing that climate change is posing a serious threat to future generations.",
+                "reason": "Mental state verb 'believe' and threat verb incorrectly in continuous (Hindi pattern)"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "mistakes-5",
+          "title": "Redundancy and Wordiness from Hindi Politeness",
+          "definition": "Hindi formal communication uses elaborate courtesy expressions and repetitive constructions for politeness. Direct translation creates verbose, outdated English. Modern professional English values clarity and conciseness over excessive politeness formulas.",
+          "rules": [
+            "Avoid redundant pairs: 'please kindly' (choose one), 'revert back' (just 'reply'), 'repeat again' (just 'repeat')",
+            "Replace wordy phrases: 'at this point in time' → 'now', 'due to the fact that' → 'because'",
+            "Use direct requests: 'Could you send the document?' not 'Kindly request you to send the document'",
+            "Eliminate unnecessary courtesy: 'Please do the needful' → 'Please help' or specific request",
+            "One 'please' or 'kindly' per request is sufficient; multiple courtesy words sound obsequious"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Could you please send me the updated report by Friday?",
+                "reason": "Polite, direct request with single 'please' and specific deadline"
+              },
+              {
+                "text": "I apologise for the delay. I will send the information tomorrow.",
+                "reason": "Concise apology and clear action statement without redundancy"
+              },
+              {
+                "text": "Please contact me if you need further clarification.",
+                "reason": "Direct, professional closing with specific offer of help"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Kindly request you to please send me the updated report by Friday, if possible.",
+                "reason": "Redundant 'kindly' and 'please'; wordy construction; 'if possible' weakens request"
+              },
+              {
+                "text": "I apologise for the inconvenience and delay caused. I will be sending the information to you tomorrow itself.",
+                "reason": "'Inconvenience and delay caused' is wordy; 'tomorrow itself' is Hindi construction ('kal hi')"
+              },
+              {
+                "text": "Kindly do the needful and revert back at the earliest.",
+                "reason": "Outdated 'do the needful'; 'revert back' is redundant; 'at the earliest' is non-standard urgency phrase"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "practice",
+      "section_title": "Practice Exercises",
+      "cards": [
+        {
+          "card_id": "practice-1",
+          "title": "Writing an Informal Letter",
+          "definition": "Practice writing a complete informal letter to a friend describing a recent event or sharing personal news. Focus on appropriate structure, friendly tone, and natural expression whilst avoiding common Hindi interference patterns.",
+          "rules": [
+            "Include sender's address (top right), date, salutation with first name",
+            "Begin with friendly greeting or enquiry about recipient's wellbeing",
+            "Use contractions and conversational language naturally",
+            "Organise content in 2-3 paragraphs with clear topic focus",
+            "Close with warm wishes and informal sign-off (Love, Best wishes, Yours lovingly)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "45, Green Park\nNew Delhi - 110016\n15th June 2026\n\nDear Anita,\n\nHow are you doing? I hope everything is going well with your new job. I'm writing to tell you about my recent trip to Goa.\n\nWe spent five wonderful days exploring the beaches and trying delicious seafood. The weather was perfect, and we even took a boat trip to see dolphins! I've attached some photos.\n\nI'd love to hear about your new workplace. Let's catch up soon over coffee.\n\nTake care,\nPriya",
+                "reason": "Complete informal letter structure with appropriate friendly tone, natural expressions, clear paragraphs"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "45, Green Park\nNew Delhi - 110016\n15/06/2026\n\nRespected Anita,\n\nI hope this letter finds you in good health and spirits. I am writing this letter to inform you about my Goa trip.\n\nWe have spent five days in exploring the beaches and for trying sea food. Weather was very nice and we have taken boat trip for seeing dolphins also.\n\nI am very much eager to hear about your new workplace. Let us meet soon.\n\nYours faithfully,\nPriya",
+                "reason": "Mixed formal/informal tone; 'Respected' inappropriate; awkward preposition use; stiff expressions; wrong closing"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "practice-2",
+          "title": "Drafting a Formal Job Application Email",
+          "definition": "Practice composing a professional email applying for a job position. Demonstrate understanding of formal register, clear structure, appropriate business language, and error-free grammar expected in professional communication.",
+          "rules": [
+            "Write specific subject line: 'Application for [Position Name]'",
+            "Use formal greeting: 'Dear Mr/Ms [Surname]' or 'Dear Sir/Madam'",
+            "State position and reference source in opening paragraph",
+            "Highlight relevant qualifications and experience concisely in body",
+            "Close professionally with availability statement and formal sign-off with full signature"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Subject: Application for Marketing Executive Position\n\nDear Ms Verma,\n\nI am writing to apply for the Marketing Executive position advertised on LinkedIn on 14th June 2026.\n\nI hold a Master's degree in Marketing from Mumbai University and have three years of experience in digital marketing with ABC Technologies. My skills include social media strategy, content creation, and data analytics.\n\nI have attached my CV and portfolio for your review. I am available for an interview at your convenience.\n\nYours sincerely,\nRohit Sharma\nMarketing Professional\nrohit.sharma@email.com\n+91 98765 43210",
+                "reason": "Professional structure, specific subject, formal tone, relevant details, complete signature block"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Subject: Job Application\n\nRespected Madam,\n\nI am writing this mail for applying the Marketing Executive post which I saw in LinkedIn.\n\nI have done MBA in Marketing from Mumbai University and I am having three years experience in digital marketing. I am very much interested for this post.\n\nKindly do the needful and call me for interview.\n\nThanking you,\nRohit Sharma",
+                "reason": "Vague subject; 'Respected' non-standard; preposition errors; wordy; outdated closing; incomplete signature"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "practice-3",
+          "title": "Constructing a Coherent Paragraph",
+          "definition": "Practice writing a well-structured paragraph on a given topic with clear topic sentence, logical development using linking words, supporting details, and appropriate concluding statement.",
+          "rules": [
+            "Begin with topic sentence stating main idea clearly",
+            "Develop with 3-4 supporting sentences using specific examples or explanations",
+            "Use linking words to connect ideas smoothly (moreover, however, for example, therefore)",
+            "Maintain unity: ensure all sentences relate to topic sentence",
+            "Conclude with sentence that summarises main point or provides transition"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Topic: Benefits of Reading\n\nReading books regularly provides significant cognitive and emotional benefits. Firstly, it enhances vocabulary and improves language skills through exposure to diverse writing styles. Moreover, reading stimulates mental activity and keeps the brain engaged, which may help prevent cognitive decline in later years. Furthermore, it reduces stress by allowing readers to escape into different worlds and perspectives. Finally, reading develops empathy and understanding of different cultures and experiences. Therefore, incorporating daily reading into one's routine is an investment in lifelong learning and wellbeing.",
+                "reason": "Clear topic sentence, four well-developed supporting points with linking words, strong conclusion"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Topic: Benefits of Reading\n\nReading books is good. It makes vocabulary better. Brain becomes active. Stress is less when we read. We understand different people. Reading should be done daily. It is very beneficial for health and mind both.",
+                "reason": "Choppy sentences without development; no linking words; oversimplified; lacks coherence and flow"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "practice-4",
+          "title": "Correcting Hindi Interference Errors",
+          "definition": "Practice identifying and correcting common errors arising from Hindi language interference, including article omission, preposition misuse, word order problems, and literal translations of Hindi expressions.",
+          "rules": [
+            "Add missing articles (a, an, the) before nouns where English requires them",
+            "Correct preposition use according to English collocations, not Hindi translations",
+            "Rearrange word order to follow SVO pattern with adjectives before nouns",
+            "Replace literal Hindi translations with appropriate English expressions",
+            "Change Hindi-influenced verb forms to standard English tenses"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Original: I am writing this letter for applying the position in your company.\nCorrected: I am writing to apply for the position in your company.",
+                "reason": "Corrected preposition 'to apply for' (not 'for applying the'); added missing article before 'position'"
+              },
+              {
+                "text": "Original: Please do the needful and revert back at earliest.\nCorrected: Please help me with this matter and reply at your earliest convenience.",
+                "reason": "Replaced outdated 'do the needful'; removed redundant 'back'; improved time expression"
+              },
+              {
+                "text": "Original: I am having two years experience in software field.\nCorrected: I have two years' experience in the software field.",
+                "reason": "Changed incorrect continuous 'am having' to simple 'have'; added apostrophe for possession; added article"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Original: Library is opening at 9 o'clock morning.\nCorrected: Library opens at 9 o'clock morning.",
+                "reason": "Changed tense but missed article 'the' before 'library' and 'in the morning' needed"
+              }
+            ]
+          }
+        },
+        {
+          "card_id": "practice-5",
+          "title": "Adapting Tone for Different Contexts",
+          "definition": "Practice writing the same message in different registers (formal, neutral, informal) to demonstrate understanding of appropriate tone selection based on audience and purpose.",
+          "rules": [
+            "Formal: Use titles, complete sentences, polite modal verbs, no contractions, professional vocabulary",
+            "Neutral: Use clear, direct language, moderate formality, suitable for colleagues",
+            "Informal: Use first names, contractions, casual expressions, friendly tone for peers",
+            "Match vocabulary complexity to formality level required",
+            "Maintain consistent register throughout each version"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Message: Request to postpone meeting\n\nFormal: Dear Dr Patel, I would be grateful if we could reschedule our meeting scheduled for tomorrow, as an urgent matter requires my attention. Would it be convenient to meet next Wednesday instead? I apologise for any inconvenience.\n\nNeutral: Hi Suresh, Could we move tomorrow's meeting to next Wednesday? Something urgent has come up. Let me know if that works for you.\n\nInformal: Hey Suresh! Can we push tomorrow's meeting to next Wednesday? Got stuck with something urgent. Hope that's okay with you!",
+                "reason": "Three distinct versions with appropriate register markers: formal politeness, neutral directness, informal friendliness"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Formal: Hey Dr Patel, I would be grateful if we could reschedule our meeting for tomorrow as something urgent came up.\n\nInformal: Dear Suresh, I request you to kindly postpone our meeting scheduled for tomorrow. Thanking you.",
+                "reason": "Mixed registers: 'Hey' with formal request; overly formal language with informal salutation"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "revision",
+      "section_title": "Quick Revision Notes",
+      "cards": [
+        {
+          "card_id": "revision-1",
+          "title": "Key Points Summary: Basic Writing Skills",
+          "definition": "Essential points to remember for effective writing in informal letters, formal letters, emails, and paragraphs, with particular attention to common Hindi interference patterns.",
+          "rules": [
+            "Informal letters: Use sender's address + date, informal salutation (Dear [First Name]), friendly tone with contractions, warm closing (Best wishes, Love). Structure: greeting, 2-3 body paragraphs, closing wishes.",
+            "Formal letters: Include sender's address + date + recipient's address, formal salutation (Dear Sir/Madam or Dear Mr/Ms Surname), professional tone without contractions, formal closing (Yours sincerely if named, Yours faithfully if unnamed). State purpose clearly in opening.",
+            "Email writing: Clear specific subject line, appropriate greeting based on formality, short focused paragraphs, professional language in work emails, signature block with contact details in formal emails.",
+            "Paragraph writing: Topic sentence stating main idea, 3-5 supporting sentences with examples, linking words (firstly, moreover, however, therefore), unity (all sentences relate to topic), concluding sentence summarising or transitioning.",
+            "Subject-verb agreement: Singular subjects with singular verbs (manager is), plural subjects with plural verbs (managers are), collective nouns singular in British English (team has), indefinite pronouns singular (everyone is).",
+            "Articles: Use 'a/an' for non-specific items first mentioned, 'the' for specific known items, omit for plural generalisations and abstract nouns. Hindi speakers often omit articles—remember English requires them.",
+            "Prepositions: Time (on Monday, in June, at 10 a.m.), place (at home, in Delhi, on the table), verb combinations (apply for, depend on, consist of), adjective combinations (interested in, good at). Do not translate from Hindi.",
+            "Linking words: Addition (moreover, furthermore), contrast (however, nevertheless), cause-effect (therefore, consequently), sequence (firstly, finally), example (for instance). Position at sentence beginning or between clauses.",
+            "Punctuation: Full stop ends sentences, comma separates list items and after introductory phrases, colon introduces lists after complete clause, semicolon joins related clauses, apostrophe shows possession or contraction (never plurals).",
+            "Common Hindi interference errors: Word order (use SVO not SOV), literal translations ('do the needful' → 'please help', 'give exam' → 'write exam', 'good name' → 'name'), tense confusion (avoid continuous with stative verbs: 'I know' not 'I am knowing'), excessive politeness ('please kindly' → choose one), redundancy ('revert back' → 'reply'). Be specific with verbs, use articles consistently, follow English preposition patterns."
+          ],
+          "examples": {
+            "correct": [],
+            "incorrect": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "topic_id": "there-is-are",
+  "title": "There is / There are",
+  "cefr_level": "A1",
+  "estimated_time": 20,
+  "sections": [
+    {
+      "type": "introduction",
+      "title": "Introduction to There is / There are",
+      "content": "The expressions 'there is' and 'there are' are fundamental structures in English used to indicate the existence or presence of something in a particular location. These structures allow speakers to introduce new information and describe what exists in a place. Understanding when to use 'there is' versus 'there are' is essential for forming grammatically correct sentences. This module covers affirmative, negative, and question forms, as well as common usage patterns for describing existence and location."
+    },
+    {
+      "type": "concept_card",
+      "title": "There is + Singular",
+      "definition": "'There is' is used to indicate the existence or presence of one thing or a single uncountable noun. It introduces information about something that exists in a particular place or situation.",
+      "rules": [
+        "Use 'there is' with singular countable nouns (a book, one student, a problem)",
+        "Use 'there is' with uncountable nouns (water, information, furniture)",
+        "Contract to 'there's' in informal speech and writing",
+        "Place 'there is' at the beginning of the sentence",
+        "Follow 'there is' with a/an + singular noun or uncountable noun"
+      ],
+      "examples": {
+        "correct": [
+          "There is a book on the table.",
+          "There is one student in the classroom.",
+          "There's a problem with my computer.",
+          "There is water in the bottle.",
+          "There is some milk in the fridge.",
+          "There is furniture in the room.",
+          "There is an apple in the basket.",
+          "There is important information in this document."
+        ],
+        "incorrect": [
+          {
+            "text": "There is books on the table.",
+            "reason": "'Books' is plural, so use 'there are'. Correct: 'There are books on the table.'"
+          },
+          {
+            "text": "There is three students.",
+            "reason": "Use 'there are' with plural nouns. Correct: 'There are three students.'"
+          },
+          {
+            "text": "Is there a book on the table there.",
+            "reason": "Do not repeat 'there'. Use only one: 'There is a book on the table' or 'Is there a book on the table?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "There are + Plural",
+      "definition": "'There are' is used to indicate the existence or presence of more than one thing. It introduces information about multiple items or people that exist in a particular place or situation.",
+      "rules": [
+        "Use 'there are' with plural countable nouns (books, students, problems)",
+        "Use 'there are' with numbers greater than one (two, three, many, several)",
+        "Use 'there are' with plural quantifiers (some, many, a few, several)",
+        "Do not contract 'there are' (there's no standard contraction)",
+        "Place 'there are' at the beginning of the sentence"
+      ],
+      "examples": {
+        "correct": [
+          "There are two books on the table.",
+          "There are many students in the classroom.",
+          "There are some problems with this plan.",
+          "There are three apples in the basket.",
+          "There are several options available.",
+          "There are a few mistakes in your essay.",
+          "There are ten people waiting outside.",
+          "There are important documents in this folder."
+        ],
+        "incorrect": [
+          {
+            "text": "There are a book on the table.",
+            "reason": "'A book' is singular, so use 'there is'. Correct: 'There is a book on the table.'"
+          },
+          {
+            "text": "There is many students.",
+            "reason": "'Many students' is plural, requiring 'there are'. Correct: 'There are many students.'"
+          },
+          {
+            "text": "There are water in the bottle.",
+            "reason": "'Water' is uncountable singular, use 'there is'. Correct: 'There is water in the bottle.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Negative Forms",
+      "definition": "Negative forms of 'there is/are' are used to state that something does not exist or is not present in a particular location. The negative is formed by adding 'not' or using contractions.",
+      "rules": [
+        "Singular negative: 'there is not' or contraction 'there isn't'",
+        "Plural negative: 'there are not' or contraction 'there aren't'",
+        "Place 'not' after 'is' or 'are'",
+        "Contractions are common in spoken and informal written English",
+        "Often use 'any' with negative forms instead of 'some' or 'a/an'"
+      ],
+      "examples": {
+        "correct": [
+          "There is not a pen on the desk. / There isn't a pen on the desk.",
+          "There are not any students in the room. / There aren't any students in the room.",
+          "There isn't any milk in the fridge.",
+          "There aren't enough chairs for everyone.",
+          "There is not much time left.",
+          "There aren't many options.",
+          "There isn't a solution to this problem.",
+          "There aren't three apples, there are only two."
+        ],
+        "incorrect": [
+          {
+            "text": "There not is a pen.",
+            "reason": "'Not' must come after 'is'. Correct: 'There is not a pen' or 'There isn't a pen.'"
+          },
+          {
+            "text": "There isn't any students.",
+            "reason": "'Students' is plural, use 'aren't'. Correct: 'There aren't any students.'"
+          },
+          {
+            "text": "There aren't a book.",
+            "reason": "'A book' is singular, use 'isn't'. Correct: 'There isn't a book.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Question Forms",
+      "definition": "Questions with 'there is/are' are formed by inverting the word order, placing 'is' or 'are' before 'there'. These questions ask about the existence or presence of something.",
+      "rules": [
+        "Singular questions: 'Is there...?'",
+        "Plural questions: 'Are there...?'",
+        "Invert 'there' and 'is/are' to form questions",
+        "End questions with a question mark",
+        "Short answers: 'Yes, there is/are.' or 'No, there isn't/aren't.'"
+      ],
+      "examples": {
+        "correct": [
+          "Is there a book on the table? - Yes, there is. / No, there isn't.",
+          "Are there any students in the classroom? - Yes, there are. / No, there aren't.",
+          "Is there any milk in the fridge?",
+          "Are there enough chairs?",
+          "Is there a problem?",
+          "Are there many people waiting?",
+          "Is there time for questions?",
+          "Are there three apples in the basket?"
+        ],
+        "incorrect": [
+          {
+            "text": "There is a book on the table?",
+            "reason": "Questions require inversion. Correct: 'Is there a book on the table?'"
+          },
+          {
+            "text": "Is there students in the room?",
+            "reason": "'Students' is plural, use 'are there'. Correct: 'Are there students in the room?'"
+          },
+          {
+            "text": "Are there a pen on the desk?",
+            "reason": "'A pen' is singular, use 'is there'. Correct: 'Is there a pen on the desk?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Describing Existence and Location",
+      "definition": "'There is/are' structures are specifically used to describe what exists or is located in a particular place. They introduce new information about the presence of objects, people, or situations.",
+      "rules": [
+        "Use 'there is/are' to introduce new information about existence",
+        "Often followed by location phrases (in, on, at, near, under, etc.)",
+        "Do not use 'there is/are' for specific, known items (use subject + verb instead)",
+        "Can describe temporary or permanent existence",
+        "Common in descriptions of places, rooms, and situations"
+      ],
+      "examples": {
+        "correct": [
+          "There is a park near my house. (introducing new information)",
+          "There are three bedrooms in this flat.",
+          "There is someone at the door.",
+          "There are many trees in the garden.",
+          "There is a meeting tomorrow. (describing an event)",
+          "There are several reasons for this decision.",
+          "There is a cinema in the town centre.",
+          "There are two hospitals in this area."
+        ],
+        "incorrect": [
+          {
+            "text": "There is my book on the table.",
+            "reason": "Use subject + verb for specific items: 'My book is on the table.' Reserve 'there is' for introducing new information."
+          },
+          {
+            "text": "There are the students in the classroom.",
+            "reason": "Use subject + verb for specific known people: 'The students are in the classroom.'"
+          },
+          {
+            "text": "In my house there is a garden.",
+            "reason": "Word order: begin with 'there is/are'. Correct: 'There is a garden in my house.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rules",
+      "title": "Essential Rules for There is / There are",
+      "rules": [
+        {
+          "rule": "Use 'there is' with singular and uncountable nouns; use 'there are' with plural nouns.",
+          "explanation": "The choice between 'is' and 'are' depends on whether the noun that follows is singular or plural. Example: 'There is a book' (singular), 'There are books' (plural), 'There is water' (uncountable)."
+        },
+        {
+          "rule": "Form negatives by adding 'not' after 'is' or 'are': 'there is not' / 'there are not' (contractions: 'isn't' / 'aren't').",
+          "explanation": "Negation is formed by inserting 'not' between the auxiliary and the noun phrase. Example: 'There isn't a pen', 'There aren't any students'."
+        },
+        {
+          "rule": "Form questions by inverting 'there' and 'is/are': 'Is there...?' or 'Are there...?'",
+          "explanation": "Question formation requires inversion of the subject 'there' and the verb 'is/are'. Example: 'Is there a book?', 'Are there any questions?'"
+        },
+        {
+          "rule": "Use 'there is/are' to introduce new information about existence, not to describe specific known items.",
+          "explanation": "'There is/are' introduces new information: 'There is a cat in the garden.' For known specific items, use subject + verb: 'The cat is in the garden' (not 'There is the cat')."
+        },
+        {
+          "rule": "When listing multiple items starting with a singular noun, use 'there is' (agreement with the first noun).",
+          "explanation": "In lists, the verb agrees with the first noun mentioned. Example: 'There is a book, two pens, and a notebook on the desk' (first item is singular)."
+        }
+      ]
+    },
+    {
+      "type": "common_mistakes",
+      "title": "Common Mistakes with There is / There are",
+      "mistakes": [
+        {
+          "mistake": "Using 'there is' with plural nouns or 'there are' with singular nouns.",
+          "why_it_happens": "Hindi uses 'hai' (is) and 'hain' (are) but word order and agreement rules differ. Learners may not focus on the noun's number when choosing 'is' or 'are'.",
+          "wrong": "There is many students. There are a book. There is three apples.",
+          "right": "There are many students. There is a book. There are three apples.",
+          "tip": "Check the noun that follows: singular/uncountable → 'there is'; plural → 'there are'."
+        },
+        {
+          "mistake": "Using 'there is/are' for specific known items.",
+          "why_it_happens": "Direct translation from Hindi: 'Meri kitaab table par hai' may be translated as 'There is my book on the table' instead of 'My book is on the table'.",
+          "wrong": "There is my car outside. There are the students in the room.",
+          "right": "My car is outside. The students are in the room.",
+          "tip": "Use 'there is/are' only to introduce new information about existence. For specific known items, use subject + verb."
+        },
+        {
+          "mistake": "Incorrect word order in questions (not inverting).",
+          "why_it_happens": "In Hindi, questions can use the same word order as statements. Learners may forget to invert 'there' and 'is/are' in English questions.",
+          "wrong": "There is a book on the table? There are any problems?",
+          "right": "Is there a book on the table? Are there any problems?",
+          "tip": "Questions require inversion: 'Is there...?' or 'Are there...?' (not 'There is...?' or 'There are...?')."
+        },
+        {
+          "mistake": "Incorrect placement of 'not' in negative sentences.",
+          "why_it_happens": "Confusion about English negative structure and where to place 'not' in relation to auxiliary verbs.",
+          "wrong": "There not is a pen. There not are students. Not there is a problem.",
+          "right": "There is not a pen. / There isn't a pen. There are not students. / There aren't students. There is not a problem.",
+          "tip": "Place 'not' immediately after 'is' or 'are': 'there is not' / 'there are not'. Contractions: 'isn't' / 'aren't'."
+        },
+        {
+          "mistake": "Using 'have' or 'has' instead of 'there is/are' when describing existence in a location.",
+          "why_it_happens": "Some languages use 'have' to express existence in a place. Hindi speakers may say 'The room has a table' for 'There is a table in the room'.",
+          "wrong": "The classroom has many students. My town has a park.",
+          "right": "There are many students in the classroom. There is a park in my town.",
+          "tip": "Use 'there is/are' (not 'has/have') to describe what exists in a location. Reserve 'have/has' for possession."
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": "Practice Questions",
+      "questions": [
+        {
+          "question": "Complete: _____ a library near your house?",
+          "answer": "Is there",
+          "explanation": "Question form with singular noun 'library' requires 'Is there' (inverted order)."
+        },
+        {
+          "question": "Choose the correct form: There (is/are) three chairs in the room.",
+          "answer": "are",
+          "explanation": "'Three chairs' is plural, so use 'there are'."
+        },
+        {
+          "question": "Make negative: There are some apples in the basket.",
+          "answer": "There are not any apples in the basket. / There aren't any apples in the basket.",
+          "explanation": "Add 'not' after 'are' and change 'some' to 'any' in negative: 'there are not any' or 'there aren't any'."
+        },
+        {
+          "question": "Correct the error: There is many problems with this plan.",
+          "answer": "There are many problems with this plan.",
+          "explanation": "'Many problems' is plural, requiring 'there are' (not 'there is')."
+        },
+        {
+          "question": "Form a question: There is a cat under the table.",
+          "answer": "Is there a cat under the table?",
+          "explanation": "Invert 'there' and 'is' to form a question: 'Is there...?' and add a question mark."
+        }
+      ]
+    },
+    {
+      "type": "revision",
+      "title": "Quick Revision Points",
+      "points": [
+        "'There is' is used with singular and uncountable nouns; 'there are' is used with plural nouns.",
+        "Use 'there is/are' to introduce new information about the existence or presence of something in a location.",
+        "Form negatives by adding 'not' after 'is/are': 'there is not' (isn't), 'there are not' (aren't).",
+        "Form questions by inverting 'there' and 'is/are': 'Is there...?', 'Are there...?'",
+        "Do not use 'there is/are' for specific known items; use subject + verb instead (e.g., 'My book is...' not 'There is my book').",
+        "Common structure: There is/are + (a/an/some/any/number) + noun + location phrase.",
+        "In negative sentences, 'some' usually changes to 'any': 'There aren't any students' (not 'There aren't some students').",
+        "Short answers: 'Is there a book?' - 'Yes, there is.' / 'No, there isn't.' 'Are there any questions?' - 'Yes, there are.' / 'No, there aren't.'",
+        "When listing items, the verb agrees with the first noun: 'There is a book and two pens' (first noun is singular).",
+        "Do not confuse 'there is/are' (existence in a location) with 'have/has' (possession)."
+      ]
+    }
+  ]
+}

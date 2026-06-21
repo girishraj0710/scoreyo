@@ -1,0 +1,327 @@
+{
+  "topic_id": "imperative-mood",
+  "title": "Imperative Mood",
+  "cefr_level": "A1",
+  "estimated_time": 20,
+  "sections": [
+    {
+      "type": "introduction",
+      "title": "Introduction to the Imperative Mood",
+      "content": "The imperative mood is a grammatical form used to give direct commands, instructions, requests, advice, or warnings. It is one of the most common structures in everyday English, appearing in recipes, directions, signs, manuals, and conversations. The imperative is unique because it uses the base form of the verb and often omits the subject. Understanding how to form and use imperatives appropriately is essential for clear communication in English."
+    },
+    {
+      "type": "concept_card",
+      "title": "Affirmative Commands",
+      "definition": "Affirmative imperatives are direct commands or instructions that tell someone to do something. They are formed using the base form of the verb without a subject, as the subject (you) is understood.",
+      "rules": [
+        "Begin with the base form of the verb (infinitive without 'to')",
+        "Do not include a subject (the subject 'you' is implied)",
+        "Use a full stop for instructions and commands",
+        "Use an exclamation mark for urgent or emphatic commands",
+        "Can be softened by adding 'please' to make it more polite"
+      ],
+      "examples": {
+        "correct": [
+          "Open the door.",
+          "Sit down.",
+          "Close the window!",
+          "Listen carefully.",
+          "Write your name here.",
+          "Turn left at the traffic lights.",
+          "Take this medicine twice a day.",
+          "Add two eggs and mix well.",
+          "Be careful!",
+          "Come here."
+        ],
+        "incorrect": [
+          {
+            "text": "You open the door.",
+            "reason": "Do not include the subject 'you' in imperatives. Correct: 'Open the door.'"
+          },
+          {
+            "text": "To close the window.",
+            "reason": "Do not use 'to' before the verb in imperatives. Correct: 'Close the window.'"
+          },
+          {
+            "text": "Opens the door.",
+            "reason": "Use the base form of the verb (not third-person singular form). Correct: 'Open the door.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Negative Commands (Don't...)",
+      "definition": "Negative imperatives tell someone not to do something. They are formed by adding 'do not' or the contraction 'don't' before the base form of the verb.",
+      "rules": [
+        "Begin with 'Do not' or the contraction 'Don't'",
+        "Follow with the base form of the verb",
+        "Do not include a subject (the subject 'you' is implied)",
+        "'Don't' is more common in spoken and informal English",
+        "Use for warnings, prohibitions, and negative instructions"
+      ],
+      "examples": {
+        "correct": [
+          "Don't open the door.",
+          "Do not touch that!",
+          "Don't be late.",
+          "Do not park here.",
+          "Don't forget your keys.",
+          "Don't run in the corridor.",
+          "Do not enter without permission.",
+          "Don't worry.",
+          "Don't make noise.",
+          "Do not disturb."
+        ],
+        "incorrect": [
+          {
+            "text": "Not open the door.",
+            "reason": "Negative imperatives require 'do not' or 'don't'. Correct: 'Don't open the door.'"
+          },
+          {
+            "text": "Don't to touch that.",
+            "reason": "Do not use 'to' after 'don't'. Correct: 'Don't touch that.'"
+          },
+          {
+            "text": "You don't open the door.",
+            "reason": "Do not include 'you' in imperatives. Correct: 'Don't open the door.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Polite Requests (Please...)",
+      "definition": "Adding 'please' to imperatives makes commands sound more polite and less direct. 'Please' can be placed at the beginning or end of the sentence, or occasionally in the middle.",
+      "rules": [
+        "Place 'please' at the beginning, end, or (less commonly) middle of the imperative",
+        "Use a comma when 'please' is at the end",
+        "Beginning: 'Please + verb'",
+        "End: 'Verb + , please'",
+        "'Please' softens the command and makes it more courteous",
+        "Common in requests, instructions, and service situations"
+      ],
+      "examples": {
+        "correct": [
+          "Please sit down.",
+          "Close the door, please.",
+          "Please wait here.",
+          "Open the window, please.",
+          "Please don't touch that.",
+          "Be quiet, please.",
+          "Please call me tomorrow.",
+          "Help me, please.",
+          "Please do not smoke here.",
+          "Turn off your mobile phones, please."
+        ],
+        "incorrect": [
+          {
+            "text": "Sit please down.",
+            "reason": "Incorrect placement of 'please'. Use: 'Please sit down' or 'Sit down, please.'"
+          },
+          {
+            "text": "Please you open the door.",
+            "reason": "Do not include 'you' with imperatives. Correct: 'Please open the door.'"
+          },
+          {
+            "text": "Close the door please.",
+            "reason": "Missing comma when 'please' is at the end. Correct: 'Close the door, please.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Suggestions with Let's",
+      "definition": "'Let's' is a contraction of 'let us' and is used to make suggestions or invite someone to do something together with the speaker. It includes both the speaker and the listener.",
+      "rules": [
+        "'Let's' is followed by the base form of the verb",
+        "Use 'Let's' to suggest an action involving both speaker and listener",
+        "Negative form: 'Let's not + verb'",
+        "Responses: 'Yes, let's' (agreement) or 'Let's not' / 'No, let's not' (disagreement)",
+        "More collaborative and inclusive than direct imperatives"
+      ],
+      "examples": {
+        "correct": [
+          "Let's go to the cinema.",
+          "Let's have lunch together.",
+          "Let's start the meeting.",
+          "Let's not waste time.",
+          "Let's be honest.",
+          "Let's take a break.",
+          "Let's not argue about this.",
+          "Let's try again.",
+          "Let's leave early.",
+          "Let's not forget to call them."
+        ],
+        "incorrect": [
+          {
+            "text": "Let's to go to the cinema.",
+            "reason": "Do not use 'to' after 'let's'. Correct: 'Let's go to the cinema.'"
+          },
+          {
+            "text": "Let's going to the park.",
+            "reason": "Use the base form of the verb (not -ing). Correct: 'Let's go to the park.'"
+          },
+          {
+            "text": "Let's don't waste time.",
+            "reason": "Negative form is 'Let's not' (not 'Let's don't'). Correct: 'Let's not waste time.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Imperatives in Different Contexts",
+      "definition": "Imperatives are used in various contexts including instructions, directions, warnings, advice, invitations, and offers. The tone and formality can vary depending on the situation and the relationship between speakers.",
+      "rules": [
+        "Instructions/recipes: Clear, step-by-step commands (Add, Mix, Heat, etc.)",
+        "Directions: Giving location guidance (Turn, Go, Walk, Take, etc.)",
+        "Warnings: Urgent commands for safety (Watch out! Be careful! Don't touch!)",
+        "Advice: Recommendations (Get some rest, Drink more water, etc.)",
+        "Offers/invitations: Friendly suggestions (Have a seat, Help yourself, etc.)",
+        "Signs and notices: Public instructions (Keep off the grass, No parking, etc.)"
+      ],
+      "examples": {
+        "correct": [
+          "Instructions: Boil the water. Add salt. Stir gently.",
+          "Directions: Turn right. Walk straight. Cross the bridge.",
+          "Warnings: Watch out! Be careful! Don't touch the wire!",
+          "Advice: Take a rest. Eat healthy food. Exercise regularly.",
+          "Offers: Have some tea. Help yourself to the food. Take a seat.",
+          "Signs: Keep off the grass. No smoking. Mind the gap.",
+          "Emergency: Call 999! Stop the car! Get out now!",
+          "Encouragement: Keep trying! Don't give up! Believe in yourself!"
+        ],
+        "incorrect": [
+          {
+            "text": "You boil the water in recipes.",
+            "reason": "Recipes use imperatives without 'you'. Correct: 'Boil the water.'"
+          },
+          {
+            "text": "To turn right at the corner.",
+            "reason": "Directions use base form imperatives. Correct: 'Turn right at the corner.'"
+          },
+          {
+            "text": "Please to help yourself.",
+            "reason": "Do not use 'to' in imperatives. Correct: 'Please help yourself.'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rules",
+      "title": "Essential Rules for the Imperative Mood",
+      "rules": [
+        {
+          "rule": "Form imperatives using the base form of the verb without a subject.",
+          "explanation": "The subject 'you' is implied and not stated. Example: 'Open the door' (not 'You open the door'). This is the same form for singular and plural 'you'."
+        },
+        {
+          "rule": "Form negative imperatives with 'Don't' or 'Do not' + base verb.",
+          "explanation": "To tell someone not to do something, add 'don't' or 'do not' before the verb. Example: 'Don't run', 'Do not enter'. Never use just 'not' alone."
+        },
+        {
+          "rule": "Add 'please' at the beginning or end to make commands more polite.",
+          "explanation": "'Please' softens direct commands into polite requests. Example: 'Please sit down' or 'Sit down, please' (with comma before 'please' at the end)."
+        },
+        {
+          "rule": "Use 'Let's' + base verb for suggestions that include both speaker and listener.",
+          "explanation": "'Let's' (let us) makes collaborative suggestions. Example: 'Let's go' means 'I suggest that we go together'. Negative: 'Let's not go'."
+        },
+        {
+          "rule": "Never use 'to' before the verb in imperatives.",
+          "explanation": "Imperatives use the base form, not the infinitive. Say 'Open the door' (not 'To open the door' or 'Please to open the door')."
+        }
+      ]
+    },
+    {
+      "type": "common_mistakes",
+      "title": "Common Mistakes with the Imperative Mood",
+      "mistakes": [
+        {
+          "mistake": "Including the subject 'you' in imperative sentences.",
+          "why_it_happens": "In Hindi, the subject can be stated ('Tum darwaza kholo'), leading learners to say 'You open the door' instead of just 'Open the door'.",
+          "wrong": "You close the window. You please sit down. You don't go there.",
+          "right": "Close the window. Please sit down. Don't go there.",
+          "tip": "The subject 'you' is always implied in imperatives and should not be stated. Simply start with the base verb."
+        },
+        {
+          "mistake": "Using 'to' before the verb in imperatives.",
+          "why_it_happens": "Confusion with infinitive forms or direct translation from Hindi structures where 'ko' may appear in commands.",
+          "wrong": "To open the door. Please to help me. To not touch that.",
+          "right": "Open the door. Please help me. Don't touch that.",
+          "tip": "Imperatives use the base form of the verb, not the infinitive. Never use 'to' before the verb in commands."
+        },
+        {
+          "mistake": "Using incorrect verb forms (third-person singular or -ing forms).",
+          "why_it_happens": "Confusion about which verb form to use, especially when learners are accustomed to conjugating verbs for different subjects.",
+          "wrong": "Opens the door. Closing the window. Goes there.",
+          "right": "Open the door. Close the window. Go there.",
+          "tip": "Always use the base form of the verb (infinitive without 'to') for imperatives, regardless of who you are addressing."
+        },
+        {
+          "mistake": "Forming negatives incorrectly (using only 'not' or 'no').",
+          "why_it_happens": "Direct translation from Hindi where 'mat' or 'na' can negate commands. Learners may use 'not' or 'no' alone without 'do'.",
+          "wrong": "Not go there. No touch that. Not be late.",
+          "right": "Don't go there. Don't touch that. Don't be late.",
+          "tip": "Negative imperatives always require 'Don't' or 'Do not' before the verb. Never use 'not' or 'no' alone."
+        },
+        {
+          "mistake": "Using 'Let's don't' instead of 'Let's not' for negative suggestions.",
+          "why_it_happens": "Overgeneralisation of the negative imperative form 'don't' to the 'Let's' structure.",
+          "wrong": "Let's don't go there. Let's don't waste time. Let's don't be late.",
+          "right": "Let's not go there. Let's not waste time. Let's not be late.",
+          "tip": "The negative form of 'Let's' is 'Let's not' (not 'Let's don't'). Pattern: 'Let's not + base verb'."
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": "Practice Questions",
+      "questions": [
+        {
+          "question": "Form an affirmative imperative: Tell someone to close the door.",
+          "answer": "Close the door.",
+          "explanation": "Use the base form of the verb 'close' without a subject. Add a full stop."
+        },
+        {
+          "question": "Make this imperative negative: Open the window.",
+          "answer": "Don't open the window. / Do not open the window.",
+          "explanation": "Add 'Don't' or 'Do not' before the base verb to form a negative imperative."
+        },
+        {
+          "question": "Make this command more polite: Sit down.",
+          "answer": "Please sit down. / Sit down, please.",
+          "explanation": "Add 'please' at the beginning or end (with a comma before 'please' if at the end)."
+        },
+        {
+          "question": "Form a suggestion using 'Let's': You want to suggest going to the cinema with your friend.",
+          "answer": "Let's go to the cinema.",
+          "explanation": "'Let's' + base verb ('go') makes a collaborative suggestion. It means 'I suggest we go together'."
+        },
+        {
+          "question": "Correct the error: You please to help me with this.",
+          "answer": "Please help me with this.",
+          "explanation": "Remove 'you' (imperatives omit the subject) and remove 'to' (use base verb form only). Add 'please' for politeness."
+        }
+      ]
+    },
+    {
+      "type": "revision",
+      "title": "Quick Revision Points",
+      "points": [
+        "The imperative mood is used for commands, instructions, requests, advice, warnings, and suggestions.",
+        "Form imperatives using the base form of the verb without stating the subject 'you'.",
+        "Affirmative imperatives: Base verb + rest of sentence. Example: 'Open the door.'",
+        "Negative imperatives: 'Don't' or 'Do not' + base verb. Example: 'Don't open the door.'",
+        "Never use 'to' before the verb in imperatives (use 'Open', not 'To open').",
+        "Add 'please' at the beginning or end to make imperatives more polite: 'Please sit down' or 'Sit down, please.'",
+        "Use 'Let's' + base verb for suggestions involving both speaker and listener: 'Let's go to the cinema.'",
+        "Negative form of 'Let's': 'Let's not' (not 'Let's don't'). Example: 'Let's not waste time.'",
+        "Imperatives are the same form for singular and plural 'you': 'Close the door' (one person or many people).",
+        "Context matters: Imperatives can sound rude or polite depending on tone, word choice ('please'), and punctuation (! for urgency)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1511 @@
+{
+  "topic_id": "quantifiers-determiners",
+  "title": "Quantifiers and Determiners",
+  "subtitle": "Mastering some/any, much/many, countable/uncountable, and quantifying expressions",
+  "overview": "Quantifiers and determiners are essential grammatical tools that specify quantity, amount, or definiteness of nouns. This comprehensive module explores the critical distinction between countable and uncountable nouns, the proper use of some/any in affirmative, negative, and interrogative contexts, the correct application of much/many, and expressions like 'a lot of', 'lots of', 'few', 'little', 'a few', and 'a little'. Additionally, determiners such as all, most, some, and no are examined in detail. Understanding these structures is fundamental for accurate English communication, particularly in competitive examinations (SSC, Banking, Railways, UPSC) and international proficiency tests (IELTS, TOEFL). This module provides detailed explanations following British English standards, authentic examples, common error patterns specific to Hindi speakers (who face unique challenges due to Hindi's different quantity expression system), and systematic practice to help you master quantifiers and determiners confidently.",
+  "sections": [
+    {
+      "section_id": "introduction",
+      "title": "Introduction to Quantifiers and Determiners",
+      "cards": [
+        {
+          "title": "What are Quantifiers and Determiners?",
+          "definition": "Quantifiers are words or phrases that express quantity or amount, answering 'How much?' or 'How many?'. They modify nouns to indicate whether we are referring to all, some, many, few, or no members of a category. Determiners are words placed before nouns to clarify what the noun refers to - they include articles (a, an, the), demonstratives (this, that), possessives (my, your), and quantifiers. Whilst all quantifiers function as determiners, not all determiners are quantifiers. The distinction between countable nouns (items you can count: books, students, chairs) and uncountable nouns (substances or concepts you cannot count: water, information, furniture) is crucial because different quantifiers are used with each type. Mastering quantifiers and determiners enables precise expression of quantity and specificity, essential for clear communication in academic, professional, and everyday contexts.",
+          "rules": [
+            "Quantifiers express quantity or amount (some, many, much, few, little, all, no)",
+            "Determiners include articles, demonstratives, possessives, and quantifiers",
+            "Countable nouns can be singular/plural and take numbers (one book, two books)",
+            "Uncountable nouns have no plural form and do not take numbers (water, not waters; information, not informations)",
+            "Different quantifiers are used with countable nouns (many, few) versus uncountable nouns (much, little)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "There are many students in the classroom today.",
+                "reason": "Quantifier 'many' correctly used with countable plural noun 'students'"
+              },
+              {
+                "text": "We need much time to complete this project.",
+                "reason": "Quantifier 'much' correctly used with uncountable noun 'time'"
+              },
+              {
+                "text": "She has some interesting books on history.",
+                "reason": "Quantifier 'some' correctly used with countable plural noun 'books'"
+              },
+              {
+                "text": "There is little water left in the bottle.",
+                "reason": "Quantifier 'little' correctly used with uncountable noun 'water'"
+              },
+              {
+                "text": "All candidates must submit their applications by Friday.",
+                "reason": "Determiner/quantifier 'all' correctly used with countable plural noun 'candidates'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "There are much students in the classroom today.",
+                "reason": "'Much' used with countable noun; should use 'many students'"
+              },
+              {
+                "text": "We need many time to complete this project.",
+                "reason": "'Many' used with uncountable noun; should use 'much time'"
+              },
+              {
+                "text": "She has some interesting informations on history.",
+                "reason": "'Information' is uncountable in English; no plural form: 'some information'"
+              },
+              {
+                "text": "There are little water left in the bottle.",
+                "reason": "'Little' with countable verb 'are'; should be 'is little water' (uncountable)"
+              },
+              {
+                "text": "All candidate must submit their applications by Friday.",
+                "reason": "After 'all', countable noun should be plural: 'all candidates'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "core-concepts",
+      "title": "Core Concepts of Quantifiers and Determiners",
+      "cards": [
+        {
+          "title": "Some and Any: Affirmative, Negative, and Questions",
+          "definition": "'Some' and 'any' are versatile quantifiers used with both countable plural and uncountable nouns to express indefinite quantities. The fundamental rule: use 'some' in affirmative sentences (I have some books), 'any' in negative sentences (I do not have any books), and 'any' in questions (Do you have any books?). However, important exceptions exist: use 'some' in offers and requests where a positive response is expected (Would you like some tea? / Can I have some help?). 'Any' in affirmative sentences means 'it does not matter which' (You can choose any book). Understanding these patterns and exceptions is crucial for natural, accurate English, particularly in everyday conversation, formal writing, and examination contexts.",
+          "rules": [
+            "Affirmative sentences: use 'some' (I have some money / I need some apples)",
+            "Negative sentences: use 'any' (I do not have any money / There are not any apples)",
+            "Questions: generally use 'any' (Do you have any money? / Are there any apples?)",
+            "Exception - Offers/Requests: use 'some' when expecting yes (Would you like some coffee? / Can I borrow some money?)",
+            "Exception - Affirmative with 'any': means 'it does not matter which' (Any student can join / You can sit anywhere)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have some questions about the assignment.",
+                "reason": "Affirmative sentence correctly uses 'some' with countable plural noun"
+              },
+              {
+                "text": "We do not have any information about the delay.",
+                "reason": "Negative sentence correctly uses 'any' with uncountable noun"
+              },
+              {
+                "text": "Do you have any spare pens I could borrow?",
+                "reason": "Question correctly uses 'any' with countable plural noun"
+              },
+              {
+                "text": "Would you like some tea or coffee?",
+                "reason": "Offer correctly uses 'some' (expecting positive response)"
+              },
+              {
+                "text": "You can ask any teacher for help with this problem.",
+                "reason": "Affirmative with 'any' correctly means 'it does not matter which teacher'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I have any questions about the assignment.",
+                "reason": "Affirmative sentence should use 'some', not 'any'"
+              },
+              {
+                "text": "We do not have some information about the delay.",
+                "reason": "Negative sentence should use 'any', not 'some'"
+              },
+              {
+                "text": "Do you have some spare pens I could borrow?",
+                "reason": "General question should use 'any'; 'some' only for offers/requests expecting yes"
+              },
+              {
+                "text": "Would you like any tea or coffee?",
+                "reason": "Offer expecting positive response should use 'some', not 'any'"
+              },
+              {
+                "text": "I do not need some help with this problem.",
+                "reason": "Negative sentence should use 'any', not 'some'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Much and Many: Countable vs Uncountable",
+          "definition": "'Much' and 'many' express large quantities, but they are used with different noun types. 'Many' modifies countable plural nouns (many books, many students, many opportunities). 'Much' modifies uncountable nouns (much time, much water, much information). Both are commonly used in negative sentences and questions (I do not have many friends / Do you have much experience?). In affirmative sentences, particularly in informal contexts, native speakers often prefer 'a lot of' or 'lots of' instead of 'much' or 'many', though 'many' remains acceptable in formal writing. Understanding this distinction and usage pattern is essential for grammatically correct English, especially for Hindi speakers whose language handles quantity differently.",
+          "rules": [
+            "'Many' with countable plural nouns (many books, many people, many questions)",
+            "'Much' with uncountable nouns (much time, much money, much patience)",
+            "Both common in negatives: not many students / not much time",
+            "Both common in questions: How many books? / How much money?",
+            "In affirmative sentences, 'a lot of' / 'lots of' often preferred over 'much' / 'many' in informal English"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "There are many candidates applying for this position.",
+                "reason": "'Many' correctly used with countable plural noun 'candidates'"
+              },
+              {
+                "text": "We do not have much time before the deadline.",
+                "reason": "'Much' correctly used with uncountable noun 'time' in negative sentence"
+              },
+              {
+                "text": "How many students attended the lecture yesterday?",
+                "reason": "'How many' correctly used in question with countable plural noun"
+              },
+              {
+                "text": "How much experience do you have in this field?",
+                "reason": "'How much' correctly used in question with uncountable noun 'experience'"
+              },
+              {
+                "text": "She has a lot of friends at university.",
+                "reason": "'A lot of' preferred in affirmative with countable noun (more natural than 'many' here)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "There are much candidates applying for this position.",
+                "reason": "'Much' used with countable noun; should be 'many candidates'"
+              },
+              {
+                "text": "We do not have many time before the deadline.",
+                "reason": "'Many' used with uncountable noun; should be 'much time'"
+              },
+              {
+                "text": "How much students attended the lecture yesterday?",
+                "reason": "'How much' with countable noun; should be 'How many students'"
+              },
+              {
+                "text": "How many experience do you have in this field?",
+                "reason": "'How many' with uncountable noun; should be 'How much experience'"
+              },
+              {
+                "text": "We have much problems to solve.",
+                "reason": "'Much' with countable plural noun; should be 'many problems'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "A lot of, Lots of, Plenty of - Universal Quantifiers",
+          "definition": "'A lot of', 'lots of', and 'plenty of' are versatile quantifiers that work with both countable plural and uncountable nouns to express large quantities. They are particularly common in spoken English and informal writing. 'A lot of' and 'lots of' are interchangeable and mean the same thing, with 'lots of' being slightly more informal. 'Plenty of' emphasises sufficiency - more than enough. These expressions are preferred over 'much' and 'many' in affirmative sentences in conversational English. Verb agreement follows the noun: 'A lot of students are present' (plural verb with countable) versus 'A lot of information is available' (singular verb with uncountable). These quantifiers provide flexibility and naturalness in expressing quantity.",
+          "rules": [
+            "'A lot of' / 'lots of' / 'plenty of' work with both countable and uncountable nouns",
+            "Common in affirmative sentences (preferred over 'much' / 'many' in informal contexts)",
+            "Also used in negatives and questions: not a lot of time / Do you have a lot of friends?",
+            "Verb agreement depends on noun: 'a lot of books are' (plural) / 'a lot of water is' (singular)",
+            "'Plenty of' emphasises sufficiency: more than enough (We have plenty of time)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She has a lot of experience in project management.",
+                "reason": "'A lot of' correctly used with uncountable noun 'experience'"
+              },
+              {
+                "text": "There are lots of opportunities in this field.",
+                "reason": "'Lots of' correctly used with countable plural noun 'opportunities'; verb agrees (are)"
+              },
+              {
+                "text": "We have plenty of time to complete the assignment.",
+                "reason": "'Plenty of' with uncountable noun, emphasising sufficiency"
+              },
+              {
+                "text": "Do you have a lot of homework tonight?",
+                "reason": "'A lot of' correctly used in question with uncountable noun 'homework'"
+              },
+              {
+                "text": "A lot of students were absent due to illness.",
+                "reason": "'A lot of' with countable plural; verb correctly agrees (were - plural)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She has lot of experience in project management.",
+                "reason": "Missing article 'a'; must be 'a lot of', not 'lot of'"
+              },
+              {
+                "text": "There is lots of opportunities in this field.",
+                "reason": "Verb disagreement; countable plural noun needs plural verb: 'are lots of opportunities'"
+              },
+              {
+                "text": "We have plenty time to complete the assignment.",
+                "reason": "Missing 'of'; must be 'plenty of time', not 'plenty time'"
+              },
+              {
+                "text": "A lot of information are available online.",
+                "reason": "Verb disagreement; uncountable noun needs singular verb: 'is available'"
+              },
+              {
+                "text": "Lots of water are needed for this experiment.",
+                "reason": "Verb disagreement; uncountable noun 'water' needs singular verb: 'is needed'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Few, Little, A Few, A Little - Small Quantities with Different Meanings",
+          "definition": "The quantifiers 'few', 'little', 'a few', and 'a little' express small quantities, but with crucial differences in meaning and noun type. 'Few' (countable) and 'little' (uncountable) carry negative meaning - not enough, hardly any (I have few friends = not many, perhaps lonely; I have little time = not much, insufficient). 'A few' (countable) and 'a little' (uncountable) carry positive meaning - some, a small but adequate amount (I have a few friends = some friends, sufficient; I have a little time = some time, enough). The presence or absence of the article 'a' changes the entire meaning from negative to positive. Understanding this distinction is critical for conveying the correct attitude and meaning in English communication.",
+          "rules": [
+            "'Few' with countable plural = negative meaning: not enough, hardly any (few students came)",
+            "'A few' with countable plural = positive meaning: some, a small number (a few students came)",
+            "'Little' with uncountable = negative meaning: not enough, hardly any (little hope remains)",
+            "'A little' with uncountable = positive meaning: some, a small amount (a little hope remains)",
+            "The article 'a' changes meaning from negative (few/little) to positive (a few/a little)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Few students passed the difficult examination.",
+                "reason": "'Few' with countable plural, negative meaning: not many passed (disappointing)"
+              },
+              {
+                "text": "A few students volunteered to help with the event.",
+                "reason": "'A few' with countable plural, positive meaning: some students volunteered (good)"
+              },
+              {
+                "text": "There is little hope of finding survivors after so long.",
+                "reason": "'Little' with uncountable, negative meaning: not much hope (pessimistic)"
+              },
+              {
+                "text": "There is a little milk left; we can make tea.",
+                "reason": "'A little' with uncountable, positive meaning: some milk, sufficient for purpose"
+              },
+              {
+                "text": "He has few friends but enjoys solitude.",
+                "reason": "'Few' correctly conveys negative quantity: not many friends"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Few students volunteered to help with the event.",
+                "reason": "Context suggests positive (volunteering is good), should use 'A few students' not 'Few'"
+              },
+              {
+                "text": "A few students passed the difficult examination.",
+                "reason": "Context suggests negative outcome (difficult exam, low pass rate), should use 'Few' not 'A few'"
+              },
+              {
+                "text": "There is few water left in the bottle.",
+                "reason": "'Few' with uncountable noun; should use 'little water' (uncountable)"
+              },
+              {
+                "text": "There are a little chairs available in the room.",
+                "reason": "'A little' with countable plural; should use 'a few chairs' (countable)"
+              },
+              {
+                "text": "She has a little friends in this city.",
+                "reason": "'A little' with countable plural; should use 'a few friends' (countable)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "All, Most, Some, No - Totality and Proportion",
+          "definition": "These determiners express totality, proportion, or absence. 'All' indicates 100% or the entire group (all students must attend). 'Most' indicates the majority, typically over 50% (most students prefer morning classes). 'Some' indicates an unspecified portion, less than all but more than none (some students failed). 'No' indicates zero, complete absence (no students were absent = all were present). These words can function with or without 'of': use 'of' when followed by specific nouns with determiners (all of the students, most of my friends) but omit 'of' before general nouns (all students, most people). Verb agreement depends on whether the noun is countable or uncountable: 'All students are' (plural) versus 'All information is' (singular).",
+          "rules": [
+            "'All' = 100%, the entire group: all students, all information (can omit 'of' before noun)",
+            "'Most' = majority, over 50%: most people agree, most water has evaporated",
+            "'Some' = indefinite portion: some books, some advice (more than none, less than all)",
+            "'No' = zero, complete absence: no students failed (meaning: all passed)",
+            "Pattern with 'of': all/most/some/no + of + the/my/these + noun (all of the students, most of my time)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "All students must submit their assignments by Friday.",
+                "reason": "'All' correctly indicates 100% of students; 'of' omitted before general noun"
+              },
+              {
+                "text": "Most of the candidates passed the interview successfully.",
+                "reason": "'Most of' correctly used before 'the' + noun; indicates majority"
+              },
+              {
+                "text": "Some information about the project is confidential.",
+                "reason": "'Some' with uncountable noun; singular verb 'is' agrees correctly"
+              },
+              {
+                "text": "No student was absent from the important lecture.",
+                "reason": "'No' indicates zero absence (meaning: all attended); singular verb with singular noun"
+              },
+              {
+                "text": "All of my colleagues supported the new proposal.",
+                "reason": "'All of' correctly used before possessive + noun"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "All of students must submit their assignments by Friday.",
+                "reason": "Missing determiner after 'of'; should be 'All students' or 'All of the students'"
+              },
+              {
+                "text": "Most the candidates passed the interview successfully.",
+                "reason": "Missing 'of' before 'the'; should be 'Most of the candidates' or 'Most candidates'"
+              },
+              {
+                "text": "Some information about the project are confidential.",
+                "reason": "Verb disagreement; uncountable 'information' needs singular verb: 'is confidential'"
+              },
+              {
+                "text": "No students was absent from the important lecture.",
+                "reason": "Verb disagreement; plural 'students' needs plural verb: 'were absent'"
+              },
+              {
+                "text": "All of colleagues supported the new proposal.",
+                "reason": "Missing possessive determiner after 'of'; should be 'All colleagues' or 'All of my colleagues'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "key-rules",
+      "title": "Key Rules for Quantifiers and Determiners",
+      "cards": [
+        {
+          "title": "Rule 1: Identifying Countable and Uncountable Nouns",
+          "definition": "The foundation for correct quantifier use is distinguishing between countable and uncountable nouns. Countable nouns refer to individual items that can be counted and have singular and plural forms (book/books, chair/chairs, student/students). They take numbers and quantifiers like many, few, a few. Uncountable nouns refer to substances, concepts, or mass nouns that cannot be counted individually (water, information, furniture, advice, progress). They have no plural form, do not take numbers directly, and use quantifiers like much, little, a little. Some nouns can be both depending on context: 'coffee' (uncountable substance) versus 'a coffee' (countable: one cup). Hindi speakers face particular challenges because Hindi treats many nouns as countable that English treats as uncountable.",
+          "rules": [
+            "Countable: can be singular/plural, take numbers (one book, two books, many books)",
+            "Uncountable: no plural form, no direct numbers (water, not waters; much water, not many waters)",
+            "Quantifiers for countable: many, few, a few, number expressions",
+            "Quantifiers for uncountable: much, little, a little, expressions like 'a great deal of'",
+            "Universal quantifiers work with both: some, any, a lot of, lots of, all, most"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Countable: She bought three books. / There are many students.",
+                "reason": "'Books' and 'students' can be counted; take numbers and 'many'"
+              },
+              {
+                "text": "Uncountable: We need much time. / There is little information available.",
+                "reason": "'Time' and 'information' cannot be counted; take 'much' and 'little'"
+              },
+              {
+                "text": "Universal: She has some books. / She has some time.",
+                "reason": "'Some' works with both countable (books) and uncountable (time)"
+              },
+              {
+                "text": "Context-dependent: I drink coffee daily. / Can I have a coffee, please?",
+                "reason": "First: uncountable substance; Second: countable (one cup of coffee)"
+              },
+              {
+                "text": "Uncountable: She gave me good advice. / They made significant progress.",
+                "reason": "'Advice' and 'progress' are uncountable in English; no plural forms"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Error: She bought three furnitures.",
+                "reason": "'Furniture' is uncountable in English; say 'three pieces of furniture'"
+              },
+              {
+                "text": "Error: We need many time to complete this.",
+                "reason": "'Time' is uncountable; should use 'much time', not 'many time'"
+              },
+              {
+                "text": "Error: There are many informations available online.",
+                "reason": "'Information' is uncountable; no plural: 'much information is available'"
+              },
+              {
+                "text": "Error: She gave me good advices about career.",
+                "reason": "'Advice' is uncountable; no plural form: 'good advice' (or 'pieces of advice')"
+              },
+              {
+                "text": "Error: They made many progresses this year.",
+                "reason": "'Progress' is uncountable; should be 'much progress' or 'significant progress'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Some vs Any in Different Sentence Types",
+          "definition": "The some/any distinction is one of the most fundamental quantifier rules. The basic pattern: 'some' in affirmative sentences, 'any' in negative sentences and questions. However, this rule has important exceptions that confuse learners. Use 'some' in questions when making offers or requests where you expect a positive answer (Would you like some help?). Use 'any' in affirmative sentences when it means 'it does not matter which one' (Any book will do). Compounds follow the same pattern: something/somebody/somewhere (affirmative, offers), anything/anybody/anywhere (negative, questions, 'it does not matter which'). Understanding these patterns and recognising offer/request contexts versus general questions is crucial for natural English.",
+          "rules": [
+            "Affirmative: some (I have some books / There is some water)",
+            "Negative: any (I do not have any books / There is not any water)",
+            "General questions: any (Do you have any books? / Is there any water?)",
+            "Offers/Requests (expecting yes): some (Would you like some tea? / Can I have some time?)",
+            "Affirmative with 'any' = no preference: You can choose any book (= it does not matter which)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have some questions to ask after the lecture.",
+                "reason": "Affirmative sentence correctly uses 'some'"
+              },
+              {
+                "text": "We do not have any vacancies at present.",
+                "reason": "Negative sentence correctly uses 'any'"
+              },
+              {
+                "text": "Do you have any suggestions for improvement?",
+                "reason": "General question correctly uses 'any'"
+              },
+              {
+                "text": "Would you like some coffee before the meeting?",
+                "reason": "Offer (expecting yes) correctly uses 'some'"
+              },
+              {
+                "text": "Any employee can apply for this training programme.",
+                "reason": "Affirmative with 'any' meaning 'it does not matter which employee'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I have any questions to ask after the lecture.",
+                "reason": "Affirmative sentence should use 'some', not 'any'"
+              },
+              {
+                "text": "We do not have some vacancies at present.",
+                "reason": "Negative sentence should use 'any', not 'some'"
+              },
+              {
+                "text": "Would you like any coffee before the meeting?",
+                "reason": "Offer expecting positive response should use 'some', not 'any'"
+              },
+              {
+                "text": "I did not see anybody at the office yesterday.",
+                "reason": "Actually correct; this is not an error - 'anybody' correct in negative"
+              },
+              {
+                "text": "Some employee can apply for this training programme.",
+                "reason": "Context suggests 'it does not matter which'; should use 'Any employee', not 'Some'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Much/Many and A lot of/Lots of - Context Matters",
+          "definition": "'Much' and 'many' are grammatically correct but have usage constraints based on sentence type and formality. In negative sentences and questions, 'much' and 'many' are natural and common (not much time, not many people, How much money?, How many students?). In affirmative sentences, particularly in informal spoken English, native speakers prefer 'a lot of' or 'lots of' over 'much' or 'many', though 'many' remains acceptable in formal writing. 'Much' in affirmative sentences sounds formal or archaic in modern English (Much water was consumed vs. A lot of water was consumed - second more natural). Understanding these usage patterns helps learners sound more natural and choose appropriate forms for different contexts.",
+          "rules": [
+            "Negatives: 'much' and 'many' natural and common (not much time, not many options)",
+            "Questions: 'much' and 'many' natural and common (How much? How many?)",
+            "Affirmative informal: prefer 'a lot of' / 'lots of' (I have a lot of friends)",
+            "Affirmative formal writing: 'many' acceptable (Many researchers have studied this topic)",
+            "'Much' in affirmative sounds formal/archaic in modern English (prefer 'a lot of' / 'a great deal of')"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "We do not have much time before the deadline.",
+                "reason": "Negative sentence: 'much' natural and appropriate with uncountable noun"
+              },
+              {
+                "text": "How many candidates applied for the position?",
+                "reason": "Question: 'many' natural and appropriate with countable plural"
+              },
+              {
+                "text": "She has a lot of experience in digital marketing.",
+                "reason": "Affirmative: 'a lot of' more natural in informal context than 'much'"
+              },
+              {
+                "text": "Many studies have demonstrated the effectiveness of this approach.",
+                "reason": "Formal writing: 'many' acceptable and appropriate in affirmative"
+              },
+              {
+                "text": "There are not many opportunities in this field currently.",
+                "reason": "Negative: 'many' natural and common with countable plural"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "We have much time before the deadline.",
+                "reason": "Affirmative with 'much' sounds unnatural; prefer 'a lot of time' or 'plenty of time'"
+              },
+              {
+                "text": "She has much experience in digital marketing.",
+                "reason": "Affirmative with 'much' sounds awkward; should use 'a lot of experience'"
+              },
+              {
+                "text": "How a lot of candidates applied for the position?",
+                "reason": "Questions should use 'many' or 'much', not 'a lot of': 'How many candidates'"
+              },
+              {
+                "text": "We do not have a lot of much time left.",
+                "reason": "Combining 'a lot of' with 'much' is redundant; choose one: 'not much time' or 'not a lot of time'"
+              },
+              {
+                "text": "There are not a lots of opportunities currently.",
+                "reason": "Wrong form; should be 'lots of' (no 'a') or 'a lot of' (not 'lots')"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Few/A Few and Little/A Little - Negative vs Positive Meaning",
+          "definition": "The crucial distinction between 'few'/'little' (negative) and 'a few'/'a little' (positive) often escapes learners, but it dramatically changes meaning. 'Few' and 'little' emphasise insufficiency, scarcity, or disappointment (Few people attended = disappointingly small number; Little progress was made = not enough progress). 'A few' and 'a little' emphasise the positive existence of some quantity, suggesting sufficiency for the purpose (A few people attended = some people, which is good; A little progress was made = some progress, which is encouraging). The presence of the article 'a' shifts the perspective from glass-half-empty to glass-half-full. Context and intended meaning determine which form to use.",
+          "rules": [
+            "'Few' (countable) = not enough, hardly any - negative attitude (Few students passed)",
+            "'A few' (countable) = some, a small but adequate number - positive attitude (A few students helped)",
+            "'Little' (uncountable) = not enough, hardly any - negative attitude (Little hope remains)",
+            "'A little' (uncountable) = some, a small but adequate amount - positive attitude (A little hope remains)",
+            "Article 'a' changes meaning from negative (scarcity) to positive (sufficiency)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Few candidates met the stringent requirements.",
+                "reason": "Negative meaning: not many met requirements (disappointingly small number)"
+              },
+              {
+                "text": "A few candidates exceeded our expectations significantly.",
+                "reason": "Positive meaning: some candidates exceeded expectations (good outcome)"
+              },
+              {
+                "text": "There is little chance of success without proper preparation.",
+                "reason": "Negative meaning: not much chance (pessimistic outlook)"
+              },
+              {
+                "text": "There is a little milk left; we can make tea.",
+                "reason": "Positive meaning: some milk available, sufficient for purpose"
+              },
+              {
+                "text": "He has few friends but values quality over quantity.",
+                "reason": "Negative quantity (not many friends) acknowledged, then reframed positively"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Few candidates exceeded our expectations significantly.",
+                "reason": "Context is positive (exceeding expectations is good); should use 'A few', not 'Few'"
+              },
+              {
+                "text": "A few candidates met the stringent requirements.",
+                "reason": "Context suggests disappointment (stringent = few should pass); 'Few' better conveys negative outcome"
+              },
+              {
+                "text": "There is a little chance of success without proper preparation.",
+                "reason": "Context is pessimistic/warning; 'little' (negative) better fits than 'a little'"
+              },
+              {
+                "text": "Few people came to help, which was wonderful.",
+                "reason": "Contradiction: 'few' (negative: not many) contradicts 'wonderful' (positive); use 'A few'"
+              },
+              {
+                "text": "I have little friends who truly understand me.",
+                "reason": "'Little' with countable noun; should be 'few friends' (though context suggests 'a few' for positive)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: All, Most, Some, No with 'Of' and Without",
+          "definition": "The determiners 'all', 'most', 'some', and 'no' can appear with or without 'of', depending on what follows. When these words are followed by a determiner (the, this, my, etc.) plus a noun, you must include 'of' (all of the students, most of my time, some of these books, none of his friends). When followed directly by a general noun without another determiner, omit 'of' (all students, most people, some information, no student). The exception is 'none', which always appears with 'of' when followed by a noun phrase. Additionally, these words can stand alone as pronouns (All are welcome, Most agreed, Some will stay, None came). Understanding this 'of' pattern is essential for grammatically correct English.",
+          "rules": [
+            "With determiner (the/this/my/etc.): use 'of' (all of the students, most of my friends)",
+            "Without determiner (general noun): omit 'of' (all students, most people, some books)",
+            "'None' always uses 'of' with noun phrase (none of the students, none of my colleagues)",
+            "These words can function as pronouns without 'of' or nouns (All are welcome, Most agreed)",
+            "Verb agreement depends on noun: 'All students are' (plural) / 'All water is' (singular)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "All of the candidates completed the examination successfully.",
+                "reason": "Correctly uses 'of' before determiner 'the' + noun"
+              },
+              {
+                "text": "All candidates must bring identification documents.",
+                "reason": "Correctly omits 'of' before general noun without determiner"
+              },
+              {
+                "text": "Most of my colleagues supported the proposed changes.",
+                "reason": "Correctly uses 'of' before possessive determiner 'my' + noun"
+              },
+              {
+                "text": "Most students prefer online learning these days.",
+                "reason": "Correctly omits 'of' before general noun without determiner"
+              },
+              {
+                "text": "None of the applicants had the required qualifications.",
+                "reason": "'None' correctly uses 'of' before determiner + noun"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "All of candidates must bring identification documents.",
+                "reason": "Missing determiner after 'of'; should be 'All candidates' or 'All of the candidates'"
+              },
+              {
+                "text": "All the candidates completed the examination successfully.",
+                "reason": "Missing 'of' before determiner; should be 'All of the candidates' or 'All candidates'"
+              },
+              {
+                "text": "Most of students prefer online learning these days.",
+                "reason": "Missing determiner after 'of'; should be 'Most students' or 'Most of the students'"
+              },
+              {
+                "text": "Most my colleagues supported the proposed changes.",
+                "reason": "Missing 'of' before possessive; should be 'Most of my colleagues' or 'Most colleagues'"
+              },
+              {
+                "text": "None the applicants had the required qualifications.",
+                "reason": "'None' requires 'of' before determiner: 'None of the applicants'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "common-mistakes",
+      "title": "Common Mistakes for Hindi Speakers",
+      "cards": [
+        {
+          "title": "Mistake 1: Treating Uncountable Nouns as Countable",
+          "definition": "Hindi speakers frequently make this error because many nouns that are uncountable in English are treated as countable in Hindi. Hindi: 'सलाह' (salaah - advice) can be pluralised as 'सलाहें' (salaahen - advices), but English 'advice' is always uncountable. Similarly, Hindi allows 'फर्नीचर' (furniture) with numbers ('तीन फर्नीचर' - three furnitures), but English 'furniture' is uncountable. Other problematic nouns: information (Hindi: जानकारी/जानकारियाँ), progress (Hindi: प्रगति/प्रगतियाँ), luggage (Hindi: सामान - can be counted in Hindi), and bread (Hindi: रोटी/रोटियाँ - countable in Hindi). This transfer error leads to incorrect pluralisation and wrong quantifier use.",
+          "rules": [
+            "English uncountable nouns have no plural form: advice (not advices), furniture (not furnitures)",
+            "Use singular verb with uncountable nouns: Information is available (not are)",
+            "To count uncountable nouns, use partitive expressions: pieces of furniture, bits of information",
+            "Common uncountable for Hindi speakers: advice, information, furniture, luggage, bread, equipment, homework",
+            "Use 'much', 'little', 'a little' with uncountable, not 'many', 'few', 'a few'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She gave me valuable advice about career planning.",
+                "reason": "'Advice' used correctly as uncountable singular noun"
+              },
+              {
+                "text": "We need to buy new furniture for the office.",
+                "reason": "'Furniture' correctly used as uncountable (not 'furnitures')"
+              },
+              {
+                "text": "Much information is available on their website.",
+                "reason": "'Information' correctly treated as uncountable with 'much' and singular verb 'is'"
+              },
+              {
+                "text": "He has made significant progress in learning English.",
+                "reason": "'Progress' correctly used as uncountable (not 'progresses')"
+              },
+              {
+                "text": "We bought three pieces of furniture for the living room.",
+                "reason": "Correct way to count uncountable: 'pieces of furniture'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She gave me valuable advices about career planning.",
+                "reason": "Hindi pattern (सलाहें); English 'advice' is uncountable, no plural form"
+              },
+              {
+                "text": "We need to buy new furnitures for the office.",
+                "reason": "Hindi allows counting (फर्नीचर); English 'furniture' is uncountable"
+              },
+              {
+                "text": "Many informations are available on their website.",
+                "reason": "'Information' is uncountable; should be 'Much information is' (not many/are)"
+              },
+              {
+                "text": "He has made many progresses in learning English.",
+                "reason": "Hindi treats as countable (प्रगतियाँ); English 'progress' is uncountable"
+              },
+              {
+                "text": "We bought three furnitures for the living room.",
+                "reason": "Cannot count 'furniture' directly; say 'three pieces of furniture'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 2: Using 'Much' with Countable Nouns (Hindi 'Bahut' Transfer)",
+          "definition": "Hindi 'बहुत' (bahut - much/many/very) is a versatile word used for both countable and uncountable nouns, causing Hindi speakers to incorrectly use 'much' with countable nouns in English. Hindi: 'बहुत किताबें' (bahut kitaabein - many books) and 'बहुत पानी' (bahut paani - much water) both use 'बहुत'. English strictly separates 'many' (countable) from 'much' (uncountable). This transfer error is one of the most common quantifier mistakes among Hindi speakers. The solution requires conscious differentiation: identify noun type first, then choose appropriate quantifier (countable = many, uncountable = much).",
+          "rules": [
+            "Hindi 'बहुत' (bahut) translates to 'many' (countable) or 'much' (uncountable) depending on noun",
+            "'Many' only with countable plural nouns (many books, many students)",
+            "'Much' only with uncountable nouns (much water, much time)",
+            "Cannot use 'much' with countable nouns in English (not 'much books')",
+            "Alternative for both types: 'a lot of' / 'lots of' (a lot of books, a lot of water)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "There are many students in the examination hall.",
+                "reason": "Hindi: बहुत छात्र; English correctly uses 'many' with countable plural"
+              },
+              {
+                "text": "We need much time to complete this project.",
+                "reason": "Hindi: बहुत समय; English correctly uses 'much' with uncountable"
+              },
+              {
+                "text": "She has many friends at university.",
+                "reason": "Hindi: बहुत दोस्त; English 'many' correctly used with countable plural 'friends'"
+              },
+              {
+                "text": "He does not have much experience in this field.",
+                "reason": "Hindi: बहुत अनुभव नहीं; English 'much' correctly with uncountable 'experience'"
+              },
+              {
+                "text": "There are a lot of opportunities in this sector.",
+                "reason": "Alternative: 'a lot of' works with countable plural (avoids much/many choice)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "There are much students in the examination hall.",
+                "reason": "Direct Hindi transfer (बहुत छात्र); English needs 'many students' (countable)"
+              },
+              {
+                "text": "We need many time to complete this project.",
+                "reason": "Hindi 'बहुत' pattern; English 'time' is uncountable, needs 'much time'"
+              },
+              {
+                "text": "She has much friends at university.",
+                "reason": "Hindi 'बहुत दोस्त'; English 'friends' countable, needs 'many friends'"
+              },
+              {
+                "text": "He does not have many experience in this field.",
+                "reason": "Hindi pattern; 'experience' uncountable, needs 'much experience'"
+              },
+              {
+                "text": "There are much opportunities in this sector.",
+                "reason": "'Opportunities' countable plural; should be 'many opportunities'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 3: Incorrect Some/Any Usage (Hindi 'Kuch' Transfer)",
+          "definition": "Hindi 'कुछ' (kuch - some) is used in affirmative, negative, and interrogative sentences without distinction, leading Hindi speakers to use 'some' in all contexts in English. Hindi: 'क्या आपके पास कुछ किताबें हैं?' (Kya aapke paas kuch kitaabein hain? - Do you have some books?). English requires 'any' in general questions. Similarly, Hindi uses 'कुछ नहीं' (kuch nahin) where English needs 'not...any'. Hindi speakers must learn the English pattern: some (affirmative), any (negative/questions), with exceptions for offers/requests. This transfer error creates unnatural-sounding English.",
+          "rules": [
+            "Hindi 'कुछ' (kuch) = some/any depending on English sentence type",
+            "Affirmative: some (I have some books = मेरे पास कुछ किताबें हैं)",
+            "Negative: any (I do not have any books = मेरे पास कुछ किताबें नहीं हैं)",
+            "General questions: any (Do you have any books? = क्या आपके पास कुछ किताबें हैं?)",
+            "Offers/requests: some (Would you like some tea? = क्या आप कुछ चाय लेंगे?)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have some important work to complete today.",
+                "reason": "Affirmative sentence correctly uses 'some' (Hindi: मेरे पास कुछ काम है)"
+              },
+              {
+                "text": "Do you have any questions about the assignment?",
+                "reason": "General question correctly uses 'any' (Hindi: क्या कुछ सवाल हैं?)"
+              },
+              {
+                "text": "We do not have any vacancies at present.",
+                "reason": "Negative correctly uses 'any' (Hindi: कुछ रिक्तियाँ नहीं हैं)"
+              },
+              {
+                "text": "Would you like some assistance with this problem?",
+                "reason": "Offer (expecting yes) correctly uses 'some' (Hindi: क्या कुछ मदद चाहिए?)"
+              },
+              {
+                "text": "I did not see anyone at the meeting yesterday.",
+                "reason": "Negative correctly uses 'anyone' (Hindi: किसी को नहीं देखा)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Do you have some questions about the assignment?",
+                "reason": "Hindi direct pattern (कुछ सवाल); general question needs 'any', not 'some'"
+              },
+              {
+                "text": "We do not have some vacancies at present.",
+                "reason": "Hindi 'कुछ नहीं' pattern; negative needs 'any': 'do not have any'"
+              },
+              {
+                "text": "Would you like any assistance with this problem?",
+                "reason": "Offer expecting positive response; should use 'some', not 'any'"
+              },
+              {
+                "text": "I have any important work to complete today.",
+                "reason": "Affirmative sentence should use 'some', not 'any'"
+              },
+              {
+                "text": "I did not see some person at the meeting yesterday.",
+                "reason": "Negative should use 'any': 'did not see anyone' or 'did not see any person'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 4: Missing Article 'A' with Few/Little",
+          "definition": "Hindi does not have direct equivalents for the positive/negative distinction between few/a few and little/a little. Hindi uses 'थोड़े' (thode - few) and 'थोड़ा' (thoda - little) without the positive/negative nuance that English 'a' creates. Hindi speakers often omit the article 'a', using 'few' when they mean 'a few' (positive) or 'little' when they mean 'a little' (positive), inadvertently creating negative meaning. Hindi: 'थोड़े छात्र आये' (thode chhatr aaye) could be 'few students came' (negative: disappointingly small number) or 'a few students came' (positive: some came), but Hindi does not mark this distinction. English learners must consciously add 'a' for positive meaning.",
+          "rules": [
+            "Hindi 'थोड़े' (thode) = few (negative) or a few (positive) depending on context",
+            "Hindi 'थोड़ा' (thoda) = little (negative) or a little (positive) depending on context",
+            "'Few'/'little' (no article) = negative meaning: not enough, hardly any",
+            "'A few'/'a little' (with article) = positive meaning: some, a small but adequate amount",
+            "Add 'a' when meaning is positive/sufficient; omit 'a' when meaning is negative/insufficient"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "A few students volunteered to help organize the event.",
+                "reason": "Positive context (volunteering is good); correctly uses 'a few' (Hindi: थोड़े छात्रों ने)"
+              },
+              {
+                "text": "Few students passed the extremely difficult examination.",
+                "reason": "Negative context (difficult exam, low pass rate); correctly uses 'few' (Hindi: थोड़े)"
+              },
+              {
+                "text": "We have a little time before the meeting starts.",
+                "reason": "Positive: some time available, sufficient; 'a little' correct (Hindi: थोड़ा समय है)"
+              },
+              {
+                "text": "There is little hope of recovering the lost data.",
+                "reason": "Negative: not much hope (pessimistic); 'little' correct (Hindi: थोड़ी आशा)"
+              },
+              {
+                "text": "She has a few close friends who support her.",
+                "reason": "Positive: some friends, which is good; 'a few' correct (Hindi: थोड़े दोस्त)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Few students volunteered to help organize the event.",
+                "reason": "Context is positive (volunteering good); should use 'a few' (Hindi: थोड़े)"
+              },
+              {
+                "text": "A few students passed the extremely difficult examination.",
+                "reason": "Context suggests disappointment (difficult, low pass); should use 'few' (Hindi: थोड़े)"
+              },
+              {
+                "text": "We have little time before the meeting starts.",
+                "reason": "If time is sufficient, should use 'a little' (positive); 'little' suggests insufficient"
+              },
+              {
+                "text": "There is a little hope of recovering the lost data.",
+                "reason": "Context is pessimistic; should use 'little' (negative: not much hope)"
+              },
+              {
+                "text": "She has few close friends who support her.",
+                "reason": "Having supportive friends is positive; should use 'a few' (Hindi: थोड़े)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 5: All/Most + Of + General Noun (Hindi 'Sab/Adhiktar' Transfer)",
+          "definition": "Hindi uses 'सब' (sab - all) and 'अधिकतर' (adhiktar - most) directly before nouns without requiring 'of' plus determiner structure. Hindi: 'सब छात्र' (sab chhatr - all students) and 'सब मेरे दोस्त' (sab mere dost - all of my friends) both use 'सब' directly. English requires 'all students' (no 'of') but 'all of my friends' (with 'of' before determiner). Hindi speakers often incorrectly insert 'of' before general nouns ('all of students') or omit 'of' before determiners ('all my friends'). Understanding when to use 'of' - only before determiners (the, my, this, etc.) - is essential for grammatical accuracy.",
+          "rules": [
+            "Hindi 'सब' (sab) / 'अधिकतर' (adhiktar) patterns differently from English all/most",
+            "Before general noun (no determiner): omit 'of' (all students, most people)",
+            "Before determiner + noun: use 'of' (all of the students, most of my friends)",
+            "Cannot use 'of' without determiner: wrong - 'all of students' (missing 'the')",
+            "Cannot omit 'of' before determiner: wrong - 'all the students' (missing 'of')"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "All students must submit their assignments by Friday.",
+                "reason": "General noun 'students' without determiner; correctly omits 'of' (Hindi: सब छात्र)"
+              },
+              {
+                "text": "All of the students in this class passed the examination.",
+                "reason": "Determiner 'the' before noun; correctly uses 'of' (Hindi: सभी छात्रों ने)"
+              },
+              {
+                "text": "Most people prefer online shopping these days.",
+                "reason": "General noun without determiner; correctly omits 'of' (Hindi: अधिकतर लोग)"
+              },
+              {
+                "text": "Most of my colleagues support this proposal.",
+                "reason": "Possessive determiner 'my' before noun; correctly uses 'of' (Hindi: मेरे अधिकतर सहकर्मी)"
+              },
+              {
+                "text": "Some of these books belong to the library.",
+                "reason": "Demonstrative 'these' before noun; correctly uses 'of' (Hindi: इनमें से कुछ)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "All of students must submit their assignments by Friday.",
+                "reason": "Missing determiner after 'of'; should be 'All students' or 'All of the students'"
+              },
+              {
+                "text": "All the students in this class passed the examination.",
+                "reason": "Missing 'of' before determiner; should be 'All of the students'"
+              },
+              {
+                "text": "Most of people prefer online shopping these days.",
+                "reason": "No determiner after 'of'; should be 'Most people' or 'Most of the people'"
+              },
+              {
+                "text": "Most my colleagues support this proposal.",
+                "reason": "Missing 'of' before possessive; should be 'Most of my colleagues'"
+              },
+              {
+                "text": "Some these books belong to the library.",
+                "reason": "Missing 'of' before demonstrative; should be 'Some of these books'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "practice",
+      "title": "Practice Exercises with Quantifiers and Determiners",
+      "cards": [
+        {
+          "title": "Exercise 1: Choose Correct Quantifier (Much/Many)",
+          "definition": "Select the grammatically correct quantifier (much or many) based on whether the noun is countable or uncountable.",
+          "rules": [
+            "Identify noun type: countable (can be pluralised) or uncountable (no plural form)",
+            "Countable plural nouns: use 'many'",
+            "Uncountable nouns: use 'much'",
+            "Common uncountable nouns: time, water, information, advice, furniture, luggage, progress",
+            "Consider alternatives: 'a lot of' / 'lots of' work with both types"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "How (much/many) time do we have before the deadline? Answer: much",
+                "reason": "'Time' is uncountable; correctly uses 'much'"
+              },
+              {
+                "text": "How (much/many) students attended the lecture? Answer: many",
+                "reason": "'Students' is countable plural; correctly uses 'many'"
+              },
+              {
+                "text": "We do not have (much/many) information about the incident. Answer: much",
+                "reason": "'Information' is uncountable; correctly uses 'much'"
+              },
+              {
+                "text": "There are not (much/many) opportunities in this sector. Answer: many",
+                "reason": "'Opportunities' is countable plural; correctly uses 'many'"
+              },
+              {
+                "text": "She has made (much/many) progress this semester. Answer: much",
+                "reason": "'Progress' is uncountable; correctly uses 'much'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing: How (many) time do we have before the deadline?",
+                "reason": "'Time' is uncountable; should use 'much', not 'many'"
+              },
+              {
+                "text": "Choosing: How (much) students attended the lecture?",
+                "reason": "'Students' is countable; should use 'many', not 'much'"
+              },
+              {
+                "text": "Choosing: We do not have (many) information about the incident.",
+                "reason": "'Information' is uncountable; should use 'much', not 'many'"
+              },
+              {
+                "text": "Choosing: There are not (much) opportunities in this sector.",
+                "reason": "'Opportunities' is countable; should use 'many', not 'much'"
+              },
+              {
+                "text": "Choosing: She has made (many) progress this semester.",
+                "reason": "'Progress' is uncountable; should use 'much', not 'many'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 2: Some or Any in Context",
+          "definition": "Choose between 'some' and 'any' based on sentence type (affirmative, negative, question) and context (offer, request, or general question).",
+          "rules": [
+            "Affirmative sentences: some",
+            "Negative sentences: any",
+            "General questions: any",
+            "Offers/requests expecting yes: some",
+            "Affirmative with meaning 'it does not matter which': any"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have (some/any) important documents to review. Answer: some",
+                "reason": "Affirmative sentence correctly uses 'some'"
+              },
+              {
+                "text": "We do not have (some/any) vacancies at present. Answer: any",
+                "reason": "Negative sentence correctly uses 'any'"
+              },
+              {
+                "text": "Do you have (some/any) suggestions for the project? Answer: any",
+                "reason": "General question correctly uses 'any'"
+              },
+              {
+                "text": "Would you like (some/any) assistance with this task? Answer: some",
+                "reason": "Offer (expecting positive response) correctly uses 'some'"
+              },
+              {
+                "text": "(Some/Any) candidate can apply for this position. Answer: Any",
+                "reason": "Affirmative meaning 'it does not matter which' uses 'any'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing: I have (any) important documents to review.",
+                "reason": "Affirmative sentence should use 'some', not 'any'"
+              },
+              {
+                "text": "Choosing: We do not have (some) vacancies at present.",
+                "reason": "Negative sentence should use 'any', not 'some'"
+              },
+              {
+                "text": "Choosing: Would you like (any) assistance with this task?",
+                "reason": "Offer expecting yes should use 'some', not 'any'"
+              },
+              {
+                "text": "Choosing: (Some) candidate can apply for this position.",
+                "reason": "Context means 'it does not matter which'; should use 'any', not 'some'"
+              },
+              {
+                "text": "Choosing: Do you have (some) suggestions for the project?",
+                "reason": "General question should use 'any'; 'some' only for offers/requests expecting yes"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 3: Few/A Few and Little/A Little Selection",
+          "definition": "Choose the correct form based on noun type (countable/uncountable) and intended meaning (negative/positive).",
+          "rules": [
+            "Countable + negative meaning: few (not enough)",
+            "Countable + positive meaning: a few (some, adequate)",
+            "Uncountable + negative meaning: little (not enough)",
+            "Uncountable + positive meaning: a little (some, adequate)",
+            "Context determines negative (insufficient) vs positive (sufficient)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "(Few/A few) students volunteered to help. Answer: A few (positive context)",
+                "reason": "Countable + positive (volunteering is good); 'a few' correct"
+              },
+              {
+                "text": "(Few/A few) candidates passed the difficult exam. Answer: Few (negative context)",
+                "reason": "Countable + negative (difficult, low pass rate); 'few' correct"
+              },
+              {
+                "text": "We have (little/a little) time before departure. Answer: a little (positive context)",
+                "reason": "Uncountable + positive (some time, sufficient); 'a little' correct"
+              },
+              {
+                "text": "There is (little/a little) hope of recovery. Answer: little (negative context)",
+                "reason": "Uncountable + negative (pessimistic, not much hope); 'little' correct"
+              },
+              {
+                "text": "She has (few/a few) close friends. Answer: a few (positive context)",
+                "reason": "Countable + positive (having friends is good); 'a few' correct"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing: (Few) students volunteered to help.",
+                "reason": "Positive context (volunteering good); should use 'a few', not 'few'"
+              },
+              {
+                "text": "Choosing: (A few) candidates passed the difficult exam.",
+                "reason": "Context suggests disappointment; should use 'few' (negative), not 'a few'"
+              },
+              {
+                "text": "Choosing: We have (little) time before departure. (if time is sufficient)",
+                "reason": "If time is adequate, should use 'a little' (positive), not 'little'"
+              },
+              {
+                "text": "Choosing: There is (a little) hope of recovery. (in pessimistic context)",
+                "reason": "Pessimistic context needs 'little' (negative), not 'a little'"
+              },
+              {
+                "text": "Choosing: She has (few) close friends. (when having friends is presented positively)",
+                "reason": "Positive context should use 'a few', not 'few'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 4: Correct Uncountable Noun Errors",
+          "definition": "Identify and correct errors involving uncountable nouns that are incorrectly treated as countable (pluralised or used with wrong quantifiers).",
+          "rules": [
+            "Uncountable nouns have no plural form: advice (not advices), furniture (not furnitures)",
+            "Use singular verbs with uncountable nouns: information is (not are)",
+            "Use 'much', 'little', 'a little' with uncountable, not 'many', 'few', 'a few'",
+            "To count uncountable nouns, use partitives: pieces of advice, items of furniture",
+            "Common uncountable: advice, information, furniture, luggage, equipment, progress, homework"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Error: She gave me useful advices. → Correction: She gave me useful advice.",
+                "reason": "'Advice' is uncountable; no plural form"
+              },
+              {
+                "text": "Error: We need to buy new furnitures. → Correction: We need to buy new furniture.",
+                "reason": "'Furniture' is uncountable; no plural form"
+              },
+              {
+                "text": "Error: Many informations are available. → Correction: Much information is available.",
+                "reason": "'Information' uncountable; needs 'much' (not many) and singular verb 'is'"
+              },
+              {
+                "text": "Error: He made many progresses. → Correction: He made much progress.",
+                "reason": "'Progress' is uncountable; no plural form; use 'much' not 'many'"
+              },
+              {
+                "text": "Error: Three luggages were lost. → Correction: Three pieces of luggage were lost.",
+                "reason": "'Luggage' uncountable; count using 'pieces of luggage'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Leaving: She gave me useful advices.",
+                "reason": "Plural form incorrect; 'advice' is uncountable, must be singular"
+              },
+              {
+                "text": "Correcting to: We need to buy new furniture's.",
+                "reason": "Wrong plural attempt; 'furniture' has no plural (not even with apostrophe)"
+              },
+              {
+                "text": "Correcting to: Many information is available.",
+                "reason": "Still incorrect; 'many' wrong with uncountable; should be 'Much information'"
+              },
+              {
+                "text": "Correcting to: He made many progress.",
+                "reason": "Still wrong; 'many' incorrect; should be 'much progress'"
+              },
+              {
+                "text": "Correcting to: Three luggage were lost.",
+                "reason": "Cannot count directly; need 'three pieces of luggage'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 5: All/Most/Some/No with 'Of' Pattern",
+          "definition": "Correct sentences involving all, most, some, or no by properly using or omitting 'of' based on whether a determiner follows.",
+          "rules": [
+            "Before determiner (the, my, this, etc.): use 'of' (all of the students, most of my time)",
+            "Before general noun (no determiner): omit 'of' (all students, most people)",
+            "'None' always uses 'of' with noun phrase (none of the candidates)",
+            "Cannot use 'of' without determiner following it",
+            "Cannot have determiner without 'of' before it (with these quantifiers)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Error: All of students must attend. → Correction: All students must attend.",
+                "reason": "No determiner after 'of'; should omit 'of' before general noun"
+              },
+              {
+                "text": "Error: Most my colleagues agreed. → Correction: Most of my colleagues agreed.",
+                "reason": "Possessive 'my' present; must include 'of' before determiner"
+              },
+              {
+                "text": "Error: All the candidates passed. → Correction: All of the candidates passed.",
+                "reason": "Determiner 'the' present; must include 'of' before it"
+              },
+              {
+                "text": "Error: Some of people disagreed. → Correction: Some people disagreed.",
+                "reason": "No determiner after 'of'; should omit 'of' before general noun"
+              },
+              {
+                "text": "Error: None students failed. → Correction: None of the students failed.",
+                "reason": "'None' requires 'of' before noun phrase; need determiner"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Leaving: All of students must attend.",
+                "reason": "Missing determiner after 'of'; cannot have 'of' without determiner"
+              },
+              {
+                "text": "Correcting to: Most of colleagues agreed.",
+                "reason": "Still wrong; needs determiner after 'of': 'Most of the/my colleagues'"
+              },
+              {
+                "text": "Leaving: All the candidates passed.",
+                "reason": "Missing 'of' before determiner 'the'; should be 'All of the candidates'"
+              },
+              {
+                "text": "Correcting to: Some of the people disagreed.",
+                "reason": "Technically correct but changes meaning; original likely meant general 'some people' (no 'of')"
+              },
+              {
+                "text": "Correcting to: None students failed.",
+                "reason": "'None' requires 'of'; should be 'None of the students failed'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "revision",
+      "title": "Revision Questions",
+      "cards": [
+        {
+          "title": "Revision Question 1",
+          "definition": "Choose the correct sentence using much/many appropriately:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) We do not have much time before the examination begins.",
+                "reason": "Correct: 'Much' properly used with uncountable noun 'time'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) We do not have many time before the examination begins.",
+                "reason": "Wrong: 'Many' with uncountable noun; should be 'much time'"
+              },
+              {
+                "text": "C) We do not have much times before the examination begins.",
+                "reason": "Wrong: 'Time' uncountable, no plural form; should be 'much time' (singular)"
+              },
+              {
+                "text": "D) We do not have many times before the examination begins.",
+                "reason": "Wrong: 'Time' uncountable (in this context), no plural; wrong quantifier"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 2",
+          "definition": "Identify the correct some/any usage:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) Would you like some assistance with this project?",
+                "reason": "Correct: Offer (expecting yes) correctly uses 'some', not 'any'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) Do you have some questions about the assignment?",
+                "reason": "Wrong: General question should use 'any', not 'some'"
+              },
+              {
+                "text": "B) We do not have some information about the delay.",
+                "reason": "Wrong: Negative sentence should use 'any', not 'some'"
+              },
+              {
+                "text": "D) I have any important work to complete today.",
+                "reason": "Wrong: Affirmative sentence should use 'some', not 'any'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 3",
+          "definition": "Select the sentence correctly using few/a few:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) Few students passed the extremely difficult examination.",
+                "reason": "Correct: Negative context (difficult, low pass); 'few' (negative) appropriate"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) Few students volunteered to help organize the event.",
+                "reason": "Wrong: Positive context (volunteering good); should use 'a few', not 'few'"
+              },
+              {
+                "text": "B) A few candidates met the stringent requirements.",
+                "reason": "Wrong: Context suggests disappointment (stringent); 'few' (negative) better than 'a few'"
+              },
+              {
+                "text": "C) Few people offered support, which was wonderful.",
+                "reason": "Wrong: Contradiction between 'few' (negative) and 'wonderful' (positive); use 'a few'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 4",
+          "definition": "Choose the correct sentence treating uncountable nouns properly:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "A) She gave me valuable advice about career planning.",
+                "reason": "Correct: 'Advice' correctly used as uncountable singular noun"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "B) She gave me valuable advices about career planning.",
+                "reason": "Wrong: 'Advice' is uncountable; no plural form 'advices'"
+              },
+              {
+                "text": "C) She gave me many advices about career planning.",
+                "reason": "Wrong: 'Advice' uncountable; cannot be pluralised or use 'many'"
+              },
+              {
+                "text": "D) She gave me an advice about career planning.",
+                "reason": "Wrong: 'Advice' uncountable; cannot use 'an' (use 'some advice' or 'a piece of advice')"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 5",
+          "definition": "Identify correct little/a little usage:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) We have a little time before the meeting; we can review the document.",
+                "reason": "Correct: Positive context (time sufficient); 'a little' (positive) appropriate"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) We have little time before the meeting; we can review the document.",
+                "reason": "Wrong: Contradiction - 'little' (negative: insufficient) contradicts 'can review' (sufficient)"
+              },
+              {
+                "text": "C) We have few time before the meeting; we can review the document.",
+                "reason": "Wrong: 'Few' with uncountable noun; should use 'little' or 'a little'"
+              },
+              {
+                "text": "D) We have a few time before the meeting; we can review the document.",
+                "reason": "Wrong: 'A few' with uncountable noun; should use 'a little' (uncountable)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 6",
+          "definition": "Select the correct all/most + of pattern:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) All of the candidates completed the examination successfully.",
+                "reason": "Correct: Determiner 'the' present; 'of' correctly included before it"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) All of candidates completed the examination successfully.",
+                "reason": "Wrong: No determiner after 'of'; should be 'All candidates' or 'All of the candidates'"
+              },
+              {
+                "text": "B) All the candidates completed the examination successfully.",
+                "reason": "Wrong: Determiner 'the' present but missing 'of'; should be 'All of the candidates'"
+              },
+              {
+                "text": "D) The all candidates completed the examination successfully.",
+                "reason": "Wrong: Incorrect word order; should be 'All of the candidates' or 'All candidates'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 7",
+          "definition": "Choose the correct sentence with 'information':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) Much information is available on the official website.",
+                "reason": "Correct: 'Information' uncountable; 'much' (not many) with singular verb 'is'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) Many informations are available on the official website.",
+                "reason": "Wrong: 'Information' uncountable; no plural form, should be 'much information is'"
+              },
+              {
+                "text": "B) Many information are available on the official website.",
+                "reason": "Wrong: 'Many' wrong with uncountable; verb 'are' wrong; should be 'Much information is'"
+              },
+              {
+                "text": "C) Much information are available on the official website.",
+                "reason": "Wrong: Verb 'are' incorrect; uncountable noun needs singular verb: 'is available'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 8",
+          "definition": "Identify correct a lot of / lots of usage:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) She has a lot of experience in digital marketing.",
+                "reason": "Correct: 'A lot of' properly used with uncountable noun 'experience'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) She has lot of experience in digital marketing.",
+                "reason": "Wrong: Missing article 'a'; must be 'a lot of', not 'lot of'"
+              },
+              {
+                "text": "C) She has lots experience in digital marketing.",
+                "reason": "Wrong: Missing 'of'; must be 'lots of experience'"
+              },
+              {
+                "text": "D) She has a lots of experience in digital marketing.",
+                "reason": "Wrong: Incorrect form; should be 'a lot of' or 'lots of', not 'a lots of'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 9",
+          "definition": "Select the correct sentence with 'furniture':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) We bought three pieces of furniture for the office.",
+                "reason": "Correct: 'Furniture' uncountable; counted using 'pieces of furniture'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) We bought three furnitures for the office.",
+                "reason": "Wrong: 'Furniture' uncountable; no plural form 'furnitures'"
+              },
+              {
+                "text": "B) We bought three furniture for the office.",
+                "reason": "Wrong: Cannot count 'furniture' directly; need 'pieces of furniture'"
+              },
+              {
+                "text": "D) We bought much furnitures for the office.",
+                "reason": "Wrong: 'Furniture' uncountable, no plural; should be 'much furniture' (singular)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 10",
+          "definition": "Choose the correct sentence with most + of:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) Most of my colleagues supported the new proposal.",
+                "reason": "Correct: Possessive determiner 'my' present; 'of' correctly included"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) Most of colleagues supported the new proposal.",
+                "reason": "Wrong: No determiner after 'of'; should be 'Most colleagues' or 'Most of the/my colleagues'"
+              },
+              {
+                "text": "B) Most my colleagues supported the new proposal.",
+                "reason": "Wrong: Possessive 'my' present but missing 'of'; should be 'Most of my colleagues'"
+              },
+              {
+                "text": "C) The most of my colleagues supported the new proposal.",
+                "reason": "Wrong: Incorrect use of article 'the'; should be 'Most of my colleagues'"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

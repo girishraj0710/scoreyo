@@ -1,0 +1,488 @@
+{
+  "topic_id": "ielts-reading",
+  "title": "IELTS Reading",
+  "subtitle": "Master all IELTS reading question types with proven strategies",
+  "overview": "The IELTS Academic Reading test consists of 3 passages with 40 questions to be completed in 60 minutes. This comprehensive guide covers all question types, time management strategies, and practice techniques specifically designed for Indian test-takers preparing for overseas education.",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "IELTS Reading Overview",
+      "content": [
+        {
+          "type": "text",
+          "content": "The IELTS Academic Reading test evaluates your ability to understand complex academic texts similar to those you'll encounter in English-speaking universities. You'll face 3 passages of increasing difficulty, totaling approximately 2,750 words. Each passage is followed by 13-14 questions testing different reading skills: skimming for main ideas, scanning for specific information, understanding logical arguments, and recognizing writers' opinions and attitudes."
+        },
+        {
+          "type": "text",
+          "content": "For Indian students, the biggest challenges are: time pressure (only 60 minutes for 40 questions), unfamiliar academic vocabulary, and tricky True/False/Not Given questions. However, your strong analytical skills from competitive exam preparation (JEE, NEET, CAT) give you an advantage. The key is applying systematic strategies rather than reading every word carefully."
+        },
+        {
+          "type": "table",
+          "title": "IELTS Reading Test Structure",
+          "headers": ["Component", "Details", "Marks"],
+          "rows": [
+            ["Passages", "3 texts (700-950 words each)", "40 questions"],
+            ["Question Types", "10+ different formats", "1 mark each"],
+            ["Time Limit", "60 minutes (no extra transfer time)", "Total: 40"],
+            ["Difficulty", "Passage 1 (easier) → Passage 3 (harder)", "Band 1-9"],
+            ["Topics", "Science, history, society, environment", "Academic level"]
+          ]
+        },
+        {
+          "type": "note",
+          "variant": "tip",
+          "content": "Indian Advantage: Your experience with lengthy comprehension passages in CBSE/ICSE exams helps. However, IELTS tests understanding, not memory. Focus on locating answers quickly rather than memorizing content."
+        },
+        {
+          "type": "example",
+          "title": "Band Score Calculation",
+          "content": "Band 9 (39-40 correct) | Band 8 (37-38) | Band 7 (33-36) | Band 6 (27-32) | Band 5 (19-26). Most universities require Band 6.5-7.0 overall, meaning you need 30-35 correct answers in Reading."
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "How much time should you ideally spend on Passage 1?",
+          "options": [
+            "25 minutes (detailed reading)",
+            "15 minutes (balanced approach)",
+            "20 minutes (equal time for all)",
+            "10 minutes (quick skim only)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Passage 1 is easiest. Spend 15 minutes (including transfer time) to secure easy marks. Save more time (22-23 minutes) for the harder Passage 3. This strategic time allocation maximizes your score."
+        },
+        {
+          "question": "What is the PRIMARY skill tested in IELTS Reading?",
+          "options": [
+            "Vocabulary memorization",
+            "Speed reading every word",
+            "Locating specific information quickly",
+            "Writing grammatically correct answers"
+          ],
+          "correctAnswer": 2,
+          "explanation": "IELTS Reading tests your ability to scan for keywords, skim for main ideas, and locate specific information under time pressure. It's not about vocabulary size or reading speed, but efficient information retrieval skills."
+        }
+      ]
+    },
+    {
+      "id": "multiple-choice",
+      "title": "Multiple Choice Questions (MCQs)",
+      "content": [
+        {
+          "type": "text",
+          "content": "Multiple Choice Questions in IELTS come in two formats: single-answer (choose one correct option from A-D) and multiple-answer (choose 2-3 correct options from 5-7 choices). These questions test your ability to identify specific details, understand paraphrasing, and recognize synonyms. The correct answer is always a paraphrased version of information in the passage, never using the exact same words."
+        },
+        {
+          "type": "text",
+          "content": "Common traps for Indian students: (1) Choosing options with exact words from the passage (these are often wrong), (2) Selecting the first option that 'sounds right' without checking others, (3) Falling for distractors that are factually true but don't answer the specific question asked. Always read the question carefully, underline keywords, find the relevant paragraph, and eliminate wrong options systematically."
+        },
+        {
+          "type": "example",
+          "title": "Sample MCQ Strategy",
+          "content": "Question: 'What was Priya's main reason for choosing renewable energy research?' Passage states: 'After witnessing Delhi's severe pollution crisis in 2024, Priya decided that sustainable solutions were essential for India's future.' Correct answer: 'Environmental concerns in her city' (paraphrased). Wrong distractor: 'Government funding opportunities' (mentioned earlier but not the main reason)."
+        },
+        {
+          "type": "table",
+          "title": "MCQ Strategy Checklist",
+          "headers": ["Step", "Action", "Time"],
+          "rows": [
+            ["1. Read Question", "Identify keywords & question type", "10 sec"],
+            ["2. Predict Answer", "Guess the topic before reading options", "5 sec"],
+            ["3. Scan Passage", "Locate the relevant paragraph", "20 sec"],
+            ["4. Eliminate", "Cross out clearly wrong options", "15 sec"],
+            ["5. Compare", "Match remaining options to passage", "20 sec"],
+            ["6. Verify", "Re-read question to confirm fit", "10 sec"]
+          ]
+        },
+        {
+          "type": "note",
+          "variant": "warning",
+          "content": "Trap Alert: If an option uses the EXACT phrase from the passage, it's usually wrong. IELTS tests paraphrasing. Example: Passage says 'rapid expansion,' correct answer says 'quick growth,' wrong distractor says 'rapid expansion.'"
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "Passage: 'Raj's startup failed because investors withdrew funding after the prototype malfunctioned during the final demo.' Question: Why did Raj's startup fail?",
+          "options": [
+            "The prototype malfunctioned",
+            "Investors withdrew funding",
+            "The final demo was unsuccessful",
+            "Technical issues led to loss of investor confidence"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Option D is correct because it paraphrases the cause-effect relationship (prototype failure → investor withdrawal). Options A, B, C use exact phrases but are incomplete. IELTS rewards understanding the complete logic, not keyword matching."
+        },
+        {
+          "question": "In multiple-answer MCQs, what is the safest approach when unsure?",
+          "options": [
+            "Choose 2 answers only to play safe",
+            "Select all options mentioned in the passage",
+            "Mark your best guesses and move on quickly",
+            "Skip the question entirely"
+          ],
+          "correctAnswer": 2,
+          "explanation": "When unsure in multiple-answer MCQs, make your best educated guesses based on what you could verify, then move on. Don't waste 3+ minutes on one question. You can return if time permits. Skipping loses guaranteed marks."
+        }
+      ]
+    },
+    {
+      "id": "true-false-not-given",
+      "title": "True/False/Not Given (TFNG)",
+      "content": [
+        {
+          "type": "text",
+          "content": "True/False/Not Given questions are considered the trickiest in IELTS Reading. You must decide if a statement agrees with (TRUE), contradicts (FALSE), or is not mentioned in (NOT GIVEN) the passage. The challenge: distinguishing between FALSE (contradicts passage) and NOT GIVEN (not mentioned). Many Indian students overthink and use outside knowledge, leading to mistakes. The golden rule: base your answer ONLY on the passage, not on what you think is true in the world."
+        },
+        {
+          "type": "text",
+          "content": "Strategy for Indian test-takers: Treat TFNG like True/False questions in JEE/NEET, but add a third category for 'no information.' TRUE = passage explicitly confirms the statement. FALSE = passage explicitly contradicts it (opposite information given). NOT GIVEN = passage doesn't mention this specific information (might discuss related topics but not this exact claim). If you're spending more than 60 seconds on one TFNG question, guess 'NOT GIVEN' and move on."
+        },
+        {
+          "type": "table",
+          "title": "TFNG Decision Tree",
+          "headers": ["If the passage says...", "Statement says...", "Answer"],
+          "rows": [
+            ["'Priya graduated in 2023'", "'Priya graduated in 2023'", "TRUE"],
+            ["'Priya graduated in 2023'", "'Priya graduated in 2024'", "FALSE"],
+            ["'Priya graduated in engineering'", "'Priya graduated in 2023'", "NOT GIVEN"],
+            ["'Most students prefer online classes'", "'All students prefer online classes'", "FALSE (extreme)"],
+            ["'Some animals are endangered'", "'Tigers are endangered'", "NOT GIVEN (specific)"],
+            ["'Pollution decreased in 2024'", "'Pollution increased in 2024'", "FALSE (opposite)"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Common TFNG Trap",
+          "content": "Passage: 'Raj's company launched 5 products in 2025.' Statement: 'Raj's company was successful in 2025.' Answer: NOT GIVEN (launching products doesn't confirm success). Many students choose TRUE based on assumption. Only use passage facts, not logical inferences."
+        },
+        {
+          "type": "note",
+          "variant": "warning",
+          "content": "Biggest Mistake: Using general knowledge. Example - Passage discusses 'electric cars in Norway,' statement says 'Electric cars reduce pollution.' Even if true in reality, if the passage doesn't state it, answer is NOT GIVEN."
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "Passage: 'Indian students studying abroad increased by 15% in 2024.' Statement: 'More Indian students went to the USA in 2024.'",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "correctAnswer": 2,
+          "explanation": "NOT GIVEN. The passage mentions overall increase in students going abroad but doesn't specify which countries. USA might be one destination, but the passage provides no information about it specifically."
+        },
+        {
+          "question": "Passage: 'Priya believes online learning is effective for theoretical subjects.' Statement: 'Priya thinks online learning works well for all subjects.'",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "correctAnswer": 1,
+          "explanation": "FALSE. The passage specifies 'theoretical subjects' only. The statement uses the extreme word 'all subjects,' which contradicts the passage's limited scope. Watch for extreme words (all, never, always, only)."
+        }
+      ]
+    },
+    {
+      "id": "matching-headings",
+      "title": "Matching Headings",
+      "content": [
+        {
+          "type": "text",
+          "content": "Matching Headings requires you to match 5-7 paragraph headings from a list of 10-12 options to the correct paragraphs (labeled A, B, C, etc.). This tests your ability to identify the main idea of each paragraph, not details. The biggest challenge: distractors contain words from the paragraph but don't capture the main idea. Strategy: Read the first sentence, last sentence, and scan for repeated keywords in each paragraph. The heading should summarize the paragraph's central purpose, not just mention a topic discussed."
+        },
+        {
+          "type": "text",
+          "content": "For Indian students familiar with comprehension 'main idea' questions, this is manageable but time-consuming. Key difference from Indian board exams: IELTS distractors are very sophisticated. A paragraph about 'challenges in renewable energy adoption' might have distractors like 'Benefits of renewable energy' (wrong focus) or 'Solutions to energy crisis' (too broad). Always eliminate obviously wrong headings first, then match the easiest paragraphs (usually introduction and conclusion), leaving difficult ones for last."
+        },
+        {
+          "type": "table",
+          "title": "Matching Headings Approach",
+          "headers": ["Step", "Action", "Pro Tip"],
+          "rows": [
+            ["1. Read Headings First", "Skim all 10-12 heading options", "Don't memorize, just familiarize"],
+            ["2. Identify Paragraph Type", "Intro/Example/Problem/Solution/Conclusion", "Type hints at heading"],
+            ["3. Find Topic Sentence", "Usually first or last sentence", "This reveals main idea"],
+            ["4. Check Repeated Words", "Keywords appearing 3+ times in paragraph", "Central theme indicator"],
+            ["5. Eliminate Distractors", "Cross out headings with wrong focus", "Narrow down to 2-3 options"],
+            ["6. Match Easy Ones First", "Do paragraphs A, H (intro/conclusion)", "Build confidence, save time"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Paragraph Analysis Example",
+          "content": "Paragraph C: 'While electric vehicles offer environmental benefits, their high cost remains prohibitive for middle-class Indian families. The average EV costs ₹15 lakhs, compared to ₹8 lakhs for petrol cars. Until prices drop, mass adoption seems unlikely.' Best heading: 'Economic barriers to EV adoption' (focuses on cost problem). Wrong distractor: 'Environmental advantages of EVs' (mentioned but not the main idea)."
+        },
+        {
+          "type": "note",
+          "variant": "tip",
+          "content": "Time-Saver: If stuck between 2 headings for a paragraph, move on and return later. Often, matching other paragraphs helps you eliminate the wrong option by process of elimination (each heading is used only once)."
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "Paragraph: 'Raj implemented a 4-day work week in his startup, resulting in 20% higher productivity and improved employee satisfaction. However, client meetings became harder to schedule.' Which heading fits best?",
+          "options": [
+            "Benefits of reduced working hours",
+            "Challenges in modern workplace policies",
+            "Productivity gains with scheduling trade-offs",
+            "Employee satisfaction in startups"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Option C captures both the positive outcome (productivity gains) and the negative consequence (scheduling issues), which is the paragraph's complete message. Options A and D focus only on positives, ignoring the 'however' contrast. Option B is too vague."
+        },
+        {
+          "question": "What should you do if a paragraph discusses multiple topics (e.g., history, benefits, and future of solar energy)?",
+          "options": [
+            "Choose the heading about the first topic mentioned",
+            "Pick the heading covering the most sentences",
+            "Select the heading that summarizes the paragraph's overall purpose",
+            "Match it to the heading with the most overlapping keywords"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Always choose the heading that captures the paragraph's main purpose or central message, even if it discusses multiple sub-topics. A paragraph covering history, benefits, and future of solar energy might be titled 'Comprehensive overview of solar technology' (holistic focus)."
+        }
+      ]
+    },
+    {
+      "id": "sentence-completion",
+      "title": "Sentence Completion",
+      "content": [
+        {
+          "type": "text",
+          "content": "Sentence Completion questions provide incomplete sentences that you must finish using words directly from the passage. You'll typically choose 1-3 words (check the instruction carefully: 'NO MORE THAN TWO WORDS' or 'NO MORE THAN THREE WORDS'). The answer is always an exact phrase from the passage, but you must ensure grammatical correctness. Common errors: (1) exceeding word limit (e.g., writing 4 words when limit is 3), (2) changing word forms (passage says 'rapidly growing,' you write 'rapid growth'), (3) adding articles (a/an/the) when not in passage."
+        },
+        {
+          "type": "text",
+          "content": "Strategy for Indian students: Treat this like 'fill in the blanks' but with strict rules. First, identify the keyword in the incomplete sentence. Then scan the passage for that keyword or its synonym. Once you locate the relevant sentence, copy the exact words that fit grammatically. Practice tip: Read your completed sentence aloud to check if it sounds natural. If the grammar feels wrong ('Priya's startup success was remarkable because investors funding'), you've likely copied the wrong phrase."
+        },
+        {
+          "type": "example",
+          "title": "Sentence Completion Example",
+          "content": "Incomplete sentence: 'Indian students often choose STEM degrees abroad because of ___________.' (NO MORE THAN THREE WORDS) Passage states: 'Indian students often choose STEM degrees abroad because of better research facilities and funding opportunities.' Correct answer: 'better research facilities' or 'research facilities and' or 'funding opportunities' (all within 3-word limit). Wrong: 'better facilities' (changes meaning), 'better research facilities and funding' (4 words, exceeds limit)."
+        },
+        {
+          "type": "table",
+          "title": "Word Limit Rules",
+          "headers": ["Instruction", "Example Answer", "Allowed?"],
+          "rows": [
+            ["ONE WORD ONLY", "'pollution'", "✓ Correct"],
+            ["ONE WORD ONLY", "'air pollution'", "✗ Two words"],
+            ["NO MORE THAN TWO", "'rapid growth'", "✓ Correct"],
+            ["NO MORE THAN TWO", "'growth'", "✓ Correct (fewer OK)"],
+            ["NO MORE THAN TWO", "'very rapid growth'", "✗ Three words"],
+            ["TWO WORDS", "'economic crisis'", "✓ Correct"],
+            ["TWO WORDS", "'crisis'", "✗ Need exactly 2"]
+          ]
+        },
+        {
+          "type": "note",
+          "variant": "warning",
+          "content": "Grammar Trap: Passage says 'The government invested heavily.' Question: 'The government's _____ was substantial.' Wrong: 'invested heavily' (grammar mismatch). Correct: 'investment' (if passage later says 'this investment'). Check grammatical fit carefully!"
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "Passage: 'Priya's research on renewable energy won international recognition in 2025.' Complete: 'Priya received _____ for her renewable energy work.' (NO MORE THAN TWO WORDS)",
+          "options": [
+            "won international",
+            "international recognition",
+            "recognition in",
+            "research on renewable"
+          ],
+          "correctAnswer": 1,
+          "explanation": "'International recognition' (2 words) fits grammatically ('received international recognition') and matches the passage meaning. Option A is grammatically wrong ('received won'). Options C and D don't fit the sentence logically."
+        },
+        {
+          "question": "What should you do if the passage uses 'rapidly expanding population' but the sentence needs 2 words only?",
+          "options": [
+            "Write 'rapidly expanding' (adjective phrase)",
+            "Write 'expanding population' (fits grammar better)",
+            "Write 'population growth' (paraphrase to save words)",
+            "Write 'rapid expansion' (change word forms)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "You must use exact words from the passage. If the sentence is 'The _____ caused resource shortages' and passage says 'rapidly expanding population,' write 'expanding population' (2 words, grammatically correct). Never paraphrase or change word forms unless the passage provides that exact alternative."
+        }
+      ]
+    },
+    {
+      "id": "summary-completion",
+      "title": "Summary Completion",
+      "content": [
+        {
+          "type": "text",
+          "content": "Summary Completion presents a short summary (5-8 sentences) of a section of the passage with gaps. You fill the gaps using words from the passage or from a provided word list. Two formats: (1) Choose from passage (NO MORE THAN TWO WORDS, similar to sentence completion), (2) Choose from box (10-15 words given, select correct ones). This tests your ability to identify key information and understand how ideas flow logically in a summary."
+        },
+        {
+          "type": "text",
+          "content": "Indian students often find 'choose from box' format easier because you're selecting from limited options, but beware: all words in the box appear in the passage, so you can't just scan for words. You must understand the summary's logic. Pro tip: Read the entire summary first to grasp the flow, then fill easy gaps (where only one word makes sense grammatically), leaving difficult ones for last. For 'from passage' format, follow the same strategy as sentence completion: locate keywords, copy exact phrases, check grammar."
+        },
+        {
+          "type": "table",
+          "title": "Summary Completion Strategy",
+          "headers": ["Format", "Approach", "Time"],
+          "rows": [
+            ["From Passage", "Scan for keywords, copy exact phrases", "2-3 min"],
+            ["From Box (10 words)", "Read summary flow, eliminate wrong options", "3-4 min"],
+            ["From Box (15 words)", "Grammar first, meaning second (narrow options)", "4-5 min"],
+            ["Mixed (some from passage, some from box)", "Do box items first (easier), then scan passage", "4-5 min"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "From-Box Example",
+          "content": "Summary: 'Raj's startup faced _____ when investors withdrew. He solved this by _____ his team and finding new funding.' Box: [reducing, expanding, crisis, opportunity, dismissing, motivating, financial, technical]. Answers: 'crisis' (financial problem), 'motivating' (positive action that makes sense). Wrong choices: 'opportunity' (contradicts 'faced'), 'reducing' (contradicts 'finding new funding')."
+        },
+        {
+          "type": "note",
+          "variant": "tip",
+          "content": "Grammar Clue: If the gap comes after 'a/an,' the answer must be a singular noun or adjective+noun. If after 'by,' likely a verb (-ing form) or noun. Use grammar to eliminate 50% of options instantly in 'from box' questions."
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "Summary: 'Indian students preparing for IELTS often struggle with _____ management.' Box: [time, stress, money, resource]. Which fits best?",
+          "options": [
+            "time (most common challenge)",
+            "stress (also valid but less specific)",
+            "money (not relevant to IELTS preparation)",
+            "resource (grammatically correct but vague)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "'Time management' is the most common and specific challenge in IELTS Reading (60 minutes for 40 questions). While 'stress management' is valid, IELTS summaries focus on test-specific challenges. Always choose the most precise and test-relevant answer."
+        },
+        {
+          "question": "If a summary gap requires a number from the passage, what should you write?",
+          "options": [
+            "Write the number in words (e.g., 'forty-five')",
+            "Write the number in digits as it appears (e.g., '45')",
+            "Write both formats to be safe (e.g., '45/forty-five')",
+            "Round the number to the nearest ten (e.g., '50')"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Always copy numbers EXACTLY as they appear in the passage. If passage says '45%,' write '45%' (not 'forty-five percent'). IELTS rewards exact replication. Writing both formats or rounding changes the information and will be marked wrong."
+        }
+      ]
+    },
+    {
+      "id": "time-management",
+      "title": "Time Management Strategies",
+      "content": [
+        {
+          "type": "text",
+          "content": "Time management is critical in IELTS Reading. You have exactly 60 minutes for 3 passages and 40 questions—no extra time for transferring answers to the answer sheet (unlike Listening). The recommended split: 15 minutes for Passage 1 (easiest, 13 questions), 20 minutes for Passage 2 (medium, 13 questions), 25 minutes for Passage 3 (hardest, 14 questions). This leaves 0 buffer time, so you must be disciplined. If stuck on a question for over 1 minute, guess and move on. You can always return if time permits, but most students never finish all 40 questions if they don't manage time strictly."
+        },
+        {
+          "type": "text",
+          "content": "Indian students often spend too long on early questions, trying to achieve 100% accuracy, then panic in the last 10 minutes. Remember: each question is worth 1 mark regardless of difficulty. It's better to attempt all 40 questions with 80% accuracy than answer 30 questions with 95% accuracy. Strategy: Wear a watch (no phones allowed), note start time for each passage, and set mental checkpoints (e.g., 'I must finish Passage 1 by 1:15 PM'). Practice this timing in mock tests until it becomes automatic."
+        },
+        {
+          "type": "table",
+          "title": "Ideal Time Allocation (60 minutes)",
+          "headers": ["Passage", "Difficulty", "Questions", "Time", "Strategy"],
+          "rows": [
+            ["1", "Easy", "13", "15 min", "Secure easy marks, build confidence"],
+            ["2", "Medium", "13", "20 min", "Balanced pace, don't rush or overthink"],
+            ["3", "Hard", "14", "25 min", "Most time for hardest passage, guess smartly"],
+            ["Review", "-", "-", "0 min*", "Only if you finish early (rare!)"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Time-Saving Techniques",
+          "content": "1) Skip long questions: If a question requires reading 3 paragraphs to answer, mark it and return later. 2) Do easy question types first: MCQs and sentence completion are often faster than TFNG or matching headings. 3) Use elimination: In MCQs, crossing out 2 wrong options and guessing between remaining 2 saves time vs. analyzing all 4. 4) Transfer answers continuously: Write answers on the answer sheet as you go, not at the end (saves 5-7 minutes)."
+        },
+        {
+          "type": "note",
+          "variant": "warning",
+          "content": "Common Time-Waster: Re-reading the entire passage for each question. Instead, use the question's keywords to scan directly to the relevant paragraph. Passage reading should take max 3 minutes per passage (quick skim for structure), then 12-22 minutes for questions."
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "You've spent 18 minutes on Passage 1 and completed 11/13 questions. What should you do?",
+          "options": [
+            "Spend 5 more minutes to finish Passage 1 perfectly",
+            "Guess the remaining 2 answers and move to Passage 2 immediately",
+            "Take a 2-minute break to refocus",
+            "Skip Passage 2 and go straight to Passage 3"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Move on immediately. You're already 3 minutes behind schedule. Guessing 2 answers takes 20 seconds and gives you 50% chance of 1-2 marks. Spending 5 more minutes means you'll rush Passage 3 (hardest) and likely lose more marks. Time discipline beats perfectionism in IELTS."
+        },
+        {
+          "question": "What is the most effective way to track time during the test?",
+          "options": [
+            "Check your watch after every question",
+            "Set mental checkpoints (e.g., 'Passage 1 done by 10:15')",
+            "Ask the invigilator for time remaining",
+            "Estimate based on how many questions you've completed"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Set 3 time checkpoints before you start: finish times for Passage 1, 2, and 3. Glance at your watch only at these checkpoints (3 times total). Checking after every question breaks focus and wastes 5-10 seconds per check (total 3-6 minutes lost). Time estimation is unreliable under pressure."
+        }
+      ]
+    },
+    {
+      "id": "practice-techniques",
+      "title": "Practice Techniques for Indian Students",
+      "content": [
+        {
+          "type": "text",
+          "content": "Effective IELTS Reading practice goes beyond solving sample tests. You need targeted practice for each question type, vocabulary building from academic contexts (not just memorizing word lists), and simulated test conditions. Indian students often rely on YouTube videos and free PDFs, which help with strategy but lack the rigor of timed practice. Recommendation: Use Cambridge IELTS books (official past papers, Books 10-19), British Council practice materials, and IDP IELTS Prepare app. Practice minimum 2 full reading tests per week under strict exam conditions (60 minutes, no distractions, no dictionary)."
+        },
+        {
+          "type": "text",
+          "content": "Beyond full tests, do daily micro-practice: 1) Read one academic article (The Guardian, BBC, Scientific American) for 10 minutes, noting unfamiliar words. 2) Practice one question type (e.g., only TFNG questions) for 15 minutes. 3) Time yourself on individual passages (target: 20 minutes for passage + questions). After each practice test, analyze mistakes: Was it vocabulary? Time pressure? Misunderstanding the question? This reflection improves faster than just doing more tests blindly. Join online IELTS communities (Reddit r/IELTS, Facebook groups) to discuss tricky questions with other Indian test-takers."
+        },
+        {
+          "type": "table",
+          "title": "4-Week Practice Plan",
+          "headers": ["Week", "Focus", "Daily Practice", "Weekend Test"],
+          "rows": [
+            ["1", "Question Types", "30 min (1 type per day)", "1 full test (60 min)"],
+            ["2", "Vocabulary Building", "20 min reading + 10 min vocab notes", "1 full test + error analysis"],
+            ["3", "Speed & Accuracy", "2 passages in 40 min (timed)", "2 full tests (Sat & Sun)"],
+            ["4", "Exam Simulation", "1 passage daily in 20 min sharp", "3 full tests (final prep)"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Mistake Analysis Template",
+          "content": "For each wrong answer, ask: 1) Did I misunderstand the question? (re-read carefully), 2) Did I mislocate the answer in the passage? (improve scanning), 3) Was it a vocabulary issue? (note the word), 4) Did I run out of time? (improve speed). Track patterns: if 80% of errors are TFNG, focus practice there. If 60% are in Passage 3, you need better time management to save more time for hard passages."
+        },
+        {
+          "type": "note",
+          "variant": "tip",
+          "content": "Indian Context: Many coaching centers teach 'tricks' (e.g., 'if you see NOT GIVEN three times in a row, change one answer'). Ignore these myths. IELTS answers are based purely on passage content, not patterns. Focus on understanding, not tricks."
+        }
+      ],
+      "practiceQuestions": [
+        {
+          "question": "Raj scores 28/40 (Band 6.0) consistently in practice tests. His target is Band 7.0 (33/40). What should he prioritize?",
+          "options": [
+            "Learn 500 new vocabulary words",
+            "Analyze his 12 wrong answers to identify patterns",
+            "Practice reading faster by skimming techniques",
+            "Switch to harder practice materials"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Error analysis is most effective for incremental improvement. If Raj's 12 mistakes are mostly TFNG (e.g., 8/12), targeted TFNG practice gains 3-4 marks quickly. Vocabulary and speed help, but without knowing his specific weakness, they're inefficient. Harder materials may demotivate without addressing root issues."
+        },
+        {
+          "question": "What is the best way to build IELTS vocabulary for Indian students?",
+          "options": [
+            "Memorize 3,000-word lists from apps like Magoosh",
+            "Read academic articles and note unknown words in context",
+            "Use flashcards with Hindi translations",
+            "Learn 50 words daily from IELTS vocabulary books"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Contextual learning (reading articles, noting words, understanding usage) is most effective for IELTS. The test doesn't ask word meanings directly; it tests understanding in context. Memorizing isolated words or translations doesn't help you recognize synonyms/paraphrases. Daily reading builds vocabulary naturally and improves comprehension speed."
+        }
+      ]
+    }
+  ]
+}

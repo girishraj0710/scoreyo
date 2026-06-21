@@ -1,0 +1,717 @@
+{
+  "topic_id": "used-to-would",
+  "title": "Used to and Would (Past Habits)",
+  "subtitle": "Describing past habits, repeated actions, and past states",
+  "overview": "Used to and would are both used to talk about past habits and repeated actions that no longer happen. Used to is followed by the infinitive (without to) and describes both past habits and past states that have changed. Would is also used for past habits but only for repeated actions, not states, and often requires a time reference. Understanding the differences between these structures, and distinguishing used to from be used to, is essential for accurately describing past routines and changes over time.",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "What Are Used to and Would?",
+      "order": 1,
+      "cards": [
+        {
+          "title": "Definition and Purpose",
+          "definition": "Used to and would are both structures used to talk about things that happened regularly or repeatedly in the past but do not happen now. Used to is followed by the base form of the verb and can describe both past habits and past states (I used to live in Delhi, I used to play cricket). Would is used only for repeated past actions, not states, and is often accompanied by a time expression (Every summer, we would visit our grandparents). Both structures emphasise that the action or state is no longer true in the present.",
+          "rules": [
+            "Used to + base verb: describes past habits or states that no longer exist",
+            "Would + base verb: describes repeated past actions, not states, often with a time reference",
+            "Both indicate the action no longer happens in the present",
+            "Used to can describe states; would cannot",
+            "Would often requires a time expression (every day, often, sometimes)"
+          ],
+          "examples": {
+            "correct": [
+              "I used to play football every day. (past habit, no longer true)",
+              "She used to live in Mumbai. (past state, no longer true)",
+              "We would visit the beach every summer. (repeated past action)",
+              "He would always tell us stories. (repeated past action)",
+              "There used to be a cinema here. (past state)"
+            ],
+            "incorrect": [
+              {
+                "text": "I used to playing football every day.",
+                "reason": "After used to, use the base form of the verb, not the -ing form. Correct: used to play."
+              },
+              {
+                "text": "She would live in Mumbai.",
+                "reason": "Would cannot describe a past state (where someone lived). Use used to for states: She used to live in Mumbai."
+              },
+              {
+                "text": "We used to visited the beach every summer.",
+                "reason": "After used to, use the base form (visit), not the past tense (visited)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core-concepts",
+      "title": "Core Concepts",
+      "order": 2,
+      "cards": [
+        {
+          "title": "Used to: Past Habits and States",
+          "definition": "Used to is followed by the base form of a verb (used to play, used to be) and is used to describe habits or states that were true in the past but are not true now. It emphasises a change from the past to the present. Used to can describe both actions (I used to smoke) and states (I used to be shy).",
+          "rules": [
+            "Form: used to + base verb (used to play, used to live, used to be)",
+            "Describes past habits: I used to play tennis every weekend.",
+            "Describes past states: She used to be a teacher.",
+            "Indicates the action or state no longer exists in the present",
+            "Used to does not have a present tense form; it is only used for the past"
+          ],
+          "examples": {
+            "correct": [
+              "I used to read a lot when I was younger.",
+              "She used to work in Bangalore.",
+              "We used to go to that restaurant often.",
+              "He used to be very shy.",
+              "There used to be a park here.",
+              "They used to live next door."
+            ],
+            "incorrect": [
+              {
+                "text": "I used to reading a lot when I was younger.",
+                "reason": "After used to, use the base form of the verb, not the -ing form. Correct: used to read."
+              },
+              {
+                "text": "She used to worked in Bangalore.",
+                "reason": "After used to, use the base form (work), not the past tense (worked)."
+              },
+              {
+                "text": "I use to read a lot.",
+                "reason": "The past form is used to, not use to (unless in negatives or questions with did)."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Would: Repeated Past Actions",
+          "definition": "Would is used to describe repeated actions or habits in the past, often with a sense of nostalgia or storytelling. It is usually accompanied by a time expression (every day, often, sometimes, always) and cannot be used to describe past states. Would emphasises the repetition of the action.",
+          "rules": [
+            "Form: would + base verb (would play, would visit, would tell)",
+            "Describes repeated past actions, not states",
+            "Often used with time expressions: every summer, often, always, sometimes",
+            "Cannot be used for states like be, have (possession), know, live",
+            "Common in storytelling and reminiscing about the past"
+          ],
+          "examples": {
+            "correct": [
+              "Every summer, we would visit our grandparents.",
+              "She would always make us breakfast on Sundays.",
+              "He would often forget his keys.",
+              "When I was young, I would play in the garden every evening.",
+              "My grandfather would tell us stories before bedtime."
+            ],
+            "incorrect": [
+              {
+                "text": "She would be a teacher.",
+                "reason": "Would cannot describe a past state. Use used to for states: She used to be a teacher."
+              },
+              {
+                "text": "We would live in Delhi.",
+                "reason": "Would cannot describe where someone lived (a state). Use: We used to live in Delhi."
+              },
+              {
+                "text": "He would have a dog when he was young.",
+                "reason": "Would cannot describe possession (a state). Use: He used to have a dog."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Difference Between Used to and Would",
+          "definition": "Both used to and would describe past habits, but only used to can describe past states. Would is used only for repeated actions and often requires a time context. If you can replace the structure with the past simple without changing the meaning significantly, you can often use would. However, for states (live, be, have, know), only used to is correct.",
+          "rules": [
+            "Used to: past habits and past states (I used to live in Delhi, I used to play cricket)",
+            "Would: repeated past actions only, not states (Every summer, I would play cricket)",
+            "Would needs a time reference or context; used to does not",
+            "Both emphasise that the action no longer happens now",
+            "For states (be, live, have, know), use used to, not would"
+          ],
+          "examples": {
+            "correct": [
+              "I used to live in Mumbai. (state, only used to is correct)",
+              "I used to play football every day. (habit, used to is correct)",
+              "Every day, I would play football. (habit, would is correct with time reference)",
+              "She used to be very quiet. (state, only used to is correct)",
+              "He would always arrive late. (repeated action, would is correct)"
+            ],
+            "incorrect": [
+              {
+                "text": "I would live in Mumbai.",
+                "reason": "Would cannot describe a past state (where someone lived). Use: I used to live."
+              },
+              {
+                "text": "She would be very quiet.",
+                "reason": "Would cannot describe a past state of being. Use: She used to be very quiet."
+              },
+              {
+                "text": "Every day, I used to play football.",
+                "reason": "Both used to and would are acceptable here, but would is more common with a specific time reference like every day."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Negative and Question Forms",
+          "definition": "The negative and question forms of used to use the auxiliary verb did, and used to becomes use to (without the -d) after did. Would forms negatives and questions like any modal verb, without using did. Understanding these forms is essential for correct usage.",
+          "rules": [
+            "Used to negative: did not use to (didn't use to) + base verb",
+            "Used to questions: Did + subject + use to + base verb?",
+            "After did, used to becomes use to (no -d)",
+            "Would negative: would not (wouldn't) + base verb",
+            "Would questions: Would + subject + base verb?"
+          ],
+          "examples": {
+            "correct": [
+              "I didn't use to like vegetables. (negative with used to)",
+              "She didn't use to wear glasses. (negative)",
+              "Did you use to live in London? (question with used to)",
+              "Did he use to play the piano? (question)",
+              "We wouldn't visit them very often. (negative with would)",
+              "Would you play outside when you were young? (question with would)"
+            ],
+            "incorrect": [
+              {
+                "text": "I didn't used to like vegetables.",
+                "reason": "After did, use use to (without -d), not used to. Correct: didn't use to."
+              },
+              {
+                "text": "Did you used to live in London?",
+                "reason": "After did, use use to (without -d). Correct: Did you use to live?"
+              },
+              {
+                "text": "I didn't would visit them often.",
+                "reason": "Would is a modal and does not need did. Use: I wouldn't visit them often."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Be Used to vs Used to",
+          "definition": "Be used to means be accustomed to or be familiar with something, and it is followed by a noun or gerund (verb-ing). It describes a current state of familiarity, not a past habit. Do not confuse be used to with used to (past habit). The pronunciation is also different: used to (past habit) sounds like yoost-to, whilst be used to sounds like yoozd-to.",
+          "rules": [
+            "Used to (past habit): used to + base verb (I used to play tennis)",
+            "Be used to (accustomed to): be used to + noun/gerund (I am used to playing tennis)",
+            "Be used to describes current familiarity, not past habit",
+            "Be used to can be in any tense (am used to, was used to, will be used to)",
+            "Get used to means become accustomed to"
+          ],
+          "examples": {
+            "correct": [
+              "I used to live in Delhi. (past habit, no longer live there)",
+              "I am used to living in Delhi. (accustomed to it now)",
+              "She used to wake up early. (past habit)",
+              "She is used to waking up early. (accustomed to it now)",
+              "I will get used to the new schedule. (will become accustomed)",
+              "He is used to the cold weather. (accustomed to it)"
+            ],
+            "incorrect": [
+              {
+                "text": "I am used to live in Delhi.",
+                "reason": "After be used to, use a gerund or noun, not an infinitive. Correct: I am used to living."
+              },
+              {
+                "text": "She is used to wake up early.",
+                "reason": "After be used to, use a gerund. Correct: She is used to waking up early."
+              },
+              {
+                "text": "I used to living in Delhi.",
+                "reason": "Used to (past habit) is followed by a base verb, not a gerund. Correct: I used to live."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "key-rules",
+      "title": "Key Rules",
+      "order": 3,
+      "cards": [
+        {
+          "title": "Rule 1: Used to for Both Habits and States, Would Only for Actions",
+          "definition": "Use used to to describe both past habits and past states. Use would only for repeated past actions, not for states.",
+          "rules": [
+            "Used to: past habits and states (I used to play, I used to live)",
+            "Would: repeated past actions only (I would play every day)",
+            "For states (be, live, have, know), use used to, not would"
+          ],
+          "examples": {
+            "correct": [
+              "I used to be very shy. (state, only used to)",
+              "She used to live in Chennai. (state, only used to)",
+              "He used to have a motorbike. (state, only used to)",
+              "Every evening, we would play cricket. (repeated action, would is correct)",
+              "I used to play cricket every evening. (repeated action, used to is also correct)"
+            ],
+            "incorrect": [
+              {
+                "text": "I would be very shy.",
+                "reason": "Would cannot describe a past state. Use: I used to be very shy."
+              },
+              {
+                "text": "She would live in Chennai.",
+                "reason": "Would cannot describe where someone lived. Use: She used to live in Chennai."
+              },
+              {
+                "text": "He would have a motorbike.",
+                "reason": "Would cannot describe possession (a state). Use: He used to have a motorbike."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: After Used to, Use the Base Form of the Verb",
+          "definition": "Used to is always followed by the base form of the verb, never the -ing form or past tense.",
+          "rules": [
+            "Correct: used to + base verb (used to play, used to live, used to be)",
+            "Not: used to playing, used to played, used to living"
+          ],
+          "examples": {
+            "correct": [
+              "I used to play football.",
+              "She used to work in Delhi.",
+              "We used to visit them every month.",
+              "He used to be a doctor."
+            ],
+            "incorrect": [
+              {
+                "text": "I used to playing football.",
+                "reason": "After used to, use the base form, not the -ing form. Correct: used to play."
+              },
+              {
+                "text": "She used to worked in Delhi.",
+                "reason": "After used to, use the base form, not the past tense. Correct: used to work."
+              },
+              {
+                "text": "We used to visiting them every month.",
+                "reason": "Use the base form after used to. Correct: used to visit."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: In Negatives and Questions, Use Use to (Without -d)",
+          "definition": "When forming negatives and questions with did, used to loses the -d and becomes use to.",
+          "rules": [
+            "Negative: didn't use to (not: didn't used to)",
+            "Question: Did you use to? (not: Did you used to?)",
+            "The -d is already in did, so use to has no -d"
+          ],
+          "examples": {
+            "correct": [
+              "I didn't use to like coffee.",
+              "She didn't use to wear glasses.",
+              "Did you use to live here?",
+              "Did he use to play cricket?"
+            ],
+            "incorrect": [
+              {
+                "text": "I didn't used to like coffee.",
+                "reason": "After did, use use to (without -d). Correct: didn't use to."
+              },
+              {
+                "text": "Did you used to live here?",
+                "reason": "After did, use use to (without -d). Correct: Did you use to live?"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Be Used to Is Different from Used to",
+          "definition": "Be used to means be accustomed to and is followed by a noun or gerund, not an infinitive. It describes current familiarity, not a past habit.",
+          "rules": [
+            "Used to (past habit): used to + base verb (I used to smoke)",
+            "Be used to (accustomed): be used to + noun/gerund (I am used to smoking areas)",
+            "Be used to describes present familiarity, not past actions"
+          ],
+          "examples": {
+            "correct": [
+              "I used to live in Delhi. (past habit)",
+              "I am used to living in Delhi. (accustomed now)",
+              "She used to wake up late. (past habit)",
+              "She is used to waking up late. (accustomed now)"
+            ],
+            "incorrect": [
+              {
+                "text": "I am used to live in Delhi.",
+                "reason": "After be used to, use a gerund or noun, not an infinitive. Correct: I am used to living."
+              },
+              {
+                "text": "I used to living in Delhi.",
+                "reason": "Used to (past habit) takes a base verb, not a gerund. Correct: I used to live."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: Would Often Requires a Time Reference",
+          "definition": "Would is commonly used with time expressions to make it clear that the action was repeated in the past. Without a time reference, used to is often preferred.",
+          "rules": [
+            "Would often appears with time expressions: every day, often, always, sometimes, in the summer",
+            "Without a time reference, used to is more natural",
+            "Both can describe repeated actions, but would emphasises the repetition more"
+          ],
+          "examples": {
+            "correct": [
+              "Every summer, we would go to the mountains. (would with time reference)",
+              "We used to go to the mountains. (used to, no time reference needed)",
+              "She would always call me on Sundays. (would with time reference)",
+              "She used to call me often. (used to, general habit)"
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Mistakes for Indian Learners",
+      "order": 4,
+      "cards": [
+        {
+          "title": "Hindi Influence: Using Would for Past States",
+          "definition": "In Hindi, the same construction can describe both past habits and past states, leading learners to use would for states in English. In English, would can only describe repeated actions, not states. For states, use used to.",
+          "rules": [
+            "For states (live, be, have, know), use used to, not would",
+            "Hindi past constructions (main rehta tha, woh tha) do not distinguish between actions and states, but English does"
+          ],
+          "examples": {
+            "correct": [
+              "I used to live in Mumbai. (state)",
+              "She used to be a teacher. (state)",
+              "We used to have a dog. (state)",
+              "He used to know the answer. (state)"
+            ],
+            "incorrect": [
+              {
+                "text": "I would live in Mumbai.",
+                "reason": "Would cannot describe a past state (where someone lived). Use: I used to live in Mumbai."
+              },
+              {
+                "text": "She would be a teacher.",
+                "reason": "Would cannot describe a past state of being. Use: She used to be a teacher."
+              },
+              {
+                "text": "We would have a dog.",
+                "reason": "Would cannot describe possession (a state). Use: We used to have a dog."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using -ing Form After Used to",
+          "definition": "Indian learners sometimes use the -ing form after used to, possibly influenced by be used to (which takes a gerund). Remember: used to (past habit) takes a base verb; be used to (accustomed) takes a gerund.",
+          "rules": [
+            "Used to (past habit): used to + base verb (I used to play)",
+            "Be used to (accustomed): be used to + gerund (I am used to playing)",
+            "Do not confuse the two structures"
+          ],
+          "examples": {
+            "correct": [
+              "I used to play cricket every day. (past habit, base verb)",
+              "I am used to playing cricket every day. (accustomed now, gerund)",
+              "She used to live here. (past habit)",
+              "She is used to living here. (accustomed now)"
+            ],
+            "incorrect": [
+              {
+                "text": "I used to playing cricket every day.",
+                "reason": "Used to (past habit) takes a base verb, not a gerund. Correct: used to play."
+              },
+              {
+                "text": "She used to living here.",
+                "reason": "Use the base verb after used to (past habit). Correct: used to live."
+              },
+              {
+                "text": "I am used to play cricket.",
+                "reason": "Be used to (accustomed) takes a gerund or noun. Correct: I am used to playing."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Writing Used to as Use to in Affirmative Sentences",
+          "definition": "Learners sometimes write use to instead of used to in affirmative sentences. Remember: in affirmative sentences, it is always used to (with -d). Only in negatives and questions (with did) does it become use to.",
+          "rules": [
+            "Affirmative: used to (with -d)",
+            "Negative: didn't use to (without -d after did)",
+            "Question: Did you use to? (without -d after did)"
+          ],
+          "examples": {
+            "correct": [
+              "I used to read a lot. (affirmative, with -d)",
+              "She used to live in Delhi. (affirmative, with -d)",
+              "I didn't use to like coffee. (negative, without -d after did)",
+              "Did you use to play football? (question, without -d after did)"
+            ],
+            "incorrect": [
+              {
+                "text": "I use to read a lot.",
+                "reason": "In affirmative sentences, write used to (with -d). Correct: I used to read."
+              },
+              {
+                "text": "She use to live in Delhi.",
+                "reason": "Affirmative form requires used to (with -d). Correct: She used to live."
+              },
+              {
+                "text": "I didn't used to like coffee.",
+                "reason": "After did, use use to (without -d). Correct: didn't use to."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Confusing Be Used to with Used to",
+          "definition": "Indian learners often confuse used to (past habit) with be used to (accustomed to). The two have different meanings and different structures.",
+          "rules": [
+            "Used to (past habit): used to + base verb (I used to smoke)",
+            "Be used to (accustomed): be used to + noun/gerund (I am used to smoking areas, I am used to the heat)",
+            "Used to refers to the past; be used to refers to present familiarity"
+          ],
+          "examples": {
+            "correct": [
+              "I used to drink tea every morning. (past habit, no longer do it)",
+              "I am used to drinking tea every morning. (accustomed to it now)",
+              "He used to work night shifts. (past habit)",
+              "He is used to working night shifts. (accustomed now)"
+            ],
+            "incorrect": [
+              {
+                "text": "I am used to drink tea every morning.",
+                "reason": "Be used to takes a gerund or noun. Correct: I am used to drinking."
+              },
+              {
+                "text": "I used to drinking tea every morning.",
+                "reason": "Used to (past habit) takes a base verb. Correct: I used to drink."
+              },
+              {
+                "text": "He is used to work night shifts.",
+                "reason": "Be used to takes a gerund. Correct: He is used to working."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using Past Simple Instead of Used to or Would",
+          "definition": "Whilst the past simple can describe past actions, used to and would emphasise that the action was a habit and is no longer true. Indian learners sometimes use the past simple where used to or would would be more natural.",
+          "rules": [
+            "Use used to or would to emphasise past habits that no longer exist",
+            "Past simple can describe a single action or a habit, but used to/would make the contrast with the present clearer"
+          ],
+          "examples": {
+            "correct": [
+              "I used to play cricket every day. (emphasises the habit and the change)",
+              "I played cricket every day. (correct but less emphasis on the habit)",
+              "Every summer, we would visit our grandparents. (emphasises repeated action)",
+              "Every summer, we visited our grandparents. (correct but less emphasis)"
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice Problems",
+      "order": 5,
+      "cards": [
+        {
+          "title": "Practice 1: Choosing Used to or Would",
+          "definition": "Decide whether to use used to or would based on whether the sentence describes a state or a repeated action.",
+          "rules": [
+            "Used to: both habits and states (I used to live, I used to play)",
+            "Would: repeated actions only, not states (Every day, I would play)",
+            "For states (be, live, have, know), use used to only"
+          ],
+          "examples": {
+            "correct": [
+              "I used to live in Kolkata. (state, only used to)",
+              "She used to be very shy. (state, only used to)",
+              "Every evening, we would play cards. (repeated action, would is correct)",
+              "He used to play the guitar. (habit, used to is correct)",
+              "They would visit us every summer. (repeated action, would is correct)"
+            ],
+            "incorrect": [
+              {
+                "text": "I would live in Kolkata.",
+                "reason": "Would cannot describe a past state. Use: I used to live."
+              },
+              {
+                "text": "She would be very shy.",
+                "reason": "Would cannot describe a state of being. Use: She used to be."
+              },
+              {
+                "text": "He would have a dog.",
+                "reason": "Would cannot describe possession. Use: He used to have."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 2: Using the Correct Form After Used to",
+          "definition": "After used to, always use the base form of the verb, not the -ing form or past tense.",
+          "rules": [
+            "Correct: used to + base verb (used to play, used to live)",
+            "Not: used to playing, used to played"
+          ],
+          "examples": {
+            "correct": [
+              "I used to play football every weekend.",
+              "She used to work in a bank.",
+              "We used to visit our grandparents every month.",
+              "He used to be a teacher."
+            ],
+            "incorrect": [
+              {
+                "text": "I used to playing football every weekend.",
+                "reason": "After used to, use the base form, not the -ing form. Correct: used to play."
+              },
+              {
+                "text": "She used to worked in a bank.",
+                "reason": "After used to, use the base form, not the past tense. Correct: used to work."
+              },
+              {
+                "text": "We used to visiting our grandparents every month.",
+                "reason": "Use the base form after used to. Correct: used to visit."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 3: Forming Negatives and Questions",
+          "definition": "Practise forming negatives and questions with used to, remembering to use use to (without -d) after did.",
+          "rules": [
+            "Negative: didn't use to (not: didn't used to)",
+            "Question: Did you use to? (not: Did you used to?)"
+          ],
+          "examples": {
+            "correct": [
+              "I didn't use to like vegetables.",
+              "She didn't use to wear glasses.",
+              "Did you use to play cricket?",
+              "Did he use to live in Mumbai?",
+              "We didn't use to watch much television."
+            ],
+            "incorrect": [
+              {
+                "text": "I didn't used to like vegetables.",
+                "reason": "After did, use use to (without -d). Correct: didn't use to."
+              },
+              {
+                "text": "Did you used to play cricket?",
+                "reason": "After did, use use to (without -d). Correct: Did you use to play?"
+              },
+              {
+                "text": "She didn't used to wear glasses.",
+                "reason": "After did, use use to (without -d). Correct: didn't use to."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 4: Distinguishing Used to from Be Used to",
+          "definition": "Recognise the difference between used to (past habit) and be used to (accustomed to), and use the correct structure for each.",
+          "rules": [
+            "Used to (past habit): used to + base verb (I used to smoke)",
+            "Be used to (accustomed): be used to + noun/gerund (I am used to smoking areas)"
+          ],
+          "examples": {
+            "correct": [
+              "I used to wake up early. (past habit)",
+              "I am used to waking up early. (accustomed now)",
+              "She used to live in a village. (past habit)",
+              "She is used to living in a village. (accustomed now)",
+              "He used to drive to work. (past habit)",
+              "He is used to driving to work. (accustomed now)"
+            ],
+            "incorrect": [
+              {
+                "text": "I am used to wake up early.",
+                "reason": "Be used to takes a gerund or noun. Correct: I am used to waking up early."
+              },
+              {
+                "text": "I used to waking up early.",
+                "reason": "Used to (past habit) takes a base verb. Correct: I used to wake up."
+              },
+              {
+                "text": "She is used to live in a village.",
+                "reason": "Be used to takes a gerund. Correct: She is used to living."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 5: Writing Used to Correctly in Affirmative Sentences",
+          "definition": "In affirmative sentences, always write used to (with -d), not use to.",
+          "rules": [
+            "Affirmative: used to (with -d)",
+            "Only in negatives and questions (with did) does it become use to"
+          ],
+          "examples": {
+            "correct": [
+              "I used to read a lot. (affirmative, with -d)",
+              "She used to work in Delhi. (affirmative, with -d)",
+              "We used to play together. (affirmative, with -d)",
+              "He used to be very active. (affirmative, with -d)"
+            ],
+            "incorrect": [
+              {
+                "text": "I use to read a lot.",
+                "reason": "In affirmative sentences, write used to (with -d). Correct: I used to read."
+              },
+              {
+                "text": "She use to work in Delhi.",
+                "reason": "Affirmative requires used to (with -d). Correct: She used to work."
+              },
+              {
+                "text": "We use to play together.",
+                "reason": "Write used to (with -d) in affirmative sentences. Correct: We used to play."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Quick Revision",
+      "order": 6,
+      "cards": [
+        {
+          "title": "Ten Essential Points to Remember",
+          "definition": "Master these ten fundamental rules to use used to and would correctly and avoid common errors.",
+          "rules": [
+            "Used to + base verb describes past habits or states that no longer exist (I used to play, I used to live)",
+            "Would + base verb describes repeated past actions only, not states (Every day, I would play)",
+            "For states (be, live, have, know), use used to, never would",
+            "After used to, always use the base form of the verb, not the -ing form or past tense",
+            "Would often requires a time expression (every day, often, always, in the summer)",
+            "Negative: didn't use to (without -d after did)",
+            "Question: Did you use to? (without -d after did)",
+            "Be used to (accustomed) is different from used to (past habit)",
+            "Be used to is followed by a noun or gerund (I am used to waking up early)",
+            "In affirmative sentences, always write used to (with -d), not use to"
+          ],
+          "examples": {
+            "correct": [
+              "I used to live in Chennai. (past state)",
+              "She used to play tennis every day. (past habit)",
+              "Every summer, we would visit the beach. (repeated action with time reference)",
+              "He used to be very shy. (past state, only used to)",
+              "I didn't use to like coffee. (negative, use to without -d)",
+              "Did you use to play cricket? (question, use to without -d)",
+              "I used to wake up early. (past habit)",
+              "I am used to waking up early. (accustomed now, gerund after be used to)",
+              "She would always tell us stories. (repeated action)",
+              "We used to have a dog. (past state, only used to)"
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    }
+  ]
+}

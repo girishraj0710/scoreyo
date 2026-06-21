@@ -1,0 +1,1067 @@
+{
+  "topic_id": "synonyms-antonyms",
+  "title": "Synonyms & Antonyms",
+  "subtitle": "Master 100+ Essential Word Pairs for Competitive Exams and Daily Communication",
+  "overview": "This comprehensive module introduces learners to synonyms (words with similar meanings) and antonyms (words with opposite meanings). Understanding these relationships is fundamental for vocabulary expansion, precise communication, and success in competitive examinations. Through systematic categorisation and contextual examples, you will develop the ability to recognise subtle differences in meaning and select the most appropriate words for various situations. This foundation is essential for reading comprehension, writing skills, and verbal reasoning sections in IELTS, TOEFL, and other standardised tests.",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction to Synonyms & Antonyms",
+      "cards": [
+        {
+          "id": "intro-1",
+          "title": "What are Synonyms?",
+          "definition": "Synonyms are words that have similar or nearly identical meanings. They allow speakers and writers to avoid repetition, add variety to language, and express ideas with precision. However, perfect synonyms are rare; most synonyms carry subtle differences in intensity, formality, or connotation.",
+          "rules": [
+            "Synonyms share the same part of speech (noun, verb, adjective, adverb)",
+            "Context determines which synonym is most appropriate",
+            "Register and formality levels must match the situation",
+            "Some synonyms are interchangeable, whilst others are not",
+            "Consider connotations: positive, negative, or neutral"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The answer was simple and easy to understand.",
+                "reason": "'Simple' and 'easy' are synonyms emphasising clarity"
+              },
+              {
+                "text": "She was happy, delighted with the examination results.",
+                "reason": "'Delighted' intensifies the meaning of 'happy'"
+              },
+              {
+                "text": "The student was intelligent and clever in solving problems.",
+                "reason": "Both words describe mental ability, with 'clever' suggesting practical application"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The building was big and enormous.",
+                "reason": "Redundant: using two synonyms together without adding meaning"
+              },
+              {
+                "text": "He walked slowly and rapidly to the examination hall.",
+                "reason": "Contradiction: 'slowly' and 'rapidly' are antonyms, not synonyms"
+              }
+            ]
+          }
+        },
+        {
+          "id": "intro-2",
+          "title": "What are Antonyms?",
+          "definition": "Antonyms are words with opposite meanings. They create contrast and help define concepts through opposition. Understanding antonyms strengthens vocabulary by establishing clear boundaries between related concepts and enables precise expression of contrasting ideas.",
+          "rules": [
+            "Antonyms must be the same part of speech",
+            "Three types exist: gradable (hot/cold), complementary (alive/dead), and relational (parent/child)",
+            "Some words have multiple antonyms depending on context",
+            "Prefixes like un-, in-, dis- often create antonyms",
+            "Not all words have true antonyms"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination was difficult, not easy.",
+                "reason": "'Difficult' and 'easy' are gradable antonyms"
+              },
+              {
+                "text": "His answer was correct, whilst mine was incorrect.",
+                "reason": "Complementary antonyms: no middle ground exists"
+              },
+              {
+                "text": "The teacher praised her work, but criticised his approach.",
+                "reason": "'Praised' and 'criticised' represent opposite evaluations"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The book is interesting and boring.",
+                "reason": "Logical contradiction: something cannot be both simultaneously"
+              },
+              {
+                "text": "She arrived early and late.",
+                "reason": "Contradictory statement without clarifying different occasions"
+              }
+            ]
+          }
+        },
+        {
+          "id": "intro-3",
+          "title": "Importance in Competitive Examinations",
+          "definition": "Synonyms and antonyms form a critical component of vocabulary sections in IELTS, TOEFL, GRE, banking exams, SSC, and other competitive tests. Questions test not merely recognition but understanding of subtle meaning differences, contextual appropriateness, and the ability to distinguish between similar words.",
+          "rules": [
+            "Examination questions test contextual understanding, not rote memorisation",
+            "Sentence completion requires identifying appropriate synonyms",
+            "Analogy questions rely on synonym and antonym relationships",
+            "Reading comprehension passages use synonyms to avoid repetition",
+            "Writing sections reward varied vocabulary through synonym usage"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Question: 'Abundant' is closest in meaning to: (A) scarce (B) plentiful (C) moderate. Answer: B",
+                "reason": "'Plentiful' is the synonym; 'scarce' is the antonym"
+              },
+              {
+                "text": "The speaker was verbose. Replace with: The speaker was wordy.",
+                "reason": "'Wordy' is an appropriate synonym for 'verbose'"
+              },
+              {
+                "text": "Analogy: Hot is to Cold as Light is to Dark.",
+                "reason": "Both pairs represent gradable antonyms"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Assuming 'big' always means 'large' without considering context like 'big mistake'.",
+                "reason": "Context matters: 'big mistake' means 'serious', not merely 'large'"
+              },
+              {
+                "text": "Choosing 'thin' as antonym for 'thick' in 'thick accent'.",
+                "reason": "In this context, 'thick accent' means 'strong', not related to width"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core-concepts",
+      "title": "Core Concepts: 100+ Essential Word Pairs",
+      "cards": [
+        {
+          "id": "core-1",
+          "title": "Emotion and Feeling Words",
+          "definition": "This category covers words describing emotional states, moods, and feelings. Mastering these synonyms and antonyms enables precise expression of human psychology and interpersonal dynamics, essential for descriptive writing and comprehension passages.",
+          "rules": [
+            "Intensity matters: 'angry' is stronger than 'annoyed'",
+            "Positive emotions often have multiple synonyms with subtle differences",
+            "Negative emotion words frequently test connotation understanding",
+            "Some emotion words are formal (melancholy) whilst others are informal (sad)",
+            "Context determines whether emotion words are appropriate"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Happy = joyful, pleased, content, delighted, cheerful | Sad = unhappy, sorrowful, gloomy, dejected, miserable",
+                "reason": "Multiple synonyms show intensity gradation and register differences"
+              },
+              {
+                "text": "Angry = furious, enraged, irate, annoyed, irritated | Calm = peaceful, tranquil, serene, composed, relaxed",
+                "reason": "Synonyms range from mild (annoyed) to extreme (enraged)"
+              },
+              {
+                "text": "Brave = courageous, bold, daring, fearless, valiant | Cowardly = timid, fearful, faint-hearted, spineless",
+                "reason": "Antonym pairs define opposite character traits"
+              },
+              {
+                "text": "Excited = enthusiastic, eager, thrilled, animated | Bored = uninterested, apathetic, indifferent, weary",
+                "reason": "Emotional engagement opposites frequently appear in examinations"
+              },
+              {
+                "text": "Proud = satisfied, pleased, confident | Ashamed = embarrassed, humiliated, mortified, guilty",
+                "reason": "Self-perception antonyms with varying intensity"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Using 'happy' and 'ecstatic' interchangeably in all contexts.",
+                "reason": "'Ecstatic' indicates extreme joy; 'happy' is moderate"
+              },
+              {
+                "text": "The student was anxious and confident about the examination.",
+                "reason": "These are typically antonyms representing conflicting emotional states"
+              }
+            ]
+          }
+        },
+        {
+          "id": "core-2",
+          "title": "Action and Movement Verbs",
+          "definition": "Action verbs describe physical and mental activities. Understanding synonyms enables precise description of how actions are performed, whilst antonyms clarify opposing movements or processes. These words frequently appear in narrative comprehension and instruction-following tasks.",
+          "rules": [
+            "Manner matters: 'walk' versus 'stroll' indicates different speeds",
+            "Some verbs imply direction: 'ascend' (up) versus 'descend' (down)",
+            "Intensity varies: 'like' versus 'adore'",
+            "Formality differs: 'commence' (formal) versus 'start' (neutral)",
+            "Transitive and intransitive uses may differ"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Begin = start, commence, initiate, launch | End = finish, conclude, terminate, complete, cease",
+                "reason": "Process antonyms with formality variations"
+              },
+              {
+                "text": "Increase = grow, expand, rise, escalate, amplify | Decrease = reduce, diminish, decline, shrink, lessen",
+                "reason": "Quantity change verbs essential for data interpretation"
+              },
+              {
+                "text": "Accept = receive, take, embrace, approve | Reject = refuse, decline, deny, dismiss, repudiate",
+                "reason": "Decision-making antonyms common in formal contexts"
+              },
+              {
+                "text": "Build = construct, create, erect, assemble | Destroy = demolish, ruin, wreck, dismantle, raze",
+                "reason": "Creation versus destruction antonyms"
+              },
+              {
+                "text": "Speak = talk, converse, discuss, communicate, articulate | Listen = hear, attend, heed, pay attention",
+                "reason": "Communication action pairs showing reciprocal relationship"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The meeting commenced and started at 9 AM.",
+                "reason": "Redundant: both words mean the same action"
+              },
+              {
+                "text": "Please decrease the volume by increasing the dial.",
+                "reason": "Contradictory instruction using antonyms"
+              }
+            ]
+          }
+        },
+        {
+          "id": "core-3",
+          "title": "Descriptive Adjectives: Size, Quality, and Appearance",
+          "definition": "Descriptive adjectives modify nouns by indicating characteristics such as size, quality, condition, and appearance. Mastery of these word pairs enables vivid, precise description and is tested extensively in vocabulary and writing sections of competitive examinations.",
+          "rules": [
+            "Gradable adjectives allow comparison: good, better, best",
+            "Absolute adjectives resist grading: perfect, unique, dead",
+            "Size adjectives range from tiny to enormous",
+            "Quality adjectives indicate positive or negative assessment",
+            "Appearance adjectives describe visual characteristics"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Large = big, huge, enormous, vast, massive, immense | Small = little, tiny, minute, miniature, petite",
+                "reason": "Size spectrum from moderate to extreme"
+              },
+              {
+                "text": "Good = excellent, fine, superior, outstanding, splendid | Bad = poor, inferior, terrible, awful, dreadful",
+                "reason": "Quality assessment antonyms with intensity variation"
+              },
+              {
+                "text": "Beautiful = attractive, lovely, pretty, gorgeous, stunning | Ugly = unattractive, hideous, unsightly, plain",
+                "reason": "Appearance evaluation words common in descriptive passages"
+              },
+              {
+                "text": "Strong = powerful, robust, sturdy, mighty, muscular | Weak = feeble, frail, fragile, delicate, flimsy",
+                "reason": "Physical strength antonyms applicable to objects and people"
+              },
+              {
+                "text": "Clean = spotless, immaculate, pristine, pure | Dirty = filthy, grimy, soiled, stained, polluted",
+                "reason": "Cleanliness antonyms with varying intensity"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The answer was very unique.",
+                "reason": "'Unique' is absolute; it cannot be graded with 'very'"
+              },
+              {
+                "text": "She wore a beautiful and attractive and lovely dress.",
+                "reason": "Redundant: three synonyms add no new information"
+              }
+            ]
+          }
+        },
+        {
+          "id": "core-4",
+          "title": "Academic and Formal Vocabulary",
+          "definition": "Academic vocabulary comprises words frequently encountered in scholarly texts, formal writing, and competitive examinations. These words often have Latin or Greek origins and demonstrate sophisticated language use. Understanding their synonyms and antonyms is crucial for reading comprehension and formal writing tasks.",
+          "rules": [
+            "Academic words tend to be polysyllabic and formal in register",
+            "They often replace simpler Anglo-Saxon equivalents in formal contexts",
+            "Many academic words have precise, technical meanings",
+            "Understanding prefixes and suffixes aids recognition",
+            "Context clues help determine meaning in passages"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Complex = complicated, intricate, elaborate, sophisticated | Simple = basic, straightforward, plain, uncomplicated",
+                "reason": "Complexity antonyms essential for describing ideas and systems"
+              },
+              {
+                "text": "Abundant = plentiful, copious, ample, profuse, bountiful | Scarce = rare, sparse, insufficient, meagre, limited",
+                "reason": "Quantity descriptors common in economic and scientific texts"
+              },
+              {
+                "text": "Significant = important, considerable, substantial, notable, meaningful | Insignificant = trivial, minor, negligible, unimportant",
+                "reason": "Importance evaluation words for analytical writing"
+              },
+              {
+                "text": "Precise = accurate, exact, specific, explicit, definite | Vague = unclear, ambiguous, indefinite, imprecise, hazy",
+                "reason": "Clarity antonyms crucial for academic precision"
+              },
+              {
+                "text": "Contemporary = modern, current, present-day, recent | Ancient = old, archaic, antiquated, obsolete, bygone",
+                "reason": "Temporal antonyms for historical and cultural contexts"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Using 'get' instead of 'obtain' in formal academic writing.",
+                "reason": "'Obtain' is more appropriate for formal register"
+              },
+              {
+                "text": "The data was precise and vague.",
+                "reason": "Logical contradiction: data cannot be both simultaneously"
+              }
+            ]
+          }
+        },
+        {
+          "id": "core-5",
+          "title": "Behaviour, Character, and Attitude Words",
+          "definition": "This category encompasses words describing human behaviour patterns, personality traits, and attitudes towards others and situations. These words are essential for character analysis in literature, opinion expression in writing, and comprehension of behavioural descriptions in passages.",
+          "rules": [
+            "Many character words carry moral judgements: positive or negative",
+            "Behaviour words describe actions; character words describe inherent traits",
+            "Some words have shifted connotations over time",
+            "Cultural context affects interpretation of character words",
+            "Degree matters: 'confident' versus 'arrogant'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Honest = truthful, sincere, genuine, frank, candid | Dishonest = deceitful, lying, fraudulent, deceptive, untruthful",
+                "reason": "Moral character antonyms with social importance"
+              },
+              {
+                "text": "Generous = kind, charitable, benevolent, magnanimous, liberal | Selfish = greedy, self-centred, mean, stingy, miserly",
+                "reason": "Altruism versus self-interest antonyms"
+              },
+              {
+                "text": "Polite = courteous, respectful, civil, well-mannered, gracious | Rude = impolite, discourteous, disrespectful, insolent, offensive",
+                "reason": "Social behaviour antonyms reflecting cultural norms"
+              },
+              {
+                "text": "Diligent = hardworking, industrious, conscientious, assiduous, persevering | Lazy = idle, indolent, slothful, lethargic, inactive",
+                "reason": "Work ethic antonyms relevant to student life and professional contexts"
+              },
+              {
+                "text": "Optimistic = hopeful, positive, confident, upbeat, sanguine | Pessimistic = negative, gloomy, cynical, despondent, defeatist",
+                "reason": "Outlook and attitude antonyms affecting interpretation and decision-making"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He was confident and arrogant in his abilities.",
+                "reason": "While related, 'confident' is positive whilst 'arrogant' is negative"
+              },
+              {
+                "text": "She is both generous and selfish with her time.",
+                "reason": "Contradictory description without temporal or contextual clarification"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "key-rules",
+      "title": "Key Rules for Using Synonyms & Antonyms",
+      "cards": [
+        {
+          "id": "rules-1",
+          "title": "Context Determines Appropriateness",
+          "definition": "The same word may have different synonyms depending on context. Successful synonym selection requires understanding not merely dictionary definitions but also how words function in specific situations. Examination questions frequently test this contextual awareness.",
+          "rules": [
+            "Consider the subject matter: technical, casual, formal, literary",
+            "Assess the intended audience: experts, general public, children",
+            "Evaluate tone requirements: serious, humorous, neutral, emotional",
+            "Match register: colloquial, standard, formal, academic",
+            "Preserve connotations: positive, negative, neutral associations"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "'Observe' in scientific writing = examine, monitor, study. 'Observe' in casual speech = notice, see, watch.",
+                "reason": "Scientific context demands precise, technical synonyms"
+              },
+              {
+                "text": "'Difficult examination' can be replaced with 'challenging examination' (neutral) or 'arduous examination' (formal).",
+                "reason": "Register matching maintains consistency"
+              },
+              {
+                "text": "'Childish behaviour' (negative) versus 'childlike innocence' (positive).",
+                "reason": "Connotation changes meaning despite similar dictionary definitions"
+              },
+              {
+                "text": "In legal writing: 'terminate' not 'end'; 'remuneration' not 'pay'.",
+                "reason": "Professional registers require specific vocabulary"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Using 'kids' instead of 'children' in formal academic writing.",
+                "reason": "'Kids' is informal; 'children' matches academic register"
+              },
+              {
+                "text": "Replacing 'home' with 'domicile' in casual conversation.",
+                "reason": "'Domicile' is excessively formal for everyday speech"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rules-2",
+          "title": "Collocation and Word Partnership",
+          "definition": "Collocation refers to words that frequently occur together in natural language. Not all synonyms work in established collocations. Understanding these partnerships prevents awkward or incorrect usage and helps identify the most natural-sounding alternatives.",
+          "rules": [
+            "Some adjectives pair naturally with specific nouns: 'strong tea' not 'powerful tea'",
+            "Verb-noun collocations are often fixed: 'make a decision' not 'do a decision'",
+            "Adverb-adjective combinations follow patterns: 'highly unlikely' not 'very unlikely'",
+            "Prepositional phrases resist synonym substitution: 'in time' differs from 'on time'",
+            "Idioms and fixed expressions do not allow synonym replacement"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "'Heavy rain' is correct. 'Strong rain' sounds unnatural, though 'strong' is a synonym of 'heavy'.",
+                "reason": "Collocation determines which synonym fits"
+              },
+              {
+                "text": "'Fast food' not 'quick food'. 'Quick meal' not 'fast meal'.",
+                "reason": "Different collocations require different synonyms"
+              },
+              {
+                "text": "'Do homework', 'do exercises', 'do the washing' — 'do' collocates with these activities.",
+                "reason": "Verb-noun partnerships are often fixed"
+              },
+              {
+                "text": "'Catch a cold' not 'get a cold' in British English formal usage.",
+                "reason": "Some collocations are regionally preferred"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Saying 'I made a mistake' could be replaced with 'I did an error'.",
+                "reason": "The collocation is 'made a mistake' or 'made an error', not 'did an error'"
+              },
+              {
+                "text": "Replacing 'keep an eye on' with 'maintain a look at'.",
+                "reason": "Idioms resist literal synonym substitution"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rules-3",
+          "title": "Intensity and Degree Differences",
+          "definition": "Synonyms often exist on a spectrum of intensity, from mild to extreme. Recognising these gradations enables precise communication and helps avoid overstatement or understatement. Examination questions frequently test understanding of these subtle differences.",
+          "rules": [
+            "Identify the intensity scale: mild, moderate, strong, extreme",
+            "Consider whether the situation warrants strong or mild language",
+            "Some synonyms are interchangeable only at similar intensity levels",
+            "Overuse of extreme synonyms can sound melodramatic",
+            "Understatement may be appropriate in formal British English"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Anger scale: annoyed → irritated → angry → furious → enraged",
+                "reason": "Each word represents increasing intensity"
+              },
+              {
+                "text": "Happiness scale: pleased → happy → delighted → ecstatic → euphoric",
+                "reason": "Choose the level appropriate to the situation"
+              },
+              {
+                "text": "Size scale: small → little → tiny → minute → microscopic",
+                "reason": "Precision requires selecting the right intensity"
+              },
+              {
+                "text": "For a minor inconvenience: 'I was slightly annoyed' not 'I was absolutely furious'.",
+                "reason": "Match intensity to the actual situation"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Using 'ecstatic' to describe being 'somewhat happy'.",
+                "reason": "'Ecstatic' indicates extreme joy, not moderate happiness"
+              },
+              {
+                "text": "Describing a small problem as a 'catastrophic disaster'.",
+                "reason": "Extreme synonyms exaggerate minor issues"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rules-4",
+          "title": "Formal Versus Informal Register",
+          "definition": "English possesses multiple registers ranging from intimate colloquial speech to highly formal academic prose. Many words have synonyms at different formality levels. Competitive examinations test the ability to recognise and select register-appropriate vocabulary for different contexts.",
+          "rules": [
+            "Informal: contractions, phrasal verbs, colloquialisms, slang",
+            "Neutral: standard vocabulary suitable for most contexts",
+            "Formal: Latinate vocabulary, complete sentences, complex structures",
+            "Academic: specialised terminology, passive constructions, hedging language",
+            "Legal/technical: precise definitions, jargon, conventional phrases"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Informal: 'find out' → Formal: 'discover, ascertain, determine'",
+                "reason": "Phrasal verbs are typically less formal than single-word equivalents"
+              },
+              {
+                "text": "Informal: 'get' → Formal: 'obtain, acquire, receive, secure'",
+                "reason": "'Get' is versatile but informal; specific verbs suit formal writing"
+              },
+              {
+                "text": "Informal: 'kids' → Neutral: 'children' → Formal: 'juveniles, minors'",
+                "reason": "Multiple register levels for the same concept"
+              },
+              {
+                "text": "Informal: 'lots of' → Neutral: 'many, much' → Formal: 'numerous, substantial, considerable'",
+                "reason": "Quantity expressions vary by register"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "In an academic essay: 'The study found out that...'",
+                "reason": "Should be 'The study determined that...' or 'The study revealed that...'"
+              },
+              {
+                "text": "In casual conversation: 'I shall endeavour to ascertain the information.'",
+                "reason": "Excessively formal for everyday speech: 'I'll try to find out'"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rules-5",
+          "title": "Avoiding Redundancy and Tautology",
+          "definition": "Redundancy occurs when unnecessary words are added that repeat meaning already expressed. Using multiple synonyms together often creates tautology (saying the same thing twice). Effective communication requires eliminating redundant synonyms whilst retaining precise meaning.",
+          "rules": [
+            "One precise word is better than multiple vague synonyms",
+            "Avoid doubling: 'first and foremost' says the same thing twice",
+            "Some phrases are inherently redundant: 'free gift' (gifts are free by definition)",
+            "Academic writing particularly penalises wordiness",
+            "Clarity trumps vocabulary display"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Instead of 'completely and utterly finished', write 'finished' or 'completely finished'.",
+                "reason": "Three synonyms add no additional meaning"
+              },
+              {
+                "text": "Instead of 'each and every student', write 'every student' or 'all students'.",
+                "reason": "'Each' and 'every' are synonymous in this context"
+              },
+              {
+                "text": "Instead of 'the reason is because', write 'the reason is that' or simply 'because'.",
+                "reason": "'Reason' and 'because' both indicate causation"
+              },
+              {
+                "text": "Instead of 'a new innovation', write 'an innovation'.",
+                "reason": "Innovations are by definition new"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The result was clear, obvious, and evident to everyone.",
+                "reason": "Three synonyms create redundancy; choose the most precise one"
+              },
+              {
+                "text": "We must first begin by starting with the introduction.",
+                "reason": "'First', 'begin', and 'starting' all indicate commencement"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Mistakes and How to Avoid Them",
+      "cards": [
+        {
+          "id": "mistakes-1",
+          "title": "Confusing Words with Similar Spellings",
+          "definition": "English contains numerous word pairs with similar spellings but different meanings. These are not true synonyms but are frequently confused by learners. Examinations specifically test these distinctions, making them critical to master.",
+          "rules": [
+            "Check spelling carefully: one letter changes meaning entirely",
+            "Learn commonly confused pairs through context and usage",
+            "Use mnemonic devices to remember distinctions",
+            "Practice with example sentences showing clear differences",
+            "Be particularly careful with homophones (same sound, different spelling)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Accept (verb: to receive) versus Except (preposition: excluding)",
+                "reason": "Everyone was present except Raj, who could not accept the invitation."
+              },
+              {
+                "text": "Affect (verb: to influence) versus Effect (noun: result)",
+                "reason": "The weather will affect our plans. The effect of the storm was severe."
+              },
+              {
+                "text": "Complement (to complete) versus Compliment (to praise)",
+                "reason": "The sauce complements the dish. He paid her a compliment."
+              },
+              {
+                "text": "Principal (main; school head) versus Principle (fundamental rule)",
+                "reason": "The principal reason is cost. She follows moral principles."
+              },
+              {
+                "text": "Stationary (not moving) versus Stationery (writing materials)",
+                "reason": "The car remained stationary. I need stationery for the examination."
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The medicine had no affect on the patient.",
+                "reason": "Should be 'effect' (noun); 'affect' is the verb form"
+              },
+              {
+                "text": "I can't except your apology.",
+                "reason": "Should be 'accept'; 'except' means excluding"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mistakes-2",
+          "title": "False Friends: Words That Look Similar But Differ in Meaning",
+          "definition": "False friends are word pairs that appear to be synonyms due to similar appearance or partial overlap in meaning but actually have distinct definitions. Misusing these words is a common error in examinations and formal writing.",
+          "rules": [
+            "Similar-looking words often have different etymologies and meanings",
+            "Check context carefully: one word may work where another does not",
+            "Learn definitions precisely rather than assuming from appearance",
+            "Be aware of words with overlapping but not identical meanings",
+            "Practice distinguishing through multiple example sentences"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Eminent (distinguished, famous) versus Imminent (about to happen)",
+                "reason": "The eminent scientist warned that disaster was imminent."
+              },
+              {
+                "text": "Continuous (without stopping) versus Continual (repeated, with breaks)",
+                "reason": "The continuous noise was exhausting. His continual complaints were irritating."
+              },
+              {
+                "text": "Credible (believable) versus Credulous (too ready to believe)",
+                "reason": "His account was credible. The credulous audience believed everything."
+              },
+              {
+                "text": "Disinterested (impartial) versus Uninterested (not interested)",
+                "reason": "A judge must be disinterested. He was uninterested in the topic."
+              },
+              {
+                "text": "Specially (for a specific purpose) versus Especially (particularly)",
+                "reason": "This was specially designed for you. I especially enjoyed the dessert."
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The storm is eminent, so we should leave.",
+                "reason": "Should be 'imminent' (about to happen); 'eminent' means distinguished"
+              },
+              {
+                "text": "The judge was uninterested in the case.",
+                "reason": "Should be 'disinterested' (impartial); 'uninterested' means not caring"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mistakes-3",
+          "title": "Overusing Thesaurus Without Context Check",
+          "definition": "A common mistake is replacing words with thesaurus synonyms without verifying contextual appropriateness. Whilst thesauruses list synonyms, they rarely indicate register, collocations, or subtle meaning differences. Blind substitution often results in awkward or incorrect usage.",
+          "rules": [
+            "Verify new synonyms in example sentences before using them",
+            "Check whether the synonym works in your specific context",
+            "Consider register: is the synonym too formal or informal?",
+            "Test collocations: does the synonym pair naturally with surrounding words?",
+            "When unsure, choose the simpler, more familiar word"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Original: 'The student was happy.' Better: 'The student was delighted.' Poor: 'The student was euphoric.'",
+                "reason": "'Euphoric' is excessively intense for most contexts"
+              },
+              {
+                "text": "Original: 'She looked at the painting.' Better: 'She observed the painting.' Poor: 'She scrutinised the painting.'",
+                "reason": "'Scrutinised' implies intense, critical examination"
+              },
+              {
+                "text": "Original: 'The house was old.' Better: 'The house was ancient.' Poor: 'The house was antediluvian.'",
+                "reason": "'Antediluvian' is excessively formal and rare"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Replacing 'show' with 'demonstrate' everywhere, including 'demonstrate a film'.",
+                "reason": "'Show a film' is the correct collocation; 'demonstrate' doesn't fit"
+              },
+              {
+                "text": "Replacing 'walk' with 'perambulate' in casual writing.",
+                "reason": "'Perambulate' is archaic and excessively formal"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mistakes-4",
+          "title": "Ignoring Connotation and Emotional Tone",
+          "definition": "Words with similar denotations (dictionary definitions) may have different connotations (emotional associations). Ignoring these subtle differences can dramatically change the meaning or tone of a sentence. Examination questions frequently test awareness of positive, negative, and neutral connotations.",
+          "rules": [
+            "Identify whether a word carries positive, negative, or neutral associations",
+            "Consider cultural and contextual factors affecting connotation",
+            "Be aware that connotations can change over time",
+            "Some synonyms differ primarily in connotation rather than denotation",
+            "In formal writing, prefer neutral connotations unless persuasion is intended"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Slim (positive) versus Thin (neutral) versus Skinny (negative)",
+                "reason": "All describe low body weight but with different emotional tones"
+              },
+              {
+                "text": "Assertive (positive) versus Aggressive (negative)",
+                "reason": "Both indicate forceful behaviour; connotation differs"
+              },
+              {
+                "text": "Youthful (positive) versus Childish (negative)",
+                "reason": "Both relate to youth; one is praise, the other criticism"
+              },
+              {
+                "text": "Frugal (positive) versus Cheap (negative)",
+                "reason": "Both indicate careful spending; connotation makes the difference"
+              },
+              {
+                "text": "Vintage (positive) versus Old-fashioned (negative)",
+                "reason": "Both describe age; one implies desirable, the other outdated"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Calling someone 'stubborn' when you mean 'determined'.",
+                "reason": "'Stubborn' is negative; 'determined' is positive"
+              },
+              {
+                "text": "Describing a careful person as 'timid' instead of 'cautious'.",
+                "reason": "'Timid' suggests fearfulness; 'cautious' suggests wisdom"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mistakes-5",
+          "title": "Misunderstanding Antonym Types",
+          "definition": "Not all antonyms function identically. Three types exist: gradable (allowing middle ground), complementary (binary opposites), and relational (defining relationships). Misunderstanding these distinctions leads to logical errors and incorrect usage in examinations.",
+          "rules": [
+            "Gradable antonyms allow intermediate states: hot-warm-cool-cold",
+            "Complementary antonyms are binary: alive or dead, no middle ground",
+            "Relational antonyms define reciprocal relationships: buy/sell, lend/borrow",
+            "Some words have different antonyms depending on meaning",
+            "Context determines which type of antonym is appropriate"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Gradable: Hot ↔ Cold (with warm, cool in between)",
+                "reason": "Temperature exists on a spectrum"
+              },
+              {
+                "text": "Complementary: Alive ↔ Dead (no intermediate state)",
+                "reason": "Binary opposition with no middle ground"
+              },
+              {
+                "text": "Relational: Teacher ↔ Student (reciprocal relationship)",
+                "reason": "Each term defines the other; both must exist for relationship to hold"
+              },
+              {
+                "text": "Light antonym: Heavy (weight) or Dark (brightness)",
+                "reason": "Different meanings require different antonyms"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Saying something is 'slightly dead' or 'very alive'.",
+                "reason": "Complementary antonyms do not allow gradation"
+              },
+              {
+                "text": "Treating 'doctor' and 'patient' as simple opposites like 'hot' and 'cold'.",
+                "reason": "These are relational antonyms defining a relationship, not qualities"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice Exercises",
+      "cards": [
+        {
+          "id": "practice-1",
+          "title": "Exercise 1: Identify Synonyms in Context",
+          "definition": "Select the most appropriate synonym for the underlined word based on the sentence context. Consider register, intensity, collocation, and connotation.",
+          "rules": [
+            "Read the complete sentence to understand context",
+            "Eliminate options that are wrong part of speech",
+            "Consider formality level required",
+            "Check whether the synonym maintains the sentence's meaning",
+            "Choose the most natural-sounding option"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination was difficult. Synonym: (A) hard (B) arduous (C) challenging (D) impossible. Answer: C",
+                "reason": "'Challenging' matches the neutral academic context; 'arduous' is too formal, 'impossible' too extreme"
+              },
+              {
+                "text": "She was happy with her results. Synonym: (A) ecstatic (B) pleased (C) euphoric (D) content. Answer: B or D",
+                "reason": "Both 'pleased' and 'content' match the moderate intensity; 'ecstatic' and 'euphoric' are excessive"
+              },
+              {
+                "text": "The scientist will examine the data. Synonym: (A) look at (B) scrutinise (C) analyse (D) see. Answer: C",
+                "reason": "'Analyse' matches scientific register; 'look at' is too informal, 'scrutinise' implies criticism"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing 'big' as synonym for 'significant' in 'significant contribution'.",
+                "reason": "'Significant' means important, not large in size"
+              },
+              {
+                "text": "Replacing 'make' with 'fabricate' in 'make a decision'.",
+                "reason": "'Fabricate' implies creating something false; wrong connotation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "practice-2",
+          "title": "Exercise 2: Choose Correct Antonyms",
+          "definition": "Identify the correct antonym for the given word, paying attention to context, part of speech, and the type of antonym relationship (gradable, complementary, or relational).",
+          "rules": [
+            "Ensure antonym matches part of speech",
+            "Consider context: some words have multiple antonyms",
+            "Identify whether gradable or complementary opposition is needed",
+            "Check for relational antonyms in reciprocal relationships",
+            "Verify that the antonym creates logical sense in context"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Antonym of 'accept': (A) reject (B) receive (C) take (D) keep. Answer: A",
+                "reason": "'Reject' is the direct opposite of 'accept'; others are related but not antonyms"
+              },
+              {
+                "text": "Antonym of 'ancient': (A) new (B) modern (C) contemporary (D) all of these. Answer: D",
+                "reason": "All three are valid antonyms with slightly different connotations"
+              },
+              {
+                "text": "Antonym of 'rough' in 'rough surface': (A) smooth (B) soft (C) gentle (D) calm. Answer: A",
+                "reason": "Context (surface texture) requires 'smooth'; other options apply to different meanings"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing 'thin' as antonym for 'thick' in 'thick accent'.",
+                "reason": "'Thick accent' means 'strong'; antonym is 'slight' or 'mild', not 'thin'"
+              },
+              {
+                "text": "Saying 'student' is antonym of 'intelligent'.",
+                "reason": "These are unrelated; antonym of 'intelligent' is 'unintelligent' or 'stupid'"
+              }
+            ]
+          }
+        },
+        {
+          "id": "practice-3",
+          "title": "Exercise 3: Replace with Appropriate Register",
+          "definition": "Rewrite sentences by replacing informal words with formal synonyms appropriate for academic writing, or formal words with neutral synonyms for general contexts. This tests understanding of register and contextual appropriateness.",
+          "rules": [
+            "Identify the target register: informal, neutral, formal, academic",
+            "Replace phrasal verbs with single-word equivalents in formal writing",
+            "Use Latinate vocabulary for academic contexts",
+            "Maintain meaning whilst adjusting formality",
+            "Ensure collocations remain natural after substitution"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Informal: 'The study found out that stress affects performance.' Formal: 'The study determined that stress influences performance.'",
+                "reason": "'Found out' → 'determined'; 'affects' → 'influences' for academic register"
+              },
+              {
+                "text": "Informal: 'Lots of students showed up.' Formal: 'Numerous students attended.'",
+                "reason": "'Lots of' → 'numerous'; 'showed up' → 'attended'"
+              },
+              {
+                "text": "Overly formal: 'I endeavoured to ascertain the information.' Neutral: 'I tried to find the information.'",
+                "reason": "Simplification for everyday context"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "In an academic essay: 'The results are really good.'",
+                "reason": "Should be 'The results are highly significant' or 'The results are promising'"
+              },
+              {
+                "text": "In casual email: 'I shall endeavour to dispatch the documents forthwith.'",
+                "reason": "Excessively formal; should be 'I'll try to send the documents soon'"
+              }
+            ]
+          }
+        },
+        {
+          "id": "practice-4",
+          "title": "Exercise 4: Analogy Completion",
+          "definition": "Complete analogies by identifying synonym or antonym relationships. Analogies test understanding of word relationships and the ability to recognise parallel patterns. This question type appears frequently in competitive examinations.",
+          "rules": [
+            "Identify the relationship in the given pair: synonym, antonym, part-whole, cause-effect",
+            "Apply the same relationship to the second pair",
+            "Ensure parallel structure: if first pair is adjectives, second should be too",
+            "Check intensity levels: if first pair is extreme, second should match",
+            "Consider context and register consistency"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Hot is to Cold as Light is to: (A) Bright (B) Dark (C) Heavy (D) Dim. Answer: B",
+                "reason": "Both pairs are gradable antonyms representing opposite ends of spectrums"
+              },
+              {
+                "text": "Happy is to Joyful as Sad is to: (A) Unhappy (B) Sorrowful (C) Depressed (D) Miserable. Answer: B",
+                "reason": "Both pairs are synonyms with similar intensity and register"
+              },
+              {
+                "text": "Begin is to End as Start is to: (A) Stop (B) Finish (C) Commence (D) Initiate. Answer: B",
+                "reason": "Parallel antonym pairs; 'finish' matches 'end' in register"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Big is to Large as Small is to: (A) Huge. (Wrong relationship applied)",
+                "reason": "Should be 'Tiny' or 'Little'; 'Huge' is a synonym of 'big', not 'small'"
+              },
+              {
+                "text": "Accept is to Reject as Buy is to: (A) Purchase. (Synonym instead of antonym)",
+                "reason": "Should be 'Sell'; 'Purchase' is a synonym of 'buy'"
+              }
+            ]
+          }
+        },
+        {
+          "id": "practice-5",
+          "title": "Exercise 5: Error Detection in Synonym Usage",
+          "definition": "Identify and correct inappropriate synonym usage in sentences. This tests the ability to recognise contextual mismatches, register errors, collocation problems, and connotation mistakes—all common in competitive examinations.",
+          "rules": [
+            "Check whether the synonym fits the context and meaning",
+            "Verify register appropriateness: formal, neutral, or informal",
+            "Test collocation: does the synonym pair naturally with adjacent words?",
+            "Assess connotation: positive, negative, or neutral",
+            "Ensure intensity level matches the situation described"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Error: 'The pupil was ecstatic to pass the examination.' Correction: 'The pupil was delighted to pass the examination.'",
+                "reason": "'Ecstatic' is excessively intense; 'delighted' is more appropriate"
+              },
+              {
+                "text": "Error: 'Please do a decision quickly.' Correction: 'Please make a decision quickly.'",
+                "reason": "Collocation error: 'make a decision', not 'do a decision'"
+              },
+              {
+                "text": "Error: 'The teacher was stringent with students.' Correction: 'The teacher was strict with students.'",
+                "reason": "'Stringent' applies to rules, not people; 'strict' is correct"
+              },
+              {
+                "text": "Error: 'He was skinny and healthy.' Correction: 'He was slim and healthy.'",
+                "reason": "'Skinny' has negative connotation; 'slim' is positive/neutral"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Accepting 'I was literally starving' as correct usage.",
+                "reason": "'Literally' means actually dying from hunger; misused for emphasis"
+              },
+              {
+                "text": "Not recognising error in 'The continuous interruptions annoyed me.'",
+                "reason": "Should be 'continual' (repeated); 'continuous' means unceasing"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Quick Revision Summary",
+      "cards": [
+        {
+          "id": "revision-1",
+          "title": "Essential Points to Remember",
+          "definition": "This summary consolidates the critical concepts, rules, and strategies for mastering synonyms and antonyms. Review these points before examinations to reinforce understanding and recall key principles.",
+          "rules": [
+            "Regular revision strengthens retention and recall",
+            "Practice with diverse question types builds versatility",
+            "Reading widely exposes you to words in natural contexts",
+            "Maintain a vocabulary journal with context sentences",
+            "Test yourself regularly to identify weak areas"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "1. Synonyms have similar meanings but differ in intensity, register, collocation, and connotation. Choose based on context.",
+                "reason": "Core principle of synonym selection"
+              },
+              {
+                "text": "2. Three antonym types: gradable (hot/cold), complementary (alive/dead), relational (teacher/student). Identify the type.",
+                "reason": "Understanding antonym types prevents logical errors"
+              },
+              {
+                "text": "3. Context determines appropriateness: consider subject, audience, tone, register, and purpose.",
+                "reason": "No synonym is universally interchangeable"
+              },
+              {
+                "text": "4. Collocation matters: 'strong tea', 'heavy rain', 'make a decision'—not all synonyms fit all contexts.",
+                "reason": "Natural word partnerships resist synonym substitution"
+              },
+              {
+                "text": "5. Register levels: informal (phrasal verbs, contractions) → neutral → formal (Latinate vocabulary) → academic (specialised terms).",
+                "reason": "Match vocabulary to context formality"
+              },
+              {
+                "text": "6. Avoid redundancy: one precise word beats multiple vague synonyms. 'Completely and utterly finished' = 'finished'.",
+                "reason": "Clarity and conciseness improve communication"
+              },
+              {
+                "text": "7. Connotation changes meaning: slim (positive) versus skinny (negative); assertive (positive) versus aggressive (negative).",
+                "reason": "Emotional associations matter as much as definitions"
+              },
+              {
+                "text": "8. Commonly confused pairs: accept/except, affect/effect, complement/compliment, principal/principle, eminent/imminent.",
+                "reason": "These appear frequently in examinations"
+              },
+              {
+                "text": "9. Thesaurus caution: verify context before substituting. 'Perambulate' is not a practical synonym for 'walk' in most contexts.",
+                "reason": "Blind substitution creates awkward or incorrect usage"
+              },
+              {
+                "text": "10. Exam strategy: eliminate obviously wrong answers, check part of speech, verify context fit, choose the most natural option.",
+                "reason": "Systematic approach improves accuracy"
+              }
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    }
+  ]
+}

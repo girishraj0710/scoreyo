@@ -1,0 +1,799 @@
+{
+  "topic_id": "present-perfect-continuous",
+  "title": "Present Perfect Continuous",
+  "subtitle": "Talking about actions that started in the past and continue to the present",
+  "overview": "The present perfect continuous tense is used to describe actions that began in the past and are still continuing now, or actions that have recently stopped but have a present result. It emphasises the duration of an activity and is formed using has/have been plus the -ing form of the verb. This tense answers the question How long? and is commonly used with time expressions such as for and since. Understanding the distinction between the present perfect simple and present perfect continuous is essential for expressing ongoing versus completed actions accurately.",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "What Is the Present Perfect Continuous?",
+      "order": 1,
+      "cards": [
+        {
+          "title": "Definition and Purpose",
+          "definition": "The present perfect continuous tense describes an action that started in the past and is still happening now, or has recently finished with a visible result in the present. It is formed using has or have plus been plus the present participle (verb ending in -ing). The focus is on the duration of the activity rather than its completion. We use this tense to emphasise how long something has been happening, often with time expressions such as for two hours or since Monday.",
+          "rules": [
+            "Form: has/have + been + verb-ing (I have been studying, she has been working)",
+            "Use for actions that started in the past and continue to the present",
+            "Emphasises the duration of the activity (How long?)",
+            "Often used with for (duration) and since (starting point)",
+            "Can describe recently finished actions with a present result (I am tired because I have been running)"
+          ],
+          "examples": {
+            "correct": [
+              "I have been studying English for three years.",
+              "She has been working at this company since 2020.",
+              "They have been waiting for the bus for half an hour.",
+              "It has been raining all morning."
+            ],
+            "incorrect": [
+              {
+                "text": "I have been study English for three years.",
+                "reason": "After been, use the -ing form of the verb, not the base form. Correct: I have been studying."
+              },
+              {
+                "text": "She has been worked at this company since 2020.",
+                "reason": "After been, use the -ing form (working), not the past participle (worked)."
+              },
+              {
+                "text": "I have studying English for three years.",
+                "reason": "Missing been. The structure requires has/have + been + verb-ing."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core-concepts",
+      "title": "Core Concepts",
+      "order": 2,
+      "cards": [
+        {
+          "title": "Structure: Has/Have Been + Verb-ing",
+          "definition": "The present perfect continuous is formed using the auxiliary verbs has or have, followed by been, followed by the present participle (verb-ing). Use has with third person singular subjects (he, she, it, singular nouns) and have with all other subjects (I, you, we, they, plural nouns). This structure remains the same regardless of whether the action is still continuing or has just stopped.",
+          "rules": [
+            "Has is used with he, she, it, and singular nouns (The student has been studying)",
+            "Have is used with I, you, we, they, and plural nouns (They have been working)",
+            "Been never changes; it always remains been",
+            "The main verb always takes the -ing form (studying, working, running)",
+            "Contractions: I've been studying, she's been working"
+          ],
+          "examples": {
+            "correct": [
+              "He has been reading for two hours.",
+              "We have been living in Delhi since January.",
+              "The children have been playing in the garden all afternoon.",
+              "I have been learning to drive for six months.",
+              "She has been teaching mathematics since 2015."
+            ],
+            "incorrect": [
+              {
+                "text": "He have been reading for two hours.",
+                "reason": "Use has (not have) with third person singular subjects like he, she, it."
+              },
+              {
+                "text": "We has been living in Delhi since January.",
+                "reason": "Use have (not has) with we, you, they, and plural subjects."
+              },
+              {
+                "text": "The children has been playing in the garden.",
+                "reason": "Children is plural, so use have (not has)."
+              },
+              {
+                "text": "She has been teach mathematics since 2015.",
+                "reason": "After been, use the -ing form of the verb: teaching, not teach."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Duration with For and Since",
+          "definition": "The present perfect continuous is commonly used with time expressions to show how long an action has been happening. For is used to indicate the duration or length of time (for two hours, for several months), whilst since is used to indicate the starting point in time (since Monday, since 2020). These words help answer the question How long?",
+          "rules": [
+            "Use for + period of time (for three days, for many years, for a few minutes)",
+            "Use since + specific starting point (since yesterday, since 9 am, since I was a child)",
+            "For measures duration; since marks the beginning",
+            "Both are used with the present perfect continuous to emphasise ongoing activity",
+            "Questions with How long? expect answers with for or since"
+          ],
+          "examples": {
+            "correct": [
+              "I have been waiting for thirty minutes.",
+              "She has been working here since March.",
+              "We have been learning Spanish for two years.",
+              "He has been living in Mumbai since he graduated.",
+              "They have been studying for the exam since last week.",
+              "How long have you been working here? I have been working here for five years."
+            ],
+            "incorrect": [
+              {
+                "text": "I have been waiting since thirty minutes.",
+                "reason": "Use for (not since) with periods of time. Since is for starting points. Correct: for thirty minutes."
+              },
+              {
+                "text": "She has been working here for March.",
+                "reason": "Use since (not for) with specific starting points in time. Correct: since March."
+              },
+              {
+                "text": "We have been learning Spanish since two years.",
+                "reason": "Use for (not since) with durations like two years."
+              },
+              {
+                "text": "He has been living in Mumbai for he graduated.",
+                "reason": "Use since (not for) before a clause or point in time. Correct: since he graduated."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Present Perfect Continuous vs Present Perfect Simple",
+          "definition": "The present perfect continuous emphasises the duration of an action (how long it has been happening), whilst the present perfect simple emphasises the completion of an action or the result. Both tenses connect the past to the present, but the continuous form focuses on the ongoing nature or length of the activity, whereas the simple form focuses on whether the action is finished.",
+          "rules": [
+            "Present perfect continuous: emphasises duration or ongoing activity (I have been reading for an hour)",
+            "Present perfect simple: emphasises completion or result (I have read three books this month)",
+            "Use continuous for temporary activities still in progress",
+            "Use simple for finished actions or when stating quantities/results",
+            "Some verbs (stative verbs) cannot be used in the continuous form"
+          ],
+          "examples": {
+            "correct": [
+              "I have been reading this book. (emphasis on the activity and duration)",
+              "I have read this book. (emphasis on completion)",
+              "She has been writing emails all morning. (ongoing activity)",
+              "She has written ten emails today. (completed actions with result)",
+              "We have been living here for five years. (still living here, duration emphasised)",
+              "We have lived in three different cities. (completed experiences)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been read three books this month.",
+                "reason": "When stating a quantity or completed result, use present perfect simple: I have read three books."
+              },
+              {
+                "text": "She has written emails all morning.",
+                "reason": "If the emphasis is on the ongoing activity (not the number), use continuous: She has been writing emails."
+              },
+              {
+                "text": "I have read for an hour.",
+                "reason": "When emphasising duration with for or since, use continuous: I have been reading for an hour."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Stative Verbs and Restrictions",
+          "definition": "Stative verbs describe states, emotions, thoughts, or possession rather than actions. These verbs are not normally used in continuous tenses, including the present perfect continuous. Common stative verbs include know, believe, like, love, want, understand, seem, belong, own, and need. When referring to ongoing situations with these verbs, use the present perfect simple instead.",
+          "rules": [
+            "Stative verbs describe states, not actions (know, believe, like, want, understand)",
+            "Do not use stative verbs in the continuous form",
+            "Use present perfect simple with stative verbs (I have known him for years)",
+            "Some verbs can be stative or dynamic depending on meaning (have, think, see)",
+            "Common stative verbs: know, believe, understand, like, love, hate, want, need, seem, belong, own"
+          ],
+          "examples": {
+            "correct": [
+              "I have known her for ten years. (not: have been knowing)",
+              "He has wanted to visit Japan since childhood. (not: has been wanting)",
+              "They have understood the topic since the lesson began. (not: have been understanding)",
+              "We have liked this restaurant for a long time. (not: have been liking)",
+              "She has owned this car since 2018. (not: has been owning)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been knowing her for ten years.",
+                "reason": "Know is a stative verb and cannot be used in continuous form. Use: I have known her."
+              },
+              {
+                "text": "He has been wanting to visit Japan since childhood.",
+                "reason": "Want is a stative verb. Use present perfect simple: He has wanted to visit Japan."
+              },
+              {
+                "text": "They have been understanding the topic since the lesson began.",
+                "reason": "Understand is stative. Use: They have understood the topic."
+              },
+              {
+                "text": "We have been liking this restaurant for a long time.",
+                "reason": "Like is a stative verb. Use: We have liked this restaurant."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Negative and Question Forms",
+          "definition": "To form negatives in the present perfect continuous, add not after has or have: has not been or have not been (contractions: hasn't been, haven't been). To form questions, invert the subject and has or have. For Wh-questions, place the question word at the beginning. Negative questions follow the same inversion pattern.",
+          "rules": [
+            "Negative: has/have + not + been + verb-ing (She hasn't been studying)",
+            "Contractions: hasn't been, haven't been",
+            "Yes/no questions: Has/Have + subject + been + verb-ing? (Have you been waiting?)",
+            "Wh-questions: Wh-word + has/have + subject + been + verb-ing? (How long have you been living here?)",
+            "Negative questions: Hasn't/Haven't + subject + been + verb-ing?"
+          ],
+          "examples": {
+            "correct": [
+              "I haven't been feeling well lately.",
+              "She hasn't been attending classes regularly.",
+              "Have you been waiting long?",
+              "Has he been working on this project?",
+              "How long have they been living in Kolkata?",
+              "Why hasn't she been answering her phone?",
+              "What have you been doing all morning?"
+            ],
+            "incorrect": [
+              {
+                "text": "I haven't been feel well lately.",
+                "reason": "After been, use the -ing form: feeling, not feel."
+              },
+              {
+                "text": "Have you been wait long?",
+                "reason": "Use the -ing form after been: waiting, not wait."
+              },
+              {
+                "text": "Has been he working on this project?",
+                "reason": "Incorrect word order. In questions, has comes before the subject: Has he been working?"
+              },
+              {
+                "text": "How long you have been living in Kolkata?",
+                "reason": "Incorrect question word order. Should be: How long have you been living?"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "key-rules",
+      "title": "Key Rules",
+      "order": 3,
+      "cards": [
+        {
+          "title": "Rule 1: Use For with Duration, Since with Starting Point",
+          "definition": "When expressing how long an action has been happening, use for to indicate the period of time and since to indicate when the action started. Confusing these two is a common error.",
+          "rules": [
+            "For + duration (for two hours, for several months, for a long time)",
+            "Since + starting point (since Monday, since 2020, since I was young)",
+            "For answers: How long?",
+            "Since answers: When did it start?"
+          ],
+          "examples": {
+            "correct": [
+              "I have been studying for three hours.",
+              "She has been working here since January.",
+              "We have been waiting for a long time.",
+              "He has been living in London since he got married.",
+              "They have been playing cricket since morning."
+            ],
+            "incorrect": [
+              {
+                "text": "I have been studying since three hours.",
+                "reason": "Use for (not since) with durations. Correct: for three hours."
+              },
+              {
+                "text": "She has been working here for January.",
+                "reason": "Use since (not for) with starting points. Correct: since January."
+              },
+              {
+                "text": "We have been waiting since a long time.",
+                "reason": "Use for (not since) with periods of time. Correct: for a long time."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Do Not Use Stative Verbs in Continuous Form",
+          "definition": "Stative verbs describe states rather than actions and should not be used in any continuous tense. Use the present perfect simple instead.",
+          "rules": [
+            "Common stative verbs: know, understand, believe, like, love, hate, want, need, seem, belong, own",
+            "Use present perfect simple with stative verbs (I have known, not I have been knowing)",
+            "Some verbs have both stative and dynamic meanings (have, think, see)"
+          ],
+          "examples": {
+            "correct": [
+              "I have known him since childhood. (not: have been knowing)",
+              "She has wanted a dog for years. (not: has been wanting)",
+              "We have understood the rule since the teacher explained it. (not: have been understanding)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been knowing him since childhood.",
+                "reason": "Know is stative. Use: I have known him."
+              },
+              {
+                "text": "She has been wanting a dog for years.",
+                "reason": "Want is stative. Use: She has wanted a dog."
+              },
+              {
+                "text": "We have been understanding the rule since the teacher explained it.",
+                "reason": "Understand is stative. Use: We have understood the rule."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Continuous for Duration, Simple for Completion",
+          "definition": "Use the present perfect continuous to emphasise how long an action has been happening. Use the present perfect simple to emphasise that an action is complete or to state results or quantities.",
+          "rules": [
+            "Continuous: focus on duration or ongoing activity (I have been working all day)",
+            "Simple: focus on completion or result (I have finished my work)",
+            "Use continuous with time expressions like for and since",
+            "Use simple when stating numbers or quantities (I have read five books)"
+          ],
+          "examples": {
+            "correct": [
+              "I have been working on this report for two hours. (emphasises duration)",
+              "I have completed the report. (emphasises completion)",
+              "She has been calling you all morning. (emphasises ongoing activity)",
+              "She has called you three times. (emphasises number of completed actions)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been completed the report.",
+                "reason": "Completed implies a result, not duration. Use present perfect simple: I have completed."
+              },
+              {
+                "text": "She has called you all morning.",
+                "reason": "When emphasising ongoing activity with time expressions, use continuous: She has been calling."
+              },
+              {
+                "text": "I have worked on this report for two hours.",
+                "reason": "When emphasising duration with for, use continuous: I have been working."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Always Use Been Before Verb-ing",
+          "definition": "The present perfect continuous structure requires has or have, followed by been, followed by the -ing form of the verb. Omitting been is a common error.",
+          "rules": [
+            "Correct structure: has/have + been + verb-ing",
+            "Never omit been from the structure",
+            "Been never changes; it always remains been",
+            "The main verb must be in the -ing form"
+          ],
+          "examples": {
+            "correct": [
+              "I have been studying for hours.",
+              "She has been working since morning.",
+              "They have been waiting outside."
+            ],
+            "incorrect": [
+              {
+                "text": "I have studying for hours.",
+                "reason": "Missing been. Must use: have been studying."
+              },
+              {
+                "text": "She has working since morning.",
+                "reason": "Missing been. Must use: has been working."
+              },
+              {
+                "text": "They have been wait outside.",
+                "reason": "After been, use the -ing form: waiting, not wait."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: Use Has with Third Person Singular, Have with All Others",
+          "definition": "Subject-verb agreement is essential. Use has with he, she, it, and singular nouns. Use have with I, you, we, they, and plural nouns.",
+          "rules": [
+            "Has: he, she, it, singular nouns (The student has been studying)",
+            "Have: I, you, we, they, plural nouns (The students have been studying)",
+            "Check the subject carefully before choosing has or have"
+          ],
+          "examples": {
+            "correct": [
+              "He has been playing football for two hours.",
+              "They have been playing football for two hours.",
+              "The cat has been sleeping all day.",
+              "The cats have been sleeping all day."
+            ],
+            "incorrect": [
+              {
+                "text": "He have been playing football for two hours.",
+                "reason": "Use has (not have) with he, she, it."
+              },
+              {
+                "text": "They has been playing football for two hours.",
+                "reason": "Use have (not has) with plural subjects like they."
+              },
+              {
+                "text": "The cat have been sleeping all day.",
+                "reason": "The cat is singular, so use has (not have)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Mistakes for Indian Learners",
+      "order": 4,
+      "cards": [
+        {
+          "title": "Hindi Influence: Omitting Been from the Structure",
+          "definition": "Hindi does not have an equivalent continuous perfect structure, so learners often omit been and incorrectly use have/has directly with the -ing form. In English, been is essential and cannot be omitted.",
+          "rules": [
+            "Always use has/have + been + verb-ing",
+            "Never say: I have studying or She has working",
+            "Been is a required part of the structure",
+            "Hindi raha hai/rahi hai does not translate directly without been"
+          ],
+          "examples": {
+            "correct": [
+              "I have been studying for two hours.",
+              "She has been working here since 2020.",
+              "They have been waiting for the bus."
+            ],
+            "incorrect": [
+              {
+                "text": "I have studying for two hours.",
+                "reason": "Missing been. Hindi structure (main padh raha hoon) does not translate directly. Must say: I have been studying."
+              },
+              {
+                "text": "She has working here since 2020.",
+                "reason": "Missing been. Must include been: She has been working."
+              },
+              {
+                "text": "They have waiting for the bus.",
+                "reason": "Missing been. Correct structure: They have been waiting."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Confusing For and Since",
+          "definition": "Indian learners often use since with durations and for with starting points, reversing the correct usage. Remember: for measures duration; since marks the beginning.",
+          "rules": [
+            "For + period of time (for two hours, for many years)",
+            "Since + starting point (since Monday, since 2020)",
+            "Hindi se can translate to both for and since, causing confusion"
+          ],
+          "examples": {
+            "correct": [
+              "I have been waiting for thirty minutes.",
+              "She has been living here since January.",
+              "We have been studying for two hours.",
+              "He has been working here since he graduated."
+            ],
+            "incorrect": [
+              {
+                "text": "I have been waiting since thirty minutes.",
+                "reason": "Use for (not since) with durations. Correct: for thirty minutes."
+              },
+              {
+                "text": "She has been living here for January.",
+                "reason": "Use since (not for) with starting points. Correct: since January."
+              },
+              {
+                "text": "We have been studying since two hours.",
+                "reason": "Use for (not since) with periods of time. Correct: for two hours."
+              },
+              {
+                "text": "He has been working here for he graduated.",
+                "reason": "Use since (not for) before a clause or point in time. Correct: since he graduated."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using Present Perfect Continuous with Stative Verbs",
+          "definition": "Indian learners often use stative verbs like know, want, and understand in the continuous form, which is incorrect in English. These verbs describe states, not actions, and must use the simple form.",
+          "rules": [
+            "Stative verbs: know, understand, believe, like, love, want, need, own, belong",
+            "Use present perfect simple with stative verbs (I have known, not I have been knowing)",
+            "English distinguishes between state and action; Hindi often does not"
+          ],
+          "examples": {
+            "correct": [
+              "I have known him for five years. (not: have been knowing)",
+              "She has wanted to travel since she was young. (not: has been wanting)",
+              "We have understood the lesson since the teacher explained it. (not: have been understanding)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been knowing him for five years.",
+                "reason": "Know is stative. Use present perfect simple: I have known him."
+              },
+              {
+                "text": "She has been wanting to travel since she was young.",
+                "reason": "Want is stative. Use: She has wanted to travel."
+              },
+              {
+                "text": "We have been understanding the lesson since the teacher explained it.",
+                "reason": "Understand is stative. Use: We have understood the lesson."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Incorrect Subject-Verb Agreement (Has vs Have)",
+          "definition": "Indian learners sometimes confuse has and have, especially with third person singular subjects, possibly due to the influence of Hindi verb conjugation patterns.",
+          "rules": [
+            "Has: he, she, it, singular nouns",
+            "Have: I, you, we, they, plural nouns",
+            "Check the subject carefully before choosing has or have"
+          ],
+          "examples": {
+            "correct": [
+              "He has been working here for two years.",
+              "They have been working here for two years.",
+              "The student has been studying all night.",
+              "The students have been studying all night."
+            ],
+            "incorrect": [
+              {
+                "text": "He have been working here for two years.",
+                "reason": "Use has (not have) with third person singular subjects (he, she, it)."
+              },
+              {
+                "text": "They has been working here for two years.",
+                "reason": "Use have (not has) with plural subjects like they."
+              },
+              {
+                "text": "The student have been studying all night.",
+                "reason": "The student is singular, so use has (not have)."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using Base Form or Past Participle Instead of -ing Form",
+          "definition": "After been, the verb must be in the -ing form (present participle). Using the base form or past participle is incorrect and a common error for Hindi speakers.",
+          "rules": [
+            "After been, always use verb-ing (studying, working, playing)",
+            "Never use the base form (study, work, play) after been",
+            "Never use the past participle (studied, worked, played) after been"
+          ],
+          "examples": {
+            "correct": [
+              "I have been studying for three hours.",
+              "She has been working since morning.",
+              "They have been playing cricket all afternoon."
+            ],
+            "incorrect": [
+              {
+                "text": "I have been study for three hours.",
+                "reason": "After been, use the -ing form: studying, not study."
+              },
+              {
+                "text": "She has been worked since morning.",
+                "reason": "After been, use the -ing form: working, not the past participle worked."
+              },
+              {
+                "text": "They have been play cricket all afternoon.",
+                "reason": "After been, use the -ing form: playing, not play."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice Problems",
+      "order": 5,
+      "cards": [
+        {
+          "title": "Practice 1: Forming Present Perfect Continuous Sentences",
+          "definition": "Create correct sentences using the structure has/have + been + verb-ing, paying attention to subject-verb agreement.",
+          "rules": [
+            "Use has with he, she, it, singular nouns",
+            "Use have with I, you, we, they, plural nouns",
+            "Always include been before the -ing verb",
+            "Make sure the main verb is in the -ing form"
+          ],
+          "examples": {
+            "correct": [
+              "I have been reading this book for a week.",
+              "She has been teaching at this school since 2018.",
+              "The children have been playing outside all afternoon.",
+              "He has been learning French for two years.",
+              "We have been waiting for the results since Monday."
+            ],
+            "incorrect": [
+              {
+                "text": "I have reading this book for a week.",
+                "reason": "Missing been. Must use: have been reading."
+              },
+              {
+                "text": "She have been teaching at this school since 2018.",
+                "reason": "Use has (not have) with she."
+              },
+              {
+                "text": "The children has been playing outside all afternoon.",
+                "reason": "Children is plural, so use have (not has)."
+              },
+              {
+                "text": "He has been learn French for two years.",
+                "reason": "After been, use the -ing form: learning, not learn."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 2: Using For and Since Correctly",
+          "definition": "Distinguish between for (duration) and since (starting point) in sentences with the present perfect continuous.",
+          "rules": [
+            "For + period of time (for three hours, for many years)",
+            "Since + starting point (since yesterday, since 2019)",
+            "For answers the question: How long?",
+            "Since answers the question: When did it start?"
+          ],
+          "examples": {
+            "correct": [
+              "I have been working here for five years.",
+              "She has been living in Chennai since January.",
+              "We have been practising for two hours.",
+              "He has been running this business since 2010.",
+              "They have been waiting since noon."
+            ],
+            "incorrect": [
+              {
+                "text": "I have been working here since five years.",
+                "reason": "Use for (not since) with durations. Correct: for five years."
+              },
+              {
+                "text": "She has been living in Chennai for January.",
+                "reason": "Use since (not for) with starting points. Correct: since January."
+              },
+              {
+                "text": "We have been practising since two hours.",
+                "reason": "Use for (not since) with durations. Correct: for two hours."
+              },
+              {
+                "text": "He has been running this business for 2010.",
+                "reason": "Use since (not for) with specific starting points. Correct: since 2010."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 3: Choosing Between Present Perfect Simple and Continuous",
+          "definition": "Decide whether to use the present perfect simple (emphasising completion) or the present perfect continuous (emphasising duration or ongoing activity).",
+          "rules": [
+            "Use continuous to emphasise how long or ongoing activity",
+            "Use simple to emphasise completion or results",
+            "Use simple when stating quantities or numbers",
+            "Use continuous with for and since when focusing on duration"
+          ],
+          "examples": {
+            "correct": [
+              "I have been writing emails all morning. (emphasises ongoing activity)",
+              "I have written ten emails today. (emphasises result/number)",
+              "She has been studying for three hours. (emphasises duration)",
+              "She has finished her homework. (emphasises completion)",
+              "They have been travelling since dawn. (emphasises ongoing journey)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been written ten emails today.",
+                "reason": "When stating quantities, use present perfect simple: I have written."
+              },
+              {
+                "text": "She has studied for three hours.",
+                "reason": "When emphasising duration with for, use continuous: She has been studying."
+              },
+              {
+                "text": "I have written emails all morning.",
+                "reason": "When emphasising ongoing activity (not number), use continuous: I have been writing."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 4: Avoiding Stative Verbs in Continuous Form",
+          "definition": "Identify stative verbs and use the present perfect simple instead of the present perfect continuous.",
+          "rules": [
+            "Stative verbs: know, understand, believe, like, love, hate, want, need, own, belong, seem",
+            "Do not use stative verbs in continuous form",
+            "Use present perfect simple with stative verbs"
+          ],
+          "examples": {
+            "correct": [
+              "I have known her since school. (not: have been knowing)",
+              "She has wanted a bicycle for years. (not: has been wanting)",
+              "We have understood the problem since you explained it. (not: have been understanding)",
+              "He has liked cricket since childhood. (not: has been liking)",
+              "They have owned this house since 2015. (not: have been owning)"
+            ],
+            "incorrect": [
+              {
+                "text": "I have been knowing her since school.",
+                "reason": "Know is stative. Use present perfect simple: I have known her."
+              },
+              {
+                "text": "She has been wanting a bicycle for years.",
+                "reason": "Want is stative. Use: She has wanted a bicycle."
+              },
+              {
+                "text": "We have been understanding the problem since you explained it.",
+                "reason": "Understand is stative. Use: We have understood the problem."
+              },
+              {
+                "text": "He has been liking cricket since childhood.",
+                "reason": "Like is stative. Use: He has liked cricket."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 5: Forming Negatives and Questions",
+          "definition": "Practise creating negative sentences and questions in the present perfect continuous tense.",
+          "rules": [
+            "Negative: has/have + not + been + verb-ing (hasn't been, haven't been)",
+            "Yes/no questions: Has/Have + subject + been + verb-ing?",
+            "Wh-questions: Wh-word + has/have + subject + been + verb-ing?",
+            "Maintain correct word order and use the -ing form"
+          ],
+          "examples": {
+            "correct": [
+              "I haven't been sleeping well lately.",
+              "She hasn't been attending classes regularly.",
+              "Have you been waiting long?",
+              "Has he been working on this project?",
+              "How long have they been living here?",
+              "Why hasn't she been replying to my messages?"
+            ],
+            "incorrect": [
+              {
+                "text": "I haven't been sleep well lately.",
+                "reason": "After been, use the -ing form: sleeping, not sleep."
+              },
+              {
+                "text": "Has been he working on this project?",
+                "reason": "Incorrect word order. Has comes before the subject: Has he been working?"
+              },
+              {
+                "text": "How long they have been living here?",
+                "reason": "In questions, invert subject and auxiliary: How long have they been living?"
+              },
+              {
+                "text": "Have you been wait long?",
+                "reason": "After been, use the -ing form: waiting, not wait."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Quick Revision",
+      "order": 6,
+      "cards": [
+        {
+          "title": "Ten Essential Points to Remember",
+          "definition": "Master these ten fundamental rules to use the present perfect continuous tense correctly and avoid common errors.",
+          "rules": [
+            "Structure: has/have + been + verb-ing (never omit been)",
+            "Use has with he, she, it, singular nouns; have with I, you, we, they, plural nouns",
+            "For + period of time (for two hours, for many years)",
+            "Since + starting point (since Monday, since 2020, since I was young)",
+            "Emphasises duration or ongoing activity (How long?)",
+            "Use present perfect simple for completion or results; use continuous for duration",
+            "Do not use stative verbs (know, want, like, understand, own) in continuous form",
+            "Negative: hasn't/haven't + been + verb-ing",
+            "Questions: Has/Have + subject + been + verb-ing?",
+            "After been, always use the -ing form of the verb (studying, not study or studied)"
+          ],
+          "examples": {
+            "correct": [
+              "I have been studying for three hours. (duration with for)",
+              "She has been working here since January. (starting point with since)",
+              "We have been waiting for the bus. (ongoing activity)",
+              "He has known her for years. (stative verb, simple form)",
+              "They have been living in Mumbai since 2018. (has + been + verb-ing structure)",
+              "Have you been sleeping well? (question form)",
+              "I haven't been feeling well lately. (negative form)",
+              "How long have you been learning English? (Wh-question with duration)",
+              "I have been reading this book. (emphasises duration)",
+              "I have read five books. (emphasises completion/number)"
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    }
+  ]
+}

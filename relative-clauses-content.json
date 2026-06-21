@@ -1,0 +1,755 @@
+{
+  "topic_id": "relative-clauses",
+  "title": "Relative Clauses",
+  "subtitle": "Connecting ideas with who, which, that, whose, where, and when",
+  "overview": "Relative clauses are dependent clauses that provide additional information about nouns. They begin with relative pronouns (who, whom, whose, which, that) or relative adverbs (where, when). Mastering relative clauses enables you to write complex sentences with precision and avoid repetition. This topic covers both defining clauses (essential information without commas) and non-defining clauses (extra information with commas).",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "What Are Relative Clauses?",
+      "order": 1,
+      "cards": [
+        {
+          "title": "Definition and Purpose",
+          "definition": "A relative clause is a subordinate clause that modifies a noun by providing essential or additional information about it. Relative clauses begin with relative pronouns such as who, whom, whose, which, that, or relative adverbs such as where and when. They allow us to combine two simple sentences into one complex sentence, making writing more concise and sophisticated.",
+          "rules": [
+            "Relative clauses always come immediately after the noun they modify",
+            "They begin with a relative pronoun (who, whom, whose, which, that) or relative adverb (where, when)",
+            "Defining relative clauses provide essential information and have no commas",
+            "Non-defining relative clauses provide extra information and require commas",
+            "The choice of relative pronoun depends on whether we are referring to people, things, possession, places, or times"
+          ],
+          "examples": {
+            "correct": [
+              "The student who scored the highest marks received a scholarship.",
+              "The book which you recommended was fascinating.",
+              "Mumbai, where I was born, is the financial capital of India."
+            ],
+            "incorrect": [
+              {
+                "text": "The student scored the highest marks who received a scholarship.",
+                "reason": "The relative clause must come immediately after the noun it modifies (student), not after the verb phrase."
+              },
+              {
+                "text": "The book you recommended which was fascinating.",
+                "reason": "The relative clause should come immediately after the noun (book), creating: The book which you recommended was fascinating."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core-concepts",
+      "title": "Core Concepts",
+      "order": 2,
+      "cards": [
+        {
+          "title": "Relative Pronouns for People: who, whom, whose",
+          "definition": "When referring to people, we use who (subject), whom (object), or whose (possession). Who is used when the person performs the action. Whom is used when the person receives the action. Whose indicates possession or relationship.",
+          "rules": [
+            "Use who when the person is the subject of the relative clause",
+            "Use whom when the person is the object of the relative clause (formal)",
+            "Use whose to show possession (replaces his, her, their)",
+            "In informal English, who often replaces whom",
+            "Whose can be followed by a noun to show what is possessed"
+          ],
+          "examples": {
+            "correct": [
+              "The teacher who teaches mathematics is from Chennai.",
+              "The candidate whom we interviewed yesterday was excellent.",
+              "The engineer whose project won the award works in Bangalore.",
+              "Students whose parents attended the meeting received certificates."
+            ],
+            "incorrect": [
+              {
+                "text": "The teacher which teaches mathematics is from Chennai.",
+                "reason": "Use who for people, not which. Which is only for things or animals."
+              },
+              {
+                "text": "The engineer his project won the award works in Bangalore.",
+                "reason": "Cannot use possessive pronoun his in a relative clause. Use whose instead."
+              },
+              {
+                "text": "Students who parents attended the meeting received certificates.",
+                "reason": "Use whose (not who) to show possession before a noun."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Relative Pronouns for Things: which, that",
+          "definition": "When referring to things, animals, or concepts, we use which or that. Both are grammatically correct in most cases, but that is preferred in defining clauses and cannot be used in non-defining clauses. Which can be used in both types of clauses.",
+          "rules": [
+            "Use which or that for things, animals, and concepts",
+            "That is more common in defining clauses (no commas)",
+            "Which must be used in non-defining clauses (with commas)",
+            "That is never used after a comma or preposition",
+            "In formal writing, which is often preferred over that"
+          ],
+          "examples": {
+            "correct": [
+              "The laptop that I bought yesterday has excellent battery life.",
+              "The laptop which I bought yesterday has excellent battery life.",
+              "This is the report that the manager requested.",
+              "The Taj Mahal, which was built in the 17th century, attracts millions of visitors.",
+              "The company in which he invested has grown substantially."
+            ],
+            "incorrect": [
+              {
+                "text": "The Taj Mahal, that was built in the 17th century, attracts millions of visitors.",
+                "reason": "Cannot use that after a comma. Use which in non-defining clauses."
+              },
+              {
+                "text": "The company in that he invested has grown substantially.",
+                "reason": "Cannot use that after a preposition. Use which instead."
+              },
+              {
+                "text": "The laptop who I bought yesterday has excellent battery life.",
+                "reason": "Use which or that for things, not who. Who is only for people."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Relative Adverbs: where, when, why",
+          "definition": "Relative adverbs where, when, and why replace preposition plus which constructions. Where refers to places, when refers to times, and why refers to reasons. They make sentences more natural and concise than using in which, at which, or for which.",
+          "rules": [
+            "Use where to refer to places (replaces in which, at which, on which)",
+            "Use when to refer to times (replaces at which, on which, in which)",
+            "Use why to refer to reasons (replaces for which)",
+            "Relative adverbs cannot be omitted in the sentence",
+            "The preposition plus which form is more formal than the relative adverb"
+          ],
+          "examples": {
+            "correct": [
+              "The office where I work is located in Pune.",
+              "The office in which I work is located in Pune.",
+              "The day when we met was unforgettable.",
+              "The day on which we met was unforgettable.",
+              "The reason why she resigned was never disclosed.",
+              "The reason for which she resigned was never disclosed."
+            ],
+            "incorrect": [
+              {
+                "text": "The office which I work is located in Pune.",
+                "reason": "Missing preposition. Should be: in which I work OR where I work."
+              },
+              {
+                "text": "The day which we met was unforgettable.",
+                "reason": "Missing preposition. Should be: on which we met OR when we met."
+              },
+              {
+                "text": "The place that I work is located in Pune.",
+                "reason": "For places with work, study, live, use where (not that). Say: The place where I work."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Defining vs Non-defining Clauses",
+          "definition": "Defining relative clauses (also called restrictive clauses) provide essential information needed to identify which person or thing we are talking about. Non-defining relative clauses (also called non-restrictive clauses) provide extra information that can be removed without changing the core meaning. The presence or absence of commas signals this distinction.",
+          "rules": [
+            "Defining clauses have no commas and use who, which, that, whose, where, when",
+            "Non-defining clauses require commas and use who, which, whose, where, when (never that)",
+            "Defining clauses answer the question: Which one?",
+            "Non-defining clauses add bonus information about something already identified",
+            "Omitting a defining clause changes the meaning; omitting a non-defining clause does not"
+          ],
+          "examples": {
+            "correct": [
+              "Students who study regularly perform better in exams. (defining: specifies which students)",
+              "My sister, who lives in London, is a software engineer. (non-defining: extra information)",
+              "The documents that were submitted yesterday are under review. (defining: which documents)",
+              "The Ramayana, which is an ancient epic, is read across India. (non-defining: extra fact)",
+              "The year when India gained independence was 1947. (defining: specifies which year)"
+            ],
+            "incorrect": [
+              {
+                "text": "My sister who lives in London is a software engineer.",
+                "reason": "If you have only one sister, this is non-defining information and requires commas: My sister, who lives in London, is a software engineer."
+              },
+              {
+                "text": "Students, who study regularly, perform better in exams.",
+                "reason": "This implies all students study regularly (non-defining). Remove commas to mean only those students who study regularly (defining)."
+              },
+              {
+                "text": "The Ramayana, that is an ancient epic, is read across India.",
+                "reason": "Cannot use that in a non-defining clause (after a comma). Use which instead."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Omitting Relative Pronouns",
+          "definition": "In defining relative clauses, when the relative pronoun is the object of the clause (not the subject), it can be omitted to make the sentence more natural and conversational. This is very common in everyday English. However, if the pronoun is the subject of the clause, it cannot be omitted.",
+          "rules": [
+            "Omit the relative pronoun only in defining clauses (no commas)",
+            "Omit only when the pronoun is the object of the clause",
+            "Cannot omit when the pronoun is the subject of the clause",
+            "Cannot omit in non-defining clauses (with commas)",
+            "Whose, where, when, and why cannot be omitted"
+          ],
+          "examples": {
+            "correct": [
+              "The book that I read was excellent. = The book I read was excellent. (that is object, can omit)",
+              "The person whom you met is my colleague. = The person you met is my colleague. (whom is object, can omit)",
+              "The car which she drives is expensive. = The car she drives is expensive. (which is object, can omit)",
+              "The student who won the prize is from Delhi. (who is subject, cannot omit)",
+              "The laptop which is on the table belongs to Rohan. (which is subject, cannot omit)"
+            ],
+            "incorrect": [
+              {
+                "text": "The student won the prize is from Delhi.",
+                "reason": "Cannot omit who when it is the subject of the clause. Must say: The student who won the prize is from Delhi."
+              },
+              {
+                "text": "The laptop is on the table belongs to Rohan.",
+                "reason": "Cannot omit which when it is the subject. Must say: The laptop which is on the table belongs to Rohan."
+              },
+              {
+                "text": "My brother, I met yesterday, lives in Mumbai.",
+                "reason": "Cannot omit whom/who in non-defining clauses (with commas). Say: My brother, whom I met yesterday, lives in Mumbai."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "key-rules",
+      "title": "Key Rules",
+      "order": 3,
+      "cards": [
+        {
+          "title": "Rule 1: Relative Clause Position",
+          "definition": "A relative clause must be placed immediately after the noun it modifies. This prevents ambiguity and confusion about which noun the clause is describing.",
+          "rules": [
+            "Place the relative clause directly after the noun it modifies",
+            "If the noun is followed by other words, restructure the sentence",
+            "Incorrect positioning creates unclear or illogical sentences",
+            "Subject-verb agreement must be maintained after insertion of the clause"
+          ],
+          "examples": {
+            "correct": [
+              "The engineer who designed the bridge received an award.",
+              "I met a woman whose son works at Google.",
+              "The restaurant where we had dinner was expensive."
+            ],
+            "incorrect": [
+              {
+                "text": "The engineer received an award who designed the bridge.",
+                "reason": "The relative clause who designed the bridge must come immediately after engineer."
+              },
+              {
+                "text": "I met whose son works at Google a woman.",
+                "reason": "The clause must follow the noun woman: I met a woman whose son works at Google."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Choosing the Correct Relative Pronoun",
+          "definition": "The choice of relative pronoun depends on whether you are referring to people, things, possession, places, times, or reasons. Using the wrong pronoun is a common error.",
+          "rules": [
+            "People: who (subject), whom (object), whose (possession)",
+            "Things: which, that (subject or object)",
+            "Places: where (or preposition plus which)",
+            "Times: when (or preposition plus which)",
+            "Reasons: why (or for which)"
+          ],
+          "examples": {
+            "correct": [
+              "The doctor who treated me was very kind. (person, subject)",
+              "The book which you lent me was interesting. (thing, object)",
+              "The student whose answer was correct won a prize. (possession)",
+              "The city where I grew up has changed. (place)",
+              "The year when I graduated was 2020. (time)"
+            ],
+            "incorrect": [
+              {
+                "text": "The doctor which treated me was very kind.",
+                "reason": "Use who for people, not which."
+              },
+              {
+                "text": "The student who answer was correct won a prize.",
+                "reason": "Use whose (not who) to show possession before a noun."
+              },
+              {
+                "text": "The city which I grew up has changed.",
+                "reason": "Use where (or in which) for places with verbs like grow up, live, work."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Commas in Non-defining Clauses",
+          "definition": "Non-defining relative clauses provide extra, non-essential information and must be set off by commas. Omitting these commas is a serious punctuation error.",
+          "rules": [
+            "Use commas before and after non-defining relative clauses",
+            "Never use that in non-defining clauses",
+            "The sentence must make sense if the clause is removed",
+            "Proper nouns (names) usually take non-defining clauses",
+            "If there is only one of something, the clause is non-defining"
+          ],
+          "examples": {
+            "correct": [
+              "Dr Sharma, who is a cardiologist, works at Apollo Hospital.",
+              "Mumbai, which is the financial capital, has a population of 20 million.",
+              "My father, whose advice I always trust, suggested this course."
+            ],
+            "incorrect": [
+              {
+                "text": "Dr Sharma who is a cardiologist works at Apollo Hospital.",
+                "reason": "Dr Sharma is a specific person (proper noun), so the clause is non-defining and requires commas."
+              },
+              {
+                "text": "Mumbai, that is the financial capital, has a population of 20 million.",
+                "reason": "Cannot use that in non-defining clauses. Use which instead."
+              },
+              {
+                "text": "My father, whose advice I always trust suggested this course.",
+                "reason": "Missing comma after the non-defining clause. Needs comma after trust."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Subject vs Object Relative Clauses",
+          "definition": "Understanding whether the relative pronoun is the subject or object of its clause determines whether it can be omitted and affects word order.",
+          "rules": [
+            "Subject clause: pronoun plus verb (The man who lives next door)",
+            "Object clause: pronoun plus subject plus verb (The man whom I met yesterday)",
+            "Object pronouns can be omitted in defining clauses",
+            "Subject pronouns can never be omitted",
+            "Check by identifying what performs the verb action in the clause"
+          ],
+          "examples": {
+            "correct": [
+              "The student who submitted the project is absent. (who is subject)",
+              "The project which the student submitted is excellent. (which is object)",
+              "The project the student submitted is excellent. (which omitted, still correct)",
+              "The teacher whom everyone respects has retired. (whom is object)",
+              "The teacher everyone respects has retired. (whom omitted, still correct)"
+            ],
+            "incorrect": [
+              {
+                "text": "The student submitted the project is absent.",
+                "reason": "Cannot omit who when it is the subject. Must say: The student who submitted the project."
+              },
+              {
+                "text": "The teacher everyone respect has retired.",
+                "reason": "Verb must agree with subject everyone (singular). Should be respects, not respect."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: Prepositions with Relative Pronouns",
+          "definition": "When a verb in a relative clause requires a preposition, that preposition can be placed at the end of the clause (informal) or before the relative pronoun (formal). This choice affects which relative pronoun can be used.",
+          "rules": [
+            "Informal: preposition at the end (The house that I live in)",
+            "Formal: preposition before pronoun (The house in which I live)",
+            "Cannot use that after a preposition (must use which or whom)",
+            "When preposition comes first, whom is required for people (not who)",
+            "Common verbs with prepositions: depend on, look for, talk about, work for"
+          ],
+          "examples": {
+            "correct": [
+              "The company that he works for is based in Bangalore. (informal, preposition at end)",
+              "The company for which he works is based in Bangalore. (formal, preposition before which)",
+              "The friend whom I travelled with has moved abroad. (informal)",
+              "The friend with whom I travelled has moved abroad. (formal)",
+              "The issue which we talked about was never resolved. (informal)"
+            ],
+            "incorrect": [
+              {
+                "text": "The company for that he works is based in Bangalore.",
+                "reason": "Cannot use that after a preposition. Use which instead."
+              },
+              {
+                "text": "The friend with who I travelled has moved abroad.",
+                "reason": "After a preposition, use whom (not who) for people in formal English."
+              },
+              {
+                "text": "The company which he works is based in Bangalore.",
+                "reason": "Missing preposition. Should be: which he works for OR for which he works."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Mistakes for Indian Learners",
+      "order": 4,
+      "cards": [
+        {
+          "title": "Hindi Influence: Using Redundant Pronouns",
+          "definition": "Hindi relative clause structure often repeats the pronoun (jo...woh pattern), which carries over into English. In English, relative clauses already connect to the main clause, so adding another pronoun is redundant and incorrect.",
+          "rules": [
+            "Do not repeat the subject pronoun after the relative clause",
+            "The relative pronoun itself connects the clauses",
+            "Hindi jo...woh pattern does not translate to English",
+            "The main clause continues directly after the relative clause"
+          ],
+          "examples": {
+            "correct": [
+              "The student who scored the highest marks received a scholarship.",
+              "The books which are on the table belong to me.",
+              "People who work hard succeed in life."
+            ],
+            "incorrect": [
+              {
+                "text": "The student who scored the highest marks he received a scholarship.",
+                "reason": "Redundant pronoun he. Hindi jo woh pattern (jo student...woh) does not apply in English. Remove he."
+              },
+              {
+                "text": "The books which are on the table they belong to me.",
+                "reason": "Redundant pronoun they. Remove it. The relative clause already connects to the main clause."
+              },
+              {
+                "text": "People who work hard they succeed in life.",
+                "reason": "Do not add they after the relative clause. Say: People who work hard succeed in life."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Confusing Which and That with People",
+          "definition": "Indian learners often use which or that when referring to people, influenced by literal translations from Indian languages. In English, who is always used for people (subject or object), never which or that.",
+          "rules": [
+            "Always use who or whom for people",
+            "Use which or that only for things, animals, or concepts",
+            "This rule applies in both defining and non-defining clauses",
+            "Even in informal speech, which for people sounds incorrect"
+          ],
+          "examples": {
+            "correct": [
+              "The engineer who designed this building is famous.",
+              "The students who attended the workshop learned valuable skills.",
+              "The person whom you met yesterday is my cousin."
+            ],
+            "incorrect": [
+              {
+                "text": "The engineer which designed this building is famous.",
+                "reason": "Use who for people, not which. Which is only for things."
+              },
+              {
+                "text": "The students that attended the workshop learned valuable skills.",
+                "reason": "While that is sometimes used informally for people, who is always correct and preferred. Use who for people."
+              },
+              {
+                "text": "The person which you met yesterday is my cousin.",
+                "reason": "Use whom (or who informally) for people, never which."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Missing Commas in Non-defining Clauses",
+          "definition": "Indian learners often omit commas around non-defining relative clauses, possibly due to direct translation from languages that do not use punctuation in the same way. In English, these commas are mandatory.",
+          "rules": [
+            "Non-defining clauses must have commas before and after",
+            "Proper nouns (names of people, places) usually require non-defining clauses",
+            "If you can remove the clause without changing the core meaning, it is non-defining",
+            "Missing commas changes meaning from extra information to essential identification"
+          ],
+          "examples": {
+            "correct": [
+              "Mahatma Gandhi, who led the independence movement, was born in Gujarat.",
+              "The Ganges, which is considered sacred, flows through several states.",
+              "My mother, whose cooking I love, has written a recipe book."
+            ],
+            "incorrect": [
+              {
+                "text": "Mahatma Gandhi who led the independence movement was born in Gujarat.",
+                "reason": "Mahatma Gandhi is a specific person (proper noun). The clause provides extra information and needs commas."
+              },
+              {
+                "text": "The Ganges which is considered sacred flows through several states.",
+                "reason": "The Ganges is a specific river (proper noun). The clause is non-defining and requires commas."
+              },
+              {
+                "text": "My mother whose cooking I love has written a recipe book.",
+                "reason": "If you have one mother, this is non-defining information. Needs commas: My mother, whose cooking I love, has written a recipe book."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Incorrect Use of Whose",
+          "definition": "Whose is often confused with who or misused in possessive constructions. Whose must always be followed by a noun and indicates possession or relationship. It cannot be used alone.",
+          "rules": [
+            "Whose must be followed immediately by a noun",
+            "Whose shows possession (replaces his, her, their, its)",
+            "Cannot use whose alone without a following noun",
+            "Whose can be used for both people and things in modern English"
+          ],
+          "examples": {
+            "correct": [
+              "The student whose project won first prize is from Kolkata.",
+              "The company whose profits increased is hiring new staff.",
+              "The family whose house was damaged received compensation."
+            ],
+            "incorrect": [
+              {
+                "text": "The student who project won first prize is from Kolkata.",
+                "reason": "Use whose (not who) before a noun to show possession. Who project is incorrect."
+              },
+              {
+                "text": "The company whose is hiring new staff increased profits.",
+                "reason": "Whose must be followed by a noun. Should be: whose profits increased OR which increased profits."
+              },
+              {
+                "text": "The family who's house was damaged received compensation.",
+                "reason": "Who's means who is or who has. Use whose (possessive) before a noun. Whose house, not who's house."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Omitting Necessary Relative Pronouns",
+          "definition": "Indian learners sometimes omit relative pronouns when they are the subject of the clause, creating ungrammatical sentences. Only object pronouns can be omitted, and only in defining clauses.",
+          "rules": [
+            "Cannot omit relative pronouns when they are the subject",
+            "Can omit only when the pronoun is the object (in defining clauses)",
+            "Cannot omit in non-defining clauses (with commas)",
+            "Where, when, why, and whose can never be omitted"
+          ],
+          "examples": {
+            "correct": [
+              "The girl who is standing there is my sister. (who is subject, cannot omit)",
+              "The book I bought yesterday is excellent. (that/which is object, omission allowed)",
+              "The teacher whom we respect has retired. (whom is object, can say: The teacher we respect)"
+            ],
+            "incorrect": [
+              {
+                "text": "The girl is standing there is my sister.",
+                "reason": "Cannot omit who when it is the subject. Must say: The girl who is standing there."
+              },
+              {
+                "text": "The students participated in the competition received prizes.",
+                "reason": "Cannot omit who when it is the subject. Must say: The students who participated."
+              },
+              {
+                "text": "The house I grew up has been renovated.",
+                "reason": "Cannot omit where. Must say: The house where I grew up OR in which I grew up."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice Problems",
+      "order": 5,
+      "cards": [
+        {
+          "title": "Practice 1: Choosing the Correct Relative Pronoun",
+          "definition": "Select the appropriate relative pronoun (who, whom, whose, which, that, where, when) based on whether the clause refers to people, things, possession, places, or times.",
+          "rules": [
+            "Identify whether the noun is a person, thing, place, or time",
+            "Check if the clause shows possession (use whose)",
+            "Determine if the pronoun is subject or object",
+            "Consider if the clause is defining or non-defining"
+          ],
+          "examples": {
+            "correct": [
+              "The scientist who discovered penicillin was Alexander Fleming.",
+              "The house which we visited yesterday is for sale.",
+              "The employee whose performance was excellent received a bonus.",
+              "The restaurant where we had lunch serves authentic South Indian food.",
+              "The day when India became independent was 15th August 1947."
+            ],
+            "incorrect": [
+              {
+                "text": "The scientist which discovered penicillin was Alexander Fleming.",
+                "reason": "Use who for people, not which. Scientists are people."
+              },
+              {
+                "text": "The employee who performance was excellent received a bonus.",
+                "reason": "Use whose (not who) before a noun to show possession."
+              },
+              {
+                "text": "The restaurant which we had lunch serves authentic South Indian food.",
+                "reason": "Use where (or at which) for places with verbs like have lunch, not which alone."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 2: Defining vs Non-defining Clauses",
+          "definition": "Determine whether a relative clause provides essential information (defining, no commas) or extra information (non-defining, with commas). This affects punctuation and the choice of relative pronoun.",
+          "rules": [
+            "If removing the clause changes which person or thing is meant, it is defining",
+            "If the clause merely adds extra facts about something already identified, it is non-defining",
+            "Proper nouns (names) usually take non-defining clauses with commas",
+            "Unique entities (the sun, my father) take non-defining clauses"
+          ],
+          "examples": {
+            "correct": [
+              "Students who study regularly perform better. (defining: specifies which students)",
+              "My brother, who lives in Canada, is a doctor. (non-defining: extra information)",
+              "The Himalayas, which are the highest mountains, attract many climbers. (non-defining: unique entity)",
+              "The documents that were submitted late will not be accepted. (defining: which documents)"
+            ],
+            "incorrect": [
+              {
+                "text": "Students, who study regularly, perform better.",
+                "reason": "This implies all students study regularly. Remove commas for defining: Students who study regularly perform better."
+              },
+              {
+                "text": "My brother who lives in Canada is a doctor.",
+                "reason": "If you have only one brother, use commas for non-defining: My brother, who lives in Canada, is a doctor."
+              },
+              {
+                "text": "The Himalayas which are the highest mountains attract many climbers.",
+                "reason": "The Himalayas are unique (proper noun). Use commas for non-defining clause."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 3: Omitting Relative Pronouns",
+          "definition": "Identify when relative pronouns can be omitted to make sentences more natural. Only object pronouns in defining clauses can be omitted; subject pronouns and pronouns in non-defining clauses must remain.",
+          "rules": [
+            "Omit only in defining clauses (no commas)",
+            "Omit only when the pronoun is the object, not the subject",
+            "Whose, where, when, and why can never be omitted",
+            "To test: if the clause has subject plus verb after the pronoun, it is an object pronoun and can be omitted"
+          ],
+          "examples": {
+            "correct": [
+              "The film that we watched last night was thrilling. = The film we watched last night was thrilling.",
+              "The person whom I spoke to was very helpful. = The person I spoke to was very helpful.",
+              "The car which she drives is German. = The car she drives is German.",
+              "The student who won the competition is from Mumbai. (who is subject, cannot omit)",
+              "The city where I was born has changed. (where cannot be omitted)"
+            ],
+            "incorrect": [
+              {
+                "text": "The student won the competition is from Mumbai.",
+                "reason": "Cannot omit who when it is the subject. Must include who."
+              },
+              {
+                "text": "The city I was born has changed.",
+                "reason": "Cannot omit where. Must say: The city where I was born."
+              },
+              {
+                "text": "My sister, I met yesterday, is a lawyer.",
+                "reason": "Cannot omit whom in non-defining clauses. Must say: My sister, whom I met yesterday, is a lawyer."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 4: Prepositions with Relative Clauses",
+          "definition": "Correctly place prepositions in relative clauses. In informal English, prepositions go at the end. In formal English, prepositions go before the relative pronoun, requiring which or whom.",
+          "rules": [
+            "Informal: place preposition at the end of the clause",
+            "Formal: place preposition before the relative pronoun",
+            "After a preposition, use which (not that) for things",
+            "After a preposition, use whom (not who) for people",
+            "Common prepositional verbs: talk about, look for, depend on, work with"
+          ],
+          "examples": {
+            "correct": [
+              "The project that he is working on will be completed next month. (informal)",
+              "The project on which he is working will be completed next month. (formal)",
+              "The colleague whom I work with has resigned. (informal)",
+              "The colleague with whom I work has resigned. (formal)",
+              "The issue which we are concerned about is pollution. (informal)"
+            ],
+            "incorrect": [
+              {
+                "text": "The project on that he is working will be completed next month.",
+                "reason": "Cannot use that after a preposition. Use which."
+              },
+              {
+                "text": "The colleague with who I work has resigned.",
+                "reason": "After a preposition, use whom (not who) for people."
+              },
+              {
+                "text": "The project which he is working will be completed next month.",
+                "reason": "Missing preposition. Should be: which he is working on OR on which he is working."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 5: Correcting Hindi L1 Errors",
+          "definition": "Identify and correct common errors made by Hindi speakers when using relative clauses, including redundant pronouns, incorrect pronoun choices, and missing punctuation.",
+          "rules": [
+            "Do not add extra pronouns after relative clauses (no jo...woh pattern)",
+            "Use who for people, never which or that in formal writing",
+            "Include commas around non-defining clauses",
+            "Use whose (not who) before nouns to show possession"
+          ],
+          "examples": {
+            "correct": [
+              "The teacher who taught us mathematics has retired.",
+              "Dr Patel, who is a renowned surgeon, works at this hospital.",
+              "The student whose answer was correct received full marks.",
+              "The city where I grew up is now unrecognisable."
+            ],
+            "incorrect": [
+              {
+                "text": "The teacher who taught us mathematics she has retired.",
+                "reason": "Redundant pronoun she (Hindi jo...woh influence). Remove she."
+              },
+              {
+                "text": "Dr Patel who is a renowned surgeon works at this hospital.",
+                "reason": "Dr Patel is a specific person. Use commas for non-defining clause: Dr Patel, who is a renowned surgeon, works at this hospital."
+              },
+              {
+                "text": "The student who answer was correct received full marks.",
+                "reason": "Use whose (not who) before a noun to show possession: whose answer."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Quick Revision",
+      "order": 6,
+      "cards": [
+        {
+          "title": "Ten Essential Points to Remember",
+          "definition": "Master these ten fundamental rules to use relative clauses correctly and avoid common errors.",
+          "rules": [
+            "Relative clauses must be placed immediately after the noun they modify",
+            "Use who or whom for people; use which or that for things",
+            "Use whose before a noun to show possession (not who or which)",
+            "Use where for places, when for times, and why for reasons",
+            "Defining clauses (essential information) have no commas and can use that",
+            "Non-defining clauses (extra information) require commas and cannot use that",
+            "Object relative pronouns can be omitted in defining clauses; subject pronouns cannot",
+            "Do not add redundant pronouns after relative clauses (avoid Hindi jo...woh pattern)",
+            "After a preposition, use which for things and whom for people (never that or who)",
+            "Where, when, why, and whose can never be omitted from the sentence"
+          ],
+          "examples": {
+            "correct": [
+              "The engineer who designed the metro is from Japan. (who for person, subject)",
+              "The book I read yesterday was excellent. (object pronoun omitted)",
+              "Mumbai, which is the financial capital, has a population of 20 million. (non-defining with commas)",
+              "The student whose project won first prize received a scholarship. (whose for possession)",
+              "The office where I work is in Cyber City. (where for place)",
+              "The day when we met was memorable. (when for time)",
+              "The reason why he left was never explained. (why for reason)",
+              "The company for which he works is based in Bangalore. (preposition before which)",
+              "People who work hard succeed. (defining, no commas)",
+              "My father, who is a teacher, has written a book. (non-defining, with commas)"
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1303 @@
+{
+  "topic_id": "sentence-types",
+  "title": "Sentence Types",
+  "subtitle": "Mastering Simple, Compound, Complex, and Compound-Complex Sentences",
+  "overview": "Understanding sentence types is fundamental to effective communication in English. This comprehensive module explores the four primary sentence structures: Simple sentences (one independent clause), Compound sentences (two or more independent clauses joined by coordinating conjunctions), Complex sentences (one independent clause with one or more dependent clauses), and Compound-Complex sentences (multiple independent clauses with at least one dependent clause). Mastering these structures enables you to express ideas with clarity, sophistication, and variety, which is essential for academic writing, professional communication, and competitive examinations such as SSC, Banking, Railways, and other government recruitment tests. This module provides detailed explanations, authentic examples, common error patterns, and systematic practice to help you identify, construct, and use each sentence type correctly.",
+  "sections": [
+    {
+      "section_id": "introduction",
+      "title": "Introduction to Sentence Types",
+      "cards": [
+        {
+          "title": "What is a Sentence?",
+          "definition": "A sentence is a grammatical unit that expresses a complete thought. It must contain at least one subject (who or what performs the action) and one predicate (the action or state of being). A sentence begins with a capital letter and ends with appropriate punctuation (full stop, question mark, or exclamation mark). The ability to construct proper sentences is the foundation of all written and spoken communication.",
+          "rules": [
+            "Every sentence must have at least one subject and one verb",
+            "A sentence must express a complete thought and make sense independently",
+            "Sentences begin with capital letters and end with punctuation marks",
+            "The subject performs or receives the action in a sentence",
+            "The predicate tells us what the subject does or what happens to it"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The students study daily.",
+                "reason": "Complete sentence with subject (students), verb (study), and complete thought"
+              },
+              {
+                "text": "She enjoys reading novels.",
+                "reason": "Has subject (She), verb (enjoys), and expresses a complete idea"
+              },
+              {
+                "text": "The train arrived late.",
+                "reason": "Contains subject (train), verb (arrived), and conveys complete meaning"
+              },
+              {
+                "text": "My brother works in Mumbai.",
+                "reason": "Proper sentence structure with subject, verb, and complete thought"
+              },
+              {
+                "text": "The examination begins tomorrow.",
+                "reason": "Subject (examination) and predicate (begins tomorrow) form complete thought"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Because she was tired.",
+                "reason": "Incomplete thought - this is a dependent clause, not a complete sentence"
+              },
+              {
+                "text": "Running through the park.",
+                "reason": "No subject or main verb - this is a phrase, not a sentence"
+              },
+              {
+                "text": "After the meeting ended.",
+                "reason": "Dependent clause without main clause - incomplete thought"
+              },
+              {
+                "text": "The books on the table.",
+                "reason": "Missing verb - no predicate to complete the thought"
+              },
+              {
+                "text": "Although he studied hard.",
+                "reason": "Subordinating conjunction creates incomplete thought without main clause"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "core-concepts",
+      "title": "Core Concepts of Sentence Types",
+      "cards": [
+        {
+          "title": "Simple Sentences",
+          "definition": "A simple sentence contains one independent clause with a single subject-verb combination. It expresses one complete thought. Despite being called 'simple', these sentences can include compound subjects (two or more subjects), compound verbs (two or more verbs), or modifying phrases. The key characteristic is that there is only ONE independent clause with no dependent clauses. Simple sentences are the building blocks of clear communication.",
+          "rules": [
+            "Contains exactly one independent clause",
+            "Has one subject-verb combination (or compound subject/verb acting as one unit)",
+            "Expresses one complete idea or thought",
+            "Cannot contain any dependent clauses",
+            "May include modifying phrases or prepositional phrases without creating additional clauses"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination starts at nine o'clock.",
+                "reason": "Single independent clause with one subject (examination) and one verb (starts)"
+              },
+              {
+                "text": "Ravi and Priya study together every evening.",
+                "reason": "Compound subject (Ravi and Priya) but still one independent clause"
+              },
+              {
+                "text": "The teacher explained the concept clearly and answered all questions.",
+                "reason": "Compound verb (explained and answered) but remains a simple sentence"
+              },
+              {
+                "text": "The students in the library prepared for their examinations.",
+                "reason": "Contains prepositional phrase (in the library) but only one independent clause"
+              },
+              {
+                "text": "My brother works hard and achieves excellent results.",
+                "reason": "Compound predicate with one subject - still a simple sentence"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The students studied, and they passed the examination.",
+                "reason": "Two independent clauses joined by conjunction - this is a compound sentence"
+              },
+              {
+                "text": "Because she worked hard, she succeeded.",
+                "reason": "Contains dependent clause - this is a complex sentence, not simple"
+              },
+              {
+                "text": "After finishing the work.",
+                "reason": "Not a complete sentence - missing independent clause"
+              },
+              {
+                "text": "He studied hard, but he failed.",
+                "reason": "Two independent clauses - this is compound, not simple"
+              },
+              {
+                "text": "When the bell rang, students left.",
+                "reason": "Contains dependent clause (When the bell rang) - complex sentence"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Compound Sentences",
+          "definition": "A compound sentence consists of two or more independent clauses joined together by coordinating conjunctions (for, and, nor, but, or, yet, so - remembered by the acronym FANBOYS), semicolons, or conjunctive adverbs. Each clause in a compound sentence could stand alone as a complete sentence, but they are joined to show a relationship between ideas of equal importance. Compound sentences create flow and demonstrate connections between related thoughts.",
+          "rules": [
+            "Must contain at least two independent clauses",
+            "Independent clauses are joined by coordinating conjunctions (FANBOYS)",
+            "Can use semicolons to connect closely related independent clauses",
+            "May use conjunctive adverbs (however, therefore, moreover) with semicolons",
+            "Comma is placed before coordinating conjunction when joining independent clauses"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I studied hard, and I passed the examination.",
+                "reason": "Two independent clauses joined by coordinating conjunction 'and' with proper comma"
+              },
+              {
+                "text": "The train was late, but we reached on time.",
+                "reason": "Two complete thoughts connected by 'but' showing contrast"
+              },
+              {
+                "text": "She enjoys mathematics; her brother prefers literature.",
+                "reason": "Semicolon correctly joins two related independent clauses"
+              },
+              {
+                "text": "He prepared thoroughly for the interview, yet he felt nervous.",
+                "reason": "Coordinating conjunction 'yet' properly joins two independent clauses"
+              },
+              {
+                "text": "The weather was pleasant; therefore, we went for a walk.",
+                "reason": "Conjunctive adverb 'therefore' with semicolon connects independent clauses"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I studied hard and I passed the examination.",
+                "reason": "Missing comma before coordinating conjunction joining independent clauses"
+              },
+              {
+                "text": "She enjoys reading, although she has little time.",
+                "reason": "Uses subordinating conjunction (although) - this creates complex sentence, not compound"
+              },
+              {
+                "text": "The students studied hard, they passed.",
+                "reason": "Comma splice - two independent clauses joined only by comma without conjunction"
+              },
+              {
+                "text": "He was tired but he continued working.",
+                "reason": "Missing comma before coordinating conjunction 'but'"
+              },
+              {
+                "text": "She studied, however she failed.",
+                "reason": "Conjunctive adverb requires semicolon before it, not just comma"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Complex Sentences",
+          "definition": "A complex sentence contains one independent clause and at least one dependent clause. A dependent clause (also called subordinate clause) cannot stand alone as a complete sentence because it begins with subordinating conjunctions (because, although, since, when, if, while, etc.) or relative pronouns (who, which, that, whom, whose). The dependent clause adds additional information to the main idea expressed in the independent clause. Complex sentences show relationships such as cause-effect, time, condition, or contrast between ideas.",
+          "rules": [
+            "Must have one independent clause and at least one dependent clause",
+            "Dependent clause begins with subordinating conjunction or relative pronoun",
+            "When dependent clause comes first, use comma to separate from independent clause",
+            "When independent clause comes first, usually no comma is needed",
+            "Dependent clause cannot stand alone as a complete sentence"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Because she studied regularly, she scored well in the examination.",
+                "reason": "Dependent clause (Because she studied regularly) followed by comma, then independent clause"
+              },
+              {
+                "text": "The students who prepared thoroughly passed easily.",
+                "reason": "Independent clause with embedded dependent clause (who prepared thoroughly)"
+              },
+              {
+                "text": "If you practise daily, you will improve your skills.",
+                "reason": "Conditional dependent clause followed by comma and independent clause"
+              },
+              {
+                "text": "She completed the assignment before she went home.",
+                "reason": "Independent clause followed by dependent clause (before she went home) - no comma needed"
+              },
+              {
+                "text": "Although the examination was difficult, most students performed well.",
+                "reason": "Dependent clause (Although the examination was difficult) with comma before independent clause"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Because she was ill she stayed home.",
+                "reason": "Missing comma after dependent clause when it comes first"
+              },
+              {
+                "text": "She was ill, because she stayed home.",
+                "reason": "Unnecessary comma before dependent clause when independent clause comes first"
+              },
+              {
+                "text": "Although he studied hard.",
+                "reason": "Only dependent clause - no independent clause to complete the thought"
+              },
+              {
+                "text": "The students, who were late, they missed the lecture.",
+                "reason": "Redundant pronoun 'they' - already have subject 'students'"
+              },
+              {
+                "text": "When the bell rings the students leave.",
+                "reason": "Missing comma after initial dependent clause"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Compound-Complex Sentences",
+          "definition": "A compound-complex sentence is the most sophisticated sentence structure, combining elements of both compound and complex sentences. It must contain at least two independent clauses (like compound sentences) and at least one dependent clause (like complex sentences). This structure allows writers to express multiple related ideas with varying levels of importance in a single sentence. Compound-complex sentences are common in academic writing, formal reports, and situations requiring nuanced expression of interconnected thoughts.",
+          "rules": [
+            "Must contain at least two independent clauses",
+            "Must contain at least one dependent clause",
+            "Independent clauses are joined by coordinating conjunctions or semicolons",
+            "Dependent clauses follow the same punctuation rules as in complex sentences",
+            "All clauses must be clearly connected to maintain coherence"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Although she was tired, she completed the assignment, and she submitted it on time.",
+                "reason": "One dependent clause (Although she was tired) and two independent clauses joined by 'and'"
+              },
+              {
+                "text": "The students who studied regularly passed the examination, but those who neglected their studies failed.",
+                "reason": "Two independent clauses with embedded dependent clause (who studied regularly)"
+              },
+              {
+                "text": "Because the weather was pleasant, we went for a walk, and we enjoyed the fresh air.",
+                "reason": "Dependent clause followed by two independent clauses connected by 'and'"
+              },
+              {
+                "text": "If you practise consistently, you will improve your skills, and you will achieve your goals.",
+                "reason": "Conditional dependent clause followed by two independent clauses"
+              },
+              {
+                "text": "She finished her work early; therefore, she had time to relax before the meeting that was scheduled for the evening.",
+                "reason": "Two independent clauses with semicolon plus dependent clause (that was scheduled)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Although she was tired she completed the assignment and she submitted it.",
+                "reason": "Missing comma after dependent clause and before coordinating conjunction"
+              },
+              {
+                "text": "She studied hard, and she passed, she was happy.",
+                "reason": "Comma splice in third clause - needs coordinating conjunction or semicolon"
+              },
+              {
+                "text": "Because he was late, he missed the train he had to wait.",
+                "reason": "Missing conjunction between independent clauses creates run-on sentence"
+              },
+              {
+                "text": "The students who prepared well, they passed, and they celebrated.",
+                "reason": "Redundant pronoun 'they' after dependent clause"
+              },
+              {
+                "text": "If you study, and you will pass.",
+                "reason": "Incorrect structure - should not use 'and' after dependent clause before single independent clause"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Sentence Variety and Choosing the Right Structure",
+          "definition": "Effective writing requires variety in sentence structures. Using only simple sentences creates choppy, monotonous writing, while overusing complex structures can confuse readers. Skilled writers vary sentence types based on purpose: simple sentences for clarity and emphasis, compound sentences to show equal relationships, complex sentences to show dependency or hierarchy of ideas, and compound-complex sentences for sophisticated multi-layered thoughts. The key is matching sentence structure to your communication goal and audience.",
+          "rules": [
+            "Mix different sentence types to create rhythm and maintain reader interest",
+            "Use simple sentences for emphasis, clarity, or stating key points",
+            "Use compound sentences to join equally important related ideas",
+            "Use complex sentences to show cause-effect, condition, or time relationships",
+            "Use compound-complex sentences for sophisticated, multi-faceted ideas"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination was difficult. However, most students performed well because they had prepared thoroughly, and their efforts were rewarded.",
+                "reason": "Variety: simple sentence for emphasis, then compound-complex for detailed explanation"
+              },
+              {
+                "text": "She wanted to succeed. She studied daily, and she practised regularly. When the results were announced, she had topped the class.",
+                "reason": "Effective mix: simple (emphasis), compound (related actions), complex (time relationship)"
+              },
+              {
+                "text": "Time management is crucial for competitive examinations. If you plan your preparation systematically, you will cover all topics, and you will perform confidently.",
+                "reason": "Simple sentence for key point, followed by compound-complex for detailed guidance"
+              },
+              {
+                "text": "He faced many challenges. Although the journey was difficult, he persevered, and he ultimately achieved his goal.",
+                "reason": "Simple sentence for impact, compound-complex showing contrast and sequence"
+              },
+              {
+                "text": "Success requires dedication. Students who work consistently improve steadily, but those who procrastinate struggle later.",
+                "reason": "Simple for principle, compound-complex for contrasting examples"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She studied. She practised. She succeeded. She celebrated. She inspired others.",
+                "reason": "All simple sentences create choppy, elementary-level writing without flow"
+              },
+              {
+                "text": "Although she studied hard, and she practised regularly, and she prepared thoroughly, but she still felt nervous when the examination began because it was important, and she wanted to succeed, so she took deep breaths.",
+                "reason": "Excessively long compound-complex sentence is confusing and hard to follow"
+              },
+              {
+                "text": "The students were preparing and they were studying and they were practising and they were hoping to succeed.",
+                "reason": "Repetitive compound structure without variety becomes monotonous"
+              },
+              {
+                "text": "Because she wanted to succeed because she had worked hard because her family supported her she felt confident.",
+                "reason": "Multiple dependent clauses without proper independent clause structure"
+              },
+              {
+                "text": "He studies hard, he practises daily, he prepares thoroughly, he expects good results.",
+                "reason": "Comma splices throughout - multiple independent clauses improperly joined"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "key-rules",
+      "title": "Key Rules for Sentence Types",
+      "cards": [
+        {
+          "title": "Rule 1: Identifying Independent and Dependent Clauses",
+          "definition": "The foundation of understanding sentence types lies in distinguishing between independent and dependent clauses. An independent clause contains a subject and verb and expresses a complete thought that can stand alone. A dependent clause also has a subject and verb but begins with a subordinating word (subordinating conjunction or relative pronoun) that makes it incomplete and unable to stand alone. Accurate identification of these clauses is essential for constructing correct sentence structures.",
+          "rules": [
+            "Independent clause = subject + verb + complete thought (can stand alone)",
+            "Dependent clause = subordinating word + subject + verb (cannot stand alone)",
+            "Subordinating conjunctions include: because, although, since, when, if, while, as, before, after, unless, until",
+            "Relative pronouns include: who, whom, whose, which, that",
+            "Test by reading clause alone - if it makes sense independently, it is independent"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Independent: The students prepared thoroughly. Dependent: because they wanted to succeed",
+                "reason": "First clause stands alone; second cannot stand alone due to 'because'"
+              },
+              {
+                "text": "Independent: She achieved excellent results. Dependent: who studied consistently",
+                "reason": "First is complete thought; second depends on relative pronoun 'who'"
+              },
+              {
+                "text": "Independent: We will succeed. Dependent: if we work hard",
+                "reason": "First expresses complete idea; second is conditional and incomplete"
+              },
+              {
+                "text": "Independent: The examination was postponed. Dependent: because the weather was severe",
+                "reason": "First stands alone; second provides reason but cannot stand independently"
+              },
+              {
+                "text": "Independent: He completed the assignment. Dependent: before the deadline arrived",
+                "reason": "First is complete; second shows time relationship but is incomplete alone"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Claiming 'Because she was ill' is an independent clause",
+                "reason": "This is dependent clause - 'because' makes it unable to stand alone"
+              },
+              {
+                "text": "Claiming 'Running through the park' is an independent clause",
+                "reason": "No subject-verb structure - this is a phrase, not any type of clause"
+              },
+              {
+                "text": "Claiming 'She studied hard' is a dependent clause",
+                "reason": "This is independent - has subject, verb, and complete thought with no subordinating word"
+              },
+              {
+                "text": "Claiming 'When the bell rings' is an independent clause",
+                "reason": "Subordinating conjunction 'when' makes this dependent, not independent"
+              },
+              {
+                "text": "Claiming 'The teacher who explained clearly' is a complete independent clause",
+                "reason": "Contains dependent clause (who explained clearly) but lacks predicate for main subject"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Punctuation in Compound Sentences",
+          "definition": "Proper punctuation is critical in compound sentences to avoid common errors such as comma splices and run-on sentences. When joining two independent clauses with a coordinating conjunction (FANBOYS), always place a comma before the conjunction. When using a semicolon to join independent clauses, no conjunction is needed. Conjunctive adverbs (however, therefore, moreover, nevertheless) require a semicolon before them and a comma after them when joining independent clauses.",
+          "rules": [
+            "Use comma before coordinating conjunction (FANBOYS) when joining independent clauses",
+            "Semicolon can replace coordinating conjunction to join closely related independent clauses",
+            "Pattern: Independent clause + comma + FANBOYS + independent clause",
+            "Pattern with semicolon: Independent clause + semicolon + conjunctive adverb + comma + independent clause",
+            "Never join two independent clauses with only a comma (creates comma splice)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She studied regularly, and she passed with distinction.",
+                "reason": "Comma correctly placed before coordinating conjunction 'and'"
+              },
+              {
+                "text": "The examination was difficult; however, most students performed well.",
+                "reason": "Semicolon before conjunctive adverb 'however', comma after it"
+              },
+              {
+                "text": "He prepared thoroughly; he felt confident.",
+                "reason": "Semicolon correctly joins two closely related independent clauses"
+              },
+              {
+                "text": "The train was delayed, but we reached on time.",
+                "reason": "Comma before 'but' properly connects two independent clauses"
+              },
+              {
+                "text": "She enjoys mathematics; moreover, she excels in physics.",
+                "reason": "Semicolon before 'moreover' and comma after it - correct pattern"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She studied regularly and she passed with distinction.",
+                "reason": "Missing comma before coordinating conjunction joining independent clauses"
+              },
+              {
+                "text": "The examination was difficult, most students performed well.",
+                "reason": "Comma splice - two independent clauses joined only by comma"
+              },
+              {
+                "text": "He prepared thoroughly, therefore he felt confident.",
+                "reason": "Conjunctive adverb 'therefore' requires semicolon before it, not comma"
+              },
+              {
+                "text": "She studied hard; and she passed.",
+                "reason": "Semicolon should not be used with coordinating conjunction - use comma"
+              },
+              {
+                "text": "The students worked hard they succeeded.",
+                "reason": "Run-on sentence - two independent clauses with no punctuation or conjunction"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Comma Placement in Complex Sentences",
+          "definition": "Complex sentences have specific comma rules based on the position of the dependent clause. When a dependent clause begins the sentence (introductory dependent clause), it must be followed by a comma before the independent clause. However, when the independent clause comes first and is followed by the dependent clause, typically no comma is needed unless the dependent clause is nonrestrictive (provides additional, non-essential information). This rule helps readers understand where the main idea begins and how clauses relate.",
+          "rules": [
+            "Dependent clause first: use comma before independent clause",
+            "Independent clause first: generally no comma before dependent clause",
+            "Pattern: Dependent clause + comma + independent clause",
+            "Pattern: Independent clause + no comma + dependent clause",
+            "Exception: Use comma if dependent clause is nonrestrictive (non-essential information)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Because she prepared systematically, she performed excellently.",
+                "reason": "Dependent clause first - comma required before independent clause"
+              },
+              {
+                "text": "She performed excellently because she prepared systematically.",
+                "reason": "Independent clause first - no comma needed before dependent clause"
+              },
+              {
+                "text": "When the results were announced, everyone celebrated.",
+                "reason": "Introductory dependent clause followed by comma"
+              },
+              {
+                "text": "Everyone celebrated when the results were announced.",
+                "reason": "Independent clause first - no comma before dependent clause"
+              },
+              {
+                "text": "My brother, who lives in Delhi, works as an engineer.",
+                "reason": "Nonrestrictive clause (who lives in Delhi) set off by commas - provides additional info"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Because she prepared systematically she performed excellently.",
+                "reason": "Missing comma after introductory dependent clause"
+              },
+              {
+                "text": "She performed excellently, because she prepared systematically.",
+                "reason": "Unnecessary comma before dependent clause when independent clause comes first"
+              },
+              {
+                "text": "When the examination ended the students left.",
+                "reason": "Missing comma after introductory dependent clause"
+              },
+              {
+                "text": "The students left, when the examination ended.",
+                "reason": "Incorrect comma before dependent clause following independent clause"
+              },
+              {
+                "text": "My brother who lives in Delhi works as an engineer.",
+                "reason": "Nonrestrictive clause providing additional information should be set off by commas"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Avoiding Run-on Sentences and Comma Splices",
+          "definition": "Two of the most common sentence errors are run-on sentences (two independent clauses joined without proper punctuation or conjunction) and comma splices (two independent clauses joined only by a comma without a coordinating conjunction). Both errors occur when writers fail to properly separate independent clauses. To fix these errors, use a period to create two sentences, add a coordinating conjunction with a comma, use a semicolon, or restructure one clause as dependent.",
+          "rules": [
+            "Never join two independent clauses without proper punctuation and/or conjunction",
+            "Comma alone cannot join two independent clauses - this creates comma splice",
+            "Solutions: Use period, semicolon, comma + coordinating conjunction, or make one clause dependent",
+            "Identify sentence boundaries by finding where complete thoughts end",
+            "Each independent clause needs proper separation from others"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She studied hard. She passed the examination.",
+                "reason": "Two separate sentences - clear boundary between independent clauses"
+              },
+              {
+                "text": "She studied hard, and she passed the examination.",
+                "reason": "Comma + coordinating conjunction properly joins independent clauses"
+              },
+              {
+                "text": "She studied hard; she passed the examination.",
+                "reason": "Semicolon correctly connects closely related independent clauses"
+              },
+              {
+                "text": "Because she studied hard, she passed the examination.",
+                "reason": "First clause made dependent - now a complex sentence, not two independent clauses"
+              },
+              {
+                "text": "She studied hard; therefore, she passed the examination.",
+                "reason": "Semicolon with conjunctive adverb properly connects independent clauses"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She studied hard she passed the examination.",
+                "reason": "Run-on sentence - two independent clauses with no punctuation or conjunction"
+              },
+              {
+                "text": "She studied hard, she passed the examination.",
+                "reason": "Comma splice - comma alone cannot join two independent clauses"
+              },
+              {
+                "text": "The students prepared thoroughly they felt confident.",
+                "reason": "Run-on sentence - needs punctuation or conjunction between clauses"
+              },
+              {
+                "text": "He arrived late, he missed the lecture.",
+                "reason": "Comma splice - requires coordinating conjunction or different punctuation"
+              },
+              {
+                "text": "The examination was difficult, however most students passed.",
+                "reason": "Conjunctive adverb 'however' requires semicolon before it, not just comma"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: Maintaining Parallel Structure in Compound Elements",
+          "definition": "When sentence elements are joined by coordinating conjunctions (particularly in compound sentences or compound elements within sentences), they must maintain parallel grammatical structure. This means verbs should match verbs, nouns should match nouns, phrases should match phrases, and clauses should match clauses. Parallel structure creates balance, clarity, and professional-quality writing. This rule applies to compound sentences as well as compound elements within any sentence type.",
+          "rules": [
+            "Elements joined by coordinating conjunctions must be grammatically parallel",
+            "Match verb forms: present with present, past with past, infinitive with infinitive",
+            "Match grammatical structures: noun with noun, phrase with phrase, clause with clause",
+            "Maintain consistency in voice (active/passive) and tense across parallel elements",
+            "Parallel structure applies to lists, compound predicates, and compound sentences"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She enjoys reading novels and writing stories.",
+                "reason": "Parallel verb forms - both gerunds (reading, writing)"
+              },
+              {
+                "text": "The students were attentive, participated actively, and asked thoughtful questions.",
+                "reason": "Parallel verb forms - all past tense verbs in consistent structure"
+              },
+              {
+                "text": "He prepared thoroughly, practised regularly, and performed excellently.",
+                "reason": "Parallel structure - three past tense verbs with adverbs"
+              },
+              {
+                "text": "She likes to study in the morning and to exercise in the evening.",
+                "reason": "Parallel infinitive phrases (to study, to exercise)"
+              },
+              {
+                "text": "The examination tests your knowledge, your speed, and your accuracy.",
+                "reason": "Parallel noun phrases - all possessive pronoun + noun structure"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She enjoys reading novels and to write stories.",
+                "reason": "Lacks parallelism - mixing gerund (reading) with infinitive (to write)"
+              },
+              {
+                "text": "The students were attentive, participated actively, and asking questions.",
+                "reason": "Inconsistent verb forms - mixing past tense with present participle"
+              },
+              {
+                "text": "He prepared thoroughly, is practising regularly, and performed excellently.",
+                "reason": "Mixing past tense with present continuous - no parallel structure"
+              },
+              {
+                "text": "She likes studying in the morning and to exercise in the evening.",
+                "reason": "Gerund (studying) does not match infinitive (to exercise)"
+              },
+              {
+                "text": "The examination tests your knowledge, how fast you work, and accuracy.",
+                "reason": "Mixing noun phrase, dependent clause, and single noun - not parallel"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "common-mistakes",
+      "title": "Common Mistakes with Sentence Types",
+      "cards": [
+        {
+          "title": "Mistake 1: Fragments - Incomplete Sentences",
+          "definition": "A sentence fragment is an incomplete sentence that lacks either a subject, a verb, or a complete thought. Fragments often occur when writers punctuate dependent clauses or phrases as if they were complete sentences. Common fragment types include dependent clauses beginning with subordinating conjunctions (because, although, when), relative clauses (who, which, that), and participial phrases. Fragments can also result from missing subjects or verbs. While fragments are sometimes used intentionally for stylistic effect in creative writing, they are errors in formal, academic, and professional contexts.",
+          "rules": [
+            "Every sentence must have a subject and a verb",
+            "Dependent clauses cannot stand alone as sentences",
+            "Phrases (prepositional, participial, infinitive) are not complete sentences",
+            "Subordinating words (because, although, when, if) create dependent clauses that need main clauses",
+            "Check that each sentence expresses a complete, independent thought"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Because she studied regularly, she performed well.",
+                "reason": "Dependent clause properly connected to independent clause - complete sentence"
+              },
+              {
+                "text": "She studied regularly. Therefore, she performed well.",
+                "reason": "Two complete sentences with proper punctuation"
+              },
+              {
+                "text": "The students who prepared thoroughly passed easily.",
+                "reason": "Dependent clause (who prepared thoroughly) embedded in complete sentence"
+              },
+              {
+                "text": "Having finished the assignment, she submitted it on time.",
+                "reason": "Participial phrase followed by independent clause - complete sentence"
+              },
+              {
+                "text": "She wanted to succeed. She studied daily.",
+                "reason": "Two complete independent sentences"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Because she studied regularly.",
+                "reason": "Fragment - dependent clause with no independent clause to complete thought"
+              },
+              {
+                "text": "The students who prepared thoroughly.",
+                "reason": "Fragment - has subject and dependent clause but no main verb for complete thought"
+              },
+              {
+                "text": "Having finished the assignment.",
+                "reason": "Fragment - participial phrase without independent clause"
+              },
+              {
+                "text": "In order to succeed in competitive examinations.",
+                "reason": "Fragment - infinitive phrase without subject and main verb"
+              },
+              {
+                "text": "After the lecture ended and everyone left the hall.",
+                "reason": "Fragment - compound dependent clause without independent clause"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 2: Comma Splices in Compound Sentences",
+          "definition": "A comma splice occurs when two independent clauses are incorrectly joined by only a comma without a coordinating conjunction. This is one of the most frequent errors in compound sentence construction. Many writers mistakenly believe a comma is sufficient to separate two related thoughts. However, independent clauses require either stronger punctuation (period or semicolon) or a comma combined with a coordinating conjunction. This error is particularly common with conjunctive adverbs (however, therefore, moreover), which require semicolons before them.",
+          "rules": [
+            "A comma alone cannot join two independent clauses",
+            "Use comma + coordinating conjunction (FANBOYS) to join independent clauses",
+            "Alternatively, use semicolon to join closely related independent clauses",
+            "Conjunctive adverbs (however, therefore, moreover) require semicolon before them",
+            "Each independent clause needs proper punctuation boundary"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She studied hard, and she passed the examination.",
+                "reason": "Comma + coordinating conjunction 'and' properly joins independent clauses"
+              },
+              {
+                "text": "She studied hard; she passed the examination.",
+                "reason": "Semicolon correctly connects two closely related independent clauses"
+              },
+              {
+                "text": "She studied hard. She passed the examination.",
+                "reason": "Two separate sentences with proper punctuation"
+              },
+              {
+                "text": "She studied hard; therefore, she passed the examination.",
+                "reason": "Semicolon before conjunctive adverb 'therefore' - correct punctuation"
+              },
+              {
+                "text": "Because she studied hard, she passed the examination.",
+                "reason": "Restructured as complex sentence - first clause now dependent"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She studied hard, she passed the examination.",
+                "reason": "Comma splice - two independent clauses joined only by comma"
+              },
+              {
+                "text": "The examination was difficult, however most students passed.",
+                "reason": "Comma splice with conjunctive adverb - needs semicolon before 'however'"
+              },
+              {
+                "text": "He arrived late, he missed the first question.",
+                "reason": "Comma splice - comma cannot join two independent clauses alone"
+              },
+              {
+                "text": "She prepared thoroughly, therefore she felt confident.",
+                "reason": "Comma before conjunctive adverb - should be semicolon"
+              },
+              {
+                "text": "The students were attentive, they participated actively, they learned effectively.",
+                "reason": "Multiple comma splices - all three independent clauses improperly joined"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 3: Incorrect Subordination in Complex Sentences",
+          "definition": "Incorrect subordination occurs when writers misuse subordinating conjunctions or fail to properly connect dependent and independent clauses in complex sentences. Common errors include using subordinating conjunctions when coordinating conjunctions are needed, creating double subordination (multiple subordinating words in sequence), or placing subordinating conjunctions incorrectly. Another frequent mistake is using both a subordinating conjunction and a coordinating conjunction together unnecessarily, or failing to recognize that subordination changes the relationship between ideas.",
+          "rules": [
+            "Use subordinating conjunctions to create dependent clauses, not independent ones",
+            "Do not use multiple subordinating conjunctions in sequence without proper structure",
+            "Match subordinating conjunction to intended relationship (time, cause, condition, contrast)",
+            "Every dependent clause must be connected to an independent clause",
+            "Do not mix subordinating and coordinating conjunctions inappropriately"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Although the examination was difficult, she performed well.",
+                "reason": "Subordinating conjunction 'although' correctly creates dependent clause showing contrast"
+              },
+              {
+                "text": "She succeeded because she worked consistently.",
+                "reason": "Subordinating conjunction 'because' properly shows cause-effect relationship"
+              },
+              {
+                "text": "If you prepare systematically, you will achieve your goals.",
+                "reason": "Subordinating conjunction 'if' correctly expresses conditional relationship"
+              },
+              {
+                "text": "When the bell rang, the students left the classroom.",
+                "reason": "Subordinating conjunction 'when' properly indicates time relationship"
+              },
+              {
+                "text": "She will succeed if she continues working hard.",
+                "reason": "Conditional subordinating conjunction correctly placed"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Although the examination was difficult, but she performed well.",
+                "reason": "Double subordination - using both 'although' and 'but' is redundant and incorrect"
+              },
+              {
+                "text": "Because since she worked hard, she succeeded.",
+                "reason": "Double subordination - using 'because' and 'since' together is incorrect"
+              },
+              {
+                "text": "She succeeded although because she worked consistently.",
+                "reason": "Multiple subordinating conjunctions in sequence without proper structure"
+              },
+              {
+                "text": "Despite she was tired, she continued working.",
+                "reason": "'Despite' requires noun phrase or gerund, not subject-verb clause (use 'Although')"
+              },
+              {
+                "text": "The reason is because she studied hard.",
+                "reason": "Redundant - 'the reason is because' should be 'the reason is that' or simply 'because'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 4: Misplaced Modifiers and Dangling Participles",
+          "definition": "A misplaced modifier is a word, phrase, or clause positioned too far from the word it modifies, creating confusion or unintended meaning. Dangling participles are a specific type of error where an introductory participial phrase does not clearly and logically modify the subject of the main clause. These errors frequently occur in complex sentences when writers begin with a participial phrase or dependent clause but then change the subject in the main clause. The modifier appears to modify the wrong word, creating illogical or humorous meanings.",
+          "rules": [
+            "Place modifiers as close as possible to the words they modify",
+            "Ensure introductory participial phrases logically modify the sentence subject",
+            "The subject immediately following an introductory phrase should be what the phrase describes",
+            "Avoid separating related sentence elements with interrupting phrases",
+            "Check that modifying clauses clearly relate to the correct noun or pronoun"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Having studied thoroughly, she felt confident about the examination.",
+                "reason": "Participial phrase clearly modifies 'she' (the subject who studied)"
+              },
+              {
+                "text": "The students who prepared systematically performed excellently.",
+                "reason": "Modifying clause 'who prepared systematically' directly follows and clearly modifies 'students'"
+              },
+              {
+                "text": "After finishing the assignment, she went home.",
+                "reason": "Subject 'she' logically performed the action in the introductory phrase"
+              },
+              {
+                "text": "She almost studied for three hours.",
+                "reason": "Adverb 'almost' correctly placed to modify duration (three hours)"
+              },
+              {
+                "text": "Walking through the park, I noticed beautiful flowers.",
+                "reason": "Subject 'I' is the one walking - logical connection between phrase and subject"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Having studied thoroughly, the examination seemed easy.",
+                "reason": "Dangling participle - 'examination' did not study; subject should be person who studied"
+              },
+              {
+                "text": "After finishing the assignment, the television was watched.",
+                "reason": "Television did not finish assignment - illogical connection between phrase and subject"
+              },
+              {
+                "text": "She only studied for three hours.",
+                "reason": "Misplaced 'only' suggests she did nothing but study; should be 'studied for only three hours'"
+              },
+              {
+                "text": "Walking through the park, beautiful flowers caught my attention.",
+                "reason": "Dangling participle - flowers were not walking; subject should be 'I'"
+              },
+              {
+                "text": "Running late for the meeting, the traffic made him later.",
+                "reason": "Traffic was not running late - subject should be 'he' after introductory phrase"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 5: Overusing Complex Structures and Creating Confusion",
+          "definition": "While sophisticated sentence structures demonstrate writing maturity, overusing complex and compound-complex sentences can make writing dense, confusing, and difficult to follow. Excessively long sentences with multiple clauses often lose clarity and burden readers with too many ideas at once. This error commonly occurs when writers try to connect too many thoughts in one sentence, use multiple levels of subordination, or fail to break complex ideas into manageable units. Effective writing balances complexity with clarity, knowing when to use shorter, simpler structures for emphasis and comprehension.",
+          "rules": [
+            "Limit sentence length to one or two main ideas",
+            "Avoid multiple levels of subordination (clauses within clauses within clauses)",
+            "Break excessively long compound-complex sentences into shorter sentences",
+            "Use simple sentences for emphasis, key points, or after complex passages",
+            "Ensure every clause clearly relates to the sentence's main idea"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She prepared systematically for six months. When the examination arrived, she felt confident, and she performed excellently.",
+                "reason": "Complex idea broken into manageable units - simple, then compound-complex"
+              },
+              {
+                "text": "Although the examination was challenging, most students performed well because they had prepared thoroughly.",
+                "reason": "Appropriate complexity - one dependent clause, one independent, one dependent (manageable length)"
+              },
+              {
+                "text": "The students studied hard. They practised regularly. As a result, they achieved excellent results.",
+                "reason": "Uses simple sentences for clarity before showing result"
+              },
+              {
+                "text": "Time management is crucial. If you allocate time wisely, you can cover all topics, and you will perform confidently.",
+                "reason": "Simple sentence for emphasis, followed by compound-complex for detailed explanation"
+              },
+              {
+                "text": "She succeeded because she never gave up.",
+                "reason": "Complex sentence with clear, straightforward structure"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Although she had been preparing for the examination for several months and had studied all the topics thoroughly and had practised numerous questions and had revised regularly, when the examination day arrived, she still felt nervous because she wanted to perform well and because her family had high expectations and because this examination was important for her future career prospects and she knew that the competition was intense.",
+                "reason": "Excessively long compound-complex sentence with too many clauses - confusing and hard to follow"
+              },
+              {
+                "text": "The students who had been attending the coaching classes which were conducted by the teachers who were experienced and who had been teaching for many years and who understood the examination patterns that had been followed in previous years performed well.",
+                "reason": "Multiple levels of nested clauses create confusion and lose the main idea"
+              },
+              {
+                "text": "Because she studied hard and because she practised regularly and because she revised systematically and because she managed her time well and because she remained focused throughout her preparation, she succeeded.",
+                "reason": "Repetitive subordination with multiple 'because' clauses is wordy and ineffective"
+              },
+              {
+                "text": "If you want to succeed, and if you prepare systematically, and if you practise regularly, and if you manage your time well, and if you remain focused, then you will achieve your goals, and you will be satisfied, and you will inspire others.",
+                "reason": "Excessive coordination and subordination - should be broken into multiple sentences"
+              },
+              {
+                "text": "The examination, which was conducted last month, which tested various topics, which required thorough preparation, which challenged even the best students, proved to be difficult.",
+                "reason": "Multiple repetitive relative clauses - should consolidate or break into separate sentences"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "practice",
+      "title": "Practice Exercises",
+      "cards": [
+        {
+          "title": "Exercise 1: Identify Sentence Types",
+          "definition": "Identifying sentence types is the first step toward mastering sentence construction. Read each sentence carefully and determine whether it is Simple, Compound, Complex, or Compound-Complex. Look for the number of independent clauses, presence of dependent clauses, and connecting words. Remember: Simple has one independent clause, Compound has two or more independent clauses, Complex has one independent and at least one dependent clause, and Compound-Complex has at least two independent and at least one dependent clause.",
+          "rules": [
+            "Count independent clauses (can stand alone) and dependent clauses (cannot stand alone)",
+            "Look for coordinating conjunctions (FANBOYS) connecting independent clauses",
+            "Identify subordinating conjunctions and relative pronouns creating dependent clauses",
+            "Simple = 1 independent clause; Compound = 2+ independent clauses",
+            "Complex = 1 independent + dependent; Compound-Complex = 2+ independent + dependent"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination was postponed. (Simple)",
+                "reason": "One independent clause with subject (examination) and predicate (was postponed)"
+              },
+              {
+                "text": "She studied hard, and she passed the examination. (Compound)",
+                "reason": "Two independent clauses joined by coordinating conjunction 'and'"
+              },
+              {
+                "text": "Because he prepared thoroughly, he felt confident. (Complex)",
+                "reason": "One dependent clause (Because he prepared thoroughly) and one independent clause"
+              },
+              {
+                "text": "Although she was nervous, she performed well, and she achieved excellent results. (Compound-Complex)",
+                "reason": "One dependent clause (Although she was nervous) and two independent clauses"
+              },
+              {
+                "text": "The students who studied consistently achieved success. (Complex)",
+                "reason": "One independent clause with embedded dependent clause (who studied consistently)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Identifying 'She studied hard, and she passed' as a Simple sentence",
+                "reason": "This is Compound - has two independent clauses joined by 'and'"
+              },
+              {
+                "text": "Identifying 'Because he prepared thoroughly, he felt confident' as Compound",
+                "reason": "This is Complex - has one dependent clause and one independent clause"
+              },
+              {
+                "text": "Identifying 'The students achieved success' as Complex",
+                "reason": "This is Simple - only one independent clause with no dependent clauses"
+              },
+              {
+                "text": "Identifying 'Although she was nervous, she performed well, and she achieved results' as Complex",
+                "reason": "This is Compound-Complex - has dependent clause and two independent clauses"
+              },
+              {
+                "text": "Identifying 'She studied, but she failed' as Simple",
+                "reason": "This is Compound - two independent clauses connected by coordinating conjunction 'but'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 2: Correct Comma Splices and Run-on Sentences",
+          "definition": "This exercise focuses on identifying and correcting two common sentence errors: comma splices and run-on sentences. Both errors involve improper joining of independent clauses. For each incorrect example, apply one of the correction methods: add coordinating conjunction with comma, use semicolon, create two separate sentences, or restructure one clause as dependent. Understanding multiple correction options helps you choose the most effective structure for your intended meaning.",
+          "rules": [
+            "Identify where independent clauses are improperly joined",
+            "Method 1: Separate into two sentences with period",
+            "Method 2: Add comma + coordinating conjunction (FANBOYS)",
+            "Method 3: Use semicolon between closely related clauses",
+            "Method 4: Convert one clause to dependent clause"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Incorrect: She studied hard, she passed the examination. Correct: She studied hard, and she passed the examination.",
+                "reason": "Added coordinating conjunction 'and' with comma to properly join independent clauses"
+              },
+              {
+                "text": "Incorrect: The examination was difficult most students passed. Correct: The examination was difficult; however, most students passed.",
+                "reason": "Added semicolon and conjunctive adverb to connect independent clauses"
+              },
+              {
+                "text": "Incorrect: He prepared thoroughly he felt confident. Correct: Because he prepared thoroughly, he felt confident.",
+                "reason": "Converted first clause to dependent clause, creating complex sentence"
+              },
+              {
+                "text": "Incorrect: She was tired, she continued working. Correct: She was tired. However, she continued working.",
+                "reason": "Created two separate sentences with transitional word"
+              },
+              {
+                "text": "Incorrect: The students arrived early, they started preparing. Correct: The students arrived early; they started preparing.",
+                "reason": "Used semicolon to join closely related independent clauses"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Correcting 'She studied hard, she passed' as 'She studied hard, she passed.'",
+                "reason": "Just adding period does not fix the comma splice - need to break into two sentences"
+              },
+              {
+                "text": "Correcting 'He worked hard he succeeded' as 'He worked hard, he succeeded.'",
+                "reason": "Simply adding comma creates comma splice - need conjunction or semicolon"
+              },
+              {
+                "text": "Correcting 'She was tired, she slept' as 'She was tired; and she slept.'",
+                "reason": "Do not use semicolon with coordinating conjunction - use comma instead"
+              },
+              {
+                "text": "Correcting 'The train was late, we missed it' as 'Although the train was late, but we missed it.'",
+                "reason": "Do not use both subordinating conjunction (although) and coordinating conjunction (but)"
+              },
+              {
+                "text": "Correcting 'He studied, therefore he passed' as 'He studied, therefore, he passed.'",
+                "reason": "Conjunctive adverb requires semicolon before it, not just comma"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 3: Combine Sentences Using Different Structures",
+          "definition": "This exercise develops your ability to express the same information using different sentence types. Given multiple short simple sentences, practice combining them into compound, complex, or compound-complex structures. This skill is crucial for creating sentence variety in your writing. Consider the relationship between ideas (addition, contrast, cause-effect, time, condition) to choose the most appropriate connecting words and structure. Different structures can emphasize different aspects of the same information.",
+          "rules": [
+            "Identify the relationship between ideas (addition, contrast, cause, time, condition)",
+            "For compound: use coordinating conjunctions to join independent clauses",
+            "For complex: make one clause dependent using subordinating conjunctions",
+            "For compound-complex: combine both techniques",
+            "Choose structure that best emphasizes your intended meaning"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Simple: She studied regularly. She passed the examination. Compound: She studied regularly, and she passed the examination.",
+                "reason": "Used coordinating conjunction 'and' to show addition/sequence"
+              },
+              {
+                "text": "Simple: She studied regularly. She passed the examination. Complex: Because she studied regularly, she passed the examination.",
+                "reason": "Used subordinating conjunction 'because' to show cause-effect relationship"
+              },
+              {
+                "text": "Simple: The examination was difficult. He prepared well. He succeeded. Compound-Complex: Although the examination was difficult, he prepared well, and he succeeded.",
+                "reason": "Combined contrast (although) with two independent clauses showing sequence"
+              },
+              {
+                "text": "Simple: The train was delayed. We waited. We finally reached home. Complex: After the train was delayed and we waited, we finally reached home.",
+                "reason": "Converted first two clauses into one dependent clause showing time sequence"
+              },
+              {
+                "text": "Simple: She was tired. She completed the work. Compound: She was tired, but she completed the work.",
+                "reason": "Used 'but' to show contrast between two conditions"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Combining 'She studied. She passed.' as 'She studied, she passed.'",
+                "reason": "Creates comma splice - need coordinating conjunction or semicolon"
+              },
+              {
+                "text": "Combining 'He worked hard. He succeeded.' as 'He worked hard, because he succeeded.'",
+                "reason": "Reversed cause and effect - success was result of work, not cause"
+              },
+              {
+                "text": "Combining 'She was tired. She slept.' as 'Although she was tired, but she slept.'",
+                "reason": "Redundant subordination - use either 'although' or 'but', not both"
+              },
+              {
+                "text": "Combining 'The train was late. We missed it.' as 'The train was late we missed it.'",
+                "reason": "Run-on sentence - missing punctuation or conjunction"
+              },
+              {
+                "text": "Combining 'He studied. He practised. He succeeded.' as 'Because he studied and because he practised and because he succeeded.'",
+                "reason": "All clauses made dependent with no independent clause - creates fragment"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 4: Fix Fragments and Misplaced Modifiers",
+          "definition": "This exercise focuses on identifying and correcting sentence fragments and misplaced modifiers. Fragments are incomplete thoughts often created when dependent clauses are punctuated as sentences. Misplaced modifiers create confusion when descriptive words or phrases are positioned too far from what they describe. Practice completing fragments by adding independent clauses and repositioning modifiers to clearly indicate what they modify. These corrections significantly improve clarity and professionalism in writing.",
+          "rules": [
+            "Fragments need independent clauses to complete the thought",
+            "Attach dependent clauses to appropriate independent clauses",
+            "Place modifying phrases immediately before or after the words they modify",
+            "Ensure introductory participial phrases logically modify the sentence subject",
+            "Check that all sentences have subject, verb, and complete thought"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Fragment: Because she studied hard. Corrected: Because she studied hard, she passed the examination.",
+                "reason": "Added independent clause to complete the thought after dependent clause"
+              },
+              {
+                "text": "Fragment: The students who prepared thoroughly. Corrected: The students who prepared thoroughly performed excellently.",
+                "reason": "Added main verb (performed) to complete the sentence"
+              },
+              {
+                "text": "Misplaced: Having studied thoroughly, the examination seemed easy. Corrected: Having studied thoroughly, she found the examination easy.",
+                "reason": "Changed subject to person who studied - logical connection to participial phrase"
+              },
+              {
+                "text": "Misplaced: She only studied for three hours. Corrected: She studied for only three hours.",
+                "reason": "Repositioned 'only' to correctly modify duration (three hours)"
+              },
+              {
+                "text": "Fragment: After completing the assignment and submitting it. Corrected: After completing the assignment and submitting it, she relaxed.",
+                "reason": "Added independent clause with subject and verb to complete thought"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Correcting 'Because she studied hard.' as 'She studied hard because.'",
+                "reason": "Still incomplete - 'because' requires clause explaining reason"
+              },
+              {
+                "text": "Correcting fragment 'After the meeting.' as 'After the meeting, everyone.'",
+                "reason": "Still incomplete - no predicate (verb) for subject 'everyone'"
+              },
+              {
+                "text": "Correcting 'Having finished the work, the television was watched.' as 'Having finished the work, watching television.'",
+                "reason": "Still has dangling participle and creates new fragment"
+              },
+              {
+                "text": "Correcting 'She only studied for three hours' as 'Only she studied for three hours.'",
+                "reason": "Changes meaning - now suggests she alone studied (others did not)"
+              },
+              {
+                "text": "Correcting fragment 'Although he was tired.' as 'He was tired although.'",
+                "reason": "Still incomplete - 'although' needs clause showing contrast"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 5: Create Sentence Variety in Paragraphs",
+          "definition": "This advanced exercise focuses on using varied sentence structures to create engaging, professional paragraphs. Given a paragraph with monotonous sentence structure (all simple or all complex), practice rewriting it using a mix of simple, compound, complex, and compound-complex sentences. Effective writers vary sentence length and structure to maintain reader interest, emphasize key points, and show relationships between ideas. Simple sentences provide emphasis and clarity, while more complex structures show sophisticated relationships between thoughts.",
+          "rules": [
+            "Use simple sentences for key points, emphasis, or after complex passages",
+            "Use compound sentences to show equal relationships between ideas",
+            "Use complex sentences to show hierarchy, cause-effect, or time relationships",
+            "Vary sentence length - mix short and longer sentences for rhythm",
+            "Begin sentences with different structures (subject, dependent clause, phrase)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Monotonous: She prepared for the examination. She studied daily. She practised questions. She revised regularly. She felt confident. Improved: She prepared for the examination systematically. Because she studied daily and practised numerous questions, she felt increasingly confident. Regular revision strengthened her preparation.",
+                "reason": "Varied structures: simple for emphasis, complex showing cause, simple for conclusion"
+              },
+              {
+                "text": "Monotonous: Although the examination was difficult, the students performed well because they had prepared thoroughly, and although they faced challenges, they remained focused because their goal was clear. Improved: The examination was difficult. However, most students performed well because they had prepared thoroughly. Despite facing challenges, they remained focused on their clear goal.",
+                "reason": "Broke excessive compound-complex into varied structures for better clarity"
+              },
+              {
+                "text": "Monotonous: He wanted to succeed and he studied hard and he practised daily and he remained focused. Improved: He wanted to succeed. Therefore, he studied hard, practised daily, and remained consistently focused.",
+                "reason": "Simple sentence for goal, compound showing methods with parallel structure"
+              },
+              {
+                "text": "Original: Time management is important. Students should plan. They should allocate time. They should avoid procrastination. Improved: Time management is crucial for examination success. Students who plan systematically and allocate time wisely avoid the pitfalls of procrastination.",
+                "reason": "Combined related ideas using complex structure, varied sentence beginnings"
+              },
+              {
+                "text": "Monotonous: The students studied. They practised. They revised. They succeeded. Improved: The students followed a consistent routine. They studied thoroughly, practised regularly, and revised systematically. Their dedication led to success.",
+                "reason": "Variety: simple, compound with parallel structure, simple for emphasis"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Rewriting with all simple sentences: She prepared. She studied. She practised. She revised. She succeeded.",
+                "reason": "Too choppy and elementary - no sentence variety or flow"
+              },
+              {
+                "text": "Rewriting with one extremely long sentence: She prepared for the examination and she studied daily and she practised questions and she revised regularly and she felt confident and she appeared for the examination and she performed well and she achieved success.",
+                "reason": "Run-on sentence with excessive coordination - confusing and lacks emphasis"
+              },
+              {
+                "text": "Rewriting with all complex sentences: Because she prepared, she studied. Because she studied, she practised. Because she practised, she succeeded.",
+                "reason": "Repetitive structure without variety - forced subordination where not needed"
+              },
+              {
+                "text": "Creating variety by mixing unrelated ideas: She studied hard. Meanwhile, her brother played cricket. Therefore, she passed the examination.",
+                "reason": "Introduces irrelevant information - variety should maintain focus and coherence"
+              },
+              {
+                "text": "Attempting variety: She studied hard, and she practised, and she revised, and she succeeded, and she celebrated.",
+                "reason": "Repetitive coordination without true variety - still monotonous despite length"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "revision",
+      "title": "Quick Revision Notes",
+      "cards": [
+        {
+          "title": "Sentence Types: Complete Summary",
+          "definition": "Master these essential points about sentence types for quick revision before examinations. Understanding sentence structures is fundamental to English grammar and appears frequently in competitive examinations. Review these key concepts, rules, and common errors regularly to strengthen your command over sentence construction and analysis.",
+          "rules": [
+            "SIMPLE SENTENCE: One independent clause (subject + verb + complete thought). May have compound subject or verb but only one clause. Example: The students prepared thoroughly.",
+            "COMPOUND SENTENCE: Two or more independent clauses joined by coordinating conjunctions (FANBOYS), semicolons, or conjunctive adverbs. Pattern: Independent clause + comma + FANBOYS + independent clause. Example: She studied hard, and she passed.",
+            "COMPLEX SENTENCE: One independent clause + at least one dependent clause. Dependent clause begins with subordinating conjunction (because, although, when, if, etc.) or relative pronoun (who, which, that). Comma rules: dependent clause first needs comma; independent first usually no comma. Example: Because she prepared well, she succeeded.",
+            "COMPOUND-COMPLEX SENTENCE: At least two independent clauses + at least one dependent clause. Combines features of compound and complex sentences. Example: Although the exam was difficult, she prepared well, and she passed.",
+            "CLAUSES: Independent clause can stand alone as complete sentence; dependent clause cannot stand alone. Test: read clause separately - if complete thought, independent; if incomplete, dependent.",
+            "COMMA RULES: Use comma before coordinating conjunction joining independent clauses. Use comma after introductory dependent clause. No comma when independent clause comes first in complex sentence (unless nonrestrictive).",
+            "AVOIDING ERRORS: Never join independent clauses with only comma (comma splice). Never write two independent clauses without punctuation or conjunction (run-on). Never punctuate dependent clause alone as sentence (fragment).",
+            "SEMICOLON USAGE: Semicolon can replace coordinating conjunction in compound sentences. Use semicolon before conjunctive adverbs (however, therefore, moreover) with comma after them.",
+            "SENTENCE VARIETY: Mix sentence types for effective writing. Simple for emphasis and clarity. Compound for equal relationships. Complex for showing dependency or hierarchy. Vary length and structure for reader engagement.",
+            "COMMON MISTAKES: Fragments (incomplete sentences lacking subject, verb, or complete thought), comma splices (two independent clauses joined only by comma), run-on sentences (independent clauses without proper separation), misplaced modifiers (descriptive words far from what they modify), dangling participles (introductory phrases not logically connected to sentence subject), excessive complexity (too many clauses creating confusion), lack of variety (all same structure creating monotony), incorrect subordination (wrong conjunctions or double subordination), faulty parallelism (unmatched grammatical structures in compound elements), missing or incorrect punctuation (especially commas in complex and compound sentences)."
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Simple: Success requires dedication. Compound: She worked hard, and she succeeded. Complex: Because she worked hard, she succeeded. Compound-Complex: Although she faced obstacles, she worked hard, and she succeeded.",
+                "reason": "Demonstrates all four sentence types expressing related ideas with different structures"
+              },
+              {
+                "text": "Correct punctuation examples: She studied hard; therefore, she passed. (semicolon + conjunctive adverb) Although she was tired, she continued. (comma after introductory dependent) She continued because she was determined. (no comma before dependent)",
+                "reason": "Shows correct punctuation patterns for compound and complex sentences"
+              },
+              {
+                "text": "Avoiding errors: NOT 'She studied, she passed' (comma splice). CORRECT: 'She studied, and she passed' OR 'She studied; she passed' OR 'She studied. She passed.'",
+                "reason": "Demonstrates multiple correct ways to fix comma splice"
+              },
+              {
+                "text": "Sentence variety in paragraph: Preparation is essential. Students who plan systematically achieve better results, but those who procrastinate struggle. Because consistent effort matters most, daily practice ensures steady improvement.",
+                "reason": "Effective mix of simple, compound-complex, and complex sentences for varied, engaging writing"
+              },
+              {
+                "text": "Modifier placement: INCORRECT: Having studied thoroughly, the exam seemed easy. CORRECT: Having studied thoroughly, she found the exam easy.",
+                "reason": "Shows correction of dangling participle by making subject logically perform the action"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Because she studied hard.",
+                "reason": "FRAGMENT: Dependent clause alone without independent clause - incomplete thought"
+              },
+              {
+                "text": "She studied hard, she passed the examination.",
+                "reason": "COMMA SPLICE: Two independent clauses joined only by comma without coordinating conjunction"
+              },
+              {
+                "text": "She studied hard she passed the examination.",
+                "reason": "RUN-ON SENTENCE: Two independent clauses with no punctuation or conjunction"
+              },
+              {
+                "text": "Although she was tired, but she continued working.",
+                "reason": "DOUBLE SUBORDINATION: Using both subordinating conjunction (although) and coordinating conjunction (but)"
+              },
+              {
+                "text": "Having finished the work, the television was watched.",
+                "reason": "DANGLING PARTICIPLE: Television did not finish work - illogical subject for participial phrase"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

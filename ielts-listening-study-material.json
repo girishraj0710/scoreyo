@@ -1,0 +1,163 @@
+{
+  "topic_id": "ielts-listening",
+  "title": "IELTS Listening",
+  "subtitle": "Master all 4 sections and question types in 30-40 minutes",
+  "overview": "The IELTS Listening test has 4 sections (40 questions, 30 minutes + 10 minutes transfer time). You hear each recording ONCE only. Sections progress from everyday social contexts to academic lectures. Indian learners often struggle with accents (British, Australian, American) and spelling accuracy. This guide covers all major question types with proven strategies.",
+  "sections": [
+    {
+      "title": "Test Overview & Structure",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4 Sections, 40 Questions Total:**\n- Section 1: Conversation in social context (e.g., booking hotel)\n- Section 2: Monologue in social context (e.g., tour guide)\n- Section 3: Conversation in academic context (e.g., student discussion)\n- Section 4: Academic lecture (e.g., university lecture)\n\n**Timing:** 30 minutes listening + 10 minutes to transfer answers to answer sheet (paper test). Computer test: 2 minutes only.\n\n**Scoring:** Each correct answer = 1 mark. Band score calculated from total correct answers (e.g., 30/40 = Band 7.0)."
+        },
+        {
+          "type": "tip",
+          "text": "**Indian Learners Alert:** You'll hear British, Australian, American, and other English accents. Practice with BBC podcasts, Australian news, and TED talks to familiarize yourself with pronunciation differences (e.g., 'water' sounds different in American vs. British English)."
+        },
+        {
+          "type": "text",
+          "text": "**Key Rules:**\n- You hear each recording ONLY ONCE\n- Answer as you listen (no time to think after)\n- Spelling and grammar must be correct\n- Follow word limits strictly (e.g., 'NO MORE THAN TWO WORDS')\n- All answers come directly from the recording (no outside knowledge needed)"
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Common Mistake:** Indian students often write phonetically (e.g., 'accomodation' instead of 'accommodation'). Practice spelling of common IELTS words: accommodation, necessary, restaurant, receipt, Wednesday, February."
+        }
+      ]
+    },
+    {
+      "title": "Form Filling & Sentence Completion",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Form Filling:** Complete forms with names, dates, addresses, prices, times.\n\n**Example:** 'Name: Sarah _____ (answer: Thompson)'\n\n**Strategy:**\n1. Read the form BEFORE audio starts (20-30 seconds given)\n2. Predict answer type (name? number? date?)\n3. Listen for signpost words: 'My name is...', 'The address is...'\n4. Write answers while listening (don't wait)"
+        },
+        {
+          "type": "example",
+          "text": "**Audio:** 'I'd like to book a room from the 15th to the 20th of March.'\n**Form:** Arrival Date: _____ (Answer: 15 March / 15th March)\n\n**Audio:** 'The total cost is 450 pounds.'\n**Form:** Price: £_____ (Answer: 450)"
+        },
+        {
+          "type": "tip",
+          "text": "**Spelling Traps:** Names are often spelled out: 'That's J-O-H-N-S-O-N'. Write as you hear. Months/days: Use capitals (March, Monday). Numbers: Write digits (450, not four hundred fifty)."
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Indian Context Error:** Writing dates in DD/MM/YYYY format (15/03/2024). IELTS prefers: 15 March or 15th March or March 15. Avoid pure numeric dates unless specified."
+        }
+      ]
+    },
+    {
+      "title": "Note Completion & Summary",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Task:** Fill gaps in notes/summaries with words from the recording.\n\n**Word Limit Rules:**\n- 'ONE WORD ONLY': Write exactly 1 word (not 'a ticket' - just 'ticket')\n- 'NO MORE THAN TWO WORDS': 1 or 2 words allowed\n- 'TWO WORDS AND/OR A NUMBER': Can be 'Room 405' or 'biology lecture' or just '3'"
+        },
+        {
+          "type": "example",
+          "text": "**Audio:** 'The library closes at 9 PM on weekdays but stays open until midnight on Fridays.'\n**Notes:** Library hours: Weekdays until _____ (Answer: 9 PM), Fridays until _____ (Answer: midnight)\n\n**Audio:** 'Students must bring their ID cards and completed registration forms.'\n**Summary:** Bring ID card and _____ _____ (Answer: registration forms / completed forms)"
+        },
+        {
+          "type": "tip",
+          "text": "**Grammar Check:** Answer must fit grammatically. If the sentence says 'The course starts in _____', and audio says 'September', write 'September' (not 'in September' - the 'in' is already there)."
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Mistake:** Exceeding word limit. If limit is 'TWO WORDS' and you write 'biology and chemistry', you lose the mark. Choose the most relevant word(s) or write exactly what's said."
+        }
+      ]
+    },
+    {
+      "title": "Multiple Choice Questions",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Format:** Choose correct answer from 3-4 options (A, B, C, D).\n\n**Strategy:**\n1. Read question + all options BEFORE audio (use preparation time)\n2. Underline key words in question\n3. Listen for paraphrasing (audio won't use exact words from options)\n4. Eliminate wrong answers as you listen"
+        },
+        {
+          "type": "example",
+          "text": "**Question:** What is the main reason the student is late?\nA) Traffic jam\nB) Missed the bus\nC) Alarm didn't ring\n\n**Audio:** 'Sorry I'm late. I woke up on time but the bus didn't come, so I had to walk.'\n**Answer:** B (even though traffic/alarm mentioned, the direct cause is missed bus)"
+        },
+        {
+          "type": "tip",
+          "text": "**Distraction Technique:** IELTS uses distractors - words from wrong options appear in audio. Example: Speaker says 'There was a traffic jam, but that's not why I'm late' (A is wrong). Listen for the ACTUAL answer, not just keyword matching."
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Indian Learner Trap:** Choosing first option that sounds correct. IELTS often mentions all options - wait for the speaker to clarify or correct themselves. The answer comes AFTER distractors."
+        }
+      ]
+    },
+    {
+      "title": "Matching Questions",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Task:** Match items from two lists (e.g., match people to opinions, or features to rooms).\n\n**Example:** Match each person (1-3) to their opinion (A-F):\n1. Professor Smith\n2. Dr. Jones\n3. Student Lee\n\nA) Thinks the course is too short\nB) Wants more practical sessions\nC) Prefers online learning\n\n**Strategy:** Focus on names/items in the recording, then listen for what they say."
+        },
+        {
+          "type": "example",
+          "text": "**Audio:** 'Professor Smith mentioned that students need more hands-on practice. Dr. Jones, on the other hand, feels the duration should be extended. Student Lee suggested moving classes online.'\n\n**Answers:** 1-B, 2-A, 3-C"
+        },
+        {
+          "type": "tip",
+          "text": "**List Strategy:** If list has 6 options (A-F) but only 3 questions, you won't use all options. Don't panic - just match what you hear. Cross out used options to avoid confusion."
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Mistake:** Missing the speaker's name. Audio moves fast in Section 3/4. Write down the name (Smith/Jones) immediately when you hear it, then wait for their opinion in the next 5-10 seconds."
+        }
+      ]
+    },
+    {
+      "title": "Map & Diagram Labeling",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Task:** Label a map (e.g., campus buildings) or diagram (e.g., machine parts) using words from audio.\n\n**Strategy:**\n1. Study the map/diagram BEFORE audio (identify compass directions, landmarks)\n2. Listen for direction words: left, right, opposite, next to, behind, north, south\n3. Follow the speaker's route mentally as they describe"
+        },
+        {
+          "type": "example",
+          "text": "**Map Question:** Label the campus map (1-3):\n\n**Audio:** 'When you enter the main gate, the library is on your left. Walk straight and you'll see the cafeteria on the right. Behind the cafeteria is the sports complex.'\n\n**Answers:** 1 (left of entrance) = library, 2 (right of path) = cafeteria, 3 (behind #2) = sports complex"
+        },
+        {
+          "type": "tip",
+          "text": "**Direction Words:** Listen carefully for: 'across from', 'adjacent to', 'in the corner', 'at the end of', 'between X and Y'. Indian learners often confuse 'beside' (next to) and 'behind' (at the back)."
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Mistake:** Writing full descriptions. If audio says 'large sports complex', and word limit is ONE WORD, write 'complex' (or 'sports' if that fits the label better). Check the question - usually it asks for the PLACE NAME only."
+        }
+      ]
+    },
+    {
+      "title": "Winning Strategies",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Before Audio Starts:**\n- Use preparation time (20-30 seconds per section) to read questions\n- Underline key words (names, dates, places, question focus)\n- Predict answer type (number? name? adjective?)\n- Check word limits for gap-fill questions"
+        },
+        {
+          "type": "text",
+          "text": "**While Listening:**\n- Write answers WHILE listening (don't wait for pauses)\n- If you miss an answer, MOVE ON immediately (don't dwell - you'll miss next question)\n- Listen for paraphrasing (audio won't use exact words from question)\n- Watch for corrections: 'It's on Monday... no wait, Tuesday' (answer: Tuesday)"
+        },
+        {
+          "type": "tip",
+          "text": "**Accent Practice for Indians:** British: 'schedule' = SHED-yool (not SKED-yool), 'vitamin' = VIT-amin (not VY-tamin). Australian: 'today' sounds like 'to-die'. American: 'water' = WAD-er. Listen to 10 minutes daily: BBC Radio 4, ABC News (Australia), NPR (USA)."
+        },
+        {
+          "type": "text",
+          "text": "**Transfer Time (Paper Test):**\n- You get 10 minutes to copy answers to answer sheet\n- Check spelling: accommodation, necessary, Wednesday\n- Check grammar: singular/plural (students vs. student)\n- Don't leave blanks - guess if unsure (no negative marking)"
+        },
+        {
+          "type": "common_mistake",
+          "text": "**Top 3 Indian Mistakes:**\n1. Spelling errors (practice IELTS word lists)\n2. Ignoring word limits (write concisely)\n3. Writing too slowly (practice speed-writing during audio)"
+        },
+        {
+          "type": "example",
+          "text": "**Final Checklist:**\n✓ All 40 questions answered (no blanks)\n✓ Spelling checked (especially names, places)\n✓ Word limits followed (count words if unsure)\n✓ Capitalization correct (names, days, months)\n✓ Answers fit grammatically in sentences"
+        }
+      ]
+    }
+  ]
+}

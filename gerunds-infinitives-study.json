@@ -1,0 +1,782 @@
+{
+  "topic_id": "gerunds-infinitives",
+  "title": "Gerunds and Infinitives",
+  "subtitle": "Understanding when to use verb-ing and to + verb",
+  "overview": "Gerunds and infinitives are verb forms that function as nouns in sentences. A gerund is formed by adding -ing to a verb and acts as a noun (Swimming is fun). An infinitive is the base form of a verb preceded by to (I want to swim). Many verbs in English are followed by either a gerund or an infinitive, and some can be followed by both, sometimes with a change in meaning. Mastering when to use gerunds and infinitives is essential for fluency, as incorrect usage can make sentences sound unnatural or alter their intended meaning.",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "What Are Gerunds and Infinitives?",
+      "order": 1,
+      "cards": [
+        {
+          "title": "Definition and Purpose",
+          "definition": "A gerund is a verb form ending in -ing that functions as a noun in a sentence. It can be the subject, object, or complement. An infinitive is the base form of a verb preceded by to (to walk, to eat) and also functions as a noun, adjective, or adverb. Both gerunds and infinitives are non-finite verb forms, meaning they do not change with tense or subject. Understanding which verbs are followed by gerunds, which are followed by infinitives, and which can take both is crucial for correct English usage.",
+          "rules": [
+            "Gerund: verb + -ing (swimming, reading, studying) used as a noun",
+            "Infinitive: to + base verb (to swim, to read, to study) used as a noun, adjective, or adverb",
+            "Some verbs are followed only by gerunds (enjoy, finish, avoid)",
+            "Some verbs are followed only by infinitives (want, decide, hope)",
+            "Some verbs can take both, sometimes with different meanings (stop, remember, try)"
+          ],
+          "examples": {
+            "correct": [
+              "Swimming is good exercise. (gerund as subject)",
+              "I enjoy reading novels. (gerund as object)",
+              "To learn a language takes time. (infinitive as subject)",
+              "She wants to travel the world. (infinitive as object)",
+              "His hobby is painting. (gerund as complement)"
+            ],
+            "incorrect": [
+              {
+                "text": "I enjoy to read novels.",
+                "reason": "Enjoy is always followed by a gerund, not an infinitive. Correct: I enjoy reading novels."
+              },
+              {
+                "text": "She wants travelling the world.",
+                "reason": "Want is always followed by an infinitive, not a gerund. Correct: She wants to travel."
+              },
+              {
+                "text": "To swimming is good exercise.",
+                "reason": "As a subject, use the gerund (Swimming), not the infinitive (To swim), though both are grammatically possible."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core-concepts",
+      "title": "Core Concepts",
+      "order": 2,
+      "cards": [
+        {
+          "title": "Gerunds: Verb-ing as a Noun",
+          "definition": "A gerund is formed by adding -ing to a verb. It functions as a noun and can be the subject of a sentence, the object of a verb, or the object of a preposition. Gerunds are commonly used after certain verbs and prepositions. Unlike present participles, which are also verb-ing forms, gerunds always act as nouns.",
+          "rules": [
+            "Form: verb + -ing (walking, talking, eating, studying)",
+            "Can be the subject of a sentence (Reading is my favourite hobby)",
+            "Can be the object of a verb (I enjoy swimming)",
+            "Can be the object of a preposition (She is good at dancing)",
+            "Always functions as a noun in the sentence"
+          ],
+          "examples": {
+            "correct": [
+              "Cooking is a useful skill. (gerund as subject)",
+              "He loves playing cricket. (gerund as object of verb)",
+              "She is interested in learning French. (gerund as object of preposition)",
+              "My favourite activity is hiking. (gerund as complement)",
+              "They succeeded by working hard. (gerund after preposition)"
+            ],
+            "incorrect": [
+              {
+                "text": "To cook is a useful skill.",
+                "reason": "Whilst grammatically correct, using a gerund (Cooking) as the subject is more natural in everyday English."
+              },
+              {
+                "text": "She is interested in to learn French.",
+                "reason": "After a preposition, use a gerund, not an infinitive. Correct: interested in learning."
+              },
+              {
+                "text": "They succeeded by to work hard.",
+                "reason": "After a preposition like by, use a gerund, not an infinitive. Correct: by working."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Infinitives: To + Base Verb",
+          "definition": "An infinitive consists of to followed by the base form of a verb (to walk, to eat, to study). Infinitives can function as nouns, adjectives, or adverbs. They are used after certain verbs, adjectives, and nouns. The infinitive is the most basic form of the verb and does not change with tense or subject.",
+          "rules": [
+            "Form: to + base verb (to go, to see, to learn, to help)",
+            "Can function as a noun (To travel is my dream)",
+            "Can function as an adjective (I have work to do)",
+            "Can function as an adverb (She came to help)",
+            "Used after certain verbs (want, decide, plan, hope, need)"
+          ],
+          "examples": {
+            "correct": [
+              "To succeed requires hard work. (infinitive as subject)",
+              "I want to learn Spanish. (infinitive as object of verb)",
+              "She is happy to help. (infinitive after adjective)",
+              "This is the place to visit. (infinitive as adjective)",
+              "He studied hard to pass the exam. (infinitive expressing purpose)"
+            ],
+            "incorrect": [
+              {
+                "text": "I want learning Spanish.",
+                "reason": "Want is followed by an infinitive, not a gerund. Correct: I want to learn."
+              },
+              {
+                "text": "She is happy helping.",
+                "reason": "After adjectives like happy, use an infinitive, not a gerund. Correct: happy to help."
+              },
+              {
+                "text": "He studied hard for passing the exam.",
+                "reason": "To express purpose, use an infinitive (to pass), not for + gerund."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Verbs Followed by Gerunds",
+          "definition": "Certain verbs in English are always followed by a gerund, never by an infinitive. Common examples include enjoy, finish, avoid, consider, suggest, practise, mind, and admit. Learning these verbs helps you avoid common errors.",
+          "rules": [
+            "Common verbs followed by gerunds: enjoy, finish, avoid, consider, suggest, practise, mind, admit, deny, delay, risk, miss",
+            "After these verbs, always use verb-ing, never to + verb",
+            "Prepositions are always followed by gerunds, not infinitives"
+          ],
+          "examples": {
+            "correct": [
+              "I enjoy reading mystery novels.",
+              "She finished writing the report yesterday.",
+              "We avoid eating junk food.",
+              "He considered moving to another city.",
+              "They suggested going to the beach.",
+              "She practises speaking English every day.",
+              "Do you mind closing the window?"
+            ],
+            "incorrect": [
+              {
+                "text": "I enjoy to read mystery novels.",
+                "reason": "Enjoy is always followed by a gerund, not an infinitive. Correct: enjoy reading."
+              },
+              {
+                "text": "She finished to write the report yesterday.",
+                "reason": "Finish takes a gerund, not an infinitive. Correct: finished writing."
+              },
+              {
+                "text": "We avoid to eat junk food.",
+                "reason": "Avoid is followed by a gerund. Correct: avoid eating."
+              },
+              {
+                "text": "Do you mind to close the window?",
+                "reason": "Mind takes a gerund. Correct: mind closing."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Verbs Followed by Infinitives",
+          "definition": "Certain verbs in English are always followed by an infinitive (to + base verb), never by a gerund. Common examples include want, decide, plan, hope, need, agree, refuse, promise, and offer. Memorising these verbs is essential for correct usage.",
+          "rules": [
+            "Common verbs followed by infinitives: want, decide, plan, hope, need, agree, refuse, promise, offer, expect, wish, manage, learn, afford",
+            "After these verbs, always use to + verb, never verb-ing",
+            "These verbs express intentions, decisions, or desires"
+          ],
+          "examples": {
+            "correct": [
+              "I want to visit Paris.",
+              "She decided to study medicine.",
+              "We plan to travel next year.",
+              "He hopes to get a promotion.",
+              "They need to finish the project by Friday.",
+              "I agreed to help him.",
+              "She refused to answer the question.",
+              "He promised to call me."
+            ],
+            "incorrect": [
+              {
+                "text": "I want visiting Paris.",
+                "reason": "Want is followed by an infinitive, not a gerund. Correct: want to visit."
+              },
+              {
+                "text": "She decided studying medicine.",
+                "reason": "Decide takes an infinitive. Correct: decided to study."
+              },
+              {
+                "text": "We plan travelling next year.",
+                "reason": "Plan is followed by an infinitive. Correct: plan to travel."
+              },
+              {
+                "text": "He hopes getting a promotion.",
+                "reason": "Hope takes an infinitive. Correct: hopes to get."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Verbs Followed by Both (with Meaning Changes)",
+          "definition": "Some verbs can be followed by either a gerund or an infinitive, but the meaning of the sentence changes depending on which form is used. The most common examples are stop, remember, forget, try, and regret. Understanding these differences is crucial for accurate communication.",
+          "rules": [
+            "Stop + gerund = cease an action (I stopped smoking = I quit smoking)",
+            "Stop + infinitive = pause one action to do another (I stopped to smoke = I paused to have a cigarette)",
+            "Remember/Forget + gerund = recall a past action (I remember meeting her)",
+            "Remember/Forget + infinitive = recall an obligation (I remembered to call her)",
+            "Try + gerund = experiment (Try adding salt)",
+            "Try + infinitive = make an effort (I tried to open the door)"
+          ],
+          "examples": {
+            "correct": [
+              "He stopped smoking last year. (quit the habit)",
+              "He stopped to smoke a cigarette. (paused to smoke)",
+              "I remember locking the door. (I recall doing it)",
+              "I remembered to lock the door. (I didn't forget my obligation)",
+              "She forgot meeting him before. (she doesn't recall the event)",
+              "She forgot to meet him. (she didn't remember her appointment)",
+              "Try adding more sugar. (experiment with this)",
+              "I tried to open the window but it was stuck. (made an effort)"
+            ],
+            "incorrect": [
+              {
+                "text": "He stopped to smoking last year.",
+                "reason": "To quit a habit, use stop + gerund: He stopped smoking."
+              },
+              {
+                "text": "I remember to lock the door yesterday.",
+                "reason": "To recall a completed action, use remember + gerund: I remember locking."
+              },
+              {
+                "text": "She forgot to meet him before.",
+                "reason": "To recall a past event, use forget + gerund: She forgot meeting him."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "key-rules",
+      "title": "Key Rules",
+      "order": 3,
+      "cards": [
+        {
+          "title": "Rule 1: Use Gerunds After Prepositions",
+          "definition": "Whenever a verb follows a preposition (in, on, at, by, for, without, after, before, etc.), it must be in the gerund form, never the infinitive.",
+          "rules": [
+            "Always use verb-ing after prepositions",
+            "Common patterns: good at, interested in, fond of, tired of, without, by, after, before",
+            "Never use to + verb after a preposition"
+          ],
+          "examples": {
+            "correct": [
+              "She is good at solving problems.",
+              "I am interested in learning guitar.",
+              "He left without saying goodbye.",
+              "They succeeded by working together.",
+              "After finishing dinner, we watched a film."
+            ],
+            "incorrect": [
+              {
+                "text": "She is good at to solve problems.",
+                "reason": "After a preposition, use a gerund, not an infinitive. Correct: good at solving."
+              },
+              {
+                "text": "I am interested in to learn guitar.",
+                "reason": "After in, use a gerund. Correct: interested in learning."
+              },
+              {
+                "text": "He left without to say goodbye.",
+                "reason": "After without, use a gerund. Correct: without saying."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Learn Which Verbs Take Gerunds or Infinitives",
+          "definition": "There is no single rule to determine whether a verb is followed by a gerund or infinitive. You must memorise which verbs take which form.",
+          "rules": [
+            "Verbs followed by gerunds: enjoy, finish, avoid, consider, suggest, practise, mind, admit, deny, risk, miss",
+            "Verbs followed by infinitives: want, decide, plan, hope, need, agree, refuse, promise, offer, expect, manage, learn",
+            "Some verbs take both: like, love, hate, prefer, begin, start, continue"
+          ],
+          "examples": {
+            "correct": [
+              "I enjoy playing football. (enjoy + gerund)",
+              "She wants to learn French. (want + infinitive)",
+              "We finished eating dinner. (finish + gerund)",
+              "He decided to move abroad. (decide + infinitive)",
+              "They love watching films. (love + both, no meaning change)",
+              "They love to watch films. (love + both, no meaning change)"
+            ],
+            "incorrect": [
+              {
+                "text": "I enjoy to play football.",
+                "reason": "Enjoy takes a gerund. Correct: enjoy playing."
+              },
+              {
+                "text": "She wants learning French.",
+                "reason": "Want takes an infinitive. Correct: wants to learn."
+              },
+              {
+                "text": "We finished to eat dinner.",
+                "reason": "Finish takes a gerund. Correct: finished eating."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Understand Meaning Changes with Stop, Remember, Try",
+          "definition": "With verbs like stop, remember, forget, try, and regret, the choice of gerund or infinitive changes the meaning of the sentence.",
+          "rules": [
+            "Stop + gerund = quit (He stopped smoking)",
+            "Stop + infinitive = pause to do something (He stopped to smoke)",
+            "Remember/Forget + gerund = recall past action (I remember meeting her)",
+            "Remember/Forget + infinitive = recall obligation (I remembered to call her)",
+            "Try + gerund = experiment (Try eating less sugar)",
+            "Try + infinitive = make an effort (I tried to call but failed)"
+          ],
+          "examples": {
+            "correct": [
+              "I stopped drinking coffee. (I quit)",
+              "I stopped to drink coffee. (I paused to have coffee)",
+              "I remember visiting that museum. (I recall the visit)",
+              "I remembered to visit the museum. (I didn't forget my plan)",
+              "Try closing the window. (experiment with this solution)",
+              "I tried to close the window but it was jammed. (made an effort)"
+            ],
+            "incorrect": [
+              {
+                "text": "I stopped to drinking coffee last year.",
+                "reason": "To quit a habit, use stop + gerund: stopped drinking."
+              },
+              {
+                "text": "I remember to visit that museum last year.",
+                "reason": "To recall a past event, use remember + gerund: remember visiting."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Gerunds as Subjects Are More Common in Everyday English",
+          "definition": "Both gerunds and infinitives can be used as subjects, but gerunds are more common and natural in everyday spoken and written English.",
+          "rules": [
+            "Gerund as subject is more common: Swimming is fun.",
+            "Infinitive as subject is more formal: To swim is fun.",
+            "Both are grammatically correct, but gerunds sound more natural"
+          ],
+          "examples": {
+            "correct": [
+              "Reading helps you learn new words. (more common)",
+              "To read helps you learn new words. (more formal)",
+              "Studying regularly improves your grades. (more common)",
+              "To study regularly improves your grades. (more formal)"
+            ],
+            "incorrect": []
+          }
+        },
+        {
+          "title": "Rule 5: Infinitives Express Purpose (Why?)",
+          "definition": "Use infinitives (not gerunds) to express the purpose or reason for an action. This answers the question Why?",
+          "rules": [
+            "Infinitive of purpose: I went to the shop to buy milk.",
+            "Never use for + gerund to express purpose in standard English",
+            "Infinitive answers: Why did you do it?"
+          ],
+          "examples": {
+            "correct": [
+              "I went to the library to study.",
+              "She called to ask a question.",
+              "We saved money to buy a car.",
+              "He exercises to stay healthy."
+            ],
+            "incorrect": [
+              {
+                "text": "I went to the library for studying.",
+                "reason": "To express purpose, use an infinitive, not for + gerund. Correct: to study."
+              },
+              {
+                "text": "She called for asking a question.",
+                "reason": "Use an infinitive for purpose. Correct: to ask."
+              },
+              {
+                "text": "We saved money for buying a car.",
+                "reason": "Use an infinitive to express purpose. Correct: to buy."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Mistakes for Indian Learners",
+      "order": 4,
+      "cards": [
+        {
+          "title": "Hindi Influence: Using Infinitive After Prepositions",
+          "definition": "In Hindi, the infinitive form is often used in constructions that require a gerund in English, particularly after prepositions. English always requires a gerund after a preposition, never an infinitive.",
+          "rules": [
+            "Always use gerund (verb-ing) after prepositions in English",
+            "Common prepositions: in, on, at, by, for, without, after, before, of",
+            "Hindi infinitive (karna, jaana) does not translate to English to + verb after prepositions"
+          ],
+          "examples": {
+            "correct": [
+              "She is interested in learning music.",
+              "He is good at playing chess.",
+              "We left without eating dinner.",
+              "They succeeded by working hard.",
+              "I am tired of waiting."
+            ],
+            "incorrect": [
+              {
+                "text": "She is interested in to learn music.",
+                "reason": "After a preposition (in), use a gerund, not an infinitive. Correct: interested in learning."
+              },
+              {
+                "text": "He is good at to play chess.",
+                "reason": "After at, use a gerund. Correct: good at playing."
+              },
+              {
+                "text": "We left without to eat dinner.",
+                "reason": "After without, use a gerund. Correct: without eating."
+              },
+              {
+                "text": "I am tired of to wait.",
+                "reason": "After of, use a gerund. Correct: tired of waiting."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using For + Gerund to Express Purpose",
+          "definition": "Indian learners often use for + gerund to express purpose, influenced by Hindi constructions. In standard English, use the infinitive (to + verb) to express purpose, not for + gerund.",
+          "rules": [
+            "To express purpose, use infinitive: I came to study.",
+            "Do not use for + gerund for purpose in standard English",
+            "For + gerund can mean because of: I was punished for being late. (reason, not purpose)"
+          ],
+          "examples": {
+            "correct": [
+              "I went to the shop to buy milk. (purpose)",
+              "She came to help us. (purpose)",
+              "We study to pass exams. (purpose)",
+              "He was praised for helping others. (reason, not purpose)"
+            ],
+            "incorrect": [
+              {
+                "text": "I went to the shop for buying milk.",
+                "reason": "To express purpose, use an infinitive, not for + gerund. Correct: to buy."
+              },
+              {
+                "text": "She came for helping us.",
+                "reason": "Use an infinitive for purpose. Correct: to help."
+              },
+              {
+                "text": "We study for passing exams.",
+                "reason": "Use an infinitive to express purpose. Correct: to pass."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Confusing Enjoy, Finish, Want, and Decide",
+          "definition": "Indian learners often use infinitives after verbs that require gerunds (enjoy, finish) and gerunds after verbs that require infinitives (want, decide). This confusion arises because Hindi does not make the same distinction.",
+          "rules": [
+            "Enjoy and finish always take gerunds: I enjoy reading. I finished writing.",
+            "Want and decide always take infinitives: I want to read. I decided to write.",
+            "Memorise these common verbs to avoid errors"
+          ],
+          "examples": {
+            "correct": [
+              "I enjoy playing cricket.",
+              "She finished doing her homework.",
+              "He wants to learn French.",
+              "We decided to leave early."
+            ],
+            "incorrect": [
+              {
+                "text": "I enjoy to play cricket.",
+                "reason": "Enjoy takes a gerund, not an infinitive. Correct: enjoy playing."
+              },
+              {
+                "text": "She finished to do her homework.",
+                "reason": "Finish takes a gerund. Correct: finished doing."
+              },
+              {
+                "text": "He wants learning French.",
+                "reason": "Want takes an infinitive. Correct: wants to learn."
+              },
+              {
+                "text": "We decided leaving early.",
+                "reason": "Decide takes an infinitive. Correct: decided to leave."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Misunderstanding Stop, Remember, and Try",
+          "definition": "The meaning changes with stop, remember, forget, and try depending on whether a gerund or infinitive follows. Indian learners often miss these nuances.",
+          "rules": [
+            "Stop + gerund = quit (He stopped smoking = He quit)",
+            "Stop + infinitive = pause to do something (He stopped to smoke = He paused)",
+            "Remember + gerund = recall past action (I remember meeting her)",
+            "Remember + infinitive = recall obligation (I remembered to call her)",
+            "Try + gerund = experiment (Try eating less)",
+            "Try + infinitive = make an effort (I tried to call)"
+          ],
+          "examples": {
+            "correct": [
+              "I stopped eating junk food. (I quit)",
+              "I stopped to eat lunch. (I paused to eat)",
+              "I remember visiting Agra. (I recall the visit)",
+              "I remembered to visit my aunt. (I didn't forget my plan)",
+              "Try drinking more water. (experiment with this)",
+              "I tried to open the door but it was locked. (made an effort)"
+            ],
+            "incorrect": [
+              {
+                "text": "I stopped to eating junk food last year.",
+                "reason": "To quit a habit, use stop + gerund: stopped eating."
+              },
+              {
+                "text": "I remember to visit Agra last year.",
+                "reason": "To recall a past action, use remember + gerund: remember visiting."
+              },
+              {
+                "text": "Try to drink more water if you feel thirsty.",
+                "reason": "To suggest an experiment, use try + gerund: Try drinking. (Try to drink means make an effort, which changes the meaning.)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using Go + Infinitive Instead of Go + Gerund",
+          "definition": "With the verb go for activities, English uses go + gerund (go swimming, go shopping), not go + infinitive. This pattern is common for recreational activities.",
+          "rules": [
+            "Use go + gerund for activities: go swimming, go shopping, go fishing, go running",
+            "Never use go + infinitive for these activities",
+            "This pattern is specific to recreational activities"
+          ],
+          "examples": {
+            "correct": [
+              "I go swimming every weekend.",
+              "She went shopping yesterday.",
+              "They go fishing in the summer.",
+              "We go running in the park."
+            ],
+            "incorrect": [
+              {
+                "text": "I go to swim every weekend.",
+                "reason": "With go for activities, use a gerund: go swimming."
+              },
+              {
+                "text": "She went to shop yesterday.",
+                "reason": "Use go + gerund: went shopping."
+              },
+              {
+                "text": "They go to fish in the summer.",
+                "reason": "Use go + gerund: go fishing."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice Problems",
+      "order": 5,
+      "cards": [
+        {
+          "title": "Practice 1: Choosing Gerunds or Infinitives After Verbs",
+          "definition": "Identify whether the verb requires a gerund or an infinitive, and use the correct form.",
+          "rules": [
+            "Gerund verbs: enjoy, finish, avoid, consider, suggest, practise, mind",
+            "Infinitive verbs: want, decide, plan, hope, need, agree, refuse, promise",
+            "Memorise which verbs take which form"
+          ],
+          "examples": {
+            "correct": [
+              "I enjoy reading books.",
+              "She wants to visit Paris.",
+              "We finished writing the report.",
+              "He decided to study medicine.",
+              "They avoid eating fast food.",
+              "I hope to see you soon."
+            ],
+            "incorrect": [
+              {
+                "text": "I enjoy to read books.",
+                "reason": "Enjoy takes a gerund. Correct: enjoy reading."
+              },
+              {
+                "text": "She wants visiting Paris.",
+                "reason": "Want takes an infinitive. Correct: wants to visit."
+              },
+              {
+                "text": "We finished to write the report.",
+                "reason": "Finish takes a gerund. Correct: finished writing."
+              },
+              {
+                "text": "He decided studying medicine.",
+                "reason": "Decide takes an infinitive. Correct: decided to study."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 2: Using Gerunds After Prepositions",
+          "definition": "Always use a gerund (verb-ing), not an infinitive, after a preposition.",
+          "rules": [
+            "After prepositions (in, on, at, by, for, without, after, before, of), use gerund",
+            "Common phrases: good at, interested in, tired of, without, by"
+          ],
+          "examples": {
+            "correct": [
+              "She is interested in learning Spanish.",
+              "He is good at solving puzzles.",
+              "We left without saying goodbye.",
+              "They improved by practising daily.",
+              "I am tired of waiting."
+            ],
+            "incorrect": [
+              {
+                "text": "She is interested in to learn Spanish.",
+                "reason": "After in, use a gerund. Correct: interested in learning."
+              },
+              {
+                "text": "He is good at to solve puzzles.",
+                "reason": "After at, use a gerund. Correct: good at solving."
+              },
+              {
+                "text": "We left without to say goodbye.",
+                "reason": "After without, use a gerund. Correct: without saying."
+              },
+              {
+                "text": "I am tired of to wait.",
+                "reason": "After of, use a gerund. Correct: tired of waiting."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 3: Understanding Stop, Remember, and Try",
+          "definition": "Recognise the meaning change when these verbs are followed by a gerund or an infinitive.",
+          "rules": [
+            "Stop + gerund = quit (He stopped smoking)",
+            "Stop + infinitive = pause (He stopped to smoke)",
+            "Remember/Forget + gerund = recall past (I remember meeting her)",
+            "Remember/Forget + infinitive = recall obligation (I remembered to call)",
+            "Try + gerund = experiment (Try adding salt)",
+            "Try + infinitive = make an effort (I tried to open)"
+          ],
+          "examples": {
+            "correct": [
+              "He stopped smoking last year. (quit)",
+              "He stopped to smoke a cigarette. (paused)",
+              "I remember locking the door. (recall doing it)",
+              "I remembered to lock the door. (didn't forget obligation)",
+              "Try eating less sugar. (experiment)",
+              "I tried to call you but the line was busy. (made an effort)"
+            ],
+            "incorrect": [
+              {
+                "text": "He stopped to smoking last year.",
+                "reason": "To quit, use stop + gerund: stopped smoking."
+              },
+              {
+                "text": "I remember to lock the door yesterday.",
+                "reason": "To recall a past action, use remember + gerund: remember locking."
+              },
+              {
+                "text": "Try to eat less sugar if you want to be healthy.",
+                "reason": "To suggest an experiment, use try + gerund: Try eating. (Try to eat means make an effort.)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 4: Expressing Purpose with Infinitives",
+          "definition": "Use infinitives (to + verb), not for + gerund, to express the purpose of an action.",
+          "rules": [
+            "Infinitive of purpose: I went to buy milk.",
+            "Not: I went for buying milk.",
+            "Infinitive answers: Why?"
+          ],
+          "examples": {
+            "correct": [
+              "I went to the library to study.",
+              "She called to ask a question.",
+              "We exercise to stay fit.",
+              "He saved money to buy a house."
+            ],
+            "incorrect": [
+              {
+                "text": "I went to the library for studying.",
+                "reason": "To express purpose, use an infinitive: to study."
+              },
+              {
+                "text": "She called for asking a question.",
+                "reason": "Use an infinitive for purpose: to ask."
+              },
+              {
+                "text": "We exercise for staying fit.",
+                "reason": "Use an infinitive to express purpose: to stay."
+              }
+            ]
+          }
+        },
+        {
+          "title": "Practice 5: Using Go + Gerund for Activities",
+          "definition": "With go for recreational activities, use go + gerund, not go + infinitive.",
+          "rules": [
+            "Use go + gerund: go swimming, go shopping, go fishing, go running",
+            "Not: go to swim, go to shop"
+          ],
+          "examples": {
+            "correct": [
+              "I go swimming on Sundays.",
+              "She went shopping yesterday.",
+              "They go fishing in the lake.",
+              "We go running every morning."
+            ],
+            "incorrect": [
+              {
+                "text": "I go to swim on Sundays.",
+                "reason": "With go for activities, use a gerund: go swimming."
+              },
+              {
+                "text": "She went to shop yesterday.",
+                "reason": "Use go + gerund: went shopping."
+              },
+              {
+                "text": "They go to fish in the lake.",
+                "reason": "Use go + gerund: go fishing."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Quick Revision",
+      "order": 6,
+      "cards": [
+        {
+          "title": "Ten Essential Points to Remember",
+          "definition": "Master these ten fundamental rules to use gerunds and infinitives correctly and avoid common errors.",
+          "rules": [
+            "Gerund: verb + -ing, functions as a noun (Swimming is fun, I enjoy reading)",
+            "Infinitive: to + base verb (to swim, to read), used after many verbs and to express purpose",
+            "After prepositions, always use gerunds, never infinitives (good at playing, interested in learning)",
+            "Verbs followed by gerunds: enjoy, finish, avoid, consider, suggest, practise, mind, admit",
+            "Verbs followed by infinitives: want, decide, plan, hope, need, agree, refuse, promise, offer",
+            "Stop + gerund = quit (stopped smoking); stop + infinitive = pause (stopped to smoke)",
+            "Remember/Forget + gerund = recall past (remember meeting); + infinitive = recall obligation (remembered to call)",
+            "Try + gerund = experiment (try eating less); try + infinitive = make an effort (tried to open)",
+            "Use infinitives to express purpose (went to study), not for + gerund",
+            "Use go + gerund for activities (go swimming, go shopping), not go + infinitive"
+          ],
+          "examples": {
+            "correct": [
+              "I enjoy playing cricket. (gerund after enjoy)",
+              "She wants to learn French. (infinitive after want)",
+              "He is good at solving problems. (gerund after preposition at)",
+              "We finished eating dinner. (gerund after finish)",
+              "They decided to move abroad. (infinitive after decide)",
+              "I stopped smoking last year. (quit the habit)",
+              "I stopped to smoke a cigarette. (paused to smoke)",
+              "I remember locking the door. (recall doing it)",
+              "I remembered to lock the door. (didn't forget)",
+              "I went to the shop to buy milk. (infinitive for purpose)"
+            ],
+            "incorrect": []
+          }
+        }
+      ]
+    }
+  ]
+}

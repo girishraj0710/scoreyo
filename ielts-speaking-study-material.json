@@ -1,0 +1,136 @@
+{
+  "topic_id": "ielts-speaking",
+  "title": "IELTS Speaking Test Preparation",
+  "sections": [
+    {
+      "title": "Test Overview",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**Duration**: 11-14 minutes | **Format**: One-on-one with examiner | **Scoring**: Fluency, Vocabulary, Grammar, Pronunciation (each 0-9)"
+        },
+        {
+          "type": "text",
+          "content": "**Part 1 (4-5 min)**: Personal questions about yourself, family, work, hobbies, hometown."
+        },
+        {
+          "type": "text",
+          "content": "**Part 2 (3-4 min)**: Cue card topic → 1 min preparation → 2 min speech → 1-2 follow-up questions."
+        },
+        {
+          "type": "text",
+          "content": "**Part 3 (4-5 min)**: Abstract discussion linking Part 2 to broader society, future trends, ethics."
+        }
+      ]
+    },
+    {
+      "title": "Part 1: Personal Questions",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**Common Topics**: Work/Study, Hometown, Family, Hobbies, Daily Routine, Food, Technology, Weather"
+        },
+        {
+          "type": "example",
+          "content": "**Q**: Do you work or study?\n**A**: I'm a software engineer at TCS. I've been working there for 2 years now, mainly on web development projects."
+        },
+        {
+          "type": "example",
+          "content": "**Q**: What do you do in your free time?\n**A**: I usually watch cricket matches or go for walks in the evening. Sometimes I cook biryani on weekends."
+        },
+        {
+          "type": "example",
+          "content": "**Q**: Tell me about your hometown.\n**A**: I'm from Pune, a city in Maharashtra. It's known for its IT industry and pleasant weather. There are many colleges, so it's quite lively."
+        },
+        {
+          "type": "text",
+          "content": "**Strategy**: Extend answers to 2-3 sentences. Add reasons/examples. Don't give one-word answers."
+        }
+      ]
+    },
+    {
+      "title": "Part 2: Cue Card Topics",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**Structure**: Who/What/When/Where → Why/How → Personal feelings/impact"
+        },
+        {
+          "type": "example",
+          "content": "**Topic**: Describe a teacher who influenced you.\n\n**Who**: My Class 10 math teacher, Mr. Sharma\n**When/Where**: At DAV School, 2018\n**Why memorable**: He made algebra fun using real-life examples like cricket statistics\n**Impact**: I scored 95% in math boards and chose engineering"
+        },
+        {
+          "type": "example",
+          "content": "**Topic**: Describe a place you'd like to visit.\n\n**What/Where**: Leh-Ladakh, Himalayas\n**Why**: Stunning landscapes, Buddhist monasteries, adventure sports\n**When**: Next summer during vacation\n**Feelings**: Excited to disconnect from city chaos"
+        },
+        {
+          "type": "example",
+          "content": "**Topic**: Describe a skill you want to learn.\n\n**What**: Playing guitar\n**Why**: Love Bollywood songs, want to play for family gatherings\n**How**: Online YouTube lessons, 30 min daily practice\n**Challenge**: Finger coordination, reading chords"
+        }
+      ]
+    },
+    {
+      "title": "Part 3: Abstract Discussion",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**How Part 3 extends Part 2**: If Part 2 = personal experience, Part 3 = society-level analysis"
+        },
+        {
+          "type": "example",
+          "content": "**Part 2**: Teacher who influenced you\n**Part 3 Q**: Should teachers use more technology in classrooms?\n**Answer**: Yes, tools like smartboards make learning interactive. However, rural schools lack electricity, so it's not feasible everywhere. Balance is key."
+        },
+        {
+          "type": "example",
+          "content": "**Part 2**: Place you want to visit\n**Part 3 Q**: Has tourism damaged natural places?\n**Answer**: Definitely. Popular spots like Manali face littering and overcrowding. Stricter regulations and eco-tourism can help preserve nature."
+        },
+        {
+          "type": "text",
+          "content": "**Strategy**: Give opinion → Explain with examples → Show both sides → Conclude. Use: \"In my opinion\", \"For instance\", \"However\", \"On the other hand\""
+        }
+      ]
+    },
+    {
+      "title": "Fluency & Linking Words",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**Pause Fillers** (natural, not 'umm'): Well, Actually, You know, I mean, Let me think, That's a good question"
+        },
+        {
+          "type": "text",
+          "content": "**Adding Ideas**: Moreover, Furthermore, In addition, Besides, Also, What's more"
+        },
+        {
+          "type": "text",
+          "content": "**Contrast**: However, On the other hand, Although, Nevertheless, Despite this, Whereas"
+        },
+        {
+          "type": "text",
+          "content": "**Examples**: For instance, Such as, Like, To illustrate, A good example is"
+        }
+      ]
+    },
+    {
+      "title": "Common Indian Mistakes",
+      "blocks": [
+        {
+          "type": "mistake",
+          "content": "❌ **Mother tongue influence**: \"I am doing engineering\" → ✅ \"I'm studying engineering\" | ❌ \"My native is Delhi\" → ✅ \"I'm from Delhi\""
+        },
+        {
+          "type": "mistake",
+          "content": "❌ **Articles**: \"I go to office\" → ✅ \"I go to the office\" | ❌ \"He is good person\" → ✅ \"He's a good person\""
+        },
+        {
+          "type": "mistake",
+          "content": "❌ **Pronunciation**: Say 'V' not 'W' in **very, video, valley** | Say 'W' not 'V' in **west, weather, world**"
+        },
+        {
+          "type": "mistake",
+          "content": "❌ **Word stress**: **PHO-to-graph** (not pho-TO-graph), **de-VE-lop** (not DE-ve-lop), **com-FOR-ta-ble** (not com-fort-A-ble)"
+        }
+      ]
+    }
+  ]
+}

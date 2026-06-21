@@ -1,0 +1,1311 @@
+{
+  "topic_id": "prepositions-mastery",
+  "title": "Prepositions Complete",
+  "subtitle": "Mastering In, On, At for Time and Place, Movement, Position, and Prepositional Phrases",
+  "overview": "Prepositions are small but powerful words that show relationships between nouns or pronouns and other elements in a sentence. They indicate position, direction, time, manner, or logical relationships. This comprehensive module covers the complete spectrum of prepositional usage: time prepositions (in, on, at for dates, times, periods), place prepositions (in, on, at for locations), movement prepositions (to, from, into, across), positional prepositions (above, below, beside, between), and common prepositional phrases. Mastery of prepositions is essential for accurate English communication and is frequently tested in competitive examinations such as SSC, Banking, Railways, UPSC, and other government recruitment tests. This module addresses common errors made by native Hindi speakers and provides systematic practice to develop intuitive prepositional accuracy.",
+  "sections": [
+    {
+      "section_id": "introduction",
+      "title": "Introduction to Prepositions",
+      "cards": [
+        {
+          "title": "What is a Preposition?",
+          "definition": "A preposition is a word placed before a noun or pronoun to show its relationship with another word in the sentence. Prepositions typically indicate location (where something is), direction (where something is going), time (when something happens), manner (how something happens), or logical relationships (reason, purpose, possession). Common prepositions include in, on, at, to, from, with, by, for, of, about, above, below, beside, between, among, through, during, since, until, and many others. The noun or pronoun following the preposition is called the object of the preposition, and together they form a prepositional phrase.",
+          "rules": [
+            "Prepositions always come before a noun or pronoun (their object)",
+            "The preposition and its object form a prepositional phrase",
+            "Prepositions show relationships of time, place, direction, or manner",
+            "Common prepositions include in, on, at, to, from, by, with, for, of, about",
+            "The choice of preposition often depends on context and cannot always be translated literally from other languages"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The books are on the table.",
+                "reason": "Preposition 'on' shows the position relationship between books and table"
+              },
+              {
+                "text": "She arrived at nine o'clock.",
+                "reason": "Preposition 'at' indicates the specific time of arrival"
+              },
+              {
+                "text": "He walked to the station.",
+                "reason": "Preposition 'to' shows the direction of movement"
+              },
+              {
+                "text": "We have lived in Mumbai since 2020.",
+                "reason": "Prepositions 'in' (place) and 'since' (starting point in time) show relationships"
+              },
+              {
+                "text": "The cat jumped from the roof.",
+                "reason": "Preposition 'from' indicates the starting point of movement"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The books are in the table.",
+                "reason": "Wrong preposition - books rest 'on' a flat surface, not 'in' (which implies enclosure)"
+              },
+              {
+                "text": "She arrived in nine o'clock.",
+                "reason": "Wrong preposition - use 'at' for specific clock times, not 'in'"
+              },
+              {
+                "text": "He walked in the station.",
+                "reason": "Wrong preposition - use 'to' for destination/direction, not 'in' (which implies being inside)"
+              },
+              {
+                "text": "We have lived in Mumbai from 2020.",
+                "reason": "Wrong preposition - use 'since' for starting point with present perfect, not 'from'"
+              },
+              {
+                "text": "The cat jumped of the roof.",
+                "reason": "Wrong preposition - use 'from' for starting point of movement, not 'of' (possession)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "core-concepts",
+      "title": "Core Concepts of Prepositions",
+      "cards": [
+        {
+          "title": "Time Prepositions: In, On, At",
+          "definition": "The prepositions in, on, and at are used to indicate time, but each has specific usage rules. Use 'in' for longer periods (months, years, decades, centuries, seasons, parts of day), 'on' for specific days and dates, and 'at' for precise times on the clock and specific moments. The choice depends on the specificity of the time reference: 'in' is the most general (larger time blocks), 'on' is more specific (particular days), and 'at' is the most precise (exact moments or clock times).",
+          "rules": [
+            "Use 'in' for months (in January), years (in 2024), seasons (in summer), parts of day (in the morning, but 'at night')",
+            "Use 'on' for days of the week (on Monday), specific dates (on 15th August), special days (on Independence Day)",
+            "Use 'at' for specific clock times (at 9 o'clock, at noon, at midnight), meal times (at breakfast, at lunch), and 'at night'",
+            "Exception: We say 'at night' (not in the night) but 'in the morning/afternoon/evening'",
+            "Use 'in' for durations (in two weeks, in five minutes) meaning 'after this period'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination begins in June.",
+                "reason": "Use 'in' for months - June is a longer time period"
+              },
+              {
+                "text": "Independence Day is celebrated on 15th August.",
+                "reason": "Use 'on' for specific dates - 15th August is a particular day"
+              },
+              {
+                "text": "The train departs at 9:30 in the morning.",
+                "reason": "Use 'at' for exact clock time (9:30) and 'in' for part of day (morning)"
+              },
+              {
+                "text": "We lived in Delhi in 2018.",
+                "reason": "Use 'in' for years - 2018 is a longer time period"
+              },
+              {
+                "text": "The shops are closed at night.",
+                "reason": "Exception: use 'at night', not 'in the night'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The examination begins on June.",
+                "reason": "Wrong preposition - use 'in' for months, not 'on'"
+              },
+              {
+                "text": "Independence Day is celebrated in 15th August.",
+                "reason": "Wrong preposition - use 'on' for specific dates, not 'in'"
+              },
+              {
+                "text": "The train departs in 9:30.",
+                "reason": "Wrong preposition - use 'at' for clock times, not 'in'"
+              },
+              {
+                "text": "We lived in Delhi on 2018.",
+                "reason": "Wrong preposition - use 'in' for years, not 'on'"
+              },
+              {
+                "text": "The shops are closed in night.",
+                "reason": "Exception error - must say 'at night', not 'in night' (article missing too)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Place Prepositions: In, On, At",
+          "definition": "The same prepositions (in, on, at) are used for place and location, but with different logic than time. Use 'in' for enclosed spaces or larger areas (countries, cities, rooms), 'on' for surfaces and lines (streets, floors, pages), and 'at' for specific points or locations (addresses, buildings as points, events). Think of it this way: 'in' suggests being inside or surrounded by something, 'on' suggests contact with a surface, and 'at' treats the location as a point rather than an area.",
+          "rules": [
+            "Use 'in' for countries, cities, towns, rooms, buildings (when inside), enclosed spaces (in the box, in the car)",
+            "Use 'on' for surfaces (on the table, on the floor), streets (on Park Street), floors of buildings (on the third floor)",
+            "Use 'at' for specific addresses (at 23 Park Street), buildings as points (at the station, at the office), events (at the party)",
+            "Use 'in' when you mean inside the building, 'at' when you mean the location as a point",
+            "Transportation: 'in' for cars/taxis (enclosed), 'on' for buses/trains/planes (you stand/sit on their surface)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She lives in Mumbai.",
+                "reason": "Use 'in' for cities - Mumbai is a larger area"
+              },
+              {
+                "text": "The office is on the fifth floor.",
+                "reason": "Use 'on' for floors of buildings"
+              },
+              {
+                "text": "We shall meet at the railway station.",
+                "reason": "Use 'at' for specific locations treated as points - station is a meeting point"
+              },
+              {
+                "text": "The books are on the shelf.",
+                "reason": "Use 'on' for surfaces - shelf is a flat surface"
+              },
+              {
+                "text": "He is in the car waiting for us.",
+                "reason": "Use 'in' for enclosed vehicles like cars"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She lives at Mumbai.",
+                "reason": "Wrong preposition - use 'in' for cities, not 'at' (unless you mean the airport: at Mumbai airport)"
+              },
+              {
+                "text": "The office is in the fifth floor.",
+                "reason": "Wrong preposition - use 'on' for floors, not 'in'"
+              },
+              {
+                "text": "We shall meet in the railway station.",
+                "reason": "Usually use 'at' for stations as meeting points; 'in' implies being inside the building"
+              },
+              {
+                "text": "The books are in the shelf.",
+                "reason": "Wrong preposition - books rest 'on' the shelf surface, not enclosed 'in' it"
+              },
+              {
+                "text": "He is on the car waiting for us.",
+                "reason": "Wrong preposition - use 'in' for cars (enclosed space), not 'on' (unless sitting on the roof)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Movement Prepositions",
+          "definition": "Movement prepositions indicate direction or the path of motion. Common movement prepositions include 'to' (destination), 'from' (starting point), 'into' (entering an enclosed space), 'out of' (exiting), 'onto' (moving to a surface), 'off' (leaving a surface), 'through' (passing via), 'across' (from one side to another), 'along' (following a line), 'towards/toward' (in the direction of), 'past' (going beyond), 'around/round' (encircling or surrounding), 'up' (ascending), 'down' (descending). The choice of movement preposition depends on the type of motion and the nature of the destination or path.",
+          "rules": [
+            "Use 'to' for destinations: go to school, travel to Delhi, move to a new house",
+            "Use 'from' for starting points: come from Mumbai, travel from Delhi to Kolkata",
+            "Use 'into' when entering an enclosed space: walk into the room, jump into the water",
+            "Use 'onto' when moving to a surface: climb onto the roof, step onto the platform",
+            "Use 'through' for movement within a space: walk through the park, drive through the tunnel"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She goes to school every day.",
+                "reason": "Use 'to' to indicate destination - school is where she is going"
+              },
+              {
+                "text": "He jumped into the swimming pool.",
+                "reason": "Use 'into' for entering an enclosed space - pool contains water"
+              },
+              {
+                "text": "The train travelled from Delhi to Mumbai.",
+                "reason": "Use 'from' for starting point and 'to' for destination"
+              },
+              {
+                "text": "We walked through the garden to reach the gate.",
+                "reason": "Use 'through' for movement within a space - moving inside the garden area"
+              },
+              {
+                "text": "The cat climbed onto the roof.",
+                "reason": "Use 'onto' for moving to a surface - roof is a flat surface"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She goes in school every day.",
+                "reason": "Wrong preposition - use 'to' for destination, not 'in' (you can be 'in' school once there)"
+              },
+              {
+                "text": "He jumped in the swimming pool.",
+                "reason": "Less precise - use 'into' to show movement of entering, not static 'in'"
+              },
+              {
+                "text": "The train travelled of Delhi to Mumbai.",
+                "reason": "Wrong preposition - use 'from' for starting point, not 'of'"
+              },
+              {
+                "text": "We walked in the garden to reach the gate.",
+                "reason": "Ambiguous - 'in' suggests being inside; use 'through' to show passage/movement"
+              },
+              {
+                "text": "The cat climbed on the roof.",
+                "reason": "Less precise - use 'onto' to show movement to the surface, not static 'on'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Positional Prepositions",
+          "definition": "Positional prepositions describe the static position or location of one object in relation to another. These include 'above' (higher than, but not touching), 'below' (lower than), 'over' (directly above, may be touching or covering), 'under' (directly below, may be touching), 'beside/next to' (at the side of), 'between' (in the space separating two things), 'among' (surrounded by more than two), 'in front of' (facing), 'behind' (at the back of), 'inside' (within an enclosed space), 'outside' (external to), 'near' (close to), 'opposite' (facing directly across from), 'against' (touching and supported by).",
+          "rules": [
+            "Use 'above' when something is higher without touching: clouds above the mountain",
+            "Use 'over' when something is directly above or covering: bridge over the river, blanket over the bed",
+            "Use 'below' for lower position without contact: valley below the peak",
+            "Use 'under' for directly beneath or covered by: cat under the table, under the blanket",
+            "Use 'between' for two objects, 'among' for more than two: between two students, among the crowd"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The clock hangs above the door.",
+                "reason": "Use 'above' for higher position without direct contact"
+              },
+              {
+                "text": "The bridge passes over the river.",
+                "reason": "Use 'over' when something spans across or covers from above"
+              },
+              {
+                "text": "She sat between her two friends.",
+                "reason": "Use 'between' for position in the space separating two people"
+              },
+              {
+                "text": "The agreement was made among all the partners.",
+                "reason": "Use 'among' for more than two people or things"
+              },
+              {
+                "text": "The cat is hiding under the bed.",
+                "reason": "Use 'under' for position directly beneath something"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The clock hangs over the door.",
+                "reason": "Wrong preposition - 'over' suggests covering or directly above; use 'above' for higher position"
+              },
+              {
+                "text": "The bridge passes above the river.",
+                "reason": "Less natural - 'over' is preferred when something spans across"
+              },
+              {
+                "text": "She sat among her two friends.",
+                "reason": "Wrong preposition - use 'between' for exactly two, not 'among'"
+              },
+              {
+                "text": "The agreement was made between all the partners.",
+                "reason": "Wrong preposition - use 'among' for more than two, not 'between'"
+              },
+              {
+                "text": "The cat is hiding below the bed.",
+                "reason": "Unnatural - use 'under' for directly beneath with possible contact, not 'below'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Prepositional Phrases",
+          "definition": "A prepositional phrase is a group of words consisting of a preposition, its object (a noun or pronoun), and any modifiers of that object. Prepositional phrases function as adjectives (describing nouns) or adverbs (describing verbs, adjectives, or other adverbs) in sentences. They add detail about time, place, manner, cause, or purpose. Many prepositional phrases are fixed expressions or idioms that must be learned as complete units: 'in spite of', 'on behalf of', 'in accordance with', 'with regard to', 'by means of', 'in addition to', 'on account of', 'for the sake of', 'in favour of', 'at the expense of'.",
+          "rules": [
+            "A prepositional phrase begins with a preposition and ends with its object (noun/pronoun)",
+            "Prepositional phrases can modify nouns (adjectival) or verbs/adjectives/adverbs (adverbial)",
+            "Many prepositional phrases are fixed expressions and must be memorised as units",
+            "The object of the preposition is always in objective case: with him (not with he)",
+            "Multiple prepositional phrases can appear in one sentence"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "He succeeded in spite of many difficulties.",
+                "reason": "Fixed phrase 'in spite of' means 'despite' - correct usage"
+              },
+              {
+                "text": "She spoke on behalf of the entire team.",
+                "reason": "Fixed phrase 'on behalf of' means 'representing' - correct usage"
+              },
+              {
+                "text": "The decision was made in accordance with the rules.",
+                "reason": "Fixed phrase 'in accordance with' means 'following' - correct usage"
+              },
+              {
+                "text": "He stayed at home on account of bad weather.",
+                "reason": "Fixed phrase 'on account of' means 'because of' - correct usage"
+              },
+              {
+                "text": "The book on the table belongs to me.",
+                "reason": "Prepositional phrase 'on the table' modifies the noun 'book' (adjectival)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He succeeded despite of many difficulties.",
+                "reason": "Wrong form - either use 'despite' alone or 'in spite of', not 'despite of'"
+              },
+              {
+                "text": "She spoke in behalf of the entire team.",
+                "reason": "Wrong preposition - the fixed phrase is 'on behalf of', not 'in behalf of'"
+              },
+              {
+                "text": "The decision was made in accordance to the rules.",
+                "reason": "Wrong preposition - the fixed phrase is 'in accordance with', not 'to'"
+              },
+              {
+                "text": "He stayed at home in account of bad weather.",
+                "reason": "Wrong preposition - the fixed phrase is 'on account of', not 'in account of'"
+              },
+              {
+                "text": "The book in the table belongs to me.",
+                "reason": "Wrong preposition - books rest 'on' a surface, not 'in' (enclosed)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "key-rules",
+      "title": "Key Rules and Usage Patterns",
+      "cards": [
+        {
+          "title": "Prepositions After Verbs",
+          "definition": "Many verbs require specific prepositions to complete their meaning. These verb-preposition combinations (also called prepositional verbs) must be learned as fixed patterns because the preposition choice is often idiomatic and cannot be predicted by logic or translation. Common patterns include: agree with (someone), agree to (something), depend on, wait for, look at, listen to, think about/of, talk about/to, laugh at, arrive at (small places), arrive in (cities/countries), apologise for, apply for (job), apply to (institution), believe in, belong to, care about/for, complain about.",
+          "rules": [
+            "Verb + preposition combinations are fixed and must be memorised",
+            "The preposition choice is often idiomatic and differs from literal translation",
+            "Some verbs take different prepositions with different meanings: agree with (person) vs agree to (proposal)",
+            "Using the wrong preposition changes the meaning or makes the sentence incorrect",
+            "These combinations appear frequently in competitive examinations"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I agree with you on this matter.",
+                "reason": "Use 'agree with' when agreeing with a person"
+              },
+              {
+                "text": "She agreed to the proposal.",
+                "reason": "Use 'agree to' when agreeing to accept something"
+              },
+              {
+                "text": "Success depends on hard work.",
+                "reason": "'Depend on' is the fixed combination"
+              },
+              {
+                "text": "We are waiting for the results.",
+                "reason": "'Wait for' is the correct verb-preposition combination"
+              },
+              {
+                "text": "They arrived in Delhi yesterday.",
+                "reason": "Use 'arrive in' for cities and countries"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I agree to you on this matter.",
+                "reason": "Wrong preposition - use 'agree with' for persons, not 'agree to'"
+              },
+              {
+                "text": "She agreed with the proposal.",
+                "reason": "Wrong preposition - use 'agree to' for things/proposals, not 'agree with'"
+              },
+              {
+                "text": "Success depends of hard work.",
+                "reason": "Wrong preposition - must use 'depend on', not 'depend of'"
+              },
+              {
+                "text": "We are waiting the results.",
+                "reason": "Missing preposition - must use 'wait for', not just 'wait' (direct object)"
+              },
+              {
+                "text": "They arrived at Delhi yesterday.",
+                "reason": "Wrong preposition - use 'arrive in' for cities, 'arrive at' only for small specific places"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Prepositions After Adjectives",
+          "definition": "Many adjectives are followed by specific prepositions to complete their meaning. These adjective-preposition combinations are also fixed patterns. Common combinations include: afraid of, angry with (person)/about (situation), aware of, capable of, different from, famous for, fond of, good at, interested in, pleased with, proud of, responsible for, similar to, tired of, worried about, satisfied with, jealous of, suitable for, inferior to, superior to, preferable to, familiar with, grateful to/for.",
+          "rules": [
+            "Adjective + preposition combinations are fixed expressions",
+            "Some adjectives take different prepositions for different meanings: angry with (person) vs angry about (situation)",
+            "The preposition completes the meaning of the adjective",
+            "These patterns must be memorised as they do not follow predictable rules",
+            "Using the wrong preposition is a common error in competitive exams"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is afraid of darkness.",
+                "reason": "'Afraid of' is the correct fixed combination"
+              },
+              {
+                "text": "He is good at mathematics.",
+                "reason": "'Good at' is used for skills or subjects"
+              },
+              {
+                "text": "The students are interested in science.",
+                "reason": "'Interested in' is the correct combination"
+              },
+              {
+                "text": "Mumbai is famous for its film industry.",
+                "reason": "'Famous for' indicates what something is known for"
+              },
+              {
+                "text": "I am satisfied with the results.",
+                "reason": "'Satisfied with' is the correct combination"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is afraid from darkness.",
+                "reason": "Wrong preposition - must use 'afraid of', not 'afraid from'"
+              },
+              {
+                "text": "He is good in mathematics.",
+                "reason": "Wrong preposition - use 'good at' for skills, not 'good in'"
+              },
+              {
+                "text": "The students are interested for science.",
+                "reason": "Wrong preposition - must use 'interested in', not 'interested for'"
+              },
+              {
+                "text": "Mumbai is famous with its film industry.",
+                "reason": "Wrong preposition - use 'famous for', not 'famous with'"
+              },
+              {
+                "text": "I am satisfied from the results.",
+                "reason": "Wrong preposition - must use 'satisfied with', not 'satisfied from'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Prepositions of Time: Special Cases",
+          "definition": "Beyond the basic in/on/at rules, several time prepositions have specific uses: 'since' (starting point continuing to now, used with present perfect), 'for' (duration of time), 'during' (throughout a period), 'by' (not later than, deadline), 'until/till' (up to a point in time), 'from...to' (time span), 'within' (before the end of a period), 'ago' (time before now, used with past simple), 'before' (earlier than), 'after' (later than). Choosing the correct time preposition depends on whether you are indicating a point in time, a duration, or a relationship between times.",
+          "rules": [
+            "Use 'since' for starting point with present perfect: I have lived here since 2020",
+            "Use 'for' for duration with any tense: I lived there for five years",
+            "Use 'during' for when something happens within a period: during the meeting",
+            "Use 'by' for deadlines: finish by Friday (not later than Friday)",
+            "Use 'until/till' for continuation up to a point: wait until tomorrow"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She has worked here since January.",
+                "reason": "'Since' indicates starting point with present perfect tense"
+              },
+              {
+                "text": "He studied for three hours.",
+                "reason": "'For' indicates duration of time"
+              },
+              {
+                "text": "The phone rang during the examination.",
+                "reason": "'During' indicates when something happened within a period"
+              },
+              {
+                "text": "Please submit the assignment by Monday.",
+                "reason": "'By' indicates deadline (not later than Monday)"
+              },
+              {
+                "text": "We shall wait until he arrives.",
+                "reason": "'Until' indicates continuation up to a specific point"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She has worked here from January.",
+                "reason": "Wrong preposition - use 'since' with present perfect for starting point, not 'from'"
+              },
+              {
+                "text": "He studied since three hours.",
+                "reason": "Wrong preposition - use 'for' with duration, not 'since' (which needs a point in time)"
+              },
+              {
+                "text": "The phone rang while the examination.",
+                "reason": "Wrong word - use 'during' with nouns, 'while' with clauses (while we were taking the examination)"
+              },
+              {
+                "text": "Please submit the assignment until Monday.",
+                "reason": "Wrong preposition - use 'by' for deadlines, 'until' means you can submit any time up to Monday"
+              },
+              {
+                "text": "We shall wait by he arrives.",
+                "reason": "Wrong preposition - use 'until' for continuation to a point, 'by' is for deadlines with nouns"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Prepositions vs Adverbs",
+          "definition": "Some words can function as either prepositions or adverbs depending on whether they have an object. When followed by a noun or pronoun, the word is a preposition. When standing alone without an object, it is an adverb. Common words with dual functions include: about, above, across, after, along, before, behind, below, down, in, near, off, on, over, past, round, through, under, up. Understanding this distinction helps avoid errors, especially with phrasal verbs where the particle can be either a preposition or an adverb.",
+          "rules": [
+            "A preposition must have an object (noun or pronoun following it)",
+            "An adverb stands alone and modifies a verb, adjective, or another adverb",
+            "Test: If you can ask 'what?' or 'whom?' after the word and get an answer, it is a preposition",
+            "In phrasal verbs, the particle may be an adverb (no object) or preposition (with object)",
+            "The same word changes function based on whether an object follows"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She climbed up the stairs. (preposition)",
+                "reason": "'Up' is followed by object 'stairs', so it functions as a preposition"
+              },
+              {
+                "text": "She climbed up. (adverb)",
+                "reason": "'Up' has no object following it, so it functions as an adverb modifying 'climbed'"
+              },
+              {
+                "text": "He came in the room. (preposition)",
+                "reason": "'In' is followed by object 'room', functioning as preposition"
+              },
+              {
+                "text": "He came in. (adverb)",
+                "reason": "'In' stands alone without object, functioning as adverb"
+              },
+              {
+                "text": "Look at the picture. (preposition)",
+                "reason": "'At' has object 'picture', so it is a preposition"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She climbed up to the stairs.",
+                "reason": "Redundant - use 'up the stairs' (preposition) or 'up to the door' (two prepositions), not 'up to the stairs'"
+              },
+              {
+                "text": "He came in into the room.",
+                "reason": "Redundant - use either 'came in' (adverb) or 'came into the room' (preposition), not both"
+              },
+              {
+                "text": "The book is in inside the drawer.",
+                "reason": "Redundant - use either 'in' or 'inside', not both together"
+              },
+              {
+                "text": "He fell down from the stairs.",
+                "reason": "Redundant - use 'fell down the stairs' or 'fell from the stairs', not 'down from'"
+              },
+              {
+                "text": "Come on upon the stage.",
+                "reason": "Redundant - use 'come onto the stage' or 'come upon' (different meaning: discover), not 'on upon'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Unnecessary Prepositions",
+          "definition": "Many errors occur when prepositions are used where they are not needed. Common cases include: after certain verbs that take direct objects without prepositions (discuss, marry, reach, enter, approach, order, resemble, comprise), before infinitives after certain verbs (want to go, not want for to go), with question words in indirect questions (I asked where he lived, not where did he live at), and in certain time expressions (next week, last year, every day - no preposition needed). Omitting unnecessary prepositions makes sentences clearer and more formal.",
+          "rules": [
+            "Verbs like discuss, marry, reach, enter, approach take direct objects (no preposition)",
+            "Do not use prepositions before 'home' as an adverb: go home, reach home (not to home)",
+            "Time expressions like next/last/this/every + time word need no preposition",
+            "Question words in indirect questions do not take prepositions at the end in formal English",
+            "Avoid double prepositions: off of, outside of (use off, outside alone)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "We discussed the problem yesterday.",
+                "reason": "'Discuss' takes direct object without preposition"
+              },
+              {
+                "text": "She married a doctor.",
+                "reason": "'Marry' takes direct object without preposition"
+              },
+              {
+                "text": "They reached Delhi on time.",
+                "reason": "'Reach' takes direct object without preposition"
+              },
+              {
+                "text": "He goes home every evening.",
+                "reason": "No preposition needed before 'home' when used as adverb"
+              },
+              {
+                "text": "We shall meet next Monday.",
+                "reason": "No preposition needed with 'next' + time word"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "We discussed about the problem yesterday.",
+                "reason": "Unnecessary preposition - 'discuss' takes direct object, not 'discuss about'"
+              },
+              {
+                "text": "She married with a doctor.",
+                "reason": "Unnecessary preposition - use 'marry someone', not 'marry with someone'"
+              },
+              {
+                "text": "They reached to Delhi on time.",
+                "reason": "Unnecessary preposition - 'reach' takes direct object, not 'reach to'"
+              },
+              {
+                "text": "He goes to home every evening.",
+                "reason": "Unnecessary preposition - when 'home' is an adverb (not 'his home'), no 'to' needed"
+              },
+              {
+                "text": "We shall meet on next Monday.",
+                "reason": "Unnecessary preposition - 'next Monday' needs no preposition"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "common-mistakes",
+      "title": "Common Mistakes by Hindi Speakers",
+      "cards": [
+        {
+          "title": "Hindi 'Mein' Translated as 'In' Everywhere",
+          "definition": "Hindi speakers often translate 'mein' (में) directly as 'in' in all contexts, leading to errors. Hindi uses one word 'mein' for many English prepositions including in, at, on, into. English requires different prepositions based on the specific context: 'at' for specific points (station, door, specific times), 'on' for surfaces and days, 'in' for enclosed spaces and longer time periods, 'into' for movement of entering. The Hindi single-word approach does not work in English, where preposition choice is more precise and context-dependent.",
+          "rules": [
+            "Hindi 'mein' becomes 'at' for specific locations: station par (at the station), not in the station",
+            "Hindi 'mein' becomes 'on' for surfaces and days: table par (on the table), Monday ko (on Monday)",
+            "Hindi 'mein' stays 'in' for cities, enclosed spaces: Mumbai mein (in Mumbai), room mein (in the room)",
+            "Use 'into' when showing movement of entering, not static 'in'",
+            "Context determines which English preposition matches Hindi 'mein'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I shall meet you at the station.",
+                "reason": "Station is a specific meeting point, not an enclosed space - use 'at'"
+              },
+              {
+                "text": "The books are on the table.",
+                "reason": "Table is a surface - use 'on', not 'in'"
+              },
+              {
+                "text": "He jumped into the pool.",
+                "reason": "Entering an enclosed space - use 'into' to show movement"
+              },
+              {
+                "text": "She works at the university.",
+                "reason": "Workplace as specific location - use 'at'"
+              },
+              {
+                "text": "The examination is on Monday.",
+                "reason": "Specific day - use 'on', not 'in'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I shall meet you in the station.",
+                "reason": "Wrong - Hindi 'station par' is 'at the station', not 'in' (unless you mean inside the building)"
+              },
+              {
+                "text": "The books are in the table.",
+                "reason": "Wrong - Hindi 'table par' is 'on the table', books cannot be inside a solid table"
+              },
+              {
+                "text": "He jumped in the pool.",
+                "reason": "Imprecise - use 'into' to show entering movement, not static 'in'"
+              },
+              {
+                "text": "She works in the university.",
+                "reason": "Unnatural - Hindi 'university mein' as workplace is 'at the university' (specific location)"
+              },
+              {
+                "text": "The examination is in Monday.",
+                "reason": "Wrong - Hindi 'Monday ko' is 'on Monday', use 'on' for days"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Wrong Preposition After 'Reach' and 'Discuss'",
+          "definition": "Hindi speakers often add unnecessary prepositions after verbs 'reach' and 'discuss' because Hindi equivalents use postpositions. In Hindi, you say 'pahunchna' followed by 'par/mein' (reach at/to/in), and 'charcha karna' followed by 'par' (discuss about). However, English verbs 'reach' and 'discuss' are transitive and take direct objects without any preposition. This is a major error pattern in competitive exams and must be corrected through conscious practice.",
+          "rules": [
+            "Use 'reach' + direct object (no preposition): reach Delhi, reach home, reach the station",
+            "Use 'discuss' + direct object (no preposition): discuss the problem, discuss the matter",
+            "Never use 'reach to' or 'reach at' - these are always wrong",
+            "Never use 'discuss about' - this is always wrong",
+            "Similar verbs: enter (not enter into), approach (not approach to), order (not order for)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "We reached the airport on time.",
+                "reason": "'Reach' takes direct object 'airport' without any preposition"
+              },
+              {
+                "text": "Let us discuss this matter tomorrow.",
+                "reason": "'Discuss' takes direct object 'matter' without preposition"
+              },
+              {
+                "text": "The train reached Mumbai at midnight.",
+                "reason": "Direct object 'Mumbai' after 'reach', no preposition needed"
+              },
+              {
+                "text": "They discussed the proposal in detail.",
+                "reason": "'Discuss' followed directly by object 'proposal'"
+              },
+              {
+                "text": "She reached home late yesterday.",
+                "reason": "'Reach' + 'home' (adverb form), no preposition"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "We reached to the airport on time.",
+                "reason": "Wrong - Hindi influence 'pahunchna par', but English 'reach' needs no preposition"
+              },
+              {
+                "text": "Let us discuss about this matter tomorrow.",
+                "reason": "Wrong - Hindi 'charcha karna par', but English 'discuss' needs no preposition"
+              },
+              {
+                "text": "The train reached at Mumbai at midnight.",
+                "reason": "Wrong - 'reach at' is always incorrect, use 'reach' + direct object"
+              },
+              {
+                "text": "They discussed on the proposal in detail.",
+                "reason": "Wrong - 'discuss on' is incorrect, use 'discuss' + direct object"
+              },
+              {
+                "text": "She reached at home late yesterday.",
+                "reason": "Double error - 'reach at' wrong, and 'home' as adverb needs no preposition anyway"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Confusion Between 'Since' and 'For' with Time",
+          "definition": "Hindi uses 'se' (से) for both starting point and duration, but English distinguishes between 'since' (starting point in time) and 'for' (duration/length of time). 'Since' is used with present perfect tense to show an action that started at a specific point and continues to now: since 2020, since Monday, since morning. 'For' indicates how long something has lasted: for three years, for two days, for a long time. Hindi speakers often confuse these because 'se' translates both, but English requires precise differentiation.",
+          "rules": [
+            "Use 'since' + specific point in time: since 2020, since January, since Monday, since 9 o'clock",
+            "Use 'for' + duration/period: for three years, for five days, for two hours, for a long time",
+            "'Since' requires present perfect tense: I have lived here since 2020",
+            "'For' can be used with various tenses: I lived there for five years (past), I have lived here for five years (present perfect)",
+            "Test: If you can answer 'How long?', use 'for'. If you answer 'From when?', use 'since'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have lived in Mumbai since 2018.",
+                "reason": "Specific starting point '2018' requires 'since'"
+              },
+              {
+                "text": "She has been ill for three days.",
+                "reason": "Duration 'three days' requires 'for'"
+              },
+              {
+                "text": "We have known each other since childhood.",
+                "reason": "Starting point 'childhood' requires 'since'"
+              },
+              {
+                "text": "He studied French for two years.",
+                "reason": "Duration 'two years' requires 'for'"
+              },
+              {
+                "text": "They have been waiting since morning.",
+                "reason": "Starting point 'morning' requires 'since'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I have lived in Mumbai for 2018.",
+                "reason": "Wrong - 2018 is a starting point, use 'since', not 'for' (Hindi 'se' misleads here)"
+              },
+              {
+                "text": "She has been ill since three days.",
+                "reason": "Wrong - 'three days' is duration, use 'for', not 'since'"
+              },
+              {
+                "text": "We have known each other for childhood.",
+                "reason": "Wrong - 'childhood' is starting point, use 'since', not 'for'"
+              },
+              {
+                "text": "He studied French since two years.",
+                "reason": "Wrong - 'two years' is duration, use 'for', not 'since'"
+              },
+              {
+                "text": "They have been waiting for morning.",
+                "reason": "Wrong - 'morning' is starting point (since morning began), use 'since', not 'for'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Saying 'Marry With' Instead of 'Marry'",
+          "definition": "Hindi speakers often say 'marry with' because in Hindi the construction is 'shaadi karna + ke saath' (marry with). However, English verb 'marry' is transitive and takes a direct object without any preposition. You marry someone (direct object), not marry with someone. The related noun 'marriage' does use 'to': marriage to someone. Similarly, the passive form uses 'to': She is married to a doctor. But the active verb 'marry' never takes a preposition.",
+          "rules": [
+            "Active verb 'marry' + direct object (no preposition): marry someone, marry a doctor",
+            "Passive 'be married' + 'to': be married to someone",
+            "Noun 'marriage' + 'to': marriage to someone",
+            "Never use 'marry with' - this is always wrong",
+            "Related error: 'get married' (no preposition) or 'get married to someone' (with preposition)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She married a software engineer last year.",
+                "reason": "Active verb 'married' takes direct object 'engineer' without preposition"
+              },
+              {
+                "text": "He is married to my sister.",
+                "reason": "Passive 'is married' correctly uses 'to'"
+              },
+              {
+                "text": "They got married in December.",
+                "reason": "'Got married' without object needs no preposition"
+              },
+              {
+                "text": "Her marriage to him was unexpected.",
+                "reason": "Noun 'marriage' correctly uses 'to'"
+              },
+              {
+                "text": "Whom did she marry?",
+                "reason": "Question form: 'marry' + direct object 'whom'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She married with a software engineer last year.",
+                "reason": "Wrong - Hindi influence 'shaadi karna ke saath', but English 'marry' needs no preposition"
+              },
+              {
+                "text": "He is married with my sister.",
+                "reason": "Wrong - passive form requires 'married to', not 'married with'"
+              },
+              {
+                "text": "They got married with each other in December.",
+                "reason": "Wrong - 'got married' needs no preposition (or use 'got married to each other')"
+              },
+              {
+                "text": "Her marriage with him was unexpected.",
+                "reason": "Wrong - noun 'marriage' uses 'to', not 'with'"
+              },
+              {
+                "text": "With whom did she marry?",
+                "reason": "Wrong structure - should be 'Whom did she marry?' (no preposition with active verb)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using 'From' Instead of 'Than' in Comparisons",
+          "definition": "Hindi speakers often use 'different from' correctly but then incorrectly extend this pattern to comparisons, saying 'more from' or 'better from' because Hindi uses 'se' (से) for both 'from' and 'than'. In English, 'from' is used with 'different' (different from) but comparisons always use 'than': more than, better than, faster than, taller than. This is a common error in competitive exams. Additionally, 'different from' is standard British English (preferred in India), though 'different than' is used in American English.",
+          "rules": [
+            "Use 'different from' (British English) or 'different than' (American English)",
+            "Use 'than' (not from) with all comparatives: more than, better than, faster than",
+            "Hindi 'se' becomes 'than' in comparisons, not 'from'",
+            "Never use 'more from', 'better from', 'superior from' - always use 'than'",
+            "Exception: 'other than' (meaning except) is correct"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Delhi is different from Mumbai.",
+                "reason": "'Different from' is correct (British English standard)"
+              },
+              {
+                "text": "She is more intelligent than her brother.",
+                "reason": "Comparative 'more intelligent' uses 'than', not 'from'"
+              },
+              {
+                "text": "This book is better than that one.",
+                "reason": "Comparative 'better' uses 'than'"
+              },
+              {
+                "text": "Gold is superior to silver.",
+                "reason": "Special case: 'superior to', 'inferior to', 'senior to', 'junior to' use 'to', not 'than'"
+              },
+              {
+                "text": "He is taller than I am.",
+                "reason": "Comparative 'taller' uses 'than'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is more intelligent from her brother.",
+                "reason": "Wrong - Hindi 'se' in comparisons becomes 'than', not 'from'"
+              },
+              {
+                "text": "This book is better from that one.",
+                "reason": "Wrong - comparative 'better' must use 'than', never 'from'"
+              },
+              {
+                "text": "Gold is superior than silver.",
+                "reason": "Wrong - exception: 'superior' uses 'to', not 'than' (though it seems like a comparative)"
+              },
+              {
+                "text": "Delhi is different than Mumbai.",
+                "reason": "Acceptable in American English but non-standard in British/Indian English - prefer 'different from'"
+              },
+              {
+                "text": "He is taller from me.",
+                "reason": "Wrong - comparative 'taller' requires 'than', not 'from'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "practice",
+      "title": "Practice Exercises",
+      "cards": [
+        {
+          "title": "Time Prepositions Practice",
+          "definition": "Practice selecting the correct preposition (in, on, at, since, for, during, by, until) based on time context. Remember: 'in' for longer periods, 'on' for days/dates, 'at' for specific times, 'since' for starting points with present perfect, 'for' for duration, 'during' for within a period, 'by' for deadlines, 'until' for continuation to a point.",
+          "rules": [
+            "Identify whether the time reference is a point, period, or duration",
+            "Check the verb tense to determine if 'since' (present perfect) or 'for' is appropriate",
+            "Distinguish between 'by' (deadline) and 'until' (continuation)",
+            "Remember exceptions: 'at night', 'in the morning/afternoon/evening'",
+            "Parts of day use 'in', but night uses 'at'"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The results will be announced in July.",
+                "reason": "Month = longer period → use 'in'"
+              },
+              {
+                "text": "The meeting is scheduled on 15th June.",
+                "reason": "Specific date → use 'on'"
+              },
+              {
+                "text": "We shall leave at 8 o'clock in the morning.",
+                "reason": "Specific time → 'at', part of day → 'in'"
+              },
+              {
+                "text": "She has worked here since 2019.",
+                "reason": "Starting point with present perfect → 'since'"
+              },
+              {
+                "text": "He slept for ten hours last night.",
+                "reason": "Duration → 'for'"
+              },
+              {
+                "text": "The phone rang during the lecture.",
+                "reason": "Within a period → 'during'"
+              },
+              {
+                "text": "Please submit the form by Friday.",
+                "reason": "Deadline (not later than) → 'by'"
+              },
+              {
+                "text": "We shall wait until he returns.",
+                "reason": "Continuation to a point → 'until'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The results will be announced on July.",
+                "reason": "Wrong - months use 'in', not 'on'"
+              },
+              {
+                "text": "The meeting is scheduled in 15th June.",
+                "reason": "Wrong - specific dates use 'on', not 'in'"
+              },
+              {
+                "text": "We shall leave in 8 o'clock.",
+                "reason": "Wrong - clock times use 'at', not 'in'"
+              },
+              {
+                "text": "She has worked here from 2019.",
+                "reason": "Wrong - starting point with present perfect uses 'since', not 'from'"
+              },
+              {
+                "text": "He slept since ten hours last night.",
+                "reason": "Wrong - duration uses 'for', not 'since'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Place Prepositions Practice",
+          "definition": "Practice choosing the correct preposition (in, on, at) for place and location. Think about whether the location is an enclosed space (in), a surface or line (on), or a specific point (at). Consider whether you are describing being inside something, resting on a surface, or treating a location as a point of reference.",
+          "rules": [
+            "Use 'in' for countries, cities, rooms, enclosed spaces: in India, in the box, in the car",
+            "Use 'on' for surfaces, streets, floors: on the table, on Park Street, on the third floor",
+            "Use 'at' for specific points, addresses, buildings as locations: at 23 Park Street, at the station, at the party",
+            "Transportation: 'in' for cars/taxis (enclosed), 'on' for buses/trains/planes",
+            "Think: Are you inside it (in)? On its surface (on)? Treating it as a point (at)?"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She lives in Bangalore.",
+                "reason": "City = enclosed larger area → 'in'"
+              },
+              {
+                "text": "The shop is on MG Road.",
+                "reason": "Street = line → 'on'"
+              },
+              {
+                "text": "We shall meet at the railway station.",
+                "reason": "Station = specific meeting point → 'at'"
+              },
+              {
+                "text": "The keys are on the desk.",
+                "reason": "Desk = flat surface → 'on'"
+              },
+              {
+                "text": "He is in the car waiting for us.",
+                "reason": "Car = enclosed space → 'in'"
+              },
+              {
+                "text": "She travelled on the train to Delhi.",
+                "reason": "Train = you sit/stand on it → 'on'"
+              },
+              {
+                "text": "The office is on the fifth floor.",
+                "reason": "Floor level → 'on'"
+              },
+              {
+                "text": "There is a party at his house tonight.",
+                "reason": "House as event location (point) → 'at' (but 'in his house' if focusing on interior)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She lives at Bangalore.",
+                "reason": "Wrong - cities use 'in', not 'at'"
+              },
+              {
+                "text": "The shop is at MG Road.",
+                "reason": "Wrong - streets use 'on', not 'at' (unless you mean at the junction/crossing)"
+              },
+              {
+                "text": "The keys are in the desk.",
+                "reason": "Wrong - keys rest on the surface, not inside (unless the desk has drawers and they are inside)"
+              },
+              {
+                "text": "He is on the car waiting for us.",
+                "reason": "Wrong - cars are enclosed, use 'in', not 'on' (unless sitting on the roof)"
+              },
+              {
+                "text": "She travelled in the train to Delhi.",
+                "reason": "Less common - prefer 'on the train' (standard British English)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Movement Prepositions Practice",
+          "definition": "Practice using movement prepositions (to, from, into, out of, onto, off, through, across, along, towards, past, around) to indicate direction and path of motion. Focus on whether you are describing a destination (to), starting point (from), entering an enclosure (into), moving onto a surface (onto), or passing through or across something.",
+          "rules": [
+            "Use 'to' for destinations: go to school, travel to Mumbai",
+            "Use 'from' for starting points: come from Delhi, travel from here",
+            "Use 'into' when entering an enclosed space: walk into the room, jump into water",
+            "Use 'onto' when moving to a surface: climb onto the roof, step onto the stage",
+            "Use 'through' when moving within a space: walk through the park, drive through the tunnel"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She goes to college every day.",
+                "reason": "Destination → 'to'"
+              },
+              {
+                "text": "He came from Mumbai yesterday.",
+                "reason": "Starting point → 'from'"
+              },
+              {
+                "text": "The children ran into the playground.",
+                "reason": "Entering enclosed area → 'into'"
+              },
+              {
+                "text": "She climbed onto the platform.",
+                "reason": "Moving to a surface → 'onto'"
+              },
+              {
+                "text": "We walked through the garden.",
+                "reason": "Moving within a space → 'through'"
+              },
+              {
+                "text": "The river flows across the valley.",
+                "reason": "From one side to the other → 'across'"
+              },
+              {
+                "text": "They drove past the monument.",
+                "reason": "Going beyond → 'past'"
+              },
+              {
+                "text": "We walked towards the temple.",
+                "reason": "In the direction of → 'towards'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She goes in college every day.",
+                "reason": "Wrong - destination uses 'to', not 'in' (you can be 'in' college once there)"
+              },
+              {
+                "text": "He came of Mumbai yesterday.",
+                "reason": "Wrong - starting point uses 'from', not 'of'"
+              },
+              {
+                "text": "The children ran in the playground.",
+                "reason": "Imprecise - 'into' shows entering movement, 'in' is static"
+              },
+              {
+                "text": "She climbed on the platform.",
+                "reason": "Imprecise - 'onto' shows movement to surface, 'on' is static"
+              },
+              {
+                "text": "We walked in the garden.",
+                "reason": "Ambiguous - 'in' suggests being inside, 'through' shows passage"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Verb-Preposition Combinations Practice",
+          "definition": "Practice using fixed verb-preposition combinations. These must be memorised as units because the preposition choice is idiomatic. Focus on commonly confused pairs like agree with/to, wait for, depend on, arrive at/in, apologise for, apply for/to, listen to, look at, think about/of, and others.",
+          "rules": [
+            "Memorise fixed combinations: agree with (person), agree to (thing), depend on, wait for",
+            "Arrive at (small places), arrive in (cities/countries)",
+            "Apologise for (mistake), apply for (job), apply to (institution)",
+            "Listen to (not listen), look at (not look), think about (consider), think of (opinion)",
+            "These combinations are tested frequently in competitive exams"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I agree with your opinion.",
+                "reason": "'Agree with' for persons or opinions"
+              },
+              {
+                "text": "She agreed to the terms.",
+                "reason": "'Agree to' for proposals, terms, conditions"
+              },
+              {
+                "text": "Success depends on hard work.",
+                "reason": "Fixed combination: 'depend on'"
+              },
+              {
+                "text": "We are waiting for the bus.",
+                "reason": "Fixed combination: 'wait for'"
+              },
+              {
+                "text": "They arrived at the station early.",
+                "reason": "'Arrive at' for small specific places"
+              },
+              {
+                "text": "We arrived in London yesterday.",
+                "reason": "'Arrive in' for cities and countries"
+              },
+              {
+                "text": "He apologised for being late.",
+                "reason": "Fixed combination: 'apologise for'"
+              },
+              {
+                "text": "She applied for the job last week.",
+                "reason": "'Apply for' followed by position/job"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I agree to your opinion.",
+                "reason": "Wrong - use 'agree with' for persons/opinions, not 'agree to'"
+              },
+              {
+                "text": "She agreed with the terms.",
+                "reason": "Wrong - use 'agree to' for things/proposals, not 'agree with'"
+              },
+              {
+                "text": "Success depends of hard work.",
+                "reason": "Wrong - must use 'depend on', not 'depend of'"
+              },
+              {
+                "text": "We are waiting the bus.",
+                "reason": "Wrong - must use 'wait for', not direct object"
+              },
+              {
+                "text": "They arrived in the station early.",
+                "reason": "Wrong - use 'arrive at' for small places, not 'arrive in'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Adjective-Preposition Combinations Practice",
+          "definition": "Practice using fixed adjective-preposition combinations. These patterns are idiomatic and must be memorised. Focus on commonly tested combinations: afraid of, good at, interested in, different from, famous for, proud of, satisfied with, worried about, angry with/about, responsible for, similar to, familiar with.",
+          "rules": [
+            "Memorise fixed combinations: afraid of, good at, interested in, famous for",
+            "Different from (British), proud of, satisfied with, worried about",
+            "Angry with (person), angry about (situation)",
+            "Responsible for, similar to, familiar with, capable of",
+            "These are frequently tested in error spotting questions"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is afraid of darkness.",
+                "reason": "Fixed combination: 'afraid of'"
+              },
+              {
+                "text": "He is good at mathematics.",
+                "reason": "Fixed combination: 'good at' for skills"
+              },
+              {
+                "text": "They are interested in music.",
+                "reason": "Fixed combination: 'interested in'"
+              },
+              {
+                "text": "Mumbai is famous for its film industry.",
+                "reason": "Fixed combination: 'famous for'"
+              },
+              {
+                "text": "She is proud of her achievements.",
+                "reason": "Fixed combination: 'proud of'"
+              },
+              {
+                "text": "I am satisfied with the results.",
+                "reason": "Fixed combination: 'satisfied with'"
+              },
+              {
+                "text": "He is worried about the examination.",
+                "reason": "Fixed combination: 'worried about'"
+              },
+              {
+                "text": "This design is similar to the previous one.",
+                "reason": "Fixed combination: 'similar to'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is afraid from darkness.",
+                "reason": "Wrong - must use 'afraid of', not 'afraid from'"
+              },
+              {
+                "text": "He is good in mathematics.",
+                "reason": "Wrong - use 'good at' for skills, not 'good in'"
+              },
+              {
+                "text": "They are interested for music.",
+                "reason": "Wrong - must use 'interested in', not 'interested for'"
+              },
+              {
+                "text": "Mumbai is famous with its film industry.",
+                "reason": "Wrong - must use 'famous for', not 'famous with'"
+              },
+              {
+                "text": "She is proud with her achievements.",
+                "reason": "Wrong - must use 'proud of', not 'proud with'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "revision",
+      "title": "Quick Revision Points",
+      "keyPoints": [
+        "Time: 'in' for months/years/seasons, 'on' for days/dates, 'at' for clock times and 'at night'",
+        "Place: 'in' for enclosed spaces/cities, 'on' for surfaces/streets/floors, 'at' for specific points/addresses",
+        "Movement: 'to' for destination, 'from' for starting point, 'into' for entering, 'onto' for moving to surface",
+        "Since vs For: 'since' for starting point with present perfect (since 2020), 'for' for duration (for three years)",
+        "Common verb combinations: discuss (no preposition), reach (no preposition), marry (no preposition), wait for, depend on, arrive at/in, agree with/to",
+        "Common adjective combinations: afraid of, good at, interested in, different from, famous for, proud of, satisfied with, worried about",
+        "Fixed phrases: in spite of, on behalf of, in accordance with, on account of, by means of, in addition to",
+        "Unnecessary prepositions: Do not use prepositions with discuss, marry, reach, enter, approach; no preposition before home (as adverb) or with next/last/this/every + time",
+        "Hindi errors: 'mein' is not always 'in' (can be at/on/into); never use 'reach to', 'discuss about', 'marry with', 'more from', 'better from'",
+        "Comparisons: Use 'than' (not from) with comparatives: more than, better than; Exception: superior to, inferior to, senior to, junior to use 'to'"
+      ]
+    }
+  ]
+}

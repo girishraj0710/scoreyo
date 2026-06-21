@@ -1,0 +1,1511 @@
+{
+  "topic_id": "tag-questions",
+  "title": "Tag Questions",
+  "subtitle": "Mastering Positive-Negative Tags, Modal Verbs, and Intonation Patterns",
+  "overview": "Tag questions are short questions added to the end of statements to seek confirmation, express uncertainty, or encourage agreement. They transform declarative sentences into interactive questions that invite response, making them essential for natural conversational English. This comprehensive module explores the fundamental structure of tag questions: positive statements take negative tags (She is ready, is not she?), whilst negative statements take positive tags (He is not late, is he?). The module covers auxiliary verbs, modal verbs (can, will, should, must), special cases (I am, Let us, imperatives), subject-verb agreement in tags, and the critical role of intonation in conveying meaning. Rising intonation indicates genuine questions (uncertainty), whilst falling intonation indicates seeking agreement or making a point. Understanding tag questions is vital for competitive examinations (SSC, Banking, Railways, UPSC) and international tests (IELTS, TOEFL speaking sections), as well as for achieving fluency in everyday English conversation. This module provides British English standards, authentic examples, common error patterns specific to Hindi speakers, and systematic practice.",
+  "sections": [
+    {
+      "section_id": "introduction",
+      "title": "Introduction to Tag Questions",
+      "cards": [
+        {
+          "title": "What are Tag Questions?",
+          "definition": "A tag question is a short question added to the end of a declarative statement, separated by a comma, to turn the statement into a question or to seek confirmation. Tag questions consist of an auxiliary verb (or modal verb) plus a pronoun that matches the subject of the main statement. The fundamental rule: positive statements take negative tags, and negative statements take positive tags, creating a balanced structure. Tag questions serve multiple functions: seeking confirmation (You are coming, are not you?), expressing uncertainty (She lives here, does not she?), encouraging agreement (It is cold today, is not it?), or making conversation more polite and interactive. Intonation plays a crucial role: rising intonation indicates a genuine question requiring an answer, whilst falling intonation seeks agreement or confirmation of something already believed to be true. Mastering tag questions enables natural, conversational English essential for both formal examinations and real-world communication.",
+          "rules": [
+            "Positive statement → negative tag: She is ready, is not she?",
+            "Negative statement → positive tag: He is not late, is he?",
+            "Tag uses auxiliary/modal verb + pronoun matching subject",
+            "Comma separates statement from tag question",
+            "Intonation determines meaning: rising (genuine question) vs. falling (seeking agreement)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is a doctor, is not she?",
+                "reason": "Positive statement ('is') correctly takes negative tag ('is not'); pronoun 'she' matches subject"
+              },
+              {
+                "text": "They do not work here, do they?",
+                "reason": "Negative statement ('do not work') correctly takes positive tag ('do'); pronoun matches subject"
+              },
+              {
+                "text": "You can speak French, cannot you?",
+                "reason": "Positive modal ('can') correctly takes negative tag ('cannot'); pronoun matches"
+              },
+              {
+                "text": "He will not arrive late, will he?",
+                "reason": "Negative modal ('will not') correctly takes positive tag ('will')"
+              },
+              {
+                "text": "The weather is beautiful today, is not it?",
+                "reason": "Positive statement with comma separation; negative tag with pronoun 'it'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is a doctor, is she?",
+                "reason": "Positive statement wrongly takes positive tag; should be negative: 'is not she?'"
+              },
+              {
+                "text": "They do not work here, do not they?",
+                "reason": "Negative statement wrongly takes negative tag; should be positive: 'do they?'"
+              },
+              {
+                "text": "You can speak French, can you?",
+                "reason": "Positive statement wrongly takes positive tag; should be negative: 'cannot you?'"
+              },
+              {
+                "text": "She is a doctor is not she?",
+                "reason": "Missing comma before tag question; should be: 'doctor, is not she?'"
+              },
+              {
+                "text": "The students are ready, is not he?",
+                "reason": "Pronoun mismatch; subject 'students' (they) does not match pronoun 'he' in tag"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "core-concepts",
+      "title": "Core Concepts of Tag Questions",
+      "cards": [
+        {
+          "title": "Positive Statements → Negative Tags (is not/are not/do not)",
+          "definition": "When the main statement is positive (affirmative), the tag question must be negative. This creates balance and seeks confirmation of the positive assertion. The tag uses the auxiliary verb from the statement (or an appropriate auxiliary if none exists) in negative form, followed by a pronoun matching the subject. For statements with 'be' verbs (is, are, am, was, were), the tag uses the same 'be' verb in negative form (is not, are not, was not, were not). For statements with auxiliary verbs (have, has, had, do, does, did), the tag uses the same auxiliary in negative form. For simple present/past without auxiliary, add do/does/did in negative form (He works hard, does not he?). This pattern is fundamental to constructing grammatically correct tag questions.",
+          "rules": [
+            "Positive statement requires negative tag for balance",
+            "Be verbs: She is ready, is not she? / They are students, are not they?",
+            "Auxiliary verbs: He has finished, has not he? / She can swim, cannot she?",
+            "Simple present (no auxiliary): He works, does not he? / She likes it, does not she?",
+            "Simple past (no auxiliary): They arrived, did not they? / He went, did not he?"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is a talented musician, is not she?",
+                "reason": "Positive 'is' correctly takes negative tag 'is not'; pronoun 'she' matches"
+              },
+              {
+                "text": "They have completed the assignment, have not they?",
+                "reason": "Positive auxiliary 'have' correctly takes negative tag 'have not'"
+              },
+              {
+                "text": "He can speak several languages, cannot he?",
+                "reason": "Positive modal 'can' correctly takes negative tag 'cannot'"
+              },
+              {
+                "text": "She works in the financial sector, does not she?",
+                "reason": "Simple present (no auxiliary) correctly adds 'does not' in tag"
+              },
+              {
+                "text": "The students prepared thoroughly, did not they?",
+                "reason": "Simple past (no auxiliary) correctly adds 'did not' in tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is a talented musician, is she?",
+                "reason": "Positive statement wrongly takes positive tag; should be negative: 'is not she?'"
+              },
+              {
+                "text": "They have completed the assignment, have they?",
+                "reason": "Positive statement wrongly takes positive tag; should be: 'have not they?'"
+              },
+              {
+                "text": "He can speak several languages, can he?",
+                "reason": "Positive modal wrongly takes positive tag; should be: 'cannot he?'"
+              },
+              {
+                "text": "She works in the financial sector, is not she?",
+                "reason": "Wrong auxiliary; simple present 'works' needs 'does not', not 'is not'"
+              },
+              {
+                "text": "The students prepared thoroughly, have not they?",
+                "reason": "Wrong auxiliary; simple past 'prepared' needs 'did not', not 'have not'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Negative Statements → Positive Tags (is/are/do)",
+          "definition": "When the main statement is negative (contains not, never, hardly, scarcely, seldom, or no), the tag question must be positive. This complementary structure maintains the balance characteristic of tag questions. The tag uses the auxiliary verb from the statement (or an appropriate auxiliary) in positive form, followed by a pronoun. Negative words include: not, never, hardly, scarcely, barely, seldom, rarely, no, nobody, nothing, neither. With 'be' verbs in negative (is not, are not, was not, were not), the tag uses the positive form (is, are, was, were). With auxiliary verbs in negative (have not, do not, cannot), the tag uses the positive form. Important: words like hardly, never, and seldom are considered negative in meaning, so they trigger positive tags (He hardly studies, does he?).",
+          "rules": [
+            "Negative statement requires positive tag",
+            "Be verbs negative: She is not ready, is she? / They are not here, are they?",
+            "Auxiliary negative: He has not finished, has he? / She cannot swim, can she?",
+            "Words with negative meaning trigger positive tags: hardly, never, seldom, scarcely, barely",
+            "No/nobody/nothing are negative: Nobody came, did they?"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "He is not attending the meeting, is he?",
+                "reason": "Negative 'is not' correctly takes positive tag 'is'"
+              },
+              {
+                "text": "They have not submitted their reports, have they?",
+                "reason": "Negative 'have not' correctly takes positive tag 'have'"
+              },
+              {
+                "text": "She cannot drive a car, can she?",
+                "reason": "Negative modal 'cannot' correctly takes positive tag 'can'"
+              },
+              {
+                "text": "He never arrives on time, does he?",
+                "reason": "'Never' (negative meaning) correctly triggers positive tag 'does'"
+              },
+              {
+                "text": "Nobody understood the explanation, did they?",
+                "reason": "'Nobody' (negative) correctly takes positive tag 'did'; plural pronoun 'they'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He is not attending the meeting, is not he?",
+                "reason": "Negative statement wrongly takes negative tag; should be positive: 'is he?'"
+              },
+              {
+                "text": "They have not submitted their reports, have not they?",
+                "reason": "Negative statement wrongly takes negative tag; should be: 'have they?'"
+              },
+              {
+                "text": "She cannot drive a car, cannot she?",
+                "reason": "Negative modal wrongly takes negative tag; should be positive: 'can she?'"
+              },
+              {
+                "text": "He never arrives on time, does not he?",
+                "reason": "'Never' is negative, so needs positive tag: 'does he?', not 'does not he?'"
+              },
+              {
+                "text": "Nobody understood the explanation, did not they?",
+                "reason": "'Nobody' negative requires positive tag: 'did they?', not 'did not they?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Modal Verbs in Tag Questions (can, will, should, must)",
+          "definition": "Modal verbs (can, could, will, would, shall, should, may, might, must) appear frequently in tag questions and follow the same positive-negative pattern as other auxiliaries. The tag repeats the modal verb from the statement in opposite polarity (positive → negative, negative → positive). Modal negative forms: cannot, could not, will not (won't), would not (wouldn't), shall not (shan't - British), should not, may not, might not, must not (mustn't). Special note: 'must' in positive statements can take either 'must not' or 'need not' in the tag depending on meaning - must not (prohibition) versus need not (lack of necessity). 'Have to' is not a modal but behaves similarly, using do/does/did in tags (He has to leave, does not he?).",
+          "rules": [
+            "Positive modal → negative tag: can → cannot, will → will not, should → should not",
+            "Negative modal → positive tag: cannot → can, will not → will, should not → should",
+            "Tag repeats the modal from statement: You can swim, cannot you?",
+            "Contractions common: will not → won't, would not → wouldn't, cannot → can't",
+            "'Must' (positive) can take 'must not' or 'need not' depending on meaning"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She can speak French fluently, cannot she?",
+                "reason": "Positive modal 'can' correctly takes negative tag 'cannot'"
+              },
+              {
+                "text": "They will attend the conference, will not they?",
+                "reason": "Positive modal 'will' correctly takes negative tag 'will not' (won't)"
+              },
+              {
+                "text": "You should complete this assignment, should not you?",
+                "reason": "Positive modal 'should' correctly takes negative tag 'should not' (shouldn't)"
+              },
+              {
+                "text": "He would not agree to those terms, would he?",
+                "reason": "Negative modal 'would not' correctly takes positive tag 'would'"
+              },
+              {
+                "text": "We must finish by Friday, must not we?",
+                "reason": "Positive modal 'must' takes negative tag 'must not' (obligation context)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She can speak French fluently, can she?",
+                "reason": "Positive modal wrongly takes positive tag; should be negative: 'cannot she?'"
+              },
+              {
+                "text": "They will attend the conference, will they?",
+                "reason": "Positive modal wrongly takes positive tag; should be: 'will not they?'"
+              },
+              {
+                "text": "You should complete this assignment, should you?",
+                "reason": "Positive modal wrongly takes positive tag; should be: 'should not you?'"
+              },
+              {
+                "text": "He would not agree to those terms, would not he?",
+                "reason": "Negative modal wrongly takes negative tag; should be positive: 'would he?'"
+              },
+              {
+                "text": "She can swim well, does not she?",
+                "reason": "Wrong auxiliary in tag; modal 'can' requires 'cannot', not 'does not'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Special Cases: I am, Let us, Imperatives",
+          "definition": "Certain constructions have irregular or special tag question forms that must be memorised. 'I am' takes the tag 'are not I?' (or informally 'aren't I?') - never 'am not I?'. 'Let us' (suggesting joint action) takes the tag 'shall we?' to invite agreement. Imperatives (commands) typically take 'will you?' (for requests), 'shall we?' (for suggestions including speaker), or 'can you?' (for polite requests). Existential 'there is/there are' statements retain 'there' in the tag (There is a problem, is not there?). These exceptions do not follow standard rules and require individual learning. They are particularly common in conversational English and appear in competitive examinations testing mastery of nuanced grammar.",
+          "rules": [
+            "'I am' → tag: 'are not I?' or 'aren't I?' (never 'am not I?')",
+            "'Let us' (suggestion) → tag: 'shall we?'",
+            "Imperatives (commands) → tag: 'will you?' (request) or 'can you?' (polite)",
+            "Imperatives (suggestions with speaker) → tag: 'shall we?' (Let's go, shall we?)",
+            "Existential 'there' → retain 'there' in tag: There is a solution, is not there?"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I am responsible for this project, are not I?",
+                "reason": "Special case: 'I am' correctly takes irregular tag 'are not I?' (or aren't I?)"
+              },
+              {
+                "text": "Let us begin the meeting now, shall we?",
+                "reason": "'Let us' (suggestion) correctly takes special tag 'shall we?'"
+              },
+              {
+                "text": "Close the door, will you?",
+                "reason": "Imperative (command/request) correctly takes tag 'will you?'"
+              },
+              {
+                "text": "Let us have dinner together, shall we?",
+                "reason": "'Let us' (joint suggestion including speaker) takes 'shall we?'"
+              },
+              {
+                "text": "There are several options available, are not there?",
+                "reason": "Existential 'there are' correctly retains 'there' in tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I am responsible for this project, am not I?",
+                "reason": "'Am not I?' is not standard; correct irregular form is 'are not I?' or 'aren't I?'"
+              },
+              {
+                "text": "Let us begin the meeting now, will we?",
+                "reason": "'Let us' does not take 'will we?'; correct special tag is 'shall we?'"
+              },
+              {
+                "text": "Close the door, do you?",
+                "reason": "Imperative tag is 'will you?', not 'do you?'"
+              },
+              {
+                "text": "Let us have dinner together, let us?",
+                "reason": "Cannot repeat 'let us' in tag; correct form is 'shall we?'"
+              },
+              {
+                "text": "There are several options available, are not they?",
+                "reason": "Should retain 'there' in tag: 'are not there?', not 'are not they?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Intonation Patterns: Rising vs Falling",
+          "definition": "Intonation (the rise and fall of voice pitch) in tag questions is as important as the grammatical structure, as it determines the function and meaning of the tag. Rising intonation (voice goes up at the end: ↗) indicates a genuine question where the speaker is uncertain and genuinely seeks information or confirmation (You are coming to the party, are not you?↗ - speaker does not know and is asking). Falling intonation (voice goes down at the end: ↘) indicates the speaker believes the statement is true and is seeking agreement or confirmation rather than information (It is a lovely day, is not it?↘ - speaker believes it is lovely and expects agreement). In writing, intonation cannot be shown, but in speaking and listening (crucial for IELTS/TOEFL), correct intonation conveys the intended meaning and sounds natural.",
+          "rules": [
+            "Rising intonation (↗): genuine question, uncertainty, seeking information",
+            "Falling intonation (↘): seeking agreement, expecting confirmation, making conversation",
+            "Context determines intonation: unknown information = rising; expected agreement = falling",
+            "Rising intonation requires answer; falling intonation often gets agreement (Yes, it is)",
+            "In examinations, written tags do not show intonation, but speaking tests require correct use"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "You have finished the report, have not you? ↗ (genuine question - speaker unsure)",
+                "reason": "Rising intonation appropriate when speaker does not know and genuinely asks"
+              },
+              {
+                "text": "It is cold today, is not it? ↘ (seeking agreement - speaker knows it is cold)",
+                "reason": "Falling intonation appropriate when speaker believes statement and seeks agreement"
+              },
+              {
+                "text": "She works at the hospital, does not she? ↗ (genuine question - speaker uncertain)",
+                "reason": "Rising intonation shows uncertainty; speaker genuinely asking for information"
+              },
+              {
+                "text": "The meeting was productive, was not it? ↘ (seeking agreement - speaker believes it was)",
+                "reason": "Falling intonation shows speaker believes statement; inviting confirmation"
+              },
+              {
+                "text": "You can drive, cannot you? ↗ (genuine question about ability - speaker does not know)",
+                "reason": "Rising intonation appropriate when asking for unknown information"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Using rising intonation (↗) when you know answer and just making conversation",
+                "reason": "Should use falling (↘) for seeking agreement when you already believe statement true"
+              },
+              {
+                "text": "Using falling intonation (↘) when genuinely uncertain and need information",
+                "reason": "Should use rising (↗) for genuine questions where answer is unknown"
+              },
+              {
+                "text": "No intonation change (flat monotone throughout tag question)",
+                "reason": "English requires intonation change; flat delivery sounds unnatural"
+              },
+              {
+                "text": "Rising intonation on: 'Lovely weather, is not it?' (obvious statement)",
+                "reason": "Obvious shared observation should use falling (↘) seeking agreement, not rising (↗)"
+              },
+              {
+                "text": "Falling intonation on: 'You have the documents, do not you?' (when you need to know)",
+                "reason": "If genuinely asking for information, use rising (↗), not falling (↘)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "key-rules",
+      "title": "Key Rules for Tag Questions",
+      "cards": [
+        {
+          "title": "Rule 1: Matching Subject and Pronoun",
+          "definition": "The pronoun in the tag question must agree with the subject of the main statement in number (singular/plural) and gender (for singular third person). Singular subjects take singular pronouns (he, she, it); plural subjects take plural pronoun (they). Indefinite pronouns (everyone, someone, nobody, anybody) are grammatically singular but traditionally take plural pronoun 'they' in tags (Everyone is ready, are not they?). Collective nouns (team, committee, family) typically take singular verb and pronoun 'it' in British English (The team is ready, is not it?), though American English sometimes uses 'they'. The subjects 'this' and 'that' become 'it' in tags; 'these' and 'those' become 'they'. Correct pronoun selection is essential for grammatical accuracy.",
+          "rules": [
+            "Singular subject → singular pronoun (he, she, it): She works, does not she?",
+            "Plural subject → plural pronoun (they): They work, do not they?",
+            "Indefinite pronouns (everyone, someone, nobody) → 'they': Everyone came, did not they?",
+            "Collective nouns → 'it' (British): The team won, did not it?",
+            "'This/that' → 'it'; 'these/those' → 'they' in tags"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Your brother lives in London, does not he?",
+                "reason": "Singular masculine subject correctly takes singular pronoun 'he'"
+              },
+              {
+                "text": "The students have finished their exams, have not they?",
+                "reason": "Plural subject 'students' correctly takes plural pronoun 'they'"
+              },
+              {
+                "text": "Everyone enjoyed the presentation, did not they?",
+                "reason": "Indefinite pronoun 'everyone' (singular verb) correctly takes plural 'they' in tag"
+              },
+              {
+                "text": "The committee has reached a decision, has not it?",
+                "reason": "Collective noun 'committee' (British) correctly takes singular 'it'"
+              },
+              {
+                "text": "This is your book, is not it?",
+                "reason": "Demonstrative 'this' correctly becomes pronoun 'it' in tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Your brother lives in London, does not she?",
+                "reason": "Gender mismatch; masculine 'brother' requires 'he', not 'she'"
+              },
+              {
+                "text": "The students have finished their exams, has not he?",
+                "reason": "Number/gender mismatch; plural 'students' requires 'they', not singular 'he'"
+              },
+              {
+                "text": "Everyone enjoyed the presentation, did not he?",
+                "reason": "Indefinite 'everyone' conventionally takes plural 'they', not 'he'"
+              },
+              {
+                "text": "The committee has reached a decision, have not they?",
+                "reason": "Verb-pronoun disagreement; singular verb 'has' with plural pronoun 'they' inconsistent"
+              },
+              {
+                "text": "This is your book, is not this?",
+                "reason": "Cannot use 'this' in tag; must convert to pronoun: 'is not it?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Using Correct Auxiliary Verb in Tag",
+          "definition": "The auxiliary verb in the tag must match the auxiliary or main verb in the statement. Statements with 'be' verbs (is, are, am, was, were) use the same 'be' verb in the tag. Statements with auxiliary verbs (have, has, had, will, can, should, etc.) use the same auxiliary in the tag. Statements in simple present or simple past without auxiliary verbs require do/does (present) or did (past) in the tag. The auxiliary agrees with the subject in number: does/is for singular third person, do/are for others in present. This rule ensures grammatical consistency between statement and tag. Choosing the wrong auxiliary creates errors that are easily spotted in examinations.",
+          "rules": [
+            "Be verbs: use same 'be' verb (is/are/am/was/were) in tag",
+            "Auxiliary verbs present: use same auxiliary (have/has/do/does) in tag",
+            "Modal verbs: use same modal (can/will/should/must) in tag",
+            "Simple present (no auxiliary): add do/does in tag (He works, does not he?)",
+            "Simple past (no auxiliary): add did in tag (They arrived, did not they?)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is a talented singer, is not she?",
+                "reason": "Statement uses 'be' verb 'is'; tag correctly uses same verb 'is'"
+              },
+              {
+                "text": "They have completed the project, have not they?",
+                "reason": "Statement uses auxiliary 'have'; tag correctly uses same auxiliary 'have'"
+              },
+              {
+                "text": "He can solve this problem, cannot he?",
+                "reason": "Statement uses modal 'can'; tag correctly uses same modal 'can'"
+              },
+              {
+                "text": "She works in the marketing department, does not she?",
+                "reason": "Simple present (no auxiliary); tag correctly adds 'does' for third person singular"
+              },
+              {
+                "text": "They finished early yesterday, did not they?",
+                "reason": "Simple past (no auxiliary); tag correctly adds 'did'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is a talented singer, does not she?",
+                "reason": "Statement uses 'be' verb 'is', so tag must use 'is', not 'does'"
+              },
+              {
+                "text": "They have completed the project, are not they?",
+                "reason": "Statement uses auxiliary 'have', so tag must use 'have', not 'are'"
+              },
+              {
+                "text": "He can solve this problem, does not he?",
+                "reason": "Statement uses modal 'can', so tag must use 'can', not 'does'"
+              },
+              {
+                "text": "She works in the marketing department, is not she?",
+                "reason": "Simple present 'works' requires 'does' in tag, not 'is'"
+              },
+              {
+                "text": "They finished early yesterday, have not they?",
+                "reason": "Simple past 'finished' requires 'did' in tag, not 'have'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Negative Words Trigger Positive Tags",
+          "definition": "Words with inherent negative meaning (never, hardly, scarcely, barely, seldom, rarely, no, nobody, nothing, nowhere, neither) make the entire statement negative, even without the word 'not'. Therefore, these statements require positive tags. This rule confuses learners because the word 'not' is absent, but the meaning is negative. 'He never complains' means 'He does not complain' (negative meaning), so it takes positive tag 'does he?' Similarly, 'Nobody came' is negative (no people came), taking positive tag 'did they?' Recognising these implicit negatives is crucial for forming correct tag questions. Competitive examinations frequently test this rule to assess nuanced understanding of negation in English.",
+          "rules": [
+            "Negative meaning words: never, hardly, scarcely, barely, seldom, rarely",
+            "Negative pronouns: no, nobody, nothing, nowhere, neither",
+            "These words make statement negative, requiring positive tag",
+            "Never: She never arrives late, does she? (positive tag)",
+            "Nobody: Nobody objected, did they? (positive tag, plural pronoun)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "He never forgets important dates, does he?",
+                "reason": "'Never' makes statement negative; correctly takes positive tag 'does'"
+              },
+              {
+                "text": "She hardly ever complains about difficulties, does she?",
+                "reason": "'Hardly ever' is negative meaning; correctly takes positive tag"
+              },
+              {
+                "text": "Nobody understood the complex instructions, did they?",
+                "reason": "'Nobody' is negative; correctly takes positive tag 'did' with plural 'they'"
+              },
+              {
+                "text": "There is nothing we can do about it, is there?",
+                "reason": "'Nothing' is negative; correctly takes positive tag 'is there'"
+              },
+              {
+                "text": "He seldom visits his hometown these days, does he?",
+                "reason": "'Seldom' (rarely) is negative meaning; correctly takes positive tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He never forgets important dates, does not he?",
+                "reason": "'Never' is negative, so statement needs positive tag: 'does he?', not 'does not he?'"
+              },
+              {
+                "text": "She hardly ever complains about difficulties, does not she?",
+                "reason": "'Hardly ever' is negative; needs positive tag: 'does she?', not 'does not she?'"
+              },
+              {
+                "text": "Nobody understood the complex instructions, did not they?",
+                "reason": "'Nobody' is negative; needs positive tag: 'did they?', not 'did not they?'"
+              },
+              {
+                "text": "There is nothing we can do about it, is not there?",
+                "reason": "'Nothing' is negative; needs positive tag: 'is there?', not 'is not there?'"
+              },
+              {
+                "text": "He seldom visits his hometown these days, does not he?",
+                "reason": "'Seldom' is negative meaning; needs positive tag: 'does he?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: 'Have to' and Phrasal Modals Use Do/Does/Did",
+          "definition": "'Have to', 'need to', 'ought to', and 'used to' are phrasal expressions that function like modal verbs but are not true modals. Unlike true modals (can, will, should), these expressions require do/does/did in tag questions. 'He has to leave early' takes the tag 'does not he?' (not 'has not he?'). 'They had to wait' takes 'did not they?' (not 'had not they?'). This distinction is crucial: 'have/has/had' as main verbs or forming present perfect use themselves in tags, but 'have to/has to/had to' (expressing obligation) use do/does/did. Similarly, 'used to' (past habit) takes 'did' in tags: 'She used to live here, did not she?' This rule tests understanding of the difference between auxiliary verbs and main verbs.",
+          "rules": [
+            "'Have to' (obligation) uses do/does/did in tag: He has to work, does not he?",
+            "Present perfect 'have/has' uses itself in tag: He has worked, has not he?",
+            "'Used to' (past habit) uses did in tag: She used to dance, did not she?",
+            "'Need to' uses do/does/did: They need to hurry, do not they?",
+            "Distinguish: 'have' as main/auxiliary (uses itself) vs. 'have to' (uses do/does/did)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "He has to submit the report by Friday, does not he?",
+                "reason": "'Has to' (obligation) correctly uses 'does' in tag, not 'has'"
+              },
+              {
+                "text": "She has completed her assignment, has not she?",
+                "reason": "Present perfect 'has completed' correctly uses auxiliary 'has' in tag"
+              },
+              {
+                "text": "They used to live in Mumbai, did not they?",
+                "reason": "'Used to' (past habit) correctly uses 'did' in tag"
+              },
+              {
+                "text": "We need to leave early tomorrow, do not we?",
+                "reason": "'Need to' correctly uses 'do' in tag"
+              },
+              {
+                "text": "You had to wait for a long time, did not you?",
+                "reason": "'Had to' (past obligation) correctly uses 'did' in tag, not 'had'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He has to submit the report by Friday, has not he?",
+                "reason": "'Has to' (obligation) requires 'does' in tag, not 'has'"
+              },
+              {
+                "text": "She has completed her assignment, does not she?",
+                "reason": "Present perfect auxiliary 'has' should be used in tag, not 'does'"
+              },
+              {
+                "text": "They used to live in Mumbai, used not they?",
+                "reason": "'Used to' requires 'did' in tag: 'did not they?', not 'used not they?'"
+              },
+              {
+                "text": "We need to leave early tomorrow, need not we?",
+                "reason": "'Need to' requires 'do' in tag: 'do not we?', not 'need not we?'"
+              },
+              {
+                "text": "You had to wait for a long time, had not you?",
+                "reason": "'Had to' (obligation) requires 'did' in tag, not 'had'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: Imperatives and 'Let us' - Special Tag Patterns",
+          "definition": "Imperative sentences (commands, requests, suggestions) and constructions with 'Let us' follow special tag question patterns that differ from declarative statements. Positive imperatives typically take 'will you?' for requests or commands (Close the window, will you?), or 'can you?' for polite requests. Negative imperatives take 'will you?' (Do not be late, will you?). 'Let us' (suggesting joint action including speaker) takes 'shall we?' (Let us begin, shall we?). Note the difference: 'Let him/her/them' (not including speaker) uses standard tags (Let him try, will you? - asking listener to allow it). These irregular patterns must be memorised as they do not follow standard positive-negative rules. They appear frequently in conversational English and examination speaking sections.",
+          "rules": [
+            "Positive imperatives → 'will you?' (request/command): Open the door, will you?",
+            "Positive imperatives → 'can you?' (polite request): Pass the salt, can you?",
+            "Negative imperatives → 'will you?': Do not forget, will you?",
+            "'Let us' (joint suggestion) → 'shall we?': Let us start, shall we?",
+            "'Let him/her/them' (third person permission) → 'will you?': Let him speak, will you?"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Close the window before you leave, will you?",
+                "reason": "Positive imperative correctly takes tag 'will you?' (request)"
+              },
+              {
+                "text": "Pass me that book, can you?",
+                "reason": "Positive imperative correctly takes polite tag 'can you?'"
+              },
+              {
+                "text": "Do not be late for the meeting, will you?",
+                "reason": "Negative imperative correctly takes tag 'will you?'"
+              },
+              {
+                "text": "Let us discuss this matter in detail, shall we?",
+                "reason": "'Let us' (joint suggestion including speaker) correctly takes 'shall we?'"
+              },
+              {
+                "text": "Let him finish his explanation first, will you?",
+                "reason": "'Let him' (permission, not joint action) correctly takes 'will you?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Close the window before you leave, do you?",
+                "reason": "Imperative tag should be 'will you?', not 'do you?'"
+              },
+              {
+                "text": "Pass me that book, will not you?",
+                "reason": "Polite request typically uses 'can you?' or 'will you?', not negative form"
+              },
+              {
+                "text": "Do not be late for the meeting, do not you?",
+                "reason": "Negative imperative takes 'will you?', not 'do not you?'"
+              },
+              {
+                "text": "Let us discuss this matter in detail, will we?",
+                "reason": "'Let us' (joint suggestion) requires 'shall we?', not 'will we?'"
+              },
+              {
+                "text": "Let him finish his explanation first, shall we?",
+                "reason": "'Let him' (permission, not joint) takes 'will you?', not 'shall we?'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "common-mistakes",
+      "title": "Common Mistakes for Hindi Speakers",
+      "cards": [
+        {
+          "title": "Mistake 1: Wrong Polarity - Same Positive/Negative in Both Parts",
+          "definition": "Hindi speakers frequently make the error of using the same polarity (both positive or both negative) in statement and tag because Hindi tag questions work differently. Hindi uses 'है ना?' (hai na? - is, is not it?), 'नहीं है क्या?' (nahin hai kya? - is not, is it?), or simply 'ना?' (na?) which do not follow the strict positive-negative opposition rule of English. Hindi: 'वह आ रहा है ना?' (Vah aa raha hai na? - He is coming, is not he?) uses positive-positive structure. English requires: positive statement → negative tag. This fundamental transfer error creates grammatically incorrect tags throughout Hindi speakers' English.",
+          "rules": [
+            "Hindi 'है ना?' (hai na?) pattern does not translate directly to English",
+            "English rule: positive statement must take negative tag",
+            "English rule: negative statement must take positive tag",
+            "Cannot use same polarity in both parts (both positive or both negative)",
+            "Must consciously apply opposite polarity rule, not Hindi pattern"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is coming to the party, is not she?",
+                "reason": "Positive statement correctly takes negative tag (opposite polarity)"
+              },
+              {
+                "text": "He does not work here, does he?",
+                "reason": "Negative statement correctly takes positive tag (opposite polarity)"
+              },
+              {
+                "text": "They can speak Hindi, cannot they?",
+                "reason": "Positive modal correctly takes negative tag"
+              },
+              {
+                "text": "She has not finished yet, has she?",
+                "reason": "Negative statement correctly takes positive tag"
+              },
+              {
+                "text": "You will attend the meeting, will not you?",
+                "reason": "Positive modal correctly takes negative tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is coming to the party, is she?",
+                "reason": "Hindi pattern (वह आ रही है ना?); English needs opposite: 'is not she?'"
+              },
+              {
+                "text": "He does not work here, does not he?",
+                "reason": "Both negative; Hindi pattern transferred; English needs positive: 'does he?'"
+              },
+              {
+                "text": "They can speak Hindi, can they?",
+                "reason": "Both positive; Hindi influence; English needs negative: 'cannot they?'"
+              },
+              {
+                "text": "She has not finished yet, has not she?",
+                "reason": "Both negative; English requires opposite: positive tag 'has she?'"
+              },
+              {
+                "text": "You will attend the meeting, will you?",
+                "reason": "Both positive; Hindi pattern; English needs negative: 'will not you?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 2: Wrong Auxiliary Verb (Using 'is/are' with Action Verbs)",
+          "definition": "Hindi speakers commonly use 'is not/are not' in tag questions regardless of the main verb because Hindi uses 'है' (hai - is) and 'हैं' (hain - are) very broadly. Hindi: 'वह काम करता है ना?' (Vah kaam karta hai na? - He works, is not he?) literally translates with 'है' (hai - is), but English simple present 'works' requires 'does' in the tag, not 'is'. This error occurs because Hindi present tense always includes a form of 'होना' (hona - to be), whilst English simple present/past action verbs require do/does/did in tags. The result: incorrect mixing of 'be' verb tags with action verb statements.",
+          "rules": [
+            "Hindi 'है/हैं' (hai/hain) appear broadly; English 'is/are' only with 'be' verb or continuous",
+            "Action verbs in simple present: use do/does in tag (He works, does not he?)",
+            "Action verbs in simple past: use did in tag (They arrived, did not they?)",
+            "'Be' verbs: use is/are/was/were in tag (She is ready, is not she?)",
+            "Present perfect: use have/has in tag (He has finished, has not he?)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "He works in the IT sector, does not he?",
+                "reason": "Simple present action verb 'works' correctly uses 'does' in tag"
+              },
+              {
+                "text": "She lives in Mumbai, does not she?",
+                "reason": "Simple present 'lives' correctly takes 'does', not 'is'"
+              },
+              {
+                "text": "They arrived early yesterday, did not they?",
+                "reason": "Simple past action verb correctly uses 'did' in tag"
+              },
+              {
+                "text": "She is a teacher, is not she?",
+                "reason": "'Be' verb 'is' correctly uses itself in tag"
+              },
+              {
+                "text": "He has completed the task, has not he?",
+                "reason": "Present perfect auxiliary 'has' correctly used in tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He works in the IT sector, is not he?",
+                "reason": "Hindi pattern (काम करता है ना?); simple present 'works' needs 'does', not 'is'"
+              },
+              {
+                "text": "She lives in Mumbai, is not she?",
+                "reason": "Hindi transfer (रहती है ना?); action verb 'lives' needs 'does', not 'is'"
+              },
+              {
+                "text": "They arrived early yesterday, are not they?",
+                "reason": "Past action verb needs 'did', not 'are'; Hindi pattern influence"
+              },
+              {
+                "text": "He likes cricket, is not he?",
+                "reason": "Action verb 'likes' requires 'does' in tag, not 'is' (Hindi: पसंद है ना?)"
+              },
+              {
+                "text": "She speaks French fluently, is not she?",
+                "reason": "Action verb 'speaks' needs 'does' in tag, not 'is'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 3: Pronoun Mismatch (Repeating Noun or Wrong Pronoun)",
+          "definition": "Hindi speakers sometimes repeat the noun in the tag or use incorrect pronouns because Hindi tag constructions can repeat nouns and Hindi has different pronoun conventions. Hindi: 'राम आ रहा है ना?' (Ram aa raha hai na? - Ram is coming, is not he?) can informally keep the name. English strictly requires pronouns in tags, never repeating the noun. Additionally, Hindi uses respectful plural 'आप' (aap - you) for singular persons, and gender marking differs, causing Hindi speakers to sometimes use wrong pronouns in English tags (using 'he' for 'she', or 'they' for singular). Pronouns must match subject in number and gender.",
+          "rules": [
+            "Hindi can repeat noun in tag; English must use pronoun",
+            "Singular subject → singular pronoun (he, she, it): The doctor is ready, is not he/she?",
+            "Plural subject → plural pronoun (they): The students work, do not they?",
+            "Cannot repeat noun: 'Ram is coming, is not Ram?' is wrong",
+            "Pronoun must match gender and number of subject"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Your sister is a doctor, is not she?",
+                "reason": "Singular feminine subject correctly takes pronoun 'she' in tag"
+              },
+              {
+                "text": "The students have finished, have not they?",
+                "reason": "Plural subject correctly takes plural pronoun 'they'"
+              },
+              {
+                "text": "Ramesh works here, does not he?",
+                "reason": "Masculine name correctly replaced by pronoun 'he' in tag"
+              },
+              {
+                "text": "The teacher explained it, did not she/he?",
+                "reason": "Singular subject 'teacher' correctly becomes pronoun (gender appropriate)"
+              },
+              {
+                "text": "Everyone arrived on time, did not they?",
+                "reason": "Indefinite 'everyone' correctly takes plural 'they' in tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Your sister is a doctor, is not your sister?",
+                "reason": "Cannot repeat noun in tag; must use pronoun: 'is not she?'"
+              },
+              {
+                "text": "The students have finished, have not the students?",
+                "reason": "Hindi pattern repeating noun; English needs pronoun: 'have not they?'"
+              },
+              {
+                "text": "Ramesh works here, does not Ramesh?",
+                "reason": "Cannot repeat name; must use pronoun: 'does not he?'"
+              },
+              {
+                "text": "Your sister is a doctor, is not he?",
+                "reason": "Gender mismatch; feminine 'sister' requires 'she', not 'he'"
+              },
+              {
+                "text": "The students have finished, has not he?",
+                "reason": "Number mismatch; plural 'students' requires 'they', not singular 'he'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 4: Missing Comma Before Tag Question",
+          "definition": "Hindi speakers frequently omit the comma before the tag question because Hindi spoken tags like 'ना?' (na?) and 'है ना?' (hai na?) are not separated by punctuation when written. Hindi written style does not mandate comma separation before tags. English writing conventions strictly require a comma to separate the main statement from the tag question. This punctuation error is particularly common in written examinations where Hindi speakers write tags as continuous text without comma separation. Whilst this might seem minor, it is a clear grammatical convention that examiners expect, and its absence marks the writing as non-standard English.",
+          "rules": [
+            "Hindi tags (ना?, है ना?) do not require comma in written form",
+            "English always requires comma before tag question",
+            "Comma separates statement from tag: She is ready, is not she?",
+            "Without comma: incorrect and marks writing as non-standard",
+            "This convention applies in all written English contexts"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She is coming to the meeting, is not she?",
+                "reason": "Comma correctly separates statement from tag question"
+              },
+              {
+                "text": "They have finished the project, have not they?",
+                "reason": "Proper comma placement before tag"
+              },
+              {
+                "text": "He can speak three languages, cannot he?",
+                "reason": "Comma correctly precedes tag question"
+              },
+              {
+                "text": "You will attend the conference, will not you?",
+                "reason": "Standard comma separation maintained"
+              },
+              {
+                "text": "It is a beautiful day, is not it?",
+                "reason": "Comma properly separates statement and tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She is coming to the meeting is not she?",
+                "reason": "Hindi pattern (आ रही है ना?); English needs comma: 'meeting, is not she?'"
+              },
+              {
+                "text": "They have finished the project have not they?",
+                "reason": "Missing required comma before tag; should be: 'project, have not they?'"
+              },
+              {
+                "text": "He can speak three languages cannot he?",
+                "reason": "No comma separation; must be: 'languages, cannot he?'"
+              },
+              {
+                "text": "You will attend the conference will not you?",
+                "reason": "Hindi written style transferred; need comma: 'conference, will not you?'"
+              },
+              {
+                "text": "It is a beautiful day is not it?",
+                "reason": "Comma omitted; correct form: 'day, is not it?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 5: Not Recognising Negative Words (Never, Hardly, Seldom)",
+          "definition": "Hindi speakers often fail to recognise that words like 'never', 'hardly', 'scarcely', and 'seldom' are inherently negative, because Hindi uses explicit negative particles. Hindi: 'वह कभी नहीं आता' (Vah kabhi nahin aata - He never comes) uses both 'कभी नहीं' (kabhi nahin - never) with visible negative 'नहीं' (nahin - not). English 'never' alone is negative without 'not'. Similarly, Hindi 'मुश्किल से' (mushkil se - hardly) does not contain a negative marker. When these negative-meaning words appear in English statements, Hindi speakers often add negative tags because they do not see explicit 'not', creating double negatives. The rule: negative-meaning words require positive tags.",
+          "rules": [
+            "Hindi 'कभी नहीं' (kabhi nahin) shows explicit negative; English 'never' is implicitly negative",
+            "Words with negative meaning: never, hardly, scarcely, barely, seldom, rarely",
+            "These words make statement negative, requiring positive tag",
+            "Do not add negative tag (creates double negative)",
+            "He never complains, does he? (positive tag, not 'does not he?')"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "He never arrives late, does he?",
+                "reason": "'Never' is negative meaning; correctly takes positive tag 'does he?'"
+              },
+              {
+                "text": "She hardly ever studies, does she?",
+                "reason": "'Hardly ever' negative meaning; correctly takes positive tag"
+              },
+              {
+                "text": "They seldom visit their hometown, do they?",
+                "reason": "'Seldom' (rarely) is negative; correctly takes positive tag"
+              },
+              {
+                "text": "Nobody understood the instructions, did they?",
+                "reason": "'Nobody' negative; correctly takes positive tag"
+              },
+              {
+                "text": "You can scarcely hear anything, can you?",
+                "reason": "'Scarcely' (barely) negative; correctly takes positive tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "He never arrives late, does not he?",
+                "reason": "Hindi pattern (कभी नहीं आता, नहीं आता ना?); 'never' needs positive tag: 'does he?'"
+              },
+              {
+                "text": "She hardly ever studies, does not she?",
+                "reason": "'Hardly ever' is negative; needs positive tag: 'does she?', not 'does not she?'"
+              },
+              {
+                "text": "They seldom visit their hometown, do not they?",
+                "reason": "'Seldom' negative meaning; needs positive tag: 'do they?'"
+              },
+              {
+                "text": "Nobody understood the instructions, did not they?",
+                "reason": "'Nobody' is negative; needs positive tag: 'did they?', not negative"
+              },
+              {
+                "text": "You can scarcely hear anything, cannot you?",
+                "reason": "'Scarcely' negative; needs positive tag: 'can you?', not 'cannot you?'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "practice",
+      "title": "Practice Exercises with Tag Questions",
+      "cards": [
+        {
+          "title": "Exercise 1: Form Tag Questions with Correct Polarity",
+          "definition": "Add appropriate tag questions to the statements, ensuring correct positive-negative polarity (positive statement takes negative tag; negative statement takes positive tag).",
+          "rules": [
+            "Positive statement → negative tag",
+            "Negative statement → positive tag",
+            "Use same auxiliary/modal as in statement",
+            "Match pronoun to subject",
+            "Include comma before tag"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Statement: She is a talented artist. Tag: is not she?",
+                "reason": "Positive 'is' correctly takes negative tag 'is not she?' with comma"
+              },
+              {
+                "text": "Statement: They do not work on Sundays. Tag: do they?",
+                "reason": "Negative 'do not work' correctly takes positive tag 'do they?'"
+              },
+              {
+                "text": "Statement: You can drive a car. Tag: cannot you?",
+                "reason": "Positive modal 'can' correctly takes negative tag 'cannot you?'"
+              },
+              {
+                "text": "Statement: He will not be late. Tag: will he?",
+                "reason": "Negative 'will not' correctly takes positive tag 'will he?'"
+              },
+              {
+                "text": "Statement: She has finished her work. Tag: has not she?",
+                "reason": "Positive 'has finished' correctly takes negative tag 'has not she?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Statement: She is a talented artist. Wrong tag: is she?",
+                "reason": "Same polarity (both positive); should be opposite: 'is not she?'"
+              },
+              {
+                "text": "Statement: They do not work on Sundays. Wrong tag: do not they?",
+                "reason": "Both negative; should be positive tag: 'do they?'"
+              },
+              {
+                "text": "Statement: You can drive a car. Wrong tag: can you?",
+                "reason": "Both positive; should be negative tag: 'cannot you?'"
+              },
+              {
+                "text": "Statement: He will not be late. Wrong tag: will not he?",
+                "reason": "Both negative; should be positive tag: 'will he?'"
+              },
+              {
+                "text": "Statement: She has finished her work has not she?",
+                "reason": "Missing comma before tag; must separate: 'work, has not she?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 2: Choose Correct Auxiliary Verb in Tag",
+          "definition": "Select the appropriate auxiliary verb for the tag based on the verb structure in the main statement.",
+          "rules": [
+            "Be verbs use themselves in tag",
+            "Auxiliary verbs (have/has/will/can) use themselves in tag",
+            "Simple present action verbs use do/does in tag",
+            "Simple past action verbs use did in tag",
+            "Match subject-verb agreement"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She works in the hospital, (does/is) not she? Answer: does",
+                "reason": "Simple present action verb 'works' requires 'does' in tag, not 'is'"
+              },
+              {
+                "text": "They are students, (do/are) not they? Answer: are",
+                "reason": "Be verb 'are' uses itself in tag, not 'do'"
+              },
+              {
+                "text": "He has completed the task, (has/does) not he? Answer: has",
+                "reason": "Present perfect auxiliary 'has' uses itself in tag"
+              },
+              {
+                "text": "She arrived yesterday, (did/was) not she? Answer: did",
+                "reason": "Simple past action verb 'arrived' requires 'did' in tag"
+              },
+              {
+                "text": "You can help me, (can/do) not you? Answer: can",
+                "reason": "Modal 'can' uses itself in tag"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing: She works in the hospital, (is) not she?",
+                "reason": "Wrong auxiliary; action verb 'works' needs 'does', not 'is'"
+              },
+              {
+                "text": "Choosing: They are students, (do) not they?",
+                "reason": "Wrong auxiliary; be verb 'are' must use itself, not 'do'"
+              },
+              {
+                "text": "Choosing: He has completed the task, (does) not he?",
+                "reason": "Wrong auxiliary; present perfect 'has' must use itself, not 'does'"
+              },
+              {
+                "text": "Choosing: She arrived yesterday, (was) not she?",
+                "reason": "Wrong auxiliary; simple past 'arrived' needs 'did', not 'was'"
+              },
+              {
+                "text": "Choosing: You can help me, (do) not you?",
+                "reason": "Wrong auxiliary; modal 'can' must use itself, not 'do'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 3: Negative-Meaning Words with Positive Tags",
+          "definition": "Form tag questions for statements containing words with inherent negative meaning (never, hardly, seldom, nobody, nothing). Remember these require positive tags.",
+          "rules": [
+            "Negative-meaning words: never, hardly, scarcely, seldom, rarely, barely",
+            "Negative pronouns: nobody, nothing, no, neither",
+            "These make statement negative → require positive tag",
+            "Do not add negative tag (would create double negative)",
+            "Match appropriate auxiliary and pronoun"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Statement: He never forgets birthdays. Tag: does he?",
+                "reason": "'Never' is negative meaning; correctly takes positive tag 'does he?'"
+              },
+              {
+                "text": "Statement: Nobody answered the question. Tag: did they?",
+                "reason": "'Nobody' negative; correctly takes positive tag 'did they?' (plural pronoun)"
+              },
+              {
+                "text": "Statement: She hardly ever complains. Tag: does she?",
+                "reason": "'Hardly ever' negative meaning; correctly takes positive tag"
+              },
+              {
+                "text": "Statement: They seldom go out. Tag: do they?",
+                "reason": "'Seldom' (rarely) negative; correctly takes positive tag"
+              },
+              {
+                "text": "Statement: There is nothing to worry about. Tag: is there?",
+                "reason": "'Nothing' negative; correctly takes positive tag 'is there?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Statement: He never forgets birthdays. Wrong tag: does not he?",
+                "reason": "'Never' is negative, needs positive tag: 'does he?', not 'does not he?'"
+              },
+              {
+                "text": "Statement: Nobody answered the question. Wrong tag: did not they?",
+                "reason": "'Nobody' negative, needs positive tag: 'did they?', not negative"
+              },
+              {
+                "text": "Statement: She hardly ever complains. Wrong tag: does not she?",
+                "reason": "'Hardly ever' negative, needs positive tag: 'does she?'"
+              },
+              {
+                "text": "Statement: They seldom go out. Wrong tag: do not they?",
+                "reason": "'Seldom' negative, needs positive tag: 'do they?'"
+              },
+              {
+                "text": "Statement: There is nothing to worry about. Wrong tag: is not there?",
+                "reason": "'Nothing' negative, needs positive tag: 'is there?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 4: Special Cases - I am, Let us, Imperatives",
+          "definition": "Form tag questions for special constructions that have irregular patterns: 'I am', 'Let us', and imperative sentences.",
+          "rules": [
+            "'I am' → irregular tag 'are not I?' or 'aren't I?' (never 'am not I?')",
+            "'Let us' (joint suggestion) → tag 'shall we?'",
+            "Positive imperatives → 'will you?' or 'can you?'",
+            "Negative imperatives → 'will you?'",
+            "These are exceptions; must be memorised"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Statement: I am responsible for this. Tag: are not I? (or aren't I?)",
+                "reason": "Special irregular tag for 'I am': 'are not I?', not 'am not I?'"
+              },
+              {
+                "text": "Statement: Let us start the meeting. Tag: shall we?",
+                "reason": "'Let us' (joint suggestion) correctly takes special tag 'shall we?'"
+              },
+              {
+                "text": "Statement: Close the door. Tag: will you?",
+                "reason": "Positive imperative correctly takes tag 'will you?'"
+              },
+              {
+                "text": "Statement: Do not forget the documents. Tag: will you?",
+                "reason": "Negative imperative correctly takes tag 'will you?'"
+              },
+              {
+                "text": "Statement: Pass me the salt. Tag: can you?",
+                "reason": "Polite imperative correctly takes tag 'can you?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Statement: I am responsible for this. Wrong tag: am not I?",
+                "reason": "'Am not I?' not standard; correct irregular form is 'are not I?' or 'aren't I?'"
+              },
+              {
+                "text": "Statement: Let us start the meeting. Wrong tag: will we?",
+                "reason": "'Let us' does not take 'will we?'; correct special tag is 'shall we?'"
+              },
+              {
+                "text": "Statement: Close the door. Wrong tag: do you?",
+                "reason": "Imperative tag should be 'will you?', not 'do you?'"
+              },
+              {
+                "text": "Statement: Do not forget the documents. Wrong tag: do not you?",
+                "reason": "Negative imperative takes 'will you?', not 'do not you?'"
+              },
+              {
+                "text": "Statement: Let us start. Wrong tag: let us?",
+                "reason": "Cannot repeat 'let us' in tag; correct form is 'shall we?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 5: Correct Tag Question Errors",
+          "definition": "Identify and correct errors in the given tag questions, focusing on polarity, auxiliary verb choice, pronoun agreement, and punctuation.",
+          "rules": [
+            "Check positive-negative polarity opposition",
+            "Verify correct auxiliary verb matches statement",
+            "Ensure pronoun matches subject in number and gender",
+            "Confirm comma separates statement from tag",
+            "Recognise negative-meaning words requiring positive tags"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Error: She works here is not she? → Correction: She works here, does not she?",
+                "reason": "Two errors fixed: added comma, changed auxiliary from 'is' to 'does' for action verb"
+              },
+              {
+                "text": "Error: They are students, are they? → Correction: They are students, are not they?",
+                "reason": "Polarity error fixed: positive statement needs negative tag"
+              },
+              {
+                "text": "Error: He never complains, does not he? → Correction: He never complains, does he?",
+                "reason": "'Never' is negative, requiring positive tag: 'does he?'"
+              },
+              {
+                "text": "Error: Your sister is ready, is not he? → Correction: Your sister is ready, is not she?",
+                "reason": "Pronoun error fixed: feminine 'sister' requires 'she', not 'he'"
+              },
+              {
+                "text": "Error: Let us go, will we? → Correction: Let us go, shall we?",
+                "reason": "Special case error fixed: 'Let us' requires 'shall we?', not 'will we?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Leaving: She works here is not she?",
+                "reason": "Two errors remain: missing comma, wrong auxiliary ('is' should be 'does')"
+              },
+              {
+                "text": "Correcting to: They are students, do not they?",
+                "reason": "Wrong auxiliary; 'be' verb 'are' must use itself: 'are not they?'"
+              },
+              {
+                "text": "Leaving: He never complains, does not he?",
+                "reason": "'Never' is negative, needs positive tag, not negative"
+              },
+              {
+                "text": "Correcting to: Your sister is ready, is not your sister?",
+                "reason": "Cannot repeat noun; must use pronoun: 'is not she?'"
+              },
+              {
+                "text": "Leaving: Let us go, will we?",
+                "reason": "Special case 'Let us' requires 'shall we?', not 'will we?'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "revision",
+      "title": "Revision Questions",
+      "cards": [
+        {
+          "title": "Revision Question 1",
+          "definition": "Choose the correct tag question for: 'She is coming to the party':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) is not she?",
+                "reason": "Correct: Positive statement 'is' correctly takes negative tag 'is not she?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) is she?",
+                "reason": "Wrong: Both positive (same polarity); should be opposite: 'is not she?'"
+              },
+              {
+                "text": "C) does not she?",
+                "reason": "Wrong: Incorrect auxiliary; 'be' verb 'is' must use itself, not 'does'"
+              },
+              {
+                "text": "D) was not she?",
+                "reason": "Wrong: Tense mismatch; present 'is' should use present tag 'is not', not past 'was not'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 2",
+          "definition": "Select the correct tag for: 'They do not work on weekends':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) do they?",
+                "reason": "Correct: Negative statement 'do not' correctly takes positive tag 'do they?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) do not they?",
+                "reason": "Wrong: Both negative (same polarity); should be opposite: 'do they?'"
+              },
+              {
+                "text": "B) are they?",
+                "reason": "Wrong: Incorrect auxiliary; statement uses 'do', so tag must use 'do', not 'are'"
+              },
+              {
+                "text": "D) did they?",
+                "reason": "Wrong: Tense mismatch; present 'do not work' needs present 'do', not past 'did'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 3",
+          "definition": "Choose correct tag for: 'He can speak French':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) cannot he?",
+                "reason": "Correct: Positive modal 'can' correctly takes negative tag 'cannot he?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) can he?",
+                "reason": "Wrong: Both positive; positive modal needs negative tag: 'cannot he?'"
+              },
+              {
+                "text": "B) does not he?",
+                "reason": "Wrong: Incorrect auxiliary; modal 'can' must use itself, not 'does'"
+              },
+              {
+                "text": "C) is not he?",
+                "reason": "Wrong: Incorrect auxiliary; modal 'can' must use itself, not 'is'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 4",
+          "definition": "Select correct tag for: 'She works in Mumbai':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "A) does not she?",
+                "reason": "Correct: Simple present action verb 'works' requires 'does' in tag (not 'is')"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "B) is not she?",
+                "reason": "Wrong: Action verb 'works' needs 'does' in tag, not 'is'"
+              },
+              {
+                "text": "C) works not she?",
+                "reason": "Wrong: Cannot use main verb in tag; need auxiliary 'does not she?'"
+              },
+              {
+                "text": "D) does she?",
+                "reason": "Wrong: Both positive; positive statement needs negative tag: 'does not she?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 5",
+          "definition": "Choose correct tag for: 'He never arrives late':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) does he?",
+                "reason": "Correct: 'Never' is negative meaning, so requires positive tag 'does he?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) does not he?",
+                "reason": "Wrong: 'Never' is negative, needs positive tag: 'does he?', not 'does not he?'"
+              },
+              {
+                "text": "C) is he?",
+                "reason": "Wrong: Incorrect auxiliary; action verb 'arrives' needs 'does', not 'is'"
+              },
+              {
+                "text": "D) has he?",
+                "reason": "Wrong: Incorrect auxiliary; simple present 'arrives' needs 'does', not 'has'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 6",
+          "definition": "Select correct tag for: 'Nobody understood the instructions':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) did they?",
+                "reason": "Correct: 'Nobody' is negative, requires positive tag 'did'; plural pronoun 'they'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) did not they?",
+                "reason": "Wrong: 'Nobody' is negative, needs positive tag: 'did they?', not negative"
+              },
+              {
+                "text": "B) did he?",
+                "reason": "Wrong: Pronoun mismatch; 'nobody' takes plural 'they', not singular 'he'"
+              },
+              {
+                "text": "D) do they?",
+                "reason": "Wrong: Tense mismatch; past 'understood' needs 'did', not present 'do'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 7",
+          "definition": "Choose correct tag for: 'I am responsible for this project':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) are not I? (or aren't I?)",
+                "reason": "Correct: Special irregular tag for 'I am' is 'are not I?', not 'am not I?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) am not I?",
+                "reason": "Wrong: 'Am not I?' not standard; correct irregular form is 'are not I?'"
+              },
+              {
+                "text": "B) is not I?",
+                "reason": "Wrong: Grammatically incorrect; special form is 'are not I?', not 'is not I?'"
+              },
+              {
+                "text": "C) do not I?",
+                "reason": "Wrong: 'Be' verb 'am' does not use 'do'; special irregular is 'are not I?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 8",
+          "definition": "Select correct tag for: 'Let us begin the meeting':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) shall we?",
+                "reason": "Correct: 'Let us' (joint suggestion) takes special tag 'shall we?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) will we?",
+                "reason": "Wrong: 'Let us' does not take 'will we?'; correct special tag is 'shall we?'"
+              },
+              {
+                "text": "C) do we?",
+                "reason": "Wrong: 'Let us' requires special tag 'shall we?', not 'do we?'"
+              },
+              {
+                "text": "D) let us?",
+                "reason": "Wrong: Cannot repeat 'let us' in tag; correct form is 'shall we?'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 9",
+          "definition": "Choose correct tag for: 'Close the door':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) will you?",
+                "reason": "Correct: Positive imperative (command/request) correctly takes tag 'will you?'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) do you?",
+                "reason": "Wrong: Imperative tag should be 'will you?', not 'do you?'"
+              },
+              {
+                "text": "B) can you?",
+                "reason": "Acceptable for polite request, but 'will you?' is standard for imperatives"
+              },
+              {
+                "text": "D) shall we?",
+                "reason": "Wrong: 'Shall we?' is for 'Let us' suggestions, not single-person imperatives"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 10",
+          "definition": "Select correct tag for: 'He has to submit the report by Friday':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) does not he?",
+                "reason": "Correct: 'Has to' (obligation) uses 'does' in tag, not 'has'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) has not he?",
+                "reason": "Wrong: 'Has to' (obligation) requires 'does' in tag, not 'has'"
+              },
+              {
+                "text": "C) is not he?",
+                "reason": "Wrong: 'Has to' requires 'does' in tag, not 'is'"
+              },
+              {
+                "text": "D) must not he?",
+                "reason": "Wrong: Statement uses 'has to', so tag must use 'does', not 'must'"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "topic_id": "academic-vocabulary",
+  "topic_name": "Academic Vocabulary",
+  "subject": "English",
+  "sections": [
+    {
+      "section_id": "awl-overview",
+      "title": "Academic Word List Overview",
+      "blocks": [
+        {
+          "block_type": "explanation",
+          "content": "The Academic Word List (AWL) contains 570 word families that appear frequently in academic texts across disciplines. These words are neither too general (like 'the', 'is') nor too specialized (like 'photosynthesis'). Mastering AWL words helps you read research papers, write essays, and score higher on IELTS/TOEFL/GRE exams."
+        },
+        {
+          "block_type": "key_point",
+          "content": "**Why AWL matters for Indian students:**\n- 10% of academic texts use AWL words\n- IELTS Writing Task 2 rewards AWL usage (band 7+)\n- TOEFL Reading passages heavily feature AWL\n- GRE Verbal section tests AWL comprehension"
+        },
+        {
+          "block_type": "example",
+          "title": "AWL in Action",
+          "content": "**General English:** 'The study shows that pollution is bad.'\n**Academic English:** 'The research **indicates** that environmental **degradation** has **significant adverse consequences**.'\n\n(Bolded words = AWL)"
+        },
+        {
+          "block_type": "tip",
+          "content": "**Learning strategy:** Focus on AWL Sublist 1-3 first (300 words). These appear 4x more than Sublist 10 words."
+        }
+      ]
+    },
+    {
+      "section_id": "top-100-words",
+      "title": "Top 100 High-Frequency Academic Words",
+      "blocks": [
+        {
+          "block_type": "explanation",
+          "content": "These 100 words appear most frequently in academic writing across all subjects. Learn their meanings, collocations, and usage patterns."
+        },
+        {
+          "block_type": "table",
+          "title": "AWL Top 100 Words",
+          "headers": ["Word", "Part of Speech", "Meaning", "Example Sentence"],
+          "rows": [
+            ["analyze", "verb", "examine in detail", "Researchers **analyze** data to identify trends."],
+            ["approach", "noun/verb", "method; come near", "This **approach** improves efficiency."],
+            ["assume", "verb", "suppose to be true", "We **assume** constant temperature."],
+            ["benefit", "noun/verb", "advantage; gain from", "The policy has clear **benefits**."],
+            ["concept", "noun", "abstract idea", "The **concept** of gravity is fundamental."],
+            ["consistent", "adjective", "unchanging; reliable", "Results were **consistent** across trials."],
+            ["context", "noun", "surrounding circumstances", "Interpret words in **context**."],
+            ["data", "noun (plural)", "facts/statistics", "The **data** show a correlation."],
+            ["define", "verb", "state meaning precisely", "**Define** key terms before arguing."],
+            ["derive", "verb", "obtain from source", "The formula is **derived** from Newton's laws."],
+            ["distribute", "verb", "spread out; give shares", "Resources are **distributed** unequally."],
+            ["economy", "noun", "wealth management system", "The **economy** grew by 5%."],
+            ["environment", "noun", "surroundings; nature", "Pollution harms the **environment**."],
+            ["establish", "verb", "create; prove", "The study **established** causation."],
+            ["estimate", "verb/noun", "calculate roughly", "We **estimate** 10% growth."],
+            ["evidence", "noun", "proof; data supporting claim", "The **evidence** is inconclusive."],
+            ["factor", "noun", "contributing element", "Poverty is a major **factor**."],
+            ["function", "noun/verb", "purpose; operate", "The heart **functions** as a pump."],
+            ["identify", "verb", "recognize; name", "**Identify** three causes."],
+            ["income", "noun", "money earned", "Average **income** rose 8%."],
+            ["indicate", "verb", "show; suggest", "The graph **indicates** a decline."],
+            ["individual", "noun/adj", "person; single", "**Individual** rights are protected."],
+            ["interpret", "verb", "explain meaning", "**Interpret** the poem's symbolism."],
+            ["involve", "verb", "include; require participation", "The process **involves** heating."],
+            ["issue", "noun", "important topic; problem", "Climate change is a key **issue**."],
+            ["labor", "noun", "work; workers", "Manual **labor** decreased."],
+            ["legal", "adjective", "relating to law; lawful", "The contract is **legally** binding."],
+            ["legislate", "verb", "make laws", "Parliament **legislates** reforms."],
+            ["major", "adjective", "large; important", "A **major** breakthrough occurred."],
+            ["method", "noun", "systematic procedure", "The scientific **method** is rigorous."],
+            ["occur", "verb", "happen; be found", "Errors **occur** frequently."],
+            ["percent", "noun", "per hundred", "Sales rose 20 **percent**."],
+            ["period", "noun", "time span", "The study covered a 5-year **period**."],
+            ["policy", "noun", "official plan/rule", "The new **policy** takes effect today."],
+            ["principle", "noun", "fundamental truth/rule", "Democratic **principles** guide governance."],
+            ["proceed", "verb", "continue; move forward", "**Proceed** to the next step."],
+            ["process", "noun/verb", "series of actions; treat", "The manufacturing **process** is automated."],
+            ["require", "verb", "need; demand", "All students **require** laptops."],
+            ["research", "noun/verb", "systematic investigation", "The team **researched** cancer treatments."],
+            ["respond", "verb", "reply; react", "Cells **respond** to stimuli."],
+            ["role", "noun", "function; part played", "Teachers play a vital **role**."],
+            ["section", "noun", "distinct part", "Read the introduction **section**."],
+            ["sector", "noun", "area of economy/society", "The IT **sector** expanded rapidly."],
+            ["significant", "adjective", "important; meaningful", "The result is **statistically significant**."],
+            ["similar", "adjective", "alike; comparable", "The two samples are **similar**."],
+            ["source", "noun", "origin; reference", "Cite all **sources** correctly."],
+            ["specific", "adjective", "precise; particular", "Provide **specific** examples."],
+            ["structure", "noun/verb", "arrangement; organize", "The essay lacks clear **structure**."],
+            ["theory", "noun", "explanation; hypothesis", "Darwin's **theory** of evolution."],
+            ["vary", "verb", "differ; change", "Results **vary** by region."]
+          ]
+        },
+        {
+          "block_type": "tip",
+          "content": "**Flashcard strategy:** Group words by topic (economics: income, labor, sector; research: data, method, evidence). Review 10 words daily."
+        },
+        {
+          "block_type": "practice_problem",
+          "title": "Quick Practice",
+          "content": "Replace informal words with AWL equivalents:\n1. The study **shows** that... → The study **indicates** that...\n2. **Get** information from books → **Derive/Obtain** information from sources\n3. **Important** problem → **Significant** issue\n4. **Different** results → **Varied/Diverse** results\n5. **Make** a plan → **Establish/Formulate** a strategy"
+        }
+      ]
+    },
+    {
+      "section_id": "subject-vocabulary",
+      "title": "Subject-Specific Academic Vocabulary",
+      "blocks": [
+        {
+          "block_type": "explanation",
+          "content": "Beyond AWL, each academic discipline has specialized vocabulary. IELTS/TOEFL passages often come from science, social sciences, and humanities."
+        },
+        {
+          "block_type": "table",
+          "title": "Science Vocabulary (STEM)",
+          "headers": ["Word", "Meaning", "Usage"],
+          "rows": [
+            ["hypothesis", "testable prediction", "The **hypothesis** was confirmed by experiments."],
+            ["correlation", "mutual relationship", "Strong **correlation** between variables."],
+            ["catalyst", "substance speeding reaction", "Enzymes act as biological **catalysts**."],
+            ["synthesis", "combining parts into whole", "Protein **synthesis** occurs in ribosomes."],
+            ["quantify", "measure/express numerically", "Researchers **quantified** the effect."],
+            ["phenomenon", "observable event", "Lightning is a natural **phenomenon**."],
+            ["empirical", "based on observation", "**Empirical** evidence supports the theory."],
+            ["variable", "factor that can change", "Control all **variables** except one."]
+          ]
+        },
+        {
+          "block_type": "table",
+          "title": "Humanities & Social Sciences Vocabulary",
+          "headers": ["Word", "Meaning", "Usage"],
+          "rows": [
+            ["paradigm", "typical example/framework", "A **paradigm** shift in psychology."],
+            ["discourse", "written/spoken debate", "Academic **discourse** requires evidence."],
+            ["ideology", "system of beliefs", "Political **ideologies** shape policy."],
+            ["autonomy", "self-governance", "Regional **autonomy** was granted."],
+            ["hegemony", "dominance/leadership", "Cultural **hegemony** influences values."],
+            ["pragmatic", "practical; realistic", "A **pragmatic** approach to reform."],
+            ["rhetoric", "art of persuasive speaking", "The speech used powerful **rhetoric**."],
+            ["synthesis", "combination of ideas", "The essay provides a **synthesis** of views."]
+          ]
+        },
+        {
+          "block_type": "key_point",
+          "content": "**IELTS/TOEFL tip:** Reading passages test whether you can infer word meaning from context. Don't panic if you see unfamiliar terms—look for clues in surrounding sentences."
+        },
+        {
+          "block_type": "example",
+          "title": "Context Clues in Action",
+          "content": "**Passage:** 'The discovery of penicillin was **serendipitous**—Fleming noticed mold killing bacteria by accident, not through planned experimentation.'\n\n**Unknown word:** serendipitous\n**Context clue:** 'by accident, not through planned experimentation'\n**Meaning:** happening by chance; accidental lucky discovery"
+        }
+      ]
+    },
+    {
+      "section_id": "academic-collocations",
+      "title": "Academic Collocations (Word Partnerships)",
+      "blocks": [
+        {
+          "block_type": "explanation",
+          "content": "Collocations are word combinations that native speakers use naturally. Using correct collocations improves writing fluency and IELTS band scores."
+        },
+        {
+          "block_type": "table",
+          "title": "Verb + Noun Collocations",
+          "headers": ["Collocation", "Correct", "Incorrect"],
+          "rows": [
+            ["conduct research", "conduct research", "make research"],
+            ["reach a conclusion", "reach a conclusion", "arrive to a conclusion"],
+            ["pose a question", "pose a question", "put a question"],
+            ["address an issue", "address an issue", "solve an issue (sometimes OK)"],
+            ["draw a distinction", "draw a distinction", "make a distinction (OK but less formal)"],
+            ["adopt an approach", "adopt an approach", "take an approach (informal)"],
+            ["formulate a hypothesis", "formulate a hypothesis", "create a hypothesis"],
+            ["yield results", "yield results", "give results (informal)"],
+            ["implement a policy", "implement a policy", "apply a policy (less precise)"],
+            ["refute an argument", "refute an argument", "deny an argument (less academic)"]
+          ]
+        },
+        {
+          "block_type": "table",
+          "title": "Adjective + Noun Collocations",
+          "headers": ["Collocation", "Example Sentence"],
+          "rows": [
+            ["empirical evidence", "The theory lacks **empirical evidence**."],
+            ["rigorous analysis", "The study employed **rigorous analysis**."],
+            ["considerable debate", "**Considerable debate** surrounds the issue."],
+            ["significant impact", "Climate change has a **significant impact**."],
+            ["fundamental principle", "Equality is a **fundamental principle**."],
+            ["primary objective", "The **primary objective** is to reduce costs."],
+            ["underlying assumption", "The **underlying assumption** is flawed."],
+            ["compelling argument", "She presented a **compelling argument**."],
+            ["tentative conclusion", "We reached a **tentative conclusion**."],
+            ["robust framework", "The model provides a **robust framework**."]
+          ]
+        },
+        {
+          "block_type": "common_mistake",
+          "mistake": "Using 'big' instead of academic alternatives",
+          "correction": "**Informal:** a big problem → **Formal:** a **significant/major/considerable** issue\n**Informal:** a big difference → **Formal:** a **substantial/marked** difference"
+        },
+        {
+          "block_type": "practice_problem",
+          "title": "Collocation Practice",
+          "content": "Choose the correct verb:\n1. The study _______ a conclusion. (reached/arrived/came)\n2. Researchers _______ an experiment. (made/did/conducted)\n3. The theory _______ criticism. (faced/met/received)\n4. Evidence _______ the hypothesis. (supports/holds/carries)\n\n**Answers:** 1. reached, 2. conducted, 3. faced, 4. supports"
+        }
+      ]
+    },
+    {
+      "section_id": "formal-vs-informal",
+      "title": "Formal vs Informal Language",
+      "blocks": [
+        {
+          "block_type": "explanation",
+          "content": "IELTS Writing Task 2 and TOEFL essays require formal academic tone. Avoid contractions, phrasal verbs, and colloquial expressions."
+        },
+        {
+          "block_type": "table",
+          "title": "Formal vs Informal Vocabulary",
+          "headers": ["Informal", "Formal (AWL)", "Example (Formal)"],
+          "rows": [
+            ["get", "obtain/acquire", "Students **obtain** knowledge through reading."],
+            ["show", "demonstrate/indicate", "The graph **demonstrates** growth."],
+            ["go up", "increase/rise", "Prices **increased** by 15%."],
+            ["go down", "decrease/decline", "Pollution levels **declined** significantly."],
+            ["find out", "discover/ascertain", "Researchers **discovered** a new species."],
+            ["a lot of", "considerable/substantial", "**Considerable** evidence supports this."],
+            ["very important", "crucial/vital/significant", "Education is **crucial** for development."],
+            ["think about", "consider/examine", "We must **consider** alternative solutions."],
+            ["talk about", "discuss/address", "The article **discusses** climate policy."],
+            ["look at", "examine/analyze", "Scholars **analyze** historical trends."],
+            ["because of", "due to/owing to", "**Due to** budget cuts, services were reduced."],
+            ["but", "however/nevertheless", "The plan failed; **however**, lessons were learned."],
+            ["so", "therefore/consequently", "Demand rose; **therefore**, prices increased."],
+            ["also", "moreover/furthermore", "**Furthermore**, the method is cost-effective."],
+            ["in the end", "ultimately/eventually", "**Ultimately**, the project succeeded."]
+          ]
+        },
+        {
+          "block_type": "common_mistake",
+          "mistake": "Using contractions in formal writing",
+          "correction": "**Informal:** It's important to note that...\n**Formal:** **It is** important to note that...\n\n**Informal:** The study doesn't address...\n**Formal:** The study **does not** address..."
+        },
+        {
+          "block_type": "key_point",
+          "content": "**IELTS Band 7+ requirement:** Use a mix of simple and complex sentences with formal vocabulary. Avoid personal pronouns ('I think...') in Task 2 essays unless the question asks for your opinion."
+        },
+        {
+          "block_type": "example",
+          "title": "Before & After (Band 5 → Band 7+)",
+          "content": "**Band 5 (Informal):**\n'Nowadays, there's a lot of pollution and it's getting worse. People should do something about it because it's really bad for the environment.'\n\n**Band 7+ (Formal):**\n'In recent decades, environmental degradation has intensified considerably. It is imperative that governments and individuals adopt sustainable practices, as the long-term consequences of pollution pose significant threats to ecosystems.'"
+        }
+      ]
+    },
+    {
+      "section_id": "learning-strategies",
+      "title": "Effective Learning Strategies for Academic Vocabulary",
+      "blocks": [
+        {
+          "block_type": "explanation",
+          "content": "Building academic vocabulary requires consistent practice using proven techniques. Here are strategies tailored for Indian IELTS/TOEFL/GRE students."
+        },
+        {
+          "block_type": "key_point",
+          "content": "**1. Context Clues Method**\nDon't memorize isolated words. Learn from real academic passages:\n- Read IELTS Cambridge books, Scientific American articles\n- Highlight unknown AWL words\n- Guess meaning from context before checking dictionary\n- Write sentence using the word in similar context"
+        },
+        {
+          "block_type": "key_point",
+          "content": "**2. Word Families Approach**\nLearn related forms together:\n- **analyze** (verb) → **analysis** (noun) → **analytical** (adj) → **analytically** (adv)\n- **significant** (adj) → **significance** (noun) → **significantly** (adv) → **signify** (verb)\n\nThis multiplies your vocabulary 3-4x faster."
+        },
+        {
+          "block_type": "key_point",
+          "content": "**3. Spaced Repetition System (SRS)**\n- Day 1: Learn 10 new words\n- Day 2: Review Day 1 words + learn 10 new\n- Day 4: Review Day 1 words again\n- Day 7: Review Day 1 words again\n- Day 14: Final review\n\nUse apps like Anki or Quizlet for automated scheduling."
+        },
+        {
+          "block_type": "tip",
+          "content": "**Active vs Passive Learning:**\n\n**Passive (Low retention):** Reading word lists, highlighting textbooks\n\n**Active (High retention):**\n- Write sample IELTS essays using new words\n- Teach words to study partner\n- Create mind maps connecting related terms\n- Practice TOEFL speaking tasks using AWL vocabulary"
+        },
+        {
+          "block_type": "example",
+          "title": "30-Day AWL Mastery Plan for IELTS/TOEFL",
+          "content": "**Week 1-2:** AWL Sublist 1 (60 words)\n- Learn 5 words/day with example sentences\n- Write 1 paragraph daily using those words\n\n**Week 3:** AWL Sublist 2 (60 words)\n- Same process as Week 1-2\n- Review Sublist 1 every 3 days\n\n**Week 4:** Practice Integration\n- Write 3 full IELTS Task 2 essays (250 words)\n- Record 6 TOEFL speaking responses (45-60 sec)\n- Aim for 10+ AWL words per essay/response\n\n**Result:** Master 120 high-frequency words in 30 days."
+        },
+        {
+          "block_type": "common_mistake",
+          "mistake": "Translating directly from Hindi/Tamil to English",
+          "correction": "**Wrong approach:** Learn English word → translate to mother tongue → translate back when writing\n\n**Right approach:** Think directly in English by:\n- Reading English news daily (The Hindu, BBC)\n- Watching English lectures (TED-Ed, Khan Academy)\n- Describing daily activities in English mentally\n\nThis builds fluency and natural collocation usage."
+        },
+        {
+          "block_type": "practice_problem",
+          "title": "Final Challenge: Rewrite Informally",
+          "content": "Transform this informal paragraph into academic English:\n\n**Informal:**\n'Lots of people think that tech is making kids lazy. They spend too much time on phones and don't talk to each other. This is a big problem and parents should do something about it.'\n\n**Academic version (sample):**\n'Many educators argue that excessive screen time is detrimental to adolescent development. Research indicates that prolonged digital device usage correlates with reduced face-to-face interaction. This phenomenon constitutes a significant concern, necessitating parental intervention and policy reforms.'\n\n**Your turn:** Rewrite the informal version using at least 5 AWL words."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimated_time_minutes": 25,
+    "prerequisite_topics": [],
+    "related_topics": ["reading-comprehension-skills", "sentence-structure", "writing-task-2-ielts"],
+    "exam_relevance": ["IELTS", "TOEFL", "GRE", "SAT"],
+    "target_audience": "Indian students preparing for international English proficiency exams"
+  }
+}

@@ -1,0 +1,430 @@
+{
+  "topic_id": "ielts-writing",
+  "title": "IELTS Writing",
+  "subtitle": "Master Task 1 data description and Task 2 essay writing for Band 7+",
+  "overview": "Complete guide to IELTS Academic Writing with strategies, templates, and common mistakes for Indian test-takers aiming for high band scores.",
+  "sections": [
+    {
+      "id": "ielts-writing-overview",
+      "title": "IELTS Writing Overview",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "IELTS Writing has two tasks completed in 60 minutes. Task 1 (20 minutes, 150 words minimum) tests your ability to describe visual data—graphs, charts, tables, diagrams, or processes. Task 2 (40 minutes, 250 words minimum) requires a formal essay on a given topic. Task 2 carries double the weight (66% vs. 33%), so prioritize it if short on time. Both tasks are assessed on four criteria: Task Achievement, Coherence & Cohesion, Lexical Resource, and Grammatical Range & Accuracy."
+        },
+        {
+          "type": "table",
+          "headers": ["Aspect", "Task 1", "Task 2"],
+          "rows": [
+            ["Time Allocation", "20 minutes", "40 minutes (priority!)"],
+            ["Minimum Words", "150 words", "250 words"],
+            ["Weight", "33% of Writing score", "66% of Writing score"],
+            ["Style", "Formal, objective (no opinions)", "Formal, analytical (opinions required)"],
+            ["Common Types", "Line/bar/pie charts, tables, processes, maps", "Opinion, Discussion, Problem-Solution, Two-Part"],
+            ["Key Skill", "Data selection & comparison", "Argument development & examples"]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Four Band Descriptors (0-9 scale)",
+          "items": [
+            "**Task Achievement (Task 1) / Task Response (Task 2):** Did you fully answer the question? Task 1: cover key features, make comparisons. Task 2: address all parts, develop ideas with examples.",
+            "**Coherence & Cohesion:** Is your writing logical and well-organized? Use paragraphs, linking words (however, therefore), and pronoun references correctly.",
+            "**Lexical Resource:** Vocabulary range and accuracy. Use topic-specific words, avoid repetition, minimize spelling errors. Paraphrasing is key.",
+            "**Grammatical Range & Accuracy:** Sentence variety (simple, compound, complex) and correct grammar. Band 7+ requires mostly error-free writing with advanced structures."
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Time Management Strategy",
+          "content": "Spend 5 minutes planning Task 2 (outline ideas, examples) and 2 minutes planning Task 1 (identify trends). Leave 3-5 minutes at the end to check spelling, grammar, and word count. Many Indian candidates lose 0.5-1 band by writing under the word limit or rushing Task 2."
+        },
+        {
+          "type": "example",
+          "title": "Scoring Example: Band 6 vs. Band 7",
+          "content": "**Band 6 opening (Task 2):** \"Nowadays, many people think technology is bad for children. I agree with this.\"\n\n**Band 7 opening:** \"While technology offers educational benefits, excessive screen time can hinder children's social development and physical health. This essay will examine both perspectives before presenting a balanced view.\"\n\n**Why Band 7 is better:** Paraphrases the question, presents a nuanced stance, outlines essay structure—all in one sentence."
+        },
+        {
+          "type": "practice",
+          "question": "Set a timer for 60 minutes. Write both tasks on any topic (find prompts online). Did you finish on time? Which task felt harder?",
+          "hint": "Most Indian students spend too long on Task 1 and rush Task 2. Practice completing Task 1 in 18 minutes max."
+        }
+      ]
+    },
+    {
+      "id": "task1-line-graphs",
+      "title": "Task 1: Line Graphs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Line graphs show trends over time (years, months, decades). Your job: summarize the main trends, compare data, and highlight significant changes—NOT describe every single point. Use 4 paragraphs: (1) Introduction (paraphrase the question), (2) Overview (main trends—most important paragraph!), (3-4) Body paragraphs (detailed comparisons with data). Avoid giving reasons or personal opinions—just report the data objectively."
+        },
+        {
+          "type": "table",
+          "headers": ["Section", "Purpose", "Example (CO2 emissions graph)"],
+          "rows": [
+            ["**Introduction**", "Paraphrase the question (1-2 sentences)", "\"The line graph illustrates changes in carbon dioxide emissions from three countries between 2000 and 2020.\""],
+            ["**Overview**", "State 2-3 main trends (no data)", "\"Overall, emissions rose in India and China, while they declined in the USA. China overtook the USA as the largest emitter by 2010.\""],
+            ["**Body 1**", "Compare Group A (with specific data)", "\"India's emissions increased steadily from 1.2 billion tonnes in 2000 to 2.8 billion in 2020, nearly doubling over the period.\""],
+            ["**Body 2**", "Compare Group B + notable changes", "\"In contrast, US emissions fell from 6 billion tonnes to 5.2 billion, despite a peak of 6.5 billion in 2005. China experienced the sharpest rise, surging from 3 billion to 10 billion tonnes.\""]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Vocabulary for Line Graphs",
+          "items": [
+            "**Upward trends:** rise, increase, grow, climb, surge, soar, peak at",
+            "**Downward trends:** fall, decline, decrease, drop, plummet, bottom out at",
+            "**Stability:** remain stable, level off, plateau, fluctuate around",
+            "**Speed:** sharply, gradually, steadily, dramatically, slightly, marginally",
+            "**Comparisons:** while, whereas, in contrast, on the other hand, similarly, likewise"
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake: Data Overload",
+          "content": "Indian candidates often list every data point: \"In 2001 it was X, in 2002 it was Y...\" This wastes words and time. Instead, group data into trends: \"From 2001 to 2005, values fluctuated between X and Y before stabilizing.\""
+        },
+        {
+          "type": "example",
+          "title": "Sample Overview (Band 7+)",
+          "content": "**Graph:** Smartphone sales in India, USA, China (2010-2020)\n\n**Weak overview:** \"All three countries saw changes in smartphone sales.\"\n\n**Strong overview:** \"Overall, sales increased in all three nations, with China consistently leading. India experienced the most dramatic growth, surpassing the USA by 2018, while American sales plateaued after 2015.\"\n\n**Why it works:** Identifies trends (all increased), ranks countries (China first), highlights key changes (India overtook USA, US plateau)."
+        },
+        {
+          "type": "practice",
+          "question": "Find a line graph online (GDP, temperature, etc.). Write a 150-word report in 15 minutes. Did you include an overview with no data?",
+          "hint": "The overview is the most important paragraph—examiners check it first. Aim for 2-3 sentences summarizing main trends."
+        }
+      ]
+    },
+    {
+      "id": "task1-bar-pie-charts",
+      "title": "Task 1: Bar Charts & Pie Charts",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Bar charts compare quantities across categories (countries, age groups, products), often at different time points. Pie charts show proportions (percentages or fractions) of a whole. For both, use the same 4-paragraph structure: Introduction (paraphrase), Overview (main patterns), Body 1 (largest/smallest categories), Body 2 (comparisons/changes). Always compare and group data—never describe charts separately if there are multiple."
+        },
+        {
+          "type": "table",
+          "headers": ["Chart Type", "What to Highlight", "Example"],
+          "rows": [
+            ["**Bar Chart**", "Highest/lowest values, trends across groups", "\"France had the highest tourist arrivals (80 million), while India recorded the lowest (12 million).\""],
+            ["**Pie Chart**", "Largest/smallest slices, notable proportions", "\"Transportation accounted for the largest share of household spending (35%), followed by food (25%).\""],
+            ["**Multiple Charts**", "Differences between charts, patterns across time/groups", "\"In 2010, renewable energy formed 10% of the mix, but this doubled to 20% by 2020.\""]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Vocabulary for Bar & Pie Charts",
+          "items": [
+            "**Proportions (Pie):** account for, represent, comprise, make up, constitute, the majority/minority of",
+            "**Ranking (Bar):** the highest/lowest, led by, followed by, ranked first/last, exceeded",
+            "**Fractions:** a quarter (25%), a third (33%), half (50%), two-thirds (66%)",
+            "**Approximations:** approximately, roughly, just over/under, nearly, around, about"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Sample Body Paragraph (Pie Chart)",
+          "content": "**Chart:** Household expenses in India (2023) – Housing 30%, Food 25%, Transport 20%, Education 15%, Others 10%\n\n**Body Paragraph:** \"Housing dominated household spending, accounting for nearly a third of the total budget (30%). Food was the second-largest expense at a quarter (25%), while transportation represented a fifth (20%). Education comprised a relatively smaller share at 15%, and miscellaneous items made up the remaining 10%. Combined, housing and food represented over half of all expenses.\"\n\n**Why it works:** Groups logically (largest to smallest), uses fractions (third, quarter), makes comparisons (combined share), avoids repetition."
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake: Repetitive Phrasing",
+          "content": "Avoid: \"Housing is 30%. Food is 25%. Transport is 20%...\" Instead, vary your structures: \"Housing accounted for 30%, followed by food at 25%. Transport represented a fifth of the total, while education comprised 15%.\""
+        },
+        {
+          "type": "table",
+          "headers": ["Number", "Formal Ways to Express It", "Example"],
+          "rows": [
+            ["25%", "a quarter, one in four, 25 percent", "\"A quarter of respondents preferred online shopping.\""],
+            ["33%", "a third, one in three, roughly a third", "\"Energy costs rose by approximately one third.\""],
+            ["50%", "half, 50 percent, one in two", "\"Half of the students chose science streams.\""],
+            ["75%", "three-quarters, 75 percent, three out of four", "\"Three-quarters of emissions came from transport.\""]
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "Find a pie chart online. Write a 150-word description. Did you compare slices and use fractions (not just percentages)?",
+          "hint": "Use at least 3 different ways to express proportions (e.g., 'a quarter', 'represented', 'comprised')."
+        }
+      ]
+    },
+    {
+      "id": "task1-tables-processes",
+      "title": "Task 1: Tables & Processes",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Tables present data in rows and columns—identify the highest/lowest values, trends over time, and key differences. Processes/diagrams (e.g., water cycle, coffee production) show sequential steps. For processes, use passive voice (\"Water is heated\") and sequencing words (first, next, then, finally). Describe all major stages but don't invent details not shown in the diagram. Aim for 7-10 sentences across 3-4 paragraphs."
+        },
+        {
+          "type": "table",
+          "headers": ["Type", "Structure", "Key Language"],
+          "rows": [
+            ["**Table**", "Introduction → Overview (main patterns) → Body (compare rows/columns with data)", "highest/lowest, significantly more/less, the most/least, compared to"],
+            ["**Process**", "Introduction (describe diagram) → Overview (number of stages) → Body (steps in order)", "First, then, next, after that, subsequently, finally, once X is complete"],
+            ["**Passive Voice (Process)**", "Use when the actor is unknown/unimportant", "\"Beans are roasted\" (not \"Workers roast beans\")"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Sample Process: Coffee Production",
+          "content": "**Introduction:** \"The diagram illustrates the various stages involved in coffee production, from harvesting beans to the final packaged product.\"\n\n**Overview:** \"Overall, the process consists of nine main steps, beginning with picking coffee cherries and ending with sealed packages ready for distribution.\"\n\n**Body 1:** \"First, ripe coffee cherries are handpicked from trees and collected in baskets. These cherries are then transported to a processing facility, where they are washed to remove pulp. Next, the beans are spread out to dry under sunlight for 2-3 weeks.\"\n\n**Body 2:** \"Once dried, the beans are roasted at high temperatures (200°C) until they turn dark brown. After roasting, they are rapidly cooled and ground into powder. Finally, the ground coffee is weighed, packed into sealed bags, and labeled for sale.\""
+        },
+        {
+          "type": "list",
+          "title": "Sequencing Words for Processes",
+          "items": [
+            "**Beginning:** Initially, The process begins with, At the first stage, To start",
+            "**Middle:** Subsequently, Following this, Next, Then, After that, Once X is complete",
+            "**End:** Finally, Lastly, At the final stage, The process concludes with",
+            "**Simultaneity:** Meanwhile, At the same time, While X occurs, Simultaneously"
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake: Active Voice in Processes",
+          "content": "Indian students often write: \"Workers harvest the beans, then they wash them...\" This is too informal and adds unnecessary subjects. Use passive: \"Beans are harvested, then washed, and subsequently dried.\""
+        },
+        {
+          "type": "table",
+          "headers": ["Active Voice (Avoid)", "Passive Voice (Correct)", "Why Passive is Better"],
+          "rows": [
+            ["\"Workers heat the water\"", "\"The water is heated\"", "Focus stays on the process, not people"],
+            ["\"They transport goods by truck\"", "\"Goods are transported by truck\"", "Formal and objective tone"],
+            ["\"Someone filters the liquid\"", "\"The liquid is filtered\"", "Actor is irrelevant/unknown"]
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "Describe the process of making tea in 7 steps (boil water → add tea leaves → steep → strain → serve). Use only passive voice and sequencing words.",
+          "hint": "Start with 'First, water is boiled in a kettle. Then, tea leaves are added...'"
+        }
+      ]
+    },
+    {
+      "id": "task2-opinion-essays",
+      "title": "Task 2: Opinion Essays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Opinion essays (also called Agree/Disagree) ask: \"To what extent do you agree or disagree?\" Present your stance clearly in the introduction and support it with 2-3 reasons + examples. Structure: (1) Introduction (paraphrase question, state opinion), (2) Body 1 (first reason + example), (3) Body 2 (second reason + example OR counterargument + refutation), (4) Conclusion (restate opinion, summarize reasons). Aim for 270-290 words—slightly above 250 shows confidence."
+        },
+        {
+          "type": "table",
+          "headers": ["Paragraph", "Content", "Example (Topic: Homework is essential)"],
+          "rows": [
+            ["**Introduction (2-3 sentences)**", "Paraphrase + Opinion", "\"While some argue homework burdens students, I firmly believe it is essential for reinforcing classroom learning and developing discipline. This essay will discuss why regular assignments benefit academic growth.\""],
+            ["**Body 1 (5-6 sentences)**", "Reason 1 + Explanation + Example", "\"Firstly, homework consolidates concepts taught in class. Students who review material at home are more likely to retain information long-term. For instance, my school introduced daily math practice, and test scores improved by 25% within a semester.\""],
+            ["**Body 2 (5-6 sentences)**", "Reason 2 + Example OR Counterargument + Refutation", "\"Secondly, assignments teach time management. Balancing homework with extracurriculars prepares students for future responsibilities. Critics claim homework causes stress, but moderate workloads (1-2 hours daily) are manageable and do not harm well-being.\""],
+            ["**Conclusion (2 sentences)**", "Restate opinion + Summarize reasons", "\"In conclusion, homework plays a vital role in education by reinforcing learning and fostering discipline. When assigned thoughtfully, its benefits far outweigh concerns about student stress.\""]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "5 Opinion Structures (Choose One)",
+          "items": [
+            "**Fully Agree:** \"I completely agree that... Firstly, [reason 1]. Secondly, [reason 2].\"",
+            "**Fully Disagree:** \"I strongly disagree with this view. To begin with, [reason 1]. Additionally, [reason 2].\"",
+            "**Partially Agree:** \"I partly agree. While [concede point], I believe [your main view] because...\"",
+            "**Balanced (Agree & Disagree Equally):** \"Both perspectives have merit. On one hand, [view A]. On the other hand, [view B]. Personally, I lean toward...\"",
+            "**Refutation (Disagree + Counter):** \"Although some argue [opposing view], I contend that [your view] because... [evidence].\""
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Band 7+ Body Paragraph",
+          "content": "**Topic:** \"University education should be free for all students. To what extent do you agree?\"\n\n**Body Paragraph (Agree):** \"One compelling reason for free university education is increased accessibility. In countries like Germany, where tuition is abolished, enrollment rates have risen by 30%, enabling students from low-income families to pursue higher education. This creates a more equitable society, as talent—not wealth—determines academic opportunities. For example, my cousin in India could not afford private college fees and now works in a low-paying job despite his intelligence. Free education would unlock potential for millions of such students, driving economic growth and reducing inequality.\"\n\n**Why Band 7+:** Clear topic sentence, specific example (Germany), personal anecdote (cousin), logical reasoning (equity → growth), varied vocabulary (abolished, enrollment, equitable)."
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake: Vague Examples",
+          "content": "Weak: \"Many people benefit from free education.\" Strong: \"In Finland, free university led to a 40% increase in graduates from rural areas, boosting tech sector employment.\" Use specific countries, statistics, or personal experiences—not generic claims."
+        },
+        {
+          "type": "practice",
+          "question": "Topic: \"Social media does more harm than good. To what extent do you agree?\" Write a 4-paragraph essay (280 words) in 35 minutes. State your opinion clearly.",
+          "hint": "Pick a stance (agree/disagree/partial) and stick to it. Don't sit on the fence unless you have strong arguments for both sides."
+        }
+      ]
+    },
+    {
+      "id": "task2-discussion-essays",
+      "title": "Task 2: Discussion Essays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Discussion essays ask: \"Discuss both views and give your opinion.\" You MUST present BOTH sides fairly (1 paragraph each) before stating your view. Structure: (1) Introduction (paraphrase + mention both views), (2) Body 1 (View A + reasons), (3) Body 2 (View B + reasons), (4) Conclusion (your opinion + summary). Avoid spending 80% on one side—balance is key. Your opinion can support A, B, or be neutral (both have merit)."
+        },
+        {
+          "type": "table",
+          "headers": ["Paragraph", "Content", "Example (Topic: Online vs. Classroom Learning)"],
+          "rows": [
+            ["**Introduction**", "Paraphrase + State both views exist", "\"The rise of online education has sparked debate over whether it can replace traditional classroom learning. While some advocate for digital platforms' flexibility, others emphasize face-to-face interaction's irreplaceable value.\""],
+            ["**Body 1 (View A)**", "Present first view + 2 reasons + example", "\"Proponents of online learning argue it offers flexibility and accessibility. Students can learn at their own pace, rewatching lectures as needed. For instance, platforms like Coursera enable rural students in India to access MIT courses, democratizing education.\""],
+            ["**Body 2 (View B)**", "Present second view + 2 reasons + example", "\"Conversely, classroom advocates highlight the importance of peer interaction and immediate feedback. Group discussions foster critical thinking, and teachers can address doubts instantly. My own university experience showed that collaborative projects taught teamwork skills no online forum could replicate.\""],
+            ["**Conclusion**", "State your opinion + justify briefly", "\"In my view, a hybrid model combining both approaches is ideal. Online learning suits theoretical subjects, while practical skills benefit from in-person guidance. Educational institutions should integrate both to maximize student outcomes.\""]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Useful Phrases for Discussion Essays",
+          "items": [
+            "**Introducing View A:** On one hand, Proponents argue, Advocates claim, Some believe",
+            "**Introducing View B:** On the other hand, Conversely, Critics contend, Others maintain, Opponents argue",
+            "**Presenting Reasons:** This is because, The rationale is, One reason for this is, This can be attributed to",
+            "**Giving Your Opinion (Conclusion):** In my opinion, I believe, From my perspective, Personally, I am inclined to think"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Sample Body Paragraph (View B)",
+          "content": "**Topic:** \"Some say space exploration is wasteful; others believe it benefits humanity. Discuss both views.\"\n\n**Body 2 (Benefits view):** \"On the other hand, space exploration has yielded significant technological advancements. Innovations such as satellite communication, GPS, and weather forecasting originated from space programs. Moreover, research into Mars colonization drives breakthroughs in renewable energy and life support systems. For example, NASA's water purification technology is now used in rural Indian villages, providing clean drinking water to thousands. These practical applications justify the investment, as they improve lives on Earth while expanding humanity's scientific knowledge.\"\n\n**Why it works:** Presents view clearly, provides 2 reasons (tech advancements, practical apps), specific example (NASA tech in India), transitions to justification."
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake: Lopsided Discussion",
+          "content": "Indian students often write 8 sentences for View A and 3 for View B, then spend the conclusion criticizing View B. This loses Coherence marks. Aim for 5-6 sentences per body paragraph with equal depth. Your opinion goes in the conclusion, not the introduction."
+        },
+        {
+          "type": "table",
+          "headers": ["Weak Approach", "Strong Approach", "Why It Matters"],
+          "rows": [
+            ["Body 1: 10 sentences (View A)  \nBody 2: 3 sentences (View B)", "Body 1: 6 sentences (View A)  \nBody 2: 6 sentences (View B)", "Balance shows you understand both perspectives"],
+            ["Opinion in introduction: \"I agree with View A\"", "Opinion in conclusion: \"Weighing both sides, I believe...\"", "Discussion essays require neutral tone until the end"],
+            ["No personal opinion stated", "Clear stance in conclusion: \"I support View B because...\"", "Task requires YOUR opinion after discussing both"]
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "Topic: \"Some believe AI will create jobs; others fear mass unemployment. Discuss both views and give your opinion.\" Write in 35 minutes.",
+          "hint": "Ensure Body 1 (AI creates jobs) and Body 2 (AI causes unemployment) are equal length before adding your opinion in the conclusion."
+        }
+      ]
+    },
+    {
+      "id": "task2-problem-solution",
+      "title": "Task 2: Problem-Solution Essays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Problem-Solution essays ask: \"What are the causes/problems and solutions?\" or \"What problems does X cause and how can they be solved?\" Structure: (1) Introduction (paraphrase + state you'll discuss problems/causes and solutions), (2) Body 1 (2 problems/causes with explanations), (3) Body 2 (2 solutions with explanations), (4) Conclusion (summarize problems + solutions). Be realistic—don't suggest impossible solutions like 'ban all cars' for pollution. Focus on practical, implementable ideas."
+        },
+        {
+          "type": "table",
+          "headers": ["Paragraph", "Content", "Example (Topic: Urban Traffic Congestion)"],
+          "rows": [
+            ["**Introduction**", "Paraphrase + State you'll cover problems & solutions", "\"Traffic congestion in cities has become a pressing issue worldwide. This essay will examine the primary causes of this problem and propose viable solutions to alleviate it.\""],
+            ["**Body 1 (Problems/Causes)**", "Problem 1 + Explanation  \nProblem 2 + Explanation", "\"One major cause is the rapid increase in private vehicle ownership. As incomes rise, more families purchase cars, overwhelming road capacity. Additionally, inadequate public transport forces commuters to rely on personal vehicles. In Mumbai, for instance, the lack of metro coverage in suburbs leaves millions dependent on cars.\""],
+            ["**Body 2 (Solutions)**", "Solution 1 + Explanation + Example  \nSolution 2 + Explanation + Example", "\"To address this, governments should invest in mass transit systems. Expanding metro networks reduces car dependency—cities like Delhi saw 20% less traffic after metro expansion. Furthermore, implementing congestion pricing, as Singapore does, discourages unnecessary car use during peak hours, easing road pressure.\""],
+            ["**Conclusion**", "Summarize problems + solutions", "\"In conclusion, traffic congestion stems from rising vehicle ownership and poor public transport. Expanding transit infrastructure and introducing congestion pricing are effective solutions to create more livable cities.\""]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Useful Language for Problem-Solution",
+          "items": [
+            "**Identifying Problems:** One major issue is, A key problem is, This leads to, As a result, Consequently, This has resulted in",
+            "**Proposing Solutions:** To tackle this, A potential solution is, This could be addressed by, Governments/Individuals should, One way to mitigate this is",
+            "**Explaining Impact:** This would result in, As a consequence, Leading to, Thereby reducing/improving, Ultimately contributing to",
+            "**Giving Examples:** For instance, A case in point is, Take X as an example, In countries like X"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Band 7+ Body Paragraph (Solutions)",
+          "content": "**Topic:** \"Obesity is rising globally. What problems does this cause and how can they be solved?\"\n\n**Body 2 (Solutions):** \"To combat obesity, governments must regulate junk food marketing, particularly to children. Studies show that countries banning fast-food ads during kids' TV programs witnessed a 15% drop in childhood obesity within five years. Additionally, schools should mandate daily physical education classes. In Japan, where exercise is compulsory, obesity rates are among the world's lowest at just 4%. These measures, combined with public health campaigns promoting balanced diets, can reverse the obesity trend while reducing long-term healthcare costs.\"\n\n**Why Band 7+:** Two clear solutions (regulate ads, mandate PE), specific examples (countries with data), logical reasoning (link to healthcare costs), advanced vocab (mandate, compulsory, reverse the trend)."
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake: Unrealistic Solutions",
+          "content": "Avoid: \"People should stop eating junk food\" (unrealistic), \"Ban all cars\" (impractical), \"Everyone should exercise 2 hours daily\" (vague). Instead: \"Introduce sugar taxes on sodas to reduce consumption,\" \"Create dedicated bus lanes to improve public transport,\" \"Subsidize gym memberships for low-income families.\""
+        },
+        {
+          "type": "table",
+          "headers": ["Weak Solution", "Strong Solution", "Why It's Better"],
+          "rows": [
+            ["\"People should care more about environment\"", "\"Governments should incentivize solar panel installation through tax rebates\"", "Specific, actionable, assigns responsibility"],
+            ["\"Everyone must use public transport\"", "\"Cities should increase bus frequency and reduce fares to encourage ridership\"", "Realistic, addresses barriers (cost, convenience)"],
+            ["\"Ban plastic completely\"", "\"Introduce deposit-refund schemes for plastic bottles, as Germany does\"", "Practical, proven example, gradual change"]
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "Topic: \"Youth unemployment is a serious problem. What are the causes and what solutions can you suggest?\" Write in 35 minutes. Ensure 2 causes + 2 solutions.",
+          "hint": "Causes might be: lack of skills, economic slowdown. Solutions: vocational training programs, internship subsidies. Use real-world examples."
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes-band-descriptors",
+      "title": "Common Mistakes & Band Descriptors",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Indian IELTS candidates often lose 0.5-1.5 bands due to avoidable errors: memorized essays (detected by examiners), overly informal language, poor task response (not answering all parts), and grammar mistakes (articles, prepositions, subject-verb agreement). Understanding band descriptors helps you self-assess and target Band 7+ (equivalent to C1 level English). Focus on coherence (logical flow) and lexical resource (vocabulary variety) to maximize scores."
+        },
+        {
+          "type": "table",
+          "headers": ["Band", "Task Response", "Coherence", "Vocabulary", "Grammar"],
+          "rows": [
+            ["**Band 5**", "Addresses task partially, ideas underdeveloped", "Some organization, limited linking words", "Limited range, noticeable errors", "Frequent grammar errors, simple sentences"],
+            ["**Band 6**", "Addresses all parts but lacks depth, some irrelevant details", "Logical structure, some cohesive devices", "Adequate range, some inaccuracies", "Mix of simple & complex, some errors"],
+            ["**Band 7**", "Fully addresses task, clear ideas with examples", "Clear progression, uses cohesive devices well", "Flexible range, less common vocab, few errors", "Variety of complex structures, mostly error-free"],
+            ["**Band 8**", "Fully developed ideas, relevant examples, no irrelevance", "Skillful cohesion, logical flow throughout", "Wide range, precise word choice, rare errors", "Wide range of structures, rare errors"]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Top 10 Mistakes by Indian Test-Takers",
+          "items": [
+            "**Memorized essays:** Examiners detect these instantly—your score drops to Band 5 max. Memorize structures/templates, NOT entire essays.",
+            "**Informal tone:** Avoid contractions (don't → do not), slang (kids → children), vague words (good, bad, nice). Use formal academic language.",
+            "**Article errors:** \"The technology\" (wrong if referring generally) → \"Technology has changed society.\" Master a/an/the usage.",
+            "**Preposition mistakes:** \"Depend of\" → \"depend on,\" \"different than\" → \"different from.\" Learn collocations.",
+            "**Subject-verb disagreement:** \"Government have\" → \"Government has\" (singular). \"People is\" → \"People are\" (plural).",
+            "**Overusing linking words:** Too many 'however', 'moreover' in one paragraph looks forced. Use variety: furthermore, additionally, in contrast.",
+            "**Ignoring word count:** Under 150/250 words = Band penalty. Over 350 words = no penalty but wastes time. Aim for 155/270.",
+            "**No clear opinion (Task 2):** Sitting on the fence loses Task Response marks. Take a stance (even if it's 'partially agree').",
+            "**Paragraph errors:** Task 1 should have 3-4 paragraphs; Task 2 should have 4-5 (intro, 2-3 body, conclusion). Single-paragraph essays = Band 5 max.",
+            "**Spelling mistakes:** 'goverment', 'occured', 'succesful'. Proofread final 2 minutes. British or American spelling is fine, but stay consistent."
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Before & After: Common Fixes",
+          "content": "**Informal (Band 5):** \"Nowadays, lots of kids use phones too much. It's really bad for them. Parents should stop it.\"\n\n**Formal (Band 7):** \"In recent years, excessive smartphone usage among children has raised concerns. This trend can negatively impact their social development and academic performance. Parents should regulate screen time through clear boundaries and alternative activities.\"\n\n**Why it's better:** Formal vocab (excessive usage vs. 'lots of kids use'), clear reasoning (impact → solution), no contractions, academic tone."
+        },
+        {
+          "type": "note",
+          "title": "How Examiners Spot Memorized Essays",
+          "content": "Red flags: Generic sentences unrelated to the topic (\"In today's fast-paced world\"), unnatural language for your level (Band 5 grammar but Band 9 vocab), identical essays across candidates. Solution: Memorize flexible sentence frames (\"One reason for this is ___ because ___\") and adapt to each question."
+        },
+        {
+          "type": "table",
+          "headers": ["Informal", "Formal (Band 7+)", "Usage Context"],
+          "rows": [
+            ["kids, guys", "children, individuals, people", "Always use formal synonyms"],
+            ["lots of, a lot of", "numerous, many, a significant number of", "Avoid colloquial quantifiers"],
+            ["get, got", "obtain, receive, acquire", "'Get' is fine in some contexts, but vary your verbs"],
+            ["really, very, so", "extremely, highly, considerably", "Use adverbs that add precision"],
+            ["big problem", "serious issue, major concern, significant challenge", "More sophisticated vocabulary"],
+            ["good/bad", "beneficial/detrimental, positive/negative, advantageous/harmful", "Context-specific adjectives"]
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "Review an old essay. Count: (1) contractions, (2) informal words, (3) repeated linking words, (4) articles errors. Rewrite 3 sentences formally.",
+          "hint": "Common rewrites: 'In my opinion' → 'From my perspective'; 'Nowadays' → 'In recent years'; 'Kids' → 'Young people'."
+        },
+        {
+          "type": "note",
+          "title": "Final Checklist Before Exam",
+          "content": "✅ Know time splits: Task 1 (20 min), Task 2 (40 min)  \n✅ Memorize 5 essay templates (opinion, discussion, problem-solution, advantages-disadvantages, two-part)  \n✅ Practice 20+ Task 1 graphs (line, bar, pie, table, process)  \n✅ Learn 50 linking words + 100 academic collocations  \n✅ Write 10 full essays under timed conditions  \n✅ Get 3 essays corrected by a teacher or use AI feedback tools  \n✅ Review grammar: articles, prepositions, conditionals, relative clauses"
+        }
+      ]
+    }
+  ]
+}

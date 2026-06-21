@@ -1,0 +1,336 @@
+{
+  "topic_id": "email-writing",
+  "title": "Email Writing",
+  "subtitle": "Write professional emails for work and personal use",
+  "overview": "Master formal and informal email writing for Indian workplace and personal scenarios. Learn structure, tone, and templates for common situations like job applications, leave requests, complaints, and client communication.",
+  "sections": [
+    {
+      "id": "email-structure",
+      "title": "Email Structure and Format",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Every professional email follows a standard structure: Subject Line → Greeting → Body (Introduction, Main Content, Closing) → Sign-off → Signature. The subject line should be clear and specific. Use proper greetings (Dear Sir/Madam for formal, Hi/Hello for semi-formal). Keep paragraphs short (2-3 sentences) for readability."
+        },
+        {
+          "type": "example",
+          "title": "Well-Structured Professional Email",
+          "content": "Subject: Request for Project Deadline Extension\n\nDear Mr. Sharma,\n\nI am writing regarding the marketing campaign project currently due on 25th June. Due to unexpected client feedback requiring major revisions, I request a 5-day extension.\n\nI have completed 80% of the work and can deliver the final output by 30th June without compromising quality.\n\nThank you for your understanding.\n\nBest regards,\nPriya Reddy\nMarketing Executive, TCS"
+        },
+        {
+          "type": "table",
+          "title": "Email Components Checklist",
+          "headers": ["Component", "Purpose", "Example"],
+          "rows": [
+            ["Subject Line", "Summarize email purpose", "Leave Application - 22nd June"],
+            ["Greeting", "Address recipient", "Dear Ms. Kapoor / Hi Rahul"],
+            ["Opening Line", "State purpose immediately", "I am writing to request..."],
+            ["Body", "Provide details/context", "Due to a family emergency..."],
+            ["Closing Line", "Call to action or thanks", "Please let me know your approval"],
+            ["Sign-off", "Professional closure", "Regards / Best wishes"],
+            ["Signature", "Your details", "Name, Designation, Contact"]
+          ]
+        },
+        {
+          "type": "note",
+          "content": "Common mistake: Burying the main point in the third paragraph. Always state your purpose in the first 1-2 sentences."
+        }
+      ]
+    },
+    {
+      "id": "subject-lines",
+      "title": "Subject Lines That Work",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Subject lines determine if your email gets opened. Use 6-10 words, be specific, and include key information like dates or actions. Avoid vague subjects like 'Important' or 'Hello'. For urgent matters, use 'Urgent:' prefix sparingly."
+        },
+        {
+          "type": "table",
+          "title": "Subject Line Do's and Don'ts",
+          "headers": ["Weak Subject", "Strong Subject", "Why It Works"],
+          "rows": [
+            ["Meeting", "Team Meeting - Q2 Review - 20th June 3 PM", "Date, time, purpose clear"],
+            ["Question", "Query: Invoice #1234 Payment Status", "Specific reference number"],
+            ["Important", "Action Required: Submit Timesheet by 5 PM Today", "Clear deadline and action"],
+            ["Hello", "Job Application: Marketing Manager - 5 Years Exp", "Position and qualification"],
+            ["Request", "Leave Request: 28th-30th June (Medical Emergency)", "Dates and reason upfront"]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Subject Line Formulas",
+          "items": [
+            "Action Required: [What] by [When]",
+            "[Topic]: [Specific Detail] - [Date/Reference]",
+            "Request for [What] - [Context]",
+            "Follow-up: [Previous Subject/Meeting]",
+            "Reminder: [Task] Due [Date]"
+          ]
+        },
+        {
+          "type": "note",
+          "content": "For Indian government offices or traditional companies, avoid informal abbreviations (FYI, ASAP) in subject lines. Use full words for professionalism."
+        }
+      ]
+    },
+    {
+      "id": "formal-informal-tone",
+      "title": "Formal vs Informal Tone",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Formal tone: Used for seniors, clients, government officials, first-time contacts. Use complete sentences, avoid contractions (don't → do not), no emojis, respectful language. Informal tone: Used for colleagues at same level, known contacts, internal team chats. Can use contractions, friendly language, but stay professional."
+        },
+        {
+          "type": "comparison",
+          "title": "Tone Comparison",
+          "left_title": "Formal",
+          "right_title": "Informal",
+          "items": [
+            {
+              "left": "Dear Dr. Mehta,",
+              "right": "Hi Neha,"
+            },
+            {
+              "left": "I am writing to inquire about...",
+              "right": "Just wanted to check if..."
+            },
+            {
+              "left": "I would appreciate your guidance on this matter.",
+              "right": "Could you help me with this?"
+            },
+            {
+              "left": "Please find attached the report for your review.",
+              "right": "I've attached the report - let me know what you think!"
+            },
+            {
+              "left": "Thank you for your time and consideration.",
+              "right": "Thanks a lot!"
+            },
+            {
+              "left": "Yours sincerely,",
+              "right": "Cheers, / Best,"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Same Message in Two Tones",
+          "content": "FORMAL: Dear Sir, I am unable to attend tomorrow's meeting due to a prior commitment. I have shared my inputs with Rajesh. Please accept my apologies. Regards, Amit\n\nINFORMAL: Hi Suresh, Can't make it to tomorrow's meeting - have a doctor's appointment. Already briefed Rajesh on my points. Sorry about this! Thanks, Amit"
+        },
+        {
+          "type": "note",
+          "content": "When in doubt, err on the side of formality. It's easier to become informal later than to recover from being too casual with the wrong person."
+        }
+      ]
+    },
+    {
+      "id": "opening-closing-phrases",
+      "title": "Opening and Closing Phrases",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Strong openings grab attention and state purpose. Avoid 'I hope this email finds you well' - it wastes words. Jump straight to the point or use context-based greetings. Closings should match your email's tone and include a clear next step or thank you."
+        },
+        {
+          "type": "table",
+          "title": "Professional Opening Lines",
+          "headers": ["Situation", "Opening Line"],
+          "rows": [
+            ["First Contact", "I am [Name] from [Company], reaching out regarding [topic]."],
+            ["Following Up", "Thank you for your response on [date]. I am writing to follow up on [topic]."],
+            ["Request", "I am writing to request [specific item] for [reason]."],
+            ["Response", "Thank you for your email dated [date] regarding [topic]."],
+            ["Complaint", "I am writing to bring to your attention an issue with [product/service]."],
+            ["Gratitude", "Thank you for [specific action]. I wanted to update you on [progress]."]
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Professional Closing Phrases",
+          "headers": ["Situation", "Closing Line", "Sign-off"],
+          "rows": [
+            ["Request Pending", "I look forward to your response.", "Best regards,"],
+            ["Action Required", "Please confirm by [date].", "Thank you,"],
+            ["Information Shared", "Let me know if you need further details.", "Regards,"],
+            ["Gratitude", "Thank you for your assistance.", "Warm regards,"],
+            ["Apology", "I apologize for the inconvenience.", "Sincerely,"],
+            ["Urgent Matter", "I appreciate your prompt attention to this.", "Respectfully,"]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Indian Context Sign-offs (Formal)",
+          "items": [
+            "Yours faithfully (if recipient's name unknown)",
+            "Yours sincerely (if recipient's name known)",
+            "Respectfully yours (for very senior officials)",
+            "With regards (common in Indian offices)",
+            "Warm regards (slightly less formal)"
+          ]
+        },
+        {
+          "type": "note",
+          "content": "Avoid 'Yours obediently' - it's outdated and overly submissive. Modern Indian workplaces prefer 'Regards' or 'Best regards'."
+        }
+      ]
+    },
+    {
+      "id": "request-emails",
+      "title": "Request Emails (with Template)",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Request emails need three elements: What you want, Why you need it, When you need it. Be specific with dates and details. Offer alternatives if possible. Always thank the recipient in advance."
+        },
+        {
+          "type": "example",
+          "title": "Leave Request Email Template",
+          "content": "Subject: Leave Application - [Dates] - [Your Name]\n\nDear [Manager's Name],\n\nI am writing to request leave from [start date] to [end date] due to [brief reason]. I have ensured that [colleague's name] will handle my responsibilities during this period.\n\nAll pending tasks will be completed before [date], and I will be available on phone for any urgent matters.\n\nKindly approve my leave application.\n\nThank you.\n\nBest regards,\n[Your Name]\n[Designation]"
+        },
+        {
+          "type": "example",
+          "title": "Information Request Email",
+          "content": "Subject: Request: Joining Formalities - Offer Letter Ref #TCS2026\n\nDear Ms. Iyer,\n\nI recently accepted the offer for Software Engineer position (Ref #TCS2026, joining date: 1st July). I request information on:\n\n1. Documents required for joining\n2. Reporting time and location\n3. Dress code for first day\n\nPlease share these details at your earliest convenience.\n\nThank you.\n\nRegards,\nVikram Malhotra\n+91-98765-43210"
+        },
+        {
+          "type": "table",
+          "title": "Request Email Dos and Don'ts",
+          "headers": ["Do", "Don't"],
+          "rows": [
+            ["State exact dates and quantities", "Be vague ('some time off')"],
+            ["Explain impact and mitigation plan", "Just state the request without context"],
+            ["Offer to discuss alternatives", "Demand or assume approval"],
+            ["Use polite language ('request', 'kindly')", "Use commanding tone ('I need', 'You must')"],
+            ["Follow up after 2-3 days if no response", "Send multiple emails same day"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "complaint-emails",
+      "title": "Complaint Emails (with Template)",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Complaint emails require a balance: Be firm but professional, state facts without emotion, propose a solution, set a deadline. Always keep a paper trail by mentioning previous communication (calls, emails). Escalate only after giving reasonable time for response."
+        },
+        {
+          "type": "example",
+          "title": "Product Complaint Email Template",
+          "content": "Subject: Complaint: Defective Product - Order #[Number]\n\nDear Customer Service,\n\nI purchased [product name] on [date] (Order #[number]). The product is defective - [specific issue: e.g., not charging, display cracked].\n\nI have attached photos and the invoice. As per your return policy, I request:\n1. Full refund, OR\n2. Replacement within 7 days\n\nI spoke with [agent name] on [date] but the issue remains unresolved. Please resolve this by [date].\n\nThank you.\n\nRegards,\nSneha Patel\n+91-98765-12345"
+        },
+        {
+          "type": "example",
+          "title": "Service Complaint Email",
+          "content": "Subject: Complaint: Internet Service Disruption - Account #[Number]\n\nDear Sir/Madam,\n\nMy broadband connection (Account #123456) has been down since [date] despite two service calls. This is affecting my work-from-home responsibilities.\n\nI request immediate resolution by [date], failing which I will escalate to the Nodal Officer as per TRAI guidelines.\n\nPlease confirm action taken within 24 hours.\n\nRegards,\nRahul Nair\nContact: +91-98765-00000"
+        },
+        {
+          "type": "list",
+          "title": "Complaint Email Checklist",
+          "items": [
+            "Include order/account/reference numbers",
+            "State specific dates and times",
+            "Attach proof (screenshots, invoices, photos)",
+            "Mention previous communication attempts",
+            "Propose clear resolution options",
+            "Set reasonable deadline (3-7 days)",
+            "Keep tone professional, not angry",
+            "CC relevant parties if escalating"
+          ]
+        },
+        {
+          "type": "note",
+          "content": "For serious complaints in India, mention consumer forum or TRAI/RBI/IRDA (depending on industry) to signal you know your rights. This often speeds up resolution."
+        }
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Email Mistakes",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Common email mistakes ruin professional reputation: Reply All misuse, missing attachments, spelling errors, wrong recipient, unprofessional tone. Always proofread before sending. Use the 'Undo Send' feature (Gmail: 30 seconds) to catch mistakes."
+        },
+        {
+          "type": "table",
+          "title": "Top 10 Email Blunders",
+          "headers": ["Mistake", "Why It's Bad", "Fix"],
+          "rows": [
+            ["No subject line", "Looks like spam, gets ignored", "Always write descriptive subject"],
+            ["'Please find attached' but no attachment", "Wastes recipient's time", "Attach file BEFORE writing email"],
+            ["Reply All to entire company", "Clogs everyone's inbox", "Check recipients before hitting send"],
+            ["Writing in ALL CAPS", "Looks like shouting, unprofessional", "Use sentence case"],
+            ["Too many exclamation marks!!!", "Appears immature or panicked", "One is enough, or none"],
+            ["Sending to wrong person", "Privacy breach, embarrassment", "Double-check recipient name"],
+            ["Typos in recipient's name", "Disrespectful, shows carelessness", "Copy-paste names correctly"],
+            ["Vague subject: 'Question'", "Recipient can't prioritize", "Be specific: 'Query: Invoice #1234'"],
+            ["No greeting, jumping to request", "Appears rude, transactional", "Start with 'Dear/Hi [Name]'"],
+            ["Forgetting to BCC mass emails", "Exposes everyone's email address", "Use BCC for group announcements"]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Before Hitting Send Checklist",
+          "items": [
+            "Correct recipient(s)? Check To/CC/BCC",
+            "Subject line clear and specific?",
+            "Attachment added if mentioned?",
+            "No spelling or grammar errors?",
+            "Tone appropriate for recipient?",
+            "Signature with contact details?",
+            "Call to action or next step clear?",
+            "Remove any angry or emotional language?"
+          ]
+        },
+        {
+          "type": "note",
+          "content": "Indian-specific mistake: Using 'Sir' without a name ('Dear Sir' to a known person). If you know their name, always use it: 'Dear Mr. Sharma' or 'Dear Priya'."
+        }
+      ]
+    },
+    {
+      "id": "practice-examples",
+      "title": "Practice Examples",
+      "content_blocks": [
+        {
+          "type": "paragraph",
+          "content": "Practice writing emails for these common Indian workplace scenarios. Focus on clarity, appropriate tone, and complete information. Compare your draft with the provided samples."
+        },
+        {
+          "type": "example",
+          "title": "Scenario 1: Job Application Email",
+          "content": "Subject: Application for Senior Analyst Position - 6 Years Experience\n\nDear Hiring Manager,\n\nI am writing to apply for the Senior Analyst position advertised on Naukri.com (Job ID: 123456). I hold an MBA in Finance from IIM Bangalore and have 6 years of experience in equity research at Axis Securities.\n\nMy key strengths include financial modeling, sector analysis (IT and Banking), and client presentation. I have attached my resume and portfolio for your review.\n\nI am available for an interview at your convenience.\n\nThank you for your consideration.\n\nBest regards,\nAnanya Desai\n+91-98765-11111\nananya.desai@email.com"
+        },
+        {
+          "type": "example",
+          "title": "Scenario 2: Client Follow-up Email",
+          "content": "Subject: Follow-up: Website Redesign Proposal - ABC Enterprises\n\nDear Mr. Gupta,\n\nThank you for meeting with us on 15th June to discuss your website redesign project. As promised, I have attached the detailed proposal including timeline, deliverables, and pricing.\n\nKey highlights:\n- Responsive design for mobile and desktop\n- SEO optimization\n- 8-week delivery timeline\n- Investment: Rs. 2.5 lakhs\n\nI am happy to schedule a call to address any questions. Please let me know your feedback by 25th June.\n\nLooking forward to partnering with you.\n\nWarm regards,\nKarthik Iyer\nProject Manager, WebCraft Solutions\n+91-98765-22222"
+        },
+        {
+          "type": "example",
+          "title": "Scenario 3: Internal Team Update",
+          "content": "Subject: Project Update - Mobile App Launch - Milestone 2 Complete\n\nHi Team,\n\nGreat news - we've completed Milestone 2 of the mobile app project! All user authentication features are now tested and deployed to staging.\n\nCompleted:\n- Login/Signup with OTP\n- Social login (Google, Facebook)\n- Password reset flow\n\nNext up (Milestone 3 - Due 30th June):\n- User profile management\n- Payment gateway integration\n\nShoutout to Neha and Rohit for debugging the OTP issue quickly.\n\nLet's keep the momentum going!\n\nCheers,\nSanjay"
+        },
+        {
+          "type": "table",
+          "title": "Practice Scenarios - Write Your Own",
+          "headers": ["Scenario", "Key Points to Include"],
+          "rows": [
+            ["Inform your team about a meeting reschedule", "New date/time, reason, apology, agenda"],
+            ["Thank a colleague for helping with a project", "Specific help, impact, appreciation"],
+            ["Request work-from-home permission for 1 week", "Dates, reason, work plan, availability"],
+            ["Report a bug to your IT department", "What, when, impact, screenshots"],
+            ["Decline a meeting invitation politely", "Gratitude, reason, suggest alternative"]
+          ]
+        },
+        {
+          "type": "note",
+          "content": "Practice tip: Write an email, wait 10 minutes, then re-read it. You'll catch 80% of mistakes this way. For important emails, ask a colleague to review before sending."
+        }
+      ]
+    }
+  ]
+}

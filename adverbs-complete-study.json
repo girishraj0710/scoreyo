@@ -1,0 +1,1511 @@
+{
+  "topic_id": "adverbs-complete",
+  "title": "Adverbs Mastery",
+  "subtitle": "Comprehensive Guide to Adverbs: Frequency, Manner, Time, Place, Degree, and Comparatives",
+  "overview": "Adverbs are essential modifiers that describe how, when, where, why, or to what extent an action occurs. They provide crucial details that make communication precise and vivid. This comprehensive module explores all major categories of adverbs: frequency adverbs (always, often, sometimes), manner adverbs (quickly, carefully), time adverbs (yesterday, soon), place adverbs (here, everywhere), degree adverbs (very, extremely), and comparative/superlative forms. Understanding adverb placement and function is vital for accurate expression in both written and spoken English, particularly for competitive examinations (SSC, Banking, Railways) and international tests (IELTS, TOEFL). This module provides detailed explanations, British English standards, authentic examples, common error patterns specific to Hindi speakers, and systematic practice to help you master adverb usage confidently.",
+  "sections": [
+    {
+      "section_id": "introduction",
+      "title": "Introduction to Adverbs",
+      "cards": [
+        {
+          "title": "What are Adverbs?",
+          "definition": "An adverb is a word that modifies or describes a verb, an adjective, or another adverb. Adverbs answer key questions about actions or states: How? (manner), When? (time), Where? (place), How often? (frequency), To what extent? (degree). Whilst adjectives describe nouns, adverbs provide additional information about actions, qualities, or other adverbs. Adverbs add precision and colour to language, transforming basic statements into detailed, vivid descriptions. Most, though not all, adverbs end in -ly (formed by adding -ly to adjectives), but many common adverbs (soon, here, very, often) do not follow this pattern. Mastering adverb usage enables clear, sophisticated communication essential for academic writing and professional contexts.",
+          "rules": [
+            "Adverbs modify verbs, adjectives, or other adverbs, not nouns",
+            "Most adverbs are formed by adding -ly to adjectives (quick → quickly)",
+            "Adverbs answer questions: How? When? Where? How often? To what extent?",
+            "Some common adverbs do not end in -ly (well, fast, hard, late, early, very, quite)",
+            "Position varies: adverbs of manner typically follow verbs; frequency adverbs precede main verbs but follow auxiliary verbs"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She speaks English fluently.",
+                "reason": "Adverb 'fluently' modifies verb 'speaks', showing manner (how she speaks)"
+              },
+              {
+                "text": "The examination was extremely difficult.",
+                "reason": "Adverb 'extremely' modifies adjective 'difficult', showing degree"
+              },
+              {
+                "text": "He completed the assignment very quickly.",
+                "reason": "Adverb 'very' modifies another adverb 'quickly', intensifying it"
+              },
+              {
+                "text": "They arrived yesterday for the interview.",
+                "reason": "Adverb 'yesterday' modifies verb 'arrived', showing time (when)"
+              },
+              {
+                "text": "The children played outside after school.",
+                "reason": "Adverb 'outside' modifies verb 'played', showing place (where)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She speaks English fluent.",
+                "reason": "Adjective 'fluent' cannot modify verb; must use adverb 'fluently'"
+              },
+              {
+                "text": "The examination was extreme difficult.",
+                "reason": "Adjective 'extreme' cannot modify adjective 'difficult'; need adverb 'extremely'"
+              },
+              {
+                "text": "He completed the assignment quick.",
+                "reason": "Adjective 'quick' cannot modify verb; must use adverb 'quickly'"
+              },
+              {
+                "text": "She is a very person.",
+                "reason": "Adverb 'very' cannot modify noun 'person'; adverbs do not describe nouns"
+              },
+              {
+                "text": "He ran fastly to catch the train.",
+                "reason": "No such word as 'fastly'; 'fast' itself is both adjective and adverb"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "core-concepts",
+      "title": "Core Concepts of Adverbs",
+      "cards": [
+        {
+          "title": "Frequency Adverbs (How Often?)",
+          "definition": "Frequency adverbs indicate how often an action occurs. They express repetition patterns ranging from 100% frequency (always, constantly) to 0% frequency (never). Common frequency adverbs include: always (100%), usually/generally (80-90%), often/frequently (60-70%), sometimes/occasionally (40-50%), seldom/rarely (10-20%), hardly ever (5%), never (0%). These adverbs typically occupy mid-position in sentences: after auxiliary verbs but before main verbs. Frequency adverbs are essential for describing habits, routines, and regular patterns, making them particularly important for Present Simple tense usage and daily life descriptions.",
+          "rules": [
+            "Position: frequency adverbs come after 'be' verbs (She is always punctual)",
+            "Position: frequency adverbs come before main verbs (He usually arrives early)",
+            "Position: frequency adverbs come after auxiliary verbs (I have never seen him)",
+            "Sometimes, usually, normally, and occasionally can also begin sentences for emphasis",
+            "Always, never, rarely, and seldom do not typically begin sentences except for emphasis"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She always completes her assignments on time.",
+                "reason": "Frequency adverb 'always' correctly placed before main verb 'completes'"
+              },
+              {
+                "text": "They are usually punctual for meetings.",
+                "reason": "Frequency adverb 'usually' correctly placed after 'be' verb 'are'"
+              },
+              {
+                "text": "I have often visited that museum.",
+                "reason": "Frequency adverb 'often' correctly placed after auxiliary 'have', before main verb"
+              },
+              {
+                "text": "He seldom makes mistakes in calculations.",
+                "reason": "'Seldom' correctly positioned before main verb 'makes'"
+              },
+              {
+                "text": "Sometimes I prefer to study in the library.",
+                "reason": "'Sometimes' can begin sentence for emphasis"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She completes always her assignments on time.",
+                "reason": "Frequency adverb wrongly placed after verb; should be 'always completes'"
+              },
+              {
+                "text": "They usually are punctual for meetings.",
+                "reason": "With 'be' verb, frequency adverb comes after, not before: 'are usually'"
+              },
+              {
+                "text": "I often have visited that museum.",
+                "reason": "With auxiliary + main verb, frequency adverb comes between: 'have often visited'"
+              },
+              {
+                "text": "He makes seldom mistakes in calculations.",
+                "reason": "Frequency adverb incorrectly placed after verb; should be 'seldom makes'"
+              },
+              {
+                "text": "Always I wake up at six o'clock.",
+                "reason": "'Always' does not typically begin sentence; should be 'I always wake up'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manner Adverbs (How?)",
+          "definition": "Manner adverbs describe how an action is performed, answering the question 'In what manner?' or 'How?'. Most manner adverbs are formed by adding -ly to adjectives (careful → carefully, quick → quickly, slow → slowly). These adverbs provide essential detail about the quality or style of an action. Position flexibility exists, but manner adverbs typically follow the verb or verb + object. Important exceptions: well (not goodly), fast (no change from adjective), hard (meaning 'with effort', whilst hardly means 'barely'). Manner adverbs are crucial for vivid descriptions and precise communication in narratives, reports, and descriptive writing.",
+          "rules": [
+            "Most manner adverbs are formed by adding -ly to adjectives",
+            "Position: typically after verb or after verb + object (He spoke confidently / She answered the question correctly)",
+            "Do not place manner adverbs between verb and object",
+            "Irregular forms: good → well (not goodly), fast → fast (no change)",
+            "Be careful: hard (with effort) vs hardly (barely) - different meanings"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The students answered the questions correctly.",
+                "reason": "Manner adverb 'correctly' placed after verb + object structure"
+              },
+              {
+                "text": "She explained the concept clearly and thoroughly.",
+                "reason": "Two manner adverbs coordinated after verb + object"
+              },
+              {
+                "text": "He drives carefully on busy roads.",
+                "reason": "Manner adverb 'carefully' follows verb, showing how he drives"
+              },
+              {
+                "text": "The athlete performed well in the competition.",
+                "reason": "Irregular manner adverb 'well' (not 'goodly') correctly used"
+              },
+              {
+                "text": "They worked hard to complete the project.",
+                "reason": "'Hard' as adverb (with effort) correctly positioned after verb"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The students answered correctly the questions.",
+                "reason": "Manner adverb wrongly placed between verb and object; should follow object"
+              },
+              {
+                "text": "She explained clear the concept.",
+                "reason": "Adjective 'clear' cannot modify verb; must use adverb 'clearly'"
+              },
+              {
+                "text": "He drives careful on busy roads.",
+                "reason": "Adjective 'careful' cannot describe verb; need adverb 'carefully'"
+              },
+              {
+                "text": "The athlete performed goodly in the competition.",
+                "reason": "No such word as 'goodly'; correct adverb is 'well' (irregular)"
+              },
+              {
+                "text": "He works hardly to earn money.",
+                "reason": "'Hardly' means 'barely', not 'with effort'; should use 'hard' (adverb)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Time, Place, and Degree Adverbs",
+          "definition": "Time adverbs (when?) specify when an action occurs: now, today, yesterday, tomorrow, soon, already, yet, recently, lately. Place adverbs (where?) indicate location: here, there, everywhere, nowhere, somewhere, outside, inside, abroad. Degree adverbs (to what extent?) show intensity or extent: very, extremely, quite, rather, too, enough, almost, completely, absolutely. Position varies by type: time adverbs typically go at sentence end (or beginning for emphasis), place adverbs follow verbs, and degree adverbs precede the word they modify. These three categories work together to provide comprehensive context for actions and states.",
+          "rules": [
+            "Time adverbs: typically at end of sentence (I met him yesterday) or beginning for emphasis",
+            "Place adverbs: follow the verb or verb + object (They went outside / She lives abroad)",
+            "Degree adverbs: precede the adjective or adverb they modify (very beautiful, extremely quickly)",
+            "Order when combining: manner + place + time (She sang beautifully there yesterday)",
+            "Already/yet position: already with affirmative (I have already finished), yet with negative/question (I haven't finished yet)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "We shall meet tomorrow at the office.",
+                "reason": "Time adverb 'tomorrow' at sentence end with additional place information"
+              },
+              {
+                "text": "The children are playing outside in the garden.",
+                "reason": "Place adverb 'outside' follows verb, providing location"
+              },
+              {
+                "text": "She is extremely talented in mathematics.",
+                "reason": "Degree adverb 'extremely' precedes adjective 'talented' to modify it"
+              },
+              {
+                "text": "Yesterday, heavy rain disrupted traffic throughout the city.",
+                "reason": "Time adverb at sentence beginning for emphasis"
+              },
+              {
+                "text": "He spoke confidently there last week.",
+                "reason": "Correct order: manner (confidently) + place (there) + time (last week)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "We shall tomorrow meet at the office.",
+                "reason": "Time adverb wrongly placed between auxiliary and main verb; should be at end or beginning"
+              },
+              {
+                "text": "The children outside are playing.",
+                "reason": "Place adverb incorrectly positioned before verb; should follow: 'are playing outside'"
+              },
+              {
+                "text": "She is talented extremely in mathematics.",
+                "reason": "Degree adverb must precede adjective it modifies: 'extremely talented'"
+              },
+              {
+                "text": "He spoke there confidently last week.",
+                "reason": "Wrong order; manner adverb should precede place: 'spoke confidently there last week'"
+              },
+              {
+                "text": "I have finished yet my work.",
+                "reason": "'Yet' goes at end of clause in negative/question: 'I haven't finished my work yet'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Comparative and Superlative Adverbs",
+          "definition": "Adverbs, like adjectives, have comparative and superlative forms for making comparisons. Short adverbs (one syllable: fast, hard, late, early, soon) form comparatives by adding -er and superlatives by adding -est (fast → faster → fastest). Long adverbs (two or more syllables, especially those ending in -ly) use 'more' for comparative and 'most' for superlative (carefully → more carefully → most carefully). Irregular comparatives: well → better → best, badly → worse → worst, little → less → least, much → more → most. Comparative form compares two actions; superlative compares three or more. These forms are essential for expressing preferences, rankings, and performance comparisons.",
+          "rules": [
+            "One-syllable adverbs: add -er (comparative), -est (superlative) [fast → faster → fastest]",
+            "Adverbs ending in -ly: use more (comparative), most (superlative) [carefully → more carefully]",
+            "Irregular forms must be memorised: well → better → best; badly → worse → worst",
+            "Comparative compares two: She runs faster than him",
+            "Superlative compares three or more: She runs fastest of all students"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She arrived earlier than expected.",
+                "reason": "Short adverb 'early' correctly forms comparative with -er"
+              },
+              {
+                "text": "He completed the task more efficiently than his colleague.",
+                "reason": "Long adverb 'efficiently' correctly uses 'more' for comparative"
+              },
+              {
+                "text": "Of all candidates, Priya performed best in the interview.",
+                "reason": "Irregular superlative 'best' (from well) comparing three or more"
+              },
+              {
+                "text": "This machine works faster than the old one.",
+                "reason": "Short adverb 'fast' correctly forms comparative: faster (not more fast)"
+              },
+              {
+                "text": "Among all students, he speaks most fluently.",
+                "reason": "Long adverb 'fluently' correctly forms superlative with 'most'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She arrived more early than expected.",
+                "reason": "Short adverb 'early' does not use 'more'; correct form is 'earlier'"
+              },
+              {
+                "text": "He completed the task efficientlier than his colleague.",
+                "reason": "Long adverbs ending in -ly cannot add -er; must use 'more efficiently'"
+              },
+              {
+                "text": "Of all candidates, Priya performed goodest in the interview.",
+                "reason": "Incorrect form; irregular adverb 'well' becomes 'best', not 'goodest'"
+              },
+              {
+                "text": "This machine works more faster than the old one.",
+                "reason": "Double comparative error; use either 'faster' or 'more quickly', not 'more faster'"
+              },
+              {
+                "text": "Among all students, he speaks most fluent.",
+                "reason": "Using adjective 'fluent' instead of adverb; should be 'most fluently'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Adverb Position and Sentence Structure",
+          "definition": "Adverb placement significantly affects sentence clarity and meaning. Whilst English word order is relatively flexible, adverb position follows specific patterns. Mid-position (between subject and verb, or after auxiliary verb) suits frequency and certainty adverbs. End position accommodates manner, place, and time adverbs. Initial position provides emphasis for time, comment, or connective adverbs. Never place adverbs between verb and object. When multiple adverbs appear together, follow the standard order: manner + place + time. Misplaced adverbs create ambiguity or awkwardness. Understanding these positional rules ensures precise, natural-sounding English essential for academic writing and professional communication.",
+          "rules": [
+            "Frequency adverbs: mid-position (She always arrives early / She is always punctual)",
+            "Manner adverbs: after verb or after verb + object (He spoke clearly / He answered the question clearly)",
+            "Time/place adverbs: typically at sentence end (We met yesterday / They live abroad)",
+            "Multiple adverbs order: manner + place + time (He worked efficiently there yesterday)",
+            "Never separate verb from its direct object with an adverb"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She carefully examined all the documents before signing.",
+                "reason": "Manner adverb 'carefully' correctly positioned before verb for emphasis"
+              },
+              {
+                "text": "The team worked efficiently throughout the project duration.",
+                "reason": "Manner adverb after verb, time adverb at end"
+              },
+              {
+                "text": "Yesterday, we thoroughly discussed the proposal.",
+                "reason": "Time adverb at beginning for emphasis, manner adverb before verb"
+              },
+              {
+                "text": "He has never visited London despite living in England.",
+                "reason": "Frequency adverb 'never' correctly placed after auxiliary 'has'"
+              },
+              {
+                "text": "She answered all questions confidently during the interview.",
+                "reason": "Manner adverb after verb + object, time phrase at end"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She examined carefully all the documents before signing.",
+                "reason": "Adverb wrongly placed between verb and object; should be 'examined all the documents carefully'"
+              },
+              {
+                "text": "The team throughout the project worked efficiently.",
+                "reason": "Time phrase wrongly positioned; should be at end: 'worked efficiently throughout the project'"
+              },
+              {
+                "text": "We discussed thoroughly yesterday the proposal.",
+                "reason": "Adverbs incorrectly placed; should be 'thoroughly discussed the proposal yesterday'"
+              },
+              {
+                "text": "He never has visited London despite living in England.",
+                "reason": "Frequency adverb wrongly precedes auxiliary; should be 'has never visited'"
+              },
+              {
+                "text": "She answered confidently all questions during the interview.",
+                "reason": "Manner adverb incorrectly between verb and object; should follow object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "key-rules",
+      "title": "Key Rules for Adverbs",
+      "cards": [
+        {
+          "title": "Rule 1: Forming Adverbs from Adjectives",
+          "definition": "Most adverbs of manner are formed by adding -ly to adjectives, but several important spelling rules and exceptions apply. Regular formation: slow → slowly, careful → carefully. Adjectives ending in -y: change y to i before adding -ly (easy → easily, happy → happily). Adjectives ending in -le: drop -e and add -y (simple → simply, terrible → terribly). Adjectives ending in -ic: add -ally (basic → basically, automatic → automatically). Several adjectives and adverbs share identical forms: fast, hard, late, early, straight, high. The adjective 'good' irregularly becomes 'well' as an adverb.",
+          "rules": [
+            "Regular: add -ly to adjective (slow → slowly, careful → carefully)",
+            "Adjective ending in -y: change to -ily (happy → happily, easy → easily)",
+            "Adjective ending in -le: drop -e, add -y (simple → simply, possible → possibly)",
+            "Adjective ending in -ic: add -ally (basic → basically, tragic → tragically)",
+            "Irregular: good → well (not goodly); fast, hard, late, early remain unchanged"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She completed the work quickly and efficiently.",
+                "reason": "Regular formation: quick → quickly, efficient → efficiently"
+              },
+              {
+                "text": "The students answered happily when asked about their results.",
+                "reason": "Adjective ending in -y correctly becomes -ily: happy → happily"
+              },
+              {
+                "text": "He explained the concept simply and clearly.",
+                "reason": "Adjective ending in -le: simple → simply (drop e, add y)"
+              },
+              {
+                "text": "The system automatically saves your work.",
+                "reason": "Adjective ending in -ic: automatic → automatically (-ally added)"
+              },
+              {
+                "text": "She performed well in all examinations.",
+                "reason": "Irregular adverb 'well' correctly used (not 'goodly')"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She completed the work quick and efficient.",
+                "reason": "Adjectives 'quick' and 'efficient' cannot modify verb; need 'quickly' and 'efficiently'"
+              },
+              {
+                "text": "The students answered happyly when asked.",
+                "reason": "Wrong spelling; adjective ending in -y changes to -ily: 'happily' not 'happyly'"
+              },
+              {
+                "text": "He explained the concept simplely.",
+                "reason": "Incorrect formation; adjective ending in -le: 'simply' not 'simplely'"
+              },
+              {
+                "text": "The system automaticly saves your work.",
+                "reason": "Wrong suffix; adjectives ending in -ic need -ally: 'automatically' not 'automaticly'"
+              },
+              {
+                "text": "She performed goodly in all examinations.",
+                "reason": "No such word as 'goodly'; irregular adverb from 'good' is 'well'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 2: Distinguishing Adjectives from Adverbs",
+          "definition": "One of the most common errors in English is confusing adjectives with adverbs. Adjectives modify nouns and pronouns, answering 'What kind?' or 'Which one?'. Adverbs modify verbs, adjectives, or other adverbs, answering 'How?', 'When?', 'Where?', or 'To what extent?'. After linking verbs (be, seem, appear, become, feel, look, smell, taste, sound), use adjectives, not adverbs, because these verbs connect the subject to a description of the subject itself. After action verbs, use adverbs to describe how the action is performed. This distinction is crucial for grammatical accuracy.",
+          "rules": [
+            "After linking verbs (be, seem, feel, look, appear), use adjectives (She seems happy)",
+            "After action verbs, use adverbs to describe the action (She works happily)",
+            "Adjectives modify nouns: She is a careful driver",
+            "Adverbs modify verbs: She drives carefully",
+            "Some words function as both: fast, hard, late, early (He is a fast runner / He runs fast)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She seems confident before examinations.",
+                "reason": "Adjective 'confident' correctly follows linking verb 'seems' to describe subject"
+              },
+              {
+                "text": "She answered the questions confidently.",
+                "reason": "Adverb 'confidently' correctly modifies action verb 'answered'"
+              },
+              {
+                "text": "The coffee smells wonderful.",
+                "reason": "Adjective 'wonderful' after linking verb 'smells' describes the coffee"
+              },
+              {
+                "text": "He performed well during the interview.",
+                "reason": "Adverb 'well' correctly modifies action verb 'performed'"
+              },
+              {
+                "text": "She is a fast learner, and she learns fast.",
+                "reason": "'Fast' correctly used as adjective (modifying learner) and adverb (modifying learns)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She seems confidently before examinations.",
+                "reason": "After linking verb 'seems', use adjective 'confident', not adverb 'confidently'"
+              },
+              {
+                "text": "She answered the questions confident.",
+                "reason": "Adjective 'confident' cannot modify action verb; need adverb 'confidently'"
+              },
+              {
+                "text": "The coffee smells wonderfully.",
+                "reason": "After linking verb 'smells', use adjective 'wonderful' not adverb 'wonderfully'"
+              },
+              {
+                "text": "He performed good during the interview.",
+                "reason": "Adjective 'good' cannot modify verb; must use adverb 'well'"
+              },
+              {
+                "text": "She learns fastly every concept.",
+                "reason": "No such word as 'fastly'; 'fast' serves as both adjective and adverb"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 3: Hard vs Hardly, Late vs Lately - Confusing Pairs",
+          "definition": "Several adverbs have two forms with completely different meanings, causing frequent errors. 'Hard' (adverb) means 'with great effort or intensity', whilst 'hardly' means 'barely' or 'scarcely'. 'Late' (adverb) means 'after the expected time', whilst 'lately' means 'recently'. 'Near' means 'close by', whilst 'nearly' means 'almost'. 'High' means 'at a great height', whilst 'highly' means 'very much' or 'to a great degree'. These pairs are not interchangeable; using the wrong form creates entirely different, often incorrect, meanings. Mastering these distinctions is essential for precise communication.",
+          "rules": [
+            "Hard (with effort) ≠ hardly (barely): He works hard / He hardly works",
+            "Late (after expected time) ≠ lately (recently): He arrived late / He has been busy lately",
+            "Near (close in distance) ≠ nearly (almost): Come near / It is nearly finished",
+            "High (at height) ≠ highly (very much): The bird flew high / She is highly qualified",
+            "Close (near) ≠ closely (carefully): Stand close / Examine closely"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The students worked hard throughout the semester.",
+                "reason": "'Hard' correctly means 'with great effort'"
+              },
+              {
+                "text": "The students hardly understood the complex concept.",
+                "reason": "'Hardly' correctly means 'barely' or 'scarcely'"
+              },
+              {
+                "text": "He arrived late for the meeting.",
+                "reason": "'Late' correctly means 'after the expected time'"
+              },
+              {
+                "text": "Lately, the weather has been unpredictable.",
+                "reason": "'Lately' correctly means 'recently' (in recent time)"
+              },
+              {
+                "text": "She is highly respected in academic circles.",
+                "reason": "'Highly' correctly means 'to a great degree' or 'very much'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The students worked hardly throughout the semester.",
+                "reason": "'Hardly' means 'barely', not 'with effort'; should use 'hard'"
+              },
+              {
+                "text": "The students hard understood the complex concept.",
+                "reason": "'Hard' means 'with effort', not 'barely'; should use 'hardly'"
+              },
+              {
+                "text": "He arrived lately for the meeting.",
+                "reason": "'Lately' means 'recently', not 'after expected time'; should use 'late'"
+              },
+              {
+                "text": "Late, the weather has been unpredictable.",
+                "reason": "'Late' means 'after time', not 'recently'; should use 'Lately'"
+              },
+              {
+                "text": "She is high respected in academic circles.",
+                "reason": "'High' refers to height/position; for degree of respect, use 'highly'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 4: Too vs Very - Degree Adverbs with Different Implications",
+          "definition": "'Very' and 'too' are both degree adverbs, but they have distinct meanings and grammatical implications. 'Very' simply intensifies an adjective or adverb, adding emphasis without negative connotation (very good, very quickly). 'Too' indicates excess - more than necessary, desired, or appropriate - and carries negative implication or suggests a problem (too expensive, too slowly). 'Too' is often followed by 'to + infinitive' structure showing a consequence or impossibility. 'Very' can also be used with 'much' before comparative adjectives (very much better), whilst 'too' can similarly intensify comparatives (too much better). Understanding this distinction prevents unintended negative meanings.",
+          "rules": [
+            "'Very' = intensifies without negative connotation (She is very intelligent)",
+            "'Too' = excessive, more than needed/wanted, with negative implication (It is too expensive)",
+            "'Too' often followed by 'to + infinitive': too tired to work, too difficult to solve",
+            "Before comparatives: very much better (neutral), too much better (implies problem)",
+            "'Very' can modify adjectives/adverbs; 'too' can also modify adjectives/adverbs but suggests excess"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination was very difficult, but manageable.",
+                "reason": "'Very' intensifies 'difficult' without suggesting it was impossibly hard"
+              },
+              {
+                "text": "The examination was too difficult to complete in time.",
+                "reason": "'Too' indicates excessive difficulty with consequence shown by infinitive"
+              },
+              {
+                "text": "She speaks English very fluently.",
+                "reason": "'Very' intensifies adverb 'fluently' as positive quality"
+              },
+              {
+                "text": "He drives too fast on narrow roads.",
+                "reason": "'Too' indicates excessive speed beyond safe limit"
+              },
+              {
+                "text": "This solution is very much better than the previous one.",
+                "reason": "'Very much' correctly used before comparative 'better'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The food is too delicious.",
+                "reason": "'Too' implies excess/problem; food cannot be 'excessively' delicious; use 'very'"
+              },
+              {
+                "text": "The examination was very difficult to complete in time.",
+                "reason": "If it prevented completion, use 'too difficult', not 'very difficult'"
+              },
+              {
+                "text": "She is too intelligent and capable.",
+                "reason": "'Too' is inappropriate here (intelligence not excessive); should use 'very'"
+              },
+              {
+                "text": "The dress is very expensive to buy.",
+                "reason": "If price prevents purchase, use 'too expensive', not 'very expensive'"
+              },
+              {
+                "text": "I am too happy to hear this news.",
+                "reason": "'Too' suggests excessive/problematic; happiness is not excessive; use 'very happy'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Rule 5: Already, Yet, Still - Time Adverbs with Specific Patterns",
+          "definition": "'Already', 'yet', and 'still' are time adverbs that express different aspects of expectation and completion. 'Already' indicates that something happened sooner than expected or before now, used in affirmative sentences and sometimes questions expressing surprise (I have already finished / Has he already left?). 'Yet' is used in negative sentences and questions to indicate that something expected has not happened up to now (I haven't finished yet / Have you finished yet?). 'Still' indicates continuation of a situation or action, often contrary to expectation (He is still working / She still hasn't replied). These three adverbs have specific positions and sentence types.",
+          "rules": [
+            "'Already': affirmative sentences, mid-position or end position (I have already finished / I have finished already)",
+            "'Yet': negative sentences and questions, end position (I haven't finished yet / Have you finished yet?)",
+            "'Still': affirmative, negative, questions, mid-position (He is still working / He still hasn't finished)",
+            "'Already' in questions expresses surprise: Has he already left? (expecting no)",
+            "'Still' with negative emphasises unexpectedness: She still hasn't called (expected she would)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "I have already completed the assignment.",
+                "reason": "'Already' in affirmative sentence, mid-position after auxiliary"
+              },
+              {
+                "text": "Have you finished the report yet?",
+                "reason": "'Yet' correctly used in question, end position"
+              },
+              {
+                "text": "He is still preparing for the examination.",
+                "reason": "'Still' indicates continuation, mid-position after 'be' verb"
+              },
+              {
+                "text": "She hasn't received the email yet.",
+                "reason": "'Yet' in negative sentence, end position"
+              },
+              {
+                "text": "Has he already submitted his application? I thought the deadline was tomorrow.",
+                "reason": "'Already' in question expressing surprise at early completion"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "I have yet completed the assignment.",
+                "reason": "'Yet' not used in affirmative sentences; should use 'already'"
+              },
+              {
+                "text": "Have you already finished the report?",
+                "reason": "In normal question (not surprise), use 'yet': 'Have you finished the report yet?'"
+              },
+              {
+                "text": "He already is preparing for the examination.",
+                "reason": "'Already' wrongly precedes 'be' verb; should follow: 'is already preparing'"
+              },
+              {
+                "text": "She hasn't yet received the email.",
+                "reason": "'Yet' should be at end position in negative: 'hasn't received the email yet'"
+              },
+              {
+                "text": "I have still completed my work.",
+                "reason": "'Still' inappropriate with completed action; use 'already' for completion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "common-mistakes",
+      "title": "Common Mistakes for Hindi Speakers",
+      "cards": [
+        {
+          "title": "Mistake 1: Using Adjectives Instead of Adverbs",
+          "definition": "Hindi speakers frequently use adjectives where English requires adverbs because Hindi allows adjectives to modify verbs directly in many contexts. In English, when describing how an action is performed, you must use an adverb, not an adjective. Hindi: 'वह अच्छा बोलता है' (Vah achha bolta hai) directly translates as 'He good speaks', but English requires 'He speaks well'. Similarly, Hindi allows 'वह तेज़ भागती है' (Vah tez bhagti hai), but English needs 'She runs fast/quickly'. This transfer error is particularly common with manner expressions and quality descriptions of actions.",
+          "rules": [
+            "To describe how an action is done, use adverb not adjective in English",
+            "Hindi allows adjectives with verbs; English strictly requires adverbs",
+            "Quick (adjective) describes nouns; quickly (adverb) describes verbs",
+            "Good (adjective) for nouns; well (adverb) for verbs",
+            "Add -ly to most adjectives to form adverbs: careful → carefully"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She speaks English fluently.",
+                "reason": "Adverb 'fluently' correctly modifies verb 'speaks'"
+              },
+              {
+                "text": "He completed the task quickly.",
+                "reason": "Adverb 'quickly' correctly describes how task was completed"
+              },
+              {
+                "text": "The students performed well in examinations.",
+                "reason": "Adverb 'well' correctly modifies verb 'performed'"
+              },
+              {
+                "text": "She explained the concept clearly.",
+                "reason": "Adverb 'clearly' correctly describes manner of explanation"
+              },
+              {
+                "text": "They worked efficiently throughout the project.",
+                "reason": "Adverb 'efficiently' correctly modifies verb 'worked'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She speaks English fluent.",
+                "reason": "Hindi pattern (वह धाराप्रवाह बोलती है); English needs adverb: 'speaks fluently'"
+              },
+              {
+                "text": "He completed the task quick.",
+                "reason": "Hindi allows adjective with verb; English requires adverb: 'completed quickly'"
+              },
+              {
+                "text": "The students performed good in examinations.",
+                "reason": "Hindi: 'अच्छा प्रदर्शन किया'; English needs adverb 'well', not adjective 'good'"
+              },
+              {
+                "text": "She explained the concept clear.",
+                "reason": "Direct Hindi translation pattern; English requires adverb: 'explained clearly'"
+              },
+              {
+                "text": "They worked efficient throughout the project.",
+                "reason": "Hindi adjective pattern; English verb needs adverb: 'worked efficiently'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 2: Wrong Position of Frequency Adverbs",
+          "definition": "Hindi places frequency expressions more flexibly, often at sentence beginning or end (मैं हमेशा सुबह उठता हूं - 'Main hamesha subah uthta hun' or 'मैं सुबह हमेशा उठता हूं'). English has strict mid-position rules: frequency adverbs come after 'be' verbs but before main verbs. Hindi speakers commonly place frequency adverbs at sentence beginning or end, or immediately before subjects, which sounds unnatural in English. The error stems from directly transferring Hindi word order patterns where time/frequency markers have more flexible positioning.",
+          "rules": [
+            "Frequency adverbs: after 'be' verbs (She is always punctual)",
+            "Frequency adverbs: before main verbs (She always arrives early)",
+            "Frequency adverbs: after auxiliary verbs (She has always been diligent)",
+            "Do not place frequency adverbs at sentence beginning (except 'sometimes', 'usually')",
+            "Do not place frequency adverbs after main verbs in English"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She always completes her assignments on time.",
+                "reason": "Frequency adverb 'always' correctly placed before main verb 'completes'"
+              },
+              {
+                "text": "He is usually punctual for meetings.",
+                "reason": "Frequency adverb 'usually' correctly placed after 'be' verb 'is'"
+              },
+              {
+                "text": "I have never visited that museum before.",
+                "reason": "Frequency adverb 'never' correctly positioned after auxiliary 'have'"
+              },
+              {
+                "text": "They seldom make such mistakes.",
+                "reason": "'Seldom' correctly placed before main verb 'make'"
+              },
+              {
+                "text": "Sometimes I prefer to work in the library.",
+                "reason": "'Sometimes' can begin sentence for emphasis (exception)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Always she completes her assignments on time.",
+                "reason": "Hindi pattern (हमेशा वह); English needs: 'She always completes'"
+              },
+              {
+                "text": "He usually is punctual for meetings.",
+                "reason": "Wrong position before 'be' verb; should follow: 'is usually punctual'"
+              },
+              {
+                "text": "I never have visited that museum before.",
+                "reason": "Hindi word order; English needs: 'have never visited' (after auxiliary)"
+              },
+              {
+                "text": "They make seldom such mistakes.",
+                "reason": "Frequency adverb wrongly after verb; should precede: 'seldom make'"
+              },
+              {
+                "text": "She completes always her work on time.",
+                "reason": "Hindi allows post-verb position; English needs: 'always completes'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 3: Confusing Hard/Hardly, Late/Lately",
+          "definition": "Hindi speakers struggle with adverb pairs that look similar but have completely different meanings because Hindi uses distinct words for these concepts without the confusing similarity. Hindi 'कड़ी मेहनत' (kadi mehnat) = hard (with effort), whilst 'मुश्किल से' (mushkil se) = hardly (barely). Hindi 'देर से' (der se) = late (after time), whilst 'हाल ही में' (haal hi mein) = lately (recently). The English similarity between 'hard/hardly' and 'late/lately' does not exist in Hindi, making these pairs particularly confusing for Hindi speakers who may choose the wrong form based on superficial resemblance rather than meaning.",
+          "rules": [
+            "Hard (कड़ी मेहनत से) = with effort; Hardly (मुश्किल से) = barely/scarcely",
+            "Late (देर से) = after expected time; Lately (हाल ही में) = recently",
+            "Never use 'hardly' to mean 'with effort' - completely different meaning",
+            "Never use 'lately' to mean 'after time' - means 'recently'",
+            "These pairs are not interchangeable despite similar spelling"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The students worked hard for the examination.",
+                "reason": "कड़ी मेहनत की - 'hard' correctly means 'with effort'"
+              },
+              {
+                "text": "The students hardly understood the difficult concept.",
+                "reason": "मुश्किल से समझे - 'hardly' correctly means 'barely'"
+              },
+              {
+                "text": "He arrived late for the interview.",
+                "reason": "देर से आया - 'late' correctly means 'after expected time'"
+              },
+              {
+                "text": "Lately, he has been very busy with work.",
+                "reason": "हाल ही में - 'lately' correctly means 'recently'"
+              },
+              {
+                "text": "She hardly ever complains despite working hard.",
+                "reason": "Both forms correctly used: 'hardly ever' (rarely) and 'working hard' (with effort)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The students worked hardly for the examination.",
+                "reason": "Wrong adverb; 'hardly' means 'barely', not 'with effort'; should use 'hard'"
+              },
+              {
+                "text": "The students hard understood the difficult concept.",
+                "reason": "'Hard' means 'with effort', not 'barely'; should use 'hardly understood'"
+              },
+              {
+                "text": "He arrived lately for the interview.",
+                "reason": "'Lately' means 'recently' (हाल ही में), not 'after time'; should use 'late'"
+              },
+              {
+                "text": "Late, he has been very busy with work.",
+                "reason": "'Late' means 'after time' (देर से), not 'recently'; should use 'Lately'"
+              },
+              {
+                "text": "She works hardly to earn money.",
+                "reason": "Confusing similar-looking forms; 'hardly' means 'barely'; should use 'works hard'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 4: Overusing 'Very' and Misplacing Degree Adverbs",
+          "definition": "Hindi speakers tend to overuse 'very' (बहुत - bahut) because Hindi 'बहुत' appears frequently and in various positions. Hindi allows 'वह बहुत अच्छा है' (very good), 'वह बहुत अच्छे से बोलता है' (very well speaks), and 'बहुत अच्छा काम' (very good work). English has more nuanced degree adverbs (extremely, quite, rather, fairly) for variety. Additionally, Hindi speakers often misplace degree adverbs because Hindi 'बहुत' can precede nouns directly ('बहुत समस्याएं' - bahut samasyaen = many problems), whilst English 'very' cannot directly modify countable nouns without an adjective. Degree adverb placement follows strict rules in English.",
+          "rules": [
+            "Degree adverbs (very, extremely, quite) must immediately precede the adjective/adverb they modify",
+            "'Very' cannot directly modify countable nouns; need adjective: very many books (not very books)",
+            "'Very' modifies adjectives/adverbs, not verbs: very quickly (correct), very run (wrong)",
+            "Use variety: extremely, quite, rather, fairly, incredibly - not only 'very'",
+            "Position: degree adverb + adjective/adverb (extremely difficult, very carefully)"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The examination was extremely difficult.",
+                "reason": "Degree adverb 'extremely' correctly precedes adjective 'difficult'"
+              },
+              {
+                "text": "She completed the task very carefully.",
+                "reason": "Degree adverb 'very' correctly precedes adverb 'carefully'"
+              },
+              {
+                "text": "There are very many students in the hall.",
+                "reason": "'Very' modifies 'many' (adjective), which modifies 'students' - correct structure"
+              },
+              {
+                "text": "He is quite talented in mathematics.",
+                "reason": "Using 'quite' for variety instead of overusing 'very'"
+              },
+              {
+                "text": "The results were rather disappointing this year.",
+                "reason": "'Rather' provides nuance different from 'very'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "The examination was difficult extremely.",
+                "reason": "Degree adverb wrongly placed after adjective; should precede: 'extremely difficult'"
+              },
+              {
+                "text": "She completed the task carefully very.",
+                "reason": "Hindi pattern (ध्यान से बहुत); English needs: 'very carefully' (adverb before)"
+              },
+              {
+                "text": "There are very students in the hall.",
+                "reason": "Hindi 'बहुत छात्र'; English needs adjective: 'very many students' or 'many students'"
+              },
+              {
+                "text": "He very is talented in mathematics.",
+                "reason": "'Very' wrongly positioned; should be: 'is very talented'"
+              },
+              {
+                "text": "She very completed her work quickly.",
+                "reason": "'Very' cannot modify verb; should modify adverb: 'completed her work very quickly'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mistake 5: Incorrect Formation: Fastly, Goodly, Hardly (meaning)",
+          "definition": "Hindi speakers create non-existent adverbs by incorrectly adding -ly to adjectives that either do not change form (fast → fastly does not exist) or have irregular adverb forms (good → goodly does not exist; correct form is 'well'). This stems from overgeneralising the -ly rule. Hindi 'तेज़ी से' (tezi se) or 'तेज़' (tez) translates to 'fast' (unchanged), whilst Hindi 'अच्छे से' (achhe se) translates to 'well' (irregular), not 'goodly'. Additionally, Hindi speakers confuse 'hardly' (मुश्किल से - barely) with the non-existent 'hardly' meaning 'with hardness', applying -ly unnecessarily to 'hard' when 'hard' itself is already the correct adverb for 'with effort'.",
+          "rules": [
+            "Some adjectives do not change as adverbs: fast, hard, late, early, straight",
+            "Irregular adverb: good → well (not goodly)",
+            "Do not add -ly to words that are already adverbs: fast (not fastly)",
+            "Hard (with effort) is already an adverb; hardly (barely) has different meaning",
+            "Memorise irregular and unchanged forms instead of applying -ly rule universally"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She runs very fast in competitions.",
+                "reason": "'Fast' is both adjective and adverb; no change needed"
+              },
+              {
+                "text": "He performed well in the examination.",
+                "reason": "Irregular adverb 'well' from adjective 'good'"
+              },
+              {
+                "text": "The students worked hard throughout the year.",
+                "reason": "'Hard' (with effort) is correct adverb; do not add -ly"
+              },
+              {
+                "text": "Please arrive early for the meeting.",
+                "reason": "'Early' functions as both adjective and adverb without change"
+              },
+              {
+                "text": "She hardly recognised him after so many years.",
+                "reason": "'Hardly' (barely) is correct adverb with different meaning from 'hard'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "She runs very fastly in competitions.",
+                "reason": "No such word as 'fastly'; 'fast' is already correct adverb form"
+              },
+              {
+                "text": "He performed goodly in the examination.",
+                "reason": "No such word as 'goodly'; irregular adverb from 'good' is 'well'"
+              },
+              {
+                "text": "The students worked hardly throughout the year.",
+                "reason": "Wrong meaning; 'hardly' means 'barely', not 'with effort'; should use 'hard'"
+              },
+              {
+                "text": "Please arrive earlly for the meeting.",
+                "reason": "'Early' is already adverb; do not add -ly"
+              },
+              {
+                "text": "He speaks English good.",
+                "reason": "Adjective 'good' cannot modify verb; must use irregular adverb 'well'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "practice",
+      "title": "Practice Exercises with Adverbs",
+      "cards": [
+        {
+          "title": "Exercise 1: Choose the Correct Adverb Form",
+          "definition": "Select the grammatically correct adverb to complete each sentence. Pay attention to adverb formation rules, irregular forms, and the distinction between adjectives and adverbs.",
+          "rules": [
+            "Identify whether the word modifies a verb, adjective, or another adverb",
+            "Apply formation rules: add -ly for regular, remember irregular forms",
+            "Check for unchanged forms (fast, hard, late) that do not add -ly",
+            "After action verbs, use adverbs; after linking verbs, use adjectives",
+            "Select adverbs that make logical sense in context"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She answered all questions (correct/correctly) during the examination. Answer: correctly",
+                "reason": "Modifies action verb 'answered'; need adverb 'correctly', not adjective"
+              },
+              {
+                "text": "The results were (extreme/extremely) disappointing this year. Answer: extremely",
+                "reason": "Modifies adjective 'disappointing'; need degree adverb 'extremely'"
+              },
+              {
+                "text": "He drives very (careful/carefully) on busy roads. Answer: carefully",
+                "reason": "Modifies verb 'drives'; need manner adverb 'carefully'"
+              },
+              {
+                "text": "She performed (good/well) in all her examinations. Answer: well",
+                "reason": "Irregular adverb 'well' modifies verb 'performed'"
+              },
+              {
+                "text": "The train arrived (late/lately) due to technical problems. Answer: late",
+                "reason": "Means 'after expected time'; 'late' is adverb (unchanged form)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing: She answered all questions (correct) during the examination.",
+                "reason": "Adjective 'correct' cannot modify verb; must use adverb 'correctly'"
+              },
+              {
+                "text": "Choosing: The results were (extreme) disappointing this year.",
+                "reason": "Adjective 'extreme' cannot modify adjective; need adverb 'extremely'"
+              },
+              {
+                "text": "Choosing: He drives very (careful) on busy roads.",
+                "reason": "Adjective 'careful' cannot modify verb; must use adverb 'carefully'"
+              },
+              {
+                "text": "Choosing: She performed (good) in all her examinations.",
+                "reason": "Adjective 'good' cannot modify verb; irregular adverb is 'well'"
+              },
+              {
+                "text": "Choosing: The train arrived (lately) due to technical problems.",
+                "reason": "'Lately' means 'recently', not 'after time'; should use 'late'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 2: Position Frequency Adverbs Correctly",
+          "definition": "Rewrite the sentences by placing the frequency adverb in the correct position. Remember mid-position rules: after 'be' verbs and auxiliary verbs, before main verbs.",
+          "rules": [
+            "After 'be' verbs: She is always punctual",
+            "Before main verbs: She always arrives early",
+            "After auxiliary verbs: She has never been late",
+            "Do not separate auxiliary from past participle with very long adverb phrases",
+            "Some frequency adverbs (sometimes, usually) can begin sentences for emphasis"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "She completes her work on time. (always) → She always completes her work on time.",
+                "reason": "Frequency adverb 'always' correctly placed before main verb 'completes'"
+              },
+              {
+                "text": "They are late for meetings. (seldom) → They are seldom late for meetings.",
+                "reason": "Frequency adverb 'seldom' correctly placed after 'be' verb 'are'"
+              },
+              {
+                "text": "I have seen such dedication. (rarely) → I have rarely seen such dedication.",
+                "reason": "Frequency adverb 'rarely' correctly positioned after auxiliary 'have'"
+              },
+              {
+                "text": "He makes mistakes in calculations. (hardly ever) → He hardly ever makes mistakes in calculations.",
+                "reason": "Frequency phrase 'hardly ever' correctly placed before main verb"
+              },
+              {
+                "text": "I prefer working early morning. (sometimes) → Sometimes I prefer working early morning.",
+                "reason": "'Sometimes' can begin sentence for emphasis (alternative: I sometimes prefer)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Placement: She completes always her work on time.",
+                "reason": "Frequency adverb wrongly after verb; should precede: 'always completes'"
+              },
+              {
+                "text": "Placement: They seldom are late for meetings.",
+                "reason": "With 'be' verb, frequency adverb follows verb: 'are seldom late'"
+              },
+              {
+                "text": "Placement: I rarely have seen such dedication.",
+                "reason": "Frequency adverb wrongly before auxiliary; should be: 'have rarely seen'"
+              },
+              {
+                "text": "Placement: He makes hardly ever mistakes in calculations.",
+                "reason": "Frequency phrase wrongly split verb and object; should be: 'hardly ever makes'"
+              },
+              {
+                "text": "Placement: Always I prefer working early morning.",
+                "reason": "'Always' does not typically begin sentence; should be: 'I always prefer'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 3: Differentiate Hard/Hardly, Late/Lately",
+          "definition": "Choose the appropriate adverb from the confusing pairs: hard (with effort) vs hardly (barely), late (after time) vs lately (recently). Consider the intended meaning carefully.",
+          "rules": [
+            "Hard = with great effort or intensity; Hardly = barely, scarcely",
+            "Late = after the expected or usual time; Lately = recently, in recent times",
+            "Check sentence context: does it discuss effort or scarcity? timing or recent events?",
+            "These pairs are not interchangeable despite similar spelling",
+            "Read the complete sentence to determine intended meaning"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "The students worked (hard/hardly) throughout the semester. Answer: hard",
+                "reason": "Context indicates effort, not scarcity; 'hard' means 'with effort'"
+              },
+              {
+                "text": "I can (hard/hardly) hear you due to background noise. Answer: hardly",
+                "reason": "Context indicates scarcity/difficulty; 'hardly' means 'barely'"
+              },
+              {
+                "text": "He arrived (late/lately) for the interview. Answer: late",
+                "reason": "Context indicates timing; 'late' means 'after expected time'"
+              },
+              {
+                "text": "(Late/Lately), the weather has been unpredictable. Answer: Lately",
+                "reason": "Context indicates recent time period; 'Lately' means 'recently'"
+              },
+              {
+                "text": "She has been working (hard/hardly), but results are (hard/hardly) visible. Answer: hard, hardly",
+                "reason": "First context: effort (hard); second context: scarcity (hardly visible)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Choosing: The students worked (hardly) throughout the semester.",
+                "reason": "'Hardly' means 'barely', suggesting little work; context needs 'hard' (with effort)"
+              },
+              {
+                "text": "Choosing: I can (hard) hear you due to background noise.",
+                "reason": "'Hard' means 'with effort', not 'barely'; context needs 'hardly' (scarcely)"
+              },
+              {
+                "text": "Choosing: He arrived (lately) for the interview.",
+                "reason": "'Lately' means 'recently', not 'after time'; context needs 'late'"
+              },
+              {
+                "text": "Choosing: (Late), the weather has been unpredictable.",
+                "reason": "'Late' refers to timing, not recent period; context needs 'Lately' (recently)"
+              },
+              {
+                "text": "Choosing: She has been working (hardly), but results are (hard) visible.",
+                "reason": "Wrong meanings: should be 'working hard' (effort) and 'hardly visible' (barely)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 4: Form Comparative and Superlative Adverbs",
+          "definition": "Convert the given adverbs to their comparative or superlative forms following the correct formation rules. Remember: short adverbs add -er/-est, long adverbs use more/most, and some forms are irregular.",
+          "rules": [
+            "One-syllable adverbs: add -er (comparative), -est (superlative) - fast → faster → fastest",
+            "Adverbs ending in -ly: use more/most - carefully → more carefully → most carefully",
+            "Irregular forms: well → better → best; badly → worse → worst",
+            "Comparative compares two; superlative compares three or more",
+            "Do not create double comparatives (more faster) or double superlatives"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Fast (comparative) → faster. Example: She runs faster than her brother.",
+                "reason": "Short adverb adds -er for comparative form"
+              },
+              {
+                "text": "Carefully (superlative) → most carefully. Example: Of all students, she writes most carefully.",
+                "reason": "Long adverb ending in -ly uses 'most' for superlative"
+              },
+              {
+                "text": "Well (comparative) → better. Example: He performs better now than before.",
+                "reason": "Irregular comparative form from 'well'"
+              },
+              {
+                "text": "Efficiently (comparative) → more efficiently. Example: This method works more efficiently.",
+                "reason": "Long adverb ending in -ly uses 'more' for comparative"
+              },
+              {
+                "text": "Early (superlative) → earliest. Example: She arrived earliest among all candidates.",
+                "reason": "Short adverb adds -est for superlative (y → i before adding -est)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Formation: Fast → more faster (comparative)",
+                "reason": "Double comparative error; short adverb uses only -er: 'faster' not 'more faster'"
+              },
+              {
+                "text": "Formation: Carefully → carefullier (comparative)",
+                "reason": "Long adverbs ending in -ly cannot add -er; must use: 'more carefully'"
+              },
+              {
+                "text": "Formation: Well → gooder (comparative)",
+                "reason": "Irregular form not recognised; correct comparative from 'well' is 'better'"
+              },
+              {
+                "text": "Formation: Efficiently → efficientliest (superlative)",
+                "reason": "Long adverbs cannot add -est; must use: 'most efficiently'"
+              },
+              {
+                "text": "Formation: Early → most early (superlative)",
+                "reason": "Short adverb should add -est, not use 'most': 'earliest' not 'most early'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Exercise 5: Correct Adverb Errors in Sentences",
+          "definition": "Identify and correct the adverb errors in the given sentences. Errors may involve wrong forms, incorrect positions, confusion between adjectives and adverbs, or misuse of similar-looking adverbs.",
+          "rules": [
+            "Check if adjective is wrongly used instead of adverb",
+            "Verify adverb position follows rules (frequency, manner, time/place)",
+            "Confirm correct formation (regular -ly, irregular, unchanged forms)",
+            "Check for confused pairs (hard/hardly, late/lately, etc.)",
+            "Ensure degree adverbs immediately precede adjectives/adverbs they modify"
+          ],
+          "examples": {
+            "correct": [
+              {
+                "text": "Error: She speaks English very fluent. → Correction: She speaks English very fluently.",
+                "reason": "Adjective 'fluent' cannot modify verb; must use adverb 'fluently'"
+              },
+              {
+                "text": "Error: He drives too much fastly. → Correction: He drives too fast.",
+                "reason": "No such word as 'fastly'; 'fast' is correct adverb; remove 'much'"
+              },
+              {
+                "text": "Error: The students worked hardly for exams. → Correction: The students worked hard for exams.",
+                "reason": "'Hardly' means 'barely', not 'with effort'; should use 'hard'"
+              },
+              {
+                "text": "Error: She is never late always. → Correction: She is never late. / She is always punctual.",
+                "reason": "Cannot use contradictory frequency adverbs 'never' and 'always' together"
+              },
+              {
+                "text": "Error: He performed good yesterday. → Correction: He performed well yesterday.",
+                "reason": "Adjective 'good' cannot modify verb; irregular adverb is 'well'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "Leaving uncorrected: She speaks English very fluent.",
+                "reason": "Adjective/adverb confusion; verb needs adverb 'fluently', not adjective 'fluent'"
+              },
+              {
+                "text": "Correcting to: He drives too much fast.",
+                "reason": "Still incorrect; 'fast' is adverb (no -ly), and 'much' is unnecessary"
+              },
+              {
+                "text": "Leaving uncorrected: The students worked hardly for exams.",
+                "reason": "Meaning error; 'hardly' means 'barely', implying little work; should be 'hard'"
+              },
+              {
+                "text": "Correcting to: She is never always late.",
+                "reason": "Still contradictory; cannot combine 'never' and 'always'; choose one"
+              },
+              {
+                "text": "Correcting to: He performed goodly yesterday.",
+                "reason": "Wrong irregular form; no such word as 'goodly'; correct adverb is 'well'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "revision",
+      "title": "Revision Questions",
+      "cards": [
+        {
+          "title": "Revision Question 1",
+          "definition": "Choose the correct sentence demonstrating proper adverb usage:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "A) She answered all questions correctly during the examination.",
+                "reason": "Correct: Adverb 'correctly' properly modifies verb 'answered' after verb + object"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "B) She answered correct all questions during the examination.",
+                "reason": "Wrong: Adjective 'correct' cannot modify verb; also wrongly positioned between verb and object"
+              },
+              {
+                "text": "C) She answered all questions correct during the examination.",
+                "reason": "Wrong: Adjective 'correct' cannot modify verb; need adverb 'correctly'"
+              },
+              {
+                "text": "D) She correct answered all questions during the examination.",
+                "reason": "Wrong: Adjective 'correct' before verb is grammatically incorrect"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 2",
+          "definition": "Identify the sentence with correctly positioned frequency adverb:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) She has never visited London despite living in England.",
+                "reason": "Correct: Frequency adverb 'never' properly placed after auxiliary 'has', before main verb"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) She never has visited London despite living in England.",
+                "reason": "Wrong: Frequency adverb wrongly precedes auxiliary; should be 'has never visited'"
+              },
+              {
+                "text": "B) She has visited never London despite living in England.",
+                "reason": "Wrong: Frequency adverb wrongly placed after main verb; should follow auxiliary"
+              },
+              {
+                "text": "D) Never she has visited London despite living in England.",
+                "reason": "Wrong: 'Never' does not typically begin sentence unless for emphasis; unnatural here"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 3",
+          "definition": "Select the sentence using comparative adverb correctly:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) She speaks English more fluently than her classmates.",
+                "reason": "Correct: Long adverb 'fluently' correctly forms comparative with 'more'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) She speaks English fluentlier than her classmates.",
+                "reason": "Wrong: Long adverbs ending in -ly cannot add -er; must use 'more fluently'"
+              },
+              {
+                "text": "C) She speaks English more fluent than her classmates.",
+                "reason": "Wrong: Using adjective 'fluent' instead of adverb; should be 'more fluently'"
+              },
+              {
+                "text": "D) She speaks English most fluently than her classmates.",
+                "reason": "Wrong: 'Most' is superlative (3+ comparison); comparative uses 'more'; also 'than' incorrect with superlative"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 4",
+          "definition": "Choose the sentence correctly using hard/hardly:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "A) The students worked hard, but they hardly had time to rest.",
+                "reason": "Correct: 'hard' (with effort) and 'hardly' (barely) both used appropriately in context"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "B) The students worked hardly, but they hard had time to rest.",
+                "reason": "Wrong: Meanings reversed; should be 'worked hard' and 'hardly had time'"
+              },
+              {
+                "text": "C) The students worked hardly, but they hardly had time to rest.",
+                "reason": "Wrong: 'worked hardly' incorrect; 'hardly' means 'barely', should be 'worked hard'"
+              },
+              {
+                "text": "D) The students worked hard, but they hard had time to rest.",
+                "reason": "Wrong: 'hard had time' incorrect; should be 'hardly had time' (barely had)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 5",
+          "definition": "Identify the sentence with proper degree adverb placement:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) The examination was extremely difficult for most students.",
+                "reason": "Correct: Degree adverb 'extremely' properly precedes adjective 'difficult'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) The examination was difficult extremely for most students.",
+                "reason": "Wrong: Degree adverb wrongly follows adjective; should precede: 'extremely difficult'"
+              },
+              {
+                "text": "B) The extremely examination was difficult for most students.",
+                "reason": "Wrong: 'Extremely' modifies noun 'examination'; degree adverbs modify adjectives/adverbs, not nouns"
+              },
+              {
+                "text": "C) The examination extremely was difficult for most students.",
+                "reason": "Wrong: Degree adverb wrongly positioned between subject and verb"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 6",
+          "definition": "Select the correct sentence using irregular adverb 'well':",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "B) She performed well in all her examinations this year.",
+                "reason": "Correct: Irregular adverb 'well' (from 'good') properly modifies verb 'performed'"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) She performed good in all her examinations this year.",
+                "reason": "Wrong: Adjective 'good' cannot modify verb; irregular adverb is 'well'"
+              },
+              {
+                "text": "C) She performed goodly in all her examinations this year.",
+                "reason": "Wrong: No such word as 'goodly'; correct irregular adverb from 'good' is 'well'"
+              },
+              {
+                "text": "D) She good performed in all her examinations this year.",
+                "reason": "Wrong: Adjective 'good' before verb is grammatically incorrect"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 7",
+          "definition": "Choose the sentence correctly differentiating late/lately:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) He arrived late yesterday, but lately he has been punctual.",
+                "reason": "Correct: 'late' (after time) and 'lately' (recently) both used appropriately"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) He arrived lately yesterday, but late he has been punctual.",
+                "reason": "Wrong: Meanings reversed; should be 'arrived late' and 'lately (recently) he has been'"
+              },
+              {
+                "text": "B) He arrived lately yesterday, but lately he has been punctual.",
+                "reason": "Wrong: 'arrived lately' incorrect; 'lately' means 'recently', should be 'arrived late'"
+              },
+              {
+                "text": "D) He arrived late yesterday, but late he has been punctual.",
+                "reason": "Wrong: 'late he has been punctual' incorrect; should be 'lately' (recently)"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 8",
+          "definition": "Identify correct usage of already/yet/still:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "A) I have already finished, but he hasn't finished yet, and she is still working.",
+                "reason": "Correct: 'already' (affirmative, mid-position), 'yet' (negative, end), 'still' (continuation, mid-position)"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "B) I have yet finished, but he hasn't finished already, and she is working still.",
+                "reason": "Wrong: 'yet' not used in affirmative; 'already' not used in negative; 'still' wrongly positioned"
+              },
+              {
+                "text": "C) I have finished still, but he hasn't finished already, and she is yet working.",
+                "reason": "Wrong: 'still' with finished incorrect; 'already' in negative wrong; 'yet' wrongly positioned"
+              },
+              {
+                "text": "D) I already have finished, but he hasn't already finished, and she still is working.",
+                "reason": "Wrong: 'already' position acceptable but 'already' in negative wrong; 'still' wrongly precedes 'be'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 9",
+          "definition": "Select the sentence with correct manner adverb placement:",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "D) She explained the difficult concept clearly and thoroughly.",
+                "reason": "Correct: Manner adverbs 'clearly' and 'thoroughly' properly placed after verb + object"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) She explained clearly the difficult concept and thoroughly.",
+                "reason": "Wrong: Manner adverb wrongly between verb and object; also 'thoroughly' orphaned at end"
+              },
+              {
+                "text": "B) She clearly explained the difficult concept thoroughly.",
+                "reason": "Partially acceptable but less common; typically manner adverbs follow verb + object for clarity"
+              },
+              {
+                "text": "C) Clearly and thoroughly she explained the difficult concept.",
+                "reason": "Wrong: Manner adverbs at sentence beginning unusual and awkward in English"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Revision Question 10",
+          "definition": "Choose the sentence avoiding formation errors (fastly, goodly):",
+          "rules": [],
+          "examples": {
+            "correct": [
+              {
+                "text": "C) She runs fast, works hard, and performs well in competitions.",
+                "reason": "Correct: 'fast' (unchanged), 'hard' (unchanged), 'well' (irregular from 'good') all correct"
+              }
+            ],
+            "incorrect": [
+              {
+                "text": "A) She runs fastly, works hardly, and performs goodly in competitions.",
+                "reason": "Wrong: 'fastly' does not exist; 'hardly' means 'barely'; 'goodly' does not exist"
+              },
+              {
+                "text": "B) She runs fastly, works hard, and performs good in competitions.",
+                "reason": "Wrong: 'fastly' does not exist (should be 'fast'); 'good' is adjective (should be 'well')"
+              },
+              {
+                "text": "D) She runs fast, works hardly, and performs well in competitions.",
+                "reason": "Wrong: 'hardly' means 'barely', not 'with effort'; should be 'works hard'"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

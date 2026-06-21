@@ -1,0 +1,451 @@
+[
+  {
+    "id": "bank-transactions",
+    "title": "Bank Transactions",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Banking conversations require formal language, clarity, and attention to detail. Whether opening an account, making a deposit, or resolving issues, use polite phrases, confirm all details verbally, and keep documents ready. Common banking scenarios include account opening, cash withdrawals/deposits, cheque deposits, loan inquiries, and resolving transaction errors."
+      },
+      {
+        "type": "list",
+        "title": "Essential Banking Phrases",
+        "items": [
+          "\"I'd like to open a savings/current account.\"",
+          "\"Could you please check my account balance?\"",
+          "\"I need to deposit/withdraw ₹[amount].\"",
+          "\"Is there a minimum balance requirement?\"",
+          "\"What documents do I need for account opening?\"",
+          "\"I didn't receive the OTP for this transaction.\"",
+          "\"Can you help me activate mobile/net banking?\"",
+          "\"There's an unauthorized transaction in my account.\""
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Dialogue: Opening a Savings Account",
+        "content": "**Bank Officer:** Good morning! How may I help you today?\n\n**You:** Good morning. I'd like to open a savings account.\n\n**Officer:** Certainly! Do you have an Aadhaar card, PAN card, and address proof?\n\n**You:** Yes, I have all three. I also have two passport-size photographs.\n\n**Officer:** Perfect. The minimum balance requirement is ₹5,000. You'll get a debit card, mobile banking, and internet banking within 7 days. Would you like to proceed?\n\n**You:** Yes, please. What's the interest rate?\n\n**Officer:** 4% per annum. Please fill this form and sign here."
+      },
+      {
+        "type": "table",
+        "headers": ["Scenario", "What to Say", "What NOT to Say"],
+        "rows": [
+          ["Account Opening", "\"I have all required documents.\"", "\"I don't have PAN, can I still open?\" (without asking alternatives)"],
+          ["ATM Card Issue", "\"My card is blocked. Can you help me unblock it?\"", "\"Your ATM swallowed my card!\" (too aggressive)"],
+          ["Loan Inquiry", "\"What's the interest rate for a personal loan?\"", "\"I need money urgently, approve my loan.\" (demanding)"],
+          ["Balance Check", "\"Could you please tell me my account balance?\"", "\"How much money do I have?\" (too casual for banks)"]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Banking Etiquette",
+        "content": "Always carry a token number and wait for your turn. When discussing sensitive information (PIN, OTP), speak softly. If the officer uses technical terms you don't understand (NEFT, RTGS, IMPS), ask politely: \"Could you please explain the difference?\""
+      },
+      {
+        "type": "practice",
+        "question": "Scenario 1: You need to deposit ₹25,000 cash at SBI. Role-play the conversation from greeting to receiving the deposit slip.",
+        "hint": "Mention the account number, confirm the amount, and ask for a receipt."
+      },
+      {
+        "type": "practice",
+        "question": "Scenario 2: You notice a ₹5,000 debit in your account that you didn't authorize. How would you report this to HDFC Bank's customer service?",
+        "hint": "Stay calm, provide transaction date/time, and ask about the dispute resolution process."
+      }
+    ]
+  },
+  {
+    "id": "at-the-doctor",
+    "title": "At the Doctor",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Medical consultations require clear symptom descriptions, honest disclosure of medical history, and understanding prescriptions. Use specific terms for body parts and symptoms. Common scenarios include OPD visits, emergency consultations, follow-up appointments, and pharmacy visits. Always repeat dosage instructions to confirm understanding."
+      },
+      {
+        "type": "list",
+        "title": "Describing Symptoms Accurately",
+        "items": [
+          "\"I've been experiencing [symptom] for [duration].\"",
+          "\"The pain is sharp/dull/throbbing and occurs when I [activity].\"",
+          "\"I have a fever—my temperature is 102°F.\"",
+          "\"I feel dizzy/nauseous/fatigued since yesterday.\"",
+          "\"I have a persistent cough with yellow/green phlegm.\"",
+          "\"I'm allergic to [medicine/food].\"",
+          "\"I'm currently taking [medicine name] for [condition].\""
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Dialogue: Visiting a General Physician",
+        "content": "**Doctor:** Good evening, Priya. What brings you here today?\n\n**You:** Good evening, doctor. I've had a severe headache for three days. It's mostly on the right side of my head.\n\n**Doctor:** Is it a throbbing pain or constant dull ache?\n\n**You:** It's throbbing, especially in the morning. I also feel nauseous sometimes.\n\n**Doctor:** Have you taken any medication?\n\n**You:** I took Paracetamol 500mg yesterday, but it didn't help much.\n\n**Doctor:** Any history of migraines in your family?\n\n**You:** Yes, my mother has migraines.\n\n**Doctor:** I see. I'm prescribing a stronger painkiller and an anti-nausea tablet. Take them twice daily after meals for three days. If it persists, we'll do a CT scan."
+      },
+      {
+        "type": "table",
+        "headers": ["Body Part/Symptom", "English Term", "How to Describe"],
+        "rows": [
+          ["पेट दर्द (Pet Dard)", "Stomach ache", "\"I have sharp pain in my lower abdomen.\""],
+          ["बुखार (Bukhar)", "Fever", "\"I have a high fever with chills.\""],
+          ["खांसी (Khansi)", "Cough", "\"I have a dry/wet cough since 5 days.\""],
+          ["चक्कर आना (Chakkar)", "Dizziness", "\"I feel dizzy when I stand up quickly.\""],
+          ["सांस फूलना (Saans Phoolna)", "Shortness of breath", "\"I feel breathless after climbing stairs.\""],
+          ["त्वचा पर चकत्ते (Chakatte)", "Rash", "\"I have an itchy rash on my arms.\""]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Understanding Prescriptions",
+        "content": "⚠️ Always ask: \"How many times a day?\" \"Before or after meals?\" \"For how many days?\" \"Any side effects I should know?\" Don't hesitate to ask the doctor to write dosage clearly if handwriting is unclear. At the pharmacy, confirm medicine names—Indian generics often sound similar."
+      },
+      {
+        "type": "practice",
+        "question": "You wake up with a sore throat, mild fever (99.5°F), and body aches. Describe your symptoms to Dr. Sharma at Apollo Clinic in 60 seconds.",
+        "hint": "Mention duration, severity, and any self-medication you've tried."
+      },
+      {
+        "type": "practice",
+        "question": "Your doctor prescribes \"Azithromycin 500mg, 1 tablet daily after breakfast for 3 days.\" Repeat this back to the doctor to confirm you understood correctly.",
+        "hint": "Use phrases like \"Just to confirm...\" or \"So I should take...\""
+      }
+    ]
+  },
+  {
+    "id": "restaurant-orders",
+    "title": "Restaurant Orders",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Restaurant conversations combine politeness with clear ordering. Whether dining in or ordering via Swiggy/Zomato calls, know how to request modifications, ask about ingredients (for allergies/preferences), and handle billing. Common scenarios include reservations, ordering food, requesting changes, and splitting bills. Use \"Could I have...\" or \"I'd like...\" instead of \"Give me...\""
+      },
+      {
+        "type": "list",
+        "title": "Ordering Phrases",
+        "items": [
+          "\"Could I see the menu, please?\"",
+          "\"I'd like to order the [dish name].\"",
+          "\"Is this dish spicy? Can you make it mild/medium/extra spicy?\"",
+          "\"Does this contain peanuts/dairy? I'm allergic.\"",
+          "\"What do you recommend for vegetarians?\"",
+          "\"Could I have extra raita/chutney on the side?\"",
+          "\"We'd like to split the bill, please.\"",
+          "\"There's an error in the bill—I was charged for 3 items, but we ordered only 2.\""
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Dialogue: Ordering at a Restaurant",
+        "content": "**Waiter:** Good evening! Welcome to Spice Route. Here's your menu. Can I get you something to drink?\n\n**You:** Good evening. I'll have a fresh lime soda, less sugar, please.\n\n**Waiter:** Certainly. Have you decided on food, or would you like a few minutes?\n\n**You:** I'd like the paneer butter masala and garlic naan. Is the paneer masala very spicy?\n\n**Waiter:** It's medium spicy. We can make it mild if you prefer.\n\n**You:** Medium is fine. Also, could I get extra naan instead of rice?\n\n**Waiter:** Sure! Anything else?\n\n**You:** That's all for now, thank you.\n\n**Waiter:** Great! Your order will be ready in 15 minutes."
+      },
+      {
+        "type": "table",
+        "headers": ["Situation", "Polite Way to Say", "Avoid Saying"],
+        "rows": [
+          ["Food is too salty", "\"Excuse me, this curry is a bit too salty for me. Could I get a replacement?\"", "\"This is so salty, I can't eat it!\" (rude tone)"],
+          ["Want water refill", "\"Could I have some more water, please?\"", "\"Water!\" (shouting across the room)"],
+          ["Dish not as expected", "\"I ordered butter chicken, but this seems like tikka masala. Could you check?\"", "\"You got my order wrong!\" (accusatory)"],
+          ["Bill takes too long", "\"Excuse me, could we have the bill when you get a chance?\"", "\"Where's my bill? I'm in a hurry!\" (impatient)"]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Ordering via Phone (Swiggy/Zomato Delivery)",
+        "content": "When the restaurant calls to confirm: Say your full address clearly, including landmark. Example: \"Flat 204, Green Park Apartments, opposite HDFC Bank, MG Road.\" If food arrives wrong, say: \"I ordered veg biryani, but I received chicken biryani. I'm vegetarian—can you resend the correct order?\""
+      },
+      {
+        "type": "practice",
+        "question": "You're at a South Indian restaurant. Order 2 masala dosas, 1 idli sambhar, and filter coffee. Ask if they have coconut chutney instead of tomato chutney.",
+        "hint": "Start with \"I'd like to order...\" and end with \"Could I also get...\""
+      },
+      {
+        "type": "practice",
+        "question": "Your bill shows ₹850, but you calculated ₹750. Politely point out the discrepancy to the waiter.",
+        "hint": "Use \"I think there might be a small error...\" instead of \"You charged me wrong.\""
+      }
+    ]
+  },
+  {
+    "id": "asking-for-directions",
+    "title": "Asking for Directions",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Navigating Indian cities requires asking locals for directions, especially in areas with limited GPS accuracy. Use polite openers, repeat the directions to confirm understanding, and thank the person. Common scenarios include finding metro stations, bus stops, landmarks, shops, and hospitals. Always ask 2-3 people to cross-verify directions."
+      },
+      {
+        "type": "list",
+        "title": "Direction-Asking Phrases",
+        "items": [
+          "\"Excuse me, could you tell me how to get to [place]?\"",
+          "\"Is this the right way to the metro station?\"",
+          "\"How far is [landmark] from here?\"",
+          "\"Should I take a left or right at the next signal?\"",
+          "\"Is there a bus that goes to [destination]?\"",
+          "\"Can I walk to [place], or should I take an auto?\"",
+          "\"Which platform for the train to [city]?\"",
+          "\"Where's the nearest ATM/pharmacy/petrol pump?\""
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Dialogue: Asking Directions to a Hospital",
+        "content": "**You:** Excuse me, could you tell me how to reach Apollo Hospital from here?\n\n**Local:** Apollo? Yes, go straight for about 1 kilometer, then take a right at the big traffic signal near HDFC Bank.\n\n**You:** Right at the HDFC signal. Got it. How much further after that?\n\n**Local:** Walk for 5 minutes—you'll see the hospital on your left. Big blue building, can't miss it.\n\n**You:** So, straight 1 km, right at HDFC, then 5 minutes on foot. Thank you so much!\n\n**Local:** You're welcome. Take care!"
+      },
+      {
+        "type": "table",
+        "headers": ["Direction Term", "Meaning", "Example Sentence"],
+        "rows": [
+          ["Go straight", "Continue forward without turning", "\"Go straight for 500 meters.\""],
+          ["Take a left/right", "Turn left or right", "\"Take a left at the next junction.\""],
+          ["Opposite", "Across the road from", "\"The shop is opposite the post office.\""],
+          ["Next to / Beside", "Adjacent to, on the side of", "\"The cafe is next to the bookstore.\""],
+          ["Past", "Beyond a landmark", "\"Go past the temple, then turn right.\""],
+          ["U-turn", "Turn around 180°", "\"Take a U-turn at the roundabout.\""]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Indian Context Tips",
+        "content": "Indians often use landmarks (temples, shops, flyovers) instead of street names. Example: \"Near Reliance Fresh\" or \"After SBI Bank.\" If someone says \"seedha jao\" (go straight), it means keep going forward. \"Thoda aage\" means \"a little ahead.\""
+      },
+      {
+        "type": "practice",
+        "question": "You're at Connaught Place, Delhi, and need to reach India Gate. Ask a shopkeeper for directions (assume it's 2 km away).",
+        "hint": "Start with \"Excuse me,\" confirm the route by repeating it, and ask about walking vs. metro."
+      },
+      {
+        "type": "practice",
+        "question": "A tourist asks you: \"How do I get to the nearest metro station?\" Give directions using landmarks (assume it's 500m away, past a Cafe Coffee Day, on the left).",
+        "hint": "Use phrases like \"Go straight,\" \"You'll see,\" and \"It's on your left.\""
+      }
+    ]
+  },
+  {
+    "id": "public-transport",
+    "title": "Public Transport",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Using buses, metros, local trains, and autos in India requires knowing route numbers, ticket types, and payment methods. Be prepared for crowded conditions and always confirm the destination before boarding. Common scenarios include buying tickets, asking about routes, requesting stops, and negotiating auto fares. Keep small change handy for buses and autos."
+      },
+      {
+        "type": "list",
+        "title": "Transport Phrases",
+        "items": [
+          "\"Which bus goes to [destination]?\"",
+          "\"One ticket to [station name], please.\"",
+          "\"Does this metro go to [line color/station]?\"",
+          "\"Where should I get down for [landmark]?\"",
+          "\"Is this the last metro/bus for today?\"",
+          "\"How much to [destination] by auto? Please use the meter.\"",
+          "\"Can you drop me at the next bus stop, please?\"",
+          "\"Which platform for the Rajdhani Express?\""
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Dialogue: Taking the Delhi Metro",
+        "content": "**You:** (At ticket counter) One token to Rajiv Chowk, please.\n\n**Officer:** That'll be ₹40.\n\n**You:** Here you go. Which line do I take?\n\n**Officer:** Blue Line, Platform 2. Follow the signs.\n\n**You:** Thank you!\n\n(On the platform)\n\n**You:** (To a passenger) Excuse me, does this train go to Rajiv Chowk?\n\n**Passenger:** Yes, it's four stops from here.\n\n**You:** Great, thank you!"
+      },
+      {
+        "type": "table",
+        "headers": ["Transport Type", "How to Ask", "Payment Method"],
+        "rows": [
+          ["Metro", "\"One token/smart card recharge to [station].\"", "Token machines, counters, UPI at kiosks"],
+          ["Bus (City)", "\"Bhaiya, does this go to [place]?\"", "Conductor (cash), prepaid cards"],
+          ["Auto-rickshaw", "\"[Destination] chaloge? Meter se?\" (Will you go? By meter?)\"", "Cash (negotiate or meter)"],
+          ["Local Train (Mumbai)", "\"1st/2nd class ticket to [station].\"", "Ticket counter, mobile apps (UTS)"],
+          ["App Cab (Ola/Uber)", "\"Pickup from [location].\" (via app)", "In-app payment (card/UPI/cash)"]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Auto-Rickshaw Negotiation",
+        "content": "In cities without mandatory meters (or when drivers refuse), negotiate fares before boarding. Typical phrases: \"Kitna loge?\" (How much will you charge?), \"Bahut zyada hai, 50 kam karo\" (Too much, reduce by ₹50). If the driver refuses the meter, walk away and find another—it's your right to request meter usage in cities like Mumbai and Delhi."
+      },
+      {
+        "type": "practice",
+        "question": "You're at Mumbai's Churchgate station and need to reach Andheri by local train. Ask for a ticket and confirm the platform.",
+        "hint": "Specify 1st or 2nd class, and ask \"Which platform?\" after buying the ticket."
+      },
+      {
+        "type": "practice",
+        "question": "An auto driver quotes ₹200 for a trip that's typically ₹120 by meter. Negotiate politely or decide to walk away.",
+        "hint": "Say: \"Meter se chalte hain, ya phir main doosra auto dekh leta hoon\" (Let's go by meter, or I'll find another auto)."
+      }
+    ]
+  },
+  {
+    "id": "phone-conversations",
+    "title": "Phone Conversations",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Phone etiquette requires clear speech, active listening, and confirming details (spellings, numbers, dates). Common scenarios include customer service calls, booking appointments, following up on orders, and handling wrong numbers. Always state your purpose early, speak slowly in noisy environments, and repeat important information like names and numbers."
+      },
+      {
+        "type": "list",
+        "title": "Phone Call Structure",
+        "items": [
+          "**Greeting:** \"Hello, this is [your name] calling from [company/purpose].\"",
+          "**State Purpose:** \"I'm calling regarding [issue/inquiry].\"",
+          "**Listen Actively:** Let the other person finish before responding. Say \"I see\" or \"Understood\" to show you're listening.",
+          "**Confirm Details:** \"Let me confirm—your order number is ABC123, correct?\"",
+          "**Closing:** \"Thank you for your help. Have a good day!\"",
+          "**If No Answer:** Leave a voicemail: \"Hi, this is Raj. I called about [topic]. Please call me back at [number]. Thanks!\""
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Dialogue: Calling Swiggy Customer Care",
+        "content": "**Agent:** Hello, Swiggy customer care. How can I assist you?\n\n**You:** Hi, my name is Amit. I placed an order 45 minutes ago, order ID SW12345, but it hasn't arrived yet.\n\n**Agent:** I'm sorry for the delay. Let me check. Can you please confirm your registered mobile number?\n\n**You:** It's 98765-43210.\n\n**Agent:** Thank you. I see your order is with the delivery partner, expected in 10 minutes. Would you like me to escalate this?\n\n**You:** Yes, please. I have a meeting at 2 PM, so I need it urgently.\n\n**Agent:** Noted. I've marked it urgent. You'll receive a call from the delivery partner within 5 minutes.\n\n**You:** Great, thank you so much!\n\n**Agent:** You're welcome. Anything else?\n\n**You:** No, that's all. Thanks!"
+      },
+      {
+        "type": "table",
+        "headers": ["Scenario", "What to Say", "Common Mistakes"],
+        "rows": [
+          ["Booking Appointment", "\"I'd like to schedule an appointment for [date/time].\"", "Not asking for confirmation SMS/email"],
+          ["Following Up on Complaint", "\"I raised a complaint 3 days ago, ticket #XYZ. What's the status?\"", "Getting angry immediately without stating details"],
+          ["Ordering Food/Services", "\"I'd like to order [item]. Can you deliver to [address]?\"", "Not confirming delivery time"],
+          ["Wrong Number", "\"I think you have the wrong number. No problem, bye!\"", "Hanging up rudely without clarifying"]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Spellings on the Phone (NATO Phonetic Alphabet - Indian Version)",
+        "content": "When spelling names/emails, use words to avoid confusion:\nA = Apple, B = Boy, C = Cat, D = Dog, E = Egg, F = Fish, G = Girl, H = Hat, I = Ice, J = Jug, K = Kite, L = Lion, M = Monkey, N = Nose, O = Orange, P = Pen, Q = Queen, R = Rat, S = Sun, T = Tiger, U = Umbrella, V = Van, W = Watch, X = X-ray, Y = Yellow, Z = Zebra.\n\nExample: \"My name is RAJ—R for Rat, A for Apple, J for Jug.\""
+      },
+      {
+        "type": "practice",
+        "question": "Call your internet provider (Airtel/Jio) to complain that your WiFi has been down for 2 hours. Ask for a technician visit.",
+        "hint": "State your account number, describe the issue (\"No internet since 10 AM\"), and confirm the technician's arrival time."
+      },
+      {
+        "type": "practice",
+        "question": "You receive a call from someone asking for \"Sharma Ji,\" but you're not Sharma. Politely correct them and end the call.",
+        "hint": "Say: \"I think you have the wrong number. This is [your name]. No worries, take care!\""
+      }
+    ]
+  },
+  {
+    "id": "common-phrases",
+    "title": "Common Phrases for All Situations",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Master these universal phrases to handle any daily conversation with confidence. They work across shopping, banking, travel, and social interactions. Memorizing 50-100 common phrases gives you 80% coverage for real-world English. Focus on polite starters, clarifying questions, and graceful closings."
+      },
+      {
+        "type": "table",
+        "headers": ["Category", "Phrase", "When to Use"],
+        "rows": [
+          ["Polite Requests", "\"Could you please...?\"", "Asking someone to do something"],
+          ["Polite Requests", "\"Would it be possible to...?\"", "Formal requests (banks, offices)"],
+          ["Polite Requests", "\"May I...?\"", "Asking permission (\"May I sit here?\")"],
+          ["Clarification", "\"I didn't catch that. Could you repeat?\"", "When you didn't hear clearly"],
+          ["Clarification", "\"Sorry, what do you mean by [word]?\"", "When you don't understand a term"],
+          ["Clarification", "\"Just to confirm, you said...?\"", "Double-checking details"],
+          ["Apologizing", "\"I'm really sorry about that.\"", "Sincere apology"],
+          ["Apologizing", "\"My apologies for the confusion.\"", "Formal apology"],
+          ["Thanking", "\"Thank you so much for your help!\"", "Expressing gratitude"],
+          ["Thanking", "\"I really appreciate it.\"", "Deeper gratitude"],
+          ["Disagreeing Politely", "\"I see your point, but I think...\"", "Polite disagreement"],
+          ["Disagreeing Politely", "\"I'm not sure I agree because...\"", "Softer disagreement"],
+          ["Small Talk", "\"How's your day going?\"", "Casual greeting"],
+          ["Small Talk", "\"The weather's nice today, isn't it?\"", "Breaking the ice"],
+          ["Ending Conversations", "\"It was nice talking to you!\"", "Closing a chat"],
+          ["Ending Conversations", "\"I should get going. See you later!\"", "Polite exit"]
+        ]
+      },
+      {
+        "type": "list",
+        "title": "50 Must-Know Daily Phrases (Categorized)",
+        "items": [
+          "**Greetings:** Good morning/afternoon/evening | How are you? | Nice to meet you | Long time no see!",
+          "**At Shops:** How much is this? | Do you have this in [size/color]? | Can I get a discount? | Do you accept cards?",
+          "**At Restaurants:** I'd like to order... | Can I see the menu? | The bill, please | Could I have extra napkins?",
+          "**Directions:** Excuse me, where is...? | How do I get to...? | Is it far from here? | Which way should I go?",
+          "**Phone Calls:** May I speak to [name]? | Can I leave a message? | I'll call back later | Sorry, wrong number",
+          "**Emergencies:** I need help! | Call an ambulance! | Where's the nearest hospital? | This is urgent",
+          "**Apologies:** Sorry for being late | I didn't mean to... | It was my mistake | Won't happen again",
+          "**Gratitude:** Thanks a lot! | I owe you one | That's very kind of you | Much appreciated",
+          "**Complaints (Polite):** There seems to be a problem... | This isn't what I ordered | Could you please fix this?",
+          "**Goodbyes:** Take care! | See you soon | Have a great day | Catch you later!"
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Tone Matters More Than Words",
+        "content": "The same phrase can sound rude or polite depending on tone. \"Can you help me?\" with a smile = polite. \"Can you help me?\" with an eye roll = rude. Practice saying these phrases aloud with a friendly tone. Indians often use \"please\" and \"thank you\" less than Westerners—start using them more to sound polite."
+      },
+      {
+        "type": "practice",
+        "question": "You're at a shop and the shopkeeper shows you a shirt priced at ₹1,500. You think it's expensive. Ask for a discount politely using 2-3 phrases from the table above.",
+        "hint": "Start with \"This is a bit over my budget...\" and ask \"Would it be possible to get a discount?\""
+      },
+      {
+        "type": "practice",
+        "question": "Your friend Sneha just helped you move to a new apartment. Thank her warmly using at least 2 gratitude phrases.",
+        "hint": "Combine phrases: \"Thank you so much! I really appreciate your help. I owe you one!\""
+      }
+    ]
+  },
+  {
+    "id": "practice-dialogues",
+    "title": "Practice Dialogues",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Role-play these 10 realistic scenarios with a partner or record yourself. Each scenario tests multiple skills: vocabulary, politeness, clarity, and problem-solving. Aim for 1-2 minutes per dialogue. After practicing, ask for feedback: Was I clear? Did I sound polite? Did I confirm details?"
+      },
+      {
+        "type": "list",
+        "title": "10 Scenarios to Role-Play",
+        "items": [
+          "**Scenario 1 (Shopping):** You're buying a saree at a local shop. Ask for a specific color, negotiate the price from ₹3,000 to ₹2,500, and ask if they deliver.",
+          "**Scenario 2 (Restaurant):** Order biryani, ask if it contains nuts (you're allergic), request less spice, and later complain that it's too salty.",
+          "**Scenario 3 (Doctor):** You have a sore throat and fever for 3 days. Describe symptoms, mention you took Dolo 650 but it didn't help, and ask about antibiotics.",
+          "**Scenario 4 (Bank):** Open a savings account. Ask about minimum balance, interest rates, debit card delivery time, and mobile banking activation.",
+          "**Scenario 5 (Directions):** You're at Bangalore's Majestic bus stand and need to reach Indiranagar. Ask a local how to get there (bus/metro options).",
+          "**Scenario 6 (Metro):** Buy a token to Connaught Place, ask which line to take, and request someone to alert you 2 stops before your destination.",
+          "**Scenario 7 (Auto Negotiation):** An auto driver quotes ₹150 for a 3 km trip. The meter shows ₹80. Negotiate or find another auto.",
+          "**Scenario 8 (Phone - Customer Care):** Your Flipkart order (Order ID: FLP123) arrived damaged. Call customer care, explain the issue, and request a replacement.",
+          "**Scenario 9 (Phone - Appointment):** Call Apollo Hospital to book a dentist appointment for next Monday at 4 PM. Confirm the doctor's name and ask about charges.",
+          "**Scenario 10 (Emergency):** Your neighbor slipped and hurt their leg. Call an ambulance, give the address clearly (including landmark), and describe the injury."
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Full Sample Dialogue: Scenario 3 (Doctor Visit)",
+        "content": "**You:** Good morning, doctor.\n\n**Doctor:** Good morning! Please sit. What's troubling you?\n\n**You:** I've had a sore throat for three days, and I'm running a fever—it's around 101°F. I also feel weak and tired.\n\n**Doctor:** I see. Is the throat pain worse when you swallow?\n\n**You:** Yes, especially in the mornings. I also have a slight cough.\n\n**Doctor:** Have you taken any medication?\n\n**You:** I took Dolo 650 twice yesterday, but the fever came back after 6 hours.\n\n**Doctor:** Okay. Let me examine your throat. Say \"Ahh.\"\n\n**You:** Ahh.\n\n**Doctor:** Your throat is inflamed. It looks like a bacterial infection. I'm prescribing an antibiotic—Azithromycin 500mg, one tablet daily for three days after meals. Also, continue Dolo 650 for fever. Gargle with warm salt water twice a day.\n\n**You:** Just to confirm—one antibiotic tablet daily for three days after meals, and I can continue Dolo as needed. Should I avoid any foods?\n\n**Doctor:** Correct. Avoid cold drinks and ice cream for now. Drink warm water and rest.\n\n**You:** Thank you so much, doctor!\n\n**Doctor:** You're welcome. Come back if it doesn't improve in 3 days."
+      },
+      {
+        "type": "table",
+        "headers": ["Scenario Type", "Key Skills Tested", "Success Criteria"],
+        "rows": [
+          ["Shopping", "Negotiation, Politeness, Numbers", "Got a discount, confirmed delivery"],
+          ["Restaurant", "Ordering, Complaints, Allergies", "Clearly stated preferences, resolved issue politely"],
+          ["Doctor", "Symptom Description, Dosage Confirmation", "Doctor understood problem, you repeated prescription correctly"],
+          ["Banking", "Formal Language, Document Inquiry", "Opened account, understood all terms"],
+          ["Directions", "Listening, Landmark Recognition", "Confirmed route by repeating it back"],
+          ["Transport", "Route Inquiry, Negotiation", "Got correct info, paid fair price"],
+          ["Phone Calls", "Clarity, Problem-Solving", "Issue resolved, confirmation received"],
+          ["Emergencies", "Speed, Accuracy, Address Details", "Help arrived at correct location"]
+        ]
+      },
+      {
+        "type": "note",
+        "title": "Self-Evaluation Checklist",
+        "content": "After each role-play, ask yourself:\n✅ Did I greet politely?\n✅ Did I state my purpose clearly in the first 10 seconds?\n✅ Did I use please/thank you at least twice?\n✅ Did I confirm important details (numbers, dates, spellings)?\n✅ Did I end the conversation politely?\n✅ Did I stay calm if there was a problem?"
+      },
+      {
+        "type": "practice",
+        "question": "Record yourself doing Scenario 8 (Flipkart complaint call). Listen back—did you include Order ID, describe the damage, and request a replacement? Was your tone polite but firm?",
+        "hint": "Start with: \"Hi, I'm calling about a damaged order...\" Include all details, and end with: \"When can I expect the replacement?\""
+      },
+      {
+        "type": "practice",
+        "question": "Pair up with a friend and do Scenario 7 (auto negotiation). One person plays the driver (quotes high), the other negotiates. Switch roles after 2 minutes.",
+        "hint": "Driver: Be stubborn but realistic. Passenger: Walk away if needed—it's a negotiation tactic!"
+      }
+    ]
+  }
+]

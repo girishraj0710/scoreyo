@@ -1,0 +1,310 @@
+{
+  "topic_id": "job-interviews",
+  "title": "Job Interview English",
+  "subtitle": "Master common interview questions and professional responses",
+  "overview": "Prepare for job interviews in English with practical phrases, strategies, and confidence-building techniques for Indian job seekers.",
+  "sections": [
+    {
+      "id": "what-makes-a-great-interview",
+      "title": "What Makes a Great Interview",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A successful interview is a two-way conversation where you demonstrate competence, confidence, and cultural fit. Focus on three pillars: clarity (structured answers), relevance (match job requirements), and authenticity (genuine enthusiasm). Avoid memorized scripts—interviewers value natural, thoughtful responses over rehearsed monologues."
+        },
+        {
+          "type": "example",
+          "title": "Good vs. Weak Response",
+          "content": "**Question:** Why should we hire you?\n\n**Weak:** \"I'm hardworking and need this job.\" (Generic, focused on your needs)\n\n**Strong:** \"I bring three years of Java development experience, and I noticed your team is building microservices—I've led two such migrations at my current company, reducing API latency by 40%. I'm excited to contribute to your cloud-first strategy.\" (Specific, value-focused, researched)"
+        },
+        {
+          "type": "list",
+          "title": "5 Interview Success Factors",
+          "items": [
+            "**Preparation:** Research company, role, interviewer's LinkedIn",
+            "**Structure:** Use frameworks (STAR) for organized answers",
+            "**Energy:** Smile, maintain eye contact, show enthusiasm",
+            "**Listening:** Answer the question asked, not what you practiced",
+            "**Questions:** Prepare 3-4 thoughtful questions about the role"
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Common Mistake",
+          "content": "Indian candidates often undersell achievements out of modesty. Interviews reward confident self-advocacy—use quantifiable results (\"increased sales by 25%\") over vague claims (\"did good work\")."
+        },
+        {
+          "type": "practice",
+          "question": "Your interviewer says, \"You seem overqualified.\" How would you respond?",
+          "hint": "Reframe as commitment + growth opportunity, not desperation."
+        }
+      ]
+    },
+    {
+      "id": "top-10-questions",
+      "title": "Top 10 Interview Questions",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These questions appear in 80% of interviews. Prepare 2-minute answers for each, tailored to the job description. Use the PAR framework: **Problem** (context), **Action** (what you did), **Result** (measurable outcome)."
+        },
+        {
+          "type": "table",
+          "headers": ["Question", "Purpose", "Quick Tip"],
+          "rows": [
+            ["Tell me about yourself", "Assess communication + fit", "2-min career story (education → experience → why this role)"],
+            ["Why this company?", "Test research + motivation", "Mention specific projects/values (not just \"good brand\")"],
+            ["Biggest strength?", "Identify value-add", "Pick strength relevant to job + give proof"],
+            ["Biggest weakness?", "Gauge self-awareness", "Real flaw + improvement plan (avoid \"perfectionist\" cliché)"],
+            ["Where do you see yourself in 5 years?", "Check ambition alignment", "Show growth within their company (not startup plans)"],
+            ["Describe a challenge you overcame", "Problem-solving skills", "Use STAR method, focus on your actions"],
+            ["Why are you leaving your current job?", "Red flag check", "Stay positive (growth opportunity, not complaints)"],
+            ["How do you handle stress?", "Resilience test", "Specific coping strategy (not \"I work well under pressure\")"],
+            ["Tell me about a team conflict", "Collaboration skills", "Show empathy + resolution (not blame)"],
+            ["Any questions for us?", "Engagement check", "Ask about team/projects (never \"What does this company do?\")"]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Sample Answer: Why This Company?",
+          "content": "\"I've been following Infosys' AI initiatives, especially your partnership with Microsoft Azure. In my current role at TCS, I automated test suites using Python, but I'm eager to work on AI-driven automation at scale. Your focus on reskilling employees aligns with my belief in continuous learning—I completed your Lex platform's machine learning course last month.\""
+        },
+        {
+          "type": "practice",
+          "question": "Prepare a 90-second answer to \"Why should we hire you?\" for a customer support role.",
+          "hint": "Highlight empathy, problem-solving, and any metrics (e.g., CSAT scores, resolution time)."
+        }
+      ]
+    },
+    {
+      "id": "star-method",
+      "title": "STAR Method for Behavioral Questions",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "STAR (Situation, Task, Action, Result) structures behavioral answers like \"Tell me about a time when...\" Start with context (1 sentence), state your responsibility (1 sentence), detail your actions (2-3 steps), and quantify the outcome. Aim for 1.5-2 minutes per story."
+        },
+        {
+          "type": "table",
+          "headers": ["Step", "What to Include", "Example (Sales Role)"],
+          "rows": [
+            ["**S**ituation", "Brief context (when, where, who)", "\"In Q3 2025, our team missed targets by 15% due to competitor pricing.\""],
+            ["**T**ask", "Your specific responsibility", "\"As junior sales exec, I was tasked to recover 10 lost clients.\""],
+            ["**A**ction", "What YOU did (not team)", "\"I analyzed their pain points, created custom discount packages, and scheduled in-person meetings. I also trained peers on objection handling.\""],
+            ["**R**esult", "Measurable outcome", "\"Recovered 7 clients, contributing ₹12L revenue. Our team exceeded Q4 targets by 8%.\""]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Full STAR Answer",
+          "content": "**Question:** Describe a time you solved a technical problem.\n\n**Answer:** \"Last year, our e-commerce site crashed during a flash sale (S). As the on-call engineer, I had 30 minutes to restore service before losing ₹5L in revenue (T). I checked logs, identified a database connection pool leak, increased pool size temporarily, and deployed a hotfix. I also documented the root cause for a permanent fix the next sprint (A). The site was live in 22 minutes, and we processed 3,000 orders that day. Post-mortem, we implemented connection monitoring to prevent recurrence (R).\""
+        },
+        {
+          "type": "note",
+          "title": "Pro Tip",
+          "content": "Prepare 5 STAR stories covering: problem-solving, teamwork, leadership, failure/learning, and innovation. Reuse them for multiple questions."
+        },
+        {
+          "type": "practice",
+          "question": "Write a STAR answer for \"Tell me about a time you disagreed with your manager.\"",
+          "hint": "Focus on respectful communication and data-driven reasoning, not ego."
+        }
+      ]
+    },
+    {
+      "id": "tell-me-about-yourself",
+      "title": "Tell Me About Yourself",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This opener sets the tone—interviewers form impressions in the first 60 seconds. Use the Present-Past-Future formula: (1) current role/skills, (2) relevant background, (3) why you're here. Keep it to 90-120 seconds, ending with enthusiasm for the opportunity. Avoid personal details (hobbies, family) unless asked."
+        },
+        {
+          "type": "list",
+          "title": "Structure Breakdown",
+          "items": [
+            "**Present (30 sec):** Current role + key skills. \"I'm a business analyst at Wipro, specializing in supply chain optimization.\"",
+            "**Past (30 sec):** How you got here. \"I started as a data intern after my MBA, learned SQL/Tableau, and led a project that cut logistics costs by 18%.\"",
+            "**Future (30 sec):** Why this role. \"I'm excited about your company's focus on AI-driven forecasting—I want to apply my skills to larger, more complex supply chains.\"",
+            "**Close (10 sec):** Invitation. \"I'd love to hear more about the role's challenges.\""
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Sample Answer (Fresher)",
+          "content": "\"I recently graduated with a B.Tech in Computer Science from NIT Trichy, where I specialized in machine learning. During my final year, I built a crop disease detection app using TensorFlow, which won our college hackathon and is now used by 200 farmers in Tamil Nadu. I completed two internships—one in data analysis at a fintech startup, where I automated reporting dashboards, and another in backend development. I'm passionate about using tech for social impact, and your company's work in agritech aligns perfectly with my interests. I'm excited to contribute as a software engineer.\""
+        },
+        {
+          "type": "note",
+          "title": "Avoid These Mistakes",
+          "content": "❌ Starting with birthplace/school  \n❌ Reciting your entire resume  \n❌ Mentioning irrelevant hobbies  \n❌ Negative comments about past employers  \n❌ Asking \"What do you want to know?\""
+        },
+        {
+          "type": "practice",
+          "question": "Record a 90-second \"Tell me about yourself\" answer. Does it end with enthusiasm for THIS specific role?",
+          "hint": "If your answer works for any company, it's too generic."
+        }
+      ]
+    },
+    {
+      "id": "strengths-weaknesses",
+      "title": "Strengths and Weaknesses",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "For strengths, pick 1-2 skills directly relevant to the job, backed by proof (metrics, awards, feedback). For weaknesses, choose a real but improvable flaw, explain your mitigation strategy, and show progress. Avoid humble-bragging (\"I'm too much of a perfectionist\") or deal-breakers (\"I hate deadlines\")."
+        },
+        {
+          "type": "table",
+          "headers": ["Type", "Good Example", "Why It Works"],
+          "rows": [
+            ["**Strength**", "\"I excel at stakeholder communication. At my last job, I presented quarterly reports to C-suite, simplifying technical jargon—our CFO cited my deck in board meetings.\"", "Specific skill + proof + impact"],
+            ["**Weakness**", "\"I struggle with delegating—I tend to micromanage. I've started using task boards in Jira to assign clear ownership and check in weekly instead of daily. My team's velocity improved 20%.\"", "Real flaw + action + measurable improvement"],
+            ["**Strength**", "\"I'm strong in data visualization. I rebuilt our sales dashboard in Power BI, reducing report generation time from 4 hours to 15 minutes.\"", "Technical skill + quantifiable result"],
+            ["**Weakness**", "\"Public speaking makes me nervous. I joined Toastmasters six months ago and now lead weekly team standups. I'm still working on large audiences.\"", "Vulnerability + proactive solution + honesty about progress"]
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Safe Weaknesses for Indian Candidates",
+          "items": [
+            "Over-preparing for meetings (mitigated by time-boxing prep)",
+            "Difficulty saying no (learning prioritization frameworks)",
+            "Impatience with slow processes (channeling into process improvement)",
+            "Limited experience in X skill (taking online courses, building side projects)"
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Red Flag Weaknesses to Avoid",
+          "content": "Never mention: poor time management, conflict with authority, lack of attention to detail (for detail-oriented roles), or inability to work independently."
+        },
+        {
+          "type": "practice",
+          "question": "What's your greatest weakness? Write a 60-second answer using the Flaw + Fix + Progress formula.",
+          "hint": "If you can't think of a weakness, ask a colleague or manager for candid feedback."
+        }
+      ]
+    },
+    {
+      "id": "salary-negotiation",
+      "title": "Salary Negotiation Basics",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Salary discussions happen at offer stage, not first interview. Research market rates (Glassdoor, AmbitionBox, Naukri salary tools) for your role, experience, and city. When asked for expectations, give a range (not a single number) with the bottom 10-15% above your minimum acceptable. Negotiate total compensation (base + bonus + stocks + benefits), not just base salary."
+        },
+        {
+          "type": "table",
+          "headers": ["Question", "Weak Response", "Strong Response"],
+          "rows": [
+            ["What are your salary expectations?", "\"Whatever you think is fair.\"", "\"Based on my 3 years' experience and market research, I'm looking at ₹8-10 LPA. I'm flexible depending on growth opportunities.\""],
+            ["What's your current salary?", "\"₹6 LPA.\" (anchors negotiation low)", "\"I'd prefer to focus on the value I'll bring here. For this role, I'm targeting ₹9-11 LPA based on industry standards.\""],
+            ["We can only offer ₹7L. Thoughts?", "\"Okay, I'll take it.\"", "\"I appreciate the offer. Given my certifications and the role's responsibilities, could we explore ₹8.5L? I'm also open to discussing performance bonuses.\""]
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Negotiation Script",
+          "content": "**Scenario:** You're offered ₹10L, but wanted ₹12L.\n\n**You:** \"Thank you for the offer—I'm excited about the role. I was hoping for ₹12L based on my Azure certifications and leadership experience. Is there flexibility?\"\n\n**Them:** \"We can go to ₹10.5L.\"\n\n**You:** \"I appreciate that. Could we meet at ₹11L with a 6-month performance review? I'm confident I'll exceed targets.\" (Shows commitment, not just greed)"
+        },
+        {
+          "type": "note",
+          "title": "Negotiation Etiquette",
+          "content": "✅ Always negotiate—90% of employers expect it  \n✅ Use data (\"Senior analysts at comparable firms earn ₹X\")  \n✅ Express enthusiasm (\"I'm thrilled about this opportunity AND...\"  \n❌ Never lie about competing offers  \n❌ Don't negotiate every benefit (pick 2-3 priorities)"
+        },
+        {
+          "type": "practice",
+          "question": "You're offered ₹6L for a role you love, but your minimum is ₹7L. Write a 90-second negotiation response.",
+          "hint": "Acknowledge excitement, cite market data, propose a counter, and show flexibility on non-salary perks."
+        }
+      ]
+    },
+    {
+      "id": "body-language",
+      "title": "Body Language and Virtual Interview Tips",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Non-verbal cues account for 55% of first impressions. In person: firm handshake, upright posture, natural smile, eye contact (80% of the time—constant staring is awkward). Virtual: camera at eye level, neutral background, good lighting, minimize hand gestures (they look exaggerated on screen). Avoid fidgeting, crossing arms, or checking your phone."
+        },
+        {
+          "type": "list",
+          "title": "Body Language Dos and Don'ts",
+          "items": [
+            "✅ **DO:** Lean slightly forward (shows engagement), nod while listening, mirror interviewer's energy level",
+            "✅ **DO:** Use hand gestures sparingly (once per minute max), keep hands visible on table",
+            "❌ **DON'T:** Slouch, cross arms, touch face/hair, look at notes constantly",
+            "❌ **DON'T:** Interrupt, check watch/phone, yawn (even if nervous)"
+          ]
+        },
+        {
+          "type": "table",
+          "headers": ["Virtual Interview Setup", "Why It Matters", "Quick Fix"],
+          "rows": [
+            ["Camera eye-level", "Looking down seems disengaged", "Stack books under laptop"],
+            ["Lighting from front", "Shadows make you look tired", "Face window or use desk lamp"],
+            ["Plain background", "Clutter distracts", "Blur background or use bookshelf"],
+            ["Test audio/video", "Tech issues waste 5-10 min", "Join 10 min early, have backup (phone)"],
+            ["Close tabs/apps", "Notifications break flow", "Do Not Disturb mode, quit Slack"]
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Cultural Note for Indian Candidates",
+          "content": "Western interviewers value direct eye contact more than Indian norms. Practice looking at the camera (not the screen) in virtual interviews—it simulates eye contact."
+        },
+        {
+          "type":="practice",
+          "question": "Set up your interview space and take a screenshot. Does your background look professional? Is your face well-lit?",
+          "hint": "Ask a friend to do a 2-minute mock interview and give feedback on your posture and eye contact."
+        }
+      ]
+    },
+    {
+      "id": "practice-scenarios",
+      "title": "Practice Scenarios",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Rehearse with a friend or record yourself answering these common scenarios. Aim for 90-120 seconds per answer. Focus on clarity, structure (STAR), and ending with enthusiasm. Review recordings—most candidates speak 20% faster than they think due to nerves."
+        },
+        {
+          "type": "list",
+          "title": "10 Scenarios to Practice",
+          "items": [
+            "**Scenario 1:** You missed a deadline. How do you explain it without making excuses?",
+            "**Scenario 2:** You're asked about a skill you don't have (e.g., Python for a data role). How do you respond?",
+            "**Scenario 3:** The interviewer asks, \"Why were you unemployed for 8 months?\" (Gap year, layoff, health)",
+            "**Scenario 4:** \"We're concerned you'll leave for higher studies.\" (How to show commitment?)",
+            "**Scenario 5:** \"You have no experience in our industry.\" (How to reframe transferable skills?)",
+            "**Scenario 6:** Behavioral: \"Tell me about a time you failed.\" (Pick a real failure, focus on learning)",
+            "**Scenario 7:** \"What's your management style?\" (For leadership roles—give examples)",
+            "**Scenario 8:** \"We're a startup—can you handle ambiguity?\" (Show adaptability with proof)",
+            "**Scenario 9:** Weird question: \"If you were an animal, what would you be?\" (Test creativity—tie to job)",
+            "**Scenario 10:** \"Any questions for us?\" when you've already asked 3. (Always have backups!)"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Sample Answer: Employment Gap",
+          "content": "**Question:** \"I see you were unemployed from Jan-Aug 2025. What happened?\"\n\n**Answer:** \"I was laid off during my company's restructuring—30% of the team was impacted. I used that time productively: completed AWS certification, freelanced for two clients (built their e-commerce backend), and upskilled in React. I'm now ready to commit long-term to the right opportunity, and your company's focus on cloud infrastructure is exactly what I'm looking for.\""
+        },
+        {
+          "type": "table",
+          "headers": ["Scenario Type", "Strategy", "Example Phrase"],
+          "rows": [
+            ["Lack of experience", "Highlight transferable skills + learning speed", "\"I haven't used Salesforce, but I mastered HubSpot in 2 weeks at my last job. I'm a fast learner with CRM systems.\""],
+            ["Overqualified", "Emphasize stability + genuine interest", "\"I'm not looking for a stepping stone—I want to focus on execution without management overhead.\""],
+            ["Job-hopping", "Show pattern break + commitment", "\"My first 3 roles were contract-based. I'm now seeking stability—I stayed 2.5 years at my last permanent role.\""],
+            ["Salary cut", "Frame as investment in growth", "\"I'm prioritizing learning and team culture over short-term salary. Your AI projects offer that growth.\""          ]
+        },
+        {
+          "type": "practice",
+          "question": "Record yourself answering: \"Why do you want to leave your current job?\" Listen back—did you stay positive? Did you mention growth, not complaints?",
+          "hint": "If you badmouth your current employer, interviewers assume you'll do the same to them."
+        }
+      ]
+    }
+  ]
+}

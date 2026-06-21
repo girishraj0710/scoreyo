@@ -1,0 +1,315 @@
+{
+  "topic_id": "question-formation",
+  "title": "Question Formation",
+  "cefr_level": "A1",
+  "estimated_time": 25,
+  "sections": [
+    {
+      "type": "introduction",
+      "title": "Introduction to Question Formation",
+      "content": "Questions are essential tools for gathering information and engaging in conversation. In English, forming questions requires specific word order patterns and the use of auxiliary verbs. Understanding these patterns will enable you to ask clear, grammatically correct questions in various situations. This module covers the fundamental structures for forming questions in English, including Wh- questions, Yes/No questions, and subject questions."
+    },
+    {
+      "type": "concept_card",
+      "title": "Wh- Questions",
+      "definition": "Wh- questions begin with question words (what, where, when, who, why, how) and are used to obtain specific information rather than a simple yes or no answer.",
+      "rules": [
+        "Begin with a Wh- word (what, where, when, who, why, how)",
+        "Follow with an auxiliary verb (do, does, did, is, are, was, were, will, can, etc.)",
+        "Place the subject after the auxiliary verb",
+        "End with the main verb and any additional information",
+        "Always use a question mark at the end"
+      ],
+      "examples": {
+        "correct": [
+          "Where do you live?",
+          "What does she study?",
+          "When did they arrive?",
+          "Why are you late?",
+          "How can I help you?",
+          "Who will attend the meeting?"
+        ],
+        "incorrect": [
+          {
+            "text": "Where you live?",
+            "reason": "Missing auxiliary verb 'do'. The correct form is 'Where do you live?'"
+          },
+          {
+            "text": "What she studies?",
+            "reason": "Incorrect word order and missing auxiliary. Should be 'What does she study?'"
+          },
+          {
+            "text": "When they arrived?",
+            "reason": "Missing auxiliary verb 'did'. The correct form is 'When did they arrive?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Yes/No Questions",
+      "definition": "Yes/No questions are questions that can be answered with either 'yes' or 'no'. They begin with an auxiliary verb or a form of 'be', rather than a question word.",
+      "rules": [
+        "Begin with an auxiliary verb (do, does, did, is, are, was, were, will, can, have, has, etc.)",
+        "Place the subject immediately after the auxiliary verb",
+        "Follow with the main verb (except when 'be' is the main verb)",
+        "Use rising intonation when speaking",
+        "Always end with a question mark"
+      ],
+      "examples": {
+        "correct": [
+          "Do you speak English?",
+          "Does he work here?",
+          "Did they finish the project?",
+          "Is she your sister?",
+          "Are you ready?",
+          "Can you help me?",
+          "Will you come tomorrow?",
+          "Have you seen this film?"
+        ],
+        "incorrect": [
+          {
+            "text": "You speak English?",
+            "reason": "Missing auxiliary verb 'Do' at the beginning. Correct form: 'Do you speak English?'"
+          },
+          {
+            "text": "He works here?",
+            "reason": "Missing auxiliary verb 'Does'. Should be 'Does he work here?'"
+          },
+          {
+            "text": "Did they finished the project?",
+            "reason": "Main verb should be in base form after 'did'. Correct: 'Did they finish the project?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Word Order in Questions",
+      "definition": "Question word order in English differs from statement word order. The auxiliary verb comes before the subject in most questions, creating an inverted structure.",
+      "rules": [
+        "In statements: Subject + Auxiliary + Main Verb (She is studying)",
+        "In questions: Auxiliary + Subject + Main Verb (Is she studying?)",
+        "With Wh- words: Wh- word + Auxiliary + Subject + Main Verb (What is she studying?)",
+        "Exception: When 'who' or 'what' is the subject, use normal word order (Who called?)",
+        "In the simple present and simple past, add 'do/does/did' as auxiliary if there is no other auxiliary"
+      ],
+      "examples": {
+        "correct": [
+          "Statement: You are tired. Question: Are you tired?",
+          "Statement: He can swim. Question: Can he swim?",
+          "Statement: They have finished. Question: Have they finished?",
+          "Statement: She likes coffee. Question: Does she like coffee?",
+          "Statement: You went home. Question: Did you go home?",
+          "Subject question: Who called? (not: Who did call?)"
+        ],
+        "incorrect": [
+          {
+            "text": "You are tired?",
+            "reason": "Auxiliary verb should come before subject in questions. Correct: 'Are you tired?'"
+          },
+          {
+            "text": "What you are doing?",
+            "reason": "Incorrect word order. Should be 'What are you doing?'"
+          },
+          {
+            "text": "Where she goes?",
+            "reason": "Missing auxiliary 'does' and wrong verb form. Correct: 'Where does she go?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Subject Questions",
+      "definition": "Subject questions ask about the subject of an action. When 'who' or 'what' is the subject of the question, we do not use auxiliary verbs (do/does/did) and maintain normal statement word order.",
+      "rules": [
+        "Use 'who' to ask about people as subjects",
+        "Use 'what' to ask about things as subjects",
+        "Do not use auxiliary verbs (do, does, did)",
+        "Follow the question word directly with the verb",
+        "Use the same verb form as in a statement",
+        "The verb agrees with a third-person singular subject (adds -s)"
+      ],
+      "examples": {
+        "correct": [
+          "Who called you yesterday?",
+          "What happened at the meeting?",
+          "Who lives in this house?",
+          "What causes pollution?",
+          "Who won the match?",
+          "What makes you happy?",
+          "Who teaches this class?",
+          "What belongs to you?"
+        ],
+        "incorrect": [
+          {
+            "text": "Who did call you?",
+            "reason": "Do not use auxiliary 'did' in subject questions. Correct: 'Who called you?'"
+          },
+          {
+            "text": "What did happen?",
+            "reason": "Auxiliary 'did' is not needed in subject questions. Correct: 'What happened?'"
+          },
+          {
+            "text": "Who do live here?",
+            "reason": "Remove auxiliary and use correct verb form. Correct: 'Who lives here?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "concept_card",
+      "title": "Questions with Different Tenses",
+      "definition": "The auxiliary verb in a question changes according to the tense being used. Each tense has its own auxiliary verb pattern that must be followed when forming questions.",
+      "rules": [
+        "Simple Present: Use 'do' (I/you/we/they) or 'does' (he/she/it)",
+        "Simple Past: Use 'did' for all subjects",
+        "Present Continuous: Use 'am/is/are' + verb-ing",
+        "Past Continuous: Use 'was/were' + verb-ing",
+        "Present Perfect: Use 'have/has' + past participle",
+        "Future Simple: Use 'will' + base verb"
+      ],
+      "examples": {
+        "correct": [
+          "Do you work here? (Simple Present)",
+          "Does she know the answer? (Simple Present)",
+          "Did they arrive on time? (Simple Past)",
+          "Are you listening to me? (Present Continuous)",
+          "Was he sleeping? (Past Continuous)",
+          "Have you finished your homework? (Present Perfect)",
+          "Has she called you? (Present Perfect)",
+          "Will you come tomorrow? (Future Simple)"
+        ],
+        "incorrect": [
+          {
+            "text": "Are you work here?",
+            "reason": "Wrong auxiliary for Simple Present. Use 'Do you work here?'"
+          },
+          {
+            "text": "Did she goes home?",
+            "reason": "Main verb should be base form after 'did'. Correct: 'Did she go home?'"
+          },
+          {
+            "text": "Have you finish your work?",
+            "reason": "Need past participle after 'have'. Correct: 'Have you finished your work?'"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rules",
+      "title": "Essential Rules for Question Formation",
+      "rules": [
+        {
+          "rule": "Auxiliary verbs must come before the subject in questions (except subject questions).",
+          "explanation": "This inverted word order distinguishes questions from statements. Example: Statement - 'You can swim.' Question - 'Can you swim?'"
+        },
+        {
+          "rule": "Use 'do/does/did' as auxiliary verbs in Simple Present and Simple Past tenses when no other auxiliary exists.",
+          "explanation": "These auxiliary verbs are required to form questions in these tenses. Example: 'Do you like coffee?' 'Did she call you?'"
+        },
+        {
+          "rule": "After auxiliary verbs, use the base form of the main verb (infinitive without 'to').",
+          "explanation": "The main verb does not change form after auxiliaries. Example: 'Does he work?' (not 'Does he works?'), 'Did they go?' (not 'Did they went?')"
+        },
+        {
+          "rule": "Subject questions (who/what as subject) follow statement word order without auxiliary verbs.",
+          "explanation": "When asking about the subject, maintain normal word order. Example: 'Who called?' 'What happened?' (not 'Who did call?' or 'What did happen?')"
+        },
+        {
+          "rule": "Always end questions with a question mark and use rising intonation for Yes/No questions.",
+          "explanation": "Written questions require a question mark; spoken Yes/No questions use rising intonation to signal a question is being asked."
+        }
+      ]
+    },
+    {
+      "type": "common_mistakes",
+      "title": "Common Mistakes in Question Formation",
+      "mistakes": [
+        {
+          "mistake": "Omitting the auxiliary verb in questions.",
+          "why_it_happens": "Hindi speakers may translate directly: 'Tum kahan rehte ho?' becomes 'Where you live?' without recognising the need for an auxiliary verb in English.",
+          "wrong": "Where you live? What she wants? When they coming?",
+          "right": "Where do you live? What does she want? When are they coming?",
+          "tip": "Remember: Most English questions require an auxiliary verb (do/does/did/is/are/was/were/will/can/have, etc.) before the subject."
+        },
+        {
+          "mistake": "Using incorrect word order (keeping statement order in questions).",
+          "why_it_happens": "In Hindi, questions can have the same word order as statements (only intonation changes). English requires inversion of subject and auxiliary.",
+          "wrong": "You are going where? She is doing what? They have finished?",
+          "right": "Where are you going? What is she doing? Have they finished?",
+          "tip": "Invert the subject and auxiliary: Statement order (Subject + Auxiliary) becomes Question order (Auxiliary + Subject)."
+        },
+        {
+          "mistake": "Using auxiliary 'do/does/did' in subject questions.",
+          "why_it_happens": "Learners overgeneralise the rule that questions need auxiliary verbs, not recognising the exception for subject questions.",
+          "wrong": "Who did call you? What does happen there? Who did win?",
+          "right": "Who called you? What happens there? Who won?",
+          "tip": "When 'who' or 'what' is the subject, use normal statement word order without 'do/does/did'."
+        },
+        {
+          "mistake": "Failing to use the base form of the verb after auxiliary verbs.",
+          "why_it_happens": "Confusion about verb forms, especially when the auxiliary already indicates tense or person.",
+          "wrong": "Does he works here? Did they went home? Do she likes it?",
+          "right": "Does he work here? Did they go home? Does she like it?",
+          "tip": "After auxiliary verbs (do/does/did/will/can/etc.), always use the base form of the main verb (infinitive without 'to')."
+        },
+        {
+          "mistake": "Confusing question types and mixing their structures.",
+          "why_it_happens": "Learners may mix the structures of Yes/No questions, Wh- questions, and subject questions.",
+          "wrong": "What do you are doing? Where does happen? Who do you?",
+          "right": "What are you doing? Where does it happen? Who are you?",
+          "tip": "Identify the question type first: Wh- question (Wh- + auxiliary + subject + verb), Yes/No question (auxiliary + subject + verb), or subject question (who/what + verb)."
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": "Practice Questions",
+      "questions": [
+        {
+          "question": "Convert the statement 'She speaks French' into a Yes/No question.",
+          "answer": "Does she speak French?",
+          "explanation": "Use 'does' as the auxiliary for third-person singular in Simple Present. The main verb becomes base form 'speak'."
+        },
+        {
+          "question": "Form a Wh- question asking about the location where they study (they study in the library).",
+          "answer": "Where do they study?",
+          "explanation": "Use 'Where' to ask about location, auxiliary 'do' for plural subject, and base form 'study'."
+        },
+        {
+          "question": "Create a subject question asking who broke the window.",
+          "answer": "Who broke the window?",
+          "explanation": "Subject questions use 'who' followed directly by the verb (past tense 'broke'), without auxiliary 'did'."
+        },
+        {
+          "question": "Form a question asking about the time of their arrival (they arrived at 6 pm).",
+          "answer": "What time did they arrive? / When did they arrive?",
+          "explanation": "Use 'When' or 'What time' for time questions, auxiliary 'did' for past tense, and base form 'arrive'."
+        },
+        {
+          "question": "Convert 'He is reading a book' into a Yes/No question.",
+          "answer": "Is he reading a book?",
+          "explanation": "Invert the subject 'he' and the auxiliary 'is'. The present continuous form 'reading' remains unchanged."
+        }
+      ]
+    },
+    {
+      "type": "revision",
+      "title": "Quick Revision Points",
+      "points": [
+        "Questions in English require inversion: auxiliary verb comes before the subject (except in subject questions).",
+        "Wh- questions begin with question words (what, where, when, who, why, how) followed by auxiliary + subject + main verb.",
+        "Yes/No questions begin with an auxiliary verb (do, does, did, is, are, was, were, will, can, have, etc.) followed by subject + main verb.",
+        "Use 'do', 'does', or 'did' as auxiliary verbs in Simple Present and Simple Past when no other auxiliary exists.",
+        "After auxiliary verbs, always use the base form of the main verb (without -s, -ed, or -ing endings).",
+        "Subject questions (who/what as subject) do not use auxiliary verbs and follow statement word order: Who called? What happened?",
+        "The verb in subject questions agrees with third-person singular: Who lives here? (not Who live here?)",
+        "Different tenses use different auxiliary verbs: do/does (present), did (past), am/is/are (present continuous), will (future), have/has (present perfect).",
+        "Always end written questions with a question mark.",
+        "In spoken English, Yes/No questions typically use rising intonation to signal a question is being asked."
+      ]
+    }
+  ]
+}
