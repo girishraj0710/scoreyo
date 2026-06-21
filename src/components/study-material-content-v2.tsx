@@ -5,6 +5,7 @@ import { StudyCard } from './study-card';
 import { StudyCardNavigator } from './study-card-navigator';
 import { PremiumMarkdownRenderer } from './premium-markdown-renderer';
 import { PracticeProblemsSection } from './practice-problems-section';
+import { PronunciationExample } from './audio-pronunciation';
 
 interface Section {
   id: string;
@@ -230,6 +231,35 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
               }
 
               if (block.type === 'example') {
+                // Check if this is a pronunciation example (has phonetic or audio flag)
+                const isPronunciationExample = block.examples && block.examples.some((ex: any) =>
+                  typeof ex === 'object' && (ex?.phonetic || ex?.audio === true)
+                );
+
+                if (isPronunciationExample) {
+                  return (
+                    <div key={idx} className="my-6">
+                      {block.title && <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{block.title}</h4>}
+                      <div className="space-y-4">
+                        {block.examples && Array.isArray(block.examples) && block.examples.map((ex: any, exIdx: number) => {
+                          if (typeof ex !== 'object') return null;
+
+                          return (
+                            <PronunciationExample
+                              key={exIdx}
+                              word={ex.text || ex.word || ''}
+                              phonetic={ex.phonetic}
+                              meaning={ex.meaning || ex.explanation}
+                              exampleSentence={ex.sentence || ex.context}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                }
+
+                // Regular examples (no audio)
                 return (
                   <div key={idx} className="my-6">
                     {block.title && <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{block.title}</h4>}
