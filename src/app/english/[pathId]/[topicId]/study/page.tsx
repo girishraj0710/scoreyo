@@ -206,39 +206,37 @@ export default function StudyMaterialPage() {
           onSectionComplete={goToNextSection}
         />
 
-        {/* Navigation - Hidden on Core Concepts section (flashcard navigation handles it) */}
-        {!currentSectionData?.title?.toLowerCase().includes('core concepts') && (
-          <div className="flex justify-between mt-12 pt-8 border-t" style={{ borderColor: "var(--card-border)" }}>
-            <button
-              onClick={goToPreviousSection}
-              disabled={currentSection === 0}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Previous
-            </button>
+        {/* Navigation - Always visible for section-level navigation */}
+        <div className="flex justify-between mt-12 pt-8 border-t" style={{ borderColor: "var(--card-border)" }}>
+          <button
+            onClick={goToPreviousSection}
+            disabled={currentSection === 0}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Previous
+          </button>
 
-            {currentSection === sections.length - 1 ? (
-              <button
-                onClick={goToQuiz}
-                className="flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all"
-              >
-                <CheckCircle className="w-5 h-5" />
-                Start Quiz Now
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            ) : (
-              <button
-                onClick={goToNextSection}
-                className="flex items-center gap-2 px-6 py-3 bg-[#4255FF] text-white rounded-xl font-semibold hover:shadow-lg transition-all"
-              >
-                Next Section
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            )}
-          </div>
-        )}
+          {currentSection === sections.length - 1 ? (
+            <button
+              onClick={goToQuiz}
+              className="flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+            >
+              <CheckCircle className="w-5 h-5" />
+              Start Quiz Now
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          ) : (
+            <button
+              onClick={goToNextSection}
+              className="flex items-center gap-2 px-6 py-3 bg-[#4255FF] text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+            >
+              Next Section
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          )}
+        </div>
       </div>
 
     </div>
