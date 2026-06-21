@@ -1,0 +1,8 @@
+◇ injected env (28) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Found 116 English topics to audit
+
+TypeError: section.examples.forEach is not a function
+    at /Users/girish.raj/prepgenie/audit_english_topics.js:90:28
+    at Array.forEach (<anonymous>)
+    at auditEnglishTopics (/Users/girish.raj/prepgenie/audit_english_topics.js:42:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

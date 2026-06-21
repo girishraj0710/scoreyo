@@ -210,7 +210,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                           return (
                             <div key={exIdx} className="p-3 rounded-lg border-l-4" style={{ background: 'var(--hover-bg)', borderColor: '#10B981' }}>
                               <div className="flex items-start gap-2">
-                                <span className="text-emerald-600 font-semibold">✓</span>
+                                
                                 <div className="flex-1">
                                   <p className="font-medium" style={{ color: 'var(--foreground)' }}>{exampleText}</p>
                                   {exampleExplanation && (
@@ -247,7 +247,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                             {exampleContext && <p className="text-sm italic" style={{ color: 'var(--foreground-secondary)' }}>Context: {exampleContext}</p>}
                             {exampleMeaning && <p className="text-sm mt-2" style={{ color: 'var(--foreground-secondary)' }}>Meaning: {exampleMeaning}</p>}
                             {exampleBreakdown && <p className="text-sm mt-2 font-mono" style={{ color: 'var(--foreground-secondary)' }}>{exampleBreakdown}</p>}
-                            {exampleExplanation && <p className="text-sm mt-2 italic" style={{ color: 'var(--foreground-secondary)' }}>💡 {exampleExplanation}</p>}
+                            {exampleExplanation && <p className="text-sm mt-2 italic" style={{ color: 'var(--foreground-secondary)' }}>{exampleExplanation}</p>}
                           </div>
                         );
                       })}
@@ -257,12 +257,10 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
               }
 
               if (block.type === 'note') {
-                const icon = block.icon || '💡';
                 const noteContent = block.content || block.text || '';
                 return (
                   <div key={idx} className="my-6 p-5 rounded-xl border-l-4" style={{ background: 'rgba(245, 158, 11, 0.05)', borderColor: '#F59E0B' }}>
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">{icon}</span>
                       <div className="flex-1">
                         {block.title && <h4 className="font-bold mb-2 text-amber-700 dark:text-amber-400">{block.title}</h4>}
                         <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground-secondary)' }}>{noteContent}</p>
@@ -323,7 +321,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
 
                           return (
                             <div key={exIdx} className="p-3 rounded-lg ml-6" style={{ background: 'var(--hover-bg)' }}>
-                              <span className="text-emerald-600 font-semibold mr-2">✓</span>
+                              
                               <div className="text-sm" style={{ color: 'var(--foreground)' }}>
                                 <span>{exampleText}</span>
                                 {exampleExplanation && (
@@ -354,12 +352,12 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                             {q.question}
                           </p>
                           <div className="p-3 rounded-lg mb-2" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
-                            <span className="font-semibold text-emerald-700 dark:text-emerald-300">✓ Answer: </span>
+                            <span className="font-semibold text-emerald-700 dark:text-emerald-300">Answer: </span>
                             <span className="text-sm" style={{ color: 'var(--foreground)' }}>{q.answer}</span>
                           </div>
                           {q.explanation && (
                             <p className="text-sm mt-2 p-3 rounded-lg" style={{ background: 'rgba(99, 102, 241, 0.05)', color: 'var(--foreground-secondary)' }}>
-                              <span className="font-semibold text-indigo-600">💡 Explanation: </span>
+                              <span className="font-semibold text-indigo-600">Explanation: </span>
                               {q.explanation}
                             </p>
                           )}
@@ -518,7 +516,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                     borderLeft: '4px solid #10B981'
                   }}>
                   <p className="text-sm font-semibold text-emerald-700 dark:text-emerald-300 mb-2">
-                    ✓ Correct Approach:
+                    Correct Approach:
                   </p>
                   <div className="prose prose-sm dark:prose-invert max-w-none">
                     <PremiumMarkdownRenderer content={mistake.correct_approach} />
@@ -600,7 +598,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                       borderLeft: '4px solid #F59E0B'
                     }}>
                     <p className="text-sm font-semibold text-amber-700 dark:text-amber-300 mb-1">
-                      💡 Hint:
+                      Hint:
                     </p>
                     <p className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>
                       {problem.hint}
@@ -612,7 +610,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
               {/* Answer */}
               <div className="ml-11 mb-4 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/30">
                 <p className="text-sm font-semibold text-emerald-700 dark:text-emerald-300 mb-2">
-                  ✓ Answer: {problem.answer}
+                  Answer: {problem.answer}
                 </p>
               </div>
 
@@ -695,7 +693,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                     )}
                     {example.key_insight && (
                       <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-950/30">
-                        <span className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">💡 Key Insight: </span>
+                        <span className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">Key Insight: </span>
                         <span className="text-sm" style={{ color: 'var(--foreground-secondary)' }}>{example.key_insight}</span>
                       </div>
                     )}
