@@ -80,6 +80,8 @@ export default function StudyMaterialPage() {
   };
 
   const goToPreviousSection = () => {
+    // Mark current section as complete when going back
+    markSectionComplete();
     if (currentSection > 0) {
       setCurrentSection(currentSection - 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -180,7 +182,12 @@ export default function StudyMaterialPage() {
                     ? "#4255FF"
                     : "var(--muted)"
                 }}
-                onClick={() => setCurrentSection(idx)}
+                onClick={() => {
+                  // Mark current section complete before switching
+                  markSectionComplete();
+                  setCurrentSection(idx);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 aria-label={`Go to section ${idx + 1}: ${section.title}`}
               />
             ))}
