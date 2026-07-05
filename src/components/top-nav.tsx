@@ -10,12 +10,9 @@ import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
 import {
-  Plus,
+  Bell,
   Moon,
   Sun,
-  BarChart3,
-  TrendingUp,
-  Trophy,
   Settings,
   LogOut,
   AlertTriangle,
