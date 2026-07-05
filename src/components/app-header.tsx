@@ -71,7 +71,7 @@ export function AppHeader() {
   }, [showMenu]);
 
   return (
-    <header className="sticky top-0 z-50 border-b shadow-sm" style={{ background: 'var(--card-bg)', borderBottomColor: 'var(--card-border)' }}>
+    <header className="md:hidden sticky top-0 z-50 border-b shadow-sm" style={{ background: 'var(--card-bg)', borderBottomColor: 'var(--card-border)' }}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 mr-8 lg:mr-12">
           <div className="w-9 h-9 bg-[#4255FF] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
