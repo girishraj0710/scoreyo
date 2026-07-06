@@ -8,6 +8,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig: NextConfig = {
   serverExternalPackages: ["razorpay"],
   transpilePackages: ["lucide-react"],
+  // TEMP (dev-only, for local visual verification via cloudflared tunnel) — remove before commit
+  allowedDevOrigins: ["con-calls-homes-potentially.trycloudflare.com"],
 
   // Compression (Vercel handles automatically, but this ensures it's enabled)
   compress: true,

@@ -206,7 +206,7 @@ export function LandingPageV2() {
     { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-orange-200", cta: "Start Learning" },
     { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-emerald-200", cta: "Take Mock Test" },
     { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-sky-200", cta: "Review Now" },
-    { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-purple-200", cta: "Play Levels" },
+    { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-[#F19A8C]", cta: "Play Levels" },
     { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-rose-200", cta: "Start Training" },
     { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-cyan-200", cta: "Start Challenge" },
     { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-sky-300", cta: "Learn English" },
@@ -229,7 +229,7 @@ export function LandingPageV2() {
           <div className="flex items-center gap-4">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#4F46E5' }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#E87461' }}>
                 <span className="text-white font-semibold text-xl">K</span>
               </div>
               <span className="font-semibold text-xl" style={{ color: "#0f172a" }}>Krakkify</span>
@@ -261,7 +261,7 @@ export function LandingPageV2() {
                           onClick={() => setSelectedCategory(category.id)}
                           className={`w-full text-left px-4 py-3 transition-colors flex items-start justify-between group ${
                             selectedCategory === category.id
-                              ? 'bg-[white] text-slate-900 border-l-4 border-blue-500'
+                              ? 'bg-[white] text-slate-900 border-l-4 border-[#E87461]'
                               : 'text-slate-700 hover:bg-[white] border-l-4 border-transparent'
                           }`}
                         >
@@ -296,11 +296,11 @@ export function LandingPageV2() {
                                   setShowExamsDropdown(false);
                                   setShowLoginModal(true);
                                 }}
-                                className="flex items-center gap-3 p-2.5 rounded-lg border border-[#e2e8f0] hover:border-blue-400 hover:bg-blue-50 transition-all group"
+                                className="flex items-center gap-3 p-2.5 rounded-lg border border-[#e2e8f0] hover:border-[#E87461] hover:bg-[#FEF3F2] transition-all group"
                               >
                                 <ColorfulExamIcon examId={exam.id} size={56} />
                                 <div className="flex-1 text-left">
-                                  <div className="font-semibold text-sm text-slate-900 group-hover:text-blue-600">{exam.name}</div>
+                                  <div className="font-semibold text-sm text-slate-900 group-hover:text-[#E87461]">{exam.name}</div>
                                 </div>
                               </button>
                             ))}
@@ -330,7 +330,7 @@ export function LandingPageV2() {
                   setShowSearchDropdown(true);
                 }}
                 onFocus={() => setShowSearchDropdown(true)}
-                className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg border border-[#e2e8f0] focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 focus:outline-none transition-all bg-transparent hover:bg-[white]"
+                className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg border border-[#e2e8f0] focus:border-[#E87461] focus:ring-2 focus:ring-[#FEF3F2] focus:outline-none transition-all bg-transparent hover:bg-[white]"
               />
             </div>
 
@@ -348,7 +348,7 @@ export function LandingPageV2() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">
                           <span className="font-semibold text-sm text-slate-900">{result.examName}</span>
-                          <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">
+                          <span className="px-2 py-0.5 bg-[#FEF3F2] text-[#E87461] rounded-full text-xs font-semibold">
                             {result.category}
                           </span>
                         </div>
@@ -361,7 +361,7 @@ export function LandingPageV2() {
                           </p>
                         )}
                       </div>
-                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#E87461] group-hover:translate-x-1 transition-all" />
                     </div>
                   </button>
                 ))}
@@ -375,11 +375,11 @@ export function LandingPageV2() {
             className="flex items-center gap-2 px-6 py-3 text-slate-700 font-semibold rounded-lg transition-colors text-lg whitespace-nowrap group"
             style={{
               '--hover-bg': '#EEF2FF',
-              '--hover-text': '#4F46E5'
+              '--hover-text': '#E87461'
             } as React.CSSProperties}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#EEF2FF';
-              e.currentTarget.style.color = '#4F46E5';
+              e.currentTarget.style.color = '#E87461';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
@@ -412,12 +412,12 @@ export function LandingPageV2() {
           <button
             onClick={() => setShowLoginModal(true)}
             className="px-6 md:px-8 py-2.5 md:py-3 text-white font-semibold text-sm md:text-base rounded-xl hover:shadow-2xl hover:scale-105 transition-all shadow-lg"
-            style={{ backgroundColor: '#4F46E5' }}
+            style={{ backgroundColor: '#E87461' }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#4338CA';
+              e.currentTarget.style.backgroundColor = '#D85F4D';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#4F46E5';
+              e.currentTarget.style.backgroundColor = '#E87461';
             }}
           >
             Start Practicing Free
@@ -491,7 +491,7 @@ export function LandingPageV2() {
                               {mode.desc}
                             </p>
                           </div>
-                          <div className="text-indigo-600 font-semibold text-xs flex items-center justify-center gap-1.5">
+                          <div className="text-[#E87461] font-semibold text-xs flex items-center justify-center gap-1.5">
                             {mode.cta}
                             <ArrowRight className="w-3 h-3" />
                           </div>
@@ -553,7 +553,7 @@ export function LandingPageV2() {
                             {mode.desc}
                           </p>
                         </div>
-                        <div className="text-indigo-600 font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
+                        <div className="text-[#E87461] font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
                           {mode.cta}
                           <ArrowRight className="w-4 h-4" />
                         </div>
@@ -587,7 +587,7 @@ export function LandingPageV2() {
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
                 ref={(el) => { imageRefs.current[0] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-indigo-200 p-4 md:p-6 max-w-sm mx-auto"
+                className="rounded-2xl overflow-hidden shadow-xl bg-[#F19A8C] p-4 md:p-6 max-w-sm mx-auto"
                 style={{
                   transform: visibleFeatures.has(0) ? `translateY(${imageOffsets[0]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
@@ -628,7 +628,7 @@ export function LandingPageV2() {
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
                 ref={(el) => { imageRefs.current[1] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-purple-200 p-4 md:p-6 max-w-sm mx-auto"
+                className="rounded-2xl overflow-hidden shadow-xl bg-[#F19A8C] p-4 md:p-6 max-w-sm mx-auto"
                 style={{
                   transform: visibleFeatures.has(1) ? `translateY(${imageOffsets[1]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
@@ -746,16 +746,16 @@ export function LandingPageV2() {
         </section>
         {/* Final CTA */}
         <section className="pb-8 mt-0 md:-mt-24">
-          <div className="bg-[#4255FF] rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl">
+          <div className="bg-[#E87461] rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl">
             <h2 className="text-2xl md:text-4xl font-semibold mb-4">
               Ready to ace your exam?
             </h2>
-            <p className="text-base md:text-lg text-indigo-50 mb-6 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-[#FEF3F2] mb-6 max-w-2xl mx-auto">
               Join 50,000+ students who are already mastering their competitive exams with Krakkify
             </p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-3 bg-[white] text-[#4255FF] font-semibold text-base rounded-xl hover:bg-transparent hover:scale-105 transition-all shadow-xl"
+              className="px-8 py-3 bg-[white] text-[#E87461] font-semibold text-base rounded-xl hover:bg-transparent hover:scale-105 transition-all shadow-xl"
             >
               Start Free Today
             </button>
@@ -799,7 +799,7 @@ export function LandingPageV2() {
           {/* Header */}
           <div className="mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <Calendar className="w-8 h-8 text-indigo-600" />
+              <Calendar className="w-8 h-8 text-[#E87461]" />
               <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 text-center">Upcoming Exam Calendar</h2>
             </div>
             <p className="text-slate-600 text-center text-lg">Mark your dates and start preparing today</p>
@@ -814,13 +814,13 @@ export function LandingPageV2() {
                   key={`exam-1-${exam.id}`}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-[white] rounded-2xl p-5 border border-[#e2e8f0] hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
+                  <div className="bg-[white] rounded-2xl p-5 border border-[#e2e8f0] hover:border-[#E87461] hover:shadow-xl transition-all duration-300 h-full relative">
                     {/* External Link - Top Right */}
                     <a
                       href={exam.officialWebsite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-indigo-600 hover:text-white transition-colors z-10"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#E87461] hover:text-white transition-colors z-10"
                       title="Official Website"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -832,14 +832,14 @@ export function LandingPageV2() {
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
                         {exam.phase && (
-                          <p className="text-xs text-indigo-600 font-medium truncate">{exam.phase}</p>
+                          <p className="text-xs text-[#E87461] font-medium truncate">{exam.phase}</p>
                         )}
                       </div>
                     </div>
 
                     {/* Date Display */}
-                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100">
-                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                    <div className="bg-gradient-to-br from-[#FEF3F2] to-[#FEFAF9] rounded-lg p-3 text-center border border-[#FEF3F2]">
+                      <div className="text-xs text-[#E87461] font-semibold uppercase mb-1 flex items-center justify-center gap-1">
                         <Calendar className="w-3 h-3" />
                         Exam Date
                       </div>
@@ -854,13 +854,13 @@ export function LandingPageV2() {
                   key={`exam-2-${exam.id}`}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-[white] rounded-2xl p-5 border border-[#e2e8f0] hover:border-indigo-300 hover:shadow-xl transition-all duration-300 h-full relative">
+                  <div className="bg-[white] rounded-2xl p-5 border border-[#e2e8f0] hover:border-[#E87461] hover:shadow-xl transition-all duration-300 h-full relative">
                     {/* External Link - Top Right */}
                     <a
                       href={exam.officialWebsite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-indigo-600 hover:text-white transition-colors z-10"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#E87461] hover:text-white transition-colors z-10"
                       title="Official Website"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -872,14 +872,14 @@ export function LandingPageV2() {
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-bold text-slate-900 truncate">{exam.examName}</h3>
                         {exam.phase && (
-                          <p className="text-xs text-indigo-600 font-medium truncate">{exam.phase}</p>
+                          <p className="text-xs text-[#E87461] font-medium truncate">{exam.phase}</p>
                         )}
                       </div>
                     </div>
 
                     {/* Date Display */}
-                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-3 text-center border border-indigo-100">
-                      <div className="text-xs text-indigo-700 font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                    <div className="bg-gradient-to-br from-[#FEF3F2] to-[#FEFAF9] rounded-lg p-3 text-center border border-[#FEF3F2]">
+                      <div className="text-xs text-[#E87461] font-semibold uppercase mb-1 flex items-center justify-center gap-1">
                         <Calendar className="w-3 h-3" />
                         Exam Date
                       </div>
@@ -894,7 +894,7 @@ export function LandingPageV2() {
           <div className="text-center mt-10">
             <button
               onClick={() => window.open('https://www.google.com/search?q=india+exam+calendar+2026', '_blank')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[white] text-indigo-600 font-semibold text-lg rounded-xl border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[white] text-[#E87461] font-semibold text-lg rounded-xl border-2 border-[#E87461] hover:bg-[#E87461] hover:text-white transition-all duration-300"
             >
               View Full Exam Calendar
               <ArrowRight className="w-5 h-5" />
