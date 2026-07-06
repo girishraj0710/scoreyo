@@ -1,46 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --foreground-secondary: #64748b;
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --primary-dark: #4f46e5;
-  --primary-bg: #eef2ff;
-  --accent: #b45309;
+  --background: #F5F3F0;
+  --foreground: #1A1F36;
+  --foreground-secondary: #6B7280;
+  --primary: #E87461;
+  --primary-light: #F19A8C;
+  --primary-dark: #D85F4D;
+  --primary-bg: #FEF3F2;
+  --accent: #E87461;
   --success: #059669;
   --danger: #ef4444;
   --card-bg: #ffffff;
   --card-bg-rgb: 255, 255, 255;
-  --card-border: #e2e8f0;
-  --muted: #64748b;
-  --hover-bg: #f1f5f9;
-  --selected-bg: #f8fafc;
-  --nav-active-bg: #eef2ff;
-  --nav-hover-bg: #f1f5f9;
+  --card-border: #E5E5E5;
+  --muted: #6B7280;
+  --hover-bg: #FEF3F2;
+  --selected-bg: #FEF3F2;
+  --nav-active-bg: #FEF3F2;
+  --nav-hover-bg: #FEFAF9;
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
-  --foreground-secondary: #e2e8f0;
-  --primary: #818cf8;
-  --primary-light: #a5b4fc;
-  --primary-dark: #6366f1;
-  --primary-bg: rgba(99, 102, 241, 0.2);
-  --accent: #fbbf24;
+  --background: #1A1F36;
+  --foreground: #F5F3F0;
+  --foreground-secondary: #9CA3AF;
+  --primary: #F19A8C;
+  --primary-light: #FBB5A9;
+  --primary-dark: #E87461;
+  --primary-bg: rgba(232, 116, 97, 0.15);
+  --accent: #F19A8C;
   --success: #34d399;
   --danger: #f87171;
-  --card-bg: #1e293b;
-  --card-bg-rgb: 30, 41, 59;
-  --card-border: #4b5e78;
-  --muted: #cbd5e1;
-  --hover-bg: rgba(148, 163, 184, 0.15);
-  --selected-bg: #1e293b;
-  --nav-active-bg: rgba(129, 140, 248, 0.25);
-  --nav-hover-bg: rgba(148, 163, 184, 0.18);
+  --card-bg: #252B42;
+  --card-bg-rgb: 37, 43, 66;
+  --card-border: #3A4256;
+  --muted: #9CA3AF;
+  --hover-bg: rgba(232, 116, 97, 0.1);
+  --selected-bg: rgba(232, 116, 97, 0.15);
+  --nav-active-bg: rgba(232, 116, 97, 0.2);
+  --nav-hover-bg: rgba(232, 116, 97, 0.08);
   color-scheme: dark;
 }
 
@@ -829,4 +829,18 @@ meta[name="theme-color"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Announcement ticker scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
 }

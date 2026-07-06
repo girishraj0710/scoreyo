@@ -67,10 +67,10 @@ export function AppSidebar() {
     <aside className="hidden md:flex md:flex-col md:w-48 md:flex-shrink-0 sticky top-0 h-screen border-r bg-white dark:bg-[#0f172a] border-slate-200 dark:border-slate-800 z-30">
       {/* Logo */}
       <a href="/" className="flex items-center gap-2 px-4 py-5 mb-2">
-        <div className="w-8 h-8 bg-[#4255FF] rounded-lg flex items-center justify-center text-white font-bold text-base">
+        <div className="w-8 h-8 bg-[#E87461] rounded-lg flex items-center justify-center text-white font-bold text-base">
           K
         </div>
-        <span className="text-lg font-bold text-slate-900 dark:text-white">Krakkify</span>
+        <span className="text-lg font-bold text-[#1A1F36] dark:text-white">Krakkify</span>
       </a>
 
       {/* Search Bar Placeholder */}
@@ -88,8 +88,8 @@ export function AppSidebar() {
             href="/contributor"
             className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               isActive("/contributor")
-                ? "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
-                : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
+                ? "bg-[#FEF3F2] dark:bg-[#E87461]/20 text-[#E87461] dark:text-[#F19A8C]"
+                : "text-[#1A1F36] dark:text-slate-300 hover:bg-[#FEFAF9] dark:hover:bg-slate-900"
             }`}
           >
             <Icon3DTeacher size={20} />
@@ -109,8 +109,8 @@ export function AppSidebar() {
                       href={item.href}
                       className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                         active
-                          ? "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
-                          : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
+                          ? "bg-[#FEF3F2] dark:bg-[#E87461]/20 text-[#E87461] dark:text-[#F19A8C]"
+                          : "text-[#1A1F36] dark:text-slate-300 hover:bg-[#FEFAF9] dark:hover:bg-slate-900"
                       }`}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" strokeWidth={active ? 2.5 : 2} />
@@ -136,8 +136,8 @@ export function AppSidebar() {
                       href={item.href}
                       className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                         active
-                          ? "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
-                          : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
+                          ? "bg-[#FEF3F2] dark:bg-[#E87461]/20 text-[#E87461] dark:text-[#F19A8C]"
+                          : "text-[#1A1F36] dark:text-slate-300 hover:bg-[#FEFAF9] dark:hover:bg-slate-900"
                       }`}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" strokeWidth={active ? 2.5 : 2} />
