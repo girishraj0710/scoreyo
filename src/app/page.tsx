@@ -13,8 +13,8 @@ import { isNative } from "@/lib/capacitor";
 import { toSharedSubject } from "@/lib/subject-mapper";
 
 // Dynamic import: Only load landing page for non-logged users
-// Toggle between V1 (old) and V2 (new Quizlet-inspired)
-const LandingPage = dynamic(() => import("@/components/landing-page-v2").then(mod => ({ default: mod.LandingPageV2 })), {
+// V3 = Emergent design replication
+const LandingPage = dynamic(() => import("@/components/landing-page-v3").then(mod => ({ default: mod.LandingPageV3 })), {
   loading: () => <LoadingSkeleton type="page" />,
 });
 
