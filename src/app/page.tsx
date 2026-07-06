@@ -447,7 +447,7 @@ function HomePageContent() {
       {/* Quick Start - Returning Users */}
       {!showFullFlow && lastQuiz && !selectedCategory && (
         <section className="mb-6 md:mb-8">
-          <div className="bg-gradient-to-r from-[#E87461] to-[#F19A8C] rounded-2xl p-5 sm:p-6 text-white shadow-xl">
+          <div className="bg-gradient-to-r from-[#F26A4B] to-[#F58972] rounded-2xl p-5 sm:p-6 text-white shadow-xl">
             <div className="flex items-start justify-between mb-3">
               <div>
                 <div className="text-xs sm:text-sm font-medium text-white mb-1">
@@ -526,7 +526,7 @@ function HomePageContent() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
                   e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                  e.currentTarget.style.borderColor = "#E87461";
+                  e.currentTarget.style.borderColor = "#F26A4B";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
@@ -594,7 +594,7 @@ function HomePageContent() {
                     if (selectedExam?.id !== exam.id) {
                       e.currentTarget.style.transform = "translateY(-4px)";
                       e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                      e.currentTarget.style.borderColor = "#E87461";
+                      e.currentTarget.style.borderColor = "#F26A4B";
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -606,7 +606,7 @@ function HomePageContent() {
                   }}
                   className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-left transition-all ${
                     selectedExam?.id === exam.id
-                      ? "border-[#E87461] shadow-md"
+                      ? "border-[#F26A4B] shadow-md"
                       : ""
                   }`}
                   style={{ borderColor: selectedExam?.id === exam.id ? undefined : "var(--card-border)", background: selectedExam?.id === exam.id ? "var(--selected-bg)" : "var(--card-bg)" }}
@@ -663,7 +663,7 @@ function HomePageContent() {
                     if (selectedSubject !== subject.id) {
                       e.currentTarget.style.transform = "translateY(-4px)";
                       e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
-                      e.currentTarget.style.borderColor = "#E87461";
+                      e.currentTarget.style.borderColor = "#F26A4B";
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -675,7 +675,7 @@ function HomePageContent() {
                   }}
                   className={`card-hover p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 text-center w-full min-h-[120px] sm:min-h-[140px] transition-all ${
                     selectedSubject === subject.id
-                      ? "border-[#E87461] shadow-md"
+                      ? "border-[#F26A4B] shadow-md"
                       : ""
                   }`}
                   style={{ borderColor: selectedSubject === subject.id ? undefined : "var(--card-border)", background: selectedSubject === subject.id ? "var(--selected-bg)" : "var(--card-bg)" }}
@@ -733,7 +733,7 @@ function HomePageContent() {
                 }}
                 onMouseEnter={(e) => {
                   if (selectedTopic !== topic) {
-                    e.currentTarget.style.borderColor = "#E87461";
+                    e.currentTarget.style.borderColor = "#F26A4B";
                     e.currentTarget.style.transform = "scale(1.05)";
                   }
                 }}
@@ -745,7 +745,7 @@ function HomePageContent() {
                 }}
                 className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border-2 min-h-[40px] sm:min-h-[44px] transition-all ${
                   selectedTopic === topic
-                    ? "border-[#E87461] bg-[#E87461] text-white shadow-md"
+                    ? "border-[#F26A4B] bg-[#F26A4B] text-white shadow-md"
                     : ""
                 }`}
                 style={selectedTopic !== topic ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
@@ -795,7 +795,7 @@ function HomePageContent() {
                     onClick={() => setQuestionCount(n)}
                     className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 transition-all cursor-pointer ${
                       questionCount === n
-                        ? "border-[#E87461] bg-[#E87461] text-white"
+                        ? "border-[#F26A4B] bg-[#F26A4B] text-white"
                         : ""
                     }`}
                     style={questionCount !== n ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
@@ -835,7 +835,7 @@ function HomePageContent() {
                     onClick={() => setDifficulty(d.value)}
                     className={`flex-1 py-2 rounded-lg text-sm font-medium border-2 transition-all cursor-pointer ${
                       difficulty === d.value
-                        ? "border-[#E87461] bg-[#E87461] text-white"
+                        ? "border-[#F26A4B] bg-[#F26A4B] text-white"
                         : ""
                     }`}
                     style={difficulty !== d.value ? { borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground-secondary)" } : undefined}
@@ -906,7 +906,7 @@ function HomePageContent() {
 
             {subData?.isPro && (
               <div className="mb-4 p-3 rounded-xl text-sm border flex items-center gap-2" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
-                <span className="px-2 py-0.5 bg-gradient-to-r from-[#E87461] to-[#F19A8C] text-white text-xs font-bold rounded-full">PRO</span>
+                <span className="px-2 py-0.5 bg-gradient-to-r from-[#F26A4B] to-[#F58972] text-white text-xs font-bold rounded-full">PRO</span>
                 <span style={{ color: "var(--primary)" }}>Unlimited quizzes</span>
               </div>
             )}
@@ -921,7 +921,7 @@ function HomePageContent() {
                 // Pass original values for quiz fallback
                 window.location.href = `/study?exam=${selectedExam?.id}&subject=${sharedSubject}&topic=${topicLower}&originalSubject=${selectedSubject}&originalTopic=${selectedTopic}`;
               }}
-              className="w-full py-3 mb-3 border-2 border-[#E87461] text-[#E87461] font-semibold rounded-xl hover:bg-[#FEF3F2] dark:hover:bg-[#D85F4D] shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-3 mb-3 border-2 border-[#F26A4B] text-[#F26A4B] font-semibold rounded-xl hover:bg-[#FEF3F2] dark:hover:bg-[#E15838] shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -933,7 +933,7 @@ function HomePageContent() {
             <button
               onClick={handleStartQuiz}
               disabled={subData && !subData.isPro && subData.quizzesRemaining === 0}
-              className="w-full py-3 bg-gradient-to-r from-[#E87461] to-[#F19A8C] text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-gradient-to-r from-[#F26A4B] to-[#F58972] text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-violet-600 shadow-lg hover:shadow-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {subData && !subData.isPro && subData.quizzesRemaining === 0
                 ? "Upgrade to Start Quiz"

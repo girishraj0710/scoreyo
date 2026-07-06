@@ -1,47 +1,64 @@
 @import "tailwindcss";
 
-/* Emergent Design System - Coral Palette (v2) */
+/* Prepr Design System - Official Color Palette */
 :root {
-  --background: #F5F3F0;
-  --foreground: #1A1F36;
-  --foreground-secondary: #6B7280;
-  --primary: #E87461;
-  --primary-light: #F19A8C;
-  --primary-dark: #D85F4D;
-  --primary-bg: #FEF3F2;
-  --accent: #E87461;
-  --success: #059669;
-  --danger: #ef4444;
-  --card-bg: #ffffff;
+  /* PRIMARY PALETTE */
+  --background: #FAF8F5;        /* Warm Ivory - page background */
+  --foreground: #16213E;        /* Deep Navy - primary text */
+  --primary: #F26A4B;           /* Coral - CTAs & brand */
+  --primary-light: #F58972;     /* Lighter coral */
+  --primary-dark: #E15838;      /* Darker coral for hover */
+  --primary-bg: rgba(242, 106, 75, 0.08);  /* Coral/8% for active states */
+  --accent: #F26A4B;            /* Same as primary */
+
+  /* SECONDARY TEXT */
+  --foreground-secondary: #5A6478;  /* Ink Soft - secondary text */
+  --muted: #8B94A6;                 /* Lighter ink for muted text */
+
+  /* SURFACES */
+  --card-bg: #FFFFFF;           /* White cards */
   --card-bg-rgb: 255, 255, 255;
-  --card-border: #E5E5E5;
-  --muted: #6B7280;
-  --hover-bg: #FEF3F2;
-  --selected-bg: #FEF3F2;
-  --nav-active-bg: #FEF3F2;
-  --nav-hover-bg: #FEFAF9;
+  --surface-cool: #F3F5F7;      /* Cool Surface for nested panels */
+
+  /* ACCENT COLORS */
+  --accent-gold: #C89B3C;       /* Gold for premium/achievements */
+  --success: #2E8B57;           /* Emerald for success states */
+  --danger: #ef4444;            /* Keep existing red */
+
+  /* BORDERS */
+  --card-border: rgba(22, 33, 62, 0.08);  /* Black/8% - Deep Navy opacity */
+  --border-hover: rgba(22, 33, 62, 0.16);
+
+  /* ACTIVE/HOVER STATES */
+  --hover-bg: rgba(242, 106, 75, 0.08);    /* Coral/8% */
+  --selected-bg: rgba(242, 106, 75, 0.08);
+  --nav-active-bg: rgba(242, 106, 75, 0.08);
+  --nav-hover-bg: rgba(22, 33, 62, 0.04);
+
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --background: #1A1F36;
-  --foreground: #F5F3F0;
+  /* Dark mode: Deep Navy background, Warm Ivory text */
+  --background: #16213E;        /* Deep Navy as background */
+  --foreground: #FAF8F5;        /* Warm Ivory as text */
   --foreground-secondary: #9CA3AF;
-  --primary: #F19A8C;
-  --primary-light: #FBB5A9;
-  --primary-dark: #E87461;
-  --primary-bg: rgba(232, 116, 97, 0.15);
-  --accent: #F19A8C;
-  --success: #34d399;
+  --primary: #F26A4B;           /* Coral stays same */
+  --primary-light: #F58972;
+  --primary-dark: #E15838;
+  --primary-bg: rgba(242, 106, 75, 0.15);
+  --accent: #F26A4B;
+  --success: #2E8B57;           /* Emerald */
   --danger: #f87171;
-  --card-bg: #252B42;
-  --card-bg-rgb: 37, 43, 66;
-  --card-border: #3A4256;
+  --card-bg: #1E2B4A;           /* Darker navy for cards */
+  --card-bg-rgb: 30, 43, 74;
+  --surface-cool: #252F4D;      /* Darker cool surface */
+  --card-border: rgba(250, 248, 245, 0.12);
   --muted: #9CA3AF;
-  --hover-bg: rgba(232, 116, 97, 0.1);
-  --selected-bg: rgba(232, 116, 97, 0.15);
-  --nav-active-bg: rgba(232, 116, 97, 0.2);
-  --nav-hover-bg: rgba(232, 116, 97, 0.08);
+  --hover-bg: rgba(242, 106, 75, 0.1);
+  --selected-bg: rgba(242, 106, 75, 0.15);
+  --nav-active-bg: rgba(242, 106, 75, 0.2);
+  --nav-hover-bg: rgba(242, 106, 75, 0.08);
   color-scheme: dark;
 }
 
@@ -66,6 +83,11 @@ body {
   font-size: 16px;
   line-height: 1.6; /* Crucial for reading comfort in EdTech */
   letter-spacing: -0.01em; /* Makes geometric fonts look premium */
+
+  /* Prepr-style radial blooms for subtle warmth */
+  background-image:
+    radial-gradient(circle at top right, rgba(242, 106, 75, 0.08), transparent 50%),
+    radial-gradient(circle at top left, rgba(46, 139, 87, 0.07), transparent 50%);
 }
 
 /* Big, engaging titles (Landing page, course titles) */
