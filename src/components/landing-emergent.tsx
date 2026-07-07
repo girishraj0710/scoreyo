@@ -452,7 +452,7 @@ export function LandingEmergent() {
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden bg-white border border-black/5 shadow-[0_8px_30px_rgba(22,33,62,0.06)] aspect-[4/5]">
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=85"
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1400&q=90"
                 alt="Indian students preparing for competitive exams"
                 className="w-full h-full object-cover"
               />
@@ -725,8 +725,8 @@ export function LandingEmergent() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80"
-                  alt="Rich Explanations - Student studying with detailed notes"
+                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=90"
+                  alt="Rich Explanations - Students studying together with notes and books"
                   className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
@@ -766,8 +766,8 @@ export function LandingEmergent() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
-                  alt="Mistake Map - Analytics dashboard showing performance data"
+                  src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=90"
+                  alt="Mistake Map - Student analyzing test results and performance"
                   className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
@@ -808,8 +808,8 @@ export function LandingEmergent() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"
-                  alt="Midnight Doubt AI - Student learning online at night"
+                  src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=90"
+                  alt="Midnight Doubt AI - Student using laptop for online learning"
                   className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
@@ -849,8 +849,8 @@ export function LandingEmergent() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
-                  alt="Smart Dashboard - Progress tracking and analytics"
+                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=90"
+                  alt="Smart Dashboard - Students celebrating academic success together"
                   className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
