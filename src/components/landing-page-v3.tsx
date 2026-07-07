@@ -456,8 +456,8 @@ export function LandingPageV3() {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {examCategories.slice(0, 8).flatMap((category, categoryIdx) =>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {examCategories.slice(0, 7).flatMap((category, categoryIdx) =>
               category.exams.slice(0, 1).map((exam) => {
                 const IconComponent = EXAM_ICONS[category.name as keyof typeof EXAM_ICONS] || BookOpen;
                 const featured = categoryIdx === 0; // Only first card is featured
@@ -475,7 +475,7 @@ export function LandingPageV3() {
                     onClick={() => setShowLoginModal(true)}
                     data-testid={`exam-card-${exam.id}`}
                     className={`text-left group relative rounded-3xl border border-black/5 bg-white p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(242,106,75,0.35)] overflow-hidden ${
-                      featured ? "md:col-span-2" : ""
+                      featured ? "lg:col-span-2" : ""
                     }`}
                   >
                     <div
