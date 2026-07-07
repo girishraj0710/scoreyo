@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { examCategories } from "@/lib/exams";
 import Image from "next/image";
@@ -20,8 +20,12 @@ import {
   Scale,
   Calendar as CalendarIcon,
   PlayCircle,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
 } from "lucide-react";
 import { getUpcomingExams } from "@/lib/exam-calendar";
+import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 // Icon mapping for exam categories
 const EXAM_ICONS = {
@@ -36,40 +40,15 @@ const EXAM_ICONS = {
   "Defense": Target,
 };
 
-// Features for carousel (keep existing data)
-const FEATURES = [
-  {
-    id: 1,
-    image: "/images/ai-tutor-3d.svg",
-    title: "AI Tutor, on-demand",
-    desc: "Get any concept explained, doubts solved, and worked examples — instantly.",
-    tint: "#F26A4B",
-    icon: Sparkles,
-  },
-  {
-    id: 2,
-    image: "/images/flashcards-3d.svg",
-    title: "Smart Flashcards",
-    desc: "Auto-generated cards + spaced repetition tuned to how you forget.",
-    tint: "#2E8B57",
-    icon: Zap,
-  },
-  {
-    id: 3,
-    image: "/images/mock-test-3d.svg",
-    title: "Full-length Mock Tests",
-    desc: "Real exam interface, timed sections, detailed analytics.",
-    tint: "#16213E",
-    icon: Trophy,
-  },
-  {
-    id: 4,
-    image: "/images/level-mode-3d.svg",
-    title: "Level Mode",
-    desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.",
-    tint: "#C89B3C",
-    icon: Target,
-  },
+// Study modes for carousel (original design from V2)
+const STUDY_MODES = [
+  { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-orange-200", cta: "Start Learning" },
+  { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-emerald-200", cta: "Take Mock Test" },
+  { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-sky-200", cta: "Review Now" },
+  { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-[#F58972]", cta: "Play Levels" },
+  { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-rose-200", cta: "Start Training" },
+  { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-cyan-200", cta: "Start Challenge" },
+  { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-sky-300", cta: "Learn English" },
 ];
 
 // Testimonials
@@ -81,10 +60,94 @@ const TESTIMONIALS = [
 
 export function LandingPageV3() {
   const { setShowLoginModal } = useUser();
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [carouselIndex, setCarouselIndex] = useState(4); // Start at position 4 (first real card after clones)
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const carouselTrackRef = useRef<HTMLDivElement>(null);
+  const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set());
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [imageOffsets, setImageOffsets] = useState<number[]>([0, 0, 0, 0]);
 
-  const upcomingExams = getUpcomingExams();
+  const upcomingExams = getUpcomingExams(15);
+
+  // Create infinite loop by cloning last 4 cards at start and first 4 cards at end (for 4-card display)
+  const infiniteModes = [
+    ...STUDY_MODES.slice(-4), // Last 4 cards (clones at start)
+    ...STUDY_MODES,           // All 7 real cards
+    ...STUDY_MODES.slice(0, 4) // First 4 cards (clones at end)
+  ];
+
+  // Handle infinite loop seamlessly with cloned cards
+  useEffect(() => {
+    // After sliding to last clone (index 11), jump to first real card (index 4)
+    if (carouselIndex === 11 && isTransitioning) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCarouselIndex(4);
+        setTimeout(() => setIsTransitioning(true), 50);
+      }, 500);
+    }
+    // After sliding to first clone (index 0), jump to last real card (index 7)
+    else if (carouselIndex === 0 && isTransitioning) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCarouselIndex(7);
+        setTimeout(() => setIsTransitioning(true), 50);
+      }, 500);
+    }
+  }, [carouselIndex, isTransitioning]);
+
+  // Intersection Observer for scroll animations (What Makes Different section)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = featureRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) {
+              setVisibleFeatures((prev) => new Set(prev).add(index));
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px' }
+    );
+
+    featureRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Parallax effect for What Makes Different images
+  useEffect(() => {
+    const handleScroll = () => {
+      const newOffsets = imageRefs.current.map((imageRef) => {
+        if (!imageRef) return 0;
+
+        const rect = imageRef.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        const progress = Math.max(0, Math.min(1,
+          (windowHeight - rect.top) / (windowHeight + rect.height)
+        ));
+
+        return progress * -80;
+      });
+
+      setImageOffsets(newOffsets);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
@@ -237,38 +300,140 @@ export function LandingPageV3() {
           </div>
         </div>
 
-        {/* 3. FEATURES CAROUSEL */}
-        <section id="features" className="py-8">
-          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
-            STUDY MODES
-          </div>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mb-8">
-            Learn your way
-          </h2>
+        {/* 3. FEATURES CAROUSEL - Original Design with Infinite Loop */}
+        <section id="features" className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-8">
+              <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+                STUDY MODES
+              </div>
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
+                Learn your way
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {FEATURES.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={feature.id}
-                  className="rounded-3xl bg-white border border-black/5 p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] hover:-translate-y-1 transition-transform"
-                >
-                  <div
-                    className="w-12 h-12 rounded-2xl grid place-items-center"
-                    style={{ backgroundColor: `${feature.tint}20`, color: feature.tint }}
-                  >
-                    <Icon className="w-6 h-6" strokeWidth={2.5} />
-                  </div>
-                  <h3 className="font-heading text-xl font-bold text-[#16213E] mt-5">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-[#5A6478] mt-2 leading-relaxed">
-                    {feature.desc}
-                  </p>
+            {/* Carousel with Arrows */}
+            <div className="relative">
+              {/* Left Arrow - hidden on mobile, visible on desktop */}
+              <button
+                onClick={() => setCarouselIndex(carouselIndex - 1)}
+                className="hidden md:flex absolute left-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+              >
+                <ChevronLeft className="w-6 h-6 text-[#16213E]" />
+              </button>
+
+              {/* Right Arrow - hidden on mobile, visible on desktop */}
+              <button
+                onClick={() => setCarouselIndex(carouselIndex + 1)}
+                className="hidden md:flex absolute right-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+              >
+                <ChevronRight className="w-6 h-6 text-[#16213E]" />
+              </button>
+
+              {/* Mobile: Show as horizontal scroll, Desktop: Show carousel */}
+              <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
+                <div className="flex gap-4 pt-6">
+                  {STUDY_MODES.map((mode) => (
+                    <div
+                      key={mode.id}
+                      className="flex-shrink-0 snap-center"
+                      style={{ width: 'calc(100vw - 64px)' }}
+                    >
+                      <button
+                        onClick={() => setShowLoginModal(true)}
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
+                      >
+                        <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            <Image
+                              src={mode.image}
+                              alt={mode.title}
+                              width={140}
+                              height={140}
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+                        <div className="p-4 flex-1 flex flex-col bg-white justify-between">
+                          <div>
+                            <h3 className="text-base font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
+                            <p className="text-[#5A6478] text-xs leading-relaxed mb-3 text-center">
+                              {mode.desc}
+                            </p>
+                          </div>
+                          <div className="text-[#F26A4B] font-semibold text-xs flex items-center justify-center gap-1.5">
+                            {mode.cta}
+                            <ArrowRight className="w-3 h-3" />
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  ))}
                 </div>
-              );
-            })}
+              </div>
+
+              {/* Desktop: Show animated carousel */}
+              <div className="hidden md:block overflow-hidden px-4">
+                <div
+                  ref={carouselTrackRef}
+                  className="flex gap-6"
+                  style={{
+                    transform: `translateX(calc(-${carouselIndex * 25}% - ${carouselIndex * 6}px))`,
+                    transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+                    paddingTop: '24px',
+                    paddingBottom: '24px'
+                  }}
+                >
+                  {infiniteModes.map((mode, index) => (
+                    <div
+                      key={`${mode.id}-${index}`}
+                      className="flex-shrink-0"
+                      style={{ width: 'calc(25% - 18px)' }}
+                    >
+                      <button
+                        onClick={() => setShowLoginModal(true)}
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
+                        style={{
+                          minHeight: '380px',
+                          transform: 'translateY(0) scale(1)',
+                          transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                        }}
+                      >
+                        <div className={`${mode.headerColor} h-48 flex items-center justify-center relative overflow-hidden pt-4`}>
+                          <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                            <Image
+                              src={mode.image}
+                              alt={mode.title}
+                              width={160}
+                              height={160}
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+                        <div className="p-5 flex-1 flex flex-col bg-white justify-between">
+                          <div>
+                            <h3 className="text-lg font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
+                            <p className="text-[#5A6478] text-sm leading-relaxed mb-4 text-center">
+                              {mode.desc}
+                            </p>
+                          </div>
+                          <div className="text-[#F26A4B] font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
+                            {mode.cta}
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -356,40 +521,182 @@ export function LandingPageV3() {
           </div>
         </section>
 
-        {/* 5. WHAT MAKES DIFFERENT */}
-        <section className="py-16">
-          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
-            WHY KRAKKIFY
-          </div>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mb-12">
-            What makes us different
-          </h2>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              {[
-                "AI tutor trained on Indian syllabus",
-                "Spaced repetition that actually works",
-                "Mock tests with detailed analytics",
-                "1.2M+ verified questions",
-                "74+ exams, 200+ subjects",
-                "Progress tracking & weakness analysis",
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#2E8B57]/20 text-[#2E8B57] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-lg text-[#16213E] font-medium">{item}</span>
-                </div>
-              ))}
+        {/* 5. WHAT MAKES DIFFERENT - Snake Pattern */}
+        <section className="pt-8 md:pt-16 pb-12 md:pb-20">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+              WHY KRAKKIFY
             </div>
-            <div className="relative h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#F26A4B]/10 to-[#2E8B57]/10">
-              {/* Placeholder for gradient illustration */}
-              <div className="absolute inset-0 flex items-center justify-center text-[#5A6478]">
-                <BookOpen className="w-32 h-32 opacity-20" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#16213E] mb-3 md:mb-4">
+              What makes Krakkify different
+            </h2>
+            <p className="text-[#5A6478] text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-2">
+              Intelligent AI features designed specifically for Indian competitive exams
+            </p>
+          </div>
+
+          {/* Feature 1 - Image Left, Text Right */}
+          <div
+            ref={(el) => { featureRefs.current[0] = el; }}
+            className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                ref={(el) => { imageRefs.current[0] = el; }}
+                className="rounded-2xl overflow-hidden shadow-xl bg-[#F26A4B] p-4 md:p-6 max-w-sm mx-auto"
+                style={{
+                  transform: visibleFeatures.has(0) ? `translateY(${imageOffsets[0]}px)` : 'translateY(0px)',
+                  opacity: visibleFeatures.has(0) ? 1 : 0,
+                  transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/rich-explanations.svg"
+                  alt="Rich Explanations"
+                  className="w-full h-auto"
+                />
               </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                opacity: visibleFeatures.has(0) ? 1 : 0,
+                transition: 'opacity 0.8s ease-out',
+              }}
+            >
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#16213E] mb-3 md:mb-4">
+                Rich Explanations
+              </h3>
+              <p className="text-[#5A6478] text-sm md:text-base lg:text-lg leading-relaxed">
+                Understand the WHY behind every answer. Get step-by-step breakdowns, trap alerts, formulas, and common
+                mistakes highlighted for each question. Never waste time wondering why you got it wrong—our detailed explanations show you the logic behind correct answers and help you avoid traps that confuse most students.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 2 - Text Left, Image Right */}
+          <div
+            ref={(el) => { featureRefs.current[1] = el; }}
+            className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                ref={(el) => { imageRefs.current[1] = el; }}
+                className="rounded-2xl overflow-hidden shadow-xl bg-[#2E8B57] p-4 md:p-6 max-w-sm mx-auto"
+                style={{
+                  transform: visibleFeatures.has(1) ? `translateY(${imageOffsets[1]}px)` : 'translateY(0px)',
+                  opacity: visibleFeatures.has(1) ? 1 : 0,
+                  transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/mistake-tracker.svg"
+                  alt="Mistake Tracker"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                opacity: visibleFeatures.has(1) ? 1 : 0,
+                transition: 'opacity 0.8s ease-out',
+              }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-[#16213E] mb-4">
+                Mistake Map
+              </h3>
+              <p className="text-[#5A6478] text-lg leading-relaxed">
+                AI identifies your weakness patterns—calculation errors, concept gaps, time pressure issues, and careless
+                mistakes. Our smart algorithm categorizes every wrong answer and reveals patterns with visual charts and
+                topic-wise breakdowns. Focus your revision strategically instead of studying blindly.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 3 - Image Left, Text Right */}
+          <div
+            ref={(el) => { featureRefs.current[2] = el; }}
+            className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                ref={(el) => { imageRefs.current[2] = el; }}
+                className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
+                style={{
+                  transform: visibleFeatures.has(2) ? `translateY(${imageOffsets[2]}px)` : 'translateY(0px)',
+                  opacity: visibleFeatures.has(2) ? 1 : 0,
+                  transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/ai-tutor.svg"
+                  alt="24/7 AI Tutor"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                opacity: visibleFeatures.has(2) ? 1 : 0,
+                transition: 'opacity 0.8s ease-out',
+              }}
+            >
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#16213E] mb-3 md:mb-4">
+                Midnight Doubt AI
+              </h3>
+              <p className="text-[#5A6478] text-sm md:text-base lg:text-lg leading-relaxed">
+                Stuck at 2 AM? Ask our AI tutor anything, anytime. Get instant clarifications in simple language—English
+                or Hindi. No more waiting for teachers or WhatsApp groups to respond—our AI understands your exact question and explains concepts in a way that clicks instantly.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 4 - Text Left, Image Right */}
+          <div
+            ref={(el) => { featureRefs.current[3] = el; }}
+            className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
+          >
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <div
+                ref={(el) => { imageRefs.current[3] = el; }}
+                className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
+                style={{
+                  transform: visibleFeatures.has(3) ? `translateY(${imageOffsets[3]}px)` : 'translateY(0px)',
+                  opacity: visibleFeatures.has(3) ? 1 : 0,
+                  transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
+                }}
+              >
+                <img
+                  src="/images/features/dashboard.svg"
+                  alt="Smart Dashboard"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            {/* Text */}
+            <div
+              className="w-full md:w-3/5"
+              style={{
+                opacity: visibleFeatures.has(3) ? 1 : 0,
+                transition: 'opacity 0.8s ease-out',
+              }}
+            >
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#16213E] mb-3 md:mb-4">
+                Smart Dashboard
+              </h3>
+              <p className="text-[#5A6478] text-sm md:text-base lg:text-lg leading-relaxed">
+                Track your progress with beautiful stats and charts—questions solved, accuracy trends, daily streaks,
+                and achievement badges all in one place. See exactly where you stand with subject-wise breakdowns and identify weak topics at a glance. Your entire exam preparation journey visualized in one powerful dashboard that keeps you motivated and focused on what matters most.
+              </p>
             </div>
           </div>
         </section>
@@ -416,44 +723,110 @@ export function LandingPageV3() {
           </div>
         </section>
 
-        {/* 7. UPCOMING EXAM CALENDAR */}
-        <section className="py-16">
-          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
-            UPCOMING EXAMS
+        {/* 7. UPCOMING EXAM CALENDAR - Infinite Marquee */}
+        <section className="bg-transparent py-16">
+          {/* Header */}
+          <div className="mb-12 max-w-7xl mx-auto px-6">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <CalendarIcon className="w-8 h-8 text-[#F26A4B]" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#16213E] text-center">Upcoming Exam Calendar</h2>
+            </div>
+            <p className="text-[#5A6478] text-center text-lg">Mark your dates and start preparing today</p>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mb-8">
-            Your exam calendar
-          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {upcomingExams.slice(0, 6).map((exam) => (
-              <div
-                key={exam.id}
-                className="rounded-3xl bg-white border border-black/5 p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] hover:-translate-y-1 transition-transform"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#5A6478]">
-                      {exam.phase}
+          {/* Infinite Scrolling Marquee - Edge to Edge */}
+          <div className="relative w-screen ml-[calc(-50vw+50%)] overflow-hidden group">
+            <div className="flex animate-marquee-fast gap-6 group-hover:pause-marquee">
+              {/* First set of exams */}
+              {upcomingExams.map((exam, idx) => (
+                <div
+                  key={`exam-1-${exam.id}`}
+                  className="flex-shrink-0 w-80"
+                >
+                  <div className="bg-white rounded-2xl p-5 border border-[rgba(22,33,62,0.08)] hover:border-[#F26A4B] hover:shadow-xl transition-all duration-300 h-full relative">
+                    {/* External Link - Top Right */}
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#F26A4B] hover:text-white transition-colors z-10"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
+                    {/* Compact Header */}
+                    <div className="flex items-center gap-3 mb-4 pr-10">
+                      <ColorfulExamIcon examId={exam.examId} size={64} className="drop-shadow-md flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bold text-[#16213E] truncate">{exam.examName}</h3>
+                        {exam.phase && (
+                          <p className="text-xs text-[#F26A4B] font-medium truncate">{exam.phase}</p>
+                        )}
+                      </div>
                     </div>
-                    <div className="font-heading text-xl font-black text-[#16213E] mt-1">
-                      {exam.name}
+
+                    {/* Date Display */}
+                    <div className="bg-gradient-to-br from-[rgba(242, 106, 75, 0.08)] to-[#FEFAF9] rounded-lg p-3 text-center border border-[rgba(242, 106, 75, 0.08)]">
+                      <div className="text-xs text-[#F26A4B] font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                        <CalendarIcon className="w-3 h-3" />
+                        Exam Date
+                      </div>
+                      <div className="text-sm font-bold text-[#16213E]">{exam.date}</div>
                     </div>
                   </div>
-                  <CalendarIcon className="w-5 h-5 text-[#F26A4B]" />
                 </div>
-                <div className="mt-4 text-sm text-[#5A6478]">
-                  {new Date(exam.date).toLocaleDateString("en-IN", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {upcomingExams.map((exam, idx) => (
+                <div
+                  key={`exam-2-${exam.id}`}
+                  className="flex-shrink-0 w-80"
+                >
+                  <div className="bg-white rounded-2xl p-5 border border-[rgba(22,33,62,0.08)] hover:border-[#F26A4B] hover:shadow-xl transition-all duration-300 h-full relative">
+                    {/* External Link - Top Right */}
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#F26A4B] hover:text-white transition-colors z-10"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
+                    {/* Compact Header */}
+                    <div className="flex items-center gap-3 mb-4 pr-10">
+                      <ColorfulExamIcon examId={exam.examId} size={64} className="drop-shadow-md flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bold text-[#16213E] truncate">{exam.examName}</h3>
+                        {exam.phase && (
+                          <p className="text-xs text-[#F26A4B] font-medium truncate">{exam.phase}</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Date Display */}
+                    <div className="bg-gradient-to-br from-[rgba(242, 106, 75, 0.08)] to-[#FEFAF9] rounded-lg p-3 text-center border border-[rgba(242, 106, 75, 0.08)]">
+                      <div className="text-xs text-[#F26A4B] font-semibold uppercase mb-1 flex items-center justify-center gap-1">
+                        <CalendarIcon className="w-3 h-3" />
+                        Exam Date
+                      </div>
+                      <div className="text-sm font-bold text-[#16213E]">{exam.date}</div>
+                    </div>
+                  </div>
                 </div>
-                <button className="mt-4 text-sm font-semibold text-[#F26A4B] hover:text-[#E15838] transition-colors">
-                  + Remind me
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="text-[#F26A4B] font-semibold hover:text-[#E15838] transition-colors"
+            >
+              View full calendar →
+            </button>
           </div>
         </section>
 

@@ -867,3 +867,30 @@ meta[name="theme-color"] {
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
+
+/* Landing page marquee animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-fast {
+  animation: marquee 40s linear infinite;
+}
+
+.pause-marquee:hover > div {
+  animation-play-state: paused;
+}
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
