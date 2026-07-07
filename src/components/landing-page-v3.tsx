@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/context/user-context";
-import { examCategories } from "@/lib/exams";
 import Image from "next/image";
 import {
   Sparkles,
@@ -18,6 +17,7 @@ import {
   BarChart3,
   Briefcase,
   Scale,
+  Cpu,
   Calendar as CalendarIcon,
   PlayCircle,
   ChevronLeft,
@@ -27,18 +27,106 @@ import {
 import { getUpcomingExams } from "@/lib/exam-calendar";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
-// Icon mapping for exam categories
-const EXAM_ICONS = {
-  "Civil Services": Landmark,
-  "Engineering": Atom,
-  "Medical": Stethoscope,
-  "Management": BarChart3,
-  "Government Jobs": Briefcase,
-  "Law": Scale,
-  "Banking": BarChart3,
-  "Teaching": GraduationCap,
-  "Defense": Target,
-};
+// Emergent exam data - exact match
+const EXAMS = [
+  {
+    id: 'upsc',
+    name: 'UPSC',
+    tagline: 'Civil Services',
+    accent: '#E76F51',
+    icon: 'Landmark',
+    learners: '184K',
+    subjects: [
+      { id: 'polity', name: 'Indian Polity' },
+      { id: 'history', name: 'Modern History' },
+      { id: 'geo', name: 'Geography' },
+      { id: 'econ', name: 'Economy' },
+    ],
+  },
+  {
+    id: 'jee',
+    name: 'JEE',
+    tagline: 'Engineering',
+    accent: '#2A9D8F',
+    icon: 'Atom',
+    learners: '312K',
+    subjects: [
+      { id: 'phy', name: 'Physics' },
+      { id: 'chem', name: 'Chemistry' },
+      { id: 'math', name: 'Mathematics' },
+    ],
+  },
+  {
+    id: 'neet',
+    name: 'NEET',
+    tagline: 'Medical',
+    accent: '#264653',
+    icon: 'Stethoscope',
+    learners: '256K',
+    subjects: [
+      { id: 'bio', name: 'Biology' },
+      { id: 'chem', name: 'Chemistry' },
+      { id: 'phy', name: 'Physics' },
+    ],
+  },
+  {
+    id: 'cat',
+    name: 'CAT',
+    tagline: 'MBA / IIM',
+    accent: '#E9C46A',
+    icon: 'BarChart3',
+    learners: '97K',
+    subjects: [
+      { id: 'qa', name: 'Quantitative Aptitude' },
+      { id: 'lrdi', name: 'LRDI' },
+      { id: 'varc', name: 'VARC' },
+    ],
+  },
+  {
+    id: 'ssc',
+    name: 'SSC & Banking',
+    tagline: 'Govt Jobs',
+    accent: '#7C3AED',
+    icon: 'Briefcase',
+    learners: '410K',
+    subjects: [
+      { id: 'reason', name: 'Reasoning' },
+      { id: 'quant', name: 'Quant' },
+      { id: 'eng', name: 'English' },
+      { id: 'ga', name: 'General Awareness' },
+    ],
+  },
+  {
+    id: 'gate',
+    name: 'GATE',
+    tagline: 'M.Tech / PSU',
+    accent: '#0EA5E9',
+    icon: 'Cpu',
+    learners: '61K',
+    subjects: [
+      { id: 'ec', name: 'Electronics' },
+      { id: 'cs', name: 'Computer Science' },
+      { id: 'me', name: 'Mechanical' },
+    ],
+  },
+  {
+    id: 'clat',
+    name: 'CLAT',
+    tagline: 'Law',
+    accent: '#DC2626',
+    icon: 'Scale',
+    learners: '38K',
+    subjects: [
+      { id: 'legal', name: 'Legal Reasoning' },
+      { id: 'logic', name: 'Logical Reasoning' },
+      { id: 'eng', name: 'English' },
+      { id: 'ga', name: 'GK & CA' },
+    ],
+  },
+];
+
+// Icon mapping
+const ICONS = { Landmark, Atom, Stethoscope, BarChart3, Briefcase, Cpu, Scale, BookOpen };
 
 // Study modes for carousel (original design from V2)
 const STUDY_MODES = [
@@ -392,7 +480,7 @@ export function LandingPageV3() {
                     >
                       <button
                         onClick={() => setShowLoginModal(true)}
-                        className="bg-[#FAF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
                         style={{
                           minHeight: '380px',
                           transform: 'translateY(0) scale(1)',
@@ -416,7 +504,7 @@ export function LandingPageV3() {
                             />
                           </div>
                         </div>
-                        <div className="p-5 flex-1 flex flex-col bg-[#FAF8F5] justify-between">
+                        <div className="p-5 flex-1 flex flex-col bg-white justify-between">
                           <div>
                             <h3 className="text-lg font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
                             <p className="text-[#5A6478] text-sm leading-relaxed mb-4 text-center">
@@ -438,11 +526,11 @@ export function LandingPageV3() {
         </section>
 
         {/* 4. EXAM CATEGORIES GRID - Emergent Structure */}
-        <section id="exams" className="py-16" data-testid="exam-categories-section">
+        <section id="exams" className="py-8" data-testid="exam-categories-section">
           <div className="flex items-end justify-between mb-8">
             <div>
               <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B]">
-                PICK YOUR BATTLE
+                Pick your battle
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mt-2">
                 All major exams. One place.
@@ -456,68 +544,56 @@ export function LandingPageV3() {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {examCategories.slice(0, 7).flatMap((category, categoryIdx) =>
-              category.exams.slice(0, 1).map((exam) => {
-                const IconComponent = EXAM_ICONS[category.name as keyof typeof EXAM_ICONS] || BookOpen;
-                const featured = categoryIdx === 0; // Only first card is featured
-                const accent = category.name === "Civil Services" ? "#E76F51" :
-                              category.name === "Engineering" ? "#2A9D8F" :
-                              category.name === "Medical" ? "#E63946" :
-                              category.name === "Management" ? "#F77F00" :
-                              category.name === "Government Jobs" ? "#06A77D" :
-                              category.name === "Law" ? "#9D4EDD" :
-                              "#F26A4B";
-
-                return (
-                  <button
-                    key={exam.id}
-                    onClick={() => setShowLoginModal(true)}
-                    data-testid={`exam-card-${exam.id}`}
-                    className={`text-left group relative rounded-3xl border border-black/5 bg-white p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(242,106,75,0.35)] overflow-hidden ${
-                      featured ? "lg:col-span-2" : ""
-                    }`}
-                  >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {EXAMS.map((exam, idx) => {
+              const Icon = ICONS[exam.icon as keyof typeof ICONS] || BookOpen;
+              const featured = idx === 0;
+              return (
+                <button
+                  key={exam.id}
+                  onClick={() => setShowLoginModal(true)}
+                  data-testid={`exam-card-${exam.id}`}
+                  className={`text-left group relative rounded-3xl border border-black/5 bg-white p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(242,106,75,0.35)] overflow-hidden ${
+                    featured ? "lg:col-span-2 xl:col-span-2" : ""
+                  }`}
+                >
+                  <div
+                    className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-10 transition-opacity group-hover:opacity-20"
+                    style={{ backgroundColor: exam.accent }}
+                  />
+                  <div className="relative flex items-start justify-between">
                     <div
-                      className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-10 transition-opacity group-hover:opacity-20"
-                      style={{ backgroundColor: accent }}
-                    />
-                    <div className="relative flex items-start justify-between">
-                      <div
-                        className="w-12 h-12 rounded-2xl grid place-items-center"
-                        style={{ backgroundColor: `${accent}20`, color: accent }}
-                      >
-                        <IconComponent className="w-6 h-6" strokeWidth={2.5} />
-                      </div>
-                      <div className="text-xs text-[#5A6478] font-mono">
-                        {Math.floor(Math.random() * 500) + 50}K
-                      </div>
+                      className="w-12 h-12 rounded-2xl grid place-items-center"
+                      style={{ backgroundColor: `${exam.accent}20`, color: exam.accent }}
+                    >
+                      <Icon className="w-6 h-6" strokeWidth={2.5} />
                     </div>
-                    <div className="relative mt-6">
-                      <div className="text-xs font-bold uppercase tracking-widest text-[#5A6478]">
-                        {category.name}
-                      </div>
-                      <div className="font-heading text-2xl sm:text-3xl font-black text-[#16213E] mt-1">
-                        {exam.name}
-                      </div>
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {exam.subjects.slice(0, featured ? 4 : 3).map((s) => (
-                          <span
-                            key={s.name}
-                            className="text-xs px-2 py-1 rounded-full bg-black/[0.04] text-[#5A6478] font-medium"
-                          >
-                            {s.name}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="text-xs text-[#5A6478] font-mono">{exam.learners}</div>
+                  </div>
+                  <div className="relative mt-6">
+                    <div className="text-xs font-bold uppercase tracking-widest text-[#5A6478]">
+                      {exam.tagline}
                     </div>
-                    <div className="relative mt-5 flex items-center gap-1 text-sm font-semibold text-[#16213E] group-hover:text-[#F26A4B] transition-colors">
-                      Enter <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <div className="font-heading text-2xl sm:text-3xl font-black text-[#16213E] mt-1">
+                      {exam.name}
                     </div>
-                  </button>
-                );
-              })
-            )}
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {exam.subjects.slice(0, featured ? 4 : 3).map((s) => (
+                        <span
+                          key={s.id}
+                          className="text-xs px-2 py-1 rounded-full bg-black/[0.04] text-[#5A6478] font-medium"
+                        >
+                          {s.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="relative mt-5 flex items-center gap-1 text-sm font-semibold text-[#16213E] group-hover:text-[#F26A4B] transition-colors">
+                    Enter <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </section>
 
