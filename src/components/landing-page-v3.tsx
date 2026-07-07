@@ -301,7 +301,7 @@ export function LandingPageV3() {
         </div>
 
         {/* 3. FEATURES CAROUSEL - Original Design with Infinite Loop */}
-        <section id="features" className="py-16 bg-white">
+        <section id="features" className="py-16 bg-[#FAF8F5]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
               <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
@@ -341,7 +341,7 @@ export function LandingPageV3() {
                     >
                       <button
                         onClick={() => setShowLoginModal(true)}
-                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
+                        className="bg-[#FAF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
                       >
                         <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
                           <div className="relative w-full h-full flex items-center justify-center">
@@ -354,7 +354,7 @@ export function LandingPageV3() {
                             />
                           </div>
                         </div>
-                        <div className="p-4 flex-1 flex flex-col bg-white justify-between">
+                        <div className="p-4 flex-1 flex flex-col bg-[#FAF8F5] justify-between">
                           <div>
                             <h3 className="text-base font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
                             <p className="text-[#5A6478] text-xs leading-relaxed mb-3 text-center">
@@ -392,7 +392,7 @@ export function LandingPageV3() {
                     >
                       <button
                         onClick={() => setShowLoginModal(true)}
-                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
+                        className="bg-[#FAF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
                         style={{
                           minHeight: '380px',
                           transform: 'translateY(0) scale(1)',
@@ -416,7 +416,7 @@ export function LandingPageV3() {
                             />
                           </div>
                         </div>
-                        <div className="p-5 flex-1 flex flex-col bg-white justify-between">
+                        <div className="p-5 flex-1 flex flex-col bg-[#FAF8F5] justify-between">
                           <div>
                             <h3 className="text-lg font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
                             <p className="text-[#5A6478] text-sm leading-relaxed mb-4 text-center">
@@ -544,7 +544,7 @@ export function LandingPageV3() {
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
                 ref={(el) => { imageRefs.current[0] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-[#F26A4B] p-4 md:p-6 max-w-sm mx-auto"
+                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
                 style={{
                   transform: visibleFeatures.has(0) ? `translateY(${imageOffsets[0]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(0) ? 1 : 0,
@@ -552,9 +552,9 @@ export function LandingPageV3() {
                 }}
               >
                 <img
-                  src="/images/features/rich-explanations.svg"
-                  alt="Rich Explanations"
-                  className="w-full h-auto"
+                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80"
+                  alt="Rich Explanations - Student studying with detailed notes"
+                  className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
             </div>
@@ -585,7 +585,7 @@ export function LandingPageV3() {
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
                 ref={(el) => { imageRefs.current[1] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-[#2E8B57] p-4 md:p-6 max-w-sm mx-auto"
+                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
                 style={{
                   transform: visibleFeatures.has(1) ? `translateY(${imageOffsets[1]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(1) ? 1 : 0,
@@ -593,9 +593,9 @@ export function LandingPageV3() {
                 }}
               >
                 <img
-                  src="/images/features/mistake-tracker.svg"
-                  alt="Mistake Tracker"
-                  className="w-full h-auto"
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+                  alt="Mistake Map - Analytics dashboard showing performance data"
+                  className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
             </div>
@@ -627,7 +627,7 @@ export function LandingPageV3() {
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
                 ref={(el) => { imageRefs.current[2] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-sky-200 p-4 md:p-6 max-w-sm mx-auto"
+                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
                 style={{
                   transform: visibleFeatures.has(2) ? `translateY(${imageOffsets[2]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(2) ? 1 : 0,
@@ -635,9 +635,9 @@ export function LandingPageV3() {
                 }}
               >
                 <img
-                  src="/images/features/ai-tutor.svg"
-                  alt="24/7 AI Tutor"
-                  className="w-full h-auto"
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"
+                  alt="Midnight Doubt AI - Student learning online at night"
+                  className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
             </div>
@@ -668,7 +668,7 @@ export function LandingPageV3() {
             <div className="w-full md:w-2/5 flex-shrink-0">
               <div
                 ref={(el) => { imageRefs.current[3] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-emerald-200 p-4 md:p-6 max-w-sm mx-auto"
+                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
                 style={{
                   transform: visibleFeatures.has(3) ? `translateY(${imageOffsets[3]}px)` : 'translateY(0px)',
                   opacity: visibleFeatures.has(3) ? 1 : 0,
@@ -676,9 +676,9 @@ export function LandingPageV3() {
                 }}
               >
                 <img
-                  src="/images/features/dashboard.svg"
-                  alt="Smart Dashboard"
-                  className="w-full h-auto"
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+                  alt="Smart Dashboard - Progress tracking and analytics"
+                  className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
             </div>
