@@ -128,22 +128,25 @@ const EXAMS = [
 // Icon mapping
 const ICONS = { Landmark, Atom, Stethoscope, BarChart3, Briefcase, Cpu, Scale, BookOpen };
 
-// Study modes for carousel (original design from V2)
+// Study modes for carousel (lighter colors)
 const STUDY_MODES = [
-  { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-orange-200", cta: "Start Learning" },
-  { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-emerald-200", cta: "Take Mock Test" },
-  { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-sky-200", cta: "Review Now" },
-  { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-[#F58972]", cta: "Play Levels" },
-  { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-rose-200", cta: "Start Training" },
-  { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-cyan-200", cta: "Start Challenge" },
-  { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-sky-300", cta: "Learn English" },
+  { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-orange-100", cta: "Start Learning" },
+  { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-emerald-100", cta: "Take Mock Test" },
+  { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-sky-100", cta: "Review Now" },
+  { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-orange-50", cta: "Play Levels" },
+  { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-rose-100", cta: "Start Training" },
+  { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-cyan-100", cta: "Start Challenge" },
+  { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-blue-100", cta: "Learn English" },
 ];
 
-// Testimonials
+// Testimonials (expanded with more stories)
 const TESTIMONIALS = [
   { name: "Priya S.", exam: "JEE Main 2026", review: "Finally understand WHY I got questions wrong, not just WHAT the answer is. Game changer for JEE prep!" },
   { name: "Rahul M.", exam: "NEET UG 2026", review: "The mistake tracker helped me realize I was making the same careless errors. Fixed it in 2 weeks!" },
   { name: "Anjali K.", exam: "UPSC CSE 2026", review: "Best ₹79 I've spent on exam prep. Better than coaching classes charging ₹50,000!" },
+  { name: "Vikram P.", exam: "CAT 2026", review: "Mock tests feel like the real thing. Pressure mode made me faster and more confident under stress." },
+  { name: "Sneha R.", exam: "SSC CGL 2026", review: "Daily practice kept me consistent. 47-day streak and counting! The spaced repetition actually works." },
+  { name: "Arjun T.", exam: "GATE EC 2026", review: "AI explanations are better than my college professor. Clear, visual, and to the point." },
 ];
 
 export function LandingEmergent() {
@@ -155,6 +158,8 @@ export function LandingEmergent() {
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [imageOffsets, setImageOffsets] = useState<number[]>([0, 0, 0, 0]);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [showExamsDropdown, setShowExamsDropdown] = useState(false);
 
   const upcomingExams = getUpcomingExams(15);
 
@@ -242,19 +247,59 @@ export function LandingEmergent() {
       {/* Top Navigation Bar - Keep as is from existing */}
       <nav className="border-b border-black/5 bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white font-bold text-base">
-              K
+          {/* Logo + Exams Dropdown */}
+          <div className="flex items-center gap-6">
+            <a href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white font-bold text-base">
+                K
+              </div>
+              <span className="text-lg font-bold text-[#16213E]">Krakkify</span>
+            </a>
+
+            {/* Exams Dropdown */}
+            <div className="hidden md:block relative">
+              <button
+                onClick={() => setShowExamsDropdown(!showExamsDropdown)}
+                onBlur={() => setTimeout(() => setShowExamsDropdown(false), 200)}
+                className="text-sm font-medium text-[#5A6478] hover:text-[#16213E] flex items-center gap-1"
+              >
+                Exams
+                <svg className={`w-4 h-4 transition-transform ${showExamsDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {showExamsDropdown && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-black/5 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                  {EXAMS.map((exam) => {
+                    const Icon = ICONS[exam.icon as keyof typeof ICONS] || BookOpen;
+                    return (
+                      <a
+                        key={exam.id}
+                        href="#exams"
+                        onClick={() => setShowExamsDropdown(false)}
+                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] transition-colors"
+                      >
+                        <div
+                          className="w-8 h-8 rounded-lg grid place-items-center flex-shrink-0"
+                          style={{ backgroundColor: `${exam.accent}20`, color: exam.accent }}
+                        >
+                          <Icon className="w-4 h-4" strokeWidth={2.5} />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-[#16213E]">{exam.name}</div>
+                          <div className="text-xs text-[#5A6478]">{exam.tagline}</div>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-            <span className="text-lg font-bold text-[#16213E]">Krakkify</span>
-          </a>
+          </div>
 
           {/* Nav Links */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#exams" className="text-sm font-medium text-[#5A6478] hover:text-[#16213E]">
-              Exams
-            </a>
             <a href="#features" className="text-sm font-medium text-[#5A6478] hover:text-[#16213E]">
               Features
             </a>
@@ -449,7 +494,7 @@ export function LandingEmergent() {
                               {mode.desc}
                             </p>
                           </div>
-                          <div className="text-[#F26A4B] font-semibold text-xs flex items-center justify-center gap-1.5">
+                          <div className="text-[#16213E] hover:text-[#F26A4B] font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors">
                             {mode.cta}
                             <ArrowRight className="w-3 h-3" />
                           </div>
@@ -511,7 +556,7 @@ export function LandingEmergent() {
                               {mode.desc}
                             </p>
                           </div>
-                          <div className="text-[#F26A4B] font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
+                          <div className="text-[#16213E] group-hover:text-[#F26A4B] font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
                             {mode.cta}
                             <ArrowRight className="w-4 h-4" />
                           </div>
@@ -536,12 +581,12 @@ export function LandingEmergent() {
                 All major exams. One place.
               </h2>
             </div>
-            <button
-              onClick={() => setShowLoginModal(true)}
+            <a
+              href="#exams"
               className="hidden md:inline-flex text-sm font-semibold text-[#16213E] hover:text-[#F26A4B] gap-1 items-center transition-colors"
             >
               Explore all <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -909,7 +954,7 @@ export function LandingEmergent() {
           </div>
         </section>
 
-        {/* 8. TESTIMONIALS */}
+        {/* 8. TESTIMONIALS WITH NAVIGATION */}
         <section className="py-16">
           <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
             STUDENT STORIES
@@ -918,15 +963,59 @@ export function LandingEmergent() {
             What students are saying
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          {/* Desktop: 3 cards with arrows */}
+          <div className="hidden md:block relative">
+            {/* Left Arrow */}
+            <button
+              onClick={() => setTestimonialIndex(testimonialIndex === 0 ? TESTIMONIALS.length - 3 : testimonialIndex - 3)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-20 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+            >
+              <ChevronLeft className="w-5 h-5 text-[#16213E]" />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => setTestimonialIndex((testimonialIndex + 3) % TESTIMONIALS.length)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-20 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+            >
+              <ChevronRight className="w-5 h-5 text-[#16213E]" />
+            </button>
+
+            <div className="grid grid-cols-3 gap-5">
+              {TESTIMONIALS.slice(testimonialIndex, testimonialIndex + 3).map((testimonial, i) => (
+                <div
+                  key={testimonialIndex + i}
+                  className="rounded-3xl bg-white border border-black/5 p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] transition-all duration-300"
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, starIdx) => (
+                      <svg key={starIdx} className="w-4 h-4 text-[#C89B3C]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-[#16213E] leading-relaxed mb-4">
+                    "{testimonial.review}"
+                  </p>
+                  <div className="text-sm">
+                    <div className="font-semibold text-[#16213E]">{testimonial.name}</div>
+                    <div className="text-[#5A6478]">{testimonial.exam}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: Show all testimonials in a grid */}
+          <div className="md:hidden grid gap-5">
             {TESTIMONIALS.map((testimonial, i) => (
               <div
                 key={i}
                 className="rounded-3xl bg-white border border-black/5 p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)]"
               >
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#C89B3C]" fill="currentColor" viewBox="0 0 20 20">
+                  {[...Array(5)].map((_, starIdx) => (
+                    <svg key={starIdx} className="w-4 h-4 text-[#C89B3C]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
