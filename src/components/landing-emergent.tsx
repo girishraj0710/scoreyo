@@ -132,15 +132,15 @@ const ICONS = { Landmark, Atom, Stethoscope, BarChart3, Briefcase, Cpu, Scale, B
 
 // Study modes for carousel (simple local SVG files)
 const STUDY_MODES = [
-  { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-[#FFE8D9]", cta: "Start Learning" },
-  { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-[#D1FAE5]", cta: "Take Mock Test" },
-  { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-[#DBEAFE]", cta: "Review Now" },
-  { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-[#FCE7D9]", cta: "Play Levels" },
-  { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-[#FFE4E6]", cta: "Start Training" },
-  { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-[#CFFAFE]", cta: "Start Challenge" },
-  { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-[#DBEAFE]", cta: "Learn English" },
-  { id: 8, image: "/images/flashcards-3d.svg", title: "Smart Flashcards", desc: "Interactive flashcards with active recall. Flip, shuffle, and master concepts faster.", headerColor: "bg-[#E9D5FF]", cta: "Create Cards" },
-  { id: 9, image: "/images/study-guides-3d.svg", title: "Study Guides", desc: "Comprehensive topic summaries and notes. Perfect for quick revision before exams.", headerColor: "bg-[#FEF3C7]", cta: "Browse Guides" },
+  { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-[#B89A54]", cta: "Start Learning" },
+  { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-[#4D8B6C]", cta: "Take Mock Test" },
+  { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-[#2C3E5C]", cta: "Review Now" },
+  { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-[#8B5CF6]", cta: "Play Levels" },
+  { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-[#DC2626]", cta: "Start Training" },
+  { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-[#E17B5C]", cta: "Start Challenge" },
+  { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-[#3B82F6]", cta: "Learn English" },
+  { id: 8, image: "/images/flashcards-3d.svg", title: "Smart Flashcards", desc: "Interactive flashcards with active recall. Flip, shuffle, and master concepts faster.", headerColor: "bg-[#A855F7]", cta: "Create Cards" },
+  { id: 9, image: "/images/study-guides-3d.svg", title: "Study Guides", desc: "Comprehensive topic summaries and notes. Perfect for quick revision before exams.", headerColor: "bg-[#F59E0B]", cta: "Browse Guides" },
 ];
 
 // Testimonials (expanded with more stories)
