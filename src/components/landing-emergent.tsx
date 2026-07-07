@@ -813,8 +813,8 @@ export function LandingEmergent() {
           </div>
 
           {/* Scrolling Marquee - Same width as ticker (not edge-to-edge) */}
-          <div className="relative overflow-hidden rounded-3xl bg-transparent group">
-            <div className="flex animate-marquee-fast gap-6 group-hover:pause-marquee">
+          <div className="relative overflow-hidden bg-transparent pause-marquee">
+            <div className="flex animate-marquee-fast gap-6">
               {/* First set of exams */}
               {upcomingExams.map((exam, idx) => (
                 <div
