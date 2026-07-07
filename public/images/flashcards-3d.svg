@@ -1,5 +1,5 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Flashcards with stacked cards and flip animation effect -->
+  <!-- 3D Flashcards with detailed stack and flip animation -->
 
   <!-- Background glow -->
   <circle cx="100" cy="100" r="65" fill="#E9D5FF" opacity="0.3"/>
@@ -7,45 +7,90 @@
   <!-- Shadow -->
   <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Back cards (stacked for 3D depth) -->
-  <rect x="45" y="62" width="90" height="110" rx="8" fill="#C4B5FD" transform="rotate(-8 100 110)"/>
-  <rect x="43" y="60" width="90" height="110" rx="8" fill="#DDD6FE" transform="rotate(-4 100 110)"/>
+  <!-- Card stack depth layers (back to front) -->
+  <!-- Card 5 (deepest) -->
+  <rect x="40" y="75" width="85" height="105" rx="8" fill="#C4B5FD" opacity="0.4" transform="rotate(-12 82.5 127.5)"/>
 
-  <!-- Front card main body -->
-  <rect x="55" y="55" width="90" height="110" rx="8" fill="#7C3AED"/>
-  <rect x="57" y="57" width="86" height="106" rx="7" fill="#FFFFFF"/>
+  <!-- Card 4 -->
+  <rect x="43" y="73" width="85" height="105" rx="8" fill="#C4B5FD" opacity="0.5" transform="rotate(-9 85.5 125.5)"/>
 
-  <!-- Question mark icon (front of card) -->
-  <circle cx="100" cy="85" r="18" fill="#7C3AED" opacity="0.15"/>
-  <circle cx="100" cy="85" r="15" fill="#A78BFA" opacity="0.2"/>
-  <text x="100" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#7C3AED" text-anchor="middle">?</text>
+  <!-- Card 3 -->
+  <rect x="46" y="71" width="85" height="105" rx="8" fill="#DDD6FE" opacity="0.7" transform="rotate(-6 88.5 123.5)"/>
+
+  <!-- Card 2 (back) -->
+  <rect x="50" y="68" width="85" height="105" rx="8" fill="#A78BFA"/>
+  <rect x="52" y="70" width="81" height="101" rx="7" fill="#DDD6FE"/>
+
+  <!-- Back pattern on Card 2 -->
+  <circle cx="92.5" cy="120" r="25" fill="#E9D5FF" opacity="0.6"/>
+  <circle cx="92.5" cy="120" r="18" fill="#C4B5FD" opacity="0.5"/>
+  <circle cx="92.5" cy="120" r="12" fill="#A78BFA" opacity="0.4"/>
+  <path d="M80 120 L85 115 M80 120 L85 125 M105 120 L100 115 M105 120 L100 125" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Card 1 (front) - main focus -->
+  <rect x="65" y="60" width="85" height="105" rx="8" fill="#7C3AED"/>
+  <rect x="67" y="62" width="81" height="101" rx="7" fill="#FFFFFF"/>
+
+  <!-- Card border accent -->
+  <rect x="67" y="62" width="81" height="101" rx="7" fill="none" stroke="#A78BFA" stroke-width="1.5"/>
+
+  <!-- Question side icon (large) -->
+  <circle cx="107.5" cy="95" r="22" fill="#E9D5FF" opacity="0.3"/>
+  <circle cx="107.5" cy="95" r="18" fill="#DDD6FE" opacity="0.6"/>
+  <circle cx="107.5" cy="95" r="14" fill="#C4B5FD" opacity="0.8"/>
+
+  <!-- Question mark with 3D effect -->
+  <path d="M107.5 85 Q112 85 114 88 Q116 91 116 94 Q116 97 113 99 Q110 101 107.5 102 L107.5 105"
+        stroke="#7C3AED" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M107.5 86 Q112 86 113.5 89 Q115 92 115 94 Q115 96.5 112.5 98.5 Q110 100.5 107.5 101.5 L107.5 104"
+        stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <circle cx="107.5" cy="110" r="3" fill="#7C3AED"/>
+  <circle cx="107.5" cy="110" r="2" fill="#A78BFA"/>
 
   <!-- Text lines on card -->
-  <rect x="70" y="115" width="60" height="4" rx="2" fill="#E9D5FF"/>
-  <rect x="70" y="125" width="50" height="4" rx="2" fill="#E9D5FF"/>
-  <rect x="70" y="135" width="55" height="4" rx="2" fill="#E9D5FF"/>
-  <rect x="70" y="145" width="45" height="4" rx="2" fill="#E9D5FF"/>
+  <rect x="75" y="125" width="60" height="4" rx="2" fill="#E9D5FF" opacity="0.9"/>
+  <rect x="75" y="133" width="55" height="4" rx="2" fill="#E9D5FF" opacity="0.8"/>
+  <rect x="75" y="141" width="58" height="4" rx="2" fill="#E9D5FF" opacity="0.7"/>
+  <rect x="75" y="149" width="50" height="4" rx="2" fill="#E9D5FF" opacity="0.6"/>
 
-  <!-- Side badges -->
-  <!-- Left badge - brain icon -->
-  <circle cx="35" cy="105" r="14" fill="#7C3AED"/>
-  <circle cx="35" cy="105" r="10" fill="#A78BFA"/>
-  <circle cx="33" cy="103" r="3" fill="#FFFFFF"/>
-  <circle cx="37" cy="103" r="3" fill="#FFFFFF"/>
-  <path d="M30 107 Q35 110 40 107" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <!-- Corner fold (3D detail) -->
+  <path d="M142 155 L150 150 L150 163 Z" fill="#F3F4F6"/>
+  <path d="M142 155 L150 150 L142 150 Z" fill="#E5E7EB"/>
 
-  <!-- Right badge - check mark (learned) -->
-  <circle cx="165" cy="115" r="14" fill="#10B981"/>
-  <path d="M160 115 L163 118 L170 111" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left side badge - Memory icon -->
+  <circle cx="40" cy="110" r="16" fill="#7C3AED"/>
+  <circle cx="40" cy="110" r="13" fill="#A78BFA"/>
+  <path d="M36 106 C36 104 37 103 39 103 C40 103 41 104 41 106 L41 110 C41 111 40 112 39 112 C37 112 36 111 36 110 Z"
+        fill="#FFFFFF" opacity="0.9"/>
+  <path d="M40 106 C40 104 41 103 43 103 C44 103 45 104 45 106 L45 110 C45 111 44 112 43 112 C41 112 40 111 40 110 Z"
+        fill="#FFFFFF" opacity="0.9"/>
+  <ellipse cx="42" cy="113" rx="6" ry="3" fill="#FFFFFF" opacity="0.8"/>
 
-  <!-- Sparkle effects -->
-  <circle cx="155" cy="60" r="4" fill="#A78BFA" opacity="0.7"/>
-  <circle cx="45" cy="65" r="3" fill="#C4B5FD" opacity="0.6"/>
-  <path d="M148 75 L150 78 L148 81 L146 78 Z" fill="#DDD6FE" opacity="0.8"/>
-  <path d="M52 135 L54 137 L52 139 L50 137 Z" fill="#A78BFA" opacity="0.6"/>
+  <!-- Right side badge - Check mark (mastered) -->
+  <circle cx="160" cy="120" r="16" fill="#10B981"/>
+  <circle cx="160" cy="120" r="13" fill="#34D399"/>
+  <path d="M154 120 L158 124 L167 115" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Top sparkle effects (learning energy) -->
+  <circle cx="155" cy="55" r="5" fill="#A78BFA" opacity="0.8"/>
+  <path d="M155 50 L156 53 L159 53 L156.5 55 L157.5 58 L155 56 L152.5 58 L153.5 55 L151 53 L154 53 Z"
+        fill="#DDD6FE" opacity="0.9"/>
+
+  <circle cx="60" cy="58" r="4" fill="#C4B5FD" opacity="0.7"/>
+  <path d="M60 54 L60.8 56.5 L63 56.5 L61.1 58 L61.9 60.5 L60 59 L58.1 60.5 L58.9 58 L57 56.5 L59.2 56.5 Z"
+        fill="#E9D5FF" opacity="0.8"/>
+
+  <!-- Light rays from card -->
+  <path d="M75 70 L72 62 M80 68 L78 59 M85 67 L85 58"
+        stroke="#DDD6FE" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <path d="M140 70 L143 62 M135 68 L137 59"
+        stroke="#DDD6FE" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
 
   <!-- Progress indicator dots -->
   <circle cx="85" cy="180" r="4" fill="#7C3AED"/>
   <circle cx="100" cy="180" r="4" fill="#A78BFA"/>
   <circle cx="115" cy="180" r="4" fill="#DDD6FE"/>
+
+  <!-- Connection lines between cards (subtle) -->
+  <line x1="92" y1="130" x2="107" y2="130" stroke="#C4B5FD" stroke-width="1" stroke-dasharray="2 2" opacity="0.4"/>
 </svg>
