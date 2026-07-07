@@ -813,7 +813,7 @@ export function LandingEmergent() {
           </div>
 
           {/* Scrolling Marquee Container - Page background color */}
-          <div className="relative overflow-hidden rounded-3xl bg-[#FAF8F5] border border-black/5 py-6 pause-marquee">
+          <div className="relative overflow-hidden rounded-3xl bg-[#FAF8F5] py-6 pause-marquee">
             <div className="flex animate-marquee-fast gap-6">
               {/* First set of exams */}
               {upcomingExams.map((exam, idx) => (
