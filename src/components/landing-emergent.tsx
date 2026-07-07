@@ -487,7 +487,7 @@ export function LandingEmergent() {
 
         {/* 3. FEATURES CAROUSEL - Original Design with Infinite Loop */}
         <section id="features" className="py-16 bg-[#FAF8F5]">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6 md:px-10">
             <div className="text-center mb-8">
               <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
                 STUDY MODES
