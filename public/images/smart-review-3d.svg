@@ -1,60 +1,40 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Smart Review with brain and AI network -->
+  <!-- Abstract learning patterns - Simple clean style -->
 
-  <!-- Background glow -->
-  <circle cx="100" cy="100" r="65" fill="#DBEAFE" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="165" rx="45" ry="7" fill="#000000" opacity="0.12"/>
 
-  <!-- Brain shadow -->
-  <ellipse cx="100" cy="155" rx="45" ry="8" fill="#000000" opacity="0.15"/>
+  <!-- Open book base -->
+  <path d="M40 110 L40 150 Q40 155 45 155 L95 155 Q100 155 100 150 L100 110 Z" fill="#3B82F6"/>
+  <path d="M160 110 L160 150 Q160 155 155 155 L105 155 Q100 155 100 150 L100 110 Z" fill="#3B82F6"/>
 
-  <!-- Brain base -->
-  <path d="M55 80 C48 82 45 88 45 95 C45 98 43 102 43 105 C43 115 50 122 58 125 C60 130 65 135 72 135 C76 135 79 133 82 132 C85 133 88 135 92 135 C100 135 105 130 108 125 C116 122 123 115 123 105 C123 102 121 98 121 95 C121 88 118 82 111 80 C107 77 102 77 98 78 C95 76 92 76 90 76 C88 76 85 76 82 78 C78 77 73 77 69 80 Z"
-        fill="#0EA5E9" opacity="0.9"/>
+  <!-- Pages -->
+  <rect x="45" y="115" width="50" height="35" fill="#DBEAFE"/>
+  <rect x="105" y="115" width="50" height="35" fill="#DBEAFE"/>
 
-  <!-- Brain 3D depth layer -->
-  <path d="M56 82 C49 84 46 90 46 97 C46 100 44 104 44 107 C44 116 51 122 59 125 C61 129 66 133 73 133 C77 133 80 131 83 130 C86 131 89 133 93 133 C101 133 106 129 109 125 C117 122 124 116 124 107 C124 104 122 100 122 97 C122 90 119 84 112 82 C108 79 103 79 99 80 C96 78 93 78 91 78 C89 78 86 78 83 80 C79 79 74 79 70 82 Z"
-        fill="#0284C7"/>
+  <!-- Abstract learning network above book -->
+  <!-- Central node -->
+  <circle cx="100" cy="80" r="12" fill="#3B82F6"/>
+  <circle cx="100" cy="80" r="8" fill="#60A5FA"/>
+  <circle cx="100" cy="80" r="4" fill="#DBEAFE"/>
 
-  <!-- Brain segments and folds -->
-  <ellipse cx="70" cy="95" rx="12" ry="18" fill="#BAE6FD" opacity="0.7"/>
-  <ellipse cx="95" cy="95" rx="12" ry="18" fill="#BAE6FD" opacity="0.7"/>
+  <!-- Connected nodes -->
+  <circle cx="70" cy="65" r="8" fill="#60A5FA"/>
+  <circle cx="130" cy="65" r="8" fill="#60A5FA"/>
+  <circle cx="85" cy="50" r="6" fill="#93C5FD"/>
+  <circle cx="115" cy="50" r="6" fill="#93C5FD"/>
 
-  <!-- Brain neural paths -->
-  <path d="M82 85 Q80 100 82 115" stroke="#0284C7" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M65 90 Q67 100 65 110" stroke="#0284C7" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M100 90 Q98 100 100 110" stroke="#0284C7" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-  <!-- Neural nodes -->
-  <circle cx="70" cy="88" r="3" fill="#0284C7"/>
-  <circle cx="70" cy="88" r="2" fill="#BAE6FD"/>
-
-  <circle cx="95" cy="88" r="3" fill="#0284C7"/>
-  <circle cx="95" cy="88" r="2" fill="#BAE6FD"/>
-
-  <circle cx="82" cy="108" r="3" fill="#0284C7"/>
-  <circle cx="82" cy="108" r="2" fill="#BAE6FD"/>
-
-  <circle cx="65" cy="102" r="3" fill="#0284C7"/>
-  <circle cx="100" cy="102" r="3" fill="#0284C7"/>
-
-  <!-- AI sparkles/connections -->
-  <circle cx="35" cy="75" r="10" fill="#0EA5E9" opacity="0.8"/>
-  <circle cx="35" cy="75" r="3" fill="#DBEAFE"/>
-  <line x1="45" y1="78" x2="55" y2="82" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="3 2"/>
-
-  <circle cx="130" cy="70" r="10" fill="#0EA5E9" opacity="0.8"/>
-  <circle cx="130" cy="70" r="3" fill="#DBEAFE"/>
-  <line x1="120" y1="75" x2="111" y2="80" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="3 2"/>
-
-  <circle cx="40" cy="120" r="8" fill="#0EA5E9" opacity="0.8"/>
-  <circle cx="40" cy="120" r="2" fill="#DBEAFE"/>
-  <line x1="48" y1="118" x2="58" y2="115" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="3 2"/>
-
-  <circle cx="125" cy="115" r="8" fill="#0EA5E9" opacity="0.8"/>
-  <circle cx="125" cy="115" r="2" fill="#DBEAFE"/>
-  <line x1="115" y1="115" x2="108" y2="115" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="3 2"/>
+  <!-- Connection lines -->
+  <line x1="100" y1="80" x2="70" y2="65" stroke="#60A5FA" stroke-width="2" opacity="0.6"/>
+  <line x1="100" y1="80" x2="130" y2="65" stroke="#60A5FA" stroke-width="2" opacity="0.6"/>
+  <line x1="70" y1="65" x2="85" y2="50" stroke="#93C5FD" stroke-width="1.5" opacity="0.5"/>
+  <line x1="130" y1="65" x2="115" y2="50" stroke="#93C5FD" stroke-width="1.5" opacity="0.5"/>
 
   <!-- Light rays -->
-  <path d="M80 65 L82 55 M75 67 L72 58" stroke="#0EA5E9" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M88 67 L91 58 M93 69 L97 61" stroke="#0EA5E9" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M100 92 L95 105" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <path d="M100 92 L105 105" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Sparkles -->
+  <circle cx="50" cy="70" r="3" fill="#60A5FA" opacity="0.8"/>
+  <circle cx="150" cy="75" r="2.5" fill="#93C5FD" opacity="0.7"/>
 </svg>

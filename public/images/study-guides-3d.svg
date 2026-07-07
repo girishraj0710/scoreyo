@@ -1,122 +1,64 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Study Guide with detailed book and pages -->
-
-  <!-- Background glow -->
-  <circle cx="100" cy="100" r="65" fill="#FEF3C7" opacity="0.3"/>
+  <!-- Man reading book - Simple clean style -->
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="155" rx="55" ry="8" fill="#000000" opacity="0.15"/>
+  <ellipse cx="100" cy="165" rx="40" ry="7" fill="#000000" opacity="0.12"/>
 
-  <!-- Pages (multiple layers for depth) -->
-  <rect x="56" y="68" width="88" height="95" rx="6" fill="#F3F4F6" transform="rotate(-4 100 115)"/>
-  <rect x="55" y="66" width="88" height="95" rx="6" fill="#E5E7EB" transform="rotate(-2 99.5 113.5)"/>
-  <rect x="54" y="64" width="88" height="95" rx="6" fill="#D1D5DB" transform="rotate(-1 99 112)"/>
+  <!-- Sitting base -->
+  <ellipse cx="100" cy="155" rx="30" ry="8" fill="#D97706"/>
 
-  <!-- Book cover (main) -->
-  <rect x="52" y="60" width="96" height="100" rx="8" fill="#F59E0B"/>
-  <rect x="54" y="62" width="92" height="96" rx="7" fill="url(#coverGradient)"/>
+  <!-- Legs -->
+  <rect x="88" y="140" width="10" height="20" rx="3" fill="#B45309"/>
+  <rect x="102" y="140" width="10" height="20" rx="3" fill="#B45309"/>
+  <ellipse cx="93" cy="158" rx="7" ry="4" fill="#92400E"/>
+  <ellipse cx="107" cy="158" rx="7" ry="4" fill="#92400E"/>
 
-  <!-- Book spine (3D) -->
-  <path d="M52 60 Q48 65 48 110 Q48 155 52 160 L54 160 L54 60 Z" fill="#D97706"/>
-  <path d="M52 60 Q49 65 49 110 Q49 155 52 160" fill="#B45309" opacity="0.5"/>
+  <!-- Body -->
+  <rect x="85" y="100" width="30" height="42" rx="4" fill="#F59E0B"/>
 
-  <!-- Bookmark ribbon with 3D depth -->
-  <rect x="127" y="60" width="12" height="60" fill="#D97706"/>
-  <rect x="128" y="60" width="10" height="60" fill="#F59E0B"/>
-  <rect x="129" y="60" width="8" height="60" fill="#FBBF24"/>
-  <path d="M133 120 L128 114 L138 114 Z" fill="#D97706"/>
-  <path d="M133 120 L129 115 L137 115 Z" fill="#F59E0B"/>
+  <!-- Book held in front -->
+  <rect x="75" y="115" width="50" height="35" rx="3" fill="#FBBF24"/>
+  <rect x="78" y="118" width="44" height="29" rx="2" fill="#FEF3C7"/>
 
-  <!-- Title embossed section -->
-  <rect x="62" y="72" width="72" height="18" rx="4" fill="url(#titleGradient)"/>
-  <rect x="63" y="73" width="70" height="16" rx="3" fill="#FDE68A" opacity="0.4"/>
-  <path d="M68 80 L80 80 M85 80 L97 80 M102 80 L114 80" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Book spine -->
+  <rect x="99" y="115" width="2" height="35" fill="#D97706"/>
 
-  <!-- Page content layers -->
-  <!-- Chapter 1 section -->
-  <circle cx="68" cy="105" r="4" fill="#F59E0B"/>
-  <circle cx="68" cy="105" r="2.5" fill="#FCD34D"/>
-  <rect x="77" y="103" width="55" height="5" rx="2.5" fill="url(#highlightGradient)"/>
+  <!-- Text lines on book -->
+  <line x1="82" y1="125" x2="97" y2="125" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="82" y1="132" x2="95" y2="132" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="82" y1="139" x2="97" y2="139" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
 
-  <rect x="77" y="114" width="58" height="3" rx="1.5" fill="#E5E7EB"/>
-  <rect x="77" y="120" width="60" height="3" rx="1.5" fill="#E5E7EB"/>
-  <rect x="77" y="126" width="52" height="3" rx="1.5" fill="#E5E7EB"/>
+  <line x1="103" y1="125" x2="118" y2="125" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="103" y1="132" x2="116" y2="132" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="103" y1="139" x2="118" y2="139" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
 
-  <!-- Highlighted text effect -->
-  <rect x="77" y="112" width="48" height="8" rx="2" fill="#FDE68A" opacity="0.35"/>
+  <!-- Arms holding book -->
+  <rect x="70" y="115" width="8" height="25" rx="3" fill="#FCD34D"/>
+  <rect x="122" y="115" width="8" height="25" rx="3" fill="#FCD34D"/>
 
-  <!-- Chapter 2 section -->
-  <circle cx="68" cy="140" r="4" fill="#F59E0B"/>
-  <circle cx="68" cy="140" r="2.5" fill="#FCD34D"/>
-  <rect x="77" y="138" width="50" height="5" rx="2.5" fill="url(#highlightGradient)"/>
+  <!-- Head -->
+  <circle cx="100" cy="85" r="16" fill="#FCD34D"/>
 
-  <rect x="77" y="149" width="55" height="3" rx="1.5" fill="#E5E7EB"/>
+  <!-- Hair -->
+  <path d="M84 78 Q84 68 100 68 Q116 68 116 78" fill="#78350F"/>
 
-  <!-- Page lines texture -->
-  <line x1="62" y1="95" x2="134" y2="95" stroke="#FEF3C7" stroke-width="0.5" opacity="0.3"/>
-  <line x1="62" y1="133" x2="134" y2="133" stroke="#FEF3C7" stroke-width="0.5" opacity="0.3"/>
+  <!-- Focused eyes (reading) -->
+  <circle cx="93" cy="85" r="2" fill="#333"/>
+  <circle cx="107" cy="85" r="2" fill="#333"/>
 
-  <!-- Corner page curl (3D detail) -->
-  <path d="M138 152 L148 147 L148 160 Z" fill="#F3F4F6"/>
-  <path d="M138 152 L148 147 L138 147 Z" fill="#E5E7EB"/>
-  <path d="M138 152 L141 150 L141 155 Z" fill="#D1D5DB" opacity="0.5"/>
+  <!-- Slight smile -->
+  <path d="M94 92 Q100 94 106 92" stroke="#333" stroke-width="1.5" stroke-linecap="round" fill="none"/>
 
-  <!-- Left side badge - Star (key concepts) -->
-  <circle cx="30" cy="105" r="16" fill="#FBBF24" stroke="#F59E0B" stroke-width="2.5"/>
-  <circle cx="30" cy="105" r="13" fill="#FCD34D"/>
-  <path d="M30 96 L31.5 101 L37 101.5 L32.5 105 L33.5 110.5 L30 107.5 L26.5 110.5 L27.5 105 L23 101.5 L28.5 101 Z"
-        fill="#FFFFFF" stroke="#FEF3C7" stroke-width="1"/>
+  <!-- Thought bubble (learning) -->
+  <circle cx="135" cy="70" r="12" fill="#FEF3C7"/>
+  <circle cx="125" cy="82" r="5" fill="#FEF3C7"/>
+  <circle cx="120" cy="88" r="3" fill="#FEF3C7"/>
 
-  <!-- Right side badge - Lightbulb (insights) -->
-  <circle cx="170" cy="115" r="16" fill="#FCD34D"/>
-  <circle cx="170" cy="115" r="13" fill="#FDE68A"/>
+  <!-- Lightbulb in thought bubble -->
+  <circle cx="135" cy="70" r="6" fill="#FBBF24"/>
+  <path d="M133 75 L133 77 L137 77 L137 75" fill="#F59E0B"/>
 
-  <!-- Bulb glass -->
-  <circle cx="170" cy="112" r="8" fill="#FFFFFF" opacity="0.95"/>
-  <circle cx="170" cy="112" r="6" fill="#FEF3C7" opacity="0.8"/>
-  <path d="M168 112 L168 108 M172 112 L172 108" stroke="#FBBF24" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-
-  <!-- Bulb base -->
-  <rect x="167" y="118" width="6" height="4" rx="1.5" fill="#F59E0B"/>
-  <rect x="167" y="122" width="6" height="2" rx="1" fill="#D97706"/>
-
-  <!-- Light rays -->
-  <line x1="162" y1="108" x2="159" y2="105" stroke="#FCD34D" stroke-width="2" stroke-linecap="round"/>
-  <line x1="178" y1="108" x2="181" y2="105" stroke="#FCD34D" stroke-width="2" stroke-linecap="round"/>
-  <line x1="164" y1="118" x2="161" y2="121" stroke="#FCD34D" stroke-width="2" stroke-linecap="round"/>
-  <line x1="176" y1="118" x2="179" y2="121" stroke="#FCD34D" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Top sparkles (learning energy) -->
-  <circle cx="155" cy="50" r="4" fill="#FCD34D" opacity="0.8"/>
-  <path d="M155 46 L156 49 L159 49 L156.5 51 L157.5 54 L155 52 L152.5 54 L153.5 51 L151 49 L154 49 Z"
-        fill="#FEF3C7"/>
-
-  <circle cx="65" cy="52" r="3" fill="#FBBF24" opacity="0.7"/>
-  <path d="M65 49 L65.7 51 L68 51 L66.1 52.5 L66.8 55 L65 53.5 L63.2 55 L63.9 52.5 L62 51 L64.3 51 Z"
-        fill="#FDE68A"/>
-
-  <!-- Shine effect on cover -->
-  <path d="M65 68 Q68 80 65 95" stroke="#FEF3C7" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-  <path d="M70 70 Q72 85 70 100" stroke="#FEF3C7" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
-
-  <!-- Progress dots -->
-  <circle cx="85" cy="175" r="4" fill="#F59E0B"/>
-  <circle cx="100" cy="175" r="4" fill="#FBBF24"/>
-  <circle cx="115" cy="175" r="4" fill="#FDE68A"/>
-
-  <defs>
-    <linearGradient id="coverGradient" x1="100" y1="62" x2="100" y2="158">
-      <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.5"/>
-      <stop offset="50%" stop-color="#FCD34D"/>
-      <stop offset="100%" stop-color="#F59E0B"/>
-    </linearGradient>
-    <linearGradient id="titleGradient" x1="62" y1="72" x2="134" y2="90">
-      <stop offset="0%" stop-color="#FDE68A"/>
-      <stop offset="100%" stop-color="#FCD34D"/>
-    </linearGradient>
-    <linearGradient id="highlightGradient" x1="77" y1="103" x2="132" y2="108">
-      <stop offset="0%" stop-color="#FDE68A"/>
-      <stop offset="100%" stop-color="#FBBF24"/>
-    </linearGradient>
-  </defs>
+  <!-- Sparkles -->
+  <circle cx="145" cy="55" r="2.5" fill="#FBBF24" opacity="0.8"/>
+  <circle cx="55" cy="100" r="3" fill="#FCD34D" opacity="0.7"/>
 </svg>

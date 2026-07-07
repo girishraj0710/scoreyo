@@ -1,0 +1,46 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Opened book - Simple clean style -->
+
+  <!-- Shadow -->
+  <ellipse cx="100" cy="165" rx="50" ry="7" fill="#000000" opacity="0.12"/>
+
+  <!-- Left page -->
+  <path d="M50 75 L50 145 Q50 150 55 150 L95 150 Q100 150 100 145 L100 75 Q100 70 95 70 L55 70 Q50 70 50 75 Z" fill="#3B82F6"/>
+  <rect x="55" y="75" width="40" height="70" fill="#EFF6FF"/>
+
+  <!-- Right page -->
+  <path d="M150 75 L150 145 Q150 150 145 150 L105 150 Q100 150 100 145 L100 75 Q100 70 105 70 L145 70 Q150 70 150 75 Z" fill="#3B82F6"/>
+  <rect x="105" y="75" width="40" height="70" fill="#EFF6FF"/>
+
+  <!-- Text lines on left page -->
+  <line x1="60" y1="85" x2="90" y2="85" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="95" x2="88" y2="95" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="105" x2="90" y2="105" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="115" x2="85" y2="115" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="125" x2="90" y2="125" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="135" x2="87" y2="135" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Text lines on right page -->
+  <line x1="110" y1="85" x2="140" y2="85" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="95" x2="138" y2="95" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="105" x2="140" y2="105" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="115" x2="135" y2="115" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="125" x2="140" y2="125" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="135" x2="137" y2="135" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Book spine highlight -->
+  <rect x="98" y="70" width="4" height="80" fill="#2563EB"/>
+
+  <!-- Bookmark ribbon -->
+  <rect x="115" y="50" width="8" height="25" fill="#FBBF24"/>
+  <path d="M115 75 L119 71 L123 75 L123 50 L115 50 Z" fill="#F59E0B"/>
+
+  <!-- ABC letters floating above -->
+  <text x="65" y="55" font-family="Arial" font-size="18" font-weight="bold" fill="#3B82F6">A</text>
+  <text x="100" y="48" font-family="Arial" font-size="18" font-weight="bold" fill="#60A5FA">B</text>
+  <text x="135" y="55" font-family="Arial" font-size="18" font-weight="bold" fill="#93C5FD">C</text>
+
+  <!-- Sparkles -->
+  <circle cx="45" cy="90" r="3" fill="#60A5FA" opacity="0.8"/>
+  <circle cx="155" cy="100" r="2.5" fill="#93C5FD" opacity="0.7"/>
+</svg>

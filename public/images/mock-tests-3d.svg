@@ -1,8 +1,45 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Mock Tests with stopwatch and timer elements -->
+  <!-- Clipboard with checkmarks - Simple clean style -->
 
-  <!-- Background glow -->
-  <circle cx="100" cy="100" r="65" fill="#D1FAE5" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="165" rx="40" ry="7" fill="#000000" opacity="0.12"/>
+
+  <!-- Clipboard -->
+  <rect x="60" y="50" width="80" height="105" rx="6" fill="#10B981"/>
+  <rect x="65" y="55" width="70" height="95" rx="4" fill="#FFFFFF"/>
+
+  <!-- Clipboard clip -->
+  <rect x="85" y="45" width="30" height="12" rx="3" fill="#047857"/>
+  <rect x="88" y="48" width="24" height="6" rx="2" fill="#059669"/>
+
+  <!-- Checklist items -->
+  <!-- Item 1 - Checked -->
+  <circle cx="75" cy="75" r="6" fill="#10B981"/>
+  <path d="M72 75 L74.5 77.5 L78 73" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="88" y1="75" x2="120" y2="75" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Item 2 - Checked -->
+  <circle cx="75" cy="95" r="6" fill="#10B981"/>
+  <path d="M72 95 L74.5 97.5 L78 93" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="88" y1="95" x2="120" y2="95" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Item 3 - Checked -->
+  <circle cx="75" cy="115" r="6" fill="#10B981"/>
+  <path d="M72 115 L74.5 117.5 L78 113" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="88" y1="115" x2="120" y2="115" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Item 4 - Unchecked -->
+  <circle cx="75" cy="135" r="6" fill="#E5E7EB"/>
+  <line x1="88" y1="135" x2="115" y2="135" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Success badge -->
+  <circle cx="130" cy="60" r="12" fill="#34D399"/>
+  <path d="M125 60 L128.5 63.5 L135 57" stroke="#FFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Sparkles -->
+  <circle cx="145" cy="100" r="3" fill="#10B981" opacity="0.7"/>
+  <circle cx="50" cy="90" r="2.5" fill="#34D399" opacity="0.8"/>
+</svg>
 
   <!-- Stopwatch shadow -->
   <ellipse cx="100" cy="155" rx="40" ry="8" fill="#000000" opacity="0.15"/>
