@@ -1,38 +1,8 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="timerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FCA5A5"/>
-      <stop offset="100%" stop-color="#DC2626"/>
-    </linearGradient>
-  </defs>
+  <!-- 3D Pressure Mode with target, arrow, and stress indicators -->
 
-  <!-- Shadow -->
-  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
-
-  <!-- Timer body -->
-  <circle cx="100" cy="100" r="50" fill="url(#timerGrad)"/>
-  <circle cx="100" cy="100" r="43" fill="#FEF2F2"/>
-
-  <!-- Timer segments (countdown) -->
-  <path d="M100 57 A43 43 0 0 1 127 67" stroke="#DC2626" stroke-width="6" stroke-linecap="round" opacity="0.3"/>
-  <path d="M127 67 A43 43 0 0 1 143 100" stroke="#EF4444" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-  <path d="M143 100 A43 43 0 0 1 127 133" stroke="#F87171" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
-
-  <!-- Center -->
-  <circle cx="100" cy="100" r="15" fill="#DC2626"/>
-  <circle cx="100" cy="100" r="10" fill="#FEF2F2"/>
-
-  <!-- Time display -->
-  <text x="100" y="106" font-family="Arial" font-size="18" font-weight="bold" fill="#DC2626" text-anchor="middle">3:00</text>
-
-  <!-- Pressure waves -->
-  <circle cx="100" cy="100" r="60" stroke="#EF4444" stroke-width="2" fill="none" opacity="0.4"/>
-  <circle cx="100" cy="100" r="68" stroke="#FCA5A5" stroke-width="2" fill="none" opacity="0.3"/>
-
-  <!-- Lightning bolts (pressure) -->
-  <path d="M155 75 L150 85 L155 85 L148 98" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M45 75 L50 85 L45 85 L52 98" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FECACA" opacity="0.3"/>
 
   <!-- Target shadow -->
   <ellipse cx="100" cy="155" rx="42" ry="8" fill="#000000" opacity="0.15"/>
