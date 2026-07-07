@@ -799,44 +799,107 @@ export function LandingEmergent() {
           </div>
         </section>
 
-        {/* 7. UPCOMING EXAM CALENDAR - Marquee Style */}
+        {/* 7. UPCOMING EXAM CALENDAR - Original Design with Fixed Width */}
         <section className="bg-transparent py-16">
           {/* Header */}
-          <div className="mb-8 text-center">
+          <div className="mb-12 text-center">
             <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
               MARK YOUR CALENDAR
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
               Upcoming Exams
             </h2>
+            <p className="text-[#5A6478] text-lg mt-3">Mark your dates and start preparing today</p>
           </div>
 
-          {/* Dark Navy Marquee Container - Same width as ticker */}
-          <div className="relative overflow-hidden rounded-3xl bg-[#16213E] text-white py-5">
-            <div className="flex whitespace-nowrap animate-marquee gap-8">
-              {/* First set of exams - inline marquee style */}
-              {[...Array(2)].map((_, k) => (
-                <div key={k} className="flex items-center gap-8">
-                  {upcomingExams.map((exam, idx) => (
-                    <span key={`${k}-${exam.id}`} className="inline-flex items-center gap-3 font-heading text-base font-semibold">
-                      <span className="inline-flex items-center gap-2">
-                        <span className="text-white">{exam.examName}</span>
+          {/* Scrolling Marquee - Same width as ticker (not edge-to-edge) */}
+          <div className="relative overflow-hidden rounded-3xl bg-transparent group">
+            <div className="flex animate-marquee-fast gap-6 group-hover:pause-marquee">
+              {/* First set of exams */}
+              {upcomingExams.map((exam, idx) => (
+                <div
+                  key={`exam-1-${exam.id}`}
+                  className="flex-shrink-0 w-80"
+                >
+                  <div className="bg-white rounded-2xl p-5 border border-[rgba(22,33,62,0.08)] hover:border-[#F26A4B] hover:shadow-xl transition-all duration-300 h-full relative">
+                    {/* External Link - Top Right */}
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#F26A4B] hover:text-white transition-colors z-10"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
+                    {/* Compact Header */}
+                    <div className="flex items-center gap-3 mb-4 pr-10">
+                      <ColorfulExamIcon examId={exam.examId} size={64} className="drop-shadow-md flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-heading text-base font-bold text-[#16213E] truncate">{exam.examName}</h3>
                         {exam.phase && (
-                          <span className="text-white/60 text-sm">({exam.phase})</span>
+                          <p className="text-xs text-[#F26A4B] font-semibold truncate">{exam.phase}</p>
                         )}
-                      </span>
-                      <span className="text-[#F26A4B]">·</span>
-                      <span className="text-white/80 text-sm">{exam.date}</span>
-                      <span className="text-[#F26A4B] text-xl">✦</span>
-                    </span>
-                  ))}
+                      </div>
+                    </div>
+
+                    {/* Date Display */}
+                    <div className="bg-gradient-to-br from-[rgba(242, 106, 75, 0.08)] to-[#FEFAF9] rounded-lg p-3 text-center border border-[rgba(242, 106, 75, 0.08)]">
+                      <div className="text-xs text-[#F26A4B] font-bold uppercase mb-1 flex items-center justify-center gap-1 tracking-wider">
+                        <CalendarIcon className="w-3 h-3" />
+                        Exam Date
+                      </div>
+                      <div className="font-heading text-sm font-black text-[#16213E]">{exam.date}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {upcomingExams.map((exam, idx) => (
+                <div
+                  key={`exam-2-${exam.id}`}
+                  className="flex-shrink-0 w-80"
+                >
+                  <div className="bg-white rounded-2xl p-5 border border-[rgba(22,33,62,0.08)] hover:border-[#F26A4B] hover:shadow-xl transition-all duration-300 h-full relative">
+                    {/* External Link - Top Right */}
+                    <a
+                      href={exam.officialWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#F26A4B] hover:text-white transition-colors z-10"
+                      title="Official Website"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
+                    {/* Compact Header */}
+                    <div className="flex items-center gap-3 mb-4 pr-10">
+                      <ColorfulExamIcon examId={exam.examId} size={64} className="drop-shadow-md flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-heading text-base font-bold text-[#16213E] truncate">{exam.examName}</h3>
+                        {exam.phase && (
+                          <p className="text-xs text-[#F26A4B] font-semibold truncate">{exam.phase}</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Date Display */}
+                    <div className="bg-gradient-to-br from-[rgba(242, 106, 75, 0.08)] to-[#FEFAF9] rounded-lg p-3 text-center border border-[rgba(242, 106, 75, 0.08)]">
+                      <div className="text-xs text-[#F26A4B] font-bold uppercase mb-1 flex items-center justify-center gap-1 tracking-wider">
+                        <CalendarIcon className="w-3 h-3" />
+                        Exam Date
+                      </div>
+                      <div className="font-heading text-sm font-black text-[#16213E]">{exam.date}</div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* View Full Calendar Button */}
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <button
               onClick={() => setShowLoginModal(true)}
               className="text-[#F26A4B] font-semibold hover:text-[#E15838] transition-colors"
