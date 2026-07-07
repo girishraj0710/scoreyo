@@ -65,8 +65,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-main), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-display: var(--font-main), system-ui, sans-serif;
+
+  /* Emergent Font System */
+  --font-sans: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: var(--font-heading), system-ui, sans-serif;
+  --font-mono: var(--font-mono), "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
 }
 
 /* Placeholder text color */
@@ -78,8 +81,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-main), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 400; /* Regular for body text */
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400; /* Regular for body text - Manrope */
   font-size: 16px;
   line-height: 1.6; /* Crucial for reading comfort in EdTech */
   letter-spacing: -0.01em; /* Makes geometric fonts look premium */
@@ -90,15 +93,18 @@ body {
     radial-gradient(circle at top left, rgba(46, 139, 87, 0.07), transparent 50%);
 }
 
-/* Big, engaging titles (Landing page, course titles) */
+/* Big, engaging titles (Landing page, course titles) - Outfit */
 h1, h2 {
+  font-family: var(--font-heading), system-ui, sans-serif;
   font-weight: 800; /* Extra Bold for punchy, modern tech feel */
-  letter-spacing: -0.03em; /* Tightens up big text beautifully */
+  letter-spacing: -0.02em; /* Tight letter-spacing for Outfit */
 }
 
-/* Questions, Flashcard Titles, Navigation links */
+/* Questions, Flashcard Titles, Navigation links - Outfit */
 h3, .nav-link, .card-title {
+  font-family: var(--font-heading), system-ui, sans-serif;
   font-weight: 600; /* Semi-bold for clear hierarchy */
+  letter-spacing: -0.01em;
 }
 
 /* Buttons and interactive elements */
@@ -893,4 +899,58 @@ meta[name="theme-color"] {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ========================================
+   EMERGENT FONT SYSTEM UTILITIES
+   ======================================== */
+
+/* Heading font (Outfit) - For all display text, titles, headings */
+.font-heading {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Body font (Manrope) - Default, already applied to body */
+.font-sans {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Mono font (JetBrains Mono) - For numbers, stats, metrics, code */
+.font-mono {
+  font-family: var(--font-mono), "SF Mono", "Monaco", "Cascadia Code", monospace;
+  font-feature-settings: "tnum", "zero";
+  letter-spacing: 0;
+}
+
+/* Font weight utilities matching Emergent */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+.font-black { font-weight: 900; }
+
+/* Emergent-specific text styles */
+.text-eyebrow {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+}
+
+.text-hero {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.75rem); /* Responsive 32px-60px */
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-stat {
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-feature-settings: "tnum", "zero";
 }

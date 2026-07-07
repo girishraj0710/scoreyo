@@ -1,18 +1,40 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Outfit, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ConditionalLayout } from "@/components/conditional-layout";
 
-// Plus Jakarta Sans - Variable font (200-800) for modern EdTech typography
-// Geometric, clean, highly readable premium platform aesthetic
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-main",
+// Emergent Design System Fonts
+// 1. Outfit - Headings (geometric sans-serif with tight tracking)
+const outfit = Outfit({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  preload: true,
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+  adjustFontFallback: true,
+});
+
+// 2. Manrope - Body text (humanist sans-serif, warm and readable)
+const manrope = Manrope({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700", "800"],
   preload: true,
   fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+  adjustFontFallback: true,
+});
+
+// 3. JetBrains Mono - Numbers & metadata (monospace for data/stats)
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  preload: true,
+  fallback: ["Menlo", "Monaco", "Courier New", "monospace"],
   adjustFontFallback: true,
 });
 
@@ -55,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} h-full antialiased`}
+      className={`${outfit.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head />
