@@ -17,6 +17,7 @@ import {
   LogOut,
   AlertTriangle,
   FileText,
+  BarChart3,
 } from "lucide-react";
 
 export function TopNav() {
