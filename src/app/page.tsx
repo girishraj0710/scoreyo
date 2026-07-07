@@ -13,8 +13,8 @@ import { isNative } from "@/lib/capacitor";
 import { toSharedSubject } from "@/lib/subject-mapper";
 
 // Dynamic import: Only load landing page for non-logged users
-// V3 = Emergent design replication
-const LandingPage = dynamic(() => import("@/components/landing-page-v3").then(mod => ({ default: mod.LandingPageV3 })), {
+// Emergent design - fresh component to fix chunk issues
+const LandingPage = dynamic(() => import("@/components/landing-emergent").then(mod => ({ default: mod.LandingEmergent })), {
   loading: () => <LoadingSkeleton type="page" />,
 });
 

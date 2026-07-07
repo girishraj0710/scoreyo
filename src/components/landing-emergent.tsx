@@ -146,7 +146,7 @@ const TESTIMONIALS = [
   { name: "Anjali K.", exam: "UPSC CSE 2026", review: "Best ₹79 I've spent on exam prep. Better than coaching classes charging ₹50,000!" },
 ];
 
-export function LandingPageV3() {
+export function LandingEmergent() {
   const { setShowLoginModal } = useUser();
   const [carouselIndex, setCarouselIndex] = useState(4); // Start at position 4 (first real card after clones)
   const [isTransitioning, setIsTransitioning] = useState(true);
