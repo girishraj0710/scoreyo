@@ -812,8 +812,8 @@ export function LandingEmergent() {
             <p className="text-[#5A6478] font-heading text-lg mt-3">Mark your dates and start preparing today</p>
           </div>
 
-          {/* Scrolling Marquee Container - Same styling as ticker */}
-          <div className="relative overflow-hidden rounded-3xl bg-white border border-black/5 py-6 pause-marquee">
+          {/* Scrolling Marquee Container - Page background color */}
+          <div className="relative overflow-hidden rounded-3xl bg-[#FAF8F5] border border-black/5 py-6 pause-marquee">
             <div className="flex animate-marquee-fast gap-6">
               {/* First set of exams */}
               {upcomingExams.map((exam, idx) => (
