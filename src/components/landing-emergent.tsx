@@ -799,8 +799,8 @@ export function LandingEmergent() {
           </div>
         </section>
 
-        {/* 7. UPCOMING EXAM CALENDAR - Original Design with Fixed Width */}
-        <section className="bg-transparent py-16">
+        {/* 7. UPCOMING EXAM CALENDAR - Matches Ticker Width */}
+        <section className="py-16">
           {/* Header */}
           <div className="mb-12 text-center">
             <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
@@ -809,11 +809,11 @@ export function LandingEmergent() {
             <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
               Upcoming Exams
             </h2>
-            <p className="text-[#5A6478] text-lg mt-3">Mark your dates and start preparing today</p>
+            <p className="text-[#5A6478] font-heading text-lg mt-3">Mark your dates and start preparing today</p>
           </div>
 
-          {/* Scrolling Marquee - Same width as ticker (not edge-to-edge) */}
-          <div className="relative overflow-hidden bg-transparent pause-marquee">
+          {/* Scrolling Marquee Container - Same styling as ticker */}
+          <div className="relative overflow-hidden rounded-3xl bg-white border border-black/5 py-6 pause-marquee">
             <div className="flex animate-marquee-fast gap-6">
               {/* First set of exams */}
               {upcomingExams.map((exam, idx) => (
