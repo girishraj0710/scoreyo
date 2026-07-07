@@ -486,48 +486,47 @@ export function LandingEmergent() {
         </div>
 
         {/* 3. FEATURES CAROUSEL - Original Design with Infinite Loop */}
-        <section id="features" className="py-16 bg-[#FAF8F5]">
-          <div className="max-w-7xl mx-auto px-6 md:px-10">
-            <div className="text-center mb-8">
-              <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
-                STUDY MODES
-              </div>
-              <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
-                Learn your way
-              </h2>
+        <section id="features" className="py-16">
+          <div className="text-center mb-8">
+            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+              STUDY MODES
             </div>
+            <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
+              Learn your way
+            </h2>
+          </div>
 
-            {/* Carousel with Arrows */}
-            <div className="relative">
-              {/* Left Arrow - hidden on mobile, visible on desktop */}
-              <button
-                onClick={() => setCarouselIndex(carouselIndex - 1)}
-                className="hidden md:flex absolute left-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
-              >
-                <ChevronLeft className="w-6 h-6 text-[#16213E]" />
-              </button>
+          {/* Carousel with Arrows */}
+          <div className="relative">
+            {/* Left Arrow - hidden on mobile, visible on desktop */}
+            <button
+              onClick={() => setCarouselIndex(carouselIndex - 1)}
+              className="hidden md:flex absolute left-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+            >
+              <ChevronLeft className="w-6 h-6 text-[#16213E]" />
+            </button>
 
-              {/* Right Arrow - hidden on mobile, visible on desktop */}
-              <button
-                onClick={() => setCarouselIndex(carouselIndex + 1)}
-                className="hidden md:flex absolute right-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
-              >
-                <ChevronRight className="w-6 h-6 text-[#16213E]" />
-              </button>
+            {/* Right Arrow - hidden on mobile, visible on desktop */}
+            <button
+              onClick={() => setCarouselIndex(carouselIndex + 1)}
+              className="hidden md:flex absolute right-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+            >
+              <ChevronRight className="w-6 h-6 text-[#16213E]" />
+            </button>
 
-              {/* Mobile: Show as horizontal scroll, Desktop: Show carousel */}
-              <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
-                <div className="flex gap-4 pt-6">
-                  {STUDY_MODES.map((mode) => (
-                    <div
-                      key={mode.id}
-                      className="flex-shrink-0 snap-center"
-                      style={{ width: 'calc(100vw - 64px)' }}
+            {/* Mobile: Show as horizontal scroll, Desktop: Show carousel */}
+            <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4">
+              <div className="flex gap-4 pt-6">
+                {STUDY_MODES.map((mode) => (
+                  <div
+                    key={mode.id}
+                    className="flex-shrink-0 snap-center"
+                    style={{ width: 'calc(100vw - 64px)' }}
+                  >
+                    <button
+                      onClick={() => setShowLoginModal(true)}
+                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full min-h-[420px]"
                     >
-                      <button
-                        onClick={() => setShowLoginModal(true)}
-                        className="bg-[#FAF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full"
-                      >
                         <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
                           <div className="relative w-full h-full flex items-center justify-center">
                             <Image
@@ -539,7 +538,7 @@ export function LandingEmergent() {
                             />
                           </div>
                         </div>
-                        <div className="p-4 flex-1 flex flex-col bg-[#FAF8F5] justify-between">
+                        <div className="p-4 flex-1 flex flex-col bg-white justify-between">
                           <div>
                             <h3 className="text-base font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
                             <p className="text-[#5A6478] text-xs leading-relaxed mb-3 text-center">
@@ -551,38 +550,38 @@ export function LandingEmergent() {
                             <ArrowRight className="w-3 h-3" />
                           </div>
                         </div>
-                      </button>
-                    </div>
-                  ))}
-                </div>
+                    </button>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              {/* Desktop: Show animated carousel */}
-              <div className="hidden md:block overflow-hidden px-4">
-                <div
-                  ref={carouselTrackRef}
-                  className="flex gap-6"
-                  style={{
-                    transform: `translateX(calc(-${carouselIndex * 25}% - ${carouselIndex * 6}px))`,
-                    transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
-                    paddingTop: '24px',
-                    paddingBottom: '24px'
-                  }}
-                >
-                  {infiniteModes.map((mode, index) => (
-                    <div
-                      key={`${mode.id}-${index}`}
-                      className="flex-shrink-0"
-                      style={{ width: 'calc(25% - 18px)' }}
-                    >
-                      <button
-                        onClick={() => setShowLoginModal(true)}
-                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col"
-                        style={{
-                          minHeight: '380px',
-                          transform: 'translateY(0) scale(1)',
-                          transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                        }}
+            {/* Desktop: Show animated carousel */}
+            <div className="hidden md:block overflow-hidden px-4">
+              <div
+                ref={carouselTrackRef}
+                className="flex gap-6"
+                style={{
+                  transform: `translateX(calc(-${carouselIndex * 25}% - ${carouselIndex * 6}px))`,
+                  transition: isTransitioning ? 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+                  paddingTop: '24px',
+                  paddingBottom: '24px'
+                }}
+              >
+                {infiniteModes.map((mode, index) => (
+                  <div
+                    key={`${mode.id}-${index}`}
+                    className="flex-shrink-0"
+                    style={{ width: 'calc(25% - 18px)' }}
+                  >
+                    <button
+                      onClick={() => setShowLoginModal(true)}
+                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col h-full"
+                      style={{
+                        minHeight: '420px',
+                        transform: 'translateY(0) scale(1)',
+                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                      }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
                         }}
@@ -612,11 +611,10 @@ export function LandingEmergent() {
                             {mode.cta}
                             <ArrowRight className="w-4 h-4" />
                           </div>
-                        </div>
-                      </button>
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
