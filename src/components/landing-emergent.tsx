@@ -139,6 +139,8 @@ const STUDY_MODES = [
   { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-[#FFE4E6]", cta: "Start Training" },
   { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-[#CFFAFE]", cta: "Start Challenge" },
   { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-[#DBEAFE]", cta: "Learn English" },
+  { id: 8, image: "/images/flashcards-3d.svg", title: "Smart Flashcards", desc: "Interactive flashcards with active recall. Flip, shuffle, and master concepts faster.", headerColor: "bg-[#E9D5FF]", cta: "Create Cards" },
+  { id: 9, image: "/images/study-guides-3d.svg", title: "Study Guides", desc: "Comprehensive topic summaries and notes. Perfect for quick revision before exams.", headerColor: "bg-[#FEF3C7]", cta: "Browse Guides" },
 ];
 
 // Testimonials (expanded with more stories)
@@ -525,7 +527,7 @@ export function LandingEmergent() {
                   >
                     <button
                       onClick={() => setShowLoginModal(true)}
-                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full min-h-[420px]"
+                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full min-h-[380px]"
                     >
                         <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
                           <div className="relative w-full h-full flex items-center justify-center">
@@ -578,7 +580,7 @@ export function LandingEmergent() {
                       onClick={() => setShowLoginModal(true)}
                       className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col h-full"
                       style={{
-                        minHeight: '420px',
+                        minHeight: '380px',
                         transform: 'translateY(0) scale(1)',
                         transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                       }}

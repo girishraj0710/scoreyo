@@ -1,0 +1,30 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="80" cy="135" rx="45" ry="8" fill="#000000" opacity="0.1"/>
+
+  <!-- Back cards (stacked) -->
+  <rect x="40" y="48" width="70" height="85" rx="6" fill="#E5E7EB" transform="rotate(-8 80 90)"/>
+  <rect x="38" y="46" width="70" height="85" rx="6" fill="#D1D5DB" transform="rotate(-4 80 90)"/>
+
+  <!-- Front card -->
+  <rect x="35" y="40" width="70" height="85" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5"/>
+
+  <!-- Question mark icon on card -->
+  <circle cx="70" cy="65" r="12" fill="#7C3AED" opacity="0.15"/>
+  <text x="70" y="72" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#7C3AED" text-anchor="middle">?</text>
+
+  <!-- Lines indicating text -->
+  <rect x="45" y="85" width="40" height="3" rx="1.5" fill="#9CA3AF"/>
+  <rect x="45" y="93" width="35" height="3" rx="1.5" fill="#9CA3AF"/>
+  <rect x="45" y="101" width="30" height="3" rx="1.5" fill="#9CA3AF"/>
+
+  <!-- Sparkle effects -->
+  <circle cx="115" cy="50" r="3" fill="#7C3AED" opacity="0.6"/>
+  <circle cx="125" cy="45" r="2" fill="#A78BFA" opacity="0.7"/>
+  <circle cx="30" cy="55" r="2.5" fill="#7C3AED" opacity="0.5"/>
+  <path d="M118 75 L120 77 L118 79 L116 77 Z" fill="#A78BFA" opacity="0.6"/>
+
+  <!-- Check mark (learned) -->
+  <circle cx="100" cy="105" r="10" fill="#10B981" opacity="0.9"/>
+  <path d="M96 105 L99 108 L104 101" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
