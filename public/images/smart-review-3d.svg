@@ -1,40 +1,37 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Abstract learning patterns - Simple clean style -->
+  <defs>
+    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="45" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Open book base -->
-  <path d="M40 110 L40 150 Q40 155 45 155 L95 155 Q100 155 100 150 L100 110 Z" fill="#3B82F6"/>
-  <path d="M160 110 L160 150 Q160 155 155 155 L105 155 Q100 155 100 150 L100 110 Z" fill="#3B82F6"/>
+  <!-- Brain shape -->
+  <ellipse cx="100" cy="100" rx="45" ry="50" fill="url(#brainGrad)"/>
+  <ellipse cx="85" cy="90" rx="20" ry="25" fill="#3B82F6"/>
+  <ellipse cx="115" cy="90" rx="20" ry="25" fill="#3B82F6"/>
+  <ellipse cx="85" cy="115" rx="18" ry="20" fill="#60A5FA"/>
+  <ellipse cx="115" cy="115" rx="18" ry="20" fill="#60A5FA"/>
 
-  <!-- Pages -->
-  <rect x="45" y="115" width="50" height="35" fill="#DBEAFE"/>
-  <rect x="105" y="115" width="50" height="35" fill="#DBEAFE"/>
-
-  <!-- Abstract learning network above book -->
-  <!-- Central node -->
-  <circle cx="100" cy="80" r="12" fill="#3B82F6"/>
-  <circle cx="100" cy="80" r="8" fill="#60A5FA"/>
-  <circle cx="100" cy="80" r="4" fill="#DBEAFE"/>
-
-  <!-- Connected nodes -->
-  <circle cx="70" cy="65" r="8" fill="#60A5FA"/>
-  <circle cx="130" cy="65" r="8" fill="#60A5FA"/>
-  <circle cx="85" cy="50" r="6" fill="#93C5FD"/>
-  <circle cx="115" cy="50" r="6" fill="#93C5FD"/>
+  <!-- Neural connections -->
+  <circle cx="75" cy="85" r="6" fill="#93C5FD"/>
+  <circle cx="100" cy="75" r="6" fill="#93C5FD"/>
+  <circle cx="125" cy="85" r="6" fill="#93C5FD"/>
+  <circle cx="90" cy="100" r="5" fill="#DBEAFE"/>
+  <circle cx="110" cy="100" r="5" fill="#DBEAFE"/>
+  <circle cx="100" cy="115" r="5" fill="#DBEAFE"/>
 
   <!-- Connection lines -->
-  <line x1="100" y1="80" x2="70" y2="65" stroke="#60A5FA" stroke-width="2" opacity="0.6"/>
-  <line x1="100" y1="80" x2="130" y2="65" stroke="#60A5FA" stroke-width="2" opacity="0.6"/>
-  <line x1="70" y1="65" x2="85" y2="50" stroke="#93C5FD" stroke-width="1.5" opacity="0.5"/>
-  <line x1="130" y1="65" x2="115" y2="50" stroke="#93C5FD" stroke-width="1.5" opacity="0.5"/>
+  <line x1="75" y1="85" x2="90" y2="100" stroke="#93C5FD" stroke-width="2" opacity="0.5"/>
+  <line x1="100" y1="75" x2="100" y2="115" stroke="#93C5FD" stroke-width="2" opacity="0.5"/>
+  <line x1="125" y1="85" x2="110" y2="100" stroke="#93C5FD" stroke-width="2" opacity="0.5"/>
 
-  <!-- Light rays -->
-  <path d="M100 92 L95 105" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-  <path d="M100 92 L105 105" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-
-  <!-- Sparkles -->
-  <circle cx="50" cy="70" r="3" fill="#60A5FA" opacity="0.8"/>
-  <circle cx="150" cy="75" r="2.5" fill="#93C5FD" opacity="0.7"/>
+  <!-- Light bulb insight -->
+  <circle cx="100" cy="50" r="15" fill="#FCD34D"/>
+  <circle cx="100" cy="48" r="10" fill="#FEF3C7"/>
+  <rect x="96" y="63" width="8" height="6" rx="2" fill="#F59E0B"/>
+  <path d="M92 50 L88 46 M108 50 L112 46 M92 44 L88 40 M108 44 L112 40" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
 </svg>

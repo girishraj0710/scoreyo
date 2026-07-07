@@ -1,41 +1,37 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Timer/Clock - Simple clean style -->
+  <defs>
+    <linearGradient id="timerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCA5A5"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="40" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Clock/Timer body -->
-  <circle cx="100" cy="100" r="45" fill="#EF4444"/>
-  <circle cx="100" cy="100" r="40" fill="#FEE2E2"/>
+  <!-- Timer body -->
+  <circle cx="100" cy="100" r="50" fill="url(#timerGrad)"/>
+  <circle cx="100" cy="100" r="43" fill="#FEF2F2"/>
 
-  <!-- Clock numbers -->
-  <circle cx="100" cy="70" r="3" fill="#DC2626"/>
-  <circle cx="130" cy="100" r="3" fill="#DC2626"/>
-  <circle cx="100" cy="130" r="3" fill="#DC2626"/>
-  <circle cx="70" cy="100" r="3" fill="#DC2626"/>
+  <!-- Timer segments (countdown) -->
+  <path d="M100 57 A43 43 0 0 1 127 67" stroke="#DC2626" stroke-width="6" stroke-linecap="round" opacity="0.3"/>
+  <path d="M127 67 A43 43 0 0 1 143 100" stroke="#EF4444" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+  <path d="M143 100 A43 43 0 0 1 127 133" stroke="#F87171" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
 
-  <!-- Clock hands -->
-  <line x1="100" y1="100" x2="100" y2="75" stroke="#DC2626" stroke-width="4" stroke-linecap="round"/>
-  <line x1="100" y1="100" x2="118" y2="108" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+  <!-- Center -->
+  <circle cx="100" cy="100" r="15" fill="#DC2626"/>
+  <circle cx="100" cy="100" r="10" fill="#FEF2F2"/>
 
-  <!-- Center dot -->
-  <circle cx="100" cy="100" r="6" fill="#DC2626"/>
-  <circle cx="100" cy="100" r="3" fill="#FEE2E2"/>
+  <!-- Time display -->
+  <text x="100" y="106" font-family="Arial" font-size="18" font-weight="bold" fill="#DC2626" text-anchor="middle">3:00</text>
 
-  <!-- Target/Pressure indicators -->
-  <circle cx="145" cy="65" r="15" fill="#F87171"/>
-  <circle cx="145" cy="65" r="10" fill="#FCA5A5"/>
-  <circle cx="145" cy="65" r="5" fill="#FEE2E2"/>
-  <circle cx="145" cy="65" r="2" fill="#DC2626"/>
+  <!-- Pressure waves -->
+  <circle cx="100" cy="100" r="60" stroke="#EF4444" stroke-width="2" fill="none" opacity="0.4"/>
+  <circle cx="100" cy="100" r="68" stroke="#FCA5A5" stroke-width="2" fill="none" opacity="0.3"/>
 
-  <!-- Speed lines for urgency -->
-  <path d="M50 90 L40 88" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <path d="M50 100 L35 100" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <path d="M50 110 L40 112" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-
-  <!-- Sparkles -->
-  <circle cx="145" cy="130" r="3" fill="#F87171" opacity="0.8"/>
-  <circle cx="55" cy="70" r="2.5" fill="#FCA5A5" opacity="0.7"/>
+  <!-- Lightning bolts (pressure) -->
+  <path d="M155 75 L150 85 L155 85 L148 98" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 75 L50 85 L45 85 L52 98" stroke="#FCD34D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
   <!-- Target shadow -->

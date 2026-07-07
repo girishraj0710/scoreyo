@@ -1,37 +1,35 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Folder with files - Simple clean style -->
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="50" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Folder body -->
-  <path d="M50 85 L50 145 Q50 150 55 150 L145 150 Q150 150 150 145 L150 85 Z" fill="#A78BFA"/>
+  <!-- Back cards (stack effect) -->
+  <rect x="75" y="105" width="50" height="60" rx="6" fill="#DDD6FE" transform="rotate(-8 100 135)"/>
+  <rect x="75" y="100" width="50" height="60" rx="6" fill="#E9D5FF" transform="rotate(-4 100 130)"/>
 
-  <!-- Folder tab -->
-  <path d="M50 85 L50 75 Q50 70 55 70 L85 70 L95 80 L145 80 Q150 80 150 85 Z" fill="#8B5CF6"/>
+  <!-- Front flashcard -->
+  <rect x="75" y="95" width="50" height="60" rx="6" fill="#FFFFFF" stroke="url(#cardGrad)" stroke-width="3"/>
 
-  <!-- File cards inside (3 stacked) -->
-  <!-- Back card -->
-  <rect x="70" y="100" width="60" height="45" rx="4" fill="#DDD6FE" opacity="0.6"/>
+  <!-- Question side -->
+  <text x="100" y="118" font-family="Arial" font-size="12" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Question</text>
+  <circle cx="100" cy="135" r="12" fill="#A78BFA"/>
+  <text x="100" y="140" font-family="Arial" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">?</text>
 
-  <!-- Middle card -->
-  <rect x="68" y="95" width="60" height="45" rx="4" fill="#E9D5FF"/>
+  <!-- Flip indicator -->
+  <path d="M110 145 L115 145 L115 150 M115 145 L110 148" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Front card -->
-  <rect x="65" y="90" width="60" height="45" rx="4" fill="#FFFFFF"/>
-  <line x1="72" y1="100" x2="118" y2="100" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/>
-  <line x1="72" y1="110" x2="115" y2="110" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/>
-  <line x1="72" y1="120" x2="118" y2="120" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/>
+  <!-- Answer card (flipped, behind) -->
+  <rect x="130" y="70" width="50" height="60" rx="6" fill="#FFFFFF" stroke="url(#cardGrad)" stroke-width="3" opacity="0.7" transform="rotate(15 155 100)"/>
+  <text x="155" y="93" font-family="Arial" font-size="12" fill="#10B981" text-anchor="middle" font-weight="bold" transform="rotate(15 155 93)">Answer</text>
+  <path d="M150 105 L153 108 L160 101" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="rotate(15 155 105)"/>
 
-  <!-- Question mark on front card -->
-  <circle cx="105" cy="100" r="8" fill="#8B5CF6"/>
-  <text x="105" y="105" font-family="Arial" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle">Q</text>
-
-  <!-- Star badge for smart -->
-  <circle cx="140" cy="65" r="12" fill="#FBBF24"/>
-  <path d="M140 60 L141 63 L144 63 L141.5 65 L142.5 68 L140 66 L137.5 68 L138.5 65 L136 63 L139 63 Z" fill="#FFF"/>
-
-  <!-- Sparkles -->
-  <circle cx="45" cy="110" r="3" fill="#A78BFA" opacity="0.8"/>
-  <circle cx="155" cy="120" r="2.5" fill="#C4B5FD" opacity="0.7"/>
+  <!-- AI sparkle -->
+  <circle cx="60" cy="80" r="15" fill="#FBBF24"/>
+  <path d="M60 72 L61 76 L65 77 L61 78 L60 82 L59 78 L55 77 L59 76 Z" fill="#FFFFFF"/>
 </svg>

@@ -1,40 +1,42 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Level progression - Simple clean style -->
+  <defs>
+    <linearGradient id="level1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="level2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="level3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="50" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="55" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Progress steps/bars -->
-  <rect x="50" y="135" width="30" height="25" rx="3" fill="#C4B5FD"/>
-  <rect x="85" y="115" width="30" height="45" rx="3" fill="#A78BFA"/>
-  <rect x="120" y="90" width="30" height="70" rx="3" fill="#8B5CF6"/>
+  <!-- Mountain peaks (levels) -->
+  <path d="M30 160 L55 110 L80 160 Z" fill="url(#level1)"/>
+  <path d="M65 160 L95 85 L125 160 Z" fill="url(#level2)"/>
+  <path d="M110 160 L145 55 L180 160 Z" fill="url(#level3)"/>
 
-  <!-- Rocket on top step -->
-  <ellipse cx="135" cy="75" rx="8" ry="4" fill="#7C3AED"/>
+  <!-- Level badges -->
+  <circle cx="55" cy="110" r="12" fill="#FFFFFF"/>
+  <text x="55" y="115" font-family="Arial" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">1</text>
 
-  <!-- Rocket body -->
-  <path d="M135 40 Q130 50 130 60 L130 75 L140 75 L140 60 Q140 50 135 40 Z" fill="#8B5CF6"/>
-  <circle cx="135" cy="45" r="6" fill="#A78BFA"/>
-  <circle cx="135" cy="45" r="3" fill="#DDD6FE"/>
+  <circle cx="95" cy="85" r="12" fill="#FFFFFF"/>
+  <text x="95" y="90" font-family="Arial" font-size="14" font-weight="bold" fill="#7C3AED" text-anchor="middle">2</text>
 
-  <!-- Rocket fins -->
-  <path d="M130 65 L125 72 L130 70 Z" fill="#7C3AED"/>
-  <path d="M140 65 L145 72 L140 70 Z" fill="#7C3AED"/>
+  <circle cx="145" cy="55" r="12" fill="#FFFFFF"/>
+  <text x="145" y="60" font-family="Arial" font-size="14" font-weight="bold" fill="#6D28D9" text-anchor="middle">3</text>
 
-  <!-- Rocket fire -->
-  <ellipse cx="135" cy="77" rx="6" ry="3" fill="#F59E0B"/>
-  <ellipse cx="135" cy="80" rx="4" ry="2" fill="#FCD34D"/>
+  <!-- Flag on peak -->
+  <line x1="145" y1="55" x2="145" y2="30" stroke="#7C3AED" stroke-width="2"/>
+  <path d="M145 30 L145 40 L160 35 Z" fill="#FCD34D"/>
 
-  <!-- Stars for achievement -->
-  <path d="M65 105 L66 108 L69 108 L66.5 110 L67.5 113 L65 111 L62.5 113 L63.5 110 L61 108 L64 108 Z" fill="#FCD34D"/>
-  <path d="M100 80 L101 83 L104 83 L101.5 85 L102.5 88 L100 86 L97.5 88 L98.5 85 L96 83 L99 83 Z" fill="#FBBF24"/>
-
-  <!-- Level numbers -->
-  <text x="65" y="152" font-family="Arial" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">1</text>
-  <text x="100" y="142" font-family="Arial" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">2</text>
-  <text x="135" y="132" font-family="Arial" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">3</text>
-
-  <!-- Sparkles -->
-  <circle cx="45" cy="120" r="2.5" fill="#A78BFA" opacity="0.7"/>
-  <circle cx="155" cy="100" r="3" fill="#C4B5FD" opacity="0.8"/>
+  <!-- Stars -->
+  <path d="M160 70 L161 73 L164 73 L161.5 75 L162.5 78 L160 76 L157.5 78 L158.5 75 L156 73 L159 73 Z" fill="#FCD34D"/>
+  <path d="M125 60 L126 62 L128 62 L126.5 63.5 L127 66 L125 64.5 L123 66 L123.5 63.5 L122 62 L124 62 Z" fill="#FBBF24"/>
 </svg>

@@ -1,49 +1,37 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Student going to school - Simple clean style -->
+  <defs>
+    <linearGradient id="bookGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="pencilGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FB923C"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="45" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Books in backpack -->
-  <rect x="85" y="95" width="8" height="15" rx="1" fill="#FB923C" transform="rotate(-15 89 102.5)"/>
-  <rect x="95" y="92" width="8" height="18" rx="1" fill="#F97316" transform="rotate(5 99 101)"/>
+  <!-- Books stack -->
+  <rect x="70" y="120" width="60" height="50" rx="4" fill="url(#bookGrad)"/>
+  <rect x="75" y="115" width="50" height="45" rx="3" fill="#FEF3C7"/>
+  <line x1="75" y1="137" x2="125" y2="137" stroke="#FCD34D" stroke-width="1"/>
+  <line x1="75" y1="145" x2="125" y2="145" stroke="#FCD34D" stroke-width="1"/>
+  <line x1="75" y1="153" x2="125" y2="153" stroke="#FCD34D" stroke-width="1"/>
 
-  <!-- Backpack -->
-  <path d="M75 105 Q75 95 85 95 L115 95 Q125 95 125 105 L125 140 Q125 145 120 145 L80 145 Q75 145 75 140 Z" fill="#FF9A76"/>
-  <rect x="82" y="100" width="36" height="8" rx="2" fill="#FF8C69"/>
-  <circle cx="88" cy="135" r="3" fill="#333" opacity="0.3"/>
-  <circle cx="112" cy="135" r="3" fill="#333" opacity="0.3"/>
+  <!-- Apple on books -->
+  <circle cx="110" cy="100" r="10" fill="#DC2626"/>
+  <ellipse cx="110" cy="105" rx="8" ry="6" fill="#EF4444"/>
+  <path d="M110 90 Q108 92 108 95" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="112" cy="98" rx="3" ry="2" fill="#FCA5A5" opacity="0.6"/>
 
-  <!-- Student body -->
-  <rect x="85" y="118" width="30" height="35" rx="4" fill="#4A90E2"/>
+  <!-- Pencil -->
+  <rect x="130" y="130" width="12" height="50" rx="2" fill="url(#pencilGrad)" transform="rotate(25 136 155)"/>
+  <path d="M125 175 L130 165 L135 165 L140 175 Z" fill="#FDE68A" transform="rotate(25 132.5 170)"/>
+  <path d="M130 165 L135 165 L132.5 160 Z" fill="#78350F" transform="rotate(25 132.5 163)"/>
 
-  <!-- Legs -->
-  <rect x="88" y="150" width="10" height="18" rx="2" fill="#2C5282"/>
-  <rect x="102" y="150" width="10" height="18" rx="2" fill="#2C5282"/>
-  <ellipse cx="93" cy="168" rx="6" ry="3" fill="#1A365D"/>
-  <ellipse cx="107" cy="168" rx="6" ry="3" fill="#1A365D"/>
-
-  <!-- Arms -->
-  <rect x="72" y="125" width="8" height="20" rx="3" fill="#FFD4A3"/>
-  <rect x="120" y="125" width="8" height="20" rx="3" fill="#FFD4A3"/>
-
-  <!-- Head -->
-  <circle cx="100" cy="95" r="18" fill="#FFD4A3"/>
-
-  <!-- Hair -->
-  <path d="M82 88 Q82 75 100 75 Q118 75 118 88" fill="#3D2817"/>
-
-  <!-- Happy face -->
-  <circle cx="93" cy="93" r="2.5" fill="#333"/>
-  <circle cx="107" cy="93" r="2.5" fill="#333"/>
-  <path d="M92 102 Q100 106 108 102" stroke="#333" stroke-width="2" stroke-linecap="round" fill="none"/>
-
-  <!-- Book in hand -->
-  <rect x="68" y="138" width="10" height="14" rx="1" fill="#FCD34D"/>
-  <line x1="68" y1="145" x2="78" y2="145" stroke="#F59E0B" stroke-width="0.5"/>
-
-  <!-- Sparkles for energy -->
-  <circle cx="135" cy="80" r="3" fill="#FFD700" opacity="0.8"/>
-  <circle cx="145" cy="95" r="2" fill="#FFA500" opacity="0.7"/>
-  <circle cx="55" cy="85" r="2.5" fill="#FFD700" opacity="0.7"/>
+  <!-- Star badge -->
+  <circle cx="90" cy="95" r="15" fill="#FCD34D"/>
+  <path d="M90 85 L92 91 L98 92 L93 96 L94 102 L90 99 L86 102 L87 96 L82 92 L88 91 Z" fill="#FFFFFF"/>
 </svg>

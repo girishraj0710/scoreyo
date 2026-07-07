@@ -1,54 +1,48 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Calendar - Simple clean style -->
+  <defs>
+    <linearGradient id="calGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="45" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Calendar base -->
-  <rect x="60" y="60" width="80" height="90" rx="6" fill="#06B6D4"/>
-  <rect x="65" y="75" width="70" height="75" rx="4" fill="#FFFFFF"/>
+  <!-- Calendar -->
+  <rect x="60" y="65" width="80" height="95" rx="8" fill="url(#calGrad)"/>
+  <rect x="65" y="85" width="70" height="70" rx="4" fill="#FFFFFF"/>
 
-  <!-- Calendar rings/binding -->
-  <circle cx="75" cy="62" r="5" fill="#0891B2"/>
-  <circle cx="90" cy="62" r="5" fill="#0891B2"/>
-  <circle cx="110" cy="62" r="5" fill="#0891B2"/>
-  <circle cx="125" cy="62" r="5" fill="#0891B2"/>
+  <!-- Calendar header -->
+  <rect x="60" y="65" width="80" height="20" rx="8" fill="#0891B2"/>
+  <circle cx="75" cy="75" r="4" fill="#E0F2FE"/>
+  <circle cx="125" cy="75" r="4" fill="#E0F2FE"/>
 
-  <!-- Header bar -->
-  <rect x="70" y="80" width="60" height="12" rx="2" fill="#06B6D4"/>
+  <!-- Week days -->
+  <text x="75" y="98" font-family="Arial" font-size="8" fill="#9CA3AF" text-anchor="middle">S</text>
+  <text x="90" y="98" font-family="Arial" font-size="8" fill="#9CA3AF" text-anchor="middle">M</text>
+  <text x="105" y="98" font-family="Arial" font-size="8" fill="#9CA3AF" text-anchor="middle">T</text>
+  <text x="120" y="98" font-family="Arial" font-size="8" fill="#9CA3AF" text-anchor="middle">W</text>
 
-  <!-- Calendar dates grid -->
-  <!-- Row 1 -->
-  <circle cx="78" cy="105" r="4" fill="#E0F2FE"/>
-  <circle cx="93" cy="105" r="4" fill="#E0F2FE"/>
-  <circle cx="108" cy="105" r="4" fill="#E0F2FE"/>
-  <circle cx="123" cy="105" r="4" fill="#E0F2FE"/>
+  <!-- Dates with checkmarks -->
+  <circle cx="75" cy="110" r="8" fill="#10B981"/>
+  <path d="M72 110 L74 112 L78 108" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Row 2 -->
-  <circle cx="78" cy="120" r="4" fill="#E0F2FE"/>
-  <circle cx="93" cy="120" r="4" fill="#E0F2FE"/>
-  <circle cx="108" cy="120" r="4" fill="#22D3EE"/>
-  <circle cx="123" cy="120" r="4" fill="#E0F2FE"/>
+  <circle cx="90" cy="110" r="8" fill="#10B981"/>
+  <path d="M87 110 L89 112 L93 108" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Row 3 -->
-  <circle cx="78" cy="135" r="4" fill="#E0F2FE"/>
-  <circle cx="93" cy="135" r="4" fill="#22D3EE"/>
-  <circle cx="108" cy="135" r="4" fill="#E0F2FE"/>
-  <circle cx="123" cy="135" r="4" fill="#E0F2FE"/>
+  <circle cx="105" cy="110" r="8" fill="#10B981"/>
+  <path d="M102 110 L104 112 L108 108" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Current day highlight (larger, highlighted) -->
-  <circle cx="100" cy="105" r="8" fill="#22D3EE"/>
-  <text x="100" y="109" font-family="Arial" font-size="10" font-weight="bold" fill="#FFF" text-anchor="middle">15</text>
+  <!-- Today -->
+  <circle cx="120" cy="110" r="10" fill="#06B6D4"/>
+  <text x="120" y="114" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">15</text>
 
-  <!-- Checkmarks on completed days -->
-  <path d="M106 119 L108.5 121.5 L112 118" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M91 134 L93.5 136.5 L97 133" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Future dates -->
+  <text x="75" y="133" font-family="Arial" font-size="10" fill="#D1D5DB" text-anchor="middle">16</text>
+  <text x="90" y="133" font-family="Arial" font-size="10" fill="#D1D5DB" text-anchor="middle">17</text>
 
-  <!-- Streak badge -->
-  <circle cx="140" cy="75" r="12" fill="#F59E0B"/>
-  <text x="140" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle">7</text>
-
-  <!-- Sparkles -->
-  <circle cx="50" cy="90" r="3" fill="#22D3EE" opacity="0.8"/>
-  <circle cx="150" cy="110" r="2.5" fill="#67E8F9" opacity="0.7"/>
+  <!-- Flame streak -->
+  <path d="M150 95 Q145 102 145 110 Q145 114 142 118 Q138 124 138 130 Q138 138 150 142 Q162 138 162 130 Q162 124 158 118 Q155 114 155 110 Q155 102 150 95 Z" fill="#F59E0B"/>
+  <text x="150" y="128" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">7</text>
 </svg>

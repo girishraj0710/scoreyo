@@ -1,44 +1,42 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Clipboard with checkmarks - Simple clean style -->
+  <defs>
+    <linearGradient id="testGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
 
   <!-- Shadow -->
-  <ellipse cx="100" cy="165" rx="40" ry="7" fill="#000000" opacity="0.12"/>
+  <ellipse cx="100" cy="170" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Clipboard -->
-  <rect x="60" y="50" width="80" height="105" rx="6" fill="#10B981"/>
-  <rect x="65" y="55" width="70" height="95" rx="4" fill="#FFFFFF"/>
+  <!-- Exam paper -->
+  <rect x="65" y="55" width="70" height="110" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
 
-  <!-- Clipboard clip -->
-  <rect x="85" y="45" width="30" height="12" rx="3" fill="#047857"/>
-  <rect x="88" y="48" width="24" height="6" rx="2" fill="#059669"/>
+  <!-- Header -->
+  <rect x="70" y="60" width="60" height="20" rx="3" fill="url(#testGrad)"/>
+  <circle cx="100" cy="70" r="6" fill="#FFFFFF"/>
+  <path d="M97 70 L99 72 L103 68" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Checklist items -->
-  <!-- Item 1 - Checked -->
-  <circle cx="75" cy="75" r="6" fill="#10B981"/>
-  <path d="M72 75 L74.5 77.5 L78 73" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="88" y1="75" x2="120" y2="75" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+  <!-- Question items -->
+  <circle cx="80" cy="95" r="8" fill="#34D399"/>
+  <text x="80" y="99" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">A</text>
+  <circle cx="105" cy="95" r="8" fill="#E5E7EB"/>
+  <text x="105" y="99" font-family="Arial" font-size="10" font-weight="bold" fill="#9CA3AF" text-anchor="middle">B</text>
+  <circle cx="80" cy="115" r="8" fill="#E5E7EB"/>
+  <text x="80" y="119" font-family="Arial" font-size="10" font-weight="bold" fill="#9CA3AF" text-anchor="middle">C</text>
+  <circle cx="105" cy="115" r="8" fill="#34D399"/>
+  <text x="105" y="119" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">D</text>
 
-  <!-- Item 2 - Checked -->
-  <circle cx="75" cy="95" r="6" fill="#10B981"/>
-  <path d="M72 95 L74.5 97.5 L78 93" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="88" y1="95" x2="120" y2="95" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+  <!-- Score badge -->
+  <circle cx="120" cy="145" r="18" fill="#10B981"/>
+  <text x="120" y="150" font-family="Arial" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">95</text>
+  <text x="120" y="159" font-family="Arial" font-size="8" fill="#D1FAE5" text-anchor="middle">%</text>
 
-  <!-- Item 3 - Checked -->
-  <circle cx="75" cy="115" r="6" fill="#10B981"/>
-  <path d="M72 115 L74.5 117.5 L78 113" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="88" y1="115" x2="120" y2="115" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Item 4 - Unchecked -->
-  <circle cx="75" cy="135" r="6" fill="#E5E7EB"/>
-  <line x1="88" y1="135" x2="115" y2="135" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Success badge -->
-  <circle cx="130" cy="60" r="12" fill="#34D399"/>
-  <path d="M125 60 L128.5 63.5 L135 57" stroke="#FFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Sparkles -->
-  <circle cx="145" cy="100" r="3" fill="#10B981" opacity="0.7"/>
-  <circle cx="50" cy="90" r="2.5" fill="#34D399" opacity="0.8"/>
+  <!-- Trophy -->
+  <circle cx="90" cy="145" r="12" fill="#FCD34D"/>
+  <path d="M85 145 L85 140 L95 140 L95 145 Q95 150 90 152 Q85 150 85 145 Z" fill="#FBBF24"/>
+  <rect x="88" y="152" width="4" height="6" fill="#F59E0B"/>
+  <rect x="85" y="158" width="10" height="3" rx="1" fill="#F59E0B"/>
 </svg>
 
   <!-- Stopwatch shadow -->
