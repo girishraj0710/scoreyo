@@ -1,30 +1,51 @@
-<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Flashcards with stacked cards and flip animation effect -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#E9D5FF" opacity="0.3"/>
+
   <!-- Shadow -->
-  <ellipse cx="80" cy="135" rx="45" ry="8" fill="#000000" opacity="0.1"/>
+  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- Back cards (stacked) -->
-  <rect x="40" y="48" width="70" height="85" rx="6" fill="#E5E7EB" transform="rotate(-8 80 90)"/>
-  <rect x="38" y="46" width="70" height="85" rx="6" fill="#D1D5DB" transform="rotate(-4 80 90)"/>
+  <!-- Back cards (stacked for 3D depth) -->
+  <rect x="45" y="62" width="90" height="110" rx="8" fill="#C4B5FD" transform="rotate(-8 100 110)"/>
+  <rect x="43" y="60" width="90" height="110" rx="8" fill="#DDD6FE" transform="rotate(-4 100 110)"/>
 
-  <!-- Front card -->
-  <rect x="35" y="40" width="70" height="85" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5"/>
+  <!-- Front card main body -->
+  <rect x="55" y="55" width="90" height="110" rx="8" fill="#7C3AED"/>
+  <rect x="57" y="57" width="86" height="106" rx="7" fill="#FFFFFF"/>
 
-  <!-- Question mark icon on card -->
-  <circle cx="70" cy="65" r="12" fill="#7C3AED" opacity="0.15"/>
-  <text x="70" y="72" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#7C3AED" text-anchor="middle">?</text>
+  <!-- Question mark icon (front of card) -->
+  <circle cx="100" cy="85" r="18" fill="#7C3AED" opacity="0.15"/>
+  <circle cx="100" cy="85" r="15" fill="#A78BFA" opacity="0.2"/>
+  <text x="100" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#7C3AED" text-anchor="middle">?</text>
 
-  <!-- Lines indicating text -->
-  <rect x="45" y="85" width="40" height="3" rx="1.5" fill="#9CA3AF"/>
-  <rect x="45" y="93" width="35" height="3" rx="1.5" fill="#9CA3AF"/>
-  <rect x="45" y="101" width="30" height="3" rx="1.5" fill="#9CA3AF"/>
+  <!-- Text lines on card -->
+  <rect x="70" y="115" width="60" height="4" rx="2" fill="#E9D5FF"/>
+  <rect x="70" y="125" width="50" height="4" rx="2" fill="#E9D5FF"/>
+  <rect x="70" y="135" width="55" height="4" rx="2" fill="#E9D5FF"/>
+  <rect x="70" y="145" width="45" height="4" rx="2" fill="#E9D5FF"/>
+
+  <!-- Side badges -->
+  <!-- Left badge - brain icon -->
+  <circle cx="35" cy="105" r="14" fill="#7C3AED"/>
+  <circle cx="35" cy="105" r="10" fill="#A78BFA"/>
+  <circle cx="33" cy="103" r="3" fill="#FFFFFF"/>
+  <circle cx="37" cy="103" r="3" fill="#FFFFFF"/>
+  <path d="M30 107 Q35 110 40 107" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Right badge - check mark (learned) -->
+  <circle cx="165" cy="115" r="14" fill="#10B981"/>
+  <path d="M160 115 L163 118 L170 111" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
   <!-- Sparkle effects -->
-  <circle cx="115" cy="50" r="3" fill="#7C3AED" opacity="0.6"/>
-  <circle cx="125" cy="45" r="2" fill="#A78BFA" opacity="0.7"/>
-  <circle cx="30" cy="55" r="2.5" fill="#7C3AED" opacity="0.5"/>
-  <path d="M118 75 L120 77 L118 79 L116 77 Z" fill="#A78BFA" opacity="0.6"/>
+  <circle cx="155" cy="60" r="4" fill="#A78BFA" opacity="0.7"/>
+  <circle cx="45" cy="65" r="3" fill="#C4B5FD" opacity="0.6"/>
+  <path d="M148 75 L150 78 L148 81 L146 78 Z" fill="#DDD6FE" opacity="0.8"/>
+  <path d="M52 135 L54 137 L52 139 L50 137 Z" fill="#A78BFA" opacity="0.6"/>
 
-  <!-- Check mark (learned) -->
-  <circle cx="100" cy="105" r="10" fill="#10B981" opacity="0.9"/>
-  <path d="M96 105 L99 108 L104 101" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Progress indicator dots -->
+  <circle cx="85" cy="180" r="4" fill="#7C3AED"/>
+  <circle cx="100" cy="180" r="4" fill="#A78BFA"/>
+  <circle cx="115" cy="180" r="4" fill="#DDD6FE"/>
 </svg>
