@@ -14,8 +14,10 @@ import { toSharedSubject } from "@/lib/subject-mapper";
 
 // Dynamic import: Only load landing page for non-logged users
 // Emergent design - fresh component to fix chunk issues
+// Note: Using landing-emergent (NOT landing-page-v3) to avoid stale Target module chunk
 const LandingPage = dynamic(() => import("@/components/landing-emergent").then(mod => ({ default: mod.LandingEmergent })), {
   loading: () => <LoadingSkeleton type="page" />,
+  ssr: false, // Disable SSR to force fresh client-side load
 });
 
 function HomePageContent() {
