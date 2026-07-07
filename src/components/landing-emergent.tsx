@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { useUser } from "@/context/user-context";
 import Image from "next/image";
 import {
@@ -21,9 +21,11 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
+  ChevronDown,
 } from "lucide-react";
 import { getUpcomingExams } from "@/lib/exam-calendar";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
+import { examCategories } from "@/lib/exams";
 
 // Version: 2026-07-07 - Fixed imports (removed Target, GraduationCap)
 
@@ -160,8 +162,21 @@ export function LandingEmergent() {
   const [imageOffsets, setImageOffsets] = useState<number[]>([0, 0, 0, 0]);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [showExamsDropdown, setShowExamsDropdown] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const examsDropdownRef = useRef<HTMLDivElement>(null);
 
   const upcomingExams = getUpcomingExams(15);
+
+  // Close exams dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (examsDropdownRef.current && !examsDropdownRef.current.contains(event.target as Node)) {
+        setShowExamsDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Create infinite loop by cloning last 4 cards at start and first 4 cards at end (for 4-card display)
   const infiniteModes = [
@@ -256,43 +271,80 @@ export function LandingEmergent() {
               <span className="text-lg font-bold text-[#16213E]">Krakkify</span>
             </a>
 
-            {/* Exams Dropdown */}
-            <div className="hidden md:block relative">
+            {/* Exams Mega Menu Dropdown */}
+            <div ref={examsDropdownRef} className="hidden md:block relative">
               <button
                 onClick={() => setShowExamsDropdown(!showExamsDropdown)}
-                onBlur={() => setTimeout(() => setShowExamsDropdown(false), 200)}
                 className="text-sm font-medium text-[#5A6478] hover:text-[#16213E] flex items-center gap-1"
               >
                 Exams
-                <svg className={`w-4 h-4 transition-transform ${showExamsDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <ChevronDown className={`w-4 h-4 transition-transform ${showExamsDropdown ? 'rotate-180' : ''}`} />
               </button>
 
+              {/* Mega Menu Dropdown */}
               {showExamsDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-black/5 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {EXAMS.map((exam) => {
-                    const Icon = ICONS[exam.icon as keyof typeof ICONS] || BookOpen;
-                    return (
-                      <a
-                        key={exam.id}
-                        href="#exams"
-                        onClick={() => setShowExamsDropdown(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] transition-colors"
-                      >
-                        <div
-                          className="w-8 h-8 rounded-lg grid place-items-center flex-shrink-0"
-                          style={{ backgroundColor: `${exam.accent}20`, color: exam.accent }}
+                <div className="absolute top-full left-0 mt-2 rounded-xl shadow-2xl overflow-hidden flex" style={{ width: '720px', maxHeight: '500px', background: "white", borderColor: "#e2e8f0", borderWidth: "1px", borderStyle: "solid" }}>
+                  {/* Left Panel - Category List */}
+                  <div className="w-64 overflow-y-auto" style={{ background: "#f8fafc", borderRightColor: "#e2e8f0", borderRightWidth: "1px", borderRightStyle: "solid" }}>
+                    <div className="py-2">
+                      {examCategories.map((category) => (
+                        <button
+                          key={category.id}
+                          onMouseEnter={() => setSelectedCategory(category.id)}
+                          onClick={() => setSelectedCategory(category.id)}
+                          className={`w-full text-left px-4 py-3 transition-colors flex items-start justify-between group ${
+                            selectedCategory === category.id
+                              ? 'bg-[white] text-slate-900 border-l-4 border-[#F26A4B]'
+                              : 'text-slate-700 hover:bg-[white] border-l-4 border-transparent'
+                          }`}
                         >
-                          <Icon className="w-4 h-4" strokeWidth={2.5} />
+                          <div className="flex-1">
+                            <div className="font-semibold text-sm mb-0.5">{category.name}</div>
+                            <div className="text-xs text-slate-500 line-clamp-1">
+                              {category.exams.map(e => e.name).slice(0, 3).join(', ')}
+                            </div>
+                          </div>
+                          <ArrowRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ml-2 ${
+                            selectedCategory === category.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
+                          }`} />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Right Panel - Exam Grid */}
+                  <div className="flex-1 bg-[white] p-5 overflow-y-auto max-h-[500px]">
+                    {selectedCategory ? (
+                      <>
+                        <h3 className="font-bold text-slate-900 mb-4 text-base">
+                          {examCategories.find(c => c.id === selectedCategory)?.name}
+                        </h3>
+                        <div className="grid grid-cols-2 gap-3">
+                          {examCategories
+                            .find(c => c.id === selectedCategory)
+                            ?.exams.map((exam) => (
+                              <button
+                                key={exam.id}
+                                onClick={() => {
+                                  setShowExamsDropdown(false);
+                                  setShowLoginModal(true);
+                                }}
+                                className="flex items-center gap-3 p-2.5 rounded-lg border border-[#e2e8f0] hover:border-[#F26A4B] hover:bg-[rgba(242,106,75,0.08)] transition-all group"
+                              >
+                                <ColorfulExamIcon examId={exam.id} size={56} />
+                                <div className="flex-1 text-left">
+                                  <div className="font-semibold text-sm text-slate-900 group-hover:text-[#F26A4B]">{exam.name}</div>
+                                </div>
+                              </button>
+                            ))}
                         </div>
-                        <div>
-                          <div className="text-sm font-semibold text-[#16213E]">{exam.name}</div>
-                          <div className="text-xs text-[#5A6478]">{exam.tagline}</div>
-                        </div>
-                      </a>
-                    );
-                  })}
+                      </>
+                    ) : (
+                      <div className="flex items-center justify-center h-full text-slate-500 text-sm">
+                        Hover over a category
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
