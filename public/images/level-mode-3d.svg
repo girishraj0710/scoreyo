@@ -1,76 +1,50 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Level Mode with trophy and achievement badges -->
+  <!-- White circular background -->
+  <circle cx="100" cy="90" r="55" fill="white" opacity="0.95"/>
 
-  <!-- Background glow -->
-  <circle cx="100" cy="100" r="65" fill="#E9D5FF" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="145" rx="45" ry="6" fill="#000000" opacity="0.1"/>
 
-  <!-- Trophy shadow -->
-  <ellipse cx="100" cy="160" rx="45" ry="8" fill="#000000" opacity="0.15"/>
-
-  <!-- Trophy base platform -->
-  <ellipse cx="100" cy="145" rx="32" ry="6" fill="#7C3AED"/>
-  <ellipse cx="100" cy="143" rx="32" ry="6" fill="#8B5CF6"/>
-
-  <!-- Trophy pedestal -->
-  <path d="M88 135 L112 135 L108 145 L92 145 Z" fill="#9333EA"/>
-  <path d="M88 135 L112 135 L108 145 L92 145 Z" fill="url(#pedestalGradient)"/>
-  <ellipse cx="100" cy="135" rx="12" ry="3" fill="#A855F7"/>
+  <!-- Trophy base -->
+  <ellipse cx="100" cy="125" rx="25" ry="5" fill="#334155"/>
+  <path d="M85 118 L115 118 L112 125 L88 125 Z" fill="#475569"/>
+  <ellipse cx="100" cy="118" rx="15" ry="3" fill="#64748B"/>
 
   <!-- Trophy stem -->
-  <rect x="94" y="120" width="12" height="16" rx="2" fill="#9333EA"/>
-  <rect x="95" y="121" width="10" height="14" fill="#A855F7"/>
+  <rect x="95" y="108" width="10" height="12" rx="1.5" fill="#475569"/>
+  <rect x="96" y="109" width="8" height="10" fill="#64748B"/>
 
-  <!-- Trophy cup main body -->
-  <path d="M70 65 L70 85 C70 95 80 102 100 105 C120 102 130 95 130 85 L130 65 Z"
-        fill="#A855F7"/>
-  <path d="M70 65 L70 85 C70 95 80 102 100 105 C120 102 130 95 130 85 L130 65 Z"
-        fill="url(#trophyGradient)"/>
+  <!-- Trophy cup -->
+  <path d="M75 60 L75 75 C75 82 85 88 100 90 C115 88 125 82 125 75 L125 60 Z" fill="#1E293B"/>
+  <path d="M75 60 L75 75 C75 82 85 88 100 90 C115 88 125 82 125 75 L125 60 Z" fill="url(#cupGradient)"/>
 
-  <!-- Trophy handles (3D) -->
-  <path d="M70 68 L60 68 C55 68 52 72 52 77 C52 82 55 86 60 86 L70 86"
-        stroke="#9333EA" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M70 68 L62 68 C58 68 55 72 55 77 C55 82 58 86 62 86 L70 86"
-        stroke="#A855F7" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-  <path d="M130 68 L140 68 C145 68 148 72 148 77 C148 82 145 86 140 86 L130 86"
-        stroke="#9333EA" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M130 68 L138 68 C142 68 145 72 145 77 C145 82 142 86 138 86 L130 86"
-        stroke="#A855F7" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Trophy handles -->
+  <path d="M75 63 L68 63 C64 63 62 66 62 70 C62 74 64 77 68 77 L75 77" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M125 63 L132 63 C136 63 138 66 138 70 C138 74 136 77 132 77 L125 77" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"/>
 
   <!-- Trophy rim -->
-  <ellipse cx="100" cy="65" rx="30" ry="8" fill="#C084FC"/>
-  <ellipse cx="100" cy="63" rx="30" ry="6" fill="#DDD6FE"/>
+  <ellipse cx="100" cy="60" rx="25" ry="6" fill="#475569"/>
+  <ellipse cx="100" cy="59" rx="25" ry="5" fill="#CBD5E1"/>
 
-  <!-- Star on trophy (3D) -->
-  <path d="M100 72 L102 79 L109 79 L103.5 83 L105.5 90 L100 86 L94.5 90 L96.5 83 L91 79 L98 79 Z"
-        fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
-  <path d="M100 75 L101 79 L105 79 L102 81 L103 85 L100 83 L97 85 L98 81 L95 79 L99 79 Z"
-        fill="#FEF3C7"/>
+  <!-- Star on cup -->
+  <path d="M100 68 L101.5 73 L106.5 73 L102.5 76 L104 81 L100 78 L96 81 L97.5 76 L93.5 73 L98.5 73 Z" fill="#FCD34D"/>
+  <path d="M100 70 L101 73 L104 73 L102 75 L102.5 78 L100 76.5 L97.5 78 L98 75 L96 73 L99 73 Z" fill="white"/>
 
-  <!-- Level badges on sides -->
-  <circle cx="45" cy="95" r="16" fill="#8B5CF6"/>
-  <text x="45" y="101" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">1</text>
-  <circle cx="45" cy="85" r="3" fill="#FCD34D"/>
+  <!-- Level badges -->
+  <circle cx="55" cy="90" r="12" fill="#8B5CF6"/>
+  <text x="55" y="95" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">1</text>
 
-  <circle cx="155" cy="95" r="16" fill="#8B5CF6"/>
-  <text x="155" y="101" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">5</text>
-  <circle cx="155" cy="85" r="3" fill="#FCD34D"/>
+  <circle cx="145" cy="90" r="12" fill="#A855F7"/>
+  <text x="145" y="95" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">5</text>
 
   <!-- Achievement stars -->
-  <path d="M75 45 L76 48 L79 48 L76.5 50 L77.5 53 L75 51 L72.5 53 L73.5 50 L71 48 L74 48 Z" fill="#FBBF24"/>
-  <path d="M125 50 L126 53 L129 53 L126.5 55 L127.5 58 L125 56 L122.5 58 L123.5 55 L121 53 L124 53 Z" fill="#FBBF24"/>
-
-  <!-- Shine effect -->
-  <path d="M85 70 Q88 78 85 85" stroke="#F3E8FF" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M75 45 L76 48 L79 48 L76.5 50 L77.5 53 L75 51 L72.5 53 L73.5 50 L71 48 L74 48 Z" fill="#FCD34D"/>
+  <path d="M125 48 L126 51 L129 51 L126.5 53 L127.5 56 L125 54 L122.5 56 L123.5 53 L121 51 L124 51 Z" fill="#FBBF24"/>
 
   <defs>
-    <linearGradient id="trophyGradient" x1="100" y1="65" x2="100" y2="105">
-      <stop offset="0%" stop-color="#DDD6FE" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="pedestalGradient" x1="100" y1="135" x2="100" y2="145">
-      <stop offset="0%" stop-color="#C084FC" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#9333EA" stop-opacity="0"/>
+    <linearGradient id="cupGradient" x1="100" y1="60" x2="100" y2="90">
+      <stop offset="0%" stop-color="#E2E8F0" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0"/>
     </linearGradient>
   </defs>
 </svg>

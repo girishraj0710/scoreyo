@@ -1,61 +1,41 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Topic Practice with books and pencil -->
+  <!-- White circular background for contrast -->
+  <circle cx="100" cy="90" r="55" fill="white" opacity="0.95"/>
 
-  <!-- Background glow -->
-  <circle cx="100" cy="100" r="65" fill="#FED7AA" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="145" rx="45" ry="6" fill="#000000" opacity="0.1"/>
 
-  <!-- Book stack shadow -->
-  <ellipse cx="100" cy="155" rx="50" ry="10" fill="#000000" opacity="0.15"/>
+  <!-- Book stack -->
+  <rect x="70" y="100" width="60" height="12" rx="2" fill="#1E293B"/>
+  <rect x="73" y="103" width="54" height="6" fill="#F1F5F9"/>
 
-  <!-- Bottom book -->
-  <rect x="55" y="120" width="90" height="15" rx="2" fill="#FB923C"/>
-  <rect x="58" y="122" width="84" height="11" rx="1" fill="#FDBA74"/>
-  <path d="M58 122 L142 122 L142 133 L58 133" fill="url(#bookGradient1)"/>
+  <rect x="68" y="85" width="64" height="12" rx="2" fill="#334155"/>
+  <rect x="71" y="88" width="58" height="6" fill="#F8FAFC"/>
+  <line x1="75" y1="91" x2="90" y2="91" stroke="#94A3B8" stroke-width="0.5"/>
 
-  <!-- Middle book -->
-  <rect x="60" y="102" width="80" height="20" rx="2" fill="#F97316"/>
-  <rect x="63" y="105" width="74" height="14" rx="1" fill="#FED7AA"/>
-  <!-- Book lines -->
-  <line x1="70" y1="110" x2="130" y2="110" stroke="#FB923C" stroke-width="1.5" opacity="0.6"/>
-  <line x1="70" y1="114" x2="130" y2="114" stroke="#FB923C" stroke-width="1.5" opacity="0.6"/>
+  <!-- Open book on top -->
+  <path d="M65 65 L65 87 Q65 88 67 88 L98 88 Q100 88 100 87 L100 67 Q100 65 98 65 Z" fill="#475569"/>
+  <rect x="68" y="68" width="30" height="17" fill="white"/>
+  <line x1="72" y1="72" x2="94" y2="72" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="72" y1="76" x2="92" y2="76" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="72" y1="80" x2="94" y2="80" stroke="#E2E8F0" stroke-width="1"/>
 
-  <!-- Top book (open) -->
-  <path d="M65 85 L65 105 Q65 107 67 107 L98 107 Q100 107 100 105 L100 87 Q100 85 98 85 Z" fill="#FB923C"/>
-  <path d="M135 85 L135 105 Q135 107 133 107 L102 107 Q100 107 100 105 L100 87 Q100 85 102 85 Z" fill="#FB923C"/>
-
-  <!-- Open book pages -->
-  <rect x="68" y="88" width="30" height="16" fill="#FFF7ED"/>
-  <rect x="102" y="88" width="30" height="16" fill="#FFF7ED"/>
-  <!-- Page lines -->
-  <line x1="72" y1="92" x2="94" y2="92" stroke="#FDBA74" stroke-width="1" opacity="0.5"/>
-  <line x1="72" y1="96" x2="94" y2="96" stroke="#FDBA74" stroke-width="1" opacity="0.5"/>
-  <line x1="72" y1="100" x2="90" y2="100" stroke="#FDBA74" stroke-width="1" opacity="0.5"/>
-  <line x1="106" y1="92" x2="128" y2="92" stroke="#FDBA74" stroke-width="1" opacity="0.5"/>
-  <line x1="106" y1="96" x2="128" y2="96" stroke="#FDBA74" stroke-width="1" opacity="0.5"/>
-  <line x1="106" y1="100" x2="124" y2="100" stroke="#FDBA74" stroke-width="1" opacity="0.5"/>
+  <path d="M135 65 L135 87 Q135 88 133 88 L102 88 Q100 88 100 87 L100 67 Q100 65 102 65 Z" fill="#475569"/>
+  <rect x="102" y="68" width="30" height="17" fill="white"/>
+  <line x1="106" y1="72" x2="128" y2="72" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="106" y1="76" x2="126" y2="76" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="106" y1="80" x2="128" y2="80" stroke="#E2E8F0" stroke-width="1"/>
 
   <!-- Pencil -->
-  <g transform="rotate(25 145 80)">
-    <rect x="140" y="50" width="12" height="45" rx="2" fill="#FCD34D"/>
-    <rect x="140" y="50" width="12" height="8" rx="2" fill="#EF4444"/>
-    <circle cx="146" cy="54" r="3" fill="#92400E"/>
-    <path d="M146 95 L143 100 L149 100 Z" fill="#78350F"/>
-    <!-- Shine -->
-    <rect x="144" y="58" width="2" height="28" fill="#FEF3C7" opacity="0.6"/>
+  <g transform="rotate(25 140 70)">
+    <rect x="135" y="45" width="10" height="35" rx="1.5" fill="#FCD34D"/>
+    <rect x="135" y="45" width="10" height="6" fill="#F97316"/>
+    <circle cx="140" cy="48" r="2" fill="#92400E"/>
+    <path d="M140 80 L137 84 L143 84 Z" fill="#78350F"/>
+    <rect x="138" y="52" width="2" height="22" fill="white" opacity="0.4"/>
   </g>
 
-  <!-- Light bulb icon (learning) -->
-  <circle cx="50" cy="60" r="14" fill="#FCD34D" opacity="0.8"/>
-  <path d="M50 50 L51 53 L53 53 L51.5 54.5 L52 57 L50 55.5 L48 57 L48.5 54.5 L47 53 L49 53 Z" fill="#FBBF24"/>
-
-  <!-- Star icon -->
-  <circle cx="150" cy="130" r="12" fill="#FBBF24" opacity="0.8"/>
-  <path d="M150 123 L151 126 L154 126 L151.5 128 L152.5 131 L150 129 L147.5 131 L148.5 128 L146 126 L149 126 Z" fill="#F59E0B"/>
-
-  <defs>
-    <linearGradient id="bookGradient1" x1="58" y1="122" x2="142" y2="133">
-      <stop offset="0%" stop-color="#FDBA74" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#FB923C" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+  <!-- Star badge -->
+  <circle cx="140" cy="105" r="10" fill="#FCD34D"/>
+  <path d="M140 100 L141 103 L144 103 L141.5 105 L142.5 108 L140 106 L137.5 108 L138.5 105 L136 103 L139 103 Z" fill="white"/>
 </svg>

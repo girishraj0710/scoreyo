@@ -1,69 +1,39 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D Daily Practice with flame, calendar, and progress bar -->
+  <!-- White circular background -->
+  <circle cx="100" cy="90" r="55" fill="white" opacity="0.95"/>
 
-  <!-- Background glow -->
-  <circle cx="100" cy="90" r="60" fill="#FEF3C7" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="145" rx="45" ry="6" fill="#000000" opacity="0.1"/>
 
-  <!-- Flame icon on top with glow -->
-  <circle cx="100" cy="40" r="18" fill="#FCD34D" opacity="0.5"/>
-  <path d="M100 25 Q95 32 95 40 Q95 44 92 48 Q88 54 88 60 Q88 68 100 72 Q112 68 112 60 Q112 54 108 48 Q105 44 105 40 Q105 32 100 25 Z" fill="#F59E0B"/>
-  <path d="M100 32 Q98 36 98 40 Q98 43 96 46 Q94 50 94 54 Q94 60 100 63 Q106 60 106 54 Q106 50 104 46 Q102 43 102 40 Q102 36 100 32 Z" fill="#FDE047"/>
-  <circle cx="100" cy="42" r="3" fill="#FEF3C7"/>
-
-  <!-- Calendar shadow -->
-  <ellipse cx="100" cy="145" rx="45" ry="8" fill="#000000" opacity="0.15"/>
-
-  <!-- Calendar body -->
-  <rect x="60" y="70" width="80" height="70" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <!-- Calendar -->
+  <rect x="70" y="60" width="60" height="70" rx="4" fill="#1E293B"/>
+  <rect x="73" y="75" width="54" height="52" rx="2" fill="white"/>
 
   <!-- Calendar header -->
-  <rect x="60" y="70" width="80" height="16" rx="6" fill="#06B6D4"/>
-  <rect x="60" y="80" width="80" height="6" fill="#0891B2"/>
+  <rect x="70" y="60" width="60" height="15" rx="4" fill="#0EA5E9"/>
+  <circle cx="80" cy="67.5" r="3" fill="white" opacity="0.7"/>
+  <circle cx="120" cy="67.5" r="3" fill="white" opacity="0.7"/>
 
-  <!-- Binding holes -->
-  <circle cx="72" cy="74" r="3" fill="#E0F2FE"/>
-  <circle cx="88" cy="74" r="3" fill="#E0F2FE"/>
-  <circle cx="100" cy="74" r="3" fill="#E0F2FE"/>
-  <circle cx="112" cy="74" r="3" fill="#E0F2FE"/>
-  <circle cx="128" cy="74" r="3" fill="#E0F2FE"/>
+  <!-- Calendar dates -->
+  <circle cx="82" cy="88" r="5" fill="#10B981"/>
+  <path d="M79.5 88 L81.5 90 L84.5 86" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Calendar grid -->
-  <circle cx="75" cy="100" r="4" fill="#BAE6FD"/>
-  <path d="M73 100 L74.5 101.5 L77 99" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="100" cy="88" r="5" fill="#10B981"/>
+  <path d="M97.5 88 L99.5 90 L102.5 86" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <circle cx="90" cy="100" r="4" fill="#BAE6FD"/>
-  <path d="M88 100 L89.5 101.5 L92 99" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="118" cy="88" r="5" fill="#10B981"/>
+  <path d="M115.5 88 L117.5 90 L120.5 86" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <circle cx="110" cy="100" r="4" fill="#BAE6FD"/>
-  <path d="M108 100 L109.5 101.5 L112 99" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Current day -->
+  <circle cx="82" cy="103" r="6" fill="#0EA5E9"/>
+  <text x="82" y="106" font-family="Arial" font-size="9" font-weight="bold" fill="white" text-anchor="middle">15</text>
 
-  <circle cx="125" cy="100" r="4" fill="#D1D5DB"/>
-  <circle cx="75" cy="115" r="4" fill="#D1D5DB"/>
-  <circle cx="90" cy="115" r="4" fill="#D1D5DB"/>
-  <circle cx="110" cy="115" r="4" fill="#D1D5DB"/>
-  <circle cx="125" cy="115" r="4" fill="#D1D5DB"/>
+  <!-- Future dates -->
+  <text x="100" y="107" font-family="Arial" font-size="9" fill="#94A3B8" text-anchor="middle">16</text>
+  <text x="118" y="107" font-family="Arial" font-size="9" fill="#94A3B8" text-anchor="middle">17</text>
 
-  <!-- Side badges -->
-  <!-- Left badge - star -->
-  <circle cx="45" cy="105" r="12" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/>
-  <path d="M45 99 L46 102 L49 102 L46.5 104 L47.5 107 L45 105 L42.5 107 L43.5 104 L41 102 L44 102 Z" fill="#FFFFFF"/>
-
-  <!-- Right badge - checkmark -->
-  <circle cx="155" cy="105" r="12" fill="#10B981" stroke="#059669" stroke-width="2"/>
-  <path d="M150 105 L153 108 L160 101" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Progress bar -->
-  <rect x="60" y="155" width="80" height="12" rx="6" fill="#E5E7EB"/>
-  <rect x="60" y="155" width="55" height="12" rx="6" fill="url(#progressGradient)"/>
-
-  <!-- Streak number badge -->
-  <circle cx="135" cy="125" r="10" fill="#F59E0B"/>
-  <text x="135" y="129" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">7</text>
-
-  <defs>
-    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F59E0B"/>
-      <stop offset="100%" stop-color="#FBBF24"/>
-    </linearGradient>
-  </defs>
+  <!-- Flame streak -->
+  <path d="M145 80 Q142 86 142 92 Q142 95 140 98 Q138 102 138 106 Q138 112 145 115 Q152 112 152 106 Q152 102 150 98 Q148 95 148 92 Q148 86 145 80 Z" fill="#F97316"/>
+  <path d="M145 85 Q143 89 143 93 Q143 95 142 97 Q141 99 141 101 Q141 105 145 107 Q149 105 149 101 Q149 99 148 97 Q147 95 147 93 Q147 89 145 85 Z" fill="#FCD34D"/>
+  <text x="145" y="103" font-family="Arial" font-size="11" font-weight="bold" fill="white" text-anchor="middle">7</text>
 </svg>

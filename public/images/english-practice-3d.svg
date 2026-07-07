@@ -1,91 +1,36 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 3D English Practice with book, globe, and vocabulary -->
+  <!-- White circular background -->
+  <circle cx="100" cy="90" r="55" fill="white" opacity="0.95"/>
 
-  <!-- Background glow -->
-  <circle cx="100" cy="100" r="65" fill="#BAE6FD" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="145" rx="50" ry="6" fill="#000000" opacity="0.1"/>
 
-  <!-- Book shadow -->
-  <ellipse cx="100" cy="155" rx="50" ry="8" fill="#000000" opacity="0.15"/>
+  <!-- Dictionary book -->
+  <rect x="60" y="65" width="80" height="70" rx="4" fill="#1E293B"/>
+  <rect x="63" y="68" width="74" height="64" rx="3" fill="white"/>
 
-  <!-- Open book base -->
-  <path d="M50 130 L50 80 C50 75 52 70 56 70 L100 75 L144 70 C148 70 150 75 150 80 L150 130 L100 135 Z"
-        fill="#0284C7"/>
-  <path d="M50 130 L50 80 C50 75 52 70 56 70 L100 75 L144 70 C148 70 150 75 150 80 L150 130 L100 135 Z"
-        fill="url(#bookGradient)"/>
+  <!-- Pages effect -->
+  <rect x="61" y="66" width="78" height="68" rx="3.5" fill="#E2E8F0" opacity="0.5"/>
 
-  <!-- Book pages (left side) -->
-  <path d="M52 82 L98 86 L98 132 L52 128 Z" fill="#E0F2FE"/>
-  <line x1="60" y1="92" x2="90" y2="94" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="60" y1="98" x2="90" y2="100" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="60" y1="104" x2="90" y2="106" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="60" y1="110" x2="90" y2="112" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="60" y1="116" x2="90" y2="118" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
+  <!-- Large letter -->
+  <text x="100" y="108" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#3B82F6" text-anchor="middle">A</text>
 
-  <!-- Book pages (right side) -->
-  <path d="M102 86 L148 82 L148 128 L102 132 Z" fill="#E0F2FE"/>
-  <line x1="110" y1="94" x2="140" y2="92" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="110" y1="100" x2="140" y2="98" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="110" y1="106" x2="140" y2="104" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="110" y1="112" x2="140" y2="110" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
-  <line x1="110" y1="118" x2="140" y2="116" stroke="#0369A1" stroke-width="1.5" opacity="0.6"/>
+  <!-- Phonetic -->
+  <text x="100" y="120" font-family="Arial" font-size="10" fill="#64748B" text-anchor="middle">/eɪ/</text>
 
-  <!-- Book spine -->
-  <rect x="98" y="75" width="4" height="60" fill="#075985"/>
+  <!-- Bookmark tabs -->
+  <rect x="140" y="72" width="8" height="12" fill="#EF4444"/>
+  <text x="144" y="81" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">A</text>
 
-  <!-- Large "A" on left page -->
-  <text x="75" y="105" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#0369A1">A</text>
+  <rect x="140" y="87" width="8" height="12" fill="#F59E0B"/>
+  <text x="144" y="96" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">B</text>
 
-  <!-- Dictionary icon indicator -->
-  <text x="125" y="100" font-family="Arial, sans-serif" font-size="10" fill="#0369A1">vocab</text>
+  <rect x="140" y="102" width="8" height="12" fill="#10B981"/>
+  <text x="144" y="111" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">C</text>
 
-  <!-- Globe floating above -->
-  <circle cx="100" cy="55" r="22" fill="#0EA5E9"/>
-  <circle cx="100" cy="55" r="22" fill="url(#globeGradient)"/>
-
-  <!-- Globe latitude lines -->
-  <ellipse cx="100" cy="55" rx="22" ry="8" fill="none" stroke="#BAE6FD" stroke-width="1.5" opacity="0.8"/>
-  <ellipse cx="100" cy="55" rx="22" ry="14" fill="none" stroke="#BAE6FD" stroke-width="1.5" opacity="0.8"/>
-
-  <!-- Globe longitude line -->
-  <path d="M78 55 Q100 45 122 55 Q100 65 78 55" fill="none" stroke="#BAE6FD" stroke-width="1.5" opacity="0.8"/>
-
-  <!-- Continents suggestion -->
-  <path d="M95 50 L98 48 L102 49 L105 47 L107 50 L105 53 L100 54 Z" fill="#075985" opacity="0.6"/>
-
-  <!-- TOEFL badge -->
-  <circle cx="155" cy="90" r="14" fill="#FBBF24"/>
-  <text x="155" y="87" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">TOE</text>
-  <text x="155" y="96" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">FL</text>
-
-  <!-- Business icon -->
-  <rect x="33" y="90" width="22" height="16" rx="2" fill="#0EA5E9"/>
-  <rect x="37" y="85" width="14" height="5" rx="1" fill="#0284C7"/>
-  <line x1="44" y1="85" x2="44" y2="82" stroke="#0284C7" stroke-width="2"/>
-  <circle cx="44" cy="81" r="1.5" fill="#0284C7"/>
-  <text x="44" y="100" font-family="Arial, sans-serif" font-size="7" fill="#0369A1" text-anchor="middle">Biz</text>
-
-  <!-- Vocabulary word bubbles -->
-  <circle cx="45" cy="135" r="10" fill="#E0F2FE"/>
-  <text x="45" y="139" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#0369A1" text-anchor="middle">a</text>
-
-  <circle cx="155" cy="125" r="10" fill="#E0F2FE"/>
-  <text x="155" y="129" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#0369A1" text-anchor="middle">b</text>
-
-  <circle cx="130" cy="145" r="10" fill="#E0F2FE"/>
-  <text x="130" y="149" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#0369A1" text-anchor="middle">c</text>
-
-  <!-- Checkmark for progress -->
-  <circle cx="160" cy="60" r="12" fill="#10B981"/>
-  <path d="M155 60 L158 63 L165 56" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <defs>
-    <linearGradient id="bookGradient" x1="100" y1="70" x2="100" y2="135">
-      <stop offset="0%" stop-color="#BAE6FD" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="globeGradient" x1="100" y1="33" x2="100" y2="77">
-      <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#0369A1" stop-opacity="0.1"/>
-    </linearGradient>
-  </defs>
+  <!-- Graduation cap -->
+  <path d="M100 48 L75 56 L100 64 L125 56 Z" fill="#1E293B"/>
+  <path d="M75 56 L75 62 Q75 65 100 72 Q125 65 125 62 L125 56" fill="#334155"/>
+  <rect x="123" y="55" width="2.5" height="16" fill="#1E293B"/>
+  <circle cx="124.25" cy="71" r="2.5" fill="#FCD34D"/>
 </svg>
