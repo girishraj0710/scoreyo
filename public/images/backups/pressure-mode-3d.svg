@@ -1,0 +1,71 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D Pressure Mode with target, arrow, and stress indicators -->
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="65" fill="#FECACA" opacity="0.3"/>
+
+  <!-- Target shadow -->
+  <ellipse cx="100" cy="155" rx="42" ry="8" fill="#000000" opacity="0.15"/>
+
+  <!-- Target stand/base -->
+  <rect x="95" y="135" width="10" height="20" rx="1" fill="#991B1B"/>
+  <ellipse cx="100" cy="155" rx="18" ry="6" fill="#7F1D1D"/>
+
+  <!-- Target board (3D circles) -->
+  <!-- Outer ring -->
+  <circle cx="100" cy="95" r="45" fill="#DC2626"/>
+  <circle cx="100" cy="94" r="45" fill="#EF4444"/>
+
+  <!-- Second ring -->
+  <circle cx="100" cy="95" r="36" fill="#FCA5A5"/>
+  <circle cx="100" cy="94" r="36" fill="#FEE2E2"/>
+
+  <!-- Third ring -->
+  <circle cx="100" cy="95" r="27" fill="#F87171"/>
+  <circle cx="100" cy="94" r="27" fill="#FCA5A5"/>
+
+  <!-- Fourth ring -->
+  <circle cx="100" cy="95" r="18" fill="#EF4444"/>
+  <circle cx="100" cy="94" r="18" fill="#FCA5A5"/>
+
+  <!-- Center/bullseye -->
+  <circle cx="100" cy="95" r="9" fill="#7F1D1D"/>
+  <circle cx="100" cy="94" r="9" fill="#DC2626"/>
+  <circle cx="100" cy="93" r="5" fill="#FEF2F2"/>
+
+  <!-- Arrow (3D) -->
+  <line x1="145" y1="50" x2="105" y2="90" stroke="#7F1D1D" stroke-width="5" stroke-linecap="round"/>
+  <line x1="145" y1="50" x2="106" y2="89" stroke="#991B1B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Arrow tip -->
+  <path d="M105 90 L100 95 L110 95 Z" fill="#7F1D1D"/>
+  <path d="M106 90 L102 94 L109 94 Z" fill="#991B1B"/>
+
+  <!-- Arrow feathers -->
+  <path d="M145 50 L142 54 L147 52 Z" fill="#DC2626"/>
+  <path d="M145 50 L147 54 L145 48 Z" fill="#DC2626"/>
+
+  <!-- Arrow shaft detail -->
+  <circle cx="125" cy="70" r="2" fill="#7F1D1D"/>
+  <circle cx="135" cy="60" r="2" fill="#7F1D1D"/>
+
+  <!-- Pressure indicators / stress waves -->
+  <circle cx="100" cy="95" r="52" stroke="#F87171" stroke-width="2" fill="none" opacity="0.4"/>
+  <circle cx="100" cy="95" r="58" stroke="#FCA5A5" stroke-width="2" fill="none" opacity="0.3"/>
+  <circle cx="100" cy="95" r="64" stroke="#FEE2E2" stroke-width="1.5" fill="none" opacity="0.2"/>
+
+  <!-- Side stress indicators -->
+  <circle cx="40" cy="80" r="10" fill="#EF4444"/>
+  <path d="M37 80 L40 77 L43 80 L40 83 Z" fill="#FEE2E2"/>
+
+  <circle cx="160" cy="110" r="10" fill="#EF4444"/>
+  <path d="M157 110 L160 107 L163 110 L160 113 Z" fill="#FEE2E2"/>
+
+  <!-- Timer countdown -->
+  <circle cx="50" cy="120" r="14" fill="#DC2626"/>
+  <text x="50" y="126" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">5</text>
+
+  <!-- Target score -->
+  <circle cx="150" cy="65" r="14" fill="#10B981"/>
+  <path d="M145 65 L148 68 L155 61" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
