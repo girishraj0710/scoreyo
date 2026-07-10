@@ -79,6 +79,8 @@ export async function GET(req: NextRequest) {
         description: deck.description,
         isAiGenerated: deck.is_ai_generated,
         isMine: deck.is_mine,
+        sourceType: deck.source_type || 'manual',
+        sourceQuizSessionId: deck.source_quiz_session_id,
         createdAt: deck.created_at,
         updatedAt: deck.updated_at,
         // Community fields

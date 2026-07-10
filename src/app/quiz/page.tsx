@@ -240,6 +240,10 @@ function QuizContent() {
   // Sprint mode state
   const [sprintData, setSprintData] = useState<any>(null);
 
+  // Flashcard creation state
+  const [isCreatingFlashcards, setIsCreatingFlashcards] = useState(false);
+  const [flashcardCreated, setFlashcardCreated] = useState(false);
+
   // Calculate max time for pressure mode based on questions and difficulty
   const calculateMaxTime = (numQuestions: number, difficultyLevel: string) => {
     // Base time per question by difficulty
@@ -621,6 +625,43 @@ function QuizContent() {
     }
   };
 
+  const handleCreateFlashcards = async (includeAll = false) => {
+    if (!results || !quizData) return;
+
+    setIsCreatingFlashcards(true);
+
+    try {
+      const response = await fetch('/api/flashcards/from-quiz', {
+        method: 'POST',
+        headers: getHeadersWithCsrf(),
+        body: JSON.stringify({
+          sessionId: quizData.sessionId,
+          includeAll,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setFlashcardCreated(true);
+
+        // Show success message
+        setTimeout(() => {
+          if (confirm(`✅ Created flashcard deck with ${data.deck.cardCount} cards!\n\nWould you like to study it now?`)) {
+            router.push(`/flashcards/study/${data.deck.id}`);
+          }
+        }, 300);
+      } else {
+        const error = await response.json();
+        alert(`Failed to create flashcards: ${error.error}`);
+      }
+    } catch (error) {
+      console.error('Error creating flashcards:', error);
+      alert('Failed to create flashcards. Please try again.');
+    } finally {
+      setIsCreatingFlashcards(false);
+    }
+  };
+
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
@@ -935,7 +976,7 @@ function QuizContent() {
             </div>
           </div>
 
-          <div className="flex gap-3 justify-center">
+          <div className="flex gap-3 justify-center flex-wrap">
             {isSprintMode ? (
               <a
                 href="/sprint"
@@ -968,6 +1009,78 @@ function QuizContent() {
             </a>
           </div>
         </div>
+
+        {/* Create Flashcards from Mistakes */}
+        {!isSprintMode && !flashcardCreated && (results.totalQuestions - results.correctAnswers) > 0 && (
+          <div className="rounded-2xl p-6 shadow-lg border mb-8 bg-gradient-to-br from-orange-50 to-pink-50 dark:from-slate-900 dark:to-slate-800" style={{ borderColor: "var(--card-border)" }}>
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-2" style={{ color: "var(--foreground)" }}>
+                  Turn Mistakes into Mastery 🎯
+                </h3>
+                <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
+                  You got {results.totalQuestions - results.correctAnswers} {results.totalQuestions - results.correctAnswers === 1 ? 'question' : 'questions'} wrong.
+                  Create flashcards to review and master {results.totalQuestions - results.correctAnswers === 1 ? 'it' : 'them'}!
+                </p>
+                <div className="flex gap-3 flex-wrap">
+                  <button
+                    onClick={() => handleCreateFlashcards(false)}
+                    disabled={isCreatingFlashcards}
+                    className="px-6 py-2 bg-[#F26A4B] hover:bg-[#E76F51] text-white rounded-lg font-semibold flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isCreatingFlashcards ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Creating...
+                      </>
+                    ) : (
+                      <>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                        Create from Wrong Answers ({results.totalQuestions - results.correctAnswers} cards)
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => handleCreateFlashcards(true)}
+                    disabled={isCreatingFlashcards}
+                    className="px-6 py-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg font-semibold border border-slate-200 dark:border-slate-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ color: "var(--foreground-secondary)" }}
+                  >
+                    Create from All Questions ({results.totalQuestions} cards)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Flashcard Created Success Message */}
+        {flashcardCreated && (
+          <div className="rounded-2xl p-6 shadow-lg border mb-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-900 dark:to-slate-800 border-green-200 dark:border-green-900">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-green-900 dark:text-green-100">
+                  ✅ Flashcard deck created successfully!
+                </p>
+                <p className="text-sm text-green-700 dark:text-green-300">
+                  Visit <a href="/flashcards" className="underline font-semibold">Flashcards page</a> to start studying.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Question-by-question review */}
         <h3 className="text-lg font-semibold mb-4" style={{ color: "var(--foreground)" }}>
