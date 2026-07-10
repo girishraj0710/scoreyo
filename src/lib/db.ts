@@ -3212,3 +3212,360 @@ export async function getPendingStudyMaterialsCount(): Promise<number> {
     client.release();
   }
 }
+
+// =============================================
+// FLASHCARD SYSTEM - DATABASE FUNCTIONS
+// =============================================
+
+/**
+ * Get all decks for a user
+ */
+export async function getFlashcardDecks(userId: number) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        fd.*,
+        COUNT(DISTINCT fp.id) FILTER (WHERE fp.times_correct > 0) as mastered_count,
+        COUNT(DISTINCT fp.id) FILTER (WHERE fp.next_review <= NOW()) as due_count
+      FROM flashcard_decks fd
+      LEFT JOIN flashcard_progress fp ON fd.id = fp.deck_id AND fp.user_id = $1
+      WHERE fd.user_id = $1 OR fd.is_public = true
+      GROUP BY fd.id
+      ORDER BY fd.updated_at DESC
+      `,
+      [userId]
+    );
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get a specific deck with all cards
+ */
+export async function getFlashcardDeck(deckId: number, userId: number) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    // Get deck metadata
+    const deckResult = await client.query(
+      `SELECT * FROM flashcard_decks WHERE id = $1 AND (user_id = $2 OR is_public = true)`,
+      [deckId, userId]
+    );
+
+    if (deckResult.rows.length === 0) return null;
+
+    // Get cards with progress
+    const cardsResult = await client.query(
+      `
+      SELECT
+        fc.*,
+        fp.last_reviewed,
+        fp.next_review,
+        fp.ease_factor,
+        fp.interval_days,
+        fp.repetitions,
+        fp.rating,
+        fp.times_reviewed,
+        fp.times_correct
+      FROM flashcards fc
+      LEFT JOIN flashcard_progress fp ON fc.id = fp.card_id AND fp.user_id = $2
+      WHERE fc.deck_id = $1
+      ORDER BY fc.card_order ASC
+      `,
+      [deckId, userId]
+    );
+
+    return {
+      ...deckResult.rows[0],
+      cards: cardsResult.rows
+    };
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Create a new flashcard deck
+ */
+export async function createFlashcardDeck(
+  userId: number,
+  title: string,
+  description: string,
+  examId: string,
+  subjectId: string,
+  topic: string,
+  isAiGenerated: boolean = false
+) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      INSERT INTO flashcard_decks (user_id, title, description, exam_id, subject_id, topic, is_ai_generated)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING *
+      `,
+      [userId, title, description, examId, subjectId, topic, isAiGenerated]
+    );
+    return result.rows[0];
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Add cards to a deck (bulk insert)
+ */
+export async function addFlashcardsToDeck(
+  deckId: number,
+  cards: Array<{
+    front: string;
+    back: string;
+    hint?: string;
+    example?: string;
+    difficulty?: string;
+  }>
+) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const values: any[] = [];
+    const placeholders: string[] = [];
+    let paramIndex = 1;
+
+    cards.forEach((card, index) => {
+      placeholders.push(
+        `($${paramIndex}, $${paramIndex + 1}, $${paramIndex + 2}, $${paramIndex + 3}, $${paramIndex + 4}, $${paramIndex + 5}, $${paramIndex + 6})`
+      );
+      values.push(
+        deckId,
+        card.front,
+        card.back,
+        card.hint || null,
+        card.example || null,
+        card.difficulty || 'medium',
+        index
+      );
+      paramIndex += 7;
+    });
+
+    const result = await client.query(
+      `
+      INSERT INTO flashcards (deck_id, front, back, hint, example, difficulty, card_order)
+      VALUES ${placeholders.join(', ')}
+      RETURNING *
+      `,
+      values
+    );
+
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get cards due for review (spaced repetition)
+ */
+export async function getDueFlashcards(userId: number, deckId: number) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        fc.*,
+        fp.last_reviewed,
+        fp.next_review,
+        fp.ease_factor,
+        fp.interval_days,
+        fp.repetitions,
+        fp.times_reviewed,
+        fp.times_correct
+      FROM flashcards fc
+      LEFT JOIN flashcard_progress fp ON fc.id = fp.card_id AND fp.user_id = $1
+      WHERE fc.deck_id = $2
+        AND (fp.next_review IS NULL OR fp.next_review <= NOW())
+      ORDER BY fc.card_order ASC
+      `,
+      [userId, deckId]
+    );
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Record flashcard study session (update progress)
+ */
+export async function recordFlashcardProgress(
+  userId: number,
+  cardId: number,
+  deckId: number,
+  rating: 'again' | 'hard' | 'good' | 'easy'
+) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    // Get current progress
+    const progressResult = await client.query(
+      `SELECT * FROM flashcard_progress WHERE user_id = $1 AND card_id = $2`,
+      [userId, cardId]
+    );
+
+    let easeFactor = 2.5;
+    let intervalDays = 1;
+    let repetitions = 0;
+
+    if (progressResult.rows.length > 0) {
+      const current = progressResult.rows[0];
+      easeFactor = parseFloat(current.ease_factor);
+      intervalDays = current.interval_days;
+      repetitions = current.repetitions;
+    }
+
+    // Calculate next review using SM-2 algorithm
+    const ratingValue = { again: 0, hard: 1, good: 2, easy: 3 }[rating];
+    const { interval, ease, reps, nextReview } = calculateNextReview(
+      ratingValue,
+      intervalDays,
+      easeFactor,
+      repetitions
+    );
+
+    const isCorrect = ratingValue >= 2; // 'good' or 'easy'
+
+    // Upsert progress
+    const result = await client.query(
+      `
+      INSERT INTO flashcard_progress (
+        user_id, card_id, deck_id,
+        last_reviewed, next_review, ease_factor, interval_days, repetitions,
+        rating, times_reviewed, times_correct
+      ) VALUES ($1, $2, $3, NOW(), $4, $5, $6, $7, $8, 1, $9)
+      ON CONFLICT (user_id, card_id)
+      DO UPDATE SET
+        last_reviewed = NOW(),
+        next_review = $4,
+        ease_factor = $5,
+        interval_days = $6,
+        repetitions = $7,
+        rating = $8,
+        times_reviewed = flashcard_progress.times_reviewed + 1,
+        times_correct = flashcard_progress.times_correct + $9,
+        updated_at = NOW()
+      RETURNING *
+      `,
+      [userId, cardId, deckId, nextReview, ease, interval, reps, rating, isCorrect ? 1 : 0]
+    );
+
+    return result.rows[0];
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Delete a flashcard deck
+ */
+export async function deleteFlashcardDeck(deckId: number, userId: number) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `DELETE FROM flashcard_decks WHERE id = $1 AND user_id = $2 RETURNING *`,
+      [deckId, userId]
+    );
+    return result.rowCount > 0;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get flashcard statistics for a user
+ */
+export async function getFlashcardStats(userId: number) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `
+      SELECT
+        COUNT(DISTINCT fd.id) as total_decks,
+        COUNT(DISTINCT fc.id) as total_cards,
+        COUNT(DISTINCT fp.id) FILTER (WHERE fp.last_reviewed >= NOW() - INTERVAL '1 day') as cards_studied_today,
+        COUNT(DISTINCT fp.id) FILTER (WHERE fp.times_correct >= 3) as cards_mastered,
+        COALESCE(
+          ROUND(
+            (SUM(fp.times_correct)::DECIMAL / NULLIF(SUM(fp.times_reviewed), 0)) * 100,
+            0
+          ),
+          0
+        ) as accuracy_rate
+      FROM flashcard_decks fd
+      LEFT JOIN flashcards fc ON fd.id = fc.deck_id
+      LEFT JOIN flashcard_progress fp ON fc.id = fp.card_id AND fp.user_id = $1
+      WHERE fd.user_id = $1
+      `,
+      [userId]
+    );
+    return result.rows[0];
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * SM-2 Spaced Repetition Algorithm
+ * Calculates next review interval based on rating
+ */
+function calculateNextReview(
+  rating: number,  // 0 = again, 1 = hard, 2 = good, 3 = easy
+  interval: number,
+  easeFactor: number,
+  repetitions: number
+): { interval: number; ease: number; reps: number; nextReview: Date } {
+  let newInterval = interval;
+  let newEaseFactor = easeFactor;
+  let newRepetitions = repetitions;
+
+  if (rating === 0) {
+    // Again: Reset
+    newInterval = 1;
+    newRepetitions = 0;
+  } else if (rating === 1) {
+    // Hard: Increase slightly, reduce ease
+    newInterval = Math.max(1, Math.floor(interval * 1.2));
+    newEaseFactor = Math.max(1.3, easeFactor - 0.15);
+    newRepetitions++;
+  } else if (rating === 2) {
+    // Good: Standard SM-2
+    if (repetitions === 0) newInterval = 1;
+    else if (repetitions === 1) newInterval = 6;
+    else newInterval = Math.round(interval * easeFactor);
+    newRepetitions++;
+  } else {
+    // Easy: Accelerate
+    if (repetitions === 0) newInterval = 4;
+    else newInterval = Math.round(interval * easeFactor * 1.3);
+    newEaseFactor = easeFactor + 0.15;
+    newRepetitions++;
+  }
+
+  const nextReview = new Date();
+  nextReview.setDate(nextReview.getDate() + newInterval);
+
+  return {
+    interval: newInterval,
+    ease: newEaseFactor,
+    reps: newRepetitions,
+    nextReview
+  };
+}
