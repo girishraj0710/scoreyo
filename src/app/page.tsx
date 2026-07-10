@@ -47,7 +47,7 @@ function FlashcardDailyGoalBanner() {
   return (
     <a
       href="/flashcards"
-      className="block rounded-3xl bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-950/20 dark:to-pink-950/20 border border-orange-200/50 dark:border-orange-800/30 p-6 shadow-soft hover:shadow-pop transition-all group"
+      className="block rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft hover:shadow-pop transition-all group"
     >
       <div className="flex items-center justify-between mb-3">
         <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">

@@ -182,15 +182,6 @@ export default function FlashcardsPage() {
   const [deckStats, setDeckStats] = useState<any>(null);
   const [deckFilter, setDeckFilter] = useState<'all' | 'mine' | 'popular'>('all');
 
-  // Daily Goal State
-  const [dailyGoal, setDailyGoal] = useState<{
-    target: number;
-    studied: number;
-    progress: number;
-    goalReached: boolean;
-    dueCards: number;
-  } | null>(null);
-
   // Share Modal State
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [shareDeckData, setShareDeckData] = useState<{
@@ -208,12 +199,11 @@ export default function FlashcardsPage() {
     existingRating?: { rating: number; reviewText?: string };
   } | null>(null);
 
-  // Fetch user's decks and daily goal
+  // Fetch user's decks and stats
   useEffect(() => {
     if (user) {
       fetchDecks();
       fetchStats();
-      fetchDailyGoal();
     }
   }, [user]);
 
@@ -246,17 +236,6 @@ export default function FlashcardsPage() {
     }
   };
 
-  const fetchDailyGoal = async () => {
-    try {
-      const response = await fetch("/api/flashcards/daily-goal");
-      if (response.ok) {
-        const data = await response.json();
-        setDailyGoal(data.goal);
-      }
-    } catch (error) {
-      console.error("Error fetching daily goal:", error);
-    }
-  };
 
   // Filter decks based on selection
   const filteredDecks = realDecks.filter(deck => {
@@ -455,64 +434,6 @@ export default function FlashcardsPage() {
           </p>
         </div>
 
-        {/* Daily Goal Progress Bar */}
-        {dailyGoal && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-2xl mx-auto mb-10"
-          >
-            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <Target className="w-5 h-5 text-[#F26A4B]" />
-                  <h3 className="font-semibold text-slate-900 dark:text-white">
-                    Daily Goal
-                  </h3>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
-                    {dailyGoal.studied}/{dailyGoal.target}
-                  </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    cards studied
-                  </p>
-                </div>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="relative w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-2">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${dailyGoal.progress}%` }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className={`absolute left-0 top-0 h-full rounded-full ${
-                    dailyGoal.goalReached
-                      ? 'bg-gradient-to-r from-green-500 to-emerald-500'
-                      : 'bg-gradient-to-r from-[#F26A4B] to-[#E76F51]'
-                  }`}
-                />
-              </div>
-
-              <div className="flex items-center justify-between text-xs">
-                {dailyGoal.goalReached ? (
-                  <span className="text-green-600 dark:text-green-400 font-semibold flex items-center gap-1">
-                    🎉 Goal reached!
-                  </span>
-                ) : (
-                  <span className="text-slate-600 dark:text-slate-400">
-                    {dailyGoal.target - dailyGoal.studied} cards to go
-                  </span>
-                )}
-                {dailyGoal.dueCards > 0 && (
-                  <span className="text-slate-600 dark:text-slate-400">
-                    {dailyGoal.dueCards} due for review
-                  </span>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
 
         {/* AI Deck Generator - Compact */}
         <motion.div
