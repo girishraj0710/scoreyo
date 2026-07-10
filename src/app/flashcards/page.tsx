@@ -180,7 +180,6 @@ export default function FlashcardsPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [realDecks, setRealDecks] = useState<any[]>([]);
   const [deckStats, setDeckStats] = useState<any>(null);
-  const [deckFilter, setDeckFilter] = useState<'all' | 'mine' | 'popular'>('all');
 
   // Share Modal State
   const [shareModalOpen, setShareModalOpen] = useState(false);
@@ -236,13 +235,6 @@ export default function FlashcardsPage() {
     }
   };
 
-
-  // Filter decks based on selection
-  const filteredDecks = realDecks.filter(deck => {
-    if (deckFilter === 'mine') return deck.isMine;
-    if (deckFilter === 'popular') return (deck.analytics?.studiesToday || 0) > 5;
-    return true;
-  });
 
   // Count deck types
   const myDecksCount = realDecks.filter(d => d.isMine).length;
@@ -425,7 +417,7 @@ export default function FlashcardsPage() {
             FLASHCARDS {user?.preferred_exam && `FOR ${user.preferred_exam.toUpperCase()} STUDENTS`}
           </p>
           <h1 className="font-heading text-4xl md:text-5xl font-black text-[#16213E] dark:text-white mb-3">
-            Learn from your peers.
+            Memorize like a topper.
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-base max-w-2xl mx-auto">
             {myDecksCount > 0 && communityDecksCount > 0
@@ -668,50 +660,10 @@ export default function FlashcardsPage() {
           </div>
         </motion.div>
 
-        {/* Filter Tabs */}
-        {realDecks.length > 0 && (
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex gap-2">
-              <button
-                onClick={() => setDeckFilter('all')}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  deckFilter === 'all'
-                    ? 'bg-[#F26A4B] text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                }`}
-              >
-                All Decks ({realDecks.length})
-              </button>
-              <button
-                onClick={() => setDeckFilter('mine')}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  deckFilter === 'mine'
-                    ? 'bg-[#F26A4B] text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                }`}
-              >
-                My Decks ({myDecksCount})
-              </button>
-              {realDecks.some(d => (d.analytics?.studiesToday || 0) > 5) && (
-                <button
-                  onClick={() => setDeckFilter('popular')}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1 ${
-                    deckFilter === 'popular'
-                      ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  <Flame className="w-4 h-4" />
-                  Popular
-                </button>
-              )}
-            </div>
-          </div>
-        )}
 
         {/* Deck Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {(filteredDecks.length > 0 ? filteredDecks : sampleDecks).map((deck, index) => (
+          {(realDecks.length > 0 ? realDecks : sampleDecks).map((deck, index) => (
             <motion.div
               key={deck.id || index}
               initial={{ opacity: 0, y: 12 }}
