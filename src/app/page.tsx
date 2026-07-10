@@ -460,6 +460,8 @@ function HomePageContent() {
                   { text: "Reviewed 24 Polity cards", time: "Just now" },
                   { text: "Scored 82% on JEE Physics Mock", time: "2 hrs ago" },
                   { text: "Read: Fundamental Rights (12 min)", time: "Yesterday" },
+                  { text: "Extended streak to 14 days", time: "2 days ago" },
+                  { text: "Completed Chemistry Mock #3", time: "3 days ago" },
                 ].map((a, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
