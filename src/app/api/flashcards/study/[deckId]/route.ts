@@ -11,7 +11,7 @@ import { getDueFlashcards, getFlashcardDeck } from '@/lib/db';
  */
 export async function GET(
   req: NextRequest,
-  { params }: { params: { deckId: string } }
+  { params }: { params: Promise<{ deckId: string }> }
 ) {
   try {
     const cookieStore = await cookies();
@@ -21,7 +21,8 @@ export async function GET(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const deckId = parseInt(params.deckId);
+    const resolvedParams = await params;
+    const deckId = parseInt(resolvedParams.deckId);
     const searchParams = req.nextUrl.searchParams;
     const mode = searchParams.get('mode') || 'all';
     const shuffle = searchParams.get('shuffle') === 'true';
