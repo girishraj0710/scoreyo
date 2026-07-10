@@ -145,16 +145,6 @@ export default function MockTestPage() {
     load();
   }, [user]);
 
-  // Click outside handler for search dropdown
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
-        setShowSearchDropdown(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   // Convert short test config to full-length (multiply questions by 3x, time by 2.5x)
   const getFullLengthConfig = (shortConfig: MockTestConfig): MockTestConfig => {
