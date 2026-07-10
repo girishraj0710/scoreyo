@@ -14,7 +14,7 @@ import {
   GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers,
 } from "lucide-react";
 
-// Flashcard Daily Goal Banner Component
+// Flashcard Daily Goal Banner Component (Compact)
 function FlashcardDailyGoalBanner() {
   const [dailyGoal, setDailyGoal] = useState<{
     target: number;
@@ -45,74 +45,63 @@ function FlashcardDailyGoalBanner() {
   if (isLoading || !dailyGoal) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.15 }}
-      className="mb-6"
+    <a
+      href="/flashcards"
+      className="block rounded-3xl bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-950/20 dark:to-pink-950/20 border border-orange-200/50 dark:border-orange-800/30 p-6 shadow-soft hover:shadow-pop transition-all group"
     >
-      <a
-        href="/flashcards"
-        className="block rounded-3xl bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-950/20 dark:to-pink-950/20 border border-orange-200/50 dark:border-orange-800/30 p-6 md:p-8 shadow-soft hover:shadow-pop transition-all group"
-      >
-        <div className="flex flex-col md:flex-row md:items-center gap-5">
-          {/* Icon */}
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">
+          Flashcard goal
+        </div>
+        <Target className="w-4 h-4 text-[#F26A4B]" />
+      </div>
+
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center flex-shrink-0">
+          <Target className="w-6 h-6 text-white" strokeWidth={2.5} />
+        </div>
+        <div className="flex-1">
+          <div className="font-heading text-lg font-bold text-[#16213E] dark:text-white">
+            {dailyGoal.goalReached ? "Goal Reached! 🎉" : `${dailyGoal.studied} / ${dailyGoal.target}`}
           </div>
-
-          {/* Content */}
-          <div className="flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <div>
-                <div className="text-xs uppercase tracking-widest font-bold text-orange-600 dark:text-orange-400">
-                  Flashcard Daily Goal
-                </div>
-                <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">
-                  {dailyGoal.goalReached ? "Goal Reached! 🎉" : `${dailyGoal.studied} / ${dailyGoal.target} Cards Today`}
-                </h3>
-              </div>
-              <ChevronRight className="w-6 h-6 text-[#F26A4B] group-hover:translate-x-1 transition-transform" />
-            </div>
-
-            {/* Progress Bar */}
-            <div className="relative w-full h-3 bg-white/60 dark:bg-slate-800/60 rounded-full overflow-hidden backdrop-blur-sm">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${dailyGoal.progress}%` }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className={`h-full ${
-                  dailyGoal.goalReached
-                    ? "bg-gradient-to-r from-green-500 to-emerald-500"
-                    : "bg-gradient-to-r from-[#F26A4B] to-[#E76F51]"
-                }`}
-              />
-            </div>
-
-            {/* Status Text */}
-            <div className="mt-2 flex items-center justify-between">
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                {dailyGoal.goalReached ? (
-                  <span className="text-green-600 dark:text-green-400 font-semibold">
-                    Keep the momentum going!
-                  </span>
-                ) : (
-                  <span>
-                    <span className="font-semibold text-[#16213E] dark:text-white">
-                      {dailyGoal.target - dailyGoal.studied} cards
-                    </span>{" "}
-                    to reach your goal
-                  </span>
-                )}
-              </p>
-              <span className="text-xs font-mono font-bold text-[#F26A4B]">
-                {dailyGoal.progress}%
-              </span>
-            </div>
+          <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5">
+            {dailyGoal.goalReached ? "Keep it up!" : "cards today"}
           </div>
         </div>
-      </a>
-    </motion.div>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="relative w-full h-2 bg-white/60 dark:bg-slate-800/60 rounded-full overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${dailyGoal.progress}%` }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className={`h-full ${
+            dailyGoal.goalReached
+              ? "bg-gradient-to-r from-green-500 to-emerald-500"
+              : "bg-gradient-to-r from-[#F26A4B] to-[#E76F51]"
+          }`}
+        />
+      </div>
+
+      {/* Status Text */}
+      <div className="mt-3 flex items-center justify-between">
+        <p className="text-xs text-[#5A6478] dark:text-slate-400">
+          {dailyGoal.goalReached ? (
+            <span className="text-green-600 dark:text-green-400 font-semibold">
+              Streak maintained!
+            </span>
+          ) : (
+            <span>
+              {dailyGoal.target - dailyGoal.studied} more to go
+            </span>
+          )}
+        </p>
+        <span className="text-xs font-mono font-bold text-[#F26A4B]">
+          {dailyGoal.progress}%
+        </span>
+      </div>
+    </a>
   );
 }
 
@@ -394,7 +383,7 @@ function HomePageContent() {
           })}
         </div>
 
-        {/* Daily MCQ + Recent activity */}
+        {/* Daily MCQ + Recent activity + Daily Goal */}
         <div className="grid lg:grid-cols-3 gap-5 mb-6">
           <div className="lg:col-span-2 rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#F26A4B]">
@@ -458,38 +447,41 @@ function HomePageContent() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">Recent activity</div>
-              <Clock className="w-4 h-4 text-[#F26A4B]" />
+          {/* Right column: Recent Activity + Daily Goal stacked */}
+          <div className="flex flex-col gap-5">
+            {/* Recent activity */}
+            <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">Recent activity</div>
+                <Clock className="w-4 h-4 text-[#F26A4B]" />
+              </div>
+              <ul className="space-y-3">
+                {[
+                  { text: "Reviewed 24 Polity cards", time: "Just now" },
+                  { text: "Scored 82% on JEE Physics Mock", time: "2 hrs ago" },
+                  { text: "Read: Fundamental Rights (12 min)", time: "Yesterday" },
+                ].map((a, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
+                    <div className="flex-1">
+                      <div className="text-sm font-semibold text-[#16213E] dark:text-white leading-snug">{a.text}</div>
+                      <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5 font-mono">{a.time}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/dashboard"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
+              >
+                View full dashboard <ChevronRight className="w-3 h-3" />
+              </a>
             </div>
-            <ul className="space-y-3">
-              {[
-                { text: "Reviewed 24 Polity cards", time: "Just now" },
-                { text: "Scored 82% on JEE Physics Mock", time: "2 hrs ago" },
-                { text: "Read: Fundamental Rights (12 min)", time: "Yesterday" },
-                { text: "Extended streak to 14 days", time: "2 days ago" },
-              ].map((a, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <div className="text-sm font-semibold text-[#16213E] dark:text-white leading-snug">{a.text}</div>
-                    <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5 font-mono">{a.time}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="/dashboard"
-              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
-            >
-              View full dashboard <ChevronRight className="w-3 h-3" />
-            </a>
+
+            {/* Flashcard Daily Goal */}
+            <FlashcardDailyGoalBanner />
           </div>
         </div>
-
-        {/* Flashcard Daily Goal Banner */}
-        <FlashcardDailyGoalBanner />
 
         {/* Weekly goal + Achievements row */}
         <div className="grid lg:grid-cols-3 gap-5 mb-6">
