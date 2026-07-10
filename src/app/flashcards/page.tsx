@@ -17,6 +17,10 @@ import {
   Award,
   Users,
   Flame,
+  Share2,
+  X,
+  Copy,
+  Check,
 } from "lucide-react";
 import { examCategories } from "@/lib/exams";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
@@ -176,11 +180,30 @@ export default function FlashcardsPage() {
   const [deckStats, setDeckStats] = useState<any>(null);
   const [deckFilter, setDeckFilter] = useState<'all' | 'mine' | 'popular'>('all');
 
-  // Fetch user's decks
+  // Daily Goal State
+  const [dailyGoal, setDailyGoal] = useState<{
+    target: number;
+    studied: number;
+    progress: number;
+    goalReached: boolean;
+    dueCards: number;
+  } | null>(null);
+
+  // Share Modal State
+  const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [shareDeckData, setShareDeckData] = useState<{
+    id: number;
+    title: string;
+    shareUrl: string;
+  } | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Fetch user's decks and daily goal
   useEffect(() => {
     if (user) {
       fetchDecks();
       fetchStats();
+      fetchDailyGoal();
     }
   }, [user]);
 
@@ -213,6 +236,18 @@ export default function FlashcardsPage() {
     }
   };
 
+  const fetchDailyGoal = async () => {
+    try {
+      const response = await fetch("/api/flashcards/daily-goal");
+      if (response.ok) {
+        const data = await response.json();
+        setDailyGoal(data.goal);
+      }
+    } catch (error) {
+      console.error("Error fetching daily goal:", error);
+    }
+  };
+
   // Filter decks based on selection
   const filteredDecks = realDecks.filter(deck => {
     if (deckFilter === 'mine') return deck.isMine;
@@ -223,6 +258,40 @@ export default function FlashcardsPage() {
   // Count deck types
   const myDecksCount = realDecks.filter(d => d.isMine).length;
   const communityDecksCount = realDecks.filter(d => !d.isMine).length;
+
+  const handleShareDeck = async (e: React.MouseEvent, deckId: number, deckTitle: string) => {
+    e.stopPropagation(); // Prevent navigation to study page
+
+    try {
+      const response = await fetch(`/api/flashcards/share/${deckId}`, {
+        method: 'POST',
+        headers: getHeadersWithCsrf(),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setShareDeckData({
+          id: deckId,
+          title: deckTitle,
+          shareUrl: data.shareUrl,
+        });
+        setShareModalOpen(true);
+      } else {
+        alert('Failed to generate share link');
+      }
+    } catch (error) {
+      console.error('Error sharing deck:', error);
+      alert('Failed to share deck');
+    }
+  };
+
+  const copyShareLink = () => {
+    if (shareDeckData) {
+      navigator.clipboard.writeText(shareDeckData.shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const handleGenerateDeck = async () => {
     if (!selectedTopic) {
@@ -324,7 +393,7 @@ export default function FlashcardsPage() {
         </div>
 
         {/* Page Title */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-3">
             FLASHCARDS {user?.preferred_exam && `FOR ${user.preferred_exam.toUpperCase()} STUDENTS`}
           </p>
@@ -337,6 +406,65 @@ export default function FlashcardsPage() {
               : "Create decks and discover content from fellow students"}
           </p>
         </div>
+
+        {/* Daily Goal Progress Bar */}
+        {dailyGoal && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-2xl mx-auto mb-10"
+          >
+            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Target className="w-5 h-5 text-[#F26A4B]" />
+                  <h3 className="font-semibold text-slate-900 dark:text-white">
+                    Daily Goal
+                  </h3>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                    {dailyGoal.studied}/{dailyGoal.target}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    cards studied
+                  </p>
+                </div>
+              </div>
+
+              {/* Progress Bar */}
+              <div className="relative w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-2">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${dailyGoal.progress}%` }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className={`absolute left-0 top-0 h-full rounded-full ${
+                    dailyGoal.goalReached
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-500'
+                      : 'bg-gradient-to-r from-[#F26A4B] to-[#E76F51]'
+                  }`}
+                />
+              </div>
+
+              <div className="flex items-center justify-between text-xs">
+                {dailyGoal.goalReached ? (
+                  <span className="text-green-600 dark:text-green-400 font-semibold flex items-center gap-1">
+                    🎉 Goal reached!
+                  </span>
+                ) : (
+                  <span className="text-slate-600 dark:text-slate-400">
+                    {dailyGoal.target - dailyGoal.studied} cards to go
+                  </span>
+                )}
+                {dailyGoal.dueCards > 0 && (
+                  <span className="text-slate-600 dark:text-slate-400">
+                    {dailyGoal.dueCards} due for review
+                  </span>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* AI Deck Generator - Compact */}
         <motion.div
@@ -675,7 +803,7 @@ export default function FlashcardsPage() {
                     </div>
                   )}
 
-                  {/* Bottom Row: Cards count + Engagement */}
+                  {/* Bottom Row: Cards count + Actions */}
                   <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
                     <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                       {deck.cards} cards
@@ -690,6 +818,17 @@ export default function FlashcardsPage() {
                             {deck.analytics.uniqueStudents}
                           </span>
                         </div>
+                      )}
+
+                      {/* Share button (only for user's decks) */}
+                      {deck.isMine && deck.id && (
+                        <button
+                          onClick={(e) => handleShareDeck(e, deck.id, deck.title || `${deck.subject} - ${deck.topic}`)}
+                          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                          title="Share this deck"
+                        >
+                          <Share2 className="w-4 h-4 text-slate-500 hover:text-[#E76F51]" />
+                        </button>
                       )}
 
                       {/* Study button */}
@@ -742,6 +881,102 @@ export default function FlashcardsPage() {
             </div>
           </div>
         </div>
+
+        {/* Share Modal */}
+        {shareModalOpen && shareDeckData && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-heading text-xl font-bold text-slate-900 dark:text-white">
+                  Share Deck
+                </h3>
+                <button
+                  onClick={() => setShareModalOpen(false)}
+                  className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5 text-slate-500" />
+                </button>
+              </div>
+
+              {/* Deck Title */}
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                {shareDeckData.title}
+              </p>
+
+              {/* Share URL */}
+              <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 mb-4">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
+                  Share Link
+                </p>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={shareDeckData.shareUrl}
+                    readOnly
+                    className="flex-1 text-sm text-slate-900 dark:text-white bg-transparent border-none focus:outline-none"
+                  />
+                  <button
+                    onClick={copyShareLink}
+                    className="px-3 py-2 bg-[#F26A4B] hover:bg-[#E76F51] text-white rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-4 h-4" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        Copy
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Share Options */}
+              <div className="space-y-2">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
+                  Or share via
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {/* WhatsApp */}
+                  <a
+                    href={`https://wa.me/?text=${encodeURIComponent(`Check out this flashcard deck: ${shareDeckData.title}\n${shareDeckData.shareUrl}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 bg-[#25D366] hover:bg-[#1DA851] text-white rounded-lg text-sm font-semibold text-center transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+
+                  {/* Telegram */}
+                  <a
+                    href={`https://t.me/share/url?url=${encodeURIComponent(shareDeckData.shareUrl)}&text=${encodeURIComponent(shareDeckData.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-lg text-sm font-semibold text-center transition-colors"
+                  >
+                    Telegram
+                  </a>
+                </div>
+              </div>
+
+              {/* Close */}
+              <button
+                onClick={() => setShareModalOpen(false)}
+                className="w-full mt-4 px-4 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-lg text-sm font-semibold transition-colors"
+              >
+                Close
+              </button>
+            </motion.div>
+          </div>
+        )}
       </div>
     </div>
   );
