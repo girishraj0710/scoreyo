@@ -27,6 +27,38 @@ export async function GET(
     const mode = searchParams.get('mode') || 'all';
     const shuffle = searchParams.get('shuffle') === 'true';
 
+    // Track study session (increment counters)
+    const { getPool } = await import('@/lib/db');
+    const pool = getPool();
+    const client = await pool.connect();
+
+    try {
+      // Increment study counters
+      await client.query(`
+        UPDATE flashcard_decks
+        SET
+          studies_today = studies_today + 1,
+          total_studies = total_studies + 1,
+          last_studied_at = NOW()
+        WHERE id = $1
+      `, [deckId]);
+
+      // Update unique students count
+      await client.query(`
+        UPDATE flashcard_decks fd
+        SET unique_students = (
+          SELECT COUNT(DISTINCT user_id)
+          FROM flashcard_progress
+          WHERE deck_id = fd.id
+        )
+        WHERE id = $1
+      `, [deckId]);
+
+      console.log(`📊 Tracked study session for deck ${deckId} by user ${userId}`);
+    } finally {
+      client.release();
+    }
+
     let cards;
 
     if (mode === 'due') {

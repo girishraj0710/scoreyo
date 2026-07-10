@@ -19,28 +19,89 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const rawDecks = await getFlashcardDecks(parseInt(userId));
+    console.log('📥 Fetching community decks for user:', userId);
 
-    // Transform database format to UI format
-    const decks = rawDecks.map((deck: any) => ({
-      id: deck.id,
-      exam: deck.exam_id || 'General',
-      examColor: getExamColor(deck.exam_id),
-      subject: deck.subject_id || 'General',
-      topic: deck.topic,
-      cards: deck.card_count || 0,
-      mastered: deck.mastered_count || 0,
-      due: deck.due_count || 0,
-      title: deck.title,
-      description: deck.description,
-      isAiGenerated: deck.is_ai_generated,
-      createdAt: deck.created_at,
-      updatedAt: deck.updated_at,
-    }));
+    // Get user's preferred exam
+    const { getPool } = await import('@/lib/db');
+    const pool = getPool();
+    const client = await pool.connect();
 
-    return NextResponse.json({ decks });
+    try {
+      // Get user info
+      const userResult = await client.query(
+        `SELECT preferred_exam, name, username FROM users WHERE id = $1`,
+        [parseInt(userId)]
+      );
+      const user = userResult.rows[0];
+      const preferredExam = user?.preferred_exam;
+
+      console.log('👤 User exam preference:', preferredExam || 'not set');
+
+      // Fetch user's decks + community decks (same exam)
+      const result = await client.query(`
+        SELECT
+          fd.*,
+          u.name as creator_name,
+          u.username as creator_username,
+          u.id as creator_id,
+          CASE WHEN fd.user_id = $1 THEN true ELSE false END as is_mine,
+          COUNT(DISTINCT fp.id) FILTER (WHERE fp.times_correct > 0) as mastered_count,
+          COUNT(DISTINCT fp.id) FILTER (WHERE fp.next_review <= NOW()) as due_count
+        FROM flashcard_decks fd
+        LEFT JOIN users u ON fd.user_id = u.id
+        LEFT JOIN flashcard_progress fp ON fd.id = fp.deck_id AND fp.user_id = $1
+        WHERE
+          fd.user_id = $1  -- My decks
+          OR (
+            fd.is_public = true
+            AND ($2::text IS NULL OR fd.exam_id = $2)  -- Same exam or no preference
+          )
+        GROUP BY fd.id, u.name, u.username, u.id
+        ORDER BY
+          is_mine DESC,  -- My decks first
+          fd.studies_today DESC,  -- Then by popularity
+          fd.updated_at DESC
+      `, [parseInt(userId), preferredExam]);
+
+      console.log(`✅ Found ${result.rows.length} decks (user + community)`);
+
+      // Transform to UI format
+      const decks = result.rows.map((deck: any) => ({
+        id: deck.id,
+        exam: deck.exam_id || 'General',
+        examColor: getExamColor(deck.exam_id),
+        subject: deck.subject_id || 'General',
+        topic: deck.topic,
+        cards: deck.card_count || 0,
+        mastered: deck.mastered_count || 0,
+        due: deck.due_count || 0,
+        title: deck.title,
+        description: deck.description,
+        isAiGenerated: deck.is_ai_generated,
+        isMine: deck.is_mine,
+        createdAt: deck.created_at,
+        updatedAt: deck.updated_at,
+        // Community fields
+        creator: {
+          id: deck.creator_id,
+          name: deck.creator_name || 'Anonymous',
+          username: deck.creator_username || `user${deck.creator_id}`,
+        },
+        analytics: {
+          studiesToday: deck.studies_today || 0,
+          uniqueStudents: deck.unique_students || 0,
+          totalStudies: deck.total_studies || 0,
+          lastStudiedAt: deck.last_studied_at,
+        },
+      }));
+
+      client.release();
+      return NextResponse.json({ decks });
+    } finally {
+      client.release();
+    }
   } catch (error) {
-    console.error('Error fetching flashcard decks:', error);
+    console.error('❌ Error fetching flashcard decks:', error);
     return NextResponse.json(
       { error: 'Failed to fetch decks' },
       { status: 500 }
