@@ -72,6 +72,21 @@ export default function FlashcardsPage() {
     existingRating?: { rating: number; reviewText?: string };
   } | null>(null);
 
+  // Redirect if not logged in
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.push("/");
+    }
+  }, [user, isLoading, router]);
+
+  // Fetch user's decks and stats
+  useEffect(() => {
+    if (user) {
+      fetchDecks();
+      fetchStats();
+    }
+  }, [user]);
+
   // Get all exams from categories
   const allExams = examCategories.flatMap(cat => cat.exams);
 
@@ -125,13 +140,6 @@ export default function FlashcardsPage() {
         item.subjectName.toLowerCase().includes(topicSearch.toLowerCase())
       )
     : smartTopics;
-
-  // Redirect if not logged in
-  useEffect(() => {
-    if (!isLoading && !user) {
-      router.push("/");
-    }
-  }, [user, isLoading, router]);
 
   if (isLoading) {
     return (
@@ -200,14 +208,6 @@ export default function FlashcardsPage() {
       progress: 75,
     },
   ];
-
-  // Fetch user's decks and stats
-  useEffect(() => {
-    if (user) {
-      fetchDecks();
-      fetchStats();
-    }
-  }, [user]);
 
   const fetchDecks = async () => {
     try {
