@@ -8,7 +8,7 @@ export interface Badge {
   name: string;
   description: string;
   icon: string; // emoji
-  category: "level" | "streak" | "accuracy" | "speed" | "mastery" | "special";
+  category: "level" | "streak" | "accuracy" | "speed" | "mastery" | "special" | "flashcards";
   requirement: {
     type: string;
     value: number;
@@ -260,6 +260,98 @@ export const BADGES: Badge[] = [
     requirement: { type: "total_questions", value: 5000 },
     rarity: "legendary",
   },
+
+  // Flashcard Badges
+  {
+    id: "flashcard-creator",
+    name: "Deck Builder",
+    description: "Create your first flashcard deck",
+    icon: "🃏",
+    category: "flashcards",
+    requirement: { type: "decks_created", value: 1 },
+    rarity: "common",
+  },
+  {
+    id: "flashcard-5-decks",
+    name: "Card Collector",
+    description: "Create 5 flashcard decks",
+    icon: "🗂️",
+    category: "flashcards",
+    requirement: { type: "decks_created", value: 5 },
+    rarity: "common",
+  },
+  {
+    id: "flashcard-10-decks",
+    name: "Library Curator",
+    description: "Create 10 flashcard decks",
+    icon: "📚",
+    category: "flashcards",
+    requirement: { type: "decks_created", value: 10 },
+    rarity: "rare",
+  },
+  {
+    id: "flashcard-100-cards",
+    name: "Card Master",
+    description: "Study 100 flashcards",
+    icon: "🎴",
+    category: "flashcards",
+    requirement: { type: "cards_studied", value: 100 },
+    rarity: "common",
+  },
+  {
+    id: "flashcard-500-cards",
+    name: "Memory Builder",
+    description: "Study 500 flashcards",
+    icon: "🧩",
+    category: "flashcards",
+    requirement: { type: "cards_studied", value: 500 },
+    rarity: "rare",
+  },
+  {
+    id: "flashcard-1000-cards",
+    name: "Memory Champion",
+    description: "Study 1000 flashcards",
+    icon: "🧠",
+    category: "flashcards",
+    requirement: { type: "cards_studied", value: 1000 },
+    rarity: "epic",
+  },
+  {
+    id: "flashcard-perfect-recall",
+    name: "Perfect Recall",
+    description: "Get 20 cards correct in a row",
+    icon: "✨",
+    category: "flashcards",
+    requirement: { type: "correct_streak_best", value: 20 },
+    rarity: "rare",
+  },
+  {
+    id: "flashcard-streak-50",
+    name: "Streak Legend",
+    description: "Get 50 cards correct in a row",
+    icon: "⚡",
+    category: "flashcards",
+    requirement: { type: "correct_streak_best", value: 50 },
+    rarity: "epic",
+  },
+  {
+    id: "flashcard-community-star",
+    name: "Community Star",
+    description: "Your deck has been studied by 50+ students",
+    icon: "⭐",
+    category: "flashcards",
+    requirement: { type: "deck_unique_students", value: 50 },
+    rarity: "epic",
+  },
+  {
+    id: "flashcard-viral-deck",
+    name: "Viral Creator",
+    description: "Your deck has been studied by 100+ students",
+    icon: "🌟",
+    category: "flashcards",
+    requirement: { type: "deck_unique_students", value: 100 },
+    rarity: "legendary",
+  },
 ];
 
 /**
@@ -310,6 +402,10 @@ export function checkBadges(userStats: {
   lateQuizzes: number;
   weekendSessions: number;
   mockTestsCompleted: number;
+  decksCreated?: number;
+  cardsStudied?: number;
+  correctStreakBest?: number;
+  deckUniqueStudents?: number;
 }): Badge[] {
   const earnedBadges: Badge[] = [];
 
@@ -358,6 +454,18 @@ export function checkBadges(userStats: {
         break;
       case "total_questions":
         earned = userStats.totalQuestions >= badge.requirement.value;
+        break;
+      case "decks_created":
+        earned = (userStats.decksCreated || 0) >= badge.requirement.value;
+        break;
+      case "cards_studied":
+        earned = (userStats.cardsStudied || 0) >= badge.requirement.value;
+        break;
+      case "correct_streak_best":
+        earned = (userStats.correctStreakBest || 0) >= badge.requirement.value;
+        break;
+      case "deck_unique_students":
+        earned = (userStats.deckUniqueStudents || 0) >= badge.requirement.value;
         break;
     }
 
