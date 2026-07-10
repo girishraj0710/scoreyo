@@ -14,6 +14,108 @@ import {
   GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers,
 } from "lucide-react";
 
+// Flashcard Daily Goal Banner Component
+function FlashcardDailyGoalBanner() {
+  const [dailyGoal, setDailyGoal] = useState<{
+    target: number;
+    studied: number;
+    progress: number;
+    goalReached: boolean;
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDailyGoal = async () => {
+      try {
+        const response = await fetch("/api/flashcards/daily-goal");
+        if (response.ok) {
+          const data = await response.json();
+          setDailyGoal(data.goal);
+        }
+      } catch (err) {
+        console.error("Error fetching daily goal:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchDailyGoal();
+  }, []);
+
+  if (isLoading || !dailyGoal) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.15 }}
+      className="mb-6"
+    >
+      <a
+        href="/flashcards"
+        className="block rounded-3xl bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-950/20 dark:to-pink-950/20 border border-orange-200/50 dark:border-orange-800/30 p-6 md:p-8 shadow-soft hover:shadow-pop transition-all group"
+      >
+        <div className="flex flex-col md:flex-row md:items-center gap-5">
+          {/* Icon */}
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+          </div>
+
+          {/* Content */}
+          <div className="flex-1">
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <div className="text-xs uppercase tracking-widest font-bold text-orange-600 dark:text-orange-400">
+                  Flashcard Daily Goal
+                </div>
+                <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">
+                  {dailyGoal.goalReached ? "Goal Reached! 🎉" : `${dailyGoal.studied} / ${dailyGoal.target} Cards Today`}
+                </h3>
+              </div>
+              <ChevronRight className="w-6 h-6 text-[#F26A4B] group-hover:translate-x-1 transition-transform" />
+            </div>
+
+            {/* Progress Bar */}
+            <div className="relative w-full h-3 bg-white/60 dark:bg-slate-800/60 rounded-full overflow-hidden backdrop-blur-sm">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${dailyGoal.progress}%` }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className={`h-full ${
+                  dailyGoal.goalReached
+                    ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                    : "bg-gradient-to-r from-[#F26A4B] to-[#E76F51]"
+                }`}
+              />
+            </div>
+
+            {/* Status Text */}
+            <div className="mt-2 flex items-center justify-between">
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                {dailyGoal.goalReached ? (
+                  <span className="text-green-600 dark:text-green-400 font-semibold">
+                    Keep the momentum going!
+                  </span>
+                ) : (
+                  <span>
+                    <span className="font-semibold text-[#16213E] dark:text-white">
+                      {dailyGoal.target - dailyGoal.studied} cards
+                    </span>{" "}
+                    to reach your goal
+                  </span>
+                )}
+              </p>
+              <span className="text-xs font-mono font-bold text-[#F26A4B]">
+                {dailyGoal.progress}%
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </motion.div>
+  );
+}
+
 // Dynamic import landing page
 const LandingPage = dynamic(() => import("@/components/landing-emergent").then(mod => ({ default: mod.LandingEmergent })), {
   loading: () => <LoadingSkeleton type="page" />,
@@ -385,6 +487,9 @@ function HomePageContent() {
             </a>
           </div>
         </div>
+
+        {/* Flashcard Daily Goal Banner */}
+        <FlashcardDailyGoalBanner />
 
         {/* Weekly goal + Achievements row */}
         <div className="grid lg:grid-cols-3 gap-5 mb-6">
