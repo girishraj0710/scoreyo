@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import { examCategories } from "@/lib/exams";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
+import { InteractiveStarRating } from "@/components/interactive-star-rating";
+import { RatingModal } from "@/components/rating-modal";
 
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
@@ -198,6 +200,14 @@ export default function FlashcardsPage() {
   } | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // Rating Modal State
+  const [ratingModalOpen, setRatingModalOpen] = useState(false);
+  const [ratingDeckData, setRatingDeckData] = useState<{
+    id: number;
+    title: string;
+    existingRating?: { rating: number; reviewText?: string };
+  } | null>(null);
+
   // Fetch user's decks and daily goal
   useEffect(() => {
     if (user) {
@@ -291,6 +301,44 @@ export default function FlashcardsPage() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
+  };
+
+  const handleRateDeck = async (e: React.MouseEvent, deckId: number, deckTitle: string) => {
+    e.stopPropagation(); // Prevent navigation to study page
+
+    // Check if user has already rated this deck
+    try {
+      const response = await fetch(`/api/flashcards/rate/${deckId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setRatingDeckData({
+          id: deckId,
+          title: deckTitle,
+          existingRating: data.hasRated ? {
+            rating: data.rating,
+            reviewText: data.reviewText,
+          } : undefined,
+        });
+      } else {
+        setRatingDeckData({
+          id: deckId,
+          title: deckTitle,
+        });
+      }
+      setRatingModalOpen(true);
+    } catch (error) {
+      console.error('Error checking rating:', error);
+      setRatingDeckData({
+        id: deckId,
+        title: deckTitle,
+      });
+      setRatingModalOpen(true);
+    }
+  };
+
+  const handleRatingSuccess = () => {
+    // Refresh decks to show updated rating
+    fetchDecks();
   };
 
   const handleGenerateDeck = async () => {
@@ -815,6 +863,37 @@ export default function FlashcardsPage() {
                     </div>
                   )}
 
+                  {/* Rating Display & Rate Button */}
+                  {deck.id && !deck.isMine && (
+                    <div className="flex items-center justify-between mb-4">
+                      {/* Average Rating */}
+                      {(deck.averageRating || 0) > 0 ? (
+                        <div className="flex items-center gap-2">
+                          <InteractiveStarRating
+                            rating={deck.averageRating || 0}
+                            readonly
+                            size="sm"
+                          />
+                          <span className="text-xs text-slate-600 dark:text-slate-400">
+                            {deck.averageRating?.toFixed(1)} ({deck.ratingCount || 0})
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="text-xs text-slate-500 dark:text-slate-400">
+                          No ratings yet
+                        </span>
+                      )}
+
+                      {/* Rate Button */}
+                      <button
+                        onClick={(e) => handleRateDeck(e, deck.id, deck.title || `${deck.subject} - ${deck.topic}`)}
+                        className="text-xs font-semibold text-[#F26A4B] hover:text-[#E76F51] transition-colors"
+                      >
+                        Rate this deck
+                      </button>
+                    </div>
+                  )}
+
                   {/* Bottom Row: Cards count + Actions */}
                   <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
                     <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
@@ -988,6 +1067,17 @@ export default function FlashcardsPage() {
               </button>
             </motion.div>
           </div>
+        )}
+
+        {/* Rating Modal */}
+        {ratingModalOpen && ratingDeckData && (
+          <RatingModal
+            deckId={ratingDeckData.id}
+            deckTitle={ratingDeckData.title}
+            existingRating={ratingDeckData.existingRating}
+            onClose={() => setRatingModalOpen(false)}
+            onSuccess={handleRatingSuccess}
+          />
         )}
       </div>
     </div>

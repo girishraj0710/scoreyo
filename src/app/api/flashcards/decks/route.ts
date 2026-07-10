@@ -95,6 +95,8 @@ export async function GET(req: NextRequest) {
           totalStudies: deck.total_studies || 0,
           lastStudiedAt: deck.last_studied_at,
         },
+        averageRating: parseFloat(deck.average_rating) || 0,
+        ratingCount: deck.rating_count || 0,
       }));
 
       client.release();
