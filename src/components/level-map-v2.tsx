@@ -56,7 +56,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
   return (
     <div className="relative w-full max-w-5xl mx-auto">
       {/* Progress Header */}
-      <div className="mb-8 bg-gradient-to-r from-[#4255FF] via-violet-500 to-purple-500 rounded-2xl p-6 shadow-xl text-white">
+      <div className="mb-8 bg-gradient-to-r from-[#E76F51] via-violet-500 to-purple-500 rounded-2xl p-6 shadow-xl text-white">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
             <div className="flex items-center justify-center gap-2 mb-1">
@@ -133,7 +133,7 @@ export function LevelMapV2({ levels, userProgress, onLevelClick, currentLevel }:
                                 : 'bg-gradient-to-br from-emerald-400 to-cyan-400 hover:scale-110 cursor-pointer'
                               : isBoss
                                 ? 'bg-gradient-to-br from-violet-500 to-purple-500 hover:scale-110 animate-pulse cursor-pointer'
-                                : 'bg-gradient-to-br from-[#4255FF] to-blue-500 hover:scale-110 animate-pulse cursor-pointer'
+                                : 'bg-gradient-to-br from-[#E76F51] to-blue-500 hover:scale-110 animate-pulse cursor-pointer'
                           }
                         `}
                       >

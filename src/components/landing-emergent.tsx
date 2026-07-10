@@ -22,6 +22,9 @@ import {
   ChevronRight,
   ExternalLink,
   ChevronDown,
+  Flame,
+  LockOpen,
+  CheckCircle2,
 } from "lucide-react";
 import { getUpcomingExams } from "@/lib/exam-calendar";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
@@ -130,17 +133,19 @@ const EXAMS = [
 // Icon mapping
 const ICONS = { Landmark, Atom, Stethoscope, BarChart3, Briefcase, Cpu, Scale, BookOpen };
 
-// Study modes for carousel (simple local SVG files)
+// Study modes for carousel - Emergent exact match + Krakkify additions
 const STUDY_MODES = [
-  { id: 1, image: "/images/topic-practice-3d.svg", title: "Topic Practice", desc: "Master specific topics with customizable quizzes. Choose difficulty and question count.", headerColor: "bg-[#D4A017]", cta: "Start Learning" },
-  { id: 2, image: "/images/mock-tests-3d.svg", title: "Mock Tests", desc: "Full-length timed tests that simulate real exam conditions. Get detailed performance reports.", headerColor: "bg-[#059669]", cta: "Take Mock Test" },
-  { id: 3, image: "/images/smart-review-3d.svg", title: "Smart Review", desc: "AI-powered spaced repetition. Review at the perfect moment to maximize retention.", headerColor: "bg-[#1E2A5E]", cta: "Review Now" },
-  { id: 4, image: "/images/level-mode-3d.svg", title: "Level Mode", desc: "Progress through levels from beginner to expert. Unlock harder topics as you master basics.", headerColor: "bg-[#7C3AED]", cta: "Play Levels" },
-  { id: 5, image: "/images/pressure-mode-3d.svg", title: "Pressure Mode", desc: "Build mental toughness with adaptive timers. Train your brain to perform under stress.", headerColor: "bg-[#DC143C]", cta: "Start Training" },
-  { id: 6, image: "/images/daily-practice-3d.svg", title: "Daily Practice", desc: "10 questions, 10 minutes. Build your streak and stay consistent every day.", headerColor: "bg-[#FF6B5B]", cta: "Start Challenge" },
-  { id: 7, image: "/images/english-practice-3d.svg", title: "Master English", desc: "TOEFL prep, Business English, and Foundation skills. Build vocabulary, grammar, and fluency.", headerColor: "bg-[#0EA5E9]", cta: "Learn English" },
-  { id: 8, image: "/images/flashcards-3d.svg", title: "Smart Flashcards", desc: "Interactive flashcards with active recall. Flip, shuffle, and master concepts faster.", headerColor: "bg-[#A855F7]", cta: "Create Cards" },
-  { id: 9, image: "/images/study-guides-3d.svg", title: "Study Guides", desc: "Comprehensive topic summaries and notes. Perfect for quick revision before exams.", headerColor: "bg-[#0F766E]", cta: "Browse Guides" },
+  { id: 1, title: "Topic Practice", headerColor: "#F26A4B", cta: "Start Learning", preview: "quiz" },
+  { id: 2, title: "Mock Tests", headerColor: "#2E8B57", cta: "Take Mock Test", preview: "score" },
+  { id: 3, title: "Smart Review", headerColor: "#16213E", cta: "Review Now", preview: "review" },
+  { id: 4, title: "Level Mode", headerColor: "#C89B3C", cta: "Play Levels", preview: "levels" },
+  { id: 5, title: "Pressure Mode", headerColor: "#B85450", cta: "Start Training", preview: "timer" },
+  { id: 6, title: "Daily Practice", headerColor: "#7C3AED", cta: "Start Challenge", preview: "streak" },
+  { id: 7, title: "Match Game", headerColor: "#0EA5E9", cta: "Play Match", preview: "match" },
+  { id: 8, title: "AI Tutor", headerColor: "#3B7A8A", cta: "Ask Krakkify", preview: "chat" },
+  { id: 9, title: "Study Guides", headerColor: "#0F766E", cta: "Browse Guides", preview: "guides" },
+  { id: 10, title: "Smart Flashcards", headerColor: "#A855F7", cta: "Create Cards", preview: "flashcards" },
+  { id: 11, title: "Master English", headerColor: "#D97706", cta: "Learn English", preview: "english" },
 ];
 
 // Testimonials (expanded with more stories)
@@ -183,27 +188,30 @@ export function LandingEmergent() {
   // Create infinite loop by cloning last 4 cards at start and first 4 cards at end (for 4-card display)
   const infiniteModes = [
     ...STUDY_MODES.slice(-4), // Last 4 cards (clones at start)
-    ...STUDY_MODES,           // All 7 real cards
+    ...STUDY_MODES,           // All 11 real cards
     ...STUDY_MODES.slice(0, 4) // First 4 cards (clones at end)
   ];
 
   // Handle infinite loop seamlessly with cloned cards
+  // Total cards: 4 clones + 11 real + 4 clones = 19 cards (indices 0-18)
+  // Real cards are at indices 4-14 (11 cards)
+  // When showing 4 cards at a time, carouselIndex is the leftmost visible card
   useEffect(() => {
-    // After sliding to last clone (index 11), jump to first real card (index 4)
-    if (carouselIndex === 11 && isTransitioning) {
+    // After sliding to show end clones (index 15 shows cards 15-18), jump to first real card
+    if (carouselIndex === 15 && isTransitioning) {
       setTimeout(() => {
         setIsTransitioning(false);
-        setCarouselIndex(4);
+        setCarouselIndex(4); // Jump to first real card
         setTimeout(() => setIsTransitioning(true), 50);
-      }, 500);
+      }, 600);
     }
-    // After sliding to first clone (index 0), jump to last real card (index 7)
+    // After sliding to show start clones (index 0 shows cards 0-3), jump to last real card position
     else if (carouselIndex === 0 && isTransitioning) {
       setTimeout(() => {
         setIsTransitioning(false);
-        setCarouselIndex(7);
+        setCarouselIndex(11); // Jump to show cards 11-14 (last 4 real cards)
         setTimeout(() => setIsTransitioning(true), 50);
-      }, 500);
+      }, 600);
     }
   }, [carouselIndex, isTransitioning]);
 
@@ -270,7 +278,7 @@ export function LandingEmergent() {
               <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white font-bold text-base">
                 K
               </div>
-              <span className="text-lg font-bold text-[#16213E]">Krakkify</span>
+              <span className="font-heading text-lg font-bold text-[#16213E]">Krakkify</span>
             </a>
 
             {/* Exams Mega Menu Dropdown */}
@@ -352,7 +360,7 @@ export function LandingEmergent() {
             </div>
           </div>
 
-          {/* Nav Links */}
+          {/* Sign In and Nav Links */}
           <div className="hidden md:flex items-center gap-6">
             <a href="#features" className="text-sm font-medium text-[#5A6478] hover:text-[#16213E]">
               Features
@@ -360,21 +368,19 @@ export function LandingEmergent() {
             <a href="#pricing" className="text-sm font-medium text-[#5A6478] hover:text-[#16213E]">
               Pricing
             </a>
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="h-10 px-5 rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold text-sm"
+            >
+              Sign in
+            </button>
           </div>
-
-          {/* Sign In */}
-          <button
-            onClick={() => setShowLoginModal(true)}
-            className="h-10 px-5 rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold text-sm"
-          >
-            Sign in
-          </button>
         </div>
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* 1. HERO SECTION */}
-        <section className="pt-16 md:pt-24 pb-16 grid lg:grid-cols-12 gap-10 items-center">
+        <section className="pt-16 md:pt-24 pb-16 grid lg:grid-cols-12 gap-10 items-center bg-[#FAF8F5]">
           <div className="lg:col-span-7">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/5 shadow-[0_8px_30px_rgba(22,33,62,0.06)] mb-6">
@@ -423,7 +429,7 @@ export function LandingEmergent() {
               </button>
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="h-12 px-6 rounded-xl border border-black/10 hover:border-[#5A6478]/40 bg-white font-semibold text-[#16213E] flex items-center gap-2 transition-all"
+                className="h-12 px-6 rounded-xl border border-black/10 hover:border-[#409464] bg-white hover:bg-[#409464] font-semibold text-[#16213E] hover:text-white flex items-center gap-2 transition-all duration-500 ease-in-out"
               >
                 <PlayCircle className="w-4 h-4" /> Take a mock test
               </button>
@@ -454,7 +460,7 @@ export function LandingEmergent() {
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden bg-white border border-black/5 shadow-[0_8px_30px_rgba(22,33,62,0.06)] aspect-[4/5]">
               <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1400&q=90"
+                src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1400&q=90"
                 alt="Indian students preparing for competitive exams"
                 className="w-full h-full object-cover"
               />
@@ -488,12 +494,12 @@ export function LandingEmergent() {
         </div>
 
         {/* 3. FEATURES CAROUSEL - Original Design with Infinite Loop */}
-        <section id="features" className="py-16">
+        <section id="features" className="py-16 bg-[#FAF8F5]">
           <div className="text-center mb-8">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+            <div className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#F26A4B]" style={{ letterSpacing: '0.25em' }}>
               STUDY MODES
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
+            <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mt-2">
               Learn your way
             </h2>
           </div>
@@ -503,7 +509,7 @@ export function LandingEmergent() {
             {/* Left Arrow - hidden on mobile, visible on desktop */}
             <button
               onClick={() => setCarouselIndex(carouselIndex - 1)}
-              className="hidden md:flex absolute left-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+              className="hidden md:flex absolute -left-4 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
             >
               <ChevronLeft className="w-6 h-6 text-[#16213E]" />
             </button>
@@ -511,7 +517,7 @@ export function LandingEmergent() {
             {/* Right Arrow - hidden on mobile, visible on desktop */}
             <button
               onClick={() => setCarouselIndex(carouselIndex + 1)}
-              className="hidden md:flex absolute right-0 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
+              className="hidden md:flex absolute -right-4 top-[190px] z-20 w-14 h-14 bg-white rounded-full shadow-xl items-center justify-center hover:scale-110 transition-all border-2 border-[rgba(22,33,62,0.08)]"
             >
               <ChevronRight className="w-6 h-6 text-[#16213E]" />
             </button>
@@ -523,35 +529,167 @@ export function LandingEmergent() {
                   <div
                     key={mode.id}
                     className="flex-shrink-0 snap-center"
-                    style={{ width: 'calc(100vw - 64px)' }}
+                    style={{ width: 'calc(85vw)' }}
                   >
                     <button
                       onClick={() => setShowLoginModal(true)}
-                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer text-left w-full flex flex-col h-full min-h-[380px]"
+                      className="w-full text-left rounded-[28px] overflow-hidden shadow-[0_20px_50px_-20px_rgba(22,33,62,0.25)] hover:shadow-[0_30px_70px_-15px_rgba(22,33,62,0.35)] transition-shadow duration-500 ease-in-out h-full flex flex-col group relative"
+                      style={{ backgroundColor: mode.headerColor }}
                     >
-                        <div className={`${mode.headerColor} h-40 flex items-center justify-center relative overflow-hidden pt-3`}>
-                          <div className="relative w-full h-full flex items-center justify-center">
-                            <Image
-                              src={mode.image}
-                              alt={mode.title}
-                              width={140}
-                              height={140}
-                              className="object-contain"
-                            />
-                          </div>
-                        </div>
-                        <div className="p-4 flex-1 flex flex-col bg-white justify-between">
+                      {/* Top gradient line */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                      {/* Glow effect */}
+                      <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
+
+                      {/* Header section with title */}
+                      <div className="px-6 pt-6 pb-4 relative">
+                        <div className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/55 mb-1.5">FEATURE</div>
+                        <div className="font-heading text-[22px] font-black text-white leading-[1.1] tracking-tight">{mode.title}</div>
+                        <div className="mt-2.5 h-px w-8" style={{ backgroundImage: 'linear-gradient(to right, #C89B3C, transparent)' }} />
+                      </div>
+
+                      {/* White content card with preview - extended to bottom-right */}
+                      <div className="ml-3 mt-0 mb-0 mr-0 rounded-tl-xl rounded-bl-xl bg-white/95 backdrop-blur-sm ring-1 ring-white/60 shadow-[0_10px_30px_-10px_rgba(22,33,62,0.25)] p-4 pb-6 flex-1 min-h-[220px] relative overflow-visible">
+                        {mode.preview === "streak" && (
                           <div>
-                            <h3 className="text-base font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
-                            <p className="text-[#5A6478] text-xs leading-relaxed mb-3 text-center">
-                              {mode.desc}
-                            </p>
+                            <div className="flex items-center gap-2"><Flame className="w-4 h-4 text-[#7C3AED]" /><span className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Streak</span></div>
+                            <div className="font-mono text-4xl font-black text-[#16213E] mt-2">14 <span className="text-lg text-[#5A6478]">days</span></div>
+                            <div className="mt-4 flex gap-1">{Array.from({length: 7}).map((_, k) => <div key={k} className={`h-2 flex-1 rounded-full ${k < 5 ? "bg-[#7C3AED]" : "bg-black/10"}`} />)}</div>
+                            <div className="text-xs text-[#5A6478] mt-2">10 Qs · 10 min today</div>
                           </div>
-                          <div className="text-[#16213E] hover:text-[#F26A4B] font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors">
-                            {mode.cta}
-                            <ArrowRight className="w-3 h-3" />
+                        )}
+                        {mode.preview === "review" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Due today</div>
+                            <div className="font-mono text-4xl font-black text-[#16213E] mt-1">7</div>
+                            <div className="mt-3 space-y-2">{["Fundamental Rights", "Kinematics", "Krebs Cycle"].map((t, k) => (<div key={k} className="flex items-center justify-between text-xs"><span className="font-semibold text-[#16213E]">{t}</span><span className="font-mono text-[#5A6478]">{[42,55,38][k]}%</span></div>))}</div>
                           </div>
-                        </div>
+                        )}
+                        {mode.preview === "quiz" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#C89B3C]">Question 3 / 10</div>
+                            <div className="font-heading font-bold text-[#16213E] mt-2 text-sm">Escape velocity from Earth?</div>
+                            <div className="mt-3 space-y-1.5">{["11.2 km/s","9.8 m/s²","3×10⁸ m/s"].map((o, k) => (<div key={k} className={`text-xs px-3 py-2 rounded-lg border-2 ${k===0 ? "border-[#10B981] bg-[#10B981]/10 text-[#16213E] font-semibold" : "border-black/5 text-[#5A6478]"}`}>{o}</div>))}</div>
+                          </div>
+                        )}
+                        {mode.preview === "score" && (
+                          <div>
+                            <div className="grid grid-cols-3 gap-2 text-center">
+                              <div><div className="text-[10px] uppercase font-bold text-[#5A6478]">Score</div><div className="font-mono text-xl font-black text-[#16213E]">84%</div></div>
+                              <div><div className="text-[10px] uppercase font-bold text-[#5A6478]">Results</div><div className="font-mono text-xl font-black text-[#16213E]">76/90</div></div>
+                              <div><div className="text-[10px] uppercase font-bold text-[#5A6478]">Time</div><div className="font-mono text-xl font-black text-[#16213E]">70m</div></div>
+                            </div>
+                            <div className="mt-4 space-y-1.5">{[["A", "bg-red-400"],["B", "bg-black/10"],["C", "bg-[#10B981]"],["D", "bg-black/10"]].map(([l,c], k) => (<div key={k} className="flex items-center gap-2 text-xs"><span className="font-mono font-bold text-[#5A6478] w-3">{l}.</span><div className={`h-2 rounded-full ${c}`} style={{width: `${[70,45,90,40][k]}%`}} /></div>))}</div>
+                          </div>
+                        )}
+                        {mode.preview === "levels" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Progress</div>
+                            <div className="mt-3 flex items-end gap-2">{[1,2,3,4,5].map(l => (<div key={l} className="flex-1 flex flex-col items-center"><div className={`w-full rounded-md ${l<=3 ? "bg-[#C89B3C]" : "bg-black/10"}`} style={{height: `${l*14}px`}} /><div className="text-[10px] font-mono font-bold mt-1 text-[#5A6478]">L{l}</div></div>))}</div>
+                            <div className="mt-3 text-xs font-semibold text-[#16213E] flex items-center gap-1">Level 3 unlocked <LockOpen className="w-3.5 h-3.5 text-[#C89B3C]" /></div>
+                          </div>
+                        )}
+                        {mode.preview === "timer" && (
+                          <div className="text-center">
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Time remaining</div>
+                            <div className="font-mono text-5xl font-black text-[#B85450] mt-2">00:14</div>
+                            <div className="mt-3 h-2 bg-black/5 rounded-full overflow-hidden"><div className="h-full bg-[#B85450] rounded-full" style={{width:"23%"}}/></div>
+                            <div className="mt-3 text-xs text-[#5A6478]">Answer before the timer runs out</div>
+                          </div>
+                        )}
+                        {mode.preview === "match" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Best time</div>
+                            <div className="font-mono text-3xl font-black text-[#16213E] mt-1">00:22</div>
+                            <div className="mt-3 grid grid-cols-3 gap-1.5">{Array.from({length: 6}).map((_, k) => (<div key={k} className={`aspect-square rounded-md ${[0,3,4].includes(k) ? "bg-[#10B981]/20 border-2 border-[#10B981]" : "bg-black/[0.04] border-2 border-black/10"}`} />))}</div>
+                          </div>
+                        )}
+                        {mode.preview === "chat" && (
+                          <div className="space-y-2">
+                            <div className="text-xs bg-black/[0.04] rounded-lg px-3 py-2 text-[#16213E]"><span className="font-semibold">You:</span> Explain Article 21</div>
+                            <div className="text-xs bg-[#3B7A8A]/10 rounded-lg px-3 py-2 text-[#16213E]"><span className="font-semibold text-[#3B7A8A]">Krakkify:</span> Right to Life & Personal Liberty — interpreted broadly to include dignity, privacy…</div>
+                            <div className="flex items-center gap-1 text-[10px] text-[#5A6478]"><Sparkles className="w-3 h-3 text-[#3B7A8A]" />Powered by Claude</div>
+                          </div>
+                        )}
+                        {mode.preview === "guides" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Latest guides</div>
+                            <div className="mt-3 space-y-2">
+                              {["Thermodynamics", "Modern History", "Cell Biology"].map((t, k) => (
+                                <div key={k} className="flex items-start gap-2">
+                                  <div className="w-10 h-10 rounded-md bg-[#0F766E]/10 flex-shrink-0 flex items-center justify-center">
+                                    <BookOpen className="w-5 h-5 text-[#0F766E]" />
+                                  </div>
+                                  <div className="flex-1">
+                                    <div className="font-semibold text-xs text-[#16213E]">{t}</div>
+                                    <div className="text-[10px] text-[#5A6478] mt-0.5">{[12, 8, 15][k]} concepts • {[45, 30, 52][k]} min</div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {mode.preview === "flashcards" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your deck</div>
+                            <div className="font-mono text-3xl font-black text-[#16213E] mt-1">48 <span className="text-lg text-[#5A6478]">cards</span></div>
+                            <div className="mt-4 space-y-2">
+                              <div className="bg-[#A855F7]/10 border-2 border-[#A855F7] rounded-lg p-3 text-center">
+                                <div className="text-[10px] uppercase font-bold text-[#A855F7] mb-1">Front</div>
+                                <div className="font-semibold text-sm text-[#16213E]">What is photosynthesis?</div>
+                              </div>
+                              <div className="flex gap-2 items-center justify-center text-xs text-[#5A6478]">
+                                <span className="font-mono">12 mastered</span>
+                                <span>•</span>
+                                <span className="font-mono">36 learning</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                        {mode.preview === "english" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your progress</div>
+                            <div className="mt-3 space-y-2">
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">Foundation</span>
+                                  <span className="font-mono text-[#5A6478]">78%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#D97706] rounded-full" style={{width:"78%"}}/>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">Advanced</span>
+                                  <span className="font-mono text-[#5A6478]">42%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#D97706] rounded-full" style={{width:"42%"}}/>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">IELTS Prep</span>
+                                  <span className="font-mono text-[#5A6478]">65%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#10B981] rounded-full" style={{width:"65%"}}/>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">TOEFL Prep</span>
+                                  <span className="font-mono text-[#5A6478]">58%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#E76F51] rounded-full" style={{width:"58%"}}/>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </button>
                   </div>
                 ))}
@@ -578,41 +716,165 @@ export function LandingEmergent() {
                   >
                     <button
                       onClick={() => setShowLoginModal(true)}
-                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer group text-left w-full flex flex-col h-full"
+                      className="w-full text-left rounded-[28px] overflow-hidden shadow-[0_20px_50px_-20px_rgba(22,33,62,0.25)] hover:-translate-y-2 hover:shadow-[0_30px_70px_-15px_rgba(22,33,62,0.35)] transition-all duration-500 h-full flex flex-col group relative"
                       style={{
-                        minHeight: '380px',
-                        transform: 'translateY(0) scale(1)',
-                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                        backgroundColor: mode.headerColor,
+                        minHeight: '380px'
                       }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                        }}
                       >
-                        <div className={`${mode.headerColor} h-48 flex items-center justify-center relative overflow-hidden pt-4`}>
-                          <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                            <Image
-                              src={mode.image}
-                              alt={mode.title}
-                              width={160}
-                              height={160}
-                              className="object-contain"
-                            />
-                          </div>
-                        </div>
-                        <div className="p-5 flex-1 flex flex-col bg-white justify-between">
+                      {/* Top gradient line */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                      {/* Glow effect */}
+                      <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
+
+                      {/* Header section with title */}
+                      <div className="px-6 pt-6 pb-4 relative">
+                        <div className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/55 mb-1.5">FEATURE</div>
+                        <div className="font-heading text-[22px] font-black text-white leading-[1.1] tracking-tight">{mode.title}</div>
+                        <div className="mt-2.5 h-px w-8" style={{ backgroundImage: 'linear-gradient(to right, #C89B3C, transparent)' }} />
+                      </div>
+
+                      {/* White content card with preview - extended to bottom-right */}
+                      <div className="ml-3 mt-0 mb-0 mr-0 rounded-tl-xl rounded-bl-xl bg-white/95 backdrop-blur-sm ring-1 ring-white/60 shadow-[0_10px_30px_-10px_rgba(22,33,62,0.25)] p-4 pb-6 flex-1 min-h-[220px] relative overflow-visible">
+                        {mode.preview === "streak" && (
                           <div>
-                            <h3 className="text-lg font-bold text-[#16213E] mb-2 text-center">{mode.title}</h3>
-                            <p className="text-[#5A6478] text-sm leading-relaxed mb-4 text-center">
-                              {mode.desc}
-                            </p>
+                            <div className="flex items-center gap-2"><Flame className="w-4 h-4 text-[#7C3AED]" /><span className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Streak</span></div>
+                            <div className="font-mono text-4xl font-black text-[#16213E] mt-2">14 <span className="text-lg text-[#5A6478]">days</span></div>
+                            <div className="mt-4 flex gap-1">{Array.from({length: 7}).map((_, k) => <div key={k} className={`h-2 flex-1 rounded-full ${k < 5 ? "bg-[#7C3AED]" : "bg-black/10"}`} />)}</div>
+                            <div className="text-xs text-[#5A6478] mt-2">10 Qs · 10 min today</div>
                           </div>
-                          <div className="text-[#16213E] group-hover:text-[#F26A4B] font-semibold text-sm flex items-center justify-center gap-1.5 group-hover:gap-2.5 transition-all">
-                            {mode.cta}
-                            <ArrowRight className="w-4 h-4" />
+                        )}
+                        {mode.preview === "review" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Due today</div>
+                            <div className="font-mono text-4xl font-black text-[#16213E] mt-1">7</div>
+                            <div className="mt-3 space-y-2">{["Fundamental Rights", "Kinematics", "Krebs Cycle"].map((t, k) => (<div key={k} className="flex items-center justify-between text-xs"><span className="font-semibold text-[#16213E]">{t}</span><span className="font-mono text-[#5A6478]">{[42,55,38][k]}%</span></div>))}</div>
                           </div>
+                        )}
+                        {mode.preview === "quiz" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#C89B3C]">Question 3 / 10</div>
+                            <div className="font-heading font-bold text-[#16213E] mt-2 text-sm">Escape velocity from Earth?</div>
+                            <div className="mt-3 space-y-1.5">{["11.2 km/s","9.8 m/s²","3×10⁸ m/s"].map((o, k) => (<div key={k} className={`text-xs px-3 py-2 rounded-lg border-2 ${k===0 ? "border-[#10B981] bg-[#10B981]/10 text-[#16213E] font-semibold" : "border-black/5 text-[#5A6478]"}`}>{o}</div>))}</div>
+                          </div>
+                        )}
+                        {mode.preview === "score" && (
+                          <div>
+                            <div className="grid grid-cols-3 gap-2 text-center">
+                              <div><div className="text-[10px] uppercase font-bold text-[#5A6478]">Score</div><div className="font-mono text-xl font-black text-[#16213E]">84%</div></div>
+                              <div><div className="text-[10px] uppercase font-bold text-[#5A6478]">Results</div><div className="font-mono text-xl font-black text-[#16213E]">76/90</div></div>
+                              <div><div className="text-[10px] uppercase font-bold text-[#5A6478]">Time</div><div className="font-mono text-xl font-black text-[#16213E]">70m</div></div>
+                            </div>
+                            <div className="mt-4 space-y-1.5">{[["A", "bg-red-400"],["B", "bg-black/10"],["C", "bg-[#10B981]"],["D", "bg-black/10"]].map(([l,c], k) => (<div key={k} className="flex items-center gap-2 text-xs"><span className="font-mono font-bold text-[#5A6478] w-3">{l}.</span><div className={`h-2 rounded-full ${c}`} style={{width: `${[70,45,90,40][k]}%`}} /></div>))}</div>
+                          </div>
+                        )}
+                        {mode.preview === "levels" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Progress</div>
+                            <div className="mt-3 flex items-end gap-2">{[1,2,3,4,5].map(l => (<div key={l} className="flex-1 flex flex-col items-center"><div className={`w-full rounded-md ${l<=3 ? "bg-[#C89B3C]" : "bg-black/10"}`} style={{height: `${l*14}px`}} /><div className="text-[10px] font-mono font-bold mt-1 text-[#5A6478]">L{l}</div></div>))}</div>
+                            <div className="mt-3 text-xs font-semibold text-[#16213E] flex items-center gap-1">Level 3 unlocked <LockOpen className="w-3.5 h-3.5 text-[#C89B3C]" /></div>
+                          </div>
+                        )}
+                        {mode.preview === "timer" && (
+                          <div className="text-center">
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Time remaining</div>
+                            <div className="font-mono text-5xl font-black text-[#B85450] mt-2">00:14</div>
+                            <div className="mt-3 h-2 bg-black/5 rounded-full overflow-hidden"><div className="h-full bg-[#B85450] rounded-full" style={{width:"23%"}}/></div>
+                            <div className="mt-3 text-xs text-[#5A6478]">Answer before the timer runs out</div>
+                          </div>
+                        )}
+                        {mode.preview === "match" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Best time</div>
+                            <div className="font-mono text-3xl font-black text-[#16213E] mt-1">00:22</div>
+                            <div className="mt-3 grid grid-cols-3 gap-1.5">{Array.from({length: 6}).map((_, k) => (<div key={k} className={`aspect-square rounded-md ${[0,3,4].includes(k) ? "bg-[#10B981]/20 border-2 border-[#10B981]" : "bg-black/[0.04] border-2 border-black/10"}`} />))}</div>
+                          </div>
+                        )}
+                        {mode.preview === "chat" && (
+                          <div className="space-y-2">
+                            <div className="text-xs bg-black/[0.04] rounded-lg px-3 py-2 text-[#16213E]"><span className="font-semibold">You:</span> Explain Article 21</div>
+                            <div className="text-xs bg-[#3B7A8A]/10 rounded-lg px-3 py-2 text-[#16213E]"><span className="font-semibold text-[#3B7A8A]">Krakkify:</span> Right to Life & Personal Liberty — interpreted broadly to include dignity, privacy…</div>
+                            <div className="flex items-center gap-1 text-[10px] text-[#5A6478]"><Sparkles className="w-3 h-3 text-[#3B7A8A]" />Powered by Claude</div>
+                          </div>
+                        )}
+                        {mode.preview === "guides" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Latest guides</div>
+                            <div className="mt-3 space-y-2">
+                              {["Thermodynamics", "Modern History", "Cell Biology"].map((t, k) => (
+                                <div key={k} className="flex items-start gap-2">
+                                  <div className="w-10 h-10 rounded-md bg-[#0F766E]/10 flex-shrink-0 flex items-center justify-center">
+                                    <BookOpen className="w-5 h-5 text-[#0F766E]" />
+                                  </div>
+                                  <div className="flex-1">
+                                    <div className="font-semibold text-xs text-[#16213E]">{t}</div>
+                                    <div className="text-[10px] text-[#5A6478] mt-0.5">{[12, 8, 15][k]} concepts • {[45, 30, 52][k]} min</div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {mode.preview === "flashcards" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your deck</div>
+                            <div className="font-mono text-3xl font-black text-[#16213E] mt-1">48 <span className="text-lg text-[#5A6478]">cards</span></div>
+                            <div className="mt-4 space-y-2">
+                              <div className="bg-[#A855F7]/10 border-2 border-[#A855F7] rounded-lg p-3 text-center">
+                                <div className="text-[10px] uppercase font-bold text-[#A855F7] mb-1">Front</div>
+                                <div className="font-semibold text-sm text-[#16213E]">What is photosynthesis?</div>
+                              </div>
+                              <div className="flex gap-2 items-center justify-center text-xs text-[#5A6478]">
+                                <span className="font-mono">12 mastered</span>
+                                <span>•</span>
+                                <span className="font-mono">36 learning</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                        {mode.preview === "english" && (
+                          <div>
+                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your progress</div>
+                            <div className="mt-3 space-y-2">
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">Foundation</span>
+                                  <span className="font-mono text-[#5A6478]">78%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#D97706] rounded-full" style={{width:"78%"}}/>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">Advanced</span>
+                                  <span className="font-mono text-[#5A6478]">42%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#D97706] rounded-full" style={{width:"42%"}}/>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">IELTS Prep</span>
+                                  <span className="font-mono text-[#5A6478]">65%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#10B981] rounded-full" style={{width:"65%"}}/>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-xs mb-1">
+                                  <span className="font-semibold text-[#16213E]">TOEFL Prep</span>
+                                  <span className="font-mono text-[#5A6478]">58%</span>
+                                </div>
+                                <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#E76F51] rounded-full" style={{width:"58%"}}/>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </button>
                   </div>
@@ -623,11 +885,11 @@ export function LandingEmergent() {
         </section>
 
         {/* 4. EXAM CATEGORIES GRID - Emergent Structure */}
-        <section id="exams" className="py-8" data-testid="exam-categories-section">
+        <section id="exams" className="py-8 bg-[#FAF8F5]" data-testid="exam-categories-section">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B]">
-                Pick your battle
+              <div className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#F26A4B]" style={{ letterSpacing: '0.25em' }}>
+                PICK YOUR BATTLE
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mt-2">
                 All major exams. One place.
@@ -694,188 +956,125 @@ export function LandingEmergent() {
           </div>
         </section>
 
-        {/* 5. WHAT MAKES DIFFERENT - Snake Pattern */}
-        <section className="pt-8 md:pt-16 pb-12 md:pb-20">
-          <div className="text-center mb-12 md:mb-16">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
-              WHY KRAKKIFY
-            </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#16213E] mb-3 md:mb-4">
-              What makes Krakkify different
-            </h2>
-            <p className="text-[#5A6478] text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-2">
-              Intelligent AI features designed specifically for Indian competitive exams
-            </p>
-          </div>
-
-          {/* Feature 1 - Image Left, Text Right */}
-          <div
-            ref={(el) => { featureRefs.current[0] = el; }}
-            className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
-          >
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0">
-              <div
-                ref={(el) => { imageRefs.current[0] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
-                style={{
-                  transform: visibleFeatures.has(0) ? `translateY(${imageOffsets[0]}px)` : 'translateY(0px)',
-                  opacity: visibleFeatures.has(0) ? 1 : 0,
-                  transition: visibleFeatures.has(0) ? 'opacity 0.6s ease-out' : 'none',
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=90"
-                  alt="Rich Explanations - Students studying together with notes and books"
-                  className="w-full h-auto object-cover aspect-[4/3]"
-                />
+        {/* 5. WHY KRAKKIFY - Premium Snake Layout */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+          <div className="max-w-7xl mx-auto px-4">
+            {/* Section Header */}
+            <div className="text-center mb-8 md:mb-10">
+              <div className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#F26A4B] mb-2" style={{ letterSpacing: '0.25em' }}>
+                WHY KRAKKIFY
               </div>
-            </div>
-            {/* Text */}
-            <div
-              className="w-full md:w-3/5"
-              style={{
-                opacity: visibleFeatures.has(0) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
-              }}
-            >
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#16213E] mb-3 md:mb-4">
-                Rich Explanations
-              </h3>
-              <p className="text-[#5A6478] text-sm md:text-base lg:text-lg leading-relaxed">
-                Understand the WHY behind every answer. Get step-by-step breakdowns, trap alerts, formulas, and common
-                mistakes highlighted for each question. Never waste time wondering why you got it wrong—our detailed explanations show you the logic behind correct answers and help you avoid traps that confuse most students.
+              <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-[#16213E] leading-tight mb-3">
+                A smarter way to prepare for competitive exams
+              </h2>
+              <p className="text-[#5A6478] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                Most students don't fail because they lack resources. They fail because they don't know what to study, how deep to study, and whether they are improving. Krakkify gives you clarity—and clarity leads to results.
               </p>
             </div>
-          </div>
 
-          {/* Feature 2 - Text Left, Image Right */}
-          <div
-            ref={(el) => { featureRefs.current[1] = el; }}
-            className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
-          >
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0">
-              <div
-                ref={(el) => { imageRefs.current[1] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
-                style={{
-                  transform: visibleFeatures.has(1) ? `translateY(${imageOffsets[1]}px)` : 'translateY(0px)',
-                  opacity: visibleFeatures.has(1) ? 1 : 0,
-                  transition: visibleFeatures.has(1) ? 'opacity 0.6s ease-out' : 'none',
-                }}
-              >
+            {/* Block 1 - Image Left, Text Right */}
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10 mb-10 md:mb-12">
+              <div className="w-full md:w-1/2">
                 <img
-                  src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=90"
-                  alt="Mistake Map - Student analyzing test results and performance"
-                  className="w-full h-auto object-cover aspect-[4/3]"
+                  src="/images/features/ai-learning.svg"
+                  alt="AI-Powered Personal Learning"
+                  className="w-full h-auto"
                 />
               </div>
-            </div>
-            {/* Text */}
-            <div
-              className="w-full md:w-3/5"
-              style={{
-                opacity: visibleFeatures.has(1) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
-              }}
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-[#16213E] mb-4">
-                Mistake Map
-              </h3>
-              <p className="text-[#5A6478] text-lg leading-relaxed">
-                AI identifies your weakness patterns—calculation errors, concept gaps, time pressure issues, and careless
-                mistakes. Our smart algorithm categorizes every wrong answer and reveals patterns with visual charts and
-                topic-wise breakdowns. Focus your revision strategically instead of studying blindly.
-              </p>
-            </div>
-          </div>
-
-          {/* Feature 3 - Image Left, Text Right */}
-          <div
-            ref={(el) => { featureRefs.current[2] = el; }}
-            className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
-          >
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0">
-              <div
-                ref={(el) => { imageRefs.current[2] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
-                style={{
-                  transform: visibleFeatures.has(2) ? `translateY(${imageOffsets[2]}px)` : 'translateY(0px)',
-                  opacity: visibleFeatures.has(2) ? 1 : 0,
-                  transition: visibleFeatures.has(2) ? 'opacity 0.6s ease-out' : 'none',
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=90"
-                  alt="Midnight Doubt AI - Student using laptop for online learning"
-                  className="w-full h-auto object-cover aspect-[4/3]"
-                />
+              <div className="w-full md:w-1/2">
+                <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-black text-[#16213E] mb-6 leading-tight">
+                  AI-Powered Personal Learning
+                </h3>
+                <p className="text-[#5A6478] text-lg md:text-xl leading-relaxed mb-6">
+                  Your personal AI mentor that understands your goals, strengths, and weaknesses.
+                </p>
+                <div className="space-y-4 text-[#5A6478] text-base md:text-lg">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Explains complex concepts in simple language—English or Hindi</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Creates personalized study paths based on your exam and performance</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Helps you learn anytime, anywhere—24/7 doubt solving</p>
+                  </div>
+                </div>
               </div>
             </div>
-            {/* Text */}
-            <div
-              className="w-full md:w-3/5"
-              style={{
-                opacity: visibleFeatures.has(2) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
-              }}
-            >
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#16213E] mb-3 md:mb-4">
-                Midnight Doubt AI
-              </h3>
-              <p className="text-[#5A6478] text-sm md:text-base lg:text-lg leading-relaxed">
-                Stuck at 2 AM? Ask our AI tutor anything, anytime. Get instant clarifications in simple language—English
-                or Hindi. No more waiting for teachers or WhatsApp groups to respond—our AI understands your exact question and explains concepts in a way that clicks instantly.
-              </p>
-            </div>
-          </div>
 
-          {/* Feature 4 - Text Left, Image Right */}
-          <div
-            ref={(el) => { featureRefs.current[3] = el; }}
-            className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6 md:gap-12 mb-12 md:mb-24"
-          >
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0">
-              <div
-                ref={(el) => { imageRefs.current[3] = el; }}
-                className="rounded-2xl overflow-hidden shadow-xl max-w-sm mx-auto"
-                style={{
-                  transform: visibleFeatures.has(3) ? `translateY(${imageOffsets[3]}px)` : 'translateY(0px)',
-                  opacity: visibleFeatures.has(3) ? 1 : 0,
-                  transition: visibleFeatures.has(3) ? 'opacity 0.6s ease-out' : 'none',
-                }}
-              >
+            {/* Block 2 - Text Left, Image Right */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-6 md:gap-8 lg:gap-10 mb-10 md:mb-12">
+              <div className="w-full md:w-1/2">
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=90"
-                  alt="Smart Dashboard - Students celebrating academic success together"
-                  className="w-full h-auto object-cover aspect-[4/3]"
+                  src="/images/features/exam-intelligence.svg"
+                  alt="Exam-Focused Knowledge System"
+                  className="w-full h-auto"
                 />
               </div>
+              <div className="w-full md:w-1/2">
+                <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-black text-[#16213E] mb-6 leading-tight">
+                  Exam-Focused Knowledge System
+                </h3>
+                <p className="text-[#5A6478] text-lg md:text-xl leading-relaxed mb-6">
+                  Everything you need, structured around what actually matters in your exam.
+                </p>
+                <div className="space-y-4 text-[#5A6478] text-base md:text-lg">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">AI-curated study guides from trusted sources—no information overload</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Concepts mapped to previous year questions and exam patterns</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Only exam-relevant learning for JEE, NEET, UPSC, SSC, and 74+ exams</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* Text */}
-            <div
-              className="w-full md:w-3/5"
-              style={{
-                opacity: visibleFeatures.has(3) ? 1 : 0,
-                transition: 'opacity 0.8s ease-out',
-              }}
-            >
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#16213E] mb-3 md:mb-4">
-                Smart Dashboard
-              </h3>
-              <p className="text-[#5A6478] text-sm md:text-base lg:text-lg leading-relaxed">
-                Track your progress with beautiful stats and charts—questions solved, accuracy trends, daily streaks,
-                and achievement badges all in one place. See exactly where you stand with subject-wise breakdowns and identify weak topics at a glance. Your entire exam preparation journey visualized in one powerful dashboard that keeps you motivated and focused on what matters most.
-              </p>
+
+            {/* Block 3 - Image Left, Text Right */}
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10">
+              <div className="w-full md:w-1/2">
+                <img
+                  src="/images/features/smart-practice.svg"
+                  alt="Smart Practice & Success Insights"
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-black text-[#16213E] mb-6 leading-tight">
+                  Smart Practice & Success Insights
+                </h3>
+                <p className="text-[#5A6478] text-lg md:text-xl leading-relaxed mb-6">
+                  Practice smarter, improve faster, and know where you stand before exam day.
+                </p>
+                <div className="space-y-4 text-[#5A6478] text-base md:text-lg">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Adaptive tests based on your performance—fix weak areas automatically</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Identifies weak areas with visual charts and topic-wise breakdowns</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-[#10B981] flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">Tracks your readiness and probability of success with performance analytics</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* 6. DARK CTA PANEL - MOVED HERE */}
-        <section className="py-16">
+        <section className="py-16 bg-[#FAF8F5]">
           <div className="relative rounded-3xl bg-[#16213E] text-white p-8 md:p-14 overflow-hidden">
             <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-[#F26A4B]/30 blur-3xl" />
             <div className="absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-[#2E8B57]/20 blur-3xl" />
@@ -897,13 +1096,13 @@ export function LandingEmergent() {
         </section>
 
         {/* 7. UPCOMING EXAM CALENDAR - Matches Ticker Width */}
-        <section className="py-16">
+        <section className="py-16 bg-[#FAF8F5]">
           {/* Header */}
           <div className="mb-12 text-center">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+            <div className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#F26A4B]" style={{ letterSpacing: '0.25em' }}>
               MARK YOUR CALENDAR
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
+            <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mt-2">
               Upcoming Exams
             </h2>
             <p className="text-[#5A6478] font-heading text-lg mt-3">Mark your dates and start preparing today</p>
@@ -1007,11 +1206,11 @@ export function LandingEmergent() {
         </section>
 
         {/* 8. TESTIMONIALS WITH NAVIGATION */}
-        <section className="py-16">
-          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+        <section className="py-16 bg-[#FAF8F5]">
+          <div className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#F26A4B]" style={{ letterSpacing: '0.25em' }}>
             STUDENT STORIES
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mb-8">
+          <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mt-2 mb-8">
             What students are saying
           </h2>
 

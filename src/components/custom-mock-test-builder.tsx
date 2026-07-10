@@ -112,7 +112,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col" style={{ background: "var(--card-bg)" }}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#4255FF] to-purple-600 text-white p-6 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#E76F51] to-[#D65A3D] text-white p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Sparkles className="w-6 h-6" />
             <div>
@@ -145,7 +145,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 transition-colors"
                   style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "#4255FF";
+                    e.currentTarget.style.borderColor = "#E76F51";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = "var(--card-border)";
@@ -161,7 +161,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     className="p-4 border-2 rounded-xl transition-all text-left group"
                     style={{ borderColor: "var(--card-border)" }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "#4255FF";
+                      e.currentTarget.style.borderColor = "#E76F51";
                       e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
                     }}
                     onMouseLeave={(e) => {
@@ -212,12 +212,12 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     <button
                       onClick={() => setStep(1)}
                       className="text-sm hover:underline whitespace-nowrap flex-shrink-0 transition-colors"
-                      style={{ color: "#4255FF" }}
+                      style={{ color: "#E76F51" }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.color = "#3242CC";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "#4255FF";
+                        e.currentTarget.style.color = "#E76F51";
                       }}
                     >
                       Change Exam
@@ -328,7 +328,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                         {/* Topic Selection */}
                         {subject && (
                           <details className="text-sm">
-                            <summary className="cursor-pointer hover:underline" style={{ color: "#4255FF" }}>
+                            <summary className="cursor-pointer hover:underline" style={{ color: "#E76F51" }}>
                               Select specific topics (optional)
                             </summary>
                             <div className="mt-2 grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 rounded-lg" style={{ background: "var(--primary-bg)" }}>
@@ -423,7 +423,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   <button
                     onClick={() => setStep(1)}
                     className="px-6 py-2 rounded-lg transition-colors"
-                    style={{ color: "#4255FF" }}
+                    style={{ color: "#E76F51" }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "rgba(66, 85, 255, 0.1)";
                     }}
@@ -437,7 +437,7 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     onClick={handleCreate}
                     disabled={sections.length === 0 || totalQuestions === 0}
                     className="px-8 py-3 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg"
-                    style={{ background: "linear-gradient(to right, #4255FF, #9333ea)" }}
+                    style={{ background: "linear-gradient(to right, #E76F51, #9333ea)" }}
                     onMouseEnter={(e) => {
                       if (!e.currentTarget.disabled) {
                         e.currentTarget.style.transform = "scale(1.02)";

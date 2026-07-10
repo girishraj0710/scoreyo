@@ -1,0 +1,68 @@
+<svg width="600" height="500" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#bgGrad)" rx="20"/>
+
+  <!-- Main Dashboard Card -->
+  <rect x="80" y="80" width="440" height="340" rx="16" fill="white" opacity="0.95"/>
+
+  <!-- Header Bar -->
+  <rect x="80" y="80" width="440" height="60" rx="16" fill="#1E293B"/>
+  <rect x="80" y="120" width="440" height="20" rx="0" fill="#1E293B"/>
+
+  <!-- Window dots -->
+  <circle cx="105" cy="105" r="6" fill="#EF4444" opacity="0.8"/>
+  <circle cx="125" cy="105" r="6" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="145" cy="105" r="6" fill="#10B981" opacity="0.8"/>
+
+  <!-- Dashboard title -->
+  <text x="300" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="white" text-anchor="middle">Your Progress</text>
+
+  <!-- Stats Cards Row -->
+  <!-- Card 1 - Questions -->
+  <rect x="110" y="170" width="120" height="100" rx="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <text x="170" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#3B82F6" text-anchor="middle">248</text>
+  <text x="170" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748B" text-anchor="middle">Questions</text>
+  <text x="170" y="252" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748B" text-anchor="middle">Solved</text>
+
+  <!-- Card 2 - Accuracy -->
+  <rect x="240" y="170" width="120" height="100" rx="12" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+  <text x="300" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#10B981" text-anchor="middle">87%</text>
+  <text x="300" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748B" text-anchor="middle">Accuracy</text>
+
+  <!-- Card 3 - Streak -->
+  <rect x="370" y="170" width="120" height="100" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="430" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#F59E0B" text-anchor="middle">14</text>
+  <text x="430" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748B" text-anchor="middle">Day Streak</text>
+
+  <!-- Simple Bar Chart -->
+  <text x="110" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1E293B">Weekly Activity</text>
+
+  <!-- Bars -->
+  <rect x="120" y="360" width="35" height="25" rx="4" fill="#CBD5E1"/>
+  <rect x="165" y="345" width="35" height="40" rx="4" fill="#94A3B8"/>
+  <rect x="210" y="320" width="35" height="65" rx="4" fill="#3B82F6"/>
+  <rect x="255" y="335" width="35" height="50" rx="4" fill="#64748B"/>
+  <rect x="300" y="310" width="35" height="75" rx="4" fill="#3B82F6"/>
+  <rect x="345" y="325" width="35" height="60" rx="4" fill="#3B82F6"/>
+  <rect x="390" y="350" width="35" height="35" rx="4" fill="#94A3B8"/>
+
+  <!-- Day labels -->
+  <text x="137.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">M</text>
+  <text x="182.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">T</text>
+  <text x="227.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">W</text>
+  <text x="272.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">T</text>
+  <text x="317.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">F</text>
+  <text x="362.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">S</text>
+  <text x="407.5" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">S</text>
+
+  <!-- Floating Badge (top right) -->
+  <circle cx="470" y="320" r="28" fill="#10B981"/>
+  <path d="M470 307 L473 315 L481 315 L475 320 L478 328 L470 323 L462 328 L465 320 L459 315 L467 315 Z" fill="white"/>
+</svg>

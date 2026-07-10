@@ -62,7 +62,7 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#E76F51] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Enter your name"
                 onMouseEnter={(e) => {
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#E76F51] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="your.email@example.com"
                 onMouseEnter={(e) => {
@@ -113,7 +113,7 @@ export default function ContactPage() {
                 required
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#E76F51] focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 onMouseEnter={(e) => {
                   if (e.currentTarget !== document.activeElement) {
@@ -147,7 +147,7 @@ export default function ContactPage() {
                 rows={6}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#4255FF] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
+                className="w-full px-4 py-3 border-2 rounded-xl focus:border-[#E76F51] focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Describe your question or issue in detail..."
                 onMouseEnter={(e) => {
@@ -166,7 +166,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-[#E76F51] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
@@ -179,14 +179,14 @@ export default function ContactPage() {
           <div className="rounded-2xl shadow-lg border p-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[#E8EAFF] rounded-xl flex items-center justify-center shrink-0">
-                <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
                 <h3 className="text-lg font-bold mb-2" style={{ color: "var(--foreground)" }}>Email Support</h3>
                 <p className="mb-2" style={{ color: "var(--foreground-secondary)" }}>Get help via email</p>
-                <a href="mailto:support@krakkify.in" className="text-[#4255FF] hover:underline font-medium">
+                <a href="mailto:support@krakkify.in" className="text-[#E76F51] hover:underline font-medium">
                   support@krakkify.in
                 </a>
                 <p className="text-sm mt-2" style={{ color: "var(--muted)" }}>Response time: Within 24 hours</p>
@@ -223,10 +223,10 @@ export default function ContactPage() {
                 <h3 className="text-lg font-bold mb-2" style={{ color: "var(--foreground)" }}>Quick Help</h3>
                 <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>Check our help resources</p>
                 <div className="space-y-2">
-                  <a href="/terms" className="block text-[#4255FF] hover:underline text-sm">
+                  <a href="/terms" className="block text-[#E76F51] hover:underline text-sm">
                     → Terms of Service
                   </a>
-                  <a href="/privacy" className="block text-[#4255FF] hover:underline text-sm">
+                  <a href="/privacy" className="block text-[#E76F51] hover:underline text-sm">
                     → Privacy Policy
                   </a>
                 </div>

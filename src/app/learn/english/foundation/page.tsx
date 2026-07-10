@@ -18,7 +18,7 @@ export default function FoundationPathPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0F1419]">
-        <div className="w-12 h-12 border-4 border-[#5B7CFF] border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#E76F51] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -56,7 +56,7 @@ export default function FoundationPathPage() {
             <div className="flex items-center gap-4">
               <div className="text-right">
                 <p className="text-xs text-slate-500 dark:text-slate-400">Total Topics</p>
-                <p className="text-lg font-bold text-[#5B7CFF]">{foundationPathRedesigned.modules.reduce((acc, m) => acc + m.topics.length, 0)}</p>
+                <p className="text-lg font-bold text-[#E76F51]">{foundationPathRedesigned.modules.reduce((acc, m) => acc + m.topics.length, 0)}</p>
               </div>
               <div className="text-right">
                 <p className="text-xs text-slate-500 dark:text-slate-400">Est. Time</p>
@@ -78,8 +78,8 @@ export default function FoundationPathPage() {
             >
               {/* Module Header */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-[#5B7CFF]/10 flex items-center justify-center">
-                  <span className="text-xl font-bold text-[#5B7CFF]">{moduleIndex + 1}</span>
+                <div className="w-12 h-12 rounded-xl bg-[#E76F51]/10 flex items-center justify-center">
+                  <span className="text-xl font-bold text-[#E76F51]">{moduleIndex + 1}</span>
                 </div>
                 <div className="flex-1">
                   <h2 className="text-xl font-bold text-slate-900 dark:text-white">{module.name}</h2>
@@ -97,7 +97,7 @@ export default function FoundationPathPage() {
                   <button
                     key={topic.id}
                     onClick={() => router.push(`/learn/english/foundation/${topic.id}`)}
-                    className="group relative p-5 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-[#5B7CFF] hover:shadow-lg hover:-translate-y-0.5 transition-all text-left bg-white dark:bg-slate-800"
+                    className="group relative p-5 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-[#E76F51] hover:shadow-lg hover:-translate-y-0.5 transition-all text-left bg-white dark:bg-slate-800"
                   >
                     {/* CEFR Level Badge - Top Right */}
                     <div className="absolute top-4 right-4 px-2 py-0.5 rounded-md bg-[#10B981]/10 text-[10px] font-bold text-[#10B981]">
@@ -113,7 +113,7 @@ export default function FoundationPathPage() {
                       })()}
 
                       {/* Title */}
-                      <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-[#5B7CFF] transition-colors text-sm leading-tight pr-10 break-words">
+                      <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-[#E76F51] transition-colors text-sm leading-tight pr-10 break-words">
                         {topic.name}
                       </h3>
                     </div>

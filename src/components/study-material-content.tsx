@@ -92,11 +92,11 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
               className="p-6 rounded-xl border-l-4"
               style={{
                 background: "var(--hover-bg)",
-                borderColor: "#4255FF"
+                borderColor: "#E76F51"
               }}
             >
               <div className="flex items-start gap-3">
-                <Target className="w-6 h-6 text-[#4255FF] flex-shrink-0 mt-1" />
+                <Target className="w-6 h-6 text-[#E76F51] flex-shrink-0 mt-1" />
                 <div className="flex-1">
                   <h4 className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>
                     {example.title}
@@ -136,7 +136,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
           }}
         >
           <div className="text-center mb-4">
-            <div className="text-3xl font-bold text-[#4255FF] mb-2 font-mono">
+            <div className="text-3xl font-bold text-[#E76F51] mb-2 font-mono">
               {item.formula}
             </div>
             <div className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
@@ -202,13 +202,13 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
           style={{ background: "var(--hover-bg)" }}
         >
           <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
-            <BookOpen className="w-5 h-5 text-[#4255FF]" />
+            <BookOpen className="w-5 h-5 text-[#E76F51]" />
             Quick Revision Points
           </h4>
           <ul className="space-y-2">
             {section.points.map((point, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-[#4255FF] mt-1 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-[#E76F51] mt-1 flex-shrink-0" />
                 <span style={{ color: "var(--foreground-secondary)" }}>{point}</span>
               </li>
             ))}
@@ -231,7 +231,7 @@ export function StudyMaterialContent({ section }: StudyMaterialContentProps) {
           </h4>
           <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>{problem.question}</p>
           <details className="mb-3">
-            <summary className="cursor-pointer text-[#4255FF] hover:underline font-medium">
+            <summary className="cursor-pointer text-[#E76F51] hover:underline font-medium">
               💡 Show Hint
             </summary>
             <p className="mt-2 p-3 rounded-lg" style={{ background: "var(--hover-bg)", color: "var(--foreground-secondary)" }}>

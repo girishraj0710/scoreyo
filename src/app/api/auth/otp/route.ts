@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
     console.log(`[OTP] 📧 From: Krakkify <noreply@krakkify.in>`);
 
     const { data, error } = await resend.emails.send({
-      from: "Krakkify <noreply@krakkify.in>",
+      from: "Krakkify <noreply@prepgenie.co.in>",
       to: cleanEmail,
       subject: `${code} is your Krakkify verification code`,
       html: `

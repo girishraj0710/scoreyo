@@ -1,0 +1,77 @@
+<svg width="700" height="450" viewBox="0 0 700 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Premium clean illustration matching the reference design -->
+
+  <!-- Top left: 100% Syllabus badge -->
+  <circle cx="100" cy="60" r="45" fill="#E0E7FF"/>
+  <text x="100" y="60" font-family="system-ui" font-size="22" font-weight="900" fill="#4F46E5" text-anchor="middle" dominant-baseline="middle">100%</text>
+  <text x="100" y="80" font-family="system-ui" font-size="11" font-weight="600" fill="#6366F1" text-anchor="middle">Syllabus</text>
+
+  <!-- Top right: 10K+ Questions badge -->
+  <circle cx="600" cy="60" r="45" fill="#FEF3C7"/>
+  <text x="600" y="60" font-family="system-ui" font-size="22" font-weight="900" fill="#D97706" text-anchor="middle" dominant-baseline="middle">10K+</text>
+  <text x="600" y="80" font-family="system-ui" font-size="11" font-weight="600" fill="#F59E0B" text-anchor="middle">Questions</text>
+
+  <!-- Left: Previous Year Questions card (yellow/gold) -->
+  <rect x="160" y="140" width="140" height="130" rx="12" fill="#FEF9C3" stroke="#F59E0B" stroke-width="2.5"/>
+  <text x="230" y="190" font-family="system-ui" font-size="11" font-weight="700" fill="#92400E" text-anchor="middle">PREVIOUS</text>
+  <text x="230" y="207" font-family="system-ui" font-size="11" font-weight="700" fill="#92400E" text-anchor="middle">YEAR</text>
+  <text x="230" y="224" font-family="system-ui" font-size="11" font-weight="700" fill="#92400E" text-anchor="middle">QUESTIONS</text>
+
+  <!-- Center: Official Syllabus card (blue) -->
+  <rect x="330" y="120" width="160" height="180" rx="12" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2.5"/>
+
+  <!-- Checkmark circle at top -->
+  <circle cx="410" cy="155" r="20" fill="#3B82F6"/>
+  <path d="M402 155 L407 160 L418 149" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <text x="410" y="195" font-family="system-ui" font-size="13" font-weight="700" fill="#1E3A8A" text-anchor="middle">Official Syllabus</text>
+
+  <!-- Content lines -->
+  <line x1="350" y1="215" x2="470" y2="215" stroke="#93C5FD" stroke-width="3" stroke-linecap="round"/>
+  <line x1="350" y1="235" x2="455" y2="235" stroke="#93C5FD" stroke-width="3" stroke-linecap="round"/>
+  <line x1="350" y1="255" x2="470" y2="255" stroke="#93C5FD" stroke-width="3" stroke-linecap="round"/>
+  <line x1="350" y1="275" x2="445" y2="275" stroke="#93C5FD" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Right: Expert Verified badge (green) -->
+  <path d="M570 150 L595 165 L595 195 L570 210 L545 195 L545 165 Z" fill="#D1FAE5" stroke="#10B981" stroke-width="2.5"/>
+  <path d="M570 170 L574 179 L583 180.5 L576.5 187 L578 196 L570 191.5 L562 196 L563.5 187 L557 180.5 L566 179 Z" fill="#10B981"/>
+  <text x="570" y="225" font-family="system-ui" font-size="10" font-weight="700" fill="#065F46" text-anchor="middle">EXPERT</text>
+  <text x="570" y="240" font-family="system-ui" font-size="10" font-weight="700" fill="#065F46" text-anchor="middle">VERIFIED</text>
+
+  <!-- Arrows -->
+  <line x1="305" y1="205" x2="325" y2="205" stroke="#F59E0B" stroke-width="2.5"/>
+  <polygon points="325,205 318,201 318,209" fill="#F59E0B"/>
+
+  <line x1="495" y1="205" x2="535" y2="180" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="535,180 529,183 532,176" fill="#10B981"/>
+
+  <!-- Bottom: Three topic cards in a row -->
+  <g transform="translate(220, 335)">
+    <rect x="0" y="0" width="90" height="65" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+    <text x="45" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#1E3A8A" text-anchor="middle">Topic 1</text>
+    <text x="45" y="38" font-family="system-ui" font-size="10" fill="#1E40AF" text-anchor="middle">Mechanics</text>
+    <circle cx="45" cy="52" r="7" fill="#10B981"/>
+    <path d="M41 52 L43.5 54.5 L49 49" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <g transform="translate(325, 335)">
+    <rect x="0" y="0" width="90" height="65" rx="10" fill="#FED7AA" stroke="#F97316" stroke-width="2"/>
+    <text x="45" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#7C2D12" text-anchor="middle">Topic 2</text>
+    <text x="45" y="38" font-family="system-ui" font-size="10" fill="#9A3412" text-anchor="middle">Organic</text>
+    <circle cx="45" cy="52" r="7" fill="#10B981"/>
+    <path d="M41 52 L43.5 54.5 L49 49" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <g transform="translate(430, 335)">
+    <rect x="0" y="0" width="90" height="65" rx="10" fill="#E9D5FF" stroke="#A855F7" stroke-width="2"/>
+    <text x="45" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#581C87" text-anchor="middle">Topic 3</text>
+    <text x="45" y="38" font-family="system-ui" font-size="10" fill="#6B21A8" text-anchor="middle">Calculus</text>
+    <circle cx="45" cy="52" r="7" fill="#10B981"/>
+    <path d="M41 52 L43.5 54.5 L49 49" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- Decorative plus signs -->
+  <text x="180" y="330" font-family="system-ui" font-size="20" font-weight="400" fill="#A78BFA" text-anchor="middle">+</text>
+  <text x="540" y="130" font-family="system-ui" font-size="20" font-weight="400" fill="#C084FC" text-anchor="middle">+</text>
+  <circle cx="620" cy="320" r="4" fill="#D1FAE5"/>
+</svg>

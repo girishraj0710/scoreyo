@@ -6,12 +6,14 @@ import { getPool } from "@/lib/db";
  * Fetch study material for a specific topic
  *
  * Query params:
- * - subject: 'physics', 'chemistry', 'english', etc.
- * - topic: 'thermodynamics', 'present-simple', etc.
+ * - exam (optional): 'upsc', 'jee-main', etc. (for Study Guides page)
+ * - subject: 'physics', 'chemistry', 'english', 'indian-polity', etc.
+ * - topic: 'thermodynamics', 'present-simple', 'fundamental-rights', etc.
  * - path (optional): For English - 'foundation', 'ielts', etc.
  */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
+  const examId = searchParams.get("exam"); // Optional: for exam-specific content
   const subject = searchParams.get("subject");
   const topic = searchParams.get("topic");
   const pathId = searchParams.get("path"); // For English: 'foundation', 'ielts', etc.

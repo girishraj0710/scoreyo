@@ -1,64 +1,76 @@
 @import "tailwindcss";
 
-/* Prepr Design System - Official Color Palette */
+/* Emergent Design System - Official Color Palette */
 :root {
   /* PRIMARY PALETTE */
   --background: #FAF8F5;        /* Warm Ivory - page background */
-  --foreground: #16213E;        /* Deep Navy - primary text */
-  --primary: #F26A4B;           /* Coral - CTAs & brand */
-  --primary-light: #F58972;     /* Lighter coral */
-  --primary-dark: #E15838;      /* Darker coral for hover */
-  --primary-bg: rgba(242, 106, 75, 0.08);  /* Coral/8% for active states */
-  --accent: #F26A4B;            /* Same as primary */
+  --foreground: #1E293B;        /* Dark Slate - primary text (Emergent) */
+  --primary: #E76F51;           /* Terracotta - CTAs & brand (Emergent) */
+  --primary-light: #E15838;     /* Lighter terracotta */
+  --primary-dark: #D65A3D;      /* Darker terracotta for hover */
+  --primary-bg: rgba(231, 111, 81, 0.08);  /* Terracotta/8% for active states */
+  --accent: #E76F51;            /* Same as primary */
 
   /* SECONDARY TEXT */
-  --foreground-secondary: #5A6478;  /* Ink Soft - secondary text */
-  --muted: #8B94A6;                 /* Lighter ink for muted text */
+  --foreground-secondary: #64748B;  /* Muted Slate - secondary text (Emergent) */
+  --muted: #8B94A6;                 /* Lighter muted text */
 
   /* SURFACES */
   --card-bg: #FFFFFF;           /* White cards */
   --card-bg-rgb: 255, 255, 255;
-  --surface-cool: #F3F5F7;      /* Cool Surface for nested panels */
+  --surface-cool: #F1F5F9;      /* Cool gray for nested panels */
 
   /* ACCENT COLORS */
   --accent-gold: #C89B3C;       /* Gold for premium/achievements */
-  --success: #2E8B57;           /* Emerald for success states */
-  --danger: #ef4444;            /* Keep existing red */
+  --success: #2A9D8F;           /* Calm Teal - success states (Emergent) */
+  --warning: #E9C46A;           /* Gold - warnings, streaks (Emergent) */
+  --danger: #DC2626;            /* Red - errors (Emergent) */
+  --info: #7C3AED;              /* Purple - info states (Emergent) */
 
   /* BORDERS */
-  --card-border: rgba(22, 33, 62, 0.08);  /* Black/8% - Deep Navy opacity */
-  --border-hover: rgba(22, 33, 62, 0.16);
+  --card-border: rgba(0, 0, 0, 0.06);      /* Subtle border (Emergent) */
+  --border-hover: rgba(231, 111, 81, 0.3); /* Terracotta on hover */
 
   /* ACTIVE/HOVER STATES */
-  --hover-bg: rgba(242, 106, 75, 0.08);    /* Coral/8% */
-  --selected-bg: rgba(242, 106, 75, 0.08);
-  --nav-active-bg: rgba(242, 106, 75, 0.08);
-  --nav-hover-bg: rgba(22, 33, 62, 0.04);
+  --hover-bg: rgba(231, 111, 81, 0.08);    /* Terracotta/8% */
+  --selected-bg: rgba(231, 111, 81, 0.08);
+  --nav-active-bg: rgba(231, 111, 81, 0.08);
+  --nav-hover-bg: rgba(0, 0, 0, 0.04);
+
+  /* EMERGENT-SPECIFIC COLORS */
+  --brand-secondary: #264653;   /* Deep Teal */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-dark: rgba(30, 41, 59, 0.1);
 
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  /* Dark mode: Deep Navy background, Warm Ivory text */
-  --background: #16213E;        /* Deep Navy as background */
+  /* Dark mode: Emergent Dark Slate */
+  --background: #1E293B;        /* Dark Slate as background */
   --foreground: #FAF8F5;        /* Warm Ivory as text */
   --foreground-secondary: #9CA3AF;
-  --primary: #F26A4B;           /* Coral stays same */
-  --primary-light: #F58972;
-  --primary-dark: #E15838;
-  --primary-bg: rgba(242, 106, 75, 0.15);
-  --accent: #F26A4B;
-  --success: #2E8B57;           /* Emerald */
-  --danger: #f87171;
-  --card-bg: #1E2B4A;           /* Darker navy for cards */
-  --card-bg-rgb: 30, 43, 74;
-  --surface-cool: #252F4D;      /* Darker cool surface */
-  --card-border: rgba(250, 248, 245, 0.12);
+  --primary: #E76F51;           /* Terracotta stays same */
+  --primary-light: #E15838;
+  --primary-dark: #D65A3D;
+  --primary-bg: rgba(231, 111, 81, 0.15);
+  --accent: #E76F51;
+  --success: #2A9D8F;           /* Calm Teal */
+  --warning: #E9C46A;           /* Gold */
+  --danger: #DC2626;            /* Red */
+  --info: #7C3AED;              /* Purple */
+  --card-bg: #334155;           /* Slate-700 for cards */
+  --card-bg-rgb: 51, 65, 85;
+  --surface-cool: #475569;      /* Slate-600 */
+  --card-border: rgba(255, 255, 255, 0.10);
   --muted: #9CA3AF;
-  --hover-bg: rgba(242, 106, 75, 0.1);
-  --selected-bg: rgba(242, 106, 75, 0.15);
-  --nav-active-bg: rgba(242, 106, 75, 0.2);
-  --nav-hover-bg: rgba(242, 106, 75, 0.08);
+  --hover-bg: rgba(231, 111, 81, 0.1);
+  --selected-bg: rgba(231, 111, 81, 0.15);
+  --nav-active-bg: rgba(231, 111, 81, 0.2);
+  --nav-hover-bg: rgba(231, 111, 81, 0.08);
+  --brand-secondary: #264653;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-dark: rgba(255, 255, 255, 0.05);
   color-scheme: dark;
 }
 
@@ -76,6 +88,16 @@
 ::placeholder {
   color: var(--muted) !important;
   opacity: 1;
+}
+
+/* Flashcard 3D flip animation */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 body {
@@ -201,6 +223,14 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-glow 2s infinite;
 }
 
+/* Emergent Design Shadow Utilities */
+.shadow-soft {
+  box-shadow: 0 8px 30px rgba(22, 33, 62, 0.06);
+}
+
+.shadow-pop {
+  box-shadow: 0 20px 60px -20px rgba(242, 106, 75, 0.35);
+}
 
 /* Card hover effect */
 .card-hover {

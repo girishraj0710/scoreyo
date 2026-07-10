@@ -103,14 +103,14 @@ export default function AchievementsPage() {
     <AccessibilityWrapper>
       <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className="bg-[#4255FF] rounded-2xl p-8 mb-8 text-white">
+      <div className="bg-[#E76F51] rounded-2xl p-8 mb-8 text-white">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-16 h-16 bg-[var(--card-bg)]/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
             <Trophy className="w-8 h-8 text-white" />
           </div>
           <div>
             <h1 className="text-3xl font-bold">Achievements & Badges</h1>
-            <p className="text-indigo-100">Track your progress and earn rewards</p>
+            <p className="text-white/90">Track your progress and earn rewards</p>
           </div>
         </div>
 
@@ -118,26 +118,26 @@ export default function AchievementsPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{unlockedBadges.length}</div>
-            <div className="text-sm text-indigo-100">Badges Earned</div>
+            <div className="text-sm text-white/90">Badges Earned</div>
           </div>
           <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{badges.length}</div>
-            <div className="text-sm text-indigo-100">Total Badges</div>
+            <div className="text-sm text-white/90">Total Badges</div>
           </div>
           <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{completionPercentage}%</div>
-            <div className="text-sm text-indigo-100">Completion</div>
+            <div className="text-sm text-white/90">Completion</div>
           </div>
           <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{stats?.streak || 0}</div>
-            <div className="text-sm text-indigo-100">Day Streak</div>
+            <div className="text-sm text-white/90">Day Streak</div>
           </div>
         </div>
 
         {/* Completion Progress */}
         <div className="mt-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-indigo-100">Overall Progress</span>
+            <span className="text-sm text-white/90">Overall Progress</span>
             <span className="text-sm font-bold">{unlockedBadges.length} / {badges.length}</span>
           </div>
           <div className="w-full bg-[var(--card-bg)]/20 rounded-full h-3">
@@ -157,7 +157,7 @@ export default function AchievementsPage() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
               selectedCategory === cat
-                ? "bg-[#4255FF] text-white shadow-lg"
+                ? "bg-[#E76F51] text-white shadow-lg"
                 : "border cursor-pointer"
             }`}
             style={selectedCategory === cat ? undefined : { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" }}

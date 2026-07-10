@@ -99,7 +99,7 @@ export default function LeaderboardPage() {
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
           <div className="rounded-xl p-4 text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-            <div className="text-3xl font-bold text-[#4255FF]">{stats.totalQuestions}</div>
+            <div className="text-3xl font-bold text-[#E76F51]">{stats.totalQuestions}</div>
             <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>{t("questionsSolved")}</div>
           </div>
           <div className="rounded-xl p-4 text-center" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
@@ -165,7 +165,7 @@ export default function LeaderboardPage() {
         {/* Milestones */}
         <div className="rounded-xl p-6 shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--foreground-secondary)" }}>
-            <svg className="w-6 h-6 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
             </svg>
             {t("milestones")}
@@ -209,7 +209,7 @@ export default function LeaderboardPage() {
                       </div>
                       <div className="w-full rounded-full h-2" style={{ background: "var(--hover-bg)" }}>
                         <div
-                          className="bg-[#4255FF] h-2 rounded-full transition-all"
+                          className="bg-[#E76F51] h-2 rounded-full transition-all"
                           style={{ width: `${m.progress}%` }}
                         />
                       </div>
@@ -268,7 +268,7 @@ export default function LeaderboardPage() {
                           <span className="font-medium" style={{ color: "var(--foreground-secondary)" }}>
                             {entry.name}
                             {entry.id === currentUserId && (
-                              <span className="ml-1 text-xs text-[#4255FF]">(You)</span>
+                              <span className="ml-1 text-xs text-[#E76F51]">(You)</span>
                             )}
                           </span>
                         </div>
@@ -291,7 +291,7 @@ export default function LeaderboardPage() {
 
           {/* Coming Soon */}
           <div className="mt-4 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-[#90CAF9] text-center">
-            <p className="text-sm font-medium text-[#3242CC]">{t("comingSoon")}</p>
+            <p className="text-sm font-medium text-[#D65A3D]">{t("comingSoon")}</p>
           </div>
         </div>
       </div>

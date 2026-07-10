@@ -1,0 +1,6 @@
+// ONE-LINER VERSION - Copy and paste this into console:
+
+(function(){const h=document.querySelector('header[class*="fixed"]');if(!h)return console.error('Header not found');const H=h.getBoundingClientRect().height;const m=document.querySelector('main');if(m&&window.innerWidth>=768)m.style.marginTop=H+'px';document.querySelectorAll('[class*="sticky"]').forEach(e=>{if(window.innerWidth>=768)e.style.top=H+'px'});document.querySelectorAll('div[class*="min-h-screen"]').forEach(w=>{if(w.querySelector('[class*="sticky"]')&&window.innerWidth>=768){w.style.marginTop='-'+H+'px';w.style.paddingTop=H+'px'}});console.log('✅ Fixed! Header:'+H+'px');const i=document.createElement('div');i.textContent='✅ Alignment Fixed';i.style.cssText='position:fixed;top:10px;right:10px;background:#10B981;color:white;padding:12px 20px;border-radius:8px;font-weight:600;z-index:99999';document.body.appendChild(i);setTimeout(()=>i.remove(),2000)})();
+
+
+// DETAILED VERSION - Copy the entire fix-alignment.js file content for more info

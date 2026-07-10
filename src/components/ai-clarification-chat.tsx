@@ -103,7 +103,7 @@ export function AIClarificationChat({
       <button
         onClick={() => setIsOpen(true)}
         className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 rounded-xl transition-all font-medium text-sm"
-        style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)", color: "#4255FF" }}
+        style={{ background: "var(--primary-bg)", borderColor: "rgba(231, 111, 81, 0.3)", color: "#E76F51" }}
       >
         <span>Still confused? Ask Krakkify AI for help</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@ export function AIClarificationChat({
   }
 
   return (
-    <div className="p-4 rounded-xl border-2" style={{ background: "var(--primary-bg)", borderColor: "rgba(66, 85, 255, 0.3)" }}>
+    <div className="p-4 rounded-xl border-2" style={{ background: "var(--primary-bg)", borderColor: "rgba(231, 111, 81, 0.3)" }}>
       <div className="flex items-center gap-2 mb-3">
         <div>
           <div className="text-sm font-semibold" style={{ color: "white" }}>Krakkify AI</div>
@@ -135,7 +135,7 @@ export function AIClarificationChat({
               }`}
               style={{ background: msg.type === 'user' ? "var(--card-bg)" : "var(--card-bg)", borderColor: "rgba(66, 85, 255, 0.2)" }}
             >
-              <div className="text-xs font-semibold mb-1" style={{ color: msg.type === 'ai' ? '#4255FF' : 'var(--foreground)' }}>
+              <div className="text-xs font-semibold mb-1" style={{ color: msg.type === 'ai' ? '#E76F51' : 'var(--foreground)' }}>
                 {msg.type === 'ai' ? 'Krakkify AI:' : 'You:'}
               </div>
               <div className="text-sm leading-relaxed whitespace-pre-wrap" style={{ color: "var(--foreground)" }}>
@@ -198,7 +198,7 @@ export function AIClarificationChat({
           onClick={handleAsk}
           disabled={!userQuestion.trim() || isLoading}
           className="px-4 py-2 text-white rounded-lg disabled:opacity-50 text-sm font-medium transition-all"
-          style={{ backgroundColor: "#4255FF" }}
+          style={{ backgroundColor: "#E76F51" }}
           onMouseEnter={(e) => {
             if (!e.currentTarget.disabled) {
               e.currentTarget.style.backgroundColor = "#3242CC";
@@ -206,7 +206,7 @@ export function AIClarificationChat({
             }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#4255FF";
+            e.currentTarget.style.backgroundColor = "#E76F51";
             e.currentTarget.style.transform = "scale(1)";
           }}
         >

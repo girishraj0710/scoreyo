@@ -49,7 +49,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
     return (
       <div className="rounded-2xl p-6 shadow-lg border h-[400px]" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-[#4255FF] to-violet-500 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-[#E76F51] to-violet-500 rounded-xl flex items-center justify-center">
             <Trophy className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -69,7 +69,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
 
           <a
             href="/quiz/levels?examId=jee-main&subjectId=jee-physics"
-            className="block w-full py-3 bg-[#4255FF] text-white text-center font-semibold rounded-lg transition-all"
+            className="block w-full py-3 bg-[#E76F51] text-white text-center font-semibold rounded-lg transition-all"
           >
             Start Level 1
           </a>
@@ -96,7 +96,7 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-[#4255FF] to-violet-500 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-[#E76F51] to-violet-500 rounded-xl flex items-center justify-center">
             <Trophy className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -119,10 +119,10 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
       <div className="grid grid-cols-2 gap-3 mb-6">
         <div className="rounded-lg p-4 border" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
           <div className="flex items-center gap-2 mb-1">
-            <Target className="w-4 h-4 text-[#4255FF]" />
+            <Target className="w-4 h-4 text-[#E76F51]" />
             <span className="text-xs" style={{ color: "var(--muted)" }}>Levels</span>
           </div>
-          <div className="text-2xl font-bold text-[#4255FF]">
+          <div className="text-2xl font-bold text-[#E76F51]">
             {progress.totalLevelsCompleted}
           </div>
         </div>
@@ -145,13 +145,13 @@ export function LevelProgressWidget({ userId }: LevelProgressWidgetProps) {
             <span className="text-sm font-medium" style={{ color: "var(--foreground-secondary)" }}>
               Next Milestone: Level {nextMilestone}
             </span>
-            <span className="text-sm font-bold text-[#4255FF]">
+            <span className="text-sm font-bold text-[#E76F51]">
               {progress.totalLevelsCompleted}/{nextMilestone}
             </span>
           </div>
           <div className="w-full rounded-full h-3" style={{ background: "var(--card-bg)" }}>
             <div
-              className="bg-gradient-to-r from-[#4255FF] to-violet-500 h-3 rounded-full transition-all duration-500 animate-progress"
+              className="bg-gradient-to-r from-[#E76F51] to-violet-500 h-3 rounded-full transition-all duration-500 animate-progress"
               style={{ width: `${milestoneProgress}%` }}
             />
           </div>

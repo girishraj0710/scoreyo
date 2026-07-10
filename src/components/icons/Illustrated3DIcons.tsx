@@ -23,7 +23,7 @@ export const Book3DIcon: React.FC<Icon3DProps> = ({ className = "w-12 h-12" }) =
       <defs>
         {/* Gradients for 3D effect */}
         <linearGradient id="bookCover" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#5B7CFF" />
+          <stop offset="0%" stopColor="#E76F51" />
           <stop offset="100%" stopColor="#4A6AE8" />
         </linearGradient>
         <linearGradient id="bookSpine" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -73,10 +73,10 @@ export const Documents3DIcon: React.FC<Icon3DProps> = ({ className = "w-12 h-12"
       <defs>
         <linearGradient id="doc1" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#6B8CFF" />
-          <stop offset="100%" stopColor="#5B7CFF" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="doc2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#5B7CFF" />
+          <stop offset="0%" stopColor="#E76F51" />
           <stop offset="100%" stopColor="#4A6AE8" />
         </linearGradient>
         <linearGradient id="doc3" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -121,7 +121,7 @@ export const Notebook3DIcon: React.FC<Icon3DProps> = ({ className = "w-12 h-12" 
     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <linearGradient id="notebookCover" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#5B7CFF" />
+          <stop offset="0%" stopColor="#E76F51" />
           <stop offset="100%" stopColor="#4A6AE8" />
         </linearGradient>
       </defs>

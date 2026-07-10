@@ -96,7 +96,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                 >
                   {/* Icon */}
                   {state === "locked" && <Lock className="w-8 h-8 text-slate-400 mb-1" />}
-                  {state === "unlocked" && !isBoss && <Play className="w-8 h-8 text-[#4255FF] mb-1" />}
+                  {state === "unlocked" && !isBoss && <Play className="w-8 h-8 text-[#E76F51] mb-1" />}
                   {state === "unlocked" && isBoss && <Crown className="w-10 h-10 text-violet-600 mb-1" />}
                   {state === "completed" && <Check className="w-8 h-8 text-emerald-600 mb-1" />}
 
@@ -107,7 +107,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                         ? "text-slate-400"
                         : state === "completed"
                           ? "text-emerald-700"
-                          : "text-[#3242CC]"
+                          : "text-[#D65A3D]"
                     }`}
                   >
                     {level.levelNumber}
@@ -136,7 +136,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                       <p className="text-xs text-slate-600 mb-2">{level.description}</p>
                     )}
                     <div className="flex flex-wrap gap-2 text-xs">
-                      <span className="px-2 py-1 bg-[#E8EAFF] text-[#3242CC] rounded-full">
+                      <span className="px-2 py-1 bg-[#E8EAFF] text-[#D65A3D] rounded-full">
                         {level.questionCount}Q
                       </span>
                       <span className="px-2 py-1 bg-slate-100 text-slate-700 rounded-full capitalize">
@@ -175,7 +175,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                   {state === "completed" ? (
                     <button
                       onClick={() => onLevelClick(level)}
-                      className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] border-2 border-[#90CAF9] text-[#4255FF] rounded-lg hover:bg-[#E8EAFF] text-sm font-medium transition-all"
+                      className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] border-2 border-[#90CAF9] text-[#E76F51] rounded-lg hover:bg-[#E8EAFF] text-sm font-medium transition-all"
                     >
                       <RotateCcw className="w-4 h-4" />
                       Replay
@@ -183,7 +183,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
                   ) : (
                     <button
                       onClick={() => onLevelClick(level)}
-                      className="flex items-center gap-2 px-5 py-2 bg-[#4255FF] text-white rounded-lg text-sm font-semibold shadow-lg transition-all"
+                      className="flex items-center gap-2 px-5 py-2 bg-[#E76F51] text-white rounded-lg text-sm font-semibold shadow-lg transition-all"
                     >
                       <Play className="w-4 h-4" />
                       {isBoss ? "Start Boss Level" : "Start"}
@@ -201,7 +201,7 @@ export function LevelMap({ levels, userProgress, onLevelClick, currentLevel }: L
         <h3 className="text-lg font-bold text-slate-800 mb-4">Your Progress</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <div className="text-3xl font-bold text-[#4255FF]">
+            <div className="text-3xl font-bold text-[#E76F51]">
               {userProgress.filter((l) => l.is_completed).length}
             </div>
             <div className="text-sm text-slate-500">Levels Completed</div>

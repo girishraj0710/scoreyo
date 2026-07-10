@@ -140,7 +140,7 @@ export default function EnglishPathPage() {
               <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>{path.description}</p>
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
-                  <BookOpen className="w-4 h-4 text-[#4255FF]" />
+                  <BookOpen className="w-4 h-4 text-[#E76F51]" />
                   <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
                     {path.topics.length} topics
                   </span>
@@ -190,14 +190,14 @@ export default function EnglishPathPage() {
                   <div className="flex items-start gap-4">
                     {/* Icon */}
                     <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:transition-colors" style={{ background: "var(--hover-bg)" }}>
-                      <TopicIcon className="w-7 h-7 text-[#4255FF]" />
+                      <TopicIcon className="w-7 h-7 text-[#E76F51]" />
                     </div>
 
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h3 className="text-lg font-bold group-hover:text-[#4255FF] transition-colors" style={{ color: "var(--foreground)" }}>
+                          <h3 className="text-lg font-bold group-hover:text-[#E76F51] transition-colors" style={{ color: "var(--foreground)" }}>
                             {topic.name}
                           </h3>
                           <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{topic.description}</p>
@@ -229,7 +229,7 @@ export default function EnglishPathPage() {
                           </div>
                           <div className="w-full rounded-full h-2 overflow-hidden" style={{ background: "var(--hover-bg)" }}>
                             <div
-                              className="h-full bg-gradient-to-r from-[#4255FF] to-purple-500 transition-all"
+                              className="h-full bg-gradient-to-r from-[#E76F51] to-purple-500 transition-all"
                               style={{ width: `${(topicProgress.completed / topic.questionCount) * 100}%` }}
                             />
                           </div>

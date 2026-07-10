@@ -160,7 +160,7 @@ export function LevelMapV3({ levels, userProgress, onLevelClick, currentLevel, e
                       ? 'bg-slate-800/50 border-4 border-slate-700/50 cursor-not-allowed'
                       : state === "completed"
                         ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-4 border-cyan-400 hover:scale-110 cursor-pointer animate-glow'
-                        : 'bg-gradient-to-br from-[#4255FF] to-purple-600 border-4 border-indigo-400 hover:scale-110 cursor-pointer animate-glow'
+                        : 'bg-gradient-to-br from-[#E76F51] to-purple-600 border-4 border-indigo-400 hover:scale-110 cursor-pointer animate-glow'
                     }
                   `}
                 >

@@ -211,7 +211,7 @@ export function StudyCardNavigator({ cards, sectionTitle, practiceProblemsCompon
             <div className="flex justify-end pt-6 border-t" style={{ borderColor: 'var(--card-border)' }}>
               <button
                 onClick={onComplete}
-                className="flex items-center gap-2 px-6 py-3 bg-[#4255FF] text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+                className="flex items-center gap-2 px-6 py-3 bg-[#E76F51] text-white rounded-xl font-semibold hover:shadow-lg transition-all"
               >
                 Next Section
                 <ChevronRight className="w-5 h-5" />

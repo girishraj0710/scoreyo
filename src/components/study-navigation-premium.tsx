@@ -97,7 +97,7 @@ export function StudyNavigationPremium({
                         height: '8px',
                         borderRadius: '4px',
                         background: idx === currentSection
-                          ? '#4255FF'
+                          ? '#E76F51'
                           : idx < currentSection
                             ? '#10B981'
                             : 'var(--muted)'
@@ -133,7 +133,7 @@ export function StudyNavigationPremium({
                 disabled={!canGoNext}
                 className="group flex items-center gap-2 px-5 py-3 rounded-xl font-semibold transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
                 style={{
-                  background: canGoNext ? 'linear-gradient(135deg, #4255FF 0%, #3644CC 100%)' : 'var(--muted)',
+                  background: canGoNext ? 'linear-gradient(135deg, #E76F51 0%, #3644CC 100%)' : 'var(--muted)',
                   color: 'white'
                 }}
               >

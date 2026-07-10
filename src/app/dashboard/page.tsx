@@ -128,7 +128,7 @@ export default function DashboardPage() {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
         <div className="flex flex-col items-center gap-3">
-          <div className="animate-spin h-8 w-8 border-4 border-indigo-600 border-t-transparent rounded-full" />
+          <div className="animate-spin h-8 w-8 border-4 border-[#E76F51] border-t-transparent rounded-full" />
           <p style={{ color: "var(--foreground-secondary)" }}>Loading...</p>
         </div>
       </div>
@@ -161,23 +161,20 @@ export default function DashboardPage() {
     return (
       <AccessibilityWrapper>
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <div className="rounded-2xl p-12 shadow-lg" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
+          <div className="rounded-2xl p-12 shadow-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
             <div className="flex justify-center mb-6">
-              <BookOpen className="w-20 h-20" style={{ color: '#4255FF' }} />
+              <BookOpen className="w-20 h-20 text-[#F26A4B]" />
             </div>
-            <h1 className="text-2xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
+            <h1 className="font-heading text-2xl font-bold mb-3 text-[#16213E] dark:text-white">
               No Quiz Data Yet
             </h1>
-            <p className="mb-6" style={{ color: "var(--muted)" }}>
+            <p className="font-sans mb-6 text-[#5A6478] dark:text-slate-400">
               Take your first quiz to see your dashboard with progress tracking,
               streaks, and performance analytics!
             </p>
             <a
               href="/"
-              className="inline-block px-8 py-3 text-white font-semibold rounded-xl shadow-lg"
-              style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
+              className="font-sans inline-block px-8 py-3 text-white font-semibold rounded-xl shadow-lg bg-[#F26A4B] hover:bg-[#E15838] transition-all duration-500"
             >
               Start Your First Quiz
             </a>
@@ -190,15 +187,11 @@ export default function DashboardPage() {
   return (
     <AccessibilityWrapper>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Version Badge - Remove after testing */}
-      <div className="fixed top-4 right-4 z-50 text-white px-3 py-1 rounded-full text-xs font-mono shadow-lg" style={{ backgroundColor: '#4255FF' }}>
-        AGENTFORCE-BLUE
-      </div>
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-3">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: "var(--foreground)" }}>Your Dashboard</h1>
-          <p className="text-xs sm:text-sm mt-1" style={{ color: "var(--muted)" }}>
+          <h1 className="font-heading text-2xl sm:text-3xl font-bold text-[#16213E] dark:text-white">Your Dashboard</h1>
+          <p className="font-sans text-xs sm:text-sm mt-1 text-[#5A6478] dark:text-slate-400">
             Track your preparation progress across all exams
           </p>
         </div>
@@ -210,10 +203,8 @@ export default function DashboardPage() {
           />
           <a
             href="/"
-            className="px-4 py-2 text-white text-sm font-medium rounded-lg flex-1 sm:flex-none text-center"
-            style={{ backgroundColor: '#4255FF', transition: 'background-color 0.2s', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#3242CC'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4255FF'}
+            className="font-sans px-4 py-2 text-white text-sm font-medium rounded-lg flex-1 sm:flex-none text-center bg-[#F26A4B] hover:bg-[#E15838] transition-all duration-500"
+            style={{ minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
             New Quiz
           </a>
@@ -231,36 +222,36 @@ export default function DashboardPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-8">
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-          <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Total Quizzes</div>
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-600">
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all duration-500 cursor-pointer bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800" onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = "#F26A4B"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = ""; }}>
+          <div className="font-sans text-[10px] sm:text-xs md:text-sm mb-1 text-[#5A6478] dark:text-slate-400">Total Quizzes</div>
+          <div className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-[#F26A4B]">
             {stats.totalSessions}
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-          <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Questions Solved</div>
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all duration-500 cursor-pointer bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800" onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = "#409464"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = ""; }}>
+          <div className="font-sans text-[10px] sm:text-xs md:text-sm mb-1 text-[#5A6478] dark:text-slate-400">Questions Solved</div>
+          <div className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-[#409464]">
             {stats.totalQuestions}
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-          <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Accuracy</div>
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-600">
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm transition-all duration-500 cursor-pointer bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800" onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = "#16213E"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = ""; }}>
+          <div className="font-sans text-[10px] sm:text-xs md:text-sm mb-1 text-[#5A6478] dark:text-slate-400">Accuracy</div>
+          <div className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-[#16213E] dark:text-white">
             {stats.accuracy}%
           </div>
-          <div className="w-full rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2" style={{ background: "var(--hover-bg)" }}>
+          <div className="w-full rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2 bg-slate-200 dark:bg-slate-800">
             <div
-              className="bg-cyan-500 h-1.5 sm:h-2 rounded-full animate-progress"
+              className="bg-[#16213E] dark:bg-white h-1.5 sm:h-2 rounded-full animate-progress"
               style={{ width: `${stats.accuracy}%` }}
             />
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm streak-pulse transition-all cursor-pointer" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-          <div className="text-[10px] sm:text-xs md:text-sm mb-1" style={{ color: "var(--muted)" }}>Day Streak</div>
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">
+        <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 shadow-sm streak-pulse transition-all duration-500 cursor-pointer bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800" onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = "#F59E0B"; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = ""; }}>
+          <div className="font-sans text-[10px] sm:text-xs md:text-sm mb-1 text-[#5A6478] dark:text-slate-400">Day Streak</div>
+          <div className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-amber-500">
             {stats.streak}
           </div>
-          <div className="text-[9px] sm:text-xs mt-1" style={{ color: "var(--muted)" }}>
+          <div className="font-sans text-[9px] sm:text-xs mt-1 text-[#5A6478] dark:text-slate-400">
             {stats.streak > 0 ? "Keep it up!" : "Start your streak!"}
           </div>
         </div>
@@ -274,8 +265,8 @@ export default function DashboardPage() {
         <DPPCard />
 
         {/* Exam-wise Breakdown */}
-        <div className="rounded-2xl p-6 shadow-lg flex flex-col h-[400px]" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-          <h3 className="text-lg font-semibold mb-4 shrink-0" style={{ color: "var(--foreground)" }}>
+        <div className="rounded-2xl p-6 shadow-lg flex flex-col h-[400px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 className="font-heading text-lg font-semibold mb-4 shrink-0 text-[#16213E] dark:text-white">
             Exam-wise Performance
           </h3>
           {stats.examBreakdown.length === 0 ? (
@@ -329,8 +320,8 @@ export default function DashboardPage() {
         <MistakeMapWidget />
 
         {/* Weak Topics */}
-        <div className="rounded-2xl p-6 shadow-lg flex flex-col h-[500px]" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-          <h3 className="text-lg font-semibold mb-4 shrink-0" style={{ color: "var(--foreground)" }}>
+        <div className="rounded-2xl p-6 shadow-lg flex flex-col h-[500px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 className="font-heading text-lg font-semibold mb-4 shrink-0 text-[#16213E] dark:text-white">
             Topics to Improve
           </h3>
           {mastery.length === 0 ? (
@@ -348,7 +339,7 @@ export default function DashboardPage() {
                       style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = "var(--hover-bg)";
-                        e.currentTarget.style.borderColor = "#4255FF";
+                        e.currentTarget.style.borderColor = "#E76F51";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.backgroundColor = "var(--primary-bg)";
@@ -365,7 +356,7 @@ export default function DashboardPage() {
                       </div>
                       <div className="text-right">
                         <div
-                          className={`text-lg font-bold ${
+                          className={`font-heading text-lg font-bold ${
                             m.mastery_score < 50
                               ? "text-red-600"
                               : "text-amber-600"
@@ -375,8 +366,7 @@ export default function DashboardPage() {
                         </div>
                         <a
                           href={`/quiz?examId=${m.exam_id}&subjectId=${m.subject_id}&topic=${encodeURIComponent(m.topic)}&count=5&difficulty=mixed`}
-                          className="text-xs hover:underline"
-                          style={{ color: '#4255FF' }}
+                          className="font-sans text-xs hover:underline text-[#F26A4B] hover:text-[#E15838]"
                         >
                           Practice
                         </a>
@@ -392,8 +382,8 @@ export default function DashboardPage() {
         <StudyStreakCalendar />
 
         {/* Recent Sessions */}
-        <div className="rounded-2xl p-6 shadow-lg md:col-span-2 flex flex-col h-[400px]" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}>
-          <h3 className="text-lg font-semibold mb-4 shrink-0" style={{ color: "var(--foreground)" }}>
+        <div className="rounded-2xl p-6 shadow-lg md:col-span-2 flex flex-col h-[400px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 className="font-heading text-lg font-semibold mb-4 shrink-0 text-[#16213E] dark:text-white">
             Recent Quizzes
           </h3>
           {recentSessions.length === 0 ? (

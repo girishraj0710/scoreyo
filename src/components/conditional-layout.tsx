@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { AppHeader } from "@/components/app-header";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -11,27 +11,46 @@ import { RoleSelectionChecker } from "@/components/role-selection-checker";
 
 export function ConditionalLayout({ children }: { children: ReactNode }) {
   const { user, isLoading } = useUser();
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Listen for sidebar collapse state changes
+  useEffect(() => {
+    const handleSidebarToggle = (e: CustomEvent) => {
+      setSidebarCollapsed(e.detail.isCollapsed);
+    };
+    window.addEventListener('sidebar-toggle' as any, handleSidebarToggle);
+    return () => window.removeEventListener('sidebar-toggle' as any, handleSidebarToggle);
+  }, []);
 
   // Show header/footer only for logged-in users
   // Landing page (for non-logged users) has its own header built-in
   const showHeaderFooter = !isLoading && user;
+
+  // Compute main content classes
+  const mainContentClasses = [
+    'flex',
+    'flex-col',
+    'flex-1',
+    'min-w-0',
+    'transition-all',
+    'duration-300',
+    showHeaderFooter && (sidebarCollapsed ? 'md:ml-16' : 'md:ml-48'),
+  ].filter(Boolean).join(' ');
 
   return (
     <>
       {/* Mobile header (hidden on desktop) */}
       {showHeaderFooter && <AppHeader />}
 
-      <div className="flex flex-1">
-        {/* Desktop sidebar (hidden on mobile) */}
-        {showHeaderFooter && <AppSidebar />}
+      {/* Desktop: AppSidebar now includes the top header bar */}
+      {showHeaderFooter && <AppSidebar />}
 
-        <div className="flex flex-col flex-1 min-w-0">
-          {/* Desktop top nav (hidden on mobile) */}
-          {showHeaderFooter && <TopNav />}
+      <div className={mainContentClasses}>
+        {/* Desktop top nav (hidden on mobile) - removed since header is in sidebar now */}
+        {/* {showHeaderFooter && <TopNav />} */}
 
-          <main className="flex-1">{children}</main>
-          {showHeaderFooter && <AppFooter />}
-        </div>
+        <main className={`flex-1 ${showHeaderFooter ? 'md:mt-[96px]' : ''}`}>{children}</main>
+        {showHeaderFooter && <AppFooter />}
       </div>
 
       {/* Mobile bottom tab bar */}

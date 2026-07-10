@@ -17,7 +17,7 @@ export default function EnglishLearningDashboard() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0F1419]">
-        <div className="w-12 h-12 border-4 border-[#5B7CFF] border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#E76F51] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -99,13 +99,13 @@ export default function EnglishLearningDashboard() {
                   <span className="text-sm font-bold text-[#D97706] dark:text-[#FFA500]">45</span>
                   <span className="text-sm text-[#B45309] dark:text-[#F59E0B]">day streak</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#EFF6FF] dark:bg-[#1E3A8A]/20 border border-[#DBEAFE]/60 dark:border-[#1E3A8A]/40">
-                  <Zap className="w-4 h-4 text-[#5B7CFF]" strokeWidth={2.5} />
-                  <span className="text-sm font-bold text-[#5B7CFF] dark:text-[#93C5FD]">2,590</span>
-                  <span className="text-sm text-[#5B7CFF] dark:text-[#60A5FA]">XP</span>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FEF5F3] dark:bg-[#8B4034]/20 border border-[#DBEAFE]/60 dark:border-[#8B4034]/40">
+                  <Zap className="w-4 h-4 text-[#E76F51]" strokeWidth={2.5} />
+                  <span className="text-sm font-bold text-[#E76F51] dark:text-[#F4A79D]">2,590</span>
+                  <span className="text-sm text-[#E76F51] dark:text-[#F4A79D]">XP</span>
                 </div>
                 <button className="relative p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                  <div className="w-2 h-2 bg-[#5B7CFF] rounded-full absolute top-1.5 right-1.5" />
+                  <div className="w-2 h-2 bg-[#E76F51] rounded-full absolute top-1.5 right-1.5" />
                   <Bell className="w-5 h-5 text-slate-600 dark:text-slate-300" strokeWidth={2} />
                 </button>
               </div>
@@ -122,7 +122,7 @@ export default function EnglishLearningDashboard() {
                 </div>
                 <button
                   onClick={handleViewFullPath}
-                  className="text-sm font-semibold text-[#5B7CFF] dark:text-[#93C5FD] hover:text-[#4A6AE8] dark:hover:text-[#60A5FA] flex items-center gap-1"
+                  className="text-sm font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center gap-1"
                 >
                   Full path
                   <ChevronRight className="w-4 h-4" />
@@ -143,7 +143,7 @@ export default function EnglishLearningDashboard() {
             </section>
 
             {/* Next Up Card */}
-            <section className="bg-gradient-to-br from-[#5B7CFF] via-[#6B7FFF] to-[#8B5CF6] rounded-2xl p-6 text-white relative overflow-hidden shadow-lg shadow-[#5B7CFF]/20">
+            <section className="bg-gradient-to-br from-[#E76F51] via-[#E15838] to-[#D65A3D] rounded-2xl p-6 text-white relative overflow-hidden shadow-lg shadow-[#E76F51]/20">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-60" />
 
               <div className="relative flex items-center justify-between">
@@ -169,7 +169,7 @@ export default function EnglishLearningDashboard() {
                 </div>
                 <button
                   onClick={handleContinueLesson}
-                  className="px-8 py-3 rounded-xl bg-white text-[#5B7CFF] font-bold hover:bg-blue-50 transition-colors flex items-center gap-2 shadow-xl"
+                  className="px-8 py-3 rounded-xl bg-white text-[#E76F51] font-bold hover:bg-[#FEF5F3] transition-colors flex items-center gap-2 shadow-xl"
                 >
                   <Play className="w-5 h-5 fill-current" />
                   Continue
@@ -253,8 +253,8 @@ export default function EnglishLearningDashboard() {
                   />
                   <defs>
                     <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#5B7CFF" />
-                      <stop offset="100%" stopColor="#4A6AE8" />
+                      <stop offset="0%" stopColor="#E76F51" />
+                      <stop offset="100%" stopColor="#D65A3D" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -291,7 +291,7 @@ export default function EnglishLearningDashboard() {
                   <div
                     className={`w-full rounded-lg transition-all ${
                       bar.active
-                        ? 'bg-gradient-to-t from-[#5B7CFF] to-[#93C5FD]'
+                        ? 'bg-gradient-to-t from-[#E76F51] to-[#F4A79D]'
                         : 'bg-slate-200 dark:bg-slate-700'
                     }`}
                     style={{ height: `${bar.height}%` }}
@@ -316,7 +316,7 @@ export default function EnglishLearningDashboard() {
             </div>
             <button
               onClick={handleViewLeaderboard}
-              className="mt-4 w-full text-sm font-semibold text-[#5B7CFF] dark:text-[#93C5FD] hover:text-[#4A6AE8] dark:hover:text-[#60A5FA] flex items-center justify-center gap-1"
+              className="mt-4 w-full text-sm font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center justify-center gap-1"
             >
               Full leaderboard
               <ChevronRight className="w-4 h-4" />
@@ -346,15 +346,15 @@ export default function EnglishLearningDashboard() {
                 gradient="from-[#FEF3C7] to-[#FDE68A] dark:from-[#78350F]/20 dark:to-[#92400E]/20"
               />
               <AchievementCard
-                icon={<Star className="w-4 h-4 text-[#5B7CFF]" strokeWidth={2.5} />}
+                icon={<Star className="w-4 h-4 text-[#E76F51]" strokeWidth={2.5} />}
                 title="Perfect Score"
                 description="100% on Grammar Quiz"
-                gradient="from-[#DBEAFE] to-[#BFDBFE] dark:from-[#1E3A8A]/20 dark:to-[#1E40AF]/20"
+                gradient="from-[#DBEAFE] to-[#BFDBFE] dark:from-[#8B4034]/20 dark:to-[#1E40AF]/20"
               />
             </div>
             <button
               onClick={handleViewAchievements}
-              className="mt-4 w-full text-sm font-semibold text-[#5B7CFF] dark:text-[#93C5FD] hover:text-[#4A6AE8] dark:hover:text-[#60A5FA] flex items-center justify-center gap-1"
+              className="mt-4 w-full text-sm font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center justify-center gap-1"
             >
               View all achievements
               <ChevronRight className="w-4 h-4" />
@@ -382,7 +382,7 @@ function LevelNode({ title, subtitle, completed = false, active = false, onClick
       <div
         className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all ${
           active
-            ? 'bg-[#5B7CFF] border-[#93C5FD] shadow-lg shadow-[#5B7CFF]/40'
+            ? 'bg-[#E76F51] border-[#F4A79D] shadow-lg shadow-[#E76F51]/40'
             : completed
             ? 'bg-[#10B981] border-[#6EE7B7]'
             : 'bg-slate-200 dark:bg-slate-700 border-slate-300 dark:border-slate-600'
@@ -399,7 +399,7 @@ function LevelNode({ title, subtitle, completed = false, active = false, onClick
         )}
       </div>
       <div className="mt-3 text-center">
-        <p className={`text-sm font-semibold ${active ? 'text-[#5B7CFF] dark:text-[#93C5FD]' : completed ? 'text-[#10B981] dark:text-[#34D399]' : 'text-slate-500 dark:text-slate-400'}`}>
+        <p className={`text-sm font-semibold ${active ? 'text-[#E76F51] dark:text-[#F4A79D]' : completed ? 'text-[#10B981] dark:text-[#34D399]' : 'text-slate-500 dark:text-slate-400'}`}>
           {title}
         </p>
         {!completed && !active && (
@@ -609,7 +609,7 @@ function LeaderboardItem({
   isUser?: boolean;
 }) {
   return (
-    <div className={`flex items-center gap-3 p-3 rounded-xl transition-all ${isUser ? 'bg-[#EFF6FF] dark:bg-[#1E3A8A]/30 border-2 border-[#5B7CFF] dark:border-[#3B82F6]' : 'bg-slate-50 dark:bg-slate-800/50'}`}>
+    <div className={`flex items-center gap-3 p-3 rounded-xl transition-all ${isUser ? 'bg-[#FEF5F3] dark:bg-[#8B4034]/30 border-2 border-[#E76F51] dark:border-[#E76F51]' : 'bg-slate-50 dark:bg-slate-800/50'}`}>
       <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs ${
         isTop ? 'bg-gradient-to-br from-[#F59E0B] to-[#F97316] text-white shadow-sm' : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
       }`}>

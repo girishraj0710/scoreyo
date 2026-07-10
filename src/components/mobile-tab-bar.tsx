@@ -36,13 +36,13 @@ export function MobileTabBar() {
                 key={tab.href}
                 href={tab.href}
                 className="flex flex-col items-center justify-center gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
-                style={{ color: isActive ? "#4255FF" : "var(--muted)" }}
+                style={{ color: isActive ? "#E76F51" : "var(--muted)" }}
                 aria-label={tab.label}
                 aria-current={isActive ? "page" : undefined}
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.backgroundColor = "var(--hover-bg)";
-                    e.currentTarget.style.color = "#4255FF";
+                    e.currentTarget.style.color = "#E76F51";
                   }
                 }}
                 onMouseLeave={(e) => {

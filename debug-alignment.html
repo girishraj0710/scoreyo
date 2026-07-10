@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debug Alignment</title>
+  <style>
+    body { margin: 0; font-family: system-ui; }
+    .info { position: fixed; top: 10px; right: 10px; background: yellow; padding: 10px; z-index: 9999; font-size: 12px; max-width: 300px; }
+    .info pre { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <div class="info" id="debug-info">
+    <strong>Debug Info:</strong>
+    <div id="measurements"></div>
+  </div>
+
+  <script>
+    // Run this in your browser console on localhost:3000
+    function debugAlignment() {
+      const results = [];
+
+      // Find fixed header
+      const fixedHeader = document.querySelector('header.fixed');
+      if (fixedHeader) {
+        const rect = fixedHeader.getBoundingClientRect();
+        const computed = window.getComputedStyle(fixedHeader);
+        results.push(`Fixed Header:
+  - Height: ${rect.height}px
+  - Top: ${rect.top}px
+  - Position: ${computed.position}
+  - Z-index: ${computed.zIndex}`);
+      }
+
+      // Find sticky headers
+      const stickyHeaders = document.querySelectorAll('[class*="sticky"]');
+      stickyHeaders.forEach((el, i) => {
+        const rect = el.getBoundingClientRect();
+        const computed = window.getComputedStyle(el);
+        results.push(`Sticky Header ${i + 1}:
+  - Height: ${rect.height}px
+  - Top: ${rect.top}px
+  - Computed top: ${computed.top}
+  - Position: ${computed.position}
+  - Z-index: ${computed.zIndex}`);
+      });
+
+      // Find main content wrapper
+      const main = document.querySelector('main');
+      if (main) {
+        const computed = window.getComputedStyle(main);
+        const rect = main.getBoundingClientRect();
+        results.push(`Main Element:
+  - Top: ${rect.top}px
+  - Margin-top: ${computed.marginTop}
+  - Padding-top: ${computed.paddingTop}`);
+      }
+
+      return results.join('\n\n');
+    }
+
+    console.log('Copy and paste this into your console on localhost:3000:');
+    console.log(debugAlignment.toString());
+    console.log('\nThen run: debugAlignment()');
+  </script>
+</body>
+</html>

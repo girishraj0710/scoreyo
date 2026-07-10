@@ -320,7 +320,7 @@ export function LoginModal() {
                 className="w-full flex items-center gap-4 px-6 py-4 border-2 rounded-xl hover:bg-[#E8EAFF] transition-all text-left group"
                 style={{ borderColor: "#e2e8f0", background: "#f1f5f9" }}
               >
-                <Mail className="w-5 h-5 text-[#4255FF] group-hover:text-[#3242CC]" />
+                <Mail className="w-5 h-5 text-[#E76F51] group-hover:text-[#D65A3D]" />
                 <div>
                   <div className="font-semibold" style={{ color: "#0f172a" }}>Sign In</div>
                   <div className="text-sm" style={{ color: "#64748b" }}>Already have an account</div>
@@ -343,8 +343,8 @@ export function LoginModal() {
             <div className="mt-8 pt-6 text-center" style={{ borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "#e2e8f0" }}>
               <p className="text-xs" style={{ color: "#94a3b8" }}>
                 By continuing, you agree to Krakkify's{" "}
-                <a href="/terms" className="text-[#4255FF] hover:underline">Terms of Use</a> and{" "}
-                <a href="/privacy" className="text-[#4255FF] hover:underline">Privacy Policy</a>.
+                <a href="/terms" className="text-[#E76F51] hover:underline">Terms of Use</a> and{" "}
+                <a href="/privacy" className="text-[#E76F51] hover:underline">Privacy Policy</a>.
               </p>
             </div>
           </div>
@@ -373,7 +373,7 @@ export function LoginModal() {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
-                className="w-full px-4 py-3.5 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                className="w-full px-4 py-3.5 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                 style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 autoFocus
                 required
@@ -392,7 +392,7 @@ export function LoginModal() {
               <button
                 type="submit"
                 disabled={!email.trim() || isSubmitting}
-                className="w-full py-3.5 bg-[#4255FF] text-white font-semibold rounded-xl hover:bg-[#3242CC] transition-colors disabled:opacity-50"
+                className="w-full py-3.5 bg-[#E76F51] text-white font-semibold rounded-xl hover:bg-[#D65A3D] transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Continue"}
               </button>
@@ -427,7 +427,7 @@ export function LoginModal() {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setError(""); }}
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   autoFocus
                   required
@@ -453,7 +453,7 @@ export function LoginModal() {
                   value={name}
                   onChange={(e) => { setName(e.target.value); setError(""); }}
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   required
                 />
@@ -470,7 +470,7 @@ export function LoginModal() {
                   placeholder="Your age"
                   min="10"
                   max="100"
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 />
               </div>
@@ -484,7 +484,7 @@ export function LoginModal() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="City, State"
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 />
               </div>
@@ -504,7 +504,7 @@ export function LoginModal() {
                     }
                   }}
                   placeholder="10-digit phone number"
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                   maxLength={15}
                 />
@@ -517,7 +517,7 @@ export function LoginModal() {
                 <select
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#4255FF] transition-colors"
+                  className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
                 >
                   <option value="">Select exam (optional)</option>
@@ -535,7 +535,7 @@ export function LoginModal() {
               <button
                 type="submit"
                 disabled={!email.trim() || !name.trim() || isSubmitting}
-                className="w-full py-3.5 bg-[#4255FF] text-white font-semibold rounded-xl hover:bg-[#3242CC] transition-colors disabled:opacity-50"
+                className="w-full py-3.5 bg-[#E76F51] text-white font-semibold rounded-xl hover:bg-[#D65A3D] transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending verification..." : "Continue to Verification"}
               </button>
@@ -567,7 +567,7 @@ export function LoginModal() {
             <p className="mb-1" style={{ color: "#64748b" }}>
               We sent a code to
             </p>
-            <p className="text-[#4255FF] font-medium mb-6">{email}</p>
+            <p className="text-[#E76F51] font-medium mb-6">{email}</p>
 
             <div className="flex justify-center gap-2 mb-4" onPaste={handleOtpPaste}>
               {otp.map((digit, idx) => (
@@ -583,7 +583,7 @@ export function LoginModal() {
                   className="w-12 h-14 text-center text-xl font-bold border-2 rounded-xl focus:outline-none transition-all"
                   style={
                     digit
-                      ? { borderColor: "#4255FF", background: "#f1f5f9", color: "#3242CC" }
+                      ? { borderColor: "#E76F51", background: "#f1f5f9", color: "#D65A3D" }
                       : { borderColor: "#e2e8f0", color: "#0f172a", background: "#ffffff" }
                   }
                 />
@@ -591,7 +591,7 @@ export function LoginModal() {
             </div>
 
             {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
-            {isSubmitting && <p className="text-[#4255FF] text-sm text-center mb-4">Verifying...</p>}
+            {isSubmitting && <p className="text-[#E76F51] text-sm text-center mb-4">Verifying...</p>}
 
             <div className="text-center mt-6">
               {countdown > 0 ? (
@@ -602,7 +602,7 @@ export function LoginModal() {
                 <button
                   onClick={handleResend}
                   disabled={isSubmitting}
-                  className="text-sm text-[#4255FF] hover:text-[#3242CC] font-medium disabled:opacity-50"
+                  className="text-sm text-[#E76F51] hover:text-[#D65A3D] font-medium disabled:opacity-50"
                 >
                   Resend code
                 </button>
@@ -617,7 +617,7 @@ export function LoginModal() {
                   </svg>
                   <span><strong>Signing up as:</strong> {name}</span>
                 </p>
-                <p className="text-xs text-[#4255FF] mt-1">
+                <p className="text-xs text-[#E76F51] mt-1">
                   Verify your email to complete registration
                 </p>
               </div>
@@ -760,7 +760,7 @@ export function LoginModal() {
         .login-modal input:focus,
         .login-modal select:focus,
         .login-modal textarea:focus {
-          border-color: #4255FF !important;
+          border-color: #E76F51 !important;
           background-color: #ffffff !important;
         }
       `}</style>

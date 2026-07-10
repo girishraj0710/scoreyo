@@ -51,7 +51,7 @@ export function LoadingSkeleton({ type = 'page', className = '' }: LoadingSkelet
         {/* Loading text */}
         <div className="text-center mt-6">
           <div className="inline-flex items-center gap-2" style={{ color: "var(--foreground-secondary)" }}>
-            <div className="w-5 h-5 border-2 border-[#4255FF] border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-5 h-5 border-2 border-[#E76F51] border-t-transparent rounded-full animate-spin"></div>
             <span className="text-sm">Loading {type}...</span>
           </div>
         </div>
@@ -125,7 +125,7 @@ export function LoadingSpinner({ size = 'md', className = '' }: { size?: 'sm' | 
 
   return (
     <div className={`flex items-center justify-center ${className}`}>
-      <div className={`${sizeClasses[size]} border-[#4255FF] border-t-transparent rounded-full animate-spin`}></div>
+      <div className={`${sizeClasses[size]} border-[#E76F51] border-t-transparent rounded-full animate-spin`}></div>
     </div>
   );
 }

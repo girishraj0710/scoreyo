@@ -87,7 +87,7 @@ export default function ReviewPage() {
                 examId={topic.exam_id}
                 size={40}
               />
-              <span className="text-sm font-medium text-[#4255FF]">{exam?.name || topic.exam_id}</span>
+              <span className="text-sm font-medium text-[#E76F51]">{exam?.name || topic.exam_id}</span>
             </div>
             <h3 className="font-semibold truncate" style={{ color: "var(--foreground)" }}>{topic.topic}</h3>
             <div className="flex items-center gap-3 mt-1 text-xs" style={{ color: "var(--muted)" }}>
@@ -115,7 +115,7 @@ export default function ReviewPage() {
                   ? "bg-red-500 hover:bg-red-600"
                   : urgency === "today"
                     ? "bg-amber-500 hover:bg-amber-600"
-                    : "bg-slate-500 hover:bg-[#4255FF]"
+                    : "bg-slate-500 hover:bg-[#E76F51]"
               }`}
             >
               {t("reviewNow")}
@@ -155,7 +155,7 @@ export default function ReviewPage() {
           <p className="mb-6" style={{ color: "var(--muted)" }}>{t("noReviewsDesc")}</p>
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-[#4255FF] text-white font-semibold rounded-xl shadow-lg"
+            className="inline-block px-8 py-3 bg-[#E76F51] text-white font-semibold rounded-xl shadow-lg"
           >
             {t("startQuiz")} →
           </a>

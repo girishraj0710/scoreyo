@@ -1,0 +1,60 @@
+<svg width="600" height="500" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft background -->
+  <defs>
+    <linearGradient id="nightBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EDE9FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F3E8FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#nightBg)" rx="20"/>
+
+  <!-- Main Chat Interface Card -->
+  <rect x="80" y="80" width="440" height="340" rx="16" fill="white" opacity="0.95"/>
+
+  <!-- Header with 24/7 badge -->
+  <rect x="80" y="80" width="440" height="55" rx="16" fill="#8B5CF6"/>
+  <rect x="80" y="115" width="440" height="20" rx="0" fill="#8B5CF6"/>
+
+  <text x="300" y="113" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="white" text-anchor="middle">AI Doubt Solver</text>
+
+  <!-- 24/7 pill -->
+  <rect x="450" y="95" width="50" height="24" rx="12" fill="white" opacity="0.25"/>
+  <text x="475" y="111" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">24/7</text>
+
+  <!-- Question Bubble (Student) -->
+  <rect x="110" y="160" width="280" height="70" rx="14" fill="#F1F5F9"/>
+  <text x="250" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#1E293B" text-anchor="middle">Why does benzene show</text>
+  <text x="250" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#1E293B" text-anchor="middle">resonance stability?</text>
+
+  <!-- Time stamp -->
+  <text x="390" y="243" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94A3B8">2:14 AM</text>
+
+  <!-- Answer Bubble (AI) -->
+  <rect x="210" y="270" width="280" height="110" rx="14" fill="#8B5CF6" opacity="0.1"/>
+  <rect x="210" y="270" width="280" height="110" rx="14" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+
+  <!-- AI avatar -->
+  <circle cx="228" cy="295" r="12" fill="#8B5CF6"/>
+  <path d="M225 293 L228 296 L231 293" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Answer text lines -->
+  <rect x="250" y="285" width="220" height="8" rx="4" fill="#8B5CF6" opacity="0.4"/>
+  <rect x="250" y="305" width="200" height="8" rx="4" fill="#8B5CF6" opacity="0.3"/>
+  <rect x="250" y="325" width="210" height="8" rx="4" fill="#8B5CF6" opacity="0.3"/>
+  <rect x="250" y="345" width="160" height="8" rx="4" fill="#8B5CF6" opacity="0.25"/>
+
+  <!-- Time stamp -->
+  <text x="220" y="395" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94A3B8">2:14 AM</text>
+
+  <!-- Floating Moon Icon (top right) -->
+  <circle cx="470" cy="180" r="35" fill="#FCD34D" opacity="0.3"/>
+  <circle cx="470" cy="180" r="28" fill="#FCD34D"/>
+  <circle cx="480" cy="175" r="22" fill="white" opacity="0.4"/>
+
+  <!-- Sparkle elements -->
+  <circle cx="140" cy="140" r="4" fill="#8B5CF6" opacity="0.6"/>
+  <circle cx="165" cy="125" r="3" fill="#F59E0B" opacity="0.5"/>
+  <circle cx="420" cy="250" r="3" fill="#10B981" opacity="0.5"/>
+  <circle cx="450" cy="265" r="4" fill="#3B82F6" opacity="0.4"/>
+</svg>

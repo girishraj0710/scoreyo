@@ -19,7 +19,24 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const decks = await getFlashcardDecks(parseInt(userId));
+    const rawDecks = await getFlashcardDecks(parseInt(userId));
+
+    // Transform database format to UI format
+    const decks = rawDecks.map((deck: any) => ({
+      id: deck.id,
+      exam: deck.exam_id || 'General',
+      examColor: getExamColor(deck.exam_id),
+      subject: deck.subject_id || 'General',
+      topic: deck.topic,
+      cards: deck.card_count || 0,
+      mastered: deck.mastered_count || 0,
+      due: deck.due_count || 0,
+      title: deck.title,
+      description: deck.description,
+      isAiGenerated: deck.is_ai_generated,
+      createdAt: deck.created_at,
+      updatedAt: deck.updated_at,
+    }));
 
     return NextResponse.json({ decks });
   } catch (error) {
@@ -29,6 +46,20 @@ export async function GET(req: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+// Helper function to get exam color
+function getExamColor(examId: string): string {
+  const colors: { [key: string]: string } = {
+    'upsc': '#E76F51',
+    'jee': '#2A9D8F',
+    'neet': '#E9C46A',
+    'ssc': '#F4A261',
+    'banking': '#264653',
+    'cat': '#9B59B6',
+    'gate': '#3498DB',
+  };
+  return colors[examId?.toLowerCase()] || '#6B7280';
 }
 
 /**

@@ -1,0 +1,16 @@
+═══════════════════════════════════════════════════════════════════
+ALIGNMENT DEBUG - ONE-LINER
+═══════════════════════════════════════════════════════════════════
+
+Copy and paste this into your browser console:
+
+(function(){console.clear();const h=document.querySelector('header[class*="fixed"]');const m=document.querySelector('main');const s=Array.from(document.querySelectorAll('[class*="sticky"]')).filter(e=>window.getComputedStyle(e).position==='sticky');console.log('🔍 ALIGNMENT DEBUG\n');if(h){const r=h.getBoundingClientRect();console.log(`Fixed Header: ${r.height}px, Top: ${r.top}px`);}else{console.log('❌ Fixed header not found');}if(m){const r=m.getBoundingClientRect();const c=window.getComputedStyle(m);console.log(`Main Content: Top ${r.top}px, Margin-top: ${c.marginTop}, Padding-top: ${c.paddingTop}`);}else{console.log('❌ Main element not found');}s.forEach((e,i)=>{const r=e.getBoundingClientRect();const c=window.getComputedStyle(e);console.log(`Sticky #${i+1}: Top ${r.top}px, Computed top: ${c.top}`);});const H=h?h.getBoundingClientRect().height:0;const M=m?m.getBoundingClientRect().top:0;console.log(`\n📊 Summary:\nFixed Header Height: ${H}px\nMain Content Top: ${M}px\nGap: ${M-H}px ${Math.abs(M-H)<5?'✅':'⚠️'}\n`);console.log(Math.abs(M-H)<5?'✅ Alignment looks correct':'⚠️ Alignment issue detected');})();
+
+
+═══════════════════════════════════════════════════════════════════
+
+For detailed debug with visual overlay, use the full script:
+- File: debug-alignment.js
+- Copy the entire contents and paste into console
+
+═══════════════════════════════════════════════════════════════════

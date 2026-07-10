@@ -49,7 +49,7 @@ export function StudyProgressPremium({
             cy="28"
             r="20"
             fill="none"
-            stroke="#4255FF"
+            stroke="#E76F51"
             strokeWidth="3"
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
@@ -67,7 +67,7 @@ export function StudyProgressPremium({
               boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
             }}
           >
-            <span className="text-sm font-bold" style={{ color: '#4255FF' }}>
+            <span className="text-sm font-bold" style={{ color: '#E76F51' }}>
               {progress}%
             </span>
           </div>
@@ -140,7 +140,7 @@ export function StudyProgressPremium({
                       isActive ? 'shadow-sm' : ''
                     }`}
                     style={{
-                      background: isActive ? '#4255FF' : 'transparent',
+                      background: isActive ? '#E76F51' : 'transparent',
                       color: isActive ? 'white' : 'var(--foreground)'
                     }}
                     onMouseEnter={(e) => {

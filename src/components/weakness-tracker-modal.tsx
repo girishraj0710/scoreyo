@@ -45,7 +45,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       title: 'Careless Mistake',
       description: 'Misread question or clicked wrong option',
       color: 'bg-indigo-50 border-indigo-300 hover:bg-indigo-100',
-      iconColor: 'text-[#4255FF]',
+      iconColor: 'text-[#E76F51]',
       bgStyle: { background: 'rgba(66, 85, 255, 0.15)', borderColor: 'rgba(66, 85, 255, 0.3)' }
     }
   ];
@@ -62,7 +62,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
       <div className="bg-[var(--card-bg)] rounded-2xl p-6 max-w-lg w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-300">
         <div className="text-center mb-6">
           <div className="flex justify-center mb-3">
-            <svg className="w-16 h-16 text-[#4255FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-16 h-16 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
@@ -82,7 +82,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
               className="w-full text-left p-4 rounded-xl border-2 transition-all"
               style={
                 selected === type.id
-                  ? { background: type.bgStyle.background, borderColor: type.bgStyle.borderColor, boxShadow: '0 0 0 3px var(--card-bg), 0 0 0 5px #4255FF' }
+                  ? { background: type.bgStyle.background, borderColor: type.bgStyle.borderColor, boxShadow: '0 0 0 3px var(--card-bg), 0 0 0 5px #E76F51' }
                   : { ...type.bgStyle }
               }
               onMouseEnter={(e) => {
@@ -105,7 +105,7 @@ export function WeaknessTrackerModal({ onSelect, onSkip }: WeaknessTrackerModalP
                   <div className="text-xs" style={{ color: "var(--foreground-secondary)" }}>{type.description}</div>
                 </div>
                 {selected === type.id && (
-                  <span className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#4255FF' }}>
+                  <span className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#E76F51' }}>
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>

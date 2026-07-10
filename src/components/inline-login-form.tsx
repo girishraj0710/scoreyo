@@ -184,8 +184,8 @@ export function InlineLoginForm() {
           <div className="pt-4" style={{ borderTop: "1px solid var(--card-border)" }}>
             <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
               By continuing, you agree to Krakkify's{" "}
-              <a href="/terms" className="text-[#4255FF] hover:underline">Terms</a> & {" "}
-              <a href="/privacy" className="text-[#4255FF] hover:underline">Privacy Policy</a>.
+              <a href="/terms" className="text-[#E76F51] hover:underline">Terms</a> & {" "}
+              <a href="/privacy" className="text-[#E76F51] hover:underline">Privacy Policy</a>.
             </p>
           </div>
         </div>
@@ -216,7 +216,7 @@ export function InlineLoginForm() {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setError(""); }}
                 placeholder="Enter your email"
-                className="w-full px-3 py-2.5 border-2 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
+                className="w-full px-3 py-2.5 border-2 rounded-lg text-sm focus:outline-none focus:border-[#E76F51]"
                 style={{
                   borderColor: "var(--card-border)",
                   background: "var(--card-bg)",
@@ -236,7 +236,7 @@ export function InlineLoginForm() {
             <button
               type="submit"
               disabled={!email.trim() || isSubmitting}
-              className="w-full py-2.5 bg-[#4255FF] text-white font-semibold rounded-lg hover:bg-[#3242CC] transition-colors disabled:opacity-50 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+              className="w-full py-2.5 bg-[#E76F51] text-white font-semibold rounded-lg hover:bg-[#D65A3D] transition-colors disabled:opacity-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#E76F51]/30"
               aria-label="Continue with email"
             >
               {isSubmitting ? "Sending..." : "Continue"}
@@ -262,7 +262,7 @@ export function InlineLoginForm() {
           <p className="text-xs mb-1" style={{ color: "var(--foreground-secondary)" }}>
             We sent a code to
           </p>
-          <p className="text-sm text-[#4255FF] font-medium mb-4">{email}</p>
+          <p className="text-sm text-[#E76F51] font-medium mb-4">{email}</p>
 
           {/* OTP Input Boxes */}
           <div className="flex justify-center gap-1.5 mb-3" onPaste={handleOtpPaste}>
@@ -278,9 +278,9 @@ export function InlineLoginForm() {
                 onKeyDown={(e) => handleOtpKeyDown(idx, e)}
                 className="w-10 h-12 text-center text-lg font-bold border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                 style={{
-                  borderColor: digit ? "#4255FF" : "var(--card-border)",
+                  borderColor: digit ? "#E76F51" : "var(--card-border)",
                   background: digit ? "var(--primary-bg)" : "var(--card-bg)",
-                  color: digit ? "#3242CC" : "var(--foreground)"
+                  color: digit ? "#D65A3D" : "var(--foreground)"
                 }}
                 aria-label={`OTP digit ${idx + 1}`}
                 aria-invalid={!!error}
@@ -296,7 +296,7 @@ export function InlineLoginForm() {
           )}
 
           {isSubmitting && (
-            <p className="text-[#4255FF] text-xs text-center mb-3">Verifying...</p>
+            <p className="text-[#E76F51] text-xs text-center mb-3">Verifying...</p>
           )}
 
           {/* Resend */}
@@ -309,7 +309,7 @@ export function InlineLoginForm() {
               <button
                 onClick={handleResend}
                 disabled={isSubmitting}
-                className="text-xs text-[#4255FF] hover:text-[#3242CC] font-medium disabled:opacity-50"
+                className="text-xs text-[#E76F51] hover:text-[#D65A3D] font-medium disabled:opacity-50"
               >
                 Resend code
               </button>
@@ -344,7 +344,7 @@ export function InlineLoginForm() {
                 value={name}
                 onChange={(e) => { setName(e.target.value); setError(""); }}
                 placeholder="Enter your name"
-                className="w-full px-3 py-2.5 border-2 rounded-lg text-sm focus:outline-none focus:border-[#4255FF]"
+                className="w-full px-3 py-2.5 border-2 rounded-lg text-sm focus:outline-none focus:border-[#E76F51]"
                 style={{
                   borderColor: "var(--card-border)",
                   background: "var(--card-bg)",
@@ -360,7 +360,7 @@ export function InlineLoginForm() {
             <button
               type="submit"
               disabled={!name.trim() || isSubmitting}
-              className="w-full py-2.5 bg-[#4255FF] text-white font-semibold rounded-lg hover:bg-[#3242CC] transition-colors disabled:opacity-50 text-sm"
+              className="w-full py-2.5 bg-[#E76F51] text-white font-semibold rounded-lg hover:bg-[#D65A3D] transition-colors disabled:opacity-50 text-sm"
             >
               {isSubmitting ? "Creating account..." : "Start learning"}
             </button>

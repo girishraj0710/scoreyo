@@ -37,7 +37,7 @@ export function SoundToggle() {
       onClick={toggleSound}
       className={`p-2 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
         enabled
-          ? "bg-[#E8EAFF] text-[#4255FF] hover:bg-[#90CAF9]"
+          ? "bg-[#E8EAFF] text-[#E76F51] hover:bg-[#90CAF9]"
           : "bg-slate-100 text-slate-400 hover:bg-slate-200"
       }`}
       aria-label={enabled ? "Sound enabled" : "Sound disabled"}

@@ -82,7 +82,7 @@ export function PrivacyPolicyContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">7. Contact Us</h2>
         <p className="text-slate-600">
-          📧 Email: <a href="mailto:support@krakkify.in" className="text-[#4255FF] hover:underline">support@krakkify.in</a><br />
+          📧 Email: <a href="mailto:support@krakkify.in" className="text-[#E76F51] hover:underline">support@krakkify.in</a><br />
           🌐 Website: krakkify.in<br />
           📍 Address: Bangalore, Karnataka, India
         </p>
@@ -161,7 +161,7 @@ export function TermsContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">8. Contact</h2>
         <p className="text-slate-600">
-          📧 <a href="mailto:support@krakkify.in" className="text-[#4255FF] hover:underline">support@krakkify.in</a>
+          📧 <a href="mailto:support@krakkify.in" className="text-[#E76F51] hover:underline">support@krakkify.in</a>
         </p>
       </section>
     </div>

@@ -138,7 +138,7 @@ export default function SprintPage() {
     return (
       <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 py-12">
-          <div className="relative overflow-hidden bg-[#4255FF] rounded-2xl shadow-xl shadow-indigo-500/20 p-12 text-center">
+          <div className="relative overflow-hidden bg-[#E76F51] rounded-2xl shadow-xl shadow-[#E76F51]/20 p-12 text-center">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="relative">
@@ -183,7 +183,7 @@ export default function SprintPage() {
       "general": {
         name: "General Knowledge",
         icon: "noto:globe-showing-asia-australia",
-        color: "text-[#4255FF]",
+        color: "text-[#E76F51]",
         iconBg: "bg-gradient-to-br from-blue-500 to-cyan-500",
         accent: "from-blue-500/10 to-cyan-500/5",
         glow: "hover:shadow-blue-500/20",
@@ -215,10 +215,10 @@ export default function SprintPage() {
       "cat": {
         name: "CAT",
         icon: "noto:briefcase",
-        color: "text-[#4255FF]",
-        iconBg: "bg-gradient-to-br from-[#4255FF] to-violet-500",
-        accent: "from-[#4255FF]/10 to-violet-500/5",
-        glow: "hover:shadow-indigo-500/20",
+        color: "text-[#E76F51]",
+        iconBg: "bg-gradient-to-br from-[#E76F51] to-violet-500",
+        accent: "from-[#E76F51]/10 to-violet-500/5",
+        glow: "hover:shadow-[#E76F51]/20",
       },
       "gate-cse": {
         name: "GATE CSE",
@@ -276,7 +276,7 @@ export default function SprintPage() {
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-3 mb-2">
-            <div className="p-2 bg-[#4255FF] rounded-lg shadow-md shadow-indigo-500/20">
+            <div className="p-2 bg-[#E76F51] rounded-lg shadow-md shadow-[#E76F51]/20">
               <Zap className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>Live Sprint Challenges</h1>
@@ -289,7 +289,7 @@ export default function SprintPage() {
         {/* Leaderboard Section */}
         <div className="mb-8">
         {!selectedSprint ? (
-          <div key="placeholder" className="relative overflow-hidden bg-[#4255FF] rounded-2xl shadow-xl shadow-indigo-500/20 p-8 text-center transition-all duration-300">
+          <div key="placeholder" className="relative overflow-hidden bg-[#E76F51] rounded-2xl shadow-xl shadow-[#E76F51]/20 p-8 text-center transition-all duration-300">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="relative">
@@ -317,7 +317,7 @@ export default function SprintPage() {
             </div>
           </div>
         ) : selectedSprint && selectedSprint.sprint ? (
-          <div key={selectedSprint.sprint.id} className="relative overflow-hidden bg-[#4255FF] rounded-2xl shadow-xl shadow-indigo-500/20 p-4 transition-all duration-300">
+          <div key={selectedSprint.sprint.id} className="relative overflow-hidden bg-[#E76F51] rounded-2xl shadow-xl shadow-[#E76F51]/20 p-4 transition-all duration-300">
             <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="relative">
@@ -366,7 +366,7 @@ export default function SprintPage() {
                     e.stopPropagation();
                     joinSprint(selectedSprint.sprint.id);
                   }}
-                  className="px-6 py-2 bg-white text-[#4255FF] hover:bg-white/90 font-medium rounded-lg transition-colors shadow-lg"
+                  className="px-6 py-2 bg-white text-[#E76F51] hover:bg-white/90 font-medium rounded-lg transition-colors shadow-lg"
                 >
                   Start Sprint Challenge
                 </button>

@@ -9,7 +9,7 @@
  * - User-friendly and attractive
  *
  * Color Themes:
- * - Foundation (Blue): #5B7CFF → #4A6AE8
+ * - Foundation (Blue): #E76F51 → #4A6AE8
  * - Advanced (Purple): #7C3AED → #6D28D9
  * - IELTS/TOEFL (Teal): #14B8A6 → #0D9488
  */
@@ -29,7 +29,7 @@ export const AlphabetBlocksIcon: React.FC<IconProps> = ({ className = "w-12 h-12
       <defs>
         <linearGradient id="blockA" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="blockB" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#F472B6" />
@@ -59,7 +59,7 @@ export const AlphabetBlocksIcon: React.FC<IconProps> = ({ className = "w-12 h-12
       {/* Block A (front) - 3D cube */}
       <path d="M 20 36 L 28 32 L 28 40 L 20 44 Z" fill="#1D4ED8"/>
       <path d="M 20 36 L 20 44 L 12 40 L 12 32 Z" fill="url(#blockA)"/>
-      <path d="M 12 32 L 20 36 L 28 32 L 20 28 Z" fill="#93C5FD"/>
+      <path d="M 12 32 L 20 36 L 28 32 L 20 28 Z" fill="#F4A79D"/>
       <text x="20" y="39" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle">A</text>
 
       {/* Sparkle */}
@@ -80,7 +80,7 @@ export const VowelSoundsIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }
         </linearGradient>
         <radialGradient id="soundGlow">
           <stop offset="0%" stopColor="#60A5FA" opacity="0.6"/>
-          <stop offset="100%" stopColor="#3B82F6" opacity="0"/>
+          <stop offset="100%" stopColor="#E76F51" opacity="0"/>
         </radialGradient>
       </defs>
 
@@ -127,9 +127,9 @@ export const PronunciationIcon: React.FC<IconProps> = ({ className = "w-12 h-12"
       <ellipse cx="32" cy="54" rx="20" ry="2" fill="#1E293B" opacity="0.15"/>
 
       {/* Sound waves */}
-      <path d="M 44 20 L 48 16" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
-      <path d="M 46 24 L 52 20" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
-      <path d="M 46 28 L 52 28" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
+      <path d="M 44 20 L 48 16" stroke="#E76F51" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
+      <path d="M 46 24 L 52 20" stroke="#E76F51" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
+      <path d="M 46 28 L 52 28" stroke="#E76F51" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
 
       {/* Megaphone body - 3D cone */}
       <path d="M 16 32 L 40 18 L 40 46 L 16 32 Z" fill="url(#megaphone)"/>
@@ -155,7 +155,7 @@ export const PartsOfSpeechIcon: React.FC<IconProps> = ({ className = "w-12 h-12"
       <defs>
         <linearGradient id="puzzle1" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="puzzle2" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#F472B6" />
@@ -208,7 +208,7 @@ export const NounsIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) => (
         </linearGradient>
         <linearGradient id="ball" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="carBody" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#EC4899" />
@@ -232,7 +232,7 @@ export const NounsIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) => (
       {/* Car (3D) - bottom center */}
       <rect x="18" y="40" width="28" height="8" rx="2" fill="url(#carBody)"/>
       <path d="M 22 40 L 26 34 L 38 34 L 42 40 Z" fill="#F9A8D4"/>
-      <rect x="28" y="36" width="8" height="4" rx="1" fill="#93C5FD" opacity="0.6"/>
+      <rect x="28" y="36" width="8" height="4" rx="1" fill="#F4A79D" opacity="0.6"/>
 
       {/* Wheels */}
       <circle cx="26" cy="48" r="4" fill="#1E293B"/>
@@ -253,7 +253,7 @@ export const PronounsIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) =
       <defs>
         <linearGradient id="person1" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="person2" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#F472B6" />
@@ -271,7 +271,7 @@ export const PronounsIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) =
       {/* Person 1 (left) - Blue */}
       <circle cx="16" cy="22" r="5" fill="url(#person1)"/>
       <path d="M 16 28 Q 12 30 12 36 L 10 46 L 22 46 L 20 36 Q 20 30 16 28 Z" fill="url(#person1)"/>
-      <text x="16" y="50" fontSize="6" fontWeight="bold" fill="#3B82F6" textAnchor="middle">I</text>
+      <text x="16" y="50" fontSize="6" fontWeight="bold" fill="#E76F51" textAnchor="middle">I</text>
 
       {/* Person 2 (center) - Pink */}
       <circle cx="32" cy="18" r="6" fill="url(#person2)"/>
@@ -299,7 +299,7 @@ export const ArticlesIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) =
       <defs>
         <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
       </defs>
 
@@ -314,7 +314,7 @@ export const ArticlesIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) =
       <circle cx="40" cy="32" r="12" fill="white" opacity="0.3"/>
 
       {/* Magnified "the" */}
-      <text x="40" y="36" fontSize="10" fill="#3B82F6" fontWeight="bold" textAnchor="middle">the</text>
+      <text x="40" y="36" fontSize="10" fill="#E76F51" fontWeight="bold" textAnchor="middle">the</text>
 
       {/* Handle */}
       <rect x="48" y="42" width="4" height="12" rx="2" fill="#64748B" transform="rotate(45 50 48)"/>
@@ -343,7 +343,7 @@ export const AdjectivesIcon: React.FC<IconProps> = ({ className = "w-12 h-12" })
 
       {/* Paint colors */}
       <circle cx="20" cy="24" r="4" fill="#EF4444"/>
-      <circle cx="28" cy="22" r="4" fill="#3B82F6"/>
+      <circle cx="28" cy="22" r="4" fill="#E76F51"/>
       <circle cx="36" cy="24" r="4" fill="#FBBF24"/>
       <circle cx="18" cy="34" r="4" fill="#10B981"/>
       <circle cx="28" cy="36" r="4" fill="#A855F7"/>
@@ -512,15 +512,15 @@ export const ClockIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) => (
       <defs>
         <linearGradient id="clockFace" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="clockRim" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#1E40AF" />
           <stop offset="100%" stopColor="#1E3A8A" />
         </linearGradient>
         <radialGradient id="clockGlow">
-          <stop offset="0%" stopColor="#93C5FD" opacity="0.4"/>
-          <stop offset="100%" stopColor="#3B82F6" opacity="0"/>
+          <stop offset="0%" stopColor="#F4A79D" opacity="0.4"/>
+          <stop offset="100%" stopColor="#E76F51" opacity="0"/>
         </radialGradient>
       </defs>
 
@@ -544,14 +544,14 @@ export const ClockIcon: React.FC<IconProps> = ({ className = "w-12 h-12" }) => (
       <rect x="16" y="29" width="4" height="2" rx="1" fill="#1E40AF"/>
 
       {/* Small hour dots */}
-      <circle cx="38" cy="19" r="1.5" fill="#3B82F6"/>
-      <circle cx="43" cy="23" r="1.5" fill="#3B82F6"/>
-      <circle cx="43" cy="37" r="1.5" fill="#3B82F6"/>
-      <circle cx="38" cy="41" r="1.5" fill="#3B82F6"/>
-      <circle cx="26" cy="41" r="1.5" fill="#3B82F6"/>
-      <circle cx="21" cy="37" r="1.5" fill="#3B82F6"/>
-      <circle cx="21" cy="23" r="1.5" fill="#3B82F6"/>
-      <circle cx="26" cy="19" r="1.5" fill="#3B82F6"/>
+      <circle cx="38" cy="19" r="1.5" fill="#E76F51"/>
+      <circle cx="43" cy="23" r="1.5" fill="#E76F51"/>
+      <circle cx="43" cy="37" r="1.5" fill="#E76F51"/>
+      <circle cx="38" cy="41" r="1.5" fill="#E76F51"/>
+      <circle cx="26" cy="41" r="1.5" fill="#E76F51"/>
+      <circle cx="21" cy="37" r="1.5" fill="#E76F51"/>
+      <circle cx="21" cy="23" r="1.5" fill="#E76F51"/>
+      <circle cx="26" cy="19" r="1.5" fill="#E76F51"/>
 
       {/* Hour hand (pointing to 10) */}
       <rect x="31" y="24" width="2.5" height="8" rx="1.25" fill="#1E40AF"

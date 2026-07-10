@@ -1,0 +1,108 @@
+<svg width="500" height="650" viewBox="0 0 500 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft gradient background -->
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#EEF2FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FEF3C7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="650" fill="url(#heroBg)"/>
+
+  <!-- Student studying at desk (center focus) -->
+  <!-- Desk -->
+  <rect x="150" y="350" width="200" height="120" rx="8" fill="#8B5CF6" opacity="0.1"/>
+  <rect x="150" y="350" width="200" height="15" rx="8" fill="#8B5CF6"/>
+
+  <!-- Books on desk -->
+  <rect x="170" y="330" width="30" height="45" rx="3" fill="#3B82F6"/>
+  <rect x="205" y="325" width="30" height="50" rx="3" fill="#10B981"/>
+  <rect x="240" y="320" width="30" height="55" rx="3" fill="#F59E0B"/>
+
+  <!-- Open book -->
+  <rect x="180" y="380" width="140" height="70" rx="4" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+  <line x1="250" y1="380" x2="250" y2="450" stroke="#CBD5E1" stroke-width="2"/>
+  <line x1="190" y1="395" x2="240" y2="395" stroke="#E2E8F0" stroke-width="2"/>
+  <line x1="190" y1="410" x2="235" y2="410" stroke="#E2E8F0" stroke-width="2"/>
+  <line x1="260" y1="395" x2="310" y2="395" stroke="#E2E8F0" stroke-width="2"/>
+  <line x1="260" y1="410" x2="305" y2="410" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Laptop/tablet showing stats -->
+  <rect x="100" y="250" width="140" height="90" rx="8" fill="#1E293B"/>
+  <rect x="108" y="258" width="124" height="74" rx="4" fill="#3B82F6" opacity="0.9"/>
+
+  <!-- Screen content - performance graph -->
+  <line x1="120" y1="310" x2="220" y2="280" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="220" cy="280" r="5" fill="#10B981"/>
+  <text x="155" y="295" font-family="system-ui" font-size="12" font-weight="700" fill="white" text-anchor="middle">87%</text>
+
+  <!-- Coffee cup -->
+  <ellipse cx="310" cy="375" rx="15" ry="3" fill="#64748B" opacity="0.3"/>
+  <rect x="295" y="360" width="30" height="25" rx="3" fill="#F59E0B"/>
+  <path d="M325 370 L335 372 L335 380 L325 378" stroke="#F59E0B" stroke-width="2" fill="none"/>
+
+  <!-- Exam hall ticket / ID card -->
+  <rect x="260" y="260" width="120" height="70" rx="6" fill="white" stroke="#3B82F6" stroke-width="3"/>
+  <rect x="270" y="270" width="40" height="50" rx="4" fill="#DBEAFE"/>
+  <rect x="320" y="275" width="50" height="8" rx="2" fill="#E2E8F0"/>
+  <rect x="320" y="290" width="40" height="6" rx="2" fill="#E2E8F0"/>
+  <rect x="320" y="305" width="45" height="6" rx="2" fill="#E2E8F0"/>
+  <text x="275" y="314" font-family="system-ui" font-size="10" font-weight="700" fill="#3B82F6" text-anchor="middle">ADMIT</text>
+
+  <!-- Success elements floating around -->
+  <!-- Trophy (top left) -->
+  <circle cx="120" cy="120" r="50" fill="#FEF3C7" opacity="0.6"/>
+  <path d="M95 105 L85 130 L95 127 L120 138 L145 127 L155 130 L145 105 Z" fill="#F59E0B"/>
+  <rect x="112" y="138" width="16" height="20" rx="3" fill="#F59E0B"/>
+  <rect x="105" y="158" width="30" height="10" rx="5" fill="#F59E0B"/>
+  <text x="120" y="128" font-family="system-ui" font-size="18" font-weight="700" fill="white" text-anchor="middle">1st</text>
+
+  <!-- Medal (top right) -->
+  <circle cx="380" cy="140" r="35" fill="#D1FAE5"/>
+  <circle cx="380" cy="140" r="25" fill="#10B981"/>
+  <path d="M372 140 L378 146 L388 136" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="370" y="100" width="5" height="40" fill="#10B981"/>
+  <rect x="385" y="100" width="5" height="40" fill="#10B981"/>
+
+  <!-- Target with arrow (bottom left) -->
+  <circle cx="100" cy="520" r="40" fill="#FEE2E2"/>
+  <circle cx="100" cy="520" r="28" fill="#FECACA"/>
+  <circle cx="100" cy="520" r="16" fill="#EF4444"/>
+  <circle cx="100" cy="520" r="6" fill="#DC2626"/>
+
+  <!-- Arrow hitting bullseye -->
+  <line x1="140" y1="480" x2="106" y2="514" stroke="#16213E" stroke-width="3"/>
+  <polygon points="106,514 113,517 110,510" fill="#16213E"/>
+
+  <!-- Rank indicator (bottom right) -->
+  <rect x="340" y="490" width="130" height="80" rx="12" fill="white" stroke="#3B82F6" stroke-width="3"/>
+  <text x="405" y="520" font-family="system-ui" font-size="14" font-weight="600" fill="#64748B" text-anchor="middle">YOUR RANK</text>
+  <text x="405" y="555" font-family="system-ui" font-size="32" font-weight="900" fill="#3B82F6" text-anchor="middle">AIR 247</text>
+
+  <!-- Floating sparkles and stars -->
+  <path d="M430 220 L433 230 L443 233 L433 236 L430 246 L427 236 L417 233 L427 230 Z" fill="#F59E0B"/>
+  <path d="M80 250 L82 257 L89 259 L82 261 L80 268 L78 261 L71 259 L78 257 Z" fill="#8B5CF6"/>
+  <path d="M420 380 L422 385 L427 387 L422 389 L420 394 L418 389 L413 387 L418 385 Z" fill="#10B981"/>
+  <circle cx="70" cy="400" r="4" fill="#3B82F6" opacity="0.5"/>
+  <circle cx="430" cy="310" r="5" fill="#F59E0B" opacity="0.4"/>
+  <circle cx="250" cy="150" r="6" fill="#10B981" opacity="0.5"/>
+
+  <!-- Study streak calendar -->
+  <rect x="320" y="500" width="80" height="60" rx="6" fill="white" stroke="#10B981" stroke-width="2"/>
+  <text x="360" y="520" font-family="system-ui" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">STREAK</text>
+  <text x="360" y="545" font-family="system-ui" font-size="26" font-weight="900" fill="#10B981" text-anchor="middle">28</text>
+
+  <!-- Books/subjects icons -->
+  <circle cx="180" cy="180" r="30" fill="#DBEAFE"/>
+  <text x="180" y="190" font-family="system-ui" font-size="28" text-anchor="middle">📚</text>
+
+  <circle cx="320" cy="185" r="28" fill="#D1FAE5"/>
+  <text x="320" y="195" font-family="system-ui" font-size="26" text-anchor="middle">🧪</text>
+
+  <!-- India tricolor flag element (subtle) -->
+  <rect x="420" y="40" width="60" height="12" rx="2" fill="#FF9933"/>
+  <rect x="420" y="52" width="60" height="12" rx="2" fill="white"/>
+  <rect x="420" y="64" width="60" height="12" rx="2" fill="#138808"/>
+  <circle cx="450" cy="58" r="6" fill="#000080"/>
+</svg>

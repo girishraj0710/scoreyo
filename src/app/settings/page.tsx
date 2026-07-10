@@ -253,7 +253,7 @@ export default function SettingsPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
+                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[#E76F51]/20 focus:border-[#E76F51] transition cursor-text"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="Enter your full name"
                 aria-label="Full name"
@@ -301,7 +301,7 @@ export default function SettingsPage() {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
+                className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[#E76F51]/20 focus:border-[#E76F51] transition cursor-text"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                 placeholder="+91 98765 43210"
                 aria-label="Phone number"
@@ -332,7 +332,7 @@ export default function SettingsPage() {
                     type="number"
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
+                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[#E76F51]/20 focus:border-[#E76F51] transition cursor-text"
                     style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                     placeholder="18"
                     min="10"
@@ -361,7 +361,7 @@ export default function SettingsPage() {
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-text"
+                    className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[#E76F51]/20 focus:border-[#E76F51] transition cursor-text"
                     style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                     placeholder="City, State"
                     aria-label="Location"
@@ -392,7 +392,7 @@ export default function SettingsPage() {
                 <select
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none cursor-pointer"
+                  className="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[#E76F51]/20 focus:border-[#E76F51] transition appearance-none cursor-pointer"
                   aria-label="Exam preparing for"
                   style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
                   onMouseEnter={(e) => {
@@ -423,7 +423,21 @@ export default function SettingsPage() {
             <button
               onClick={handleSaveProfile}
               disabled={isSaving}
-              className="w-full sm:w-auto px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-2.5 text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
+              style={{
+                background: isSaving ? "#D4A840" : "#E76F51",
+                cursor: isSaving ? "not-allowed" : "pointer"
+              }}
+              onMouseEnter={(e) => {
+                if (!isSaving) {
+                  e.currentTarget.style.background = "#D65A3D";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isSaving) {
+                  e.currentTarget.style.background = "#E76F51";
+                }
+              }}
             >
               {isSaving ? (
                 <>
@@ -507,14 +521,14 @@ export default function SettingsPage() {
                   onClick={() => handleDifficultyChange(d.value)}
                   className="py-2.5 rounded-lg text-sm font-medium transition-all"
                   style={difficulty === d.value
-                    ? { background: "#4255FF", color: "white", boxShadow: "0 4px 12px rgba(66, 85, 255, 0.3)" }
+                    ? { background: "#E76F51", color: "white", boxShadow: "0 4px 12px rgba(231, 111, 81, 0.3)" }
                     : { background: "var(--hover-bg)", color: "var(--foreground-secondary)" }
                   }
                   onMouseEnter={(e) => {
                     if (difficulty !== d.value) {
                       e.currentTarget.style.background = "var(--card-bg)";
-                      e.currentTarget.style.borderColor = "#4255FF";
-                      e.currentTarget.style.border = "2px solid #4255FF";
+                      e.currentTarget.style.borderColor = "#E76F51";
+                      e.currentTarget.style.border = "2px solid #E76F51";
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -750,10 +764,8 @@ function NotificationToggle({
       </div>
       <button
         onClick={handleToggle}
-        className={`relative w-12 h-6 rounded-full transition-colors ${
-          checked ? "bg-emerald-500" : ""
-        }`}
-        style={!checked ? { background: "var(--card-border)" } : undefined}
+        className={`relative w-12 h-6 rounded-full transition-colors`}
+        style={checked ? { background: "#E76F51" } : { background: "var(--card-border)" }}
       >
         <div
           className={`absolute top-1 w-4 h-4 rounded-full shadow transition-transform ${

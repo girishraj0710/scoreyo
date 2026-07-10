@@ -25,7 +25,7 @@ export function RichExplanation({ explanation, correctAnswer, userAnswer, option
       <div className="mt-6 space-y-4" aria-live="polite" role="region" aria-label="Question explanation">
         <div className="p-4 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[#4255FF] font-semibold text-sm">💡 Explanation</span>
+            <span className="text-[#E76F51] font-semibold text-sm">💡 Explanation</span>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "var(--foreground)" }}>{explanation}</p>
         </div>

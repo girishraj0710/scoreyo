@@ -13,7 +13,7 @@ export default function VocabularyPathPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0F1419]">
-        <div className="w-12 h-12 border-4 border-[#F59E0B] border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-[#E9C46A] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function VocabularyPathPage() {
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-12">
         <div className="bg-white/90 dark:bg-[#1A1F2E]/90 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/40 p-12 text-center">
-          <div className="w-20 h-20 rounded-2xl bg-[#F59E0B]/10 flex items-center justify-center mx-auto mb-6">
+          <div className="w-20 h-20 rounded-2xl bg-[#E9C46A]/10 flex items-center justify-center mx-auto mb-6">
             <Icons.vocabulary className={`${IconSizes['3xl']} ${IconColors.amber}`} />
           </div>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
@@ -64,7 +64,7 @@ export default function VocabularyPathPage() {
           </p>
           <button
             onClick={() => router.push('/english')}
-            className="px-6 py-3 rounded-xl bg-[#F59E0B] text-white font-semibold hover:bg-[#D97706] transition-colors"
+            className="px-6 py-3 rounded-xl bg-[#E9C46A] text-white font-semibold hover:bg-[#D4A840] transition-colors"
           >
             Back to Dashboard
           </button>

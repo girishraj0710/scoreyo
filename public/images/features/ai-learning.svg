@@ -1,0 +1,38 @@
+<svg width="600" height="500" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brain/AI representation - left side -->
+  <circle cx="180" cy="250" r="90" fill="#E0E7FF"/>
+  <circle cx="165" cy="235" r="15" fill="#6366F1"/>
+  <circle cx="195" cy="235" r="15" fill="#6366F1"/>
+  <path d="M180 265 Q165 280 150 265" stroke="#6366F1" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Neural network connections -->
+  <line x1="270" y1="200" x2="320" y2="180" stroke="#C7D2FE" stroke-width="3"/>
+  <line x1="270" y1="250" x2="320" y2="250" stroke="#C7D2FE" stroke-width="3"/>
+  <line x1="270" y1="300" x2="320" y2="320" stroke="#C7D2FE" stroke-width="3"/>
+
+  <!-- Learning nodes -->
+  <circle cx="320" cy="180" r="20" fill="#A5B4FC"/>
+  <circle cx="320" cy="250" r="20" fill="#A5B4FC"/>
+  <circle cx="320" cy="320" r="20" fill="#A5B4FC"/>
+
+  <!-- Book stack - right side -->
+  <rect x="380" y="280" width="140" height="20" rx="4" fill="#BFDBFE"/>
+  <rect x="385" y="255" width="130" height="20" rx="4" fill="#93C5FD"/>
+  <rect x="390" y="230" width="120" height="20" rx="4" fill="#60A5FA"/>
+
+  <!-- Lightbulb - idea/learning moment -->
+  <circle cx="450" cy="180" r="25" fill="#FEF3C7"/>
+  <rect x="440" y="205" width="20" height="15" rx="3" fill="#FCD34D"/>
+  <line x1="450" y1="145" x2="450" y2="155" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="420" y1="160" x2="430" y2="170" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="480" y1="160" x2="470" y2="170" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Floating stars for success -->
+  <path d="M140 150 L143 160 L153 163 L143 166 L140 176 L137 166 L127 163 L137 160 Z" fill="#C084FC"/>
+  <path d="M500 350 L502 357 L509 359 L502 361 L500 368 L498 361 L491 359 L498 357 Z" fill="#34D399"/>
+  <path d="M350 140 L352 145 L357 147 L352 149 L350 154 L348 149 L343 147 L348 145 Z" fill="#F59E0B"/>
+
+  <!-- Checkmark for verified learning -->
+  <circle cx="520" cy="260" r="28" fill="#D1FAE5"/>
+  <path d="M508 260 L515 267 L532 250" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

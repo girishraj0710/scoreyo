@@ -140,7 +140,7 @@ export function StudyContentPremium({ section }: StudyContentPremiumProps) {
                         className="p-6 rounded-2xl border-l-4"
                         style={{
                           background: 'var(--hover-bg)',
-                          borderColor: '#4255FF'
+                          borderColor: '#E76F51'
                         }}
                       >
                         <p className="font-semibold mb-3 text-lg" style={{ color: 'var(--foreground)' }}>

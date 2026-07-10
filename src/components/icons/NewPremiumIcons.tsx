@@ -85,7 +85,7 @@ export const GerundsInfinitivesIcon: React.FC<IconProps> = ({ className = "w-12 
       <defs>
         <linearGradient id="infinitiveBlock" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#E76F51" />
         </linearGradient>
         <linearGradient id="gerundBlock" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#F472B6" />
@@ -109,7 +109,7 @@ export const GerundsInfinitivesIcon: React.FC<IconProps> = ({ className = "w-12 
       {/* Left face */}
       <path d="M 22 24 L 22 36 L 14 32 L 14 20 Z" fill="url(#infinitiveBlock)"/>
       {/* Top face */}
-      <path d="M 14 20 L 22 24 L 30 20 L 22 16 Z" fill="#93C5FD"/>
+      <path d="M 14 20 L 22 24 L 30 20 L 22 16 Z" fill="#F4A79D"/>
 
       {/* "TO" text on top */}
       <text x="22" y="21" fontSize="6" fontWeight="bold" fill="#1E3A8A" textAnchor="middle">TO</text>
@@ -137,7 +137,7 @@ export const GerundsInfinitivesIcon: React.FC<IconProps> = ({ className = "w-12 
       <circle cx="38" cy="40" r="1.5" fill="#F59E0B"/>
 
       {/* Examples */}
-      <text x="10" y="48" fontSize="4" fill="#3B82F6" fontWeight="600">to swim</text>
+      <text x="10" y="48" fontSize="4" fill="#E76F51" fontWeight="600">to swim</text>
       <text x="42" y="48" fontSize="4" fill="#EC4899" fontWeight="600">swimming</text>
 
       {/* Label */}

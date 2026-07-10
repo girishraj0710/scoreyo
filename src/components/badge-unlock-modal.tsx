@@ -89,7 +89,7 @@ export function BadgeUnlockModal({ badges, onClose }: BadgeUnlockModalProps) {
         {/* Main card */}
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
           {/* Header with animated stars */}
-          <div className="relative bg-gradient-to-r from-[#4255FF] to-purple-600 p-6 overflow-hidden">
+          <div className="relative bg-gradient-to-r from-[#E76F51] to-purple-600 p-6 overflow-hidden">
             <div className="absolute inset-0 opacity-20">
               {[...Array(20)].map((_, i) => (
                 <Star
@@ -156,7 +156,7 @@ export function BadgeUnlockModal({ badges, onClose }: BadgeUnlockModalProps) {
                     key={index}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "w-8 bg-[#4255FF]"
+                        ? "w-8 bg-[#E76F51]"
                         : index < currentIndex
                         ? "w-2 bg-indigo-400"
                         : "w-2 bg-slate-700"
@@ -169,7 +169,7 @@ export function BadgeUnlockModal({ badges, onClose }: BadgeUnlockModalProps) {
             {/* Action button */}
             <button
               onClick={handleNext}
-              className="w-full py-3 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105"
+              className="w-full py-3 bg-gradient-to-r from-[#E76F51] to-purple-600 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105"
             >
               {currentIndex < badges.length - 1 ? "Next Badge" : "Awesome!"}
             </button>

@@ -1,0 +1,152 @@
+<svg width="500" height="625" viewBox="0 0 500 625" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern illustration of Indian students studying for competitive exams -->
+
+  <!-- Background with subtle shapes -->
+  <rect width="500" height="625" fill="#F8FAFC"/>
+
+  <!-- Decorative circles -->
+  <circle cx="420" cy="80" r="60" fill="#DBEAFE" opacity="0.5"/>
+  <circle cx="60" cy="520" r="50" fill="#FEF3C7" opacity="0.5"/>
+  <circle cx="450" cy="550" r="40" fill="#D1FAE5" opacity="0.5"/>
+
+  <!-- Main student (female) - center, studying with laptop -->
+  <!-- Head -->
+  <ellipse cx="250" cy="220" rx="45" ry="50" fill="#8B4513"/>
+  <circle cx="250" cy="230" r="40" fill="#D2691E"/>
+
+  <!-- Hair (long, tied back) -->
+  <path d="M210 210 Q205 190 215 175 Q225 160 250 155 Q275 160 285 175 Q295 190 290 210" fill="#1A1A1A"/>
+  <circle cx="290" cy="225" r="12" fill="#1A1A1A"/>
+
+  <!-- Face features -->
+  <circle cx="235" cy="225" r="3" fill="#1A1A1A"/>
+  <circle cx="265" cy="225" r="3" fill="#1A1A1A"/>
+  <path d="M240 240 Q250 245 260 240" stroke="#8B4513" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Bindi (traditional Indian) -->
+  <circle cx="250" cy="210" r="2.5" fill="#DC2626"/>
+
+  <!-- Body with traditional kurti/top -->
+  <path d="M210 270 L210 400 Q210 410 220 410 L280 410 Q290 410 290 400 L290 270" fill="#8B5CF6"/>
+  <path d="M210 270 Q250 285 290 270" fill="#A78BFA"/>
+
+  <!-- Arms -->
+  <ellipse cx="195" cy="310" rx="12" ry="35" fill="#D2691E"/>
+  <ellipse cx="305" cy="310" rx="12" ry="35" fill="#D2691E"/>
+
+  <!-- Hands typing on laptop -->
+  <ellipse cx="220" cy="360" rx="15" ry="10" fill="#D2691E"/>
+  <ellipse cx="280" cy="360" rx="15" ry="10" fill="#D2691E"/>
+
+  <!-- Laptop -->
+  <rect x="190" y="350" width="120" height="80" rx="4" fill="#1E293B"/>
+  <rect x="195" y="355" width="110" height="70" rx="2" fill="#3B82F6"/>
+
+  <!-- Laptop screen content (code/study material) -->
+  <rect x="205" y="365" width="90" height="4" rx="2" fill="white" opacity="0.8"/>
+  <rect x="205" y="375" width="70" height="4" rx="2" fill="white" opacity="0.6"/>
+  <rect x="205" y="385" width="85" height="4" rx="2" fill="white" opacity="0.7"/>
+  <rect x="205" y="395" width="60" height="4" rx="2" fill="white" opacity="0.5"/>
+
+  <!-- Desk -->
+  <rect x="150" y="430" width="200" height="15" rx="7" fill="#64748B"/>
+
+  <!-- Books on desk -->
+  <rect x="160" y="405" width="25" height="35" rx="2" fill="#EF4444"/>
+  <text x="172.5" y="427" font-family="sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">JEE</text>
+
+  <rect x="190" y="400" width="25" height="40" rx="2" fill="#10B981"/>
+  <text x="202.5" y="425" font-family="sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">NEET</text>
+
+  <!-- Coffee cup -->
+  <ellipse cx="330" cy="425" rx="12" ry="3" fill="#94A3B8"/>
+  <rect x="318" y="410" width="24" height="20" rx="2" fill="#F59E0B"/>
+  <path d="M342 415 L350 417 L350 423 L342 421" stroke="#F59E0B" stroke-width="2" fill="none"/>
+
+  <!-- Second student (male) - smaller, background left -->
+  <!-- Head -->
+  <circle cx="100" cy="300" r="30" fill="#A0522D"/>
+
+  <!-- Hair (short) -->
+  <path d="M70 290 Q70 270 100 265 Q130 270 130 290" fill="#1A1A1A"/>
+
+  <!-- Face features -->
+  <circle cx="90" cy="295" r="2" fill="#1A1A1A"/>
+  <circle cx="110" cy="295" r="2" fill="#1A1A1A"/>
+  <path d="M95 305 Q100 308 105 305" stroke="#8B4513" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Body with shirt -->
+  <path d="M80 330 L80 400 Q80 405 85 405 L115 405 Q120 405 120 400 L120 330" fill="#3B82F6"/>
+
+  <!-- Holding book -->
+  <rect x="70" y="360" width="30" height="40" rx="2" fill="#8B5CF6"/>
+  <line x1="75" y1="370" x2="95" y2="370" stroke="white" stroke-width="1"/>
+  <line x1="75" y1="377" x2="95" y2="377" stroke="white" stroke-width="1"/>
+
+  <!-- Third student (female) - smaller, background right -->
+  <!-- Head -->
+  <circle cx="400" cy="320" r="28" fill="#B8860B"/>
+
+  <!-- Hair (with dupatta/scarf) -->
+  <path d="M372 310 Q370 295 385 285 Q400 280 415 285 Q430 295 428 310" fill="#1A1A1A"/>
+  <path d="M372 310 L380 340 Q385 350 390 340 L398 310" fill="#DC2626" opacity="0.7"/>
+
+  <!-- Face features -->
+  <circle cx="390" cy="315" r="2" fill="#1A1A1A"/>
+  <circle cx="410" cy="315" r="2" fill="#1A1A1A"/>
+  <path d="M395 325 Q400 328 405 325" stroke="#8B4513" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Bindi -->
+  <circle cx="400" cy="308" r="2" fill="#DC2626"/>
+
+  <!-- Body with kurta -->
+  <path d="M380 348 L380 410 Q380 415 385 415 L415 415 Q420 415 420 410 L420 348" fill="#10B981"/>
+
+  <!-- Holding tablet/notes -->
+  <rect x="370" y="380" width="35" height="45" rx="3" fill="#1E293B"/>
+  <rect x="373" y="383" width="29" height="39" rx="2" fill="white"/>
+  <line x1="378" y1="390" x2="397" y2="390" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="378" y1="396" x2="395" y2="396" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="378" y1="402" x2="397" y2="402" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Floating success elements -->
+  <!-- Trophy -->
+  <g transform="translate(380, 150)">
+    <circle cx="0" cy="0" r="35" fill="#FEF3C7"/>
+    <path d="M-20 -10 L-25 10 L-20 8 L0 15 L20 8 L25 10 L20 -10 Z" fill="#F59E0B"/>
+    <rect x="-8" y="15" width="16" height="15" rx="2" fill="#F59E0B"/>
+    <rect x="-12" y="30" width="24" height="8" rx="4" fill="#F59E0B"/>
+  </g>
+
+  <!-- Target achievement -->
+  <g transform="translate(80, 150)">
+    <circle cx="0" cy="0" r="30" fill="#FEE2E2"/>
+    <circle cx="0" cy="0" r="20" fill="#FECACA"/>
+    <circle cx="0" cy="0" r="10" fill="#EF4444"/>
+    <circle cx="0" cy="0" r="4" fill="#DC2626"/>
+  </g>
+
+  <!-- Rank badge -->
+  <g transform="translate(420, 420)">
+    <rect x="-35" y="-25" width="70" height="50" rx="8" fill="white" stroke="#3B82F6" stroke-width="2"/>
+    <text x="0" y="-5" font-family="sans-serif" font-size="10" font-weight="600" fill="#64748B" text-anchor="middle">RANK</text>
+    <text x="0" y="15" font-family="sans-serif" font-size="18" font-weight="900" fill="#3B82F6" text-anchor="middle">AIR 127</text>
+  </g>
+
+  <!-- Calendar streak -->
+  <g transform="translate(90, 480)">
+    <rect x="-30" y="-25" width="60" height="50" rx="6" fill="white" stroke="#10B981" stroke-width="2"/>
+    <text x="0" y="-5" font-family="sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle">STREAK</text>
+    <text x="0" y="15" font-family="sans-serif" font-size="20" font-weight="900" fill="#10B981" text-anchor="middle">45</text>
+  </g>
+
+  <!-- Stars and sparkles -->
+  <path d="M180 120 L183 130 L193 133 L183 136 L180 146 L177 136 L167 133 L177 130 Z" fill="#FCD34D"/>
+  <path d="M340 250 L342 257 L349 259 L342 261 L340 268 L338 261 L331 259 L338 257 Z" fill="#8B5CF6"/>
+  <path d="M450 480 L452 485 L457 487 L452 489 L450 494 L448 489 L443 487 L448 485 Z" fill="#3B82F6"/>
+  <circle cx="150" cy="550" r="4" fill="#10B981" opacity="0.6"/>
+  <circle cx="430" cy="280" r="5" fill="#F59E0B" opacity="0.5"/>
+
+  <!-- Motivational text elements -->
+  <text x="250" y="570" font-family="sans-serif" font-size="16" font-weight="700" fill="#16213E" text-anchor="middle">Study Together, Succeed Together</text>
+</svg>

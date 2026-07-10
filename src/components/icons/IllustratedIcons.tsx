@@ -20,7 +20,7 @@ interface IllustratedIconProps {
 // ===== LEARNING & COURSES (BLUE) =====
 
 export const StudyIcon: React.FC<IllustratedIconProps> = ({ className = "w-12 h-12" }) => (
-  <div className={`${className} relative rounded-xl bg-gradient-to-br from-[#5B7CFF] to-[#4A6AE8] flex items-center justify-center shadow-sm overflow-hidden group-hover:from-[#6B8CFF] group-hover:to-[#5B7CFF] transition-all`}>
+  <div className={`${className} relative rounded-xl bg-gradient-to-br from-[#E76F51] to-[#4A6AE8] flex items-center justify-center shadow-sm overflow-hidden group-hover:from-[#6B8CFF] group-hover:to-[#E76F51] transition-all`}>
     {/* Background decoration */}
     <div className="absolute top-1 right-1 w-4 h-4 rounded-full bg-white/10" />
     <div className="absolute bottom-1 left-1 w-3 h-3 rounded-full bg-white/5" />
@@ -36,7 +36,7 @@ export const StudyIcon: React.FC<IllustratedIconProps> = ({ className = "w-12 h-
 );
 
 export const TopicsIcon: React.FC<IllustratedIconProps> = ({ className = "w-12 h-12" }) => (
-  <div className={`${className} relative rounded-xl bg-gradient-to-br from-[#5B7CFF] to-[#4A6AE8] flex items-center justify-center shadow-sm overflow-hidden group-hover:from-[#6B8CFF] group-hover:to-[#5B7CFF] transition-all`}>
+  <div className={`${className} relative rounded-xl bg-gradient-to-br from-[#E76F51] to-[#4A6AE8] flex items-center justify-center shadow-sm overflow-hidden group-hover:from-[#6B8CFF] group-hover:to-[#E76F51] transition-all`}>
     {/* Layered documents */}
     <svg className="w-6 h-6 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Back layer */}
@@ -54,7 +54,7 @@ export const TopicsIcon: React.FC<IllustratedIconProps> = ({ className = "w-12 h
 );
 
 export const ReadingIcon: React.FC<IllustratedIconProps> = ({ className = "w-12 h-12" }) => (
-  <div className={`${className} relative rounded-xl bg-gradient-to-br from-[#5B7CFF] to-[#4A6AE8] flex items-center justify-center shadow-sm overflow-hidden group-hover:from-[#6B8CFF] group-hover:to-[#5B7CFF] transition-all`}>
+  <div className={`${className} relative rounded-xl bg-gradient-to-br from-[#E76F51] to-[#4A6AE8] flex items-center justify-center shadow-sm overflow-hidden group-hover:from-[#6B8CFF] group-hover:to-[#E76F51] transition-all`}>
     {/* Sparkle decorations */}
     <div className="absolute top-2 right-2">
       <svg className="w-2 h-2" viewBox="0 0 8 8" fill="white" opacity="0.6">

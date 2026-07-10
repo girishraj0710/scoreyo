@@ -23,11 +23,11 @@ export function AppFooter() {
           <div>
             <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Product</h3>
             <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
-              <li><a href="/" className="hover:text-[#4255FF] transition-colors">Home</a></li>
+              <li><a href="/" className="hover:text-[#E76F51] transition-colors">Home</a></li>
               {!isContributor && (
                 <>
-                  <li><a href="/mock-test" className="hover:text-[#4255FF] transition-colors">Mock Tests</a></li>
-                  <li><a href="/pricing" className="hover:text-[#4255FF] transition-colors">Pricing</a></li>
+                  <li><a href="/mock-test" className="hover:text-[#E76F51] transition-colors">Mock Tests</a></li>
+                  <li><a href="/pricing" className="hover:text-[#E76F51] transition-colors">Pricing</a></li>
                 </>
               )}
             </ul>
@@ -35,15 +35,15 @@ export function AppFooter() {
           <div>
             <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Legal</h3>
             <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
-              <li><a href="/terms" className="hover:text-[#4255FF] transition-colors">Terms of Service</a></li>
-              <li><a href="/privacy" className="hover:text-[#4255FF] transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-[#E76F51] transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-[#E76F51] transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Support</h3>
             <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
-              <li><a href="/contact" className="hover:text-[#4255FF] transition-colors">Contact Us</a></li>
-              <li><a href="mailto:support@krakkify.in" className="hover:text-[#4255FF] transition-colors">Email Support</a></li>
+              <li><a href="/contact" className="hover:text-[#E76F51] transition-colors">Contact Us</a></li>
+              <li><a href="mailto:support@krakkify.in" className="hover:text-[#E76F51] transition-colors">Email Support</a></li>
             </ul>
           </div>
           <div>

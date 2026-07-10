@@ -220,13 +220,13 @@ export default function WritingPracticeInterface({
             {/* Tips Card */}
             <div className="bg-[var(--card-bg)] rounded-2xl shadow-lg p-6">
               <h3 className="font-semibold text-[var(--foreground)] mb-3 flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-[#4255FF]" />
+                <BookOpen className="w-5 h-5 text-[#E76F51]" />
                 Writing Tips
               </h3>
               <ul className="space-y-2">
                 {selectedPrompt.tips.map((tip, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-[var(--foreground-secondary)]">
-                    <span className="text-[#4255FF] font-bold">•</span>
+                    <span className="text-[#E76F51] font-bold">•</span>
                     <span className="text-sm">{tip}</span>
                   </li>
                 ))}

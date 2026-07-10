@@ -131,7 +131,7 @@ export default function CustomQuizPage() {
 
   return (
     <AccessibilityWrapper>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4" style={{ background: "var(--page-bg)" }}>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#FEF5F3] to-[#FEF5F3] py-12 px-4" style={{ background: "var(--page-bg)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -149,7 +149,7 @@ export default function CustomQuizPage() {
             onClick={() => setActiveTab('upload')}
             className={`pb-3 px-2 font-medium transition-all relative cursor-pointer rounded-t-lg ${
               activeTab === 'upload'
-                ? 'text-[#4255FF]'
+                ? 'text-[#E76F51]'
                 : ''
             }`}
             style={activeTab !== 'upload' ? { color: "var(--muted)" } : undefined}
@@ -164,14 +164,14 @@ export default function CustomQuizPage() {
           >
             Upload files
             {activeTab === 'upload' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4255FF]" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E76F51]" />
             )}
           </button>
           <button
             onClick={() => setActiveTab('paste')}
             className={`pb-3 px-2 font-medium transition-all relative cursor-pointer rounded-t-lg ${
               activeTab === 'paste'
-                ? 'text-[#4255FF]'
+                ? 'text-[#E76F51]'
                 : ''
             }`}
             style={activeTab !== 'paste' ? { color: "var(--muted)" } : undefined}
@@ -186,7 +186,7 @@ export default function CustomQuizPage() {
           >
             Paste text
             {activeTab === 'paste' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4255FF]" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E76F51]" />
             )}
           </button>
         </div>
@@ -201,7 +201,7 @@ export default function CustomQuizPage() {
               onDrop={handleDrop}
               className={`border-2 border-dashed rounded-xl p-16 text-center transition-all ${
                 dragActive
-                  ? 'border-indigo-400 bg-indigo-50'
+                  ? 'border-[#E76F51] bg-[#FEF5F3]'
                   : ''
               }`}
               style={!dragActive ? { borderColor: "var(--card-border)" } : undefined}
@@ -213,7 +213,7 @@ export default function CustomQuizPage() {
                     <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
                       <defs>
                         <linearGradient id="docxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" style={{ stopColor: '#6B9FD6', stopOpacity: 1 }} />
+                          <stop offset="0%" style={{ stopColor: '#E76F51', stopOpacity: 1 }} />
                           <stop offset="100%" style={{ stopColor: '#4A7FB8', stopOpacity: 1 }} />
                         </linearGradient>
                         <filter id="docxShadow">
@@ -323,7 +323,7 @@ export default function CustomQuizPage() {
               value={pastedText}
               onChange={(e) => setPastedText(e.target.value)}
               placeholder="Paste your study material here..."
-              className="w-full h-64 p-4 border-2 rounded-lg focus:outline-none focus:border-indigo-400 resize-none transition-colors"
+              className="w-full h-64 p-4 border-2 rounded-lg focus:outline-none focus:border-[#E76F51] resize-none transition-colors"
               style={{ borderColor: "var(--card-border)", color: "var(--foreground-secondary)", background: "var(--card-bg)" }}
               onMouseEnter={(e) => {
                 if (e.currentTarget !== document.activeElement) {
@@ -361,10 +361,10 @@ export default function CustomQuizPage() {
                         onClick={() => setNumQuestions(num)}
                         className={`py-3 rounded-lg font-medium transition-all border-2 cursor-pointer ${
                           numQuestions === num
-                            ? 'bg-[#4255FF] text-white shadow-lg'
+                            ? 'bg-[#E76F51] text-white shadow-lg'
                             : ''
                         }`}
-                        style={numQuestions !== num ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : { borderColor: "#4255FF" }}
+                        style={numQuestions !== num ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : { borderColor: "#E76F51" }}
                         onMouseEnter={(e) => {
                           if (numQuestions !== num) {
                             e.currentTarget.style.borderColor = "#a5b4fc";
@@ -394,10 +394,10 @@ export default function CustomQuizPage() {
                         onClick={() => setDifficulty(level)}
                         className={`py-3 rounded-lg font-medium capitalize transition-all border-2 cursor-pointer ${
                           difficulty === level
-                            ? 'bg-[#4255FF] text-white shadow-lg'
+                            ? 'bg-[#E76F51] text-white shadow-lg'
                             : ''
                         }`}
-                        style={difficulty !== level ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : { borderColor: "#4255FF" }}
+                        style={difficulty !== level ? { background: "var(--hover-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : { borderColor: "#E76F51" }}
                         onMouseEnter={(e) => {
                           if (difficulty !== level) {
                             e.currentTarget.style.borderColor = "#a5b4fc";
@@ -432,7 +432,7 @@ export default function CustomQuizPage() {
             <button
               onClick={handleGenerate}
               disabled={isProcessing}
-              className="w-full py-4 bg-gradient-to-r from-[#4255FF] to-purple-600 text-white rounded-xl font-semibold text-lg hover:from-[#3242CC] hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+              className="w-full py-4 bg-gradient-to-r from-[#E76F51] to-[#D65A3D] text-white rounded-xl font-semibold text-lg hover:from-[#D65A3D] hover:to-[#C4502F] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
             >
               {isProcessing ? (
                 <>

@@ -45,11 +45,11 @@ export function MistakeMapWidget() {
     return (
       <div className="rounded-2xl p-6 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
-          <Brain className="w-6 h-6 text-[#4255FF]" />
+          <Brain className="w-6 h-6 text-[#E76F51]" />
           Your Mistake Pattern
         </h3>
         <div className="flex items-center justify-center h-48">
-          <div className="animate-spin h-8 w-8 border-4 border-[#4255FF] border-t-transparent rounded-full"></div>
+          <div className="animate-spin h-8 w-8 border-4 border-[#E76F51] border-t-transparent rounded-full"></div>
         </div>
       </div>
     );
@@ -59,7 +59,7 @@ export function MistakeMapWidget() {
     return (
       <div className="rounded-2xl p-6 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
-          <Brain className="w-6 h-6 text-[#4255FF]" />
+          <Brain className="w-6 h-6 text-[#E76F51]" />
           Your Mistake Pattern
         </h3>
         <div className="text-center py-8">
@@ -119,8 +119,8 @@ export function MistakeMapWidget() {
       label: 'Careless',
       color: 'bg-[var(--primary-bg)]0',
       lightColor: 'bg-[var(--primary-bg)]',
-      textColor: 'text-[#3242CC]',
-      iconColor: 'text-[#4255FF]',
+      textColor: 'text-[#D65A3D]',
+      iconColor: 'text-[#E76F51]',
       percentage: data.breakdown.careless,
       count: data.summary.careless
     }
@@ -141,7 +141,7 @@ export function MistakeMapWidget() {
     <div className="rounded-2xl p-6 shadow-lg border h-[400px]" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold flex items-center gap-2" style={{ color: "var(--foreground)" }}>
-          <Brain className="w-6 h-6 text-[#4255FF]" />
+          <Brain className="w-6 h-6 text-[#E76F51]" />
           Your Mistake Pattern
         </h3>
         <span className="text-xs px-2 py-1 rounded-full" style={{ background: "var(--hover-bg)", color: "var(--muted)" }}>

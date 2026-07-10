@@ -701,7 +701,7 @@ export function StudyMaterialContent({ section, onSectionComplete }: StudyMateri
                     className="p-4 rounded-lg border-l-4"
                     style={{
                       background: 'var(--hover-bg)',
-                      borderColor: '#4255FF'
+                      borderColor: '#E76F51'
                     }}
                   >
                     <p className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>

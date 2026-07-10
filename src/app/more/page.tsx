@@ -109,7 +109,7 @@ export default function MorePage() {
                     e.currentTarget.style.backgroundColor = "var(--hover-bg)";
                     const icon = e.currentTarget.querySelector('svg');
                     if (icon) {
-                      icon.style.color = "#4255FF";
+                      icon.style.color = "#E76F51";
                     }
                   }}
                   onMouseLeave={(e) => {

@@ -51,7 +51,7 @@ export function AppHeader() {
   const mobileNavLinkClass = (href: string) =>
     `block px-4 py-2 text-sm transition-colors ${
       isActive(href)
-        ? "text-[#4255FF] bg-[#E8EAFF] dark:bg-indigo-900/40 font-semibold border-l-2 border-[#4255FF]"
+        ? "text-[#E76F51] bg-[#E8EAFF] dark:bg-indigo-900/40 font-semibold border-l-2 border-[#E76F51]"
         : "text-slate-600 dark:text-slate-400 hover:bg-[var(--primary-bg)] dark:hover:bg-slate-800"
     }`;
 
@@ -74,10 +74,10 @@ export function AppHeader() {
     <header className="md:hidden sticky top-0 z-50 border-b shadow-sm" style={{ background: 'var(--card-bg)', borderBottomColor: 'var(--card-border)' }}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 mr-8 lg:mr-12">
-          <div className="w-9 h-9 bg-[#4255FF] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
+          <div className="w-9 h-9 bg-[#E76F51] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
             K
           </div>
-          <span className="text-xl font-bold bg-[#4255FF] bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-[#E76F51] bg-clip-text text-transparent">
             Krakkify
           </span>
         </a>
