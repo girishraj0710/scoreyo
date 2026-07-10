@@ -205,6 +205,37 @@ export default function StudyGuidesPage() {
             </h1>
           </div>
 
+          {/* Exam Filters + Search */}
+          <div className="flex items-center gap-4">
+            {/* Exam Pills */}
+            <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1">
+              {EXAM_FILTERS.map((exam) => (
+                <button
+                  key={exam.id}
+                  onClick={() => handleExamChange(exam.id)}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all ${
+                    selectedExamId === exam.id
+                      ? "bg-[#F26A4B] text-white shadow-md"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  }`}
+                >
+                  {exam.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Search */}
+            <div className="relative w-80">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search topics..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#F26A4B]/30 focus:border-[#F26A4B]"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
