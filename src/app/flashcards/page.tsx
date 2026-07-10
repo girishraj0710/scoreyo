@@ -183,10 +183,15 @@ export default function FlashcardsPage() {
 
   const fetchDecks = async () => {
     try {
+      console.log('📥 Fetching decks from API...');
       const response = await fetch("/api/flashcards/decks");
       if (response.ok) {
         const data = await response.json();
+        console.log('✅ Decks fetched:', data.decks?.length || 0, 'decks');
+        console.log('📋 Deck list:', data.decks);
         setRealDecks(data.decks);
+      } else {
+        console.error('❌ Failed to fetch decks:', response.status);
       }
     } catch (error) {
       console.error("Error fetching decks:", error);
@@ -215,15 +220,29 @@ export default function FlashcardsPage() {
 
     try {
       const selectedTopicData = allTopics.find(t => t.topic === selectedTopic);
-      const examName = selectedExamId ? allExams.find(e => e.id === selectedExamId)?.name : selectedTopicData?.examName;
-      const subjectName = selectedSubjectId ? allSubjects.find(s => s.id === selectedSubjectId)?.name : selectedTopicData?.subjectName;
+
+      // Use IDs for database, names for AI prompt
+      const examId = selectedExamId || selectedTopicData?.examId || '';
+      const subjectId = selectedSubjectId || selectedTopicData?.subjectId || '';
+      const examName = examId ? allExams.find(e => e.id === examId)?.name : selectedTopicData?.examName || '';
+      const subjectName = subjectId ? allSubjects.find(s => s.id === subjectId)?.name : selectedTopicData?.subjectName || '';
+
+      console.log('📤 Sending to API:', {
+        examId,
+        subjectId,
+        examName,
+        subjectName,
+        topic: selectedTopic
+      });
 
       const response = await fetch("/api/flashcards/generate", {
         method: "POST",
         headers: getHeadersWithCsrf(),
         body: JSON.stringify({
-          exam: examName,
-          subject: subjectName,
+          examId,        // For database storage
+          subjectId,     // For database storage
+          exam: examName,     // For AI prompt
+          subject: subjectName, // For AI prompt
           topic: selectedTopic,
           cardCount: 15,
         }),
@@ -231,9 +250,14 @@ export default function FlashcardsPage() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log('✅ Generation response:', data);
+        console.log('📦 Deck created:', data.deck);
+        console.log('🔑 Deck ID:', data.deck?.id);
+
         alert(`✅ Generated ${data.cards.length} flashcards for ${selectedTopic}!`);
 
         // Refresh decks list
+        console.log('🔄 Refreshing decks...');
         await fetchDecks();
         await fetchStats();
 
@@ -246,7 +270,13 @@ export default function FlashcardsPage() {
         setTopicSearch("");
 
         // Navigate to study the new deck
-        router.push(`/flashcards/study/${data.deck.id}`);
+        if (data.deck?.id) {
+          console.log('🚀 Navigating to:', `/flashcards/study/${data.deck.id}`);
+          router.push(`/flashcards/study/${data.deck.id}`);
+        } else {
+          console.error('❌ No deck ID in response, staying on page');
+          // Just stay on flashcards page to see the new deck
+        }
       } else {
         const error = await response.json();
         alert(`❌ Failed to generate deck: ${error.error}`);

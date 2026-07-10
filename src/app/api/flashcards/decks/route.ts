@@ -48,9 +48,12 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// Helper function to get exam color
-function getExamColor(examId: string): string {
+// Helper function to get exam color (handles both IDs and names)
+function getExamColor(examIdOrName: string): string {
+  const examKey = examIdOrName?.toLowerCase() || '';
+
   const colors: { [key: string]: string } = {
+    // By ID
     'upsc': '#E76F51',
     'jee': '#2A9D8F',
     'neet': '#E9C46A',
@@ -58,8 +61,19 @@ function getExamColor(examId: string): string {
     'banking': '#264653',
     'cat': '#9B59B6',
     'gate': '#3498DB',
+    'kcet': '#F4A261',
+    'keam': '#2A9D8F',
+    'mht-cet': '#E76F51',
+
+    // By Name (fallback)
+    'karnataka cet': '#F4A261',
+    'kerala cet': '#2A9D8F',
+    'physics': '#2A9D8F',
+    'chemistry': '#E9C46A',
+    'biology': '#E76F51',
   };
-  return colors[examId?.toLowerCase()] || '#6B7280';
+
+  return colors[examKey] || '#6B7280';
 }
 
 /**

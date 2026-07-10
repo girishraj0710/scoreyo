@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { exam, subject, topic, cardCount = 15 } = body;
-    console.log('📦 Request body:', { exam, subject, topic, cardCount });
+    const { examId, subjectId, exam, subject, topic, cardCount = 15 } = body;
+    console.log('📦 Request body:', { examId, subjectId, exam, subject, topic, cardCount });
 
     if (!topic) {
       console.error('❌ No topic provided');
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     }
 
     console.log('🤖 Starting AI generation...');
-    // Generate flashcards using AI
+    // Generate flashcards using AI (use names for AI prompt)
     const cards = await generateFlashcardsWithAI(exam, subject, topic, cardCount);
     console.log(`✅ AI generation complete. Cards: ${cards?.length || 0}`);
 
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Create deck
+    // Create deck (use IDs for database storage)
     const deckTitle = `${topic}${subject ? ` (${subject})` : ''}`;
     const deckDescription = `AI-generated flashcards for ${topic}${exam ? ` - ${exam}` : ''}`;
 
@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
       parseInt(userId),
       deckTitle,
       deckDescription,
-      exam || '',
-      subject || '',
+      examId || '',      // Store ID, not name
+      subjectId || '',   // Store ID, not name
       topic,
       true // isAiGenerated
     );
