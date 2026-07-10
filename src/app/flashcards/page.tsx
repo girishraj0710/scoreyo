@@ -30,7 +30,6 @@ import { RatingModal } from "@/components/rating-modal";
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState("");
   const [selectedExamId, setSelectedExamId] = useState("");
   const [selectedSubjectId, setSelectedSubjectId] = useState("");
   const [selectedTopic, setSelectedTopic] = useState("");
@@ -402,22 +401,6 @@ export default function FlashcardsPage() {
   return (
     <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-950 px-6 md:px-10 py-8">
       <div className="max-w-6xl mx-auto">
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search any exam, topic, flashcard deck, or mock test..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-16 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#F26A4B]/20 focus:border-[#F26A4B]"
-            />
-            <kbd className="absolute right-4 top-1/2 -translate-y-1/2 px-2 py-1 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded text-xs font-mono text-slate-500 dark:text-slate-400">
-              ⌘ K
-            </kbd>
-          </div>
-        </div>
 
         {/* Page Title */}
         <div className="text-center mb-6">

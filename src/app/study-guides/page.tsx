@@ -61,7 +61,6 @@ export default function StudyGuidesPage() {
     topicName: string;
   } | null>(null);
   const [topicContent, setTopicContent] = useState<TopicContent | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
   const [isContentLoading, setIsContentLoading] = useState(false);
   const [activeTOCSection, setActiveTOCSection] = useState<string>("");
   const [expandedSubjects, setExpandedSubjects] = useState<Set<string>>(new Set()); // Start with all collapsed
@@ -224,17 +223,6 @@ export default function StudyGuidesPage() {
               ))}
             </div>
 
-            {/* Search */}
-            <div className="relative w-80">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Search topics..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#F26A4B]/30 focus:border-[#F26A4B]"
-              />
-            </div>
           </div>
         </div>
       </div>

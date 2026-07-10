@@ -69,11 +69,6 @@ export default function MockTestPage() {
   const [showExamModal, setShowExamModal] = useState(false);
   const [showCustomBuilder, setShowCustomBuilder] = useState(false);
 
-  // Search state
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
-  const searchContainerRef = useRef<HTMLDivElement>(null);
-
   // Test state
   const [testId, setTestId] = useState("");
   const [examName, setExamName] = useState("");
@@ -174,24 +169,14 @@ export default function MockTestPage() {
     };
   };
 
-  // Filtered configs based on test type
+  // Display configs based on test type
   const displayConfigs = useMemo(() => {
-    const filtered = configs.filter(c => {
-      if (!searchQuery.trim()) return true;
-      const query = searchQuery.toLowerCase();
-      return (
-        c.examName.toLowerCase().includes(query) ||
-        c.examId.toLowerCase().includes(query) ||
-        c.sections.some((s) => s.subjectName.toLowerCase().includes(query))
-      );
-    });
-
     // Transform configs based on test type
     if (testType === "full") {
-      return filtered.map(getFullLengthConfig);
+      return configs.map(getFullLengthConfig);
     }
-    return filtered;
-  }, [configs, searchQuery, testType]);
+    return configs;
+  }, [configs, testType]);
 
   // Group configs by examId
   const groupedConfigs = useMemo(() => {
@@ -1163,50 +1148,6 @@ export default function MockTestPage() {
         <p className="text-xs -mt-2" style={{ color: "var(--muted)" }}>Build your own personalized mock test</p>
       </div>
 
-      {/* Search Bar */}
-      <div className="max-w-xl mx-auto mb-8" ref={searchContainerRef}>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search mock tests by exam name..."
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setShowSearchDropdown(true);
-            }}
-            onFocus={() => setShowSearchDropdown(true)}
-            className="w-full px-5 py-3 pl-12 pr-12 rounded-xl border-2 focus:border-[#E76F51] focus:ring-2 focus:ring-[#FEF5F3] outline-none transition-all cursor-text"
-            style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", color: "var(--foreground)" }}
-            onMouseEnter={(e) => {
-              if (!e.currentTarget.matches(":focus")) {
-                e.currentTarget.style.borderColor = "#a5b4fc";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!e.currentTarget.matches(":focus")) {
-                e.currentTarget.style.borderColor = "var(--card-border)";
-              }
-            }}
-          />
-          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: "var(--muted)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          {searchQuery && (
-            <button
-              onClick={() => {
-                setSearchQuery("");
-                setShowSearchDropdown(false);
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2"
-              style={{ color: "var(--muted)" }}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
 
       {/* Mock Test Cards */}
       {isLoadingConfigs ? (
