@@ -30,6 +30,8 @@ import { RatingModal } from "@/components/rating-modal";
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
   const router = useRouter();
+
+  // ALL useState hooks MUST be declared before any conditional returns
   const [selectedExamId, setSelectedExamId] = useState("");
   const [selectedSubjectId, setSelectedSubjectId] = useState("");
   const [selectedTopic, setSelectedTopic] = useState("");
@@ -46,6 +48,29 @@ export default function FlashcardsPage() {
   const [isTypingExam, setIsTypingExam] = useState(false);
   const [isTypingSubject, setIsTypingSubject] = useState(false);
   const [isTypingTopic, setIsTypingTopic] = useState(false);
+
+  // Deck generation and display states
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [realDecks, setRealDecks] = useState<any[]>([]);
+  const [deckStats, setDeckStats] = useState<any>(null);
+  const [deckFilter, setDeckFilter] = useState<'all' | 'mine' | 'popular'>('all');
+
+  // Share Modal State
+  const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [shareDeckData, setShareDeckData] = useState<{
+    id: number;
+    title: string;
+    shareUrl: string;
+  } | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Rating Modal State
+  const [ratingModalOpen, setRatingModalOpen] = useState(false);
+  const [ratingDeckData, setRatingDeckData] = useState<{
+    id: number;
+    title: string;
+    existingRating?: { rating: number; reviewText?: string };
+  } | null>(null);
 
   // Get all exams from categories
   const allExams = examCategories.flatMap(cat => cat.exams);
@@ -175,28 +200,6 @@ export default function FlashcardsPage() {
       progress: 75,
     },
   ];
-
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [realDecks, setRealDecks] = useState<any[]>([]);
-  const [deckStats, setDeckStats] = useState<any>(null);
-  const [deckFilter, setDeckFilter] = useState<'all' | 'mine' | 'popular'>('all');
-
-  // Share Modal State
-  const [shareModalOpen, setShareModalOpen] = useState(false);
-  const [shareDeckData, setShareDeckData] = useState<{
-    id: number;
-    title: string;
-    shareUrl: string;
-  } | null>(null);
-  const [copied, setCopied] = useState(false);
-
-  // Rating Modal State
-  const [ratingModalOpen, setRatingModalOpen] = useState(false);
-  const [ratingDeckData, setRatingDeckData] = useState<{
-    id: number;
-    title: string;
-    existingRating?: { rating: number; reviewText?: string };
-  } | null>(null);
 
   // Fetch user's decks and stats
   useEffect(() => {
@@ -408,7 +411,7 @@ export default function FlashcardsPage() {
             FLASHCARDS {user?.preferred_exam && `FOR ${user.preferred_exam.toUpperCase()} STUDENTS`}
           </p>
           <h1 className="font-heading text-4xl md:text-5xl font-black text-[#16213E] dark:text-white mb-3">
-            Learn from your peers.
+            Memorize like a topper.
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-base max-w-2xl mx-auto">
             {myDecksCount > 0 && communityDecksCount > 0
