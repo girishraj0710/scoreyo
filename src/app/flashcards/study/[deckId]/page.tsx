@@ -43,6 +43,14 @@ export default function FlashcardStudyPage() {
   const [showExitModal, setShowExitModal] = useState(false);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
 
+  // Track ratings for summary
+  const [ratingStats, setRatingStats] = useState({
+    again: 0,    // Red - <1min
+    hard: 0,     // Orange - 1day
+    good: 0,     // Green - 3days
+    easy: 0      // Blue - 7days
+  });
+
   // Fetch deck and cards
   useEffect(() => {
     if (!userLoading && !user) {
@@ -72,6 +80,12 @@ export default function FlashcardStudyPage() {
 
   const handleRating = async (rating: "again" | "hard" | "good" | "easy") => {
     const currentCard = cards[currentIndex];
+
+    // Update rating stats
+    setRatingStats(prev => ({
+      ...prev,
+      [rating]: prev[rating] + 1
+    }));
 
     try {
       await fetch("/api/flashcards/progress", {
@@ -121,6 +135,7 @@ export default function FlashcardStudyPage() {
     setIsFlipped(false);
     setStudiedCount(0);
     setShowCompletionModal(false);
+    setRatingStats({ again: 0, hard: 0, good: 0, easy: 0 });
   };
 
   const handleExit = () => {
@@ -421,48 +436,106 @@ export default function FlashcardStudyPage() {
                 </motion.div>
               </div>
 
-              <h2 className="font-heading text-3xl font-black text-center text-[#16213E] dark:text-white mb-3">
-                Deck Complete! 🎉
+              <h2 className="font-heading text-3xl font-black text-center text-[#16213E] dark:text-white mb-2">
+                Nice work! You've studied all the cards.
               </h2>
-              <p className="text-center text-slate-600 dark:text-slate-400 mb-2">
-                You've reviewed all {cards.length} cards in this deck.
-              </p>
-              <p className="text-center text-sm text-slate-500 dark:text-slate-500 mb-6">
+              <p className="text-center text-slate-600 dark:text-slate-400 text-sm mb-6">
                 Your progress has been saved automatically.
               </p>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="bg-slate-100 dark:bg-slate-800 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#16213E] dark:text-white">
-                    {cards.length}
+              {/* How you're doing */}
+              <div className="mb-6">
+                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3">
+                  How you're doing
+                </h3>
+                <div className="space-y-2">
+                  {/* Know (Easy) */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500"
+                        style={{ width: `${cards.length > 0 ? (ratingStats.easy / cards.length) * 100 : 0}%` }}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 min-w-[120px]">
+                      <ThumbsUp className="w-4 h-4 text-blue-500" />
+                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                        Know
+                      </span>
+                      <span className="text-sm text-slate-500 dark:text-slate-400">
+                        {ratingStats.easy}
+                      </span>
+                    </div>
                   </div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400">
-                    Cards Studied
+
+                  {/* Still learning (Good) */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-green-500 to-emerald-600 transition-all duration-500"
+                        style={{ width: `${cards.length > 0 ? (ratingStats.good / cards.length) * 100 : 0}%` }}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 min-w-[120px]">
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />
+                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                        Learning
+                      </span>
+                      <span className="text-sm text-slate-500 dark:text-slate-400">
+                        {ratingStats.good}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Still learning (Hard + Again) */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-500"
+                        style={{ width: `${cards.length > 0 ? ((ratingStats.hard + ratingStats.again) / cards.length) * 100 : 0}%` }}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 min-w-[120px]">
+                      <Minus className="w-4 h-4 text-orange-500" />
+                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                        Review
+                      </span>
+                      <span className="text-sm text-slate-500 dark:text-slate-400">
+                        {ratingStats.hard + ratingStats.again}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="bg-slate-100 dark:bg-slate-800 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-[#16213E] dark:text-white">
-                    100%
-                  </div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400">
-                    Complete
-                  </div>
-                </div>
+              </div>
+
+              {/* Next steps */}
+              <div className="mb-6">
+                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3">
+                  Next steps
+                </h3>
               </div>
 
               {/* Actions */}
               <div className="flex flex-col gap-3">
                 <button
-                  onClick={handleRestart}
+                  onClick={() => {
+                    // TODO: Navigate to quiz with same topic
+                    alert("Quiz feature coming soon! This will generate a quiz with the same cards.");
+                  }}
                   className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-[#F26A4B] to-[#E76F51] hover:from-[#E76F51] hover:to-[#D35D42] text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
                   <RotateCcw className="w-5 h-5" />
-                  Study Again
+                  Take Quiz
+                </button>
+                <button
+                  onClick={handleRestart}
+                  className="w-full px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-base transition-all"
+                >
+                  Restart Flashcards
                 </button>
                 <button
                   onClick={() => router.push("/flashcards")}
-                  className="w-full px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-base transition-all"
+                  className="w-full px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-[#F26A4B] transition-colors"
                 >
                   Back to Decks
                 </button>
