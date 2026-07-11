@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
       // Get user info
       const userResult = await client.query(
         `SELECT preferred_exam, name, username FROM users WHERE id = $1`,
-        [parseInt(userId)]
+        [userId]
       );
       const user = userResult.rows[0];
       const preferredExam = user?.preferred_exam;
@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
           is_mine DESC,  -- My decks first
           fd.studies_today DESC,  -- Then by popularity
           fd.updated_at DESC
-      `, [parseInt(userId), preferredExam]);
+      `, [userId, preferredExam]);
 
       console.log(`✅ Found ${result.rows.length} decks (user + community)`);
 
@@ -175,7 +175,7 @@ export async function POST(req: NextRequest) {
 
     // Create deck
     const deck = await createFlashcardDeck(
-      parseInt(userId),
+      userId,
       title,
       description || '',
       examId || '',

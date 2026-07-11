@@ -3220,7 +3220,7 @@ export async function getPendingStudyMaterialsCount(): Promise<number> {
 /**
  * Get all decks for a user
  */
-export async function getFlashcardDecks(userId: number) {
+export async function getFlashcardDecks(userId: string) {
   const pool = getPool();
   const client = await pool.connect();
   try {
@@ -3247,7 +3247,7 @@ export async function getFlashcardDecks(userId: number) {
 /**
  * Get a specific deck with all cards
  */
-export async function getFlashcardDeck(deckId: number, userId: number) {
+export async function getFlashcardDeck(deckId: number, userId: string) {
   const pool = getPool();
   const client = await pool.connect();
   try {
@@ -3293,7 +3293,7 @@ export async function getFlashcardDeck(deckId: number, userId: number) {
  * Create a new flashcard deck
  */
 export async function createFlashcardDeck(
-  userId: number,
+  userId: string,
   title: string,
   description: string,
   examId: string,
