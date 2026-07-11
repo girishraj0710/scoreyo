@@ -448,62 +448,56 @@ export default function FlashcardStudyPage() {
                 <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3">
                   How you're doing
                 </h3>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {/* Know (Easy) */}
                   <div className="flex items-center gap-3">
+                    <ThumbsUp className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 w-20">
+                      Know
+                    </span>
                     <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500"
                         style={{ width: `${cards.length > 0 ? (ratingStats.easy / cards.length) * 100 : 0}%` }}
                       />
                     </div>
-                    <div className="flex items-center gap-2 min-w-[120px]">
-                      <ThumbsUp className="w-4 h-4 text-blue-500" />
-                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                        Know
-                      </span>
-                      <span className="text-sm text-slate-500 dark:text-slate-400">
-                        {ratingStats.easy}
-                      </span>
-                    </div>
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 w-6 text-right">
+                      {ratingStats.easy}
+                    </span>
                   </div>
 
                   {/* Still learning (Good) */}
                   <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 w-20">
+                      Learning
+                    </span>
                     <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-green-500 to-emerald-600 transition-all duration-500"
                         style={{ width: `${cards.length > 0 ? (ratingStats.good / cards.length) * 100 : 0}%` }}
                       />
                     </div>
-                    <div className="flex items-center gap-2 min-w-[120px]">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" />
-                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                        Learning
-                      </span>
-                      <span className="text-sm text-slate-500 dark:text-slate-400">
-                        {ratingStats.good}
-                      </span>
-                    </div>
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 w-6 text-right">
+                      {ratingStats.good}
+                    </span>
                   </div>
 
                   {/* Still learning (Hard + Again) */}
                   <div className="flex items-center gap-3">
+                    <Minus className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 w-20">
+                      Review
+                    </span>
                     <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-500"
                         style={{ width: `${cards.length > 0 ? ((ratingStats.hard + ratingStats.again) / cards.length) * 100 : 0}%` }}
                       />
                     </div>
-                    <div className="flex items-center gap-2 min-w-[120px]">
-                      <Minus className="w-4 h-4 text-orange-500" />
-                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                        Review
-                      </span>
-                      <span className="text-sm text-slate-500 dark:text-slate-400">
-                        {ratingStats.hard + ratingStats.again}
-                      </span>
-                    </div>
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 w-6 text-right">
+                      {ratingStats.hard + ratingStats.again}
+                    </span>
                   </div>
                 </div>
               </div>

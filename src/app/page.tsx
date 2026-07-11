@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useUser } from "@/context/user-context";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { DailyTenQuestions } from "@/components/daily-ten-questions";
 import { isNative } from "@/lib/capacitor";
 import {
   Flame, PlayCircle, ChevronRight, BookOpen, Clock, Sparkles,
@@ -122,14 +123,6 @@ function HomePageContent() {
     { id: 3, label: "Attempt UPSC Prelims Mock #1", done: false, tag: "Mock Test", link: "/mock-test" },
     { id: 4, label: "Clear 3 due review items", done: false, tag: "Review", link: "/review" },
   ]);
-  const [mcqChoice, setMcqChoice] = useState<number | null>(null);
-  const [mcqRevealed, setMcqRevealed] = useState(false);
-
-  const DAILY_MCQ = {
-    q: "Which article of the Indian Constitution deals with the Right to Constitutional Remedies?",
-    options: ["Article 19", "Article 21", "Article 32", "Article 44"],
-    correct: 2,
-  };
 
   const CONTINUE = {
     examId: "upsc",
@@ -167,11 +160,6 @@ function HomePageContent() {
 
   const toggleTask = (id: number) => {
     setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
-  };
-
-  const submitMcq = () => {
-    if (mcqChoice === null) return;
-    setMcqRevealed(true);
   };
 
   // MOBILE APP: Skip landing page, go straight to dashboard or auth
@@ -383,68 +371,10 @@ function HomePageContent() {
           })}
         </div>
 
-        {/* Daily MCQ + Recent activity + Daily Goal */}
+        {/* Daily 10 Questions + Recent activity + Daily Goal */}
         <div className="grid lg:grid-cols-3 gap-5 mb-6">
-          <div className="lg:col-span-2 rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#F26A4B]">
-              <Sparkles className="w-3.5 h-3.5" /> Question of the day
-            </div>
-            <h3 className="font-heading text-xl md:text-2xl font-bold mt-3 leading-snug text-[#16213E] dark:text-white">
-              {DAILY_MCQ.q}
-            </h3>
-            <div className="mt-5 space-y-2">
-              {DAILY_MCQ.options.map((opt, i) => {
-                const chosen = mcqChoice === i;
-                const isCorrect = i === DAILY_MCQ.correct;
-                const showResult = mcqRevealed;
-                let styles = "border-black/5 hover:border-[#16213E]/20 bg-[#FAF8F5] dark:bg-slate-800";
-                if (showResult && isCorrect) styles = "border-[#2E8B57] bg-[#2E8B57]/10";
-                else if (showResult && chosen && !isCorrect) styles = "border-red-300 bg-red-50 dark:bg-red-900/20";
-                else if (chosen) styles = "border-[#F26A4B] bg-[#F26A4B]/5";
-                return (
-                  <button
-                    key={i}
-                    disabled={mcqRevealed}
-                    onClick={() => setMcqChoice(i)}
-                    className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all flex items-center gap-3 ${styles}`}
-                  >
-                    <div className={`w-7 h-7 rounded-lg grid place-items-center font-mono font-bold text-sm ${
-                      chosen ? "bg-[#F26A4B] text-white" : "bg-white dark:bg-slate-700 text-[#5A6478] dark:text-slate-300 border border-black/5"
-                    }`}>
-                      {String.fromCharCode(65 + i)}
-                    </div>
-                    <div className="text-sm font-medium text-[#16213E] dark:text-white flex-1">{opt}</div>
-                    {mcqRevealed && isCorrect && <CheckCircle2 className="w-4 h-4 text-[#2E8B57]" />}
-                  </button>
-                );
-              })}
-            </div>
-            <div className="mt-5 flex gap-2">
-              {!mcqRevealed ? (
-                <button
-                  onClick={submitMcq}
-                  disabled={mcqChoice === null}
-                  className="rounded-xl bg-[#16213E] hover:bg-black text-white font-semibold px-6 py-2.5 disabled:opacity-50 transition-all duration-500"
-                >
-                  Submit answer
-                </button>
-              ) : (
-                <>
-                  <div className="text-sm text-[#5A6478] dark:text-slate-400 flex-1 self-center">
-                    {mcqChoice === DAILY_MCQ.correct ? "Correct 🎯 +10 XP added." : "Try tomorrow's — you've got this."}
-                  </div>
-                  <button
-                    onClick={() => {
-                      setMcqChoice(null);
-                      setMcqRevealed(false);
-                    }}
-                    className="rounded-xl border border-black/10 bg-white dark:bg-slate-800 px-6 py-2.5 text-[#16213E] dark:text-white font-semibold transition-all duration-500"
-                  >
-                    Reset
-                  </button>
-                </>
-              )}
-            </div>
+          <div className="lg:col-span-2">
+            <DailyTenQuestions />
           </div>
 
           {/* Right column: Recent Activity + Daily Goal stacked */}
