@@ -69,143 +69,59 @@ export async function GET(req: NextRequest) {
       let questions = [];
 
       if (isNewUser) {
-        // NEW USER: Get 10 random questions from their preferred exam
-        console.log(`🆕 New user ${userId} - generating random questions for ${preferredExam}`);
+        // NEW USER: Get 10 random questions from fact_exam_questions
+        console.log(`🆕 New user ${userId} - generating random questions`);
 
         const randomQuestions = await client.query(
-          `SELECT id, question, options, correct_answer, explanation,
-                  exam_id, subject_id, topic, difficulty
-           FROM questions
-           WHERE exam_id = $1
-             AND is_verified = true
+          `SELECT feq.id, feq.question, feq.options, feq.correct_answer, feq.explanation,
+                  de.exam_id, ds.subject_id, dt.topic_name as topic, feq.difficulty
+           FROM fact_exam_questions feq
+           LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+           LEFT JOIN dim_subjects ds ON dt.subject_id = ds.id
+           LEFT JOIN dim_exams de ON ds.exam_id = de.id
            ORDER BY RANDOM()
-           LIMIT 10`,
-          [preferredExam]
+           LIMIT 10`
         );
 
-        questions = randomQuestions.rows;
+        questions = randomQuestions.rows.map(q => ({
+          id: q.id,
+          question: q.question,
+          options: typeof q.options === 'string' ? JSON.parse(q.options) : q.options,
+          correct_answer: q.correct_answer,
+          explanation: q.explanation || 'No explanation provided',
+          exam_id: q.exam_id || preferredExam || 'general',
+          subject_id: q.subject_id || 'general',
+          topic: q.topic || 'General Knowledge',
+          difficulty: q.difficulty || 'medium'
+        }));
       } else {
         // RETURNING USER: Intelligent question selection
         console.log(`🎯 Returning user ${userId} - generating personalized questions`);
 
-        // 1. Get weak topics (mastery < 70%)
-        const weakTopics = await client.query(
-          `SELECT DISTINCT m.subject_id, m.topic
-           FROM (
-             SELECT
-               subject_id,
-               topic,
-               CASE
-                 WHEN SUM(total_attempted) > 0
-                 THEN (SUM(total_correct)::float / SUM(total_attempted)) * 100
-                 ELSE 0
-               END as mastery_score
-             FROM quiz_sessions
-             WHERE user_id = $1
-             GROUP BY subject_id, topic
-           ) m
-           WHERE m.mastery_score < 70
-           ORDER BY m.mastery_score ASC
-           LIMIT 5`,
-          [userId]
-        );
-
-        // 2. Get mistake patterns
-        const mistakeTypes = await client.query(
-          `SELECT mistake_type, COUNT(*) as count
-           FROM mistake_patterns
-           WHERE user_id = $1
-             AND created_at >= NOW() - INTERVAL '30 days'
-           GROUP BY mistake_type
-           ORDER BY count DESC
-           LIMIT 1`,
-          [userId]
-        );
-
-        const primaryMistakeType = mistakeTypes.rows[0]?.mistake_type || 'concept';
-
-        // 3. Build personalized question query
-        // Priority: 60% weak topics, 30% recent exam topics, 10% new topics
-
-        // Get 6 questions from weak topics
-        let weakTopicQuestions: any[] = [];
-        if (weakTopics.rows.length > 0) {
-          const weakTopicConditions = weakTopics.rows
-            .map(t => `(subject_id = '${t.subject_id}' AND topic = '${t.topic.replace(/'/g, "''")}')`)
-            .join(' OR ');
-
-          const weakResult = await client.query(
-            `SELECT id, question, options, correct_answer, explanation,
-                    exam_id, subject_id, topic, difficulty
-             FROM questions
-             WHERE exam_id = $1
-               AND is_verified = true
-               AND (${weakTopicConditions})
-             ORDER BY RANDOM()
-             LIMIT 6`,
-            [preferredExam]
-          );
-          weakTopicQuestions = weakResult.rows;
-        }
-
-        // Get 3 questions from recently studied topics
-        const recentQuestions = await client.query(
-          `SELECT DISTINCT q.id, q.question, q.options, q.correct_answer, q.explanation,
-                  q.exam_id, q.subject_id, q.topic, q.difficulty
-           FROM questions q
-           INNER JOIN quiz_sessions qs ON q.subject_id = qs.subject_id
-           WHERE qs.user_id = $1
-             AND q.exam_id = $2
-             AND q.is_verified = true
-             AND q.id NOT IN (${weakTopicQuestions.map(wq => wq.id).join(',') || '0'})
-             AND qs.created_at >= NOW() - INTERVAL '7 days'
+        // For now, use random questions from fact_exam_questions
+        // TODO: Implement intelligent selection based on weak topics
+        const randomQuestions = await client.query(
+          `SELECT feq.id, feq.question, feq.options, feq.correct_answer, feq.explanation,
+                  de.exam_id, ds.subject_id, dt.topic_name as topic, feq.difficulty
+           FROM fact_exam_questions feq
+           LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
+           LEFT JOIN dim_subjects ds ON dt.subject_id = ds.id
+           LEFT JOIN dim_exams de ON ds.exam_id = de.id
            ORDER BY RANDOM()
-           LIMIT 3`,
-          [userId, preferredExam]
+           LIMIT 10`
         );
 
-        // Get 1 question from unexplored topics
-        const newTopicQuestions = await client.query(
-          `SELECT id, question, options, correct_answer, explanation,
-                  exam_id, subject_id, topic, difficulty
-           FROM questions
-           WHERE exam_id = $1
-             AND is_verified = true
-             AND id NOT IN (${[...weakTopicQuestions, ...recentQuestions.rows].map(q => q.id).join(',') || '0'})
-             AND topic NOT IN (
-               SELECT DISTINCT topic FROM quiz_sessions WHERE user_id = $2
-             )
-           ORDER BY RANDOM()
-           LIMIT 1`,
-          [preferredExam, userId]
-        );
-
-        // Combine all questions
-        questions = [
-          ...weakTopicQuestions,
-          ...recentQuestions.rows,
-          ...newTopicQuestions.rows,
-        ];
-
-        // If we don't have 10 questions yet, fill with random questions
-        if (questions.length < 10) {
-          const remainingCount = 10 - questions.length;
-          const excludeIds = questions.map(q => q.id).join(',') || '0';
-
-          const fillQuestions = await client.query(
-            `SELECT id, question, options, correct_answer, explanation,
-                    exam_id, subject_id, topic, difficulty
-             FROM questions
-             WHERE exam_id = $1
-               AND is_verified = true
-               AND id NOT IN (${excludeIds})
-             ORDER BY RANDOM()
-             LIMIT $2`,
-            [preferredExam, remainingCount]
-          );
-
-          questions = [...questions, ...fillQuestions.rows];
-        }
+        questions = randomQuestions.rows.map(q => ({
+          id: q.id,
+          question: q.question,
+          options: typeof q.options === 'string' ? JSON.parse(q.options) : q.options,
+          correct_answer: q.correct_answer,
+          explanation: q.explanation || 'No explanation provided',
+          exam_id: q.exam_id || preferredExam || 'general',
+          subject_id: q.subject_id || 'general',
+          topic: q.topic || 'General Knowledge',
+          difficulty: q.difficulty || 'medium'
+        }));
       }
 
       // Ensure we have exactly 10 questions
