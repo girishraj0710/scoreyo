@@ -99,7 +99,6 @@ export async function GET(req: NextRequest) {
         ratingCount: deck.rating_count || 0,
       }));
 
-      client.release();
       return NextResponse.json({ decks });
     } finally {
       client.release();
