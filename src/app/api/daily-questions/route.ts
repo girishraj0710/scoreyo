@@ -74,11 +74,9 @@ export async function GET(req: NextRequest) {
 
         const randomQuestions = await client.query(
           `SELECT feq.id, feq.question, feq.options, feq.correct_answer, feq.explanation,
-                  de.exam_id, ds.subject_id, dt.topic_name as topic, feq.difficulty
+                  feq.difficulty, dt.topic_name
            FROM fact_exam_questions feq
            LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-           LEFT JOIN dim_subjects ds ON dt.subject_id = ds.id
-           LEFT JOIN dim_exams de ON ds.exam_id = de.id
            ORDER BY RANDOM()
            LIMIT 10`
         );
@@ -89,9 +87,9 @@ export async function GET(req: NextRequest) {
           options: typeof q.options === 'string' ? JSON.parse(q.options) : q.options,
           correct_answer: q.correct_answer,
           explanation: q.explanation || 'No explanation provided',
-          exam_id: q.exam_id || preferredExam || 'general',
-          subject_id: q.subject_id || 'general',
-          topic: q.topic || 'General Knowledge',
+          exam_id: preferredExam || 'general',
+          subject_id: 'general',
+          topic: q.topic_name || 'General Knowledge',
           difficulty: q.difficulty || 'medium'
         }));
       } else {
@@ -102,11 +100,9 @@ export async function GET(req: NextRequest) {
         // TODO: Implement intelligent selection based on weak topics
         const randomQuestions = await client.query(
           `SELECT feq.id, feq.question, feq.options, feq.correct_answer, feq.explanation,
-                  de.exam_id, ds.subject_id, dt.topic_name as topic, feq.difficulty
+                  feq.difficulty, dt.topic_name
            FROM fact_exam_questions feq
            LEFT JOIN dim_topics dt ON feq.topic_id = dt.id
-           LEFT JOIN dim_subjects ds ON dt.subject_id = ds.id
-           LEFT JOIN dim_exams de ON ds.exam_id = de.id
            ORDER BY RANDOM()
            LIMIT 10`
         );
@@ -117,9 +113,9 @@ export async function GET(req: NextRequest) {
           options: typeof q.options === 'string' ? JSON.parse(q.options) : q.options,
           correct_answer: q.correct_answer,
           explanation: q.explanation || 'No explanation provided',
-          exam_id: q.exam_id || preferredExam || 'general',
-          subject_id: q.subject_id || 'general',
-          topic: q.topic || 'General Knowledge',
+          exam_id: preferredExam || 'general',
+          subject_id: 'general',
+          topic: q.topic_name || 'General Knowledge',
           difficulty: q.difficulty || 'medium'
         }));
       }
