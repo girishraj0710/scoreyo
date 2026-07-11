@@ -28,6 +28,7 @@ import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import { InteractiveStarRating } from "@/components/interactive-star-rating";
 import { RatingModal } from "@/components/rating-modal";
 import { SuccessModal } from "@/components/success-modal";
+import { ErrorModal } from "@/components/error-modal";
 
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
@@ -80,6 +81,13 @@ export default function FlashcardsPage() {
     title: string;
     message: string;
     deckId?: number;
+  } | null>(null);
+
+  // Error Modal State
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [errorData, setErrorData] = useState<{
+    title: string;
+    message: string;
   } | null>(null);
 
   // Redirect if not logged in
@@ -334,7 +342,11 @@ export default function FlashcardsPage() {
 
   const handleGenerateDeck = async () => {
     if (!selectedTopic) {
-      alert("Please select at least a topic to generate a deck");
+      setErrorData({
+        title: "Topic Required",
+        message: "Please select at least a topic to generate a deck"
+      });
+      setErrorModalOpen(true);
       return;
     }
 
@@ -398,11 +410,19 @@ export default function FlashcardsPage() {
         setSuccessModalOpen(true);
       } else {
         const error = await response.json();
-        alert(`❌ Failed to generate deck: ${error.error}`);
+        setErrorData({
+          title: "Generation Failed",
+          message: error.error || "Failed to generate deck. Please try again."
+        });
+        setErrorModalOpen(true);
       }
     } catch (error) {
       console.error("Error generating deck:", error);
-      alert("❌ Failed to generate deck. Please try again.");
+      setErrorData({
+        title: "Something Went Wrong",
+        message: "Failed to generate deck. Please check your connection and try again."
+      });
+      setErrorModalOpen(true);
     } finally {
       setIsGenerating(false);
     }
@@ -1007,6 +1027,15 @@ export default function FlashcardsPage() {
             }
           }}
           autoClose={false}
+        />
+
+        {/* Error Modal */}
+        <ErrorModal
+          isOpen={errorModalOpen}
+          onClose={() => setErrorModalOpen(false)}
+          title={errorData?.title || "Error"}
+          message={errorData?.message || "Something went wrong"}
+          actionLabel="Try Again"
         />
       </div>
     </div>
