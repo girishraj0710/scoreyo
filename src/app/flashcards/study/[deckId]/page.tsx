@@ -41,6 +41,7 @@ export default function FlashcardStudyPage() {
   const [deckTitle, setDeckTitle] = useState("");
   const [studiedCount, setStudiedCount] = useState(0);
   const [showExitModal, setShowExitModal] = useState(false);
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
 
   // Fetch deck and cards
   useEffect(() => {
@@ -95,6 +96,9 @@ export default function FlashcardStudyPage() {
     if (currentIndex < cards.length - 1) {
       setIsFlipped(false);
       setCurrentIndex(currentIndex + 1);
+    } else {
+      // On last card, show completion modal
+      setShowCompletionModal(true);
     }
   };
 
@@ -116,6 +120,7 @@ export default function FlashcardStudyPage() {
     setCurrentIndex(0);
     setIsFlipped(false);
     setStudiedCount(0);
+    setShowCompletionModal(false);
   };
 
   const handleExit = () => {
@@ -378,6 +383,90 @@ export default function FlashcardStudyPage() {
               >
                 Exit
               </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Completion Modal */}
+      {showCompletionModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="bg-white dark:bg-slate-900 rounded-3xl p-8 max-w-md w-full relative overflow-hidden"
+          >
+            {/* Decorative background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent pointer-events-none" />
+
+            {/* Content */}
+            <div className="relative">
+              {/* Success icon */}
+              <div className="flex justify-center mb-6">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                  className="relative"
+                >
+                  <motion.div
+                    initial={{ scale: 1, opacity: 0.5 }}
+                    animate={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="absolute inset-0 rounded-full bg-green-500"
+                  />
+                  <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
+                    <CheckCircle2 className="w-10 h-10 text-white" strokeWidth={2.5} />
+                  </div>
+                </motion.div>
+              </div>
+
+              <h2 className="font-heading text-3xl font-black text-center text-[#16213E] dark:text-white mb-3">
+                Deck Complete! 🎉
+              </h2>
+              <p className="text-center text-slate-600 dark:text-slate-400 mb-2">
+                You've reviewed all {cards.length} cards in this deck.
+              </p>
+              <p className="text-center text-sm text-slate-500 dark:text-slate-500 mb-6">
+                Your progress has been saved automatically.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="bg-slate-100 dark:bg-slate-800 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-[#16213E] dark:text-white">
+                    {cards.length}
+                  </div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400">
+                    Cards Studied
+                  </div>
+                </div>
+                <div className="bg-slate-100 dark:bg-slate-800 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-[#16213E] dark:text-white">
+                    100%
+                  </div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400">
+                    Complete
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={handleRestart}
+                  className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-[#F26A4B] to-[#E76F51] hover:from-[#E76F51] hover:to-[#D35D42] text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                >
+                  <RotateCcw className="w-5 h-5" />
+                  Study Again
+                </button>
+                <button
+                  onClick={() => router.push("/flashcards")}
+                  className="w-full px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-base transition-all"
+                >
+                  Back to Decks
+                </button>
+              </div>
             </div>
           </motion.div>
         </div>
