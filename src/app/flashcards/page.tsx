@@ -27,6 +27,7 @@ import { examCategories } from "@/lib/exams";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import { InteractiveStarRating } from "@/components/interactive-star-rating";
 import { RatingModal } from "@/components/rating-modal";
+import { SuccessModal } from "@/components/success-modal";
 
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
@@ -71,6 +72,14 @@ export default function FlashcardsPage() {
     id: number;
     title: string;
     existingRating?: { rating: number; reviewText?: string };
+  } | null>(null);
+
+  // Success Modal State
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [successData, setSuccessData] = useState<{
+    title: string;
+    message: string;
+    deckId?: number;
   } | null>(null);
 
   // Redirect if not logged in
@@ -367,8 +376,6 @@ export default function FlashcardsPage() {
         console.log('📦 Deck created:', data.deck);
         console.log('🔑 Deck ID:', data.deck?.id);
 
-        alert(`✅ Generated ${data.cards.length} flashcards for ${selectedTopic}!`);
-
         // Refresh decks list
         console.log('🔄 Refreshing decks...');
         await fetchDecks();
@@ -382,14 +389,13 @@ export default function FlashcardsPage() {
         setSubjectSearch("");
         setTopicSearch("");
 
-        // Navigate to study the new deck
-        if (data.deck?.id) {
-          console.log('🚀 Navigating to:', `/flashcards/study/${data.deck.id}`);
-          router.push(`/flashcards/study/${data.deck.id}`);
-        } else {
-          console.error('❌ No deck ID in response, staying on page');
-          // Just stay on flashcards page to see the new deck
-        }
+        // Show success modal
+        setSuccessData({
+          title: "Deck Created! 🎉",
+          message: `Generated ${data.cards.length} flashcards for ${selectedTopic}!`,
+          deckId: data.deck?.id
+        });
+        setSuccessModalOpen(true);
       } else {
         const error = await response.json();
         alert(`❌ Failed to generate deck: ${error.error}`);
@@ -987,6 +993,21 @@ export default function FlashcardsPage() {
             onSuccess={handleRatingSuccess}
           />
         )}
+
+        {/* Success Modal */}
+        <SuccessModal
+          isOpen={successModalOpen}
+          onClose={() => setSuccessModalOpen(false)}
+          title={successData?.title || "Success!"}
+          message={successData?.message || "Action completed successfully"}
+          actionLabel="Start Studying"
+          onAction={() => {
+            if (successData?.deckId) {
+              router.push(`/flashcards/study/${successData.deckId}`);
+            }
+          }}
+          autoClose={false}
+        />
       </div>
     </div>
   );
