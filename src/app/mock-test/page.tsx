@@ -13,6 +13,7 @@ import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { sounds } from "@/lib/sounds";
+import { useExamFilter } from "@/hooks/use-exam-filter";
 
 // Dynamic import: Only load builder when user clicks "Create Custom Test"
 const CustomMockTestBuilder = dynamic(
@@ -46,6 +47,7 @@ export default function MockTestPage() {
   const { user, setShowLoginModal, isLoading: userLoading } = useUser();
   const { t } = useLocale();
   const router = useRouter();
+  const examFilter = useExamFilter(); // Single-exam-focus
 
   // Redirect contributors to contributor portal
   useEffect(() => {
@@ -168,10 +170,16 @@ export default function MockTestPage() {
     return configs;
   }, [configs, testType]);
 
-  // Group configs by examId
+  // Group configs by examId (with single-exam-focus filtering)
   const groupedConfigs = useMemo(() => {
     const groups: { [key: string]: MockTestConfig[] } = {};
-    displayConfigs.forEach((config) => {
+
+    // Filter configs by exam if user is not admin
+    const filteredConfigs = examFilter
+      ? displayConfigs.filter(config => config.examId === examFilter)
+      : displayConfigs;
+
+    filteredConfigs.forEach((config) => {
       if (!groups[config.examId]) {
         groups[config.examId] = [];
       }
@@ -1093,10 +1101,10 @@ export default function MockTestPage() {
             onClick={() => setTestType("short")}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               testType === "short"
-                ? "bg-[#E76F51] text-white shadow-lg"
+                ? "text-white shadow-lg"
                 : "border-2"
             }`}
-            style={testType !== "short" ? { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : undefined}
+            style={testType === "short" ? { background: '#16213E' } : { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" }}
           >
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1111,10 +1119,10 @@ export default function MockTestPage() {
             onClick={() => setTestType("full")}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               testType === "full"
-                ? "bg-[#E76F51] text-white shadow-lg"
+                ? "text-white shadow-lg"
                 : "border-2"
             }`}
-            style={testType !== "full" ? { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" } : undefined}
+            style={testType === "full" ? { background: '#16213E' } : { background: "var(--card-bg)", color: "var(--foreground-secondary)", borderColor: "var(--card-border)" }}
           >
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1129,7 +1137,10 @@ export default function MockTestPage() {
         {/* Custom Test Builder Button */}
         <button
           onClick={() => setShowCustomBuilder(true)}
-          className="px-8 py-3 bg-[#E76F51] text-white rounded-xl font-semibold shadow-lg transition-all flex items-center gap-2 hover:bg-[#D65A3D]"
+          className="px-8 py-3 text-white rounded-xl font-semibold shadow-lg transition-all flex items-center gap-2"
+          style={{ background: '#16213E' }}
+          onMouseEnter={(e) => e.currentTarget.style.background = '#1a2744'}
+          onMouseLeave={(e) => e.currentTarget.style.background = '#16213E'}
         >
           <Sparkles className="w-5 h-5" />
           <span>Create Custom Test</span>
@@ -1518,14 +1529,14 @@ export default function MockTestPage() {
                 }}
                 className="px-8 py-3 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
             style={{
-              backgroundColor: '#E76F51',
+              backgroundColor: '#16213E',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D65A3D';
+              e.currentTarget.style.backgroundColor = '#1a2744';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#E76F51';
+              e.currentTarget.style.backgroundColor = '#16213E';
             }}
               >
                 <span>Start Test {selectedTestNumber}</span>

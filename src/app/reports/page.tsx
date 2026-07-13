@@ -8,11 +8,13 @@ import { getExamById, getSubjectById } from "@/lib/exams";
 import { getExamIcon } from "@/lib/professional-icons";
 import { BarChart3, Star, TrendingUp, Target, Zap, CheckCircle2 } from "lucide-react";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { useExamFilter } from "@/hooks/use-exam-filter";
 
 export default function ReportsPage() {
   const { t } = useLocale();
   const { user, isLoading: userLoading } = useUser();
   const router = useRouter();
+  const examFilter = useExamFilter(); // Single-exam-focus
 
   // Redirect contributors to contributor portal
   useEffect(() => {
@@ -31,7 +33,8 @@ export default function ReportsPage() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/reports");
+        const url = examFilter ? `/api/reports?examId=${examFilter}` : "/api/reports";
+        const res = await fetch(url);
         if (res.status === 403) {
           setProRequired(true);
           return;
@@ -52,7 +55,7 @@ export default function ReportsPage() {
       }
     }
     load();
-  }, []);
+  }, [examFilter]);
 
   if (error) {
     return (

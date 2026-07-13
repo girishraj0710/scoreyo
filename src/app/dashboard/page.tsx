@@ -59,7 +59,7 @@ interface Session {
 
 export default function DashboardPage() {
   const router = useRouter();
-  const { user, isLoading: userLoading } = useUser();
+  const { user, isLoading: userLoading, isAdmin: isAdminUser } = useUser();
   const [stats, setStats] = useState<Stats | null>(null);
   const [mastery, setMastery] = useState<MasteryItem[]>([]);
   const [recentSessions, setRecentSessions] = useState<Session[]>([]);
@@ -73,6 +73,13 @@ export default function DashboardPage() {
       router.push('/contributor');
     }
   }, [user, userLoading, router]);
+
+  // Single-exam-focus: Set filter to current_exam for non-admin users
+  useEffect(() => {
+    if (user && !isAdminUser && user.current_exam) {
+      setSelectedExamFilter(user.current_exam);
+    }
+  }, [user, isAdminUser]);
 
   const loadStats = async () => {
     try {

@@ -7,6 +7,7 @@ import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { useExamFilter } from "@/hooks/use-exam-filter";
 
 interface ReviewTopic {
   exam_id: string;
@@ -22,6 +23,7 @@ interface ReviewTopic {
 export default function ReviewPage() {
   const router = useRouter();
   const { user, isLoading: userLoading } = useUser();
+  const examFilter = useExamFilter(); // Single-exam-focus
 
   // Redirect contributors to contributor portal
   useEffect(() => {
@@ -36,7 +38,8 @@ export default function ReviewPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/review")
+    const url = examFilter ? `/api/review?examId=${examFilter}` : "/api/review";
+    fetch(url)
       .then((r) => r.json())
       .then((data) => {
         setOverdue(data.overdue || []);
@@ -45,7 +48,7 @@ export default function ReviewPage() {
       })
       .catch(() => {})
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [examFilter]);
 
   const formatDate = (dateStr: string) => {
     if (!dateStr) return "";
