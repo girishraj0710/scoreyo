@@ -101,7 +101,8 @@ export function AppSidebar() {
 
   if (!user) return null;
 
-  const isContributorRole = ["contributor", "admin"].includes(user.role || "");
+  const isContributorRole = user.role === "contributor"; // Only contributor, NOT admin
+  const isAdmin = user.role === "admin";
 
   return (
     <>
@@ -130,8 +131,35 @@ export function AppSidebar() {
         {/* Center: Universal Search Bar */}
         <UniversalSearch />
 
-        {/* Right side actions - Notifications, Sound, Language, Profile */}
+        {/* Right side actions - Admin Contributor Button, Notifications, Sound, Language, Profile */}
         <div className="flex items-center gap-3 flex-shrink-0">
+          {/* Admin: Quick access to Contributor Portal */}
+          {isAdmin && (
+            <a
+              href="/contributor"
+              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors relative group"
+              aria-label="Contributor Portal"
+              title="Contributor Portal"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-purple-600 dark:text-purple-400"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </a>
+          )}
+
           {/* Notifications */}
           <button
             className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors relative"
@@ -258,7 +286,8 @@ export function AppSidebar() {
 
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto px-3 pt-8 pb-6">
-        {isContributorRole ? (
+        {isContributorRole && !isAdmin ? (
+          /* Contributor (not admin): Only show Contributor Portal link */
           <Link
             href="/contributor"
             className={
@@ -271,6 +300,7 @@ export function AppSidebar() {
             <span>Contributor Portal</span>
           </Link>
         ) : (
+          /* Student or Admin: Show full student sidebar */
           <>
             {/* Primary Navigation Group */}
             <ul className="space-y-1 mb-4">

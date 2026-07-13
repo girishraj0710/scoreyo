@@ -471,10 +471,6 @@ function HomePageContent() {
             { to: "/study-guides", icon: BookOpen, label: "Study Guides", sub: "Read topics", tint: "#2A9D8F" },
             { to: "/mock-test", icon: Trophy, label: "Mock Test", sub: "Simulate exam", tint: "#264653" },
             { to: "/review", icon: TrendingUp, label: "Review", sub: `3 due today`, tint: "#E9C46A" },
-            // Admin-only: Contributor Portal access
-            ...(user.role === 'admin' ? [
-              { to: "/contributor", icon: Upload, label: "Contributor Portal", sub: "Upload content", tint: "#8B5CF6" }
-            ] : [])
           ].map((a, i) => {
             const Icon = a.icon;
             return (

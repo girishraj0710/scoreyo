@@ -277,7 +277,9 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }
 
   // Computed properties for single-exam-focus
-  const isAdmin = user?.role === 'admin' || user?.role === 'contributor';
+  // isAdmin: ONLY true admin (not contributor)
+  // Admin has access to all exams and all features
+  const isAdmin = user?.role === 'admin';
   const canSwitchExams = !isAdmin && (user?.enrolled_exams?.length || 0) > 1;
   const canAddExams = user?.subscription_status === 'pro' && !isAdmin;
 
