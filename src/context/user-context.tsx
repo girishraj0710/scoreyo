@@ -13,6 +13,10 @@ interface User {
   avatar_color: string;
   created_at: string;
   role?: 'student' | 'contributor' | 'admin';
+  // Single-exam-focus architecture
+  current_exam?: string;          // Currently selected exam (e.g., 'jee', 'neet')
+  enrolled_exams?: string[];      // All exams user has enrolled in
+  subscription_status?: 'free' | 'pro';
 }
 
 interface UserContextType {
@@ -40,6 +44,12 @@ interface UserContextType {
     phoneNumber?: string,
     examPreparingFor?: string
   ) => Promise<void>;
+  // Single-exam-focus architecture
+  switchExam: (examId: string) => Promise<void>;
+  addExam: (examId: string) => Promise<{ success: boolean; error?: string }>;
+  isAdmin: boolean;
+  canSwitchExams: boolean;
+  canAddExams: boolean;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -223,6 +233,54 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  // Single-exam-focus: Switch between enrolled exams
+  async function switchExam(examId: string) {
+    if (!user) return;
+
+    try {
+      const res = await fetch("/api/exam/switch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ examId }),
+      });
+      const data = await res.json();
+      if (data.success && data.user) {
+        setUser(data.user);
+      }
+    } catch (error) {
+      console.error("Switch exam error:", error);
+    }
+  }
+
+  // Single-exam-focus: Add new exam (Pro only)
+  async function addExam(examId: string) {
+    if (!user) return { success: false, error: "Not logged in" };
+
+    try {
+      const res = await fetch("/api/exam/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ examId }),
+      });
+      const data = await res.json();
+
+      if (data.success && data.user) {
+        setUser(data.user);
+        return { success: true };
+      }
+
+      return { success: false, error: data.error || "Failed to add exam" };
+    } catch (error) {
+      console.error("Add exam error:", error);
+      return { success: false, error: "Network error" };
+    }
+  }
+
+  // Computed properties for single-exam-focus
+  const isAdmin = user?.role === 'admin' || user?.role === 'contributor';
+  const canSwitchExams = !isAdmin && (user?.enrolled_exams?.length || 0) > 1;
+  const canAddExams = user?.subscription_status === 'pro' && !isAdmin;
+
   return (
     <UserContext.Provider
       value={{
@@ -235,6 +293,11 @@ export function UserProvider({ children }: { children: ReactNode }) {
         completeLogin,
         logout,
         updateProfile,
+        switchExam,
+        addExam,
+        isAdmin,
+        canSwitchExams,
+        canAddExams,
       }}
     >
       {children}

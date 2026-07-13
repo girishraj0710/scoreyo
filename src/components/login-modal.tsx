@@ -106,8 +106,8 @@ export function LoginModal() {
   // SIGNUP: Submit form and send OTP
   const handleSignupSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim() || !name.trim()) {
-      setError("Email and Name are required");
+    if (!email.trim() || !name.trim() || !examPreparingFor.trim()) {
+      setError("Email, Name, and Exam Selection are required");
       return;
     }
     setError("");
@@ -189,11 +189,11 @@ export function LoginModal() {
         if (step === "signin-otp") {
           const loginResult = await completeLogin(email.trim());
           if (loginResult.success) {
-            // Redirect based on user role (wait a moment for user context to update)
+            // Redirect to home page after login (wait a moment for user context to update)
             setTimeout(() => {
               // The user context will have been updated by completeLogin
-              // Just redirect and let the page load, role-based logic will render appropriately
-              router.push('/dashboard');
+              // Redirect to home page instead of dashboard
+              router.push('/');
             }, 100);
             return; // Logged in!
           }
@@ -271,7 +271,7 @@ export function LoginModal() {
         // Success - user logged in and role set!
         // Redirect based on selected role
         setTimeout(() => {
-          const urlToVisit = role === 'contributor' ? '/contributor' : '/dashboard';
+          const urlToVisit = role === 'contributor' ? '/contributor' : '/';
           router.push(urlToVisit);
         }, 100);
       }
@@ -512,15 +512,16 @@ export function LoginModal() {
 
               <div>
                 <label className="block text-sm font-medium mb-1.5" style={{ color: "#64748b" }}>
-                  Preparing For
+                  Preparing For <span className="text-red-500">*</span>
                 </label>
                 <select
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
                   className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:border-[#E76F51] transition-colors"
                   style={{ borderColor: "#e2e8f0", background: "#ffffff", color: "#0f172a" }}
+                  required
                 >
-                  <option value="">Select exam (optional)</option>
+                  <option value="">Select exam (required)</option>
                   {popularExams.map(exam => (
                     <option key={exam.id} value={exam.id}>
                       {exam.name}
@@ -534,7 +535,7 @@ export function LoginModal() {
 
               <button
                 type="submit"
-                disabled={!email.trim() || !name.trim() || isSubmitting}
+                disabled={!email.trim() || !name.trim() || !examPreparingFor.trim() || isSubmitting}
                 className="w-full py-3.5 bg-[#E76F51] text-white font-semibold rounded-xl hover:bg-[#D65A3D] transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending verification..." : "Continue to Verification"}

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getUser, getUserByEmail, createNewUser, listUsers, updateUserProfile, isOtpVerified, setUserRole } from "@/lib/db";
+import { getUser, getUserByEmail, createNewUser, listUsers, updateUserProfile, isOtpVerified, setUserRole, execute } from "@/lib/db";
 import { v4 as uuidv4 } from "uuid";
 import { generateCsrfToken, CSRF_COOKIE_NAME } from "@/lib/csrf";
 import { isEmergencyAuthMode, checkUserExistsInCache, cacheUserExists } from "@/lib/user-cache";
@@ -18,11 +18,48 @@ export async function GET(request: NextRequest) {
   if (userId) {
     const user = await getUser(userId);
     if (user) {
-      return NextResponse.json({ user });
+      // Fetch enrolled exams for single-exam-focus architecture
+      const userWithExams = await getUserWithEnrolledExams(user);
+      return NextResponse.json({ user: userWithExams });
     }
   }
 
   return NextResponse.json({ user: null });
+}
+
+// Helper: Add enrolled exams to user object
+async function getUserWithEnrolledExams(user: any) {
+  try {
+    const { queryAll } = await import("@/lib/db");
+
+    // Get enrolled exams
+    const enrollments = await queryAll(
+      `SELECT exam_id, is_primary
+       FROM user_enrolled_exams
+       WHERE user_id = $1
+       ORDER BY is_primary DESC, enrolled_at ASC`,
+      [user.id]
+    );
+
+    const enrolledExams = enrollments?.map((e: any) => e.exam_id) || [];
+    const currentExam = enrollments?.find((e: any) => e.is_primary === 1)?.exam_id ||
+                        user.exam_preparing_for ||
+                        enrolledExams[0];
+
+    return {
+      ...user,
+      current_exam: currentExam,
+      enrolled_exams: enrolledExams,
+    };
+  } catch (error) {
+    console.error("Error fetching enrolled exams:", error);
+    // Fallback: use exam_preparing_for if table doesn't exist yet
+    return {
+      ...user,
+      current_exam: user.exam_preparing_for,
+      enrolled_exams: user.exam_preparing_for ? [user.exam_preparing_for] : [],
+    };
+  }
 }
 
 // POST - Login or Register (after OTP verification)
@@ -208,6 +245,22 @@ export async function POST(request: NextRequest) {
         finalRole
       );
       user = await getUser(id);
+
+      // Single-exam-focus: Create enrollment entry for selected exam
+      if (examPreparingFor?.trim()) {
+        try {
+          await execute(
+            `INSERT INTO user_enrolled_exams (id, user_id, exam_id, is_primary)
+             VALUES ($1, $2, $3, 1)
+             ON CONFLICT (user_id, exam_id) DO NOTHING`,
+            [uuidv4(), id, examPreparingFor.trim()]
+          );
+          console.log(`[Auth] Created enrollment for user ${id} in exam ${examPreparingFor}`);
+        } catch (enrollError) {
+          console.error('[Auth] Failed to create enrollment (table may not exist yet):', enrollError);
+          // Don't fail signup if enrollment creation fails
+        }
+      }
     }
 
     const csrfToken = generateCsrfToken();

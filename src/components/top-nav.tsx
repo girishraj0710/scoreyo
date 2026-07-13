@@ -9,6 +9,7 @@ import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin } from "@/lib/admin";
+import ExamSwitcher from "./ExamSwitcher";
 import {
   Bell,
   Moon,
@@ -50,6 +51,9 @@ export function TopNav() {
 
   return (
     <header className="hidden md:flex items-center justify-end gap-3 px-6 py-3 border-b sticky top-0 z-50 bg-white dark:bg-[#0f172a] border-slate-200 dark:border-slate-800">
+      {/* Exam Switcher (only if user has multiple exams) */}
+      <ExamSwitcher />
+
       {/* Notifications Bell */}
       <button
         className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors relative"
