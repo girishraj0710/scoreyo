@@ -13,7 +13,7 @@ import { useExamFilter } from "@/hooks/use-exam-filter";
 import {
   Flame, PlayCircle, ChevronRight, BookOpen, Clock, Sparkles,
   Target, CheckCircle2, Circle, TrendingUp, TrendingDown, Trophy, ArrowRight, Zap,
-  GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers, Gamepad2,
+  GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers, Gamepad2, Upload,
 } from "lucide-react";
 
 // Flashcard Daily Goal Banner Component (Compact)
@@ -296,9 +296,10 @@ function HomePageContent() {
     }
   }, [user, isLoading, router]);
 
-  // Redirect contributors to contributor portal
+  // Redirect ONLY contributors (not admin) to contributor portal
+  // Admin has access to both student dashboard AND contributor portal
   useEffect(() => {
-    if (user && (user.role === 'contributor' || user.role === 'admin')) {
+    if (user && user.role === 'contributor') {
       window.location.href = '/contributor';
     }
   }, [user]);
@@ -317,8 +318,8 @@ function HomePageContent() {
     return <LandingPage />;
   }
 
-  // Show loading state while redirecting contributors
-  if (user.role === 'contributor' || user.role === 'admin') {
+  // Show loading state while redirecting contributors (admin users see dashboard)
+  if (user.role === 'contributor') {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="flex flex-col items-center gap-3">
@@ -470,6 +471,10 @@ function HomePageContent() {
             { to: "/study-guides", icon: BookOpen, label: "Study Guides", sub: "Read topics", tint: "#2A9D8F" },
             { to: "/mock-test", icon: Trophy, label: "Mock Test", sub: "Simulate exam", tint: "#264653" },
             { to: "/review", icon: TrendingUp, label: "Review", sub: `3 due today`, tint: "#E9C46A" },
+            // Admin-only: Contributor Portal access
+            ...(user.role === 'admin' ? [
+              { to: "/contributor", icon: Upload, label: "Contributor Portal", sub: "Upload content", tint: "#8B5CF6" }
+            ] : [])
           ].map((a, i) => {
             const Icon = a.icon;
             return (
