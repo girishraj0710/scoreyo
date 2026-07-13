@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { motion } from "framer-motion";
+import { useExamFilter } from "@/hooks/use-exam-filter";
 import {
   Search,
   Sparkles,
@@ -22,6 +23,7 @@ import {
   X,
   Copy,
   Check,
+  Star,
 } from "lucide-react";
 import { examCategories } from "@/lib/exams";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
@@ -33,6 +35,7 @@ import { ErrorModal } from "@/components/error-modal";
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
   const router = useRouter();
+  const examFilter = useExamFilter(); // Single-exam-focus
 
   // ALL useState hooks MUST be declared before any conditional returns
   const [selectedExamId, setSelectedExamId] = useState("");
@@ -105,10 +108,13 @@ export default function FlashcardsPage() {
     }
   }, [user]);
 
-  // Get all exams from categories
-  const allExams = examCategories.flatMap(cat => cat.exams);
+  // Get all exams from categories (with single-exam-focus filtering)
+  const allExamsRaw = examCategories.flatMap(cat => cat.exams);
+  const allExams = examFilter
+    ? allExamsRaw.filter(exam => exam.id === examFilter)
+    : allExamsRaw;
 
-  // Get ALL subjects from ALL exams (no dependency on exam selection)
+  // Get ALL subjects from filtered exams
   const allSubjects = allExams.flatMap(exam =>
     exam.subjects.map(subject => ({
       ...subject,
@@ -234,13 +240,21 @@ export default function FlashcardsPage() {
       if (response.ok) {
         const data = await response.json();
         console.log('✅ Decks fetched:', data.decks?.length || 0, 'decks');
-        console.log('📋 Deck list:', data.decks);
-        setRealDecks(data.decks);
+        console.log('📋 Full deck list:', data.decks);
+
+        // Debug: Check ownership
+        const myDecks = data.decks?.filter((d: any) => d.isMine) || [];
+        const communityDecks = data.decks?.filter((d: any) => !d.isMine) || [];
+        console.log('👤 My decks:', myDecks.length, myDecks.map((d: any) => ({ id: d.id, title: d.title, isMine: d.isMine })));
+        console.log('🌍 Community decks:', communityDecks.length);
+
+        setRealDecks(data.decks || []);
+        console.log('✅ State updated with', data.decks?.length || 0, 'decks');
       } else {
-        console.error('❌ Failed to fetch decks:', response.status);
+        console.error('❌ Failed to fetch decks:', response.status, await response.text());
       }
     } catch (error) {
-      console.error("Error fetching decks:", error);
+      console.error("💥 Error fetching decks:", error);
     }
   };
 
@@ -356,7 +370,7 @@ export default function FlashcardsPage() {
       const selectedTopicData = allTopics.find(t => t.topic === selectedTopic);
 
       // Use IDs for database, names for AI prompt
-      const examId = selectedExamId || selectedTopicData?.examId || '';
+      const examId = selectedExamId || '';
       const subjectId = selectedSubjectId || selectedTopicData?.subjectId || '';
       const examName = examId ? allExams.find(e => e.id === examId)?.name : selectedTopicData?.examName || '';
       const subjectName = subjectId ? allSubjects.find(s => s.id === subjectId)?.name : selectedTopicData?.subjectName || '';
@@ -387,11 +401,16 @@ export default function FlashcardsPage() {
         console.log('✅ Generation response:', data);
         console.log('📦 Deck created:', data.deck);
         console.log('🔑 Deck ID:', data.deck?.id);
+        console.log('📝 Cards generated:', data.cards?.length || 0);
 
         // Refresh decks list
         console.log('🔄 Refreshing decks...');
+        console.log('📊 Current deck count before refresh:', realDecks.length);
         await fetchDecks();
+        console.log('📊 Deck count after fetchDecks:', realDecks.length);
+
         await fetchStats();
+        console.log('✅ Refresh complete');
 
         // Clear selections
         setSelectedExamId("");
@@ -408,6 +427,8 @@ export default function FlashcardsPage() {
           deckId: data.deck?.id
         });
         setSuccessModalOpen(true);
+
+        console.log('🎉 Success modal opened with deck ID:', data.deck?.id);
       } else {
         const error = await response.json();
         setErrorData({
@@ -434,15 +455,15 @@ export default function FlashcardsPage() {
 
         {/* Page Title */}
         <div className="text-center mb-6">
-          <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-3">
-            FLASHCARDS {user?.preferred_exam && `FOR ${user.preferred_exam.toUpperCase()} STUDENTS`}
+          <p className="text-xs font-bold uppercase text-[#F26A4B] mb-3" style={{ letterSpacing: '0.2em' }}>
+            FLASHCARDS {user?.exam_preparing_for && `FOR ${user.exam_preparing_for.toUpperCase()} STUDENTS`}
           </p>
           <h1 className="font-heading text-4xl md:text-5xl font-black text-[#16213E] dark:text-white mb-3">
             Memorize like a topper.
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-base max-w-2xl mx-auto">
             {myDecksCount > 0 && communityDecksCount > 0
-              ? `Your ${myDecksCount} decks + ${communityDecksCount} from other ${user?.preferred_exam?.toUpperCase()} students`
+              ? `Your ${myDecksCount} decks + ${communityDecksCount} from other ${user?.exam_preparing_for?.toUpperCase()} students`
               : "Create decks and discover content from fellow students"}
           </p>
         </div>
@@ -454,13 +475,14 @@ export default function FlashcardsPage() {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-2xl text-white p-6 md:p-8 mb-12 relative"
           style={{
-            background: 'linear-gradient(135deg, #2C3E50 0%, #34495E 100%)',
+            background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)',
             overflow: 'visible'
           }}
         >
-          <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#E76F51] opacity-5 blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#E76F51] opacity-10 blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#F4A261] opacity-5 blur-2xl" />
           <div className="relative z-10">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] font-bold text-white/50 mb-3">
+            <div className="flex items-center gap-2 text-xs uppercase font-bold text-white/50 mb-3" style={{ letterSpacing: '0.2em' }}>
               <Sparkles className="w-3.5 h-3.5" /> AI DECK GENERATOR
             </div>
             <h2 className="font-heading text-2xl md:text-3xl font-black mb-6 text-white">
@@ -508,7 +530,7 @@ export default function FlashcardsPage() {
                       if (categoryExams.length === 0) return null;
                       return (
                         <div key={category.id}>
-                          <div className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+                          <div className="px-5 py-2 text-xs font-bold uppercase text-slate-500" style={{ letterSpacing: '0.2em' }}>
                             {category.name}
                           </div>
                           {categoryExams.map(exam => (
@@ -563,7 +585,7 @@ export default function FlashcardsPage() {
                 {showSubjectDropdown && (
                   <div className="absolute z-50 w-full mt-1 max-h-60 overflow-y-auto rounded-xl bg-[#2C3E50] border border-slate-600/30 shadow-2xl">
                     {selectedExamId && (
-                      <div className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+                      <div className="px-5 py-2 text-xs font-bold uppercase text-slate-500" style={{ letterSpacing: '0.2em' }}>
                         {allExams.find(e => e.id === selectedExamId)?.name} Subjects
                       </div>
                     )}
@@ -625,7 +647,7 @@ export default function FlashcardsPage() {
                 {showTopicDropdown && (
                   <div className="absolute z-50 w-full mt-1 max-h-60 overflow-y-auto rounded-xl bg-[#2C3E50] border border-slate-600/30 shadow-2xl">
                     {selectedSubjectId && (
-                      <div className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+                      <div className="px-5 py-2 text-xs font-bold uppercase text-slate-500" style={{ letterSpacing: '0.2em' }}>
                         {allSubjects.find(s => s.id === selectedSubjectId)?.name} Topics
                       </div>
                     )}
@@ -745,17 +767,13 @@ export default function FlashcardsPage() {
                   {/* Header: Exam Tag + Badge */}
                   <div className="flex items-center justify-between mb-2">
                     <p
-                      className="text-[10px] font-bold uppercase tracking-[0.15em] transition-colors"
-                      style={{ color: deck.examColor }}
+                      className="text-[10px] font-bold uppercase transition-colors"
+                      style={{ letterSpacing: '0.2em', color: deck.examColor }}
                     >
                       {deck.exam}
                     </p>
 
-                    {deck.isMine ? (
-                      <span className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 rounded text-[10px] font-semibold">
-                        You created
-                      </span>
-                    ) : (deck.analytics?.studiesToday || 0) > 10 ? (
+                    {(deck.analytics?.studiesToday || 0) > 10 ? (
                       <span className="px-2 py-0.5 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded text-[10px] font-semibold flex items-center gap-1">
                         <Flame className="w-3 h-3" />
                         {deck.analytics.studiesToday} today
@@ -785,54 +803,44 @@ export default function FlashcardsPage() {
                     </div>
                   )}
 
-                  {/* Creator Info (if not mine) */}
-                  {!deck.isMine && deck.creator && (
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center text-white text-xs font-bold">
-                        {deck.creator.name?.[0] || '?'}
-                      </div>
-                      <span className="text-sm text-slate-600 dark:text-slate-400">
-                        by @{deck.creator.username}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Rating Display & Rate Button */}
-                  {deck.id && !deck.isMine && (
-                    <div className="flex items-center justify-between mb-4">
-                      {/* Average Rating */}
-                      {(deck.averageRating || 0) > 0 ? (
-                        <div className="flex items-center gap-2">
-                          <InteractiveStarRating
-                            rating={deck.averageRating || 0}
-                            readonly
-                            size="sm"
-                          />
-                          <span className="text-xs text-slate-600 dark:text-slate-400">
-                            {deck.averageRating?.toFixed(1)} ({deck.ratingCount || 0})
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-xs text-slate-500 dark:text-slate-400">
-                          No ratings yet
-                        </span>
-                      )}
-
-                      {/* Rate Button */}
-                      <button
-                        onClick={(e) => handleRateDeck(e, deck.id, deck.title || `${deck.subject} - ${deck.topic}`)}
-                        className="text-xs font-semibold text-[#F26A4B] hover:text-[#E76F51] transition-colors"
-                      >
-                        Rate this deck
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Bottom Row: Cards count + Actions */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
-                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                  {/* Metadata Row - Quizlet style: cards • rating • creator */}
+                  <div className="flex items-center gap-3 mb-4 text-sm">
+                    {/* Card count */}
+                    <span className="font-semibold text-slate-700 dark:text-slate-300">
                       {deck.cards} cards
                     </span>
+
+                    {/* Dot separator */}
+                    {((deck.averageRating || 0) > 0 || deck.creator) && (
+                      <span className="text-slate-400">•</span>
+                    )}
+
+                    {/* Rating - Single star with number */}
+                    {(deck.averageRating || 0) > 0 && (
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="font-medium text-slate-700 dark:text-slate-300">
+                          {deck.averageRating?.toFixed(1)}
+                        </span>
+                        <span className="text-slate-500 dark:text-slate-400">
+                          ({deck.ratingCount || 0})
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Creator Info - Separate row at bottom */}
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                    {deck.creator && (
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center text-white text-xs font-bold">
+                          {deck.creator.name?.[0] || '?'}
+                        </div>
+                        <span className="text-sm text-slate-600 dark:text-slate-400">
+                          {deck.isMine ? 'You' : deck.creator.username}
+                        </span>
+                      </div>
+                    )}
 
                     <div className="flex items-center gap-3">
                       {/* Engagement */}

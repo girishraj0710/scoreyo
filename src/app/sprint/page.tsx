@@ -7,6 +7,7 @@ import { Trophy, Clock, Users, Zap } from "lucide-react";
 import { sounds } from "@/lib/sounds";
 import { Icon } from "@iconify/react";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { useExamFilter } from "@/hooks/use-exam-filter";
 
 interface SprintData {
   sprint: {
@@ -37,6 +38,7 @@ interface SprintData {
 export default function SprintPage() {
   const router = useRouter();
   const { user, isLoading: userLoading } = useUser();
+  const examFilter = useExamFilter(); // Single-exam-focus
 
   // Redirect contributors to contributor portal
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function SprintPage() {
     fetchSprintData();
     const interval = setInterval(fetchSprintData, 30000); // Refresh every 30 seconds
     return () => clearInterval(interval);
-  }, []);
+  }, [examFilter]);
 
   // Update countdown every second
   useEffect(() => {
@@ -66,7 +68,8 @@ export default function SprintPage() {
 
   async function fetchSprintData() {
     try {
-      const res = await fetch("/api/sprint");
+      const url = examFilter ? `/api/sprint?examId=${examFilter}` : "/api/sprint";
+      const res = await fetch(url);
       const data = await res.json();
 
       if (data.error === "Unauthorized") {
@@ -138,9 +141,9 @@ export default function SprintPage() {
     return (
       <div className="min-h-screen" style={{ background: "var(--page-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 py-12">
-          <div className="relative overflow-hidden bg-[#E76F51] rounded-2xl shadow-xl shadow-[#E76F51]/20 p-12 text-center">
-            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
+          <div className="relative overflow-hidden rounded-2xl shadow-xl p-12 text-center" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#E76F51]/10 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#F4A261]/10 blur-3xl" />
             <div className="relative">
               <div className="w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Trophy className="w-8 h-8 text-white" />
@@ -289,9 +292,9 @@ export default function SprintPage() {
         {/* Leaderboard Section */}
         <div className="mb-8">
         {!selectedSprint ? (
-          <div key="placeholder" className="relative overflow-hidden bg-[#E76F51] rounded-2xl shadow-xl shadow-[#E76F51]/20 p-8 text-center transition-all duration-300">
-            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
+          <div key="placeholder" className="relative overflow-hidden rounded-2xl shadow-xl p-8 text-center transition-all duration-300" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#E76F51]/10 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#F4A261]/10 blur-3xl" />
             <div className="relative">
               <div className="w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Trophy className="w-8 h-8 text-white" />
@@ -317,9 +320,9 @@ export default function SprintPage() {
             </div>
           </div>
         ) : selectedSprint && selectedSprint.sprint ? (
-          <div key={selectedSprint.sprint.id} className="relative overflow-hidden bg-[#E76F51] rounded-2xl shadow-xl shadow-[#E76F51]/20 p-4 transition-all duration-300">
-            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
+          <div key={selectedSprint.sprint.id} className="relative overflow-hidden rounded-2xl shadow-xl p-4 transition-all duration-300" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#E76F51]/10 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#F4A261]/10 blur-3xl" />
             <div className="relative">
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/20">
               <div className="flex items-center gap-4">

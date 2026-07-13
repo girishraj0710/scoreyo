@@ -1,5 +1,5 @@
 "use client";
-
+/* Updated: 2026-07-11 - Letter spacing consistency */
 import { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -9,10 +9,11 @@ import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { DailyTenQuestions } from "@/components/daily-ten-questions";
 import { isNative } from "@/lib/capacitor";
+import { useExamFilter } from "@/hooks/use-exam-filter";
 import {
   Flame, PlayCircle, ChevronRight, BookOpen, Clock, Sparkles,
-  Target, CheckCircle2, Circle, TrendingUp, Trophy, ArrowRight, Zap,
-  GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers,
+  Target, CheckCircle2, Circle, TrendingUp, TrendingDown, Trophy, ArrowRight, Zap,
+  GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers, Gamepad2,
 } from "lucide-react";
 
 // Flashcard Daily Goal Banner Component (Compact)
@@ -51,7 +52,7 @@ function FlashcardDailyGoalBanner() {
       className="block rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft hover:shadow-pop transition-all group"
     >
       <div className="flex items-center justify-between mb-3">
-        <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">
+        <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>
           Flashcard goal
         </div>
         <Target className="w-4 h-4 text-[#F26A4B]" />
@@ -115,14 +116,24 @@ const LandingPage = dynamic(() => import("@/components/landing-emergent").then(m
 function HomePageContent() {
   const { user, isLoading } = useUser();
   const router = useRouter();
+  const examFilter = useExamFilter(); // Single-exam-focus
   const [stats, setStats] = useState<any>(null);
   const [hasActivity, setHasActivity] = useState(false); // Track if user has any quiz activity
-  const [tasks, setTasks] = useState([
-    { id: 1, label: "Review 24 Polity flashcards", done: true, tag: "Flashcards", link: "/flashcards" },
-    { id: 2, label: "Read: Fundamental Rights (Article 12–35)", done: false, tag: "Study Guide", link: "/study-guides" },
-    { id: 3, label: "Attempt UPSC Prelims Mock #1", done: false, tag: "Mock Test", link: "/mock-test" },
-    { id: 4, label: "Clear 3 due review items", done: false, tag: "Review", link: "/review" },
-  ]);
+  const [tasks, setTasks] = useState<Array<{
+    id: number;
+    label: string;
+    done: boolean;
+    tag: string;
+    link: string;
+  }>>([]);
+  const [tasksLoading, setTasksLoading] = useState(true);
+  const [recentActivity, setRecentActivity] = useState<Array<{
+    text: string;
+    time: string;
+    link?: string;
+  }>>([]);
+  const [achievements, setAchievements] = useState<any>(null);
+  const [weeklyStats, setWeeklyStats] = useState<any>(null);
 
   const CONTINUE = {
     examId: "upsc",
@@ -134,19 +145,61 @@ function HomePageContent() {
     accent: "#E76F51",
   };
 
+  // Fetch stats, achievements, and weekly stats
   useEffect(() => {
-    fetch("/api/stats")
+    if (!user) return;
+
+    const statsUrl = examFilter ? `/api/stats?examId=${examFilter}` : "/api/stats";
+
+    Promise.all([
+      fetch(statsUrl).then(r => r.json()),
+      fetch("/api/achievements").then(r => r.json()),
+      fetch("/api/weekly-stats").then(r => r.json()),
+    ]).then(([statsData, achievementsData, weeklyData]) => {
+      setStats(statsData);
+      setAchievements(achievementsData);
+      setWeeklyStats(weeklyData);
+
+      // Check if user has any activity
+      const hasAnyActivity = (statsData?.stats?.totalQuizzes || 0) > 0 ||
+                             (statsData?.stats?.totalQuestionsAnswered || 0) > 0 ||
+                             (statsData?.stats?.streak || 0) > 0;
+      setHasActivity(hasAnyActivity);
+
+      // Format recent activity from sessions
+      if (statsData?.recentSessions) {
+        const formattedActivity = statsData.recentSessions
+          .slice(0, 5)
+          .map((session: any) => ({
+            text: `${session.subject_name || 'Quiz'} - ${session.accuracy}% (${session.correct_answers}/${session.total_questions})`,
+            time: formatRelativeTime(session.created_at),
+            link: `/dashboard`
+          }));
+        setRecentActivity(formattedActivity);
+      }
+    }).catch((err) => {
+      console.error("Failed to fetch data:", err);
+    });
+  }, [user, examFilter]);
+
+  // Fetch dynamic daily tasks
+  useEffect(() => {
+    if (!user) return;
+
+    fetch("/api/daily-tasks")
       .then((r) => r.json())
       .then((data) => {
-        setStats(data);
-        // Check if user has any activity (quizzes taken, review items, etc.)
-        const hasAnyActivity = (data?.stats?.totalQuizzes || 0) > 0 ||
-                               (data?.stats?.totalQuestionsAnswered || 0) > 0 ||
-                               (data?.stats?.streak || 0) > 0;
-        setHasActivity(hasAnyActivity);
+        if (data.tasks) {
+          setTasks(data.tasks);
+        }
       })
-      .catch(() => {});
-  }, []);
+      .catch((err) => {
+        console.error("Failed to fetch daily tasks:", err);
+      })
+      .finally(() => {
+        setTasksLoading(false);
+      });
+  }, [user]);
 
   const greeting = useMemo(() => {
     const h = new Date().getHours();
@@ -155,21 +208,91 @@ function HomePageContent() {
     return "GOOD EVENING";
   }, []);
 
+  // Format relative time (e.g., "Just now", "2 hrs ago", "Yesterday")
+  const formatRelativeTime = (dateStr: string): string => {
+    const now = new Date();
+    const then = new Date(dateStr);
+    const diffMs = now.getTime() - then.getTime();
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMins / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffMins < 5) return "Just now";
+    if (diffMins < 60) return `${diffMins} min${diffMins === 1 ? '' : 's'} ago`;
+    if (diffHours < 24) return `${diffHours} hr${diffHours === 1 ? '' : 's'} ago`;
+    if (diffDays === 1) return "Yesterday";
+    if (diffDays < 7) return `${diffDays} days ago`;
+    return `${Math.floor(diffDays / 7)} week${Math.floor(diffDays / 7) === 1 ? '' : 's'} ago`;
+  };
+
   const completed = tasks.filter((t) => t.done).length;
   const pct = Math.round((completed / tasks.length) * 100);
 
-  const toggleTask = (id: number) => {
-    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
+  // Map badge IDs to UI icons
+  const getBadgeIcon = (badgeId: string) => {
+    const iconMap: Record<string, any> = {
+      'first_quiz': Star,
+      'streak_7': Flame,
+      'streak_30': Rocket,
+      'quiz_master_50': Trophy,
+      'quiz_master_100': Crown,
+      'speed_demon': Zap,
+      'perfectionist': Medal,
+      'early_bird': GraduationCap,
+      'night_owl': Sparkles,
+      'first_mock': Award
+    };
+    return iconMap[badgeId] || Award;
   };
 
-  // MOBILE APP: Skip landing page, go straight to dashboard or auth
+  // Map badge rarity to colors
+  const getRarityColor = (rarity: string) => {
+    const colorMap: Record<string, string> = {
+      'common': '#2A9D8F',
+      'rare': '#E9C46A',
+      'epic': '#7C3AED',
+      'legendary': '#E76F51'
+    };
+    return colorMap[rarity] || '#5A6478';
+  };
+
+  // Get display badges (top 6 for home page)
+  const displayBadges = achievements?.badges
+    ? achievements.badges.slice(0, 6).map((badge: any) => ({
+        icon: getBadgeIcon(badge.id),
+        label: badge.name,
+        unlocked: badge.unlocked,
+        tint: getRarityColor(badge.rarity)
+      }))
+    : [];
+
+  const unlockedCount = achievements?.badges?.filter((b: any) => b.unlocked).length || 0;
+  const totalBadgeCount = achievements?.badges?.length || 0;
+
+  const toggleTask = async (id: number) => {
+    // Optimistic update
+    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
+
+    // Persist to backend
+    try {
+      await fetch("/api/daily-tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ taskId: id }),
+      });
+    } catch (err) {
+      console.error("Failed to toggle task:", err);
+      // Revert on failure
+      setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
+    }
+  };
+
+  // MOBILE APP: Show home page for logged-in users, auth for logged-out users
   useEffect(() => {
-    if (isNative() && !isLoading) {
-      if (user) {
-        router.push('/dashboard');
-      } else {
-        router.push('/auth');
-      }
+    if (isNative() && !isLoading && !user) {
+      // Only redirect to auth if not logged in
+      // Logged-in users stay on home page (same as web)
+      router.push('/auth');
     }
   }, [user, isLoading, router]);
 
@@ -218,7 +341,7 @@ function HomePageContent() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8"
         >
           <div>
-            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B]">
+            <div className="text-xs font-bold uppercase text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>
               {greeting}
             </div>
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black mt-2 leading-tight text-[#16213E] dark:text-white">
@@ -230,14 +353,14 @@ function HomePageContent() {
           </div>
           <div className="flex items-center gap-3">
             <div className="rounded-2xl bg-white dark:bg-slate-900 border border-black/5 shadow-soft px-4 py-3">
-              <div className="text-[10px] uppercase tracking-widest text-[#5A6478] dark:text-slate-400 font-bold">Streak</div>
+              <div className="text-[10px] uppercase text-[#5A6478] dark:text-slate-400 font-bold" style={{ letterSpacing: '0.2em' }}>Streak</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <Flame className="w-4 h-4 text-[#F26A4B]" strokeWidth={2.5} />
                 <span className="font-mono font-bold text-lg text-[#16213E] dark:text-white">{stats?.stats?.streak || 0} days</span>
               </div>
             </div>
             <div className="rounded-2xl bg-white dark:bg-slate-900 border border-black/5 shadow-soft px-4 py-3">
-              <div className="text-[10px] uppercase tracking-widest text-[#5A6478] dark:text-slate-400 font-bold">Today</div>
+              <div className="text-[10px] uppercase text-[#5A6478] dark:text-slate-400 font-bold" style={{ letterSpacing: '0.2em' }}>Today</div>
               <div className="font-mono font-bold text-lg text-[#16213E] dark:text-white mt-0.5">{pct}%</div>
             </div>
           </div>
@@ -255,12 +378,12 @@ function HomePageContent() {
           >
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl" style={{ backgroundColor: `${CONTINUE.accent}55` }} />
             <div className="relative">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 font-bold">
+              <div className="flex items-center gap-2 text-xs uppercase text-white/60 font-bold" style={{ letterSpacing: '0.2em' }}>
                 <PlayCircle className="w-3.5 h-3.5" /> Pick up where you left off
               </div>
               <div className="mt-4 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
                 <div>
-                  <div className="text-xs uppercase tracking-widest font-semibold" style={{ color: CONTINUE.accent }}>
+                  <div className="text-xs uppercase font-semibold" style={{ letterSpacing: '0.2em', color: CONTINUE.accent }}>
                     {CONTINUE.examName} · {CONTINUE.subject}
                   </div>
                   <h2 className="font-heading text-3xl md:text-4xl font-black mt-1">{CONTINUE.topic}</h2>
@@ -305,7 +428,7 @@ function HomePageContent() {
           >
             <div className="flex items-center justify-between mb-4">
               <div>
-                <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">Today's plan</div>
+                <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>Today's plan</div>
                 <div className="font-heading text-lg font-bold mt-0.5 text-[#16213E] dark:text-white">4 tasks · ~60 min</div>
               </div>
               <Target className="w-5 h-5 text-[#F26A4B]" />
@@ -328,7 +451,7 @@ function HomePageContent() {
                       <div className={`text-sm font-semibold ${t.done ? "line-through text-[#5A6478] dark:text-slate-400" : "text-[#16213E] dark:text-white"}`}>
                         {t.label}
                       </div>
-                      <div className="text-[10px] uppercase tracking-widest text-[#5A6478] dark:text-slate-400 font-bold mt-0.5">
+                      <div className="text-[10px] uppercase text-[#5A6478] dark:text-slate-400 font-bold mt-0.5" style={{ letterSpacing: '0.2em' }}>
                         {t.tag}
                       </div>
                     </div>
@@ -382,32 +505,42 @@ function HomePageContent() {
             {/* Recent activity */}
             <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft">
               <div className="flex items-center justify-between mb-4">
-                <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">Recent activity</div>
+                <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>Recent activity</div>
                 <Clock className="w-4 h-4 text-[#F26A4B]" />
               </div>
-              <ul className="space-y-3">
-                {[
-                  { text: "Reviewed 24 Polity cards", time: "Just now" },
-                  { text: "Scored 82% on JEE Physics Mock", time: "2 hrs ago" },
-                  { text: "Read: Fundamental Rights (12 min)", time: "Yesterday" },
-                  { text: "Extended streak to 14 days", time: "2 days ago" },
-                  { text: "Completed Chemistry Mock #3", time: "3 days ago" },
-                ].map((a, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-[#16213E] dark:text-white leading-snug">{a.text}</div>
-                      <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5 font-mono">{a.time}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="/dashboard"
-                className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
-              >
-                View full dashboard <ChevronRight className="w-3 h-3" />
-              </a>
+              {recentActivity.length > 0 ? (
+                <>
+                  <ul className="space-y-3">
+                    {recentActivity.map((activity, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
+                        <div className="flex-1">
+                          <div className="text-sm font-semibold text-[#16213E] dark:text-white leading-snug">{activity.text}</div>
+                          <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5 font-mono">{activity.time}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="/dashboard"
+                    className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
+                  >
+                    View full dashboard <ChevronRight className="w-3 h-3" />
+                  </a>
+                </>
+              ) : (
+                <div className="text-center py-6">
+                  <div className="text-sm text-[#5A6478] dark:text-slate-400">
+                    No recent activity yet
+                  </div>
+                  <a
+                    href="/quiz"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
+                  >
+                    Start your first quiz <ChevronRight className="w-3 h-3" />
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Flashcard Daily Goal */}
@@ -420,63 +553,100 @@ function HomePageContent() {
           {/* Weekly goal ring */}
           <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft">
             <div className="flex items-center justify-between mb-3">
-              <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">Weekly goal</div>
+              <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>Weekly goal</div>
               <Target className="w-4 h-4 text-[#F26A4B]" />
             </div>
-            <div className="flex items-center gap-5">
-              <svg width="120" height="120" className="-rotate-90 flex-shrink-0">
-                <circle cx="60" cy="60" r="52" stroke="rgba(0,0,0,0.06)" strokeWidth="10" fill="none" />
-                <circle cx="60" cy="60" r="52" stroke="#E76F51" strokeWidth="10" strokeLinecap="round" fill="none"
-                  strokeDasharray={2 * Math.PI * 52} strokeDashoffset={(2 * Math.PI * 52) * (1 - 0.72)} />
-              </svg>
-              <div>
-                <div className="font-mono font-black text-4xl text-[#16213E] dark:text-white leading-none">5.8h</div>
-                <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-1 font-semibold">of 8h weekly goal</div>
-                <div className="text-xs text-[#2E8B57] mt-2 flex items-center gap-1 font-semibold">
-                  <TrendingUp className="w-3 h-3" /> +1.2h vs last week
+            {weeklyStats ? (
+              <div className="flex items-center gap-5">
+                <svg width="120" height="120" className="-rotate-90 flex-shrink-0">
+                  <circle cx="60" cy="60" r="52" stroke="rgba(0,0,0,0.06)" strokeWidth="10" fill="none" />
+                  <circle cx="60" cy="60" r="52" stroke="#E76F51" strokeWidth="10" strokeLinecap="round" fill="none"
+                    strokeDasharray={2 * Math.PI * 52}
+                    strokeDashoffset={(2 * Math.PI * 52) * (1 - (weeklyStats.percentage / 100))} />
+                </svg>
+                <div>
+                  <div className="font-mono font-black text-4xl text-[#16213E] dark:text-white leading-none">
+                    {weeklyStats.hoursThisWeek}h
+                  </div>
+                  <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-1 font-semibold">
+                    of {weeklyStats.weeklyGoal}h weekly goal
+                  </div>
+                  {weeklyStats.difference !== 0 && (
+                    <div className={`text-xs mt-2 flex items-center gap-1 font-semibold ${
+                      weeklyStats.difference > 0 ? 'text-[#2E8B57]' : 'text-[#E76F51]'
+                    }`}>
+                      {weeklyStats.difference > 0 ? (
+                        <TrendingUp className="w-3 h-3" />
+                      ) : (
+                        <TrendingDown className="w-3 h-3" />
+                      )}
+                      {weeklyStats.difference > 0 ? '+' : ''}{weeklyStats.difference}h vs last week
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="flex items-center gap-5">
+                <svg width="120" height="120" className="-rotate-90 flex-shrink-0">
+                  <circle cx="60" cy="60" r="52" stroke="rgba(0,0,0,0.06)" strokeWidth="10" fill="none" />
+                </svg>
+                <div>
+                  <div className="font-mono font-black text-4xl text-[#16213E] dark:text-white leading-none">0h</div>
+                  <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-1 font-semibold">of 8h weekly goal</div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Achievements strip */}
           <div className="lg:col-span-2 rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">Achievements</div>
-                <div className="font-heading font-bold text-lg mt-0.5 text-[#16213E] dark:text-white">You've unlocked 6 of 24 badges</div>
+                <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>Achievements</div>
+                <div className="font-heading font-bold text-lg mt-0.5 text-[#16213E] dark:text-white">
+                  You've unlocked {unlockedCount} of {totalBadgeCount} badges
+                </div>
               </div>
               <Award className="w-5 h-5 text-[#F26A4B]" />
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-              {[
-                { icon: Flame, label: "Streak 14d", unlocked: true, tint: "#E76F51" },
-                { icon: Medal, label: "100 cards", unlocked: true, tint: "#E9C46A" },
-                { icon: Star, label: "First mock", unlocked: true, tint: "#2A9D8F" },
-                { icon: Crown, label: "Top 10", unlocked: false, tint: "#7C3AED" },
-                { icon: Trophy, label: "90%+ score", unlocked: false, tint: "#264653" },
-                { icon: Rocket, label: "30d streak", unlocked: false, tint: "#DC2626" },
-              ].map((b, i) => {
-                const Icon = b.icon;
-                return (
-                  <div
-                    key={i}
-                    className={`rounded-2xl border p-3 text-center transition-all ${
-                      b.unlocked ? "border-black/5 bg-[#FAF8F5] dark:bg-slate-800" : "border-dashed border-black/10 bg-white dark:bg-slate-900 opacity-50"
-                    }`}
-                    title={b.label}
-                  >
-                    <div
-                      className="w-9 h-9 rounded-xl grid place-items-center mx-auto"
-                      style={{ backgroundColor: `${b.tint}${b.unlocked ? "25" : "10"}`, color: b.tint }}
-                    >
-                      <Icon className="w-4 h-4" strokeWidth={2.5} />
-                    </div>
-                    <div className="text-[10px] font-bold mt-2 text-[#16213E] dark:text-white truncate">{b.label}</div>
-                  </div>
-                );
-              })}
-            </div>
+            {displayBadges.length > 0 ? (
+              <>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                  {displayBadges.map((b: any, i: number) => {
+                    const Icon = b.icon;
+                    return (
+                      <div
+                        key={i}
+                        className={`rounded-2xl border p-3 text-center transition-all ${
+                          b.unlocked ? "border-black/5 bg-[#FAF8F5] dark:bg-slate-800" : "border-dashed border-black/10 bg-white dark:bg-slate-900 opacity-50"
+                        }`}
+                        title={b.label}
+                      >
+                        <div
+                          className="w-9 h-9 rounded-xl grid place-items-center mx-auto"
+                          style={{ backgroundColor: `${b.tint}${b.unlocked ? "25" : "10"}`, color: b.tint }}
+                        >
+                          <Icon className="w-4 h-4" strokeWidth={2.5} />
+                        </div>
+                        <div className="text-[10px] font-bold mt-2 text-[#16213E] dark:text-white truncate">{b.label}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <a
+                  href="/achievements"
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
+                >
+                  View all achievements <ChevronRight className="w-3 h-3" />
+                </a>
+              </>
+            ) : (
+              <div className="text-center py-6">
+                <div className="text-sm text-[#5A6478] dark:text-slate-400">
+                  Complete quizzes to unlock badges
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -484,13 +654,13 @@ function HomePageContent() {
         <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft mb-6">
           <div className="flex items-end justify-between mb-5">
             <div>
-              <div className="text-xs uppercase tracking-widest font-bold text-[#F26A4B]">Study modes</div>
+              <div className="text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>Study modes</div>
               <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">Pick how you want to learn today.</h3>
             </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
-              { icon: GraduationCap, label: "Learn", sub: "Adaptive practice", tint: "#E76F51", to: "/study-guides" },
+              { icon: Gamepad2, label: "Level Mode", sub: "Progressive challenges", tint: "#E76F51", to: "/level-mode", badge: "30 Levels" },
               { icon: Puzzle, label: "Match", sub: "Speed pairing game", tint: "#2A9D8F", to: "/flashcards" },
               { icon: Timer, label: "Test", sub: "Timed 10 Qs", tint: "#264653", to: "/mock-test" },
               { icon: Rocket, label: "Blast", sub: "60-sec fast recall", tint: "#E9C46A", to: "/sprint" },
@@ -509,6 +679,11 @@ function HomePageContent() {
                     </div>
                     <div className="font-heading text-xl font-bold mt-4 text-[#16213E] dark:text-white">{m.label}</div>
                     <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5">{m.sub}</div>
+                    {'badge' in m && (
+                      <div className="mt-2 inline-block px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: `${m.tint}15`, color: m.tint }}>
+                        {m.badge}
+                      </div>
+                    )}
                     <div className="mt-3 text-xs font-semibold text-[#16213E] dark:text-white group-hover:text-[#F26A4B] flex items-center gap-1">
                       Start <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -524,7 +699,7 @@ function HomePageContent() {
         <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft mb-6">
           <div className="flex items-end justify-between mb-5">
             <div>
-              <div className="text-xs uppercase tracking-widest font-bold text-[#F26A4B]">Recently studied</div>
+              <div className="text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>Recently studied</div>
               <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">Jump back in.</h3>
             </div>
             <a href="/flashcards" className="text-xs font-semibold text-[#16213E] dark:text-white hover:text-[#F26A4B] flex items-center gap-1">
@@ -543,7 +718,7 @@ function HomePageContent() {
                 className="group rounded-2xl border border-black/5 bg-[#FAF8F5] dark:bg-slate-800 p-5 hover:-translate-y-1 hover:shadow-pop transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: d.accent }}>
+                  <div className="text-[10px] uppercase font-bold" style={{ letterSpacing: '0.2em', color: d.accent }}>
                     {d.exam}
                   </div>
                   <Layers className="w-4 h-4 text-[#5A6478] dark:text-slate-400" />
@@ -569,7 +744,7 @@ function HomePageContent() {
         <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <div className="text-xs uppercase tracking-widest font-bold text-[#F26A4B]">
+              <div className="text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>
                 {user?.exam_preparing_for ? 'Trending for your exam' : 'Popular Topics'}
               </div>
               <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">
@@ -626,7 +801,7 @@ function HomePageContent() {
                 href="/study-guides"
                 className="rounded-2xl bg-[#FAF8F5] dark:bg-slate-800 border border-black/5 p-4 hover:border-[#F26A4B]/40 hover:-translate-y-0.5 transition-all group"
               >
-                <div className="text-[10px] uppercase tracking-widest font-bold text-[#5A6478] dark:text-slate-400">{row.subject}</div>
+                <div className="text-[10px] uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>{row.subject}</div>
                 <div className="font-heading font-bold text-[#16213E] dark:text-white mt-1 group-hover:text-[#F26A4B] transition-colors">{row.topic}</div>
                 <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-2">Trending · {row.learners} learners</div>
               </a>
