@@ -174,7 +174,7 @@ export default function LeaderboardPage() {
           {/* Achieved */}
           {achievedMilestones.length > 0 && (
             <div className="mb-4">
-              <h3 className="text-xs font-medium text-emerald-600 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-medium text-emerald-600 uppercase mb-2" style={{ letterSpacing: '0.2em' }}>
                 {t("achieved")} ({achievedMilestones.length})
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -196,7 +196,7 @@ export default function LeaderboardPage() {
           {/* In Progress */}
           {inProgressMilestones.length > 0 && (
             <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "var(--muted)" }}>
+              <h3 className="text-xs font-medium uppercase mb-2" style={{ letterSpacing: '0.2em', color: "var(--muted)" }}>
                 {t("inProgress")}
               </h3>
               <div className="space-y-2">

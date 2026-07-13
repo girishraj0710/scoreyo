@@ -218,7 +218,7 @@ export function UniversalSearch() {
         <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[500px] overflow-hidden z-50">
           {/* Header */}
           <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-800">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase" style={{ letterSpacing: '0.2em' }}>
               {headerText}
             </p>
           </div>

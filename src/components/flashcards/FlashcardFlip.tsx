@@ -57,8 +57,9 @@ export function FlashcardFlip({
             {difficulty && (
               <div className="flex justify-between items-center mb-4">
                 <span
-                  className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"
+                  className="text-xs font-bold uppercase px-3 py-1 rounded-full"
                   style={{
+                    letterSpacing: '0.2em',
                     backgroundColor: `${difficultyColor}20`,
                     color: difficultyColor,
                   }}
@@ -122,7 +123,7 @@ export function FlashcardFlip({
           <div className="h-full rounded-3xl bg-gradient-to-br from-[#E76F51] to-[#D65A3D] p-8 flex flex-col text-white">
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-white/70">
+              <span className="text-xs font-bold uppercase text-white/70" style={{ letterSpacing: '0.2em' }}>
                 ANSWER
               </span>
               <span className="text-xs text-white/70 font-semibold">

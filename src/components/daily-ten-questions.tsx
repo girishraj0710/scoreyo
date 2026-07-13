@@ -1,5 +1,5 @@
 "use client";
-
+/* Updated: 2026-07-11 - Letter spacing fix */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -180,14 +180,12 @@ export function DailyTenQuestions() {
   }
 
   return (
-    <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full">
+    <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex flex-col">
       {/* Header */}
       <div className="mb-3">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#F26A4B] mb-2">
-          <Sparkles className="w-3.5 h-3.5" /> Questions of the day
-        </div>
-        <div className="text-sm font-semibold text-slate-500 dark:text-slate-400">
-          {currentIndex + 1} / 10
+        <div className="flex items-center gap-2 text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Questions of the day</span>
         </div>
       </div>
 
@@ -199,20 +197,21 @@ export function DailyTenQuestions() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.2 }}
+          className="flex-1 flex flex-col"
         >
           <h3 className="font-heading text-xl md:text-2xl font-bold leading-snug text-[#16213E] dark:text-white mb-5">
             {currentQuestion.question}
           </h3>
 
           {/* Options */}
-          <div className="space-y-2">
+          <div className="space-y-3.5 flex-1">
             {currentQuestion.options.map((option, optionIndex) => {
               const isSelected = currentAnswer === optionIndex;
               const isCorrectAnswer = optionIndex === currentQuestion.correct_answer;
               const showCorrect = revealed && isCorrectAnswer;
               const showWrong = revealed && isSelected && !isCorrectAnswer;
 
-              let styles = "border-black/5 hover:border-[#16213E]/20 bg-[#FAF8F5] dark:bg-slate-800";
+              let styles = "border-black/5 hover:border-[#16213E]/20 bg-slate-50 dark:bg-slate-800";
               if (showCorrect) styles = "border-[#2E8B57] bg-[#2E8B57]/10";
               else if (showWrong) styles = "border-red-300 bg-red-50 dark:bg-red-900/20";
               else if (isSelected && !revealed) styles = "border-[#F26A4B] bg-[#F26A4B]/5";
@@ -222,7 +221,7 @@ export function DailyTenQuestions() {
                   key={optionIndex}
                   disabled={revealed}
                   onClick={() => handleAnswerSelect(optionIndex)}
-                  className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all flex items-center gap-3 ${styles} ${
+                  className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all flex items-center gap-3 ${styles} ${
                     revealed ? "cursor-not-allowed" : "hover:scale-[1.01]"
                   }`}
                 >
@@ -239,6 +238,13 @@ export function DailyTenQuestions() {
                 </button>
               );
             })}
+          </div>
+
+          {/* Question Counter at Bottom */}
+          <div className="text-center mt-6">
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+              {currentIndex + 1} of 10
+            </span>
           </div>
         </motion.div>
       </AnimatePresence>

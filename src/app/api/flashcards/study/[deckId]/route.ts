@@ -66,7 +66,7 @@ export async function GET(
       cards = await getDueFlashcards(parseInt(userId), deckId);
     } else {
       // All cards with progress
-      const deck = await getFlashcardDeck(deckId, parseInt(userId));
+      const deck = await getFlashcardDeck(deckId, userId);
       if (!deck) {
         return NextResponse.json({ error: 'Deck not found' }, { status: 404 });
       }

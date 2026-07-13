@@ -89,7 +89,7 @@ export default function MorePage() {
       {/* Menu Sections */}
       {menuSections.map((section) => (
         <div key={section.title} className="mb-6">
-          <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 px-2" style={{ color: "var(--foreground-secondary)" }}>
+          <h3 className="text-sm font-semibold uppercase mb-3 px-2" style={{ letterSpacing: '0.2em', color: "var(--foreground-secondary)" }}>
             {section.title}
           </h3>
           <div className="rounded-xl shadow-sm border border-[var(--card-border)] overflow-hidden" style={{ background: "var(--card-bg)" }}>

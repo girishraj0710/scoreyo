@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     console.log('💾 Creating deck:', deckTitle);
     const deck = await createFlashcardDeck(
-      parseInt(userId),
+      userId,
       deckTitle,
       deckDescription,
       examId || '',      // Store ID, not name

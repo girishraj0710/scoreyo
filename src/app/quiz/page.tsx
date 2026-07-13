@@ -244,6 +244,9 @@ function QuizContent() {
   const [isCreatingFlashcards, setIsCreatingFlashcards] = useState(false);
   const [flashcardCreated, setFlashcardCreated] = useState(false);
 
+  // Time tracking session ID
+  const [timeTrackingSessionId, setTimeTrackingSessionId] = useState<number | null>(null);
+
   // Calculate max time for pressure mode based on questions and difficulty
   const calculateMaxTime = (numQuestions: number, difficultyLevel: string) => {
     // Base time per question by difficulty
@@ -392,6 +395,23 @@ function QuizContent() {
         const data = await res.json();
         setQuizData(data);
         setAnswers(new Array(data.questions.length).fill(null));
+
+        // Start time tracking session (skip for custom/sprint modes)
+        if (mode !== "custom" && !isSprintMode) {
+          try {
+            const sessionRes = await fetch('/api/quiz/start-session', {
+              method: 'POST',
+              headers: getHeadersWithCsrf(),
+              body: JSON.stringify({ examId, subjectId })
+            });
+            if (sessionRes.ok) {
+              const sessionData = await sessionRes.json();
+              setTimeTrackingSessionId(sessionData.sessionId);
+            }
+          } catch {
+            // Time tracking is optional - don't fail quiz if it errors
+          }
+        }
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -549,6 +569,24 @@ function QuizContent() {
       setResults(data);
       setIsSubmitted(true);
       sounds.submit();
+
+      // End time tracking session
+      if (timeTrackingSessionId) {
+        try {
+          await fetch('/api/quiz/end-session', {
+            method: 'POST',
+            headers: getHeadersWithCsrf(),
+            body: JSON.stringify({
+              sessionId: timeTrackingSessionId,
+              totalQuestions: data.totalQuestions,
+              correctAnswers: data.correctAnswers,
+              accuracy: data.accuracy
+            })
+          });
+        } catch {
+          // Time tracking is optional - don't fail if it errors
+        }
+      }
 
       // Show badge unlock modal if new badges earned
       if (data.newBadges && data.newBadges.length > 0) {

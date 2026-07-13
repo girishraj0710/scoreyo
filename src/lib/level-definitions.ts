@@ -29,7 +29,7 @@ export const JEE_PHYSICS_LEVELS: LevelDefinition[] = [
   { examId: 'jee', subjectId: 'physics', levelNumber: 7, levelName: 'Newton\'s First Law', levelType: 'normal', difficulty: 'easy', topic: 'Laws of Motion', questionCount: 5, unlockRequirement: 'Complete Level 6', description: 'Law of inertia' },
   { examId: 'jee', subjectId: 'physics', levelNumber: 8, levelName: 'Newton\'s Second Law', levelType: 'normal', difficulty: 'easy', topic: 'Laws of Motion', questionCount: 5, unlockRequirement: 'Complete Level 7', description: 'F = ma problems' },
   { examId: 'jee', subjectId: 'physics', levelNumber: 9, levelName: 'Friction Basics', levelType: 'normal', difficulty: 'easy', topic: 'Laws of Motion', questionCount: 5, unlockRequirement: 'Complete Level 8', description: 'Types of friction' },
-  { examId: 'jee', subjectId: 'physics', levelNumber: 10, levelName: '🏆 BOSS: Mechanics Foundation', levelType: 'boss', difficulty: 'mixed', questionCount: 20, unlockRequirement: 'Complete Level 9 with 60%+', description: 'Mixed questions from Levels 1-9' },
+  { examId: 'jee', subjectId: 'physics', levelNumber: 10, levelName: '🏆 BOSS: Mechanics Foundation', levelType: 'boss', difficulty: 'mixed', questionCount: 20, unlockRequirement: 'Complete Level 9 with 80%+', description: 'Mixed questions from Levels 1-9' },
 
   // Medium Levels (11-20)
   { examId: 'jee', subjectId: 'physics', levelNumber: 11, levelName: 'Circular Motion', levelType: 'normal', difficulty: 'medium', topic: 'Circular Motion', questionCount: 10, unlockRequirement: 'Complete Level 10', description: 'Uniform circular motion concepts' },
@@ -41,7 +41,7 @@ export const JEE_PHYSICS_LEVELS: LevelDefinition[] = [
   { examId: 'jee', subjectId: 'physics', levelNumber: 17, levelName: 'Momentum', levelType: 'normal', difficulty: 'medium', topic: 'Momentum', questionCount: 10, unlockRequirement: 'Complete Level 16', description: 'Linear momentum' },
   { examId: 'jee', subjectId: 'physics', levelNumber: 18, levelName: 'Collisions', levelType: 'normal', difficulty: 'medium', topic: 'Momentum', questionCount: 10, unlockRequirement: 'Complete Level 17', description: 'Elastic and inelastic collisions' },
   { examId: 'jee', subjectId: 'physics', levelNumber: 19, levelName: 'Center of Mass', levelType: 'normal', difficulty: 'medium', topic: 'Momentum', questionCount: 10, unlockRequirement: 'Complete Level 18', description: 'COM calculations' },
-  { examId: 'jee', subjectId: 'physics', levelNumber: 20, levelName: '🏆 BOSS: Energy & Momentum', levelType: 'boss', difficulty: 'mixed', questionCount: 20, unlockRequirement: 'Complete Level 19 with 60%+', description: 'Mixed questions from Levels 11-19' },
+  { examId: 'jee', subjectId: 'physics', levelNumber: 20, levelName: '🏆 BOSS: Energy & Momentum', levelType: 'boss', difficulty: 'mixed', questionCount: 20, unlockRequirement: 'Complete Level 19 with 80%+', description: 'Mixed questions from Levels 11-19' },
 
   // Hard Levels (21-30)
   { examId: 'jee', subjectId: 'physics', levelNumber: 21, levelName: 'Rotational Motion', levelType: 'normal', difficulty: 'hard', topic: 'Rotational Dynamics', questionCount: 15, unlockRequirement: 'Complete Level 20', description: 'Angular velocity and acceleration' },
@@ -53,7 +53,7 @@ export const JEE_PHYSICS_LEVELS: LevelDefinition[] = [
   { examId: 'jee', subjectId: 'physics', levelNumber: 27, levelName: 'Simple Harmonic Motion', levelType: 'normal', difficulty: 'hard', topic: 'SHM', questionCount: 15, unlockRequirement: 'Complete Level 26', description: 'SHM fundamentals' },
   { examId: 'jee', subjectId: 'physics', levelNumber: 28, levelName: 'Waves', levelType: 'normal', difficulty: 'hard', topic: 'Waves', questionCount: 15, unlockRequirement: 'Complete Level 27', description: 'Wave motion' },
   { examId: 'jee', subjectId: 'physics', levelNumber: 29, levelName: 'Sound Waves', levelType: 'normal', difficulty: 'hard', topic: 'Waves', questionCount: 15, unlockRequirement: 'Complete Level 28', description: 'Sound propagation' },
-  { examId: 'jee', subjectId: 'physics', levelNumber: 30, levelName: '👑 FINAL BOSS: Complete Physics', levelType: 'boss', difficulty: 'mixed', questionCount: 25, unlockRequirement: 'Complete Level 29 with 70%+', description: 'Ultimate physics challenge' },
+  { examId: 'jee', subjectId: 'physics', levelNumber: 30, levelName: '👑 FINAL BOSS: Complete Physics', levelType: 'boss', difficulty: 'mixed', questionCount: 25, unlockRequirement: 'Complete Level 29 with 80%+', description: 'Ultimate physics challenge' },
 ];
 
 // Helper function to calculate stars based on accuracy
@@ -65,11 +65,9 @@ export function calculateStars(accuracy: number): number {
 }
 
 // Helper function to check if next level should unlock
+// Updated: 80% threshold for all levels to unlock next level
 export function shouldUnlockNextLevel(accuracy: number, currentLevelType: LevelType): boolean {
-  if (currentLevelType === 'boss') {
-    return accuracy >= 70; // Boss levels need 70%+
-  }
-  return accuracy >= 60; // Normal levels need 60%+
+  return accuracy >= 80; // All levels need 80%+ to unlock next level
 }
 
 // Generate generic 30-level journey for any exam-subject
@@ -100,7 +98,7 @@ function generateGenericLevels(examId: string, subjectId: string): LevelDefiniti
     levelType: 'boss',
     difficulty: 'mixed',
     questionCount: 20,
-    unlockRequirement: 'Complete Level 9 with 60%+',
+    unlockRequirement: 'Complete Level 9 with 80%+',
     description: 'Test your mastery of foundational concepts',
   });
 
@@ -128,7 +126,7 @@ function generateGenericLevels(examId: string, subjectId: string): LevelDefiniti
     levelType: 'boss',
     difficulty: 'mixed',
     questionCount: 20,
-    unlockRequirement: 'Complete Level 19 with 60%+',
+    unlockRequirement: 'Complete Level 19 with 80%+',
     description: 'Prove your intermediate mastery',
   });
 
@@ -156,7 +154,7 @@ function generateGenericLevels(examId: string, subjectId: string): LevelDefiniti
     levelType: 'boss',
     difficulty: 'mixed',
     questionCount: 25,
-    unlockRequirement: 'Complete Level 29 with 70%+',
+    unlockRequirement: 'Complete Level 29 with 80%+',
     description: 'The ultimate test of your knowledge',
   });
 

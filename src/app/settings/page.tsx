@@ -8,7 +8,7 @@ import { getAllExams } from "@/lib/exams";
 import {
   User, Mail, Phone, MapPin, GraduationCap, Globe, Target,
   Moon, Sun, Bell, Shield, CreditCard, Trash2, LogOut,
-  ChevronRight, Check, Save, Calendar
+  ChevronRight, Check, Save, Calendar, BookOpen, Plus, Lock, RefreshCcw
 } from "lucide-react";
 import { ConfirmationModal } from "@/components/confirmation-modal";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
@@ -65,6 +65,13 @@ export default function SettingsPage() {
 
   // Subscription
   const [subscription, setSubscription] = useState<Subscription | null>(null);
+
+  // Exam Management
+  const [showAddExamModal, setShowAddExamModal] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [selectedExamToAdd, setSelectedExamToAdd] = useState<string | null>(null);
+  const [isProcessingExam, setIsProcessingExam] = useState(false);
+  const [addExamError, setAddExamError] = useState<string | null>(null);
 
   // Modal
   const [modal, setModal] = useState<{
@@ -205,6 +212,118 @@ export default function SettingsPage() {
       month: "long",
       year: "numeric",
     });
+  };
+
+  // Exam Management Handlers
+  const handleAddExamClick = () => {
+    if (!subscription?.isPro) {
+      // Free user - show upgrade modal
+      setModal({
+        isOpen: true,
+        title: "Upgrade to Pro",
+        message: "You need a Pro subscription to enroll in multiple exams. Upgrade now to access unlimited exams!",
+        type: "info",
+        onConfirm: () => {
+          setModal(prev => ({ ...prev, isOpen: false }));
+          router.push("/pricing");
+        },
+      });
+    } else {
+      // Pro user - show exam selection modal
+      setShowAddExamModal(true);
+      setAddExamError(null);
+    }
+  };
+
+  const handleExamSelection = (examId: string) => {
+    setSelectedExamToAdd(examId);
+    setShowAddExamModal(false);
+    setShowPaymentModal(true);
+  };
+
+  const handlePaymentSuccess = async () => {
+    if (!selectedExamToAdd) return;
+
+    setIsProcessingExam(true);
+    setAddExamError(null);
+
+    try {
+      const res = await fetch("/api/exam/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ examId: selectedExamToAdd }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Failed to add exam");
+
+      // Success - reload page to update enrolled exams
+      setShowPaymentModal(false);
+      setModal({
+        isOpen: true,
+        title: "Exam Added Successfully!",
+        message: `You're now enrolled in ${getAllExams().find(e => e.id === selectedExamToAdd)?.name}. The page will reload to apply changes.`,
+        type: "success",
+        onConfirm: () => {
+          setModal(prev => ({ ...prev, isOpen: false }));
+          window.location.reload();
+        },
+      });
+    } catch (error) {
+      const err = error as Error;
+      setAddExamError(err.message);
+      setModal({
+        isOpen: true,
+        title: "Error",
+        message: err.message || "Failed to add exam. Please try again.",
+        type: "error",
+        onConfirm: () => setModal(prev => ({ ...prev, isOpen: false })),
+      });
+    } finally {
+      setIsProcessingExam(false);
+    }
+  };
+
+  const handleSwitchExam = async (examId: string) => {
+    if (user?.current_exam === examId) return;
+
+    setIsProcessingExam(true);
+
+    try {
+      const res = await fetch("/api/exam/switch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ examId }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Failed to switch exam");
+
+      // Success - reload page to apply changes
+      setModal({
+        isOpen: true,
+        title: "Exam Switched!",
+        message: `You're now viewing ${getAllExams().find(e => e.id === examId)?.name}. The page will reload to apply changes.`,
+        type: "success",
+        onConfirm: () => {
+          setModal(prev => ({ ...prev, isOpen: false }));
+          window.location.reload();
+        },
+      });
+    } catch (error) {
+      const err = error as Error;
+      setModal({
+        isOpen: true,
+        title: "Error",
+        message: err.message || "Failed to switch exam. Please try again.",
+        type: "error",
+        onConfirm: () => setModal(prev => ({ ...prev, isOpen: false })),
+      });
+    } finally {
+      setIsProcessingExam(false);
+    }
   };
 
   if (!user) {
@@ -460,6 +579,153 @@ export default function SettingsPage() {
         </div>
       </section>
 
+      {/* ─── EXAM MANAGEMENT (STUDENTS ONLY) ─── */}
+      {user?.role === 'student' && (
+        <section className="rounded-2xl p-6 shadow-sm border mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+          <h2 className="text-lg font-semibold mb-5 flex items-center gap-2" style={{ color: "var(--foreground)" }}>
+            <BookOpen className="w-5 h-5 text-blue-500" />
+            Exam Management
+          </h2>
+
+          <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
+            Manage your enrolled exams. Pro users can enroll in multiple exams and switch between them.
+          </p>
+
+          {/* Enrolled Exams List */}
+          <div className="space-y-3 mb-5">
+            {user?.enrolled_exams && user.enrolled_exams.length > 0 ? (
+              user.enrolled_exams.map((examId) => {
+                const exam = getAllExams().find(e => e.id === examId);
+                if (!exam) return null;
+
+                const isCurrent = user.current_exam === examId;
+
+                return (
+                  <div
+                    key={examId}
+                    className="flex items-center justify-between p-4 rounded-xl border transition"
+                    style={{
+                      background: isCurrent ? "var(--primary-bg)" : "var(--hover-bg)",
+                      borderColor: isCurrent ? "var(--primary)" : "var(--card-border)",
+                      borderWidth: isCurrent ? "2px" : "1px"
+                    }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">{exam.icon}</div>
+                      <div>
+                        <div className="font-semibold" style={{ color: "var(--foreground)" }}>
+                          {exam.name}
+                        </div>
+                        <div className="text-sm" style={{ color: "var(--muted)" }}>
+                          {exam.fullName}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      {isCurrent ? (
+                        <div
+                          className="px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1"
+                          style={{
+                            background: "rgba(59, 130, 246, 0.1)",
+                            color: "#3b82f6",
+                            border: "1px solid rgba(59, 130, 246, 0.3)"
+                          }}
+                        >
+                          <Check className="w-3 h-3" />
+                          Current
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => handleSwitchExam(examId)}
+                          disabled={isProcessingExam}
+                          className="px-4 py-2 text-sm font-medium rounded-lg transition flex items-center gap-1"
+                          style={{
+                            background: "var(--primary)",
+                            color: "white",
+                            cursor: isProcessingExam ? "not-allowed" : "pointer",
+                            opacity: isProcessingExam ? 0.5 : 1
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isProcessingExam) {
+                              e.currentTarget.style.opacity = "0.9";
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isProcessingExam) {
+                              e.currentTarget.style.opacity = "1";
+                            }
+                          }}
+                        >
+                          <RefreshCcw className="w-3 h-3" />
+                          Switch
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="text-center py-8 rounded-xl border" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
+                <BookOpen className="w-12 h-12 mx-auto mb-3" style={{ color: "var(--muted)" }} />
+                <p className="text-sm" style={{ color: "var(--muted)" }}>
+                  No enrolled exams found. Please contact support.
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Add Exam Button */}
+          <button
+            onClick={handleAddExamClick}
+            disabled={isProcessingExam}
+            className="w-full px-4 py-3 text-sm font-medium rounded-xl transition flex items-center justify-center gap-2 border"
+            style={{
+              background: subscription?.isPro ? "var(--primary)" : "var(--hover-bg)",
+              color: subscription?.isPro ? "white" : "var(--muted)",
+              borderColor: subscription?.isPro ? "var(--primary)" : "var(--card-border)",
+              cursor: isProcessingExam ? "not-allowed" : subscription?.isPro ? "pointer" : "pointer"
+            }}
+            onMouseEnter={(e) => {
+              if (!isProcessingExam) {
+                if (subscription?.isPro) {
+                  e.currentTarget.style.opacity = "0.9";
+                } else {
+                  e.currentTarget.style.borderColor = "#a5b4fc";
+                }
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isProcessingExam) {
+                if (subscription?.isPro) {
+                  e.currentTarget.style.opacity = "1";
+                } else {
+                  e.currentTarget.style.borderColor = "var(--card-border)";
+                }
+              }
+            }}
+          >
+            {subscription?.isPro ? (
+              <>
+                <Plus className="w-4 h-4" />
+                Add Another Exam (₹50/month)
+              </>
+            ) : (
+              <>
+                <Lock className="w-4 h-4" />
+                Add Another Exam (Upgrade to Pro)
+              </>
+            )}
+          </button>
+
+          {subscription?.isPro && (
+            <p className="text-xs mt-2 text-center" style={{ color: "var(--muted)" }}>
+              Additional exams are billed at ₹50/month each
+            </p>
+          )}
+        </section>
+      )}
+
       {/* ─── STUDY PREFERENCES (STUDENTS ONLY) ─── */}
       {user?.role === 'student' && (
         <section className="rounded-2xl p-6 shadow-sm border mb-6" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
@@ -710,6 +976,194 @@ export default function SettingsPage() {
             Krakkify v2.0 | Made with ❤️ in India
           </p>
         </div>
+
+        {/* Exam Selection Modal */}
+        {showAddExamModal && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(0, 0, 0, 0.6)" }}
+            onClick={() => setShowAddExamModal(false)}
+          >
+            <div
+              className="rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl"
+              style={{ background: "var(--card-bg)" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+                Select Exam to Add
+              </h3>
+              <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
+                Choose an exam you want to enroll in. Additional exams cost ₹50/month.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {getAllExams()
+                  .filter(exam => !user?.enrolled_exams?.includes(exam.id))
+                  .map((exam) => (
+                    <button
+                      key={exam.id}
+                      onClick={() => handleExamSelection(exam.id)}
+                      className="p-4 rounded-xl border-2 transition text-left hover:scale-105"
+                      style={{
+                        background: "var(--hover-bg)",
+                        borderColor: "var(--card-border)"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = "var(--primary)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = "var(--card-border)";
+                      }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="text-3xl">{exam.icon}</div>
+                        <div>
+                          <div className="font-semibold" style={{ color: "var(--foreground)" }}>
+                            {exam.name}
+                          </div>
+                          <div className="text-xs" style={{ color: "var(--muted)" }}>
+                            {exam.fullName}
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+              </div>
+
+              {getAllExams().filter(exam => !user?.enrolled_exams?.includes(exam.id)).length === 0 && (
+                <div className="text-center py-8">
+                  <Check className="w-12 h-12 mx-auto mb-3" style={{ color: "var(--primary)" }} />
+                  <p style={{ color: "var(--foreground-secondary)" }}>
+                    You&apos;re already enrolled in all available exams!
+                  </p>
+                </div>
+              )}
+
+              <button
+                onClick={() => setShowAddExamModal(false)}
+                className="w-full mt-4 px-4 py-2 rounded-lg font-medium transition"
+                style={{
+                  background: "var(--hover-bg)",
+                  color: "var(--foreground-secondary)"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "var(--card-border)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "var(--hover-bg)";
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Payment Modal */}
+        {showPaymentModal && selectedExamToAdd && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(0, 0, 0, 0.6)" }}
+            onClick={() => {
+              if (!isProcessingExam) {
+                setShowPaymentModal(false);
+                setSelectedExamToAdd(null);
+              }
+            }}
+          >
+            <div
+              className="rounded-2xl p-6 max-w-md w-full shadow-2xl"
+              style={{ background: "var(--card-bg)" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+                Add Exam Payment
+              </h3>
+
+              <div className="p-4 rounded-xl mb-4 border" style={{ background: "var(--hover-bg)", borderColor: "var(--card-border)" }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="text-3xl">
+                    {getAllExams().find(e => e.id === selectedExamToAdd)?.icon}
+                  </div>
+                  <div>
+                    <div className="font-semibold" style={{ color: "var(--foreground)" }}>
+                      {getAllExams().find(e => e.id === selectedExamToAdd)?.name}
+                    </div>
+                    <div className="text-sm" style={{ color: "var(--muted)" }}>
+                      {getAllExams().find(e => e.id === selectedExamToAdd)?.fullName}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: "var(--card-border)" }}>
+                  <div className="text-sm" style={{ color: "var(--muted)" }}>Monthly charge</div>
+                  <div className="text-2xl font-bold" style={{ color: "var(--primary)" }}>₹50</div>
+                </div>
+              </div>
+
+              {addExamError && (
+                <div className="p-3 rounded-lg mb-4" style={{ background: "rgba(239, 68, 68, 0.1)", color: "#ef4444" }}>
+                  <p className="text-sm">{addExamError}</p>
+                </div>
+              )}
+
+              <p className="text-xs mb-4" style={{ color: "var(--muted)" }}>
+                By confirming, you agree to pay ₹50/month for this exam. This will be added to your existing subscription.
+              </p>
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => {
+                    setShowPaymentModal(false);
+                    setSelectedExamToAdd(null);
+                  }}
+                  disabled={isProcessingExam}
+                  className="flex-1 px-4 py-2.5 rounded-lg font-medium transition"
+                  style={{
+                    background: "var(--hover-bg)",
+                    color: "var(--foreground-secondary)",
+                    cursor: isProcessingExam ? "not-allowed" : "pointer",
+                    opacity: isProcessingExam ? 0.5 : 1
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handlePaymentSuccess}
+                  disabled={isProcessingExam}
+                  className="flex-1 px-4 py-2.5 rounded-lg font-medium text-white transition flex items-center justify-center gap-2"
+                  style={{
+                    background: "var(--primary)",
+                    cursor: isProcessingExam ? "not-allowed" : "pointer",
+                    opacity: isProcessingExam ? 0.7 : 1
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isProcessingExam) {
+                      e.currentTarget.style.opacity = "0.9";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isProcessingExam) {
+                      e.currentTarget.style.opacity = "1";
+                    }
+                  }}
+                >
+                  {isProcessingExam ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      <CreditCard className="w-4 h-4" />
+                      Confirm Payment
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Modal */}
         <ConfirmationModal

@@ -139,7 +139,7 @@ export default function PublicDeckPage({ params }: { params: Promise<{ slug: str
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-3">
+          <p className="text-xs font-bold uppercase text-[#F26A4B] mb-3" style={{ letterSpacing: '0.2em' }}>
             SHARED FLASHCARD DECK
           </p>
           <h1 className="font-heading text-4xl md:text-5xl font-black text-[#16213E] dark:text-white mb-4">

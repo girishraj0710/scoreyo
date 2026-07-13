@@ -43,6 +43,9 @@ export function proxy(request: NextRequest) {
     "/api/sprint",
     "/api/custom-quiz", // Custom quiz from uploaded documents
     "/api/english/evaluate", // AI evaluation for writing and speaking
+    "/api/flashcards", // Flashcard endpoints (generate, study, rate, etc.)
+    "/api/study", // Study session tracking (start/end session)
+    "/api/weekly-stats", // Weekly stats endpoint
     "/api/admin/emergency", // Admin endpoint for emergency mode
     "/api/admin/sync-users", // Admin endpoint for user sync
     "/api/admin/migrate", // Admin endpoint for database migrations

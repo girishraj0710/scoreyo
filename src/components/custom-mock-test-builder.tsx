@@ -112,17 +112,19 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col" style={{ background: "var(--card-bg)" }}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#E76F51] to-[#D65A3D] text-white p-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="text-white p-6 flex items-center justify-between relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-[#E76F51]/10 blur-2xl" />
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-[#F4A261]/10 blur-2xl" />
+          <div className="relative flex items-center gap-3">
             <Sparkles className="w-6 h-6" />
             <div>
               <h2 className="text-2xl font-bold">Custom Mock Test Builder</h2>
-              <p className="text-indigo-100 text-sm">Create your personalized mock test</p>
+              <p className="text-white/80 text-sm">Create your personalized mock test</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+            className="relative p-2 hover:bg-white/20 rounded-lg transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -437,13 +439,15 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                     onClick={handleCreate}
                     disabled={sections.length === 0 || totalQuestions === 0}
                     className="px-8 py-3 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg"
-                    style={{ background: "linear-gradient(to right, #E76F51, #9333ea)" }}
+                    style={{ background: '#16213E' }}
                     onMouseEnter={(e) => {
                       if (!e.currentTarget.disabled) {
+                        e.currentTarget.style.background = '#1a2744';
                         e.currentTarget.style.transform = "scale(1.02)";
                       }
                     }}
                     onMouseLeave={(e) => {
+                      e.currentTarget.style.background = '#16213E';
                       e.currentTarget.style.transform = "scale(1)";
                     }}
                   >

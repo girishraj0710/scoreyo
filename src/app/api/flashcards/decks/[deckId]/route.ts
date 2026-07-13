@@ -26,7 +26,7 @@ export async function GET(
     console.log('🎴 Deck ID:', deckId);
 
     console.log('📥 Fetching deck from database...');
-    const deck = await getFlashcardDeck(deckId, parseInt(userId));
+    const deck = await getFlashcardDeck(deckId, userId);
 
     if (!deck) {
       console.log('❌ Deck not found');

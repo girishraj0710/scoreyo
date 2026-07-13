@@ -143,8 +143,9 @@ export default function EnglishLearningDashboard() {
             </section>
 
             {/* Next Up Card */}
-            <section className="bg-gradient-to-br from-[#E76F51] via-[#E15838] to-[#D65A3D] rounded-2xl p-6 text-white relative overflow-hidden shadow-lg shadow-[#E76F51]/20">
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-60" />
+            <section className="rounded-2xl p-6 text-white relative overflow-hidden shadow-lg" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#E76F51]/10 blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#F4A261]/10 blur-3xl" />
 
               <div className="relative flex items-center justify-between">
                 <div className="flex-1">
@@ -152,7 +153,7 @@ export default function EnglishLearningDashboard() {
                     <div className="w-6 h-6 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
                       <BookOpen className="w-4 h-4" strokeWidth={2.5} />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-white/90">NEXT UP</span>
+                    <span className="text-xs font-bold uppercase text-white/90" style={{ letterSpacing: '0.2em' }}>NEXT UP</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-1">Intermediate & Advanced Mastery</h3>
                   <p className="text-base text-white/95 mb-4">Unit 12 — Conditional Structures</p>
@@ -489,8 +490,9 @@ function CourseCard({
           </div>
           <div className="min-w-0">
             <span
-              className="inline-block text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md mb-1.5"
+              className="inline-block text-[11px] font-bold uppercase px-2 py-0.5 rounded-md mb-1.5"
               style={{
+                letterSpacing: '0.2em',
                 background: `${config.mainColor}15`,
                 color: config.mainColor
               }}

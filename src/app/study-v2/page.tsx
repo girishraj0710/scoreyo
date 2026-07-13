@@ -40,6 +40,10 @@ function StudyPagePremiumContent() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Time tracking
+  const [readingSessionId, setReadingSessionId] = useState<number | null>(null);
+  const [sectionsViewed, setSectionsViewed] = useState(new Set<number>());
+
   const exam = examId ? getExamById(examId) : null;
 
   useEffect(() => {
@@ -76,6 +80,25 @@ function StudyPagePremiumContent() {
 
       const data = await res.json();
       setStudyMaterial(data.material);
+
+      // Start reading session tracking
+      try {
+        const sessionRes = await fetch('/api/study/start-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subjectId: subjectName,
+            topicId: topic,
+            pathId: '' // Optional, can be added if available
+          })
+        });
+        if (sessionRes.ok) {
+          const sessionData = await sessionRes.json();
+          setReadingSessionId(sessionData.sessionId);
+        }
+      } catch {
+        // Time tracking is optional - don't fail if it errors
+      }
     } catch (error) {
       console.error("Failed to fetch study material:", error);
       setError("Study material not available for this topic yet.");
@@ -86,6 +109,37 @@ function StudyPagePremiumContent() {
 
   const sections = studyMaterial?.content?.sections || [];
   const currentSectionData = sections[currentSection];
+
+  // Track when section is viewed
+  useEffect(() => {
+    if (currentSectionData) {
+      setSectionsViewed(prev => new Set([...prev, currentSection]));
+    }
+  }, [currentSection, currentSectionData]);
+
+  // End reading session on unmount
+  useEffect(() => {
+    return () => {
+      if (readingSessionId && sectionsViewed.size > 0) {
+        const totalSections = sections.length || 1;
+        const completionPct = Math.round((sectionsViewed.size / totalSections) * 100);
+
+        // Fire and forget - don't block navigation
+        fetch('/api/study/end-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId: readingSessionId,
+            sectionsRead: sectionsViewed.size,
+            completionPercentage: completionPct
+          }),
+          keepalive: true // Ensure request completes even if page unloads
+        }).catch(() => {
+          // Ignore errors - time tracking is optional
+        });
+      }
+    };
+  }, [readingSessionId, sectionsViewed, sections.length]);
 
   const markSectionComplete = () => {
     setCompletedSections(prev => new Set([...prev, currentSection]));

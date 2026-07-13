@@ -137,7 +137,7 @@ export default function EnglishLearningDashboard() {
                     <div className="w-6 h-6 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
                       <BookOpen className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-white/80">NEXT UP</span>
+                    <span className="text-xs font-semibold uppercase text-white/80" style={{ letterSpacing: '0.2em' }}>NEXT UP</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-1">Intermediate & Advanced Mastery</h3>
                   <p className="text-base text-white/90 mb-4">Unit 12 — Conditional Structures</p>
@@ -335,7 +335,7 @@ export default function EnglishLearningDashboard() {
             <div className="hidden 2xl:block">
               <div className="sticky top-6">
                 <div className="text-center mb-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">MOBILE VIEW</span>
+                  <span className="text-xs font-semibold uppercase text-slate-500" style={{ letterSpacing: '0.2em' }}>MOBILE VIEW</span>
                 </div>
                 <MobilePreview />
               </div>

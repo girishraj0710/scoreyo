@@ -1210,12 +1210,22 @@ export async function getUserStats(userId: string) {
     [userId]
   );
 
+  // Get activity from ALL sources (quiz, flashcards, study sessions)
   const streakData = await queryAll(
-    "SELECT DISTINCT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1 ORDER BY day DESC",
+    `SELECT DISTINCT day FROM (
+      SELECT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1
+      UNION
+      SELECT DATE(studied_at) as day FROM flashcard_study_sessions WHERE user_id = $1
+      UNION
+      SELECT DATE(created_at) as day FROM user_quiz_levels WHERE user_id = $1
+      UNION
+      SELECT DATE(created_at) as day FROM user_exam_levels WHERE user_id = $1
+    ) AS all_activity
+    ORDER BY day DESC`,
     [userId]
   );
 
-  console.log(`[getUserStats] User ${userId}: Found ${streakData.length} unique study days`);
+  console.log(`[getUserStats] User ${userId}: Found ${streakData.length} unique study days from all activities`);
   if (streakData.length > 0) {
     console.log(`[getUserStats] First 5 days:`, streakData.slice(0, 5).map(d => d.day));
   }
@@ -2325,7 +2335,8 @@ export async function completeQuizLevel(
   }
 
   // Unlock next level if performance is good enough
-  const shouldUnlock = levelType === 'boss' ? accuracy >= 70 : accuracy >= 60;
+  // Updated: 80% threshold for all levels (was 60% for normal, 70% for boss)
+  const shouldUnlock = accuracy >= 80;
 
   if (shouldUnlock) {
     const nextLevel = await getUserQuizLevel(userId, examId, subjectId, levelNumber + 1);
@@ -3251,9 +3262,15 @@ export async function getFlashcardDeck(deckId: number, userId: string) {
   const pool = getPool();
   const client = await pool.connect();
   try {
-    // Get deck metadata
+    // Get deck metadata with creator name
     const deckResult = await client.query(
-      `SELECT * FROM flashcard_decks WHERE id = $1 AND (user_id = $2 OR is_public = true)`,
+      `SELECT
+        fd.*,
+        u.name as creator_name,
+        u.email as creator_email
+      FROM flashcard_decks fd
+      LEFT JOIN users u ON fd.user_id = u.id
+      WHERE fd.id = $1 AND (fd.user_id = $2 OR fd.is_public = true)`,
       [deckId, userId]
     );
 
@@ -3482,7 +3499,7 @@ export async function deleteFlashcardDeck(deckId: number, userId: number) {
       `DELETE FROM flashcard_decks WHERE id = $1 AND user_id = $2 RETURNING *`,
       [deckId, userId]
     );
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   } finally {
     client.release();
   }
@@ -3568,4 +3585,489 @@ function calculateNextReview(
     reps: newRepetitions,
     nextReview
   };
+}
+
+// ============================================================================
+// DAILY TASKS SYSTEM (Dynamic task generation + Future AI personalization)
+// ============================================================================
+
+export interface DailyTask {
+  id: number;
+  userId: string;
+  date: string;
+  taskType: 'flashcard_review' | 'quiz_practice' | 'weak_topic' | 'mock_test' | 'study_guide' | 'custom';
+  taskData: {
+    label: string;
+    link: string;
+    tag: string;
+    meta?: Record<string, any>;
+  };
+  status: 'pending' | 'completed' | 'skipped';
+  priority: number;
+  generatedBy: 'auto' | 'ai_personalized' | 'manual';
+  planId?: number;
+  completedAt?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+/**
+ * Get today's tasks for a user (auto-generate if not exist)
+ */
+export async function getTodaysTasks(userId: string): Promise<DailyTask[]> {
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
+
+  // Check if tasks already exist for today
+  const existing = await queryAll(
+    `SELECT * FROM user_daily_tasks
+     WHERE user_id = $1 AND date = $2
+     ORDER BY priority DESC, id ASC`,
+    [userId, today]
+  );
+
+  if (existing.length > 0) {
+    return existing.map(mapDailyTask);
+  }
+
+  // Generate tasks for today
+  return await generateDailyTasks(userId, today);
+}
+
+/**
+ * Auto-generate daily tasks based on user's current state
+ */
+async function generateDailyTasks(userId: string, date: string): Promise<DailyTask[]> {
+  const tasks: Array<{
+    taskType: string;
+    taskData: any;
+    priority: number;
+  }> = [];
+
+  // 1. Flashcard review task (if cards are due)
+  const dueCards = await queryOne(
+    `SELECT COUNT(DISTINCT fp.card_id) as count, fd.id as deck_id, fd.title as deck_title
+     FROM flashcard_progress fp
+     JOIN flashcard_decks fd ON fp.deck_id = fd.id
+     WHERE fp.user_id = $1 AND fp.next_review <= NOW()
+     GROUP BY fd.id, fd.title
+     ORDER BY COUNT(*) DESC
+     LIMIT 1`,
+    [userId]
+  );
+
+  if (dueCards && parseInt(dueCards.count) > 0) {
+    tasks.push({
+      taskType: 'flashcard_review',
+      taskData: {
+        label: `Review ${dueCards.count} flashcards`,
+        link: `/flashcards/study/${dueCards.deck_id}`,
+        tag: 'Flashcards',
+        meta: {
+          deck_id: dueCards.deck_id,
+          deck_title: dueCards.deck_title,
+          cards_due: parseInt(dueCards.count)
+        }
+      },
+      priority: 9
+    });
+  }
+
+  // 2. Daily quiz goal (default: 10 questions)
+  const questionsToday = await queryOne(
+    `SELECT COALESCE(SUM(total_questions), 0) as total
+     FROM quiz_sessions
+     WHERE user_id = $1 AND DATE(created_at) = $2`,
+    [userId, date]
+  );
+
+  const dailyGoal = 10;
+  const remaining = dailyGoal - parseInt(questionsToday?.total || '0');
+
+  if (remaining > 0) {
+    // Get user's preferred exam
+    const userPref = await queryOne(
+      'SELECT preferred_exam FROM users WHERE id = $1',
+      [userId]
+    );
+
+    const examId = userPref?.preferred_exam || 'upsc';
+
+    tasks.push({
+      taskType: 'quiz_practice',
+      taskData: {
+        label: `Complete daily quiz goal (${remaining} questions)`,
+        link: `/quiz?exam=${examId}`,
+        tag: 'Daily Goal',
+        meta: {
+          exam_id: examId,
+          question_count: remaining,
+          completed: parseInt(questionsToday?.total || '0'),
+          goal: dailyGoal
+        }
+      },
+      priority: 8
+    });
+  }
+
+  // 3. Weak topic practice (lowest accuracy topic from quiz sessions)
+  const weakTopics = await getWeakTopics(userId, '', 1);
+
+  if (weakTopics.length > 0 && weakTopics[0].accuracy < 75) {
+    const weakTopic = weakTopics[0];
+    tasks.push({
+      taskType: 'weak_topic',
+      taskData: {
+        label: `Practice ${weakTopic.topicName} (${Math.round(weakTopic.accuracy)}% accuracy)`,
+        link: `/quiz?subject=${weakTopic.subjectId}&topic=${weakTopic.topicId}`,
+        tag: 'Weak Topic',
+        meta: {
+          topic_id: weakTopic.topicId,
+          topic_name: weakTopic.topicName,
+          subject_id: weakTopic.subjectId,
+          accuracy: weakTopic.accuracy
+        }
+      },
+      priority: 7
+    });
+  }
+
+  // 4. Study guide task (only if < 3 tasks) - simple English foundation topic
+  if (tasks.length < 3) {
+    tasks.push({
+      taskType: 'study_guide',
+      taskData: {
+        label: 'Study English Grammar basics',
+        link: '/learn/english/foundation/verbs-basics',
+        tag: 'Study Guide',
+        meta: {
+          subject_id: 'english',
+          path_id: 'foundation',
+          topic_id: 'verbs-basics'
+        }
+      },
+      priority: 5
+    });
+  }
+
+  // Insert tasks into database
+  const insertedTasks: DailyTask[] = [];
+
+  for (const task of tasks) {
+    const result = await queryOne(
+      `INSERT INTO user_daily_tasks (user_id, date, task_type, task_data, priority, generated_by, status)
+       VALUES ($1, $2, $3, $4, $5, 'auto', 'pending')
+       ON CONFLICT (user_id, date, task_type, task_data) DO UPDATE
+       SET priority = EXCLUDED.priority, updated_at = NOW()
+       RETURNING *`,
+      [userId, date, task.taskType, JSON.stringify(task.taskData), task.priority]
+    );
+
+    if (result) {
+      insertedTasks.push(mapDailyTask(result));
+    }
+  }
+
+  return insertedTasks;
+}
+
+/**
+ * Mark a task as completed
+ */
+export async function completeTask(userId: string, taskId: number): Promise<boolean> {
+  const result = await queryOne(
+    `UPDATE user_daily_tasks
+     SET status = 'completed', completed_at = NOW(), updated_at = NOW()
+     WHERE id = $1 AND user_id = $2 AND status = 'pending'
+     RETURNING id`,
+    [taskId, userId]
+  );
+
+  return !!result;
+}
+
+/**
+ * Toggle task completion status
+ */
+export async function toggleTask(userId: string, taskId: number): Promise<DailyTask | null> {
+  const result = await queryOne(
+    `UPDATE user_daily_tasks
+     SET
+       status = CASE
+         WHEN status = 'completed' THEN 'pending'
+         ELSE 'completed'
+       END,
+       completed_at = CASE
+         WHEN status = 'completed' THEN NULL
+         ELSE NOW()
+       END,
+       updated_at = NOW()
+     WHERE id = $1 AND user_id = $2
+     RETURNING *`,
+    [taskId, userId]
+  );
+
+  return result ? mapDailyTask(result) : null;
+}
+
+/**
+ * Map database row to DailyTask object
+ */
+function mapDailyTask(row: any): DailyTask {
+  return {
+    id: row.id,
+    userId: row.user_id,
+    date: row.date,
+    taskType: row.task_type,
+    taskData: typeof row.task_data === 'string' ? JSON.parse(row.task_data) : row.task_data,
+    status: row.status,
+    priority: row.priority,
+    generatedBy: row.generated_by,
+    planId: row.plan_id,
+    completedAt: row.completed_at ? new Date(row.completed_at) : undefined,
+    createdAt: new Date(row.created_at),
+    updatedAt: new Date(row.updated_at)
+  };
+}
+
+// ============================================================================
+// TIME TRACKING SYSTEM (Actual study time with multiple activity types)
+// ============================================================================
+
+/**
+ * Start a quiz session and track start time
+ */
+export async function startQuizSession(userId: string, examId: string, subjectId: string): Promise<number> {
+  const result = await queryOne(
+    `INSERT INTO quiz_sessions (user_id, exam_id, subject_id, start_time, created_at)
+     VALUES ($1, $2, $3, NOW(), NOW())
+     RETURNING id`,
+    [userId, examId, subjectId]
+  );
+  return result.id;
+}
+
+/**
+ * End quiz session and calculate duration
+ */
+export async function endQuizSession(
+  sessionId: number,
+  totalQuestions: number,
+  correctAnswers: number,
+  accuracy: number
+): Promise<void> {
+  await queryOne(
+    `UPDATE quiz_sessions
+     SET
+       end_time = NOW(),
+       duration_seconds = EXTRACT(EPOCH FROM (NOW() - start_time))::INTEGER,
+       total_questions = $2,
+       correct_answers = $3,
+       accuracy = $4
+     WHERE id = $1`,
+    [sessionId, totalQuestions, correctAnswers, accuracy]
+  );
+}
+
+/**
+ * Start flashcard study session
+ */
+export async function startFlashcardSession(userId: string, deckId: number): Promise<number> {
+  const result = await queryOne(
+    `INSERT INTO flashcard_study_sessions (user_id, deck_id, start_time, created_at)
+     VALUES ($1, $2, NOW(), NOW())
+     RETURNING id`,
+    [userId, deckId]
+  );
+  return result.id;
+}
+
+/**
+ * End flashcard study session
+ */
+export async function endFlashcardSession(
+  sessionId: number,
+  cardsStudied: number,
+  cardsCorrect: number,
+  cardsIncorrect: number
+): Promise<void> {
+  await queryOne(
+    `UPDATE flashcard_study_sessions
+     SET
+       end_time = NOW(),
+       duration_seconds = EXTRACT(EPOCH FROM (NOW() - start_time))::INTEGER,
+       cards_studied = $2,
+       cards_correct = $3,
+       cards_incorrect = $4,
+       completed = true,
+       updated_at = NOW()
+     WHERE id = $1`,
+    [sessionId, cardsStudied, cardsCorrect, cardsIncorrect]
+  );
+}
+
+/**
+ * Start study reading session (topic/guide)
+ */
+export async function startReadingSession(
+  userId: string,
+  subjectId: string,
+  topicId: string,
+  pathId?: string
+): Promise<number> {
+  const result = await queryOne(
+    `INSERT INTO study_reading_sessions (user_id, subject_id, topic_id, path_id, start_time, created_at)
+     VALUES ($1, $2, $3, $4, NOW(), NOW())
+     RETURNING id`,
+    [userId, subjectId, topicId, pathId]
+  );
+  return result.id;
+}
+
+/**
+ * End study reading session
+ */
+export async function endReadingSession(
+  sessionId: number,
+  sectionsRead: number,
+  completionPercentage: number
+): Promise<void> {
+  await queryOne(
+    `UPDATE study_reading_sessions
+     SET
+       end_time = NOW(),
+       duration_seconds = EXTRACT(EPOCH FROM (NOW() - start_time))::INTEGER,
+       sections_read = $2,
+       completion_percentage = $3,
+       updated_at = NOW()
+     WHERE id = $1`,
+    [sessionId, sectionsRead, completionPercentage]
+  );
+}
+
+/**
+ * Get total study time for a date range (all activity types)
+ */
+export async function getStudyTimeRange(
+  userId: string,
+  startDate: Date,
+  endDate: Date
+): Promise<{
+  quizHours: number;
+  flashcardHours: number;
+  readingHours: number;
+  totalHours: number;
+}> {
+  // Quiz time
+  const quizTime = await queryOne(
+    `SELECT COALESCE(SUM(duration_seconds), 0) as seconds
+     FROM quiz_sessions
+     WHERE user_id = $1
+       AND start_time >= $2
+       AND start_time < $3
+       AND duration_seconds IS NOT NULL`,
+    [userId, startDate.toISOString(), endDate.toISOString()]
+  );
+
+  // Flashcard time
+  const flashcardTime = await queryOne(
+    `SELECT COALESCE(SUM(duration_seconds), 0) as seconds
+     FROM flashcard_study_sessions
+     WHERE user_id = $1
+       AND start_time >= $2
+       AND start_time < $3
+       AND duration_seconds IS NOT NULL`,
+    [userId, startDate.toISOString(), endDate.toISOString()]
+  );
+
+  // Reading time
+  const readingTime = await queryOne(
+    `SELECT COALESCE(SUM(duration_seconds), 0) as seconds
+     FROM study_reading_sessions
+     WHERE user_id = $1
+       AND start_time >= $2
+       AND start_time < $3
+       AND duration_seconds IS NOT NULL`,
+    [userId, startDate.toISOString(), endDate.toISOString()]
+  );
+
+  const quizHours = parseFloat(quizTime.seconds) / 3600;
+  const flashcardHours = parseFloat(flashcardTime.seconds) / 3600;
+  const readingHours = parseFloat(readingTime.seconds) / 3600;
+
+  return {
+    quizHours,
+    flashcardHours,
+    readingHours,
+    totalHours: quizHours + flashcardHours + readingHours
+  };
+}
+
+/**
+ * Get weekly study time with breakdown (uses actual tracked time)
+ */
+export async function getWeeklyStudyTimeDetailed(
+  userId: string,
+  weekOffset: number = 0
+): Promise<{
+  quizHours: number;
+  flashcardHours: number;
+  readingHours: number;
+  totalHours: number;
+  sessionCounts: {
+    quizzes: number;
+    flashcards: number;
+    readings: number;
+  };
+}> {
+  const pool = getPool();
+  const client = await pool.connect();
+
+  try {
+    // Calculate week range
+    const weekStart = await client.query(
+      `SELECT date_trunc('week', CURRENT_DATE - INTERVAL '${weekOffset} weeks') as start`
+    );
+    const weekEnd = await client.query(
+      `SELECT date_trunc('week', CURRENT_DATE - INTERVAL '${weekOffset} weeks') + INTERVAL '1 week' as end`
+    );
+
+    const startDate = new Date(weekStart.rows[0].start);
+    const endDate = new Date(weekEnd.rows[0].end);
+
+    // Get study time breakdown
+    const timeData = await getStudyTimeRange(userId, startDate, endDate);
+
+    // Get session counts
+    const quizCount = await client.query(
+      `SELECT COUNT(*) as count FROM quiz_sessions
+       WHERE user_id = $1 AND start_time >= $2 AND start_time < $3
+       AND duration_seconds IS NOT NULL`,
+      [userId, startDate.toISOString(), endDate.toISOString()]
+    );
+
+    const flashcardCount = await client.query(
+      `SELECT COUNT(*) as count FROM flashcard_study_sessions
+       WHERE user_id = $1 AND start_time >= $2 AND start_time < $3
+       AND duration_seconds IS NOT NULL`,
+      [userId, startDate.toISOString(), endDate.toISOString()]
+    );
+
+    const readingCount = await client.query(
+      `SELECT COUNT(*) as count FROM study_reading_sessions
+       WHERE user_id = $1 AND start_time >= $2 AND start_time < $3
+       AND duration_seconds IS NOT NULL`,
+      [userId, startDate.toISOString(), endDate.toISOString()]
+    );
+
+    return {
+      ...timeData,
+      sessionCounts: {
+        quizzes: parseInt(quizCount.rows[0].count),
+        flashcards: parseInt(flashcardCount.rows[0].count),
+        readings: parseInt(readingCount.rows[0].count)
+      }
+    };
+  } finally {
+    client.release();
+  }
 }

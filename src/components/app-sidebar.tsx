@@ -356,7 +356,7 @@ export function AppSidebar() {
 
                 {/* Your Folders Section */}
                 <div className="px-3 pt-1 pb-2 flex items-center justify-between">
-                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase" style={{ letterSpacing: '0.2em' }}>
                     Your folders
                   </p>
                 </div>

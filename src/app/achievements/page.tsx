@@ -103,9 +103,11 @@ export default function AchievementsPage() {
     <AccessibilityWrapper>
       <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className="bg-[#E76F51] rounded-2xl p-8 mb-8 text-white">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-16 h-16 bg-[var(--card-bg)]/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+      <div className="rounded-2xl p-8 mb-8 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+        <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#E76F51]/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#F4A261]/10 blur-3xl" />
+        <div className="relative flex items-center gap-4 mb-4">
+          <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center">
             <Trophy className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -115,7 +117,7 @@ export default function AchievementsPage() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           <div className="bg-[var(--card-bg)]/10 backdrop-blur-sm rounded-xl p-4">
             <div className="text-2xl font-bold">{unlockedBadges.length}</div>
             <div className="text-sm text-white/90">Badges Earned</div>

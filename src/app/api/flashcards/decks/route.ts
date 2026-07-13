@@ -36,6 +36,7 @@ export async function GET(req: NextRequest) {
       const preferredExam = user?.preferred_exam;
 
       console.log('👤 User exam preference:', preferredExam || 'not set');
+      console.log('👤 Logged-in user ID:', userId);
 
       // Fetch user's decks + community decks (same exam)
       const result = await client.query(`
@@ -64,6 +65,15 @@ export async function GET(req: NextRequest) {
       `, [userId, preferredExam]);
 
       console.log(`✅ Found ${result.rows.length} decks (user + community)`);
+
+      // Log raw data for debugging
+      console.log('🔍 First deck raw data:', {
+        deck_id: result.rows[0]?.id,
+        deck_user_id: result.rows[0]?.user_id,
+        logged_in_user_id: userId,
+        is_mine: result.rows[0]?.is_mine,
+        creator_id: result.rows[0]?.creator_id
+      });
 
       // Transform to UI format
       const decks = result.rows.map((deck: any) => ({

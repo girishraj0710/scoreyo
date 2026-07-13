@@ -385,7 +385,7 @@ export function LandingEmergent() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/5 shadow-[0_8px_30px_rgba(22,33,62,0.06)] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2E8B57] animate-pulse" />
-              <span className="text-xs font-semibold tracking-wider uppercase text-[#5A6478]">
+              <span className="text-xs font-semibold uppercase text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>
                 1.2M+ questions · 74 exams · AI tutor
               </span>
             </div>
@@ -466,7 +466,7 @@ export function LandingEmergent() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#16213E]/70 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 text-white">
-                <div className="text-xs font-semibold uppercase tracking-widest opacity-80">
+                <div className="text-xs font-semibold uppercase opacity-80" style={{ letterSpacing: '0.2em' }}>
                   ALL EXAMS. ONE PLATFORM.
                 </div>
                 <div className="font-heading text-2xl font-bold mt-1">
@@ -552,7 +552,7 @@ export function LandingEmergent() {
                       <div className="ml-3 mt-0 mb-0 mr-0 rounded-tl-xl rounded-bl-xl bg-white/95 backdrop-blur-sm ring-1 ring-white/60 shadow-[0_10px_30px_-10px_rgba(22,33,62,0.25)] p-4 pb-6 flex-1 min-h-[220px] relative overflow-visible">
                         {mode.preview === "streak" && (
                           <div>
-                            <div className="flex items-center gap-2"><Flame className="w-4 h-4 text-[#7C3AED]" /><span className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Streak</span></div>
+                            <div className="flex items-center gap-2"><Flame className="w-4 h-4 text-[#7C3AED]" /><span className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Streak</span></div>
                             <div className="font-mono text-4xl font-black text-[#16213E] mt-2">14 <span className="text-lg text-[#5A6478]">days</span></div>
                             <div className="mt-4 flex gap-1">{Array.from({length: 7}).map((_, k) => <div key={k} className={`h-2 flex-1 rounded-full ${k < 5 ? "bg-[#7C3AED]" : "bg-black/10"}`} />)}</div>
                             <div className="text-xs text-[#5A6478] mt-2">10 Qs · 10 min today</div>
@@ -560,14 +560,14 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "review" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Due today</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Due today</div>
                             <div className="font-mono text-4xl font-black text-[#16213E] mt-1">7</div>
                             <div className="mt-3 space-y-2">{["Fundamental Rights", "Kinematics", "Krebs Cycle"].map((t, k) => (<div key={k} className="flex items-center justify-between text-xs"><span className="font-semibold text-[#16213E]">{t}</span><span className="font-mono text-[#5A6478]">{[42,55,38][k]}%</span></div>))}</div>
                           </div>
                         )}
                         {mode.preview === "quiz" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#C89B3C]">Question 3 / 10</div>
+                            <div className="text-xs uppercase font-bold text-[#C89B3C]" style={{ letterSpacing: '0.2em' }}>Question 3 / 10</div>
                             <div className="font-heading font-bold text-[#16213E] mt-2 text-sm">Escape velocity from Earth?</div>
                             <div className="mt-3 space-y-1.5">{["11.2 km/s","9.8 m/s²","3×10⁸ m/s"].map((o, k) => (<div key={k} className={`text-xs px-3 py-2 rounded-lg border-2 ${k===0 ? "border-[#10B981] bg-[#10B981]/10 text-[#16213E] font-semibold" : "border-black/5 text-[#5A6478]"}`}>{o}</div>))}</div>
                           </div>
@@ -584,14 +584,14 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "levels" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Progress</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Progress</div>
                             <div className="mt-3 flex items-end gap-2">{[1,2,3,4,5].map(l => (<div key={l} className="flex-1 flex flex-col items-center"><div className={`w-full rounded-md ${l<=3 ? "bg-[#C89B3C]" : "bg-black/10"}`} style={{height: `${l*14}px`}} /><div className="text-[10px] font-mono font-bold mt-1 text-[#5A6478]">L{l}</div></div>))}</div>
                             <div className="mt-3 text-xs font-semibold text-[#16213E] flex items-center gap-1">Level 3 unlocked <LockOpen className="w-3.5 h-3.5 text-[#C89B3C]" /></div>
                           </div>
                         )}
                         {mode.preview === "timer" && (
                           <div className="text-center">
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Time remaining</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Time remaining</div>
                             <div className="font-mono text-5xl font-black text-[#B85450] mt-2">00:14</div>
                             <div className="mt-3 h-2 bg-black/5 rounded-full overflow-hidden"><div className="h-full bg-[#B85450] rounded-full" style={{width:"23%"}}/></div>
                             <div className="mt-3 text-xs text-[#5A6478]">Answer before the timer runs out</div>
@@ -599,7 +599,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "match" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Best time</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Best time</div>
                             <div className="font-mono text-3xl font-black text-[#16213E] mt-1">00:22</div>
                             <div className="mt-3 grid grid-cols-3 gap-1.5">{Array.from({length: 6}).map((_, k) => (<div key={k} className={`aspect-square rounded-md ${[0,3,4].includes(k) ? "bg-[#10B981]/20 border-2 border-[#10B981]" : "bg-black/[0.04] border-2 border-black/10"}`} />))}</div>
                           </div>
@@ -613,7 +613,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "guides" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Latest guides</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Latest guides</div>
                             <div className="mt-3 space-y-2">
                               {["Thermodynamics", "Modern History", "Cell Biology"].map((t, k) => (
                                 <div key={k} className="flex items-start gap-2">
@@ -631,7 +631,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "flashcards" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your deck</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Your deck</div>
                             <div className="font-mono text-3xl font-black text-[#16213E] mt-1">48 <span className="text-lg text-[#5A6478]">cards</span></div>
                             <div className="mt-4 space-y-2">
                               <div className="bg-[#A855F7]/10 border-2 border-[#A855F7] rounded-lg p-3 text-center">
@@ -648,7 +648,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "english" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your progress</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Your progress</div>
                             <div className="mt-3 space-y-2">
                               <div>
                                 <div className="flex justify-between text-xs mb-1">
@@ -738,7 +738,7 @@ export function LandingEmergent() {
                       <div className="ml-3 mt-0 mb-0 mr-0 rounded-tl-xl rounded-bl-xl bg-white/95 backdrop-blur-sm ring-1 ring-white/60 shadow-[0_10px_30px_-10px_rgba(22,33,62,0.25)] p-4 pb-6 flex-1 min-h-[220px] relative overflow-visible">
                         {mode.preview === "streak" && (
                           <div>
-                            <div className="flex items-center gap-2"><Flame className="w-4 h-4 text-[#7C3AED]" /><span className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Streak</span></div>
+                            <div className="flex items-center gap-2"><Flame className="w-4 h-4 text-[#7C3AED]" /><span className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Streak</span></div>
                             <div className="font-mono text-4xl font-black text-[#16213E] mt-2">14 <span className="text-lg text-[#5A6478]">days</span></div>
                             <div className="mt-4 flex gap-1">{Array.from({length: 7}).map((_, k) => <div key={k} className={`h-2 flex-1 rounded-full ${k < 5 ? "bg-[#7C3AED]" : "bg-black/10"}`} />)}</div>
                             <div className="text-xs text-[#5A6478] mt-2">10 Qs · 10 min today</div>
@@ -746,14 +746,14 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "review" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Due today</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Due today</div>
                             <div className="font-mono text-4xl font-black text-[#16213E] mt-1">7</div>
                             <div className="mt-3 space-y-2">{["Fundamental Rights", "Kinematics", "Krebs Cycle"].map((t, k) => (<div key={k} className="flex items-center justify-between text-xs"><span className="font-semibold text-[#16213E]">{t}</span><span className="font-mono text-[#5A6478]">{[42,55,38][k]}%</span></div>))}</div>
                           </div>
                         )}
                         {mode.preview === "quiz" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#C89B3C]">Question 3 / 10</div>
+                            <div className="text-xs uppercase font-bold text-[#C89B3C]" style={{ letterSpacing: '0.2em' }}>Question 3 / 10</div>
                             <div className="font-heading font-bold text-[#16213E] mt-2 text-sm">Escape velocity from Earth?</div>
                             <div className="mt-3 space-y-1.5">{["11.2 km/s","9.8 m/s²","3×10⁸ m/s"].map((o, k) => (<div key={k} className={`text-xs px-3 py-2 rounded-lg border-2 ${k===0 ? "border-[#10B981] bg-[#10B981]/10 text-[#16213E] font-semibold" : "border-black/5 text-[#5A6478]"}`}>{o}</div>))}</div>
                           </div>
@@ -770,14 +770,14 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "levels" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Progress</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Progress</div>
                             <div className="mt-3 flex items-end gap-2">{[1,2,3,4,5].map(l => (<div key={l} className="flex-1 flex flex-col items-center"><div className={`w-full rounded-md ${l<=3 ? "bg-[#C89B3C]" : "bg-black/10"}`} style={{height: `${l*14}px`}} /><div className="text-[10px] font-mono font-bold mt-1 text-[#5A6478]">L{l}</div></div>))}</div>
                             <div className="mt-3 text-xs font-semibold text-[#16213E] flex items-center gap-1">Level 3 unlocked <LockOpen className="w-3.5 h-3.5 text-[#C89B3C]" /></div>
                           </div>
                         )}
                         {mode.preview === "timer" && (
                           <div className="text-center">
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Time remaining</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Time remaining</div>
                             <div className="font-mono text-5xl font-black text-[#B85450] mt-2">00:14</div>
                             <div className="mt-3 h-2 bg-black/5 rounded-full overflow-hidden"><div className="h-full bg-[#B85450] rounded-full" style={{width:"23%"}}/></div>
                             <div className="mt-3 text-xs text-[#5A6478]">Answer before the timer runs out</div>
@@ -785,7 +785,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "match" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Best time</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Best time</div>
                             <div className="font-mono text-3xl font-black text-[#16213E] mt-1">00:22</div>
                             <div className="mt-3 grid grid-cols-3 gap-1.5">{Array.from({length: 6}).map((_, k) => (<div key={k} className={`aspect-square rounded-md ${[0,3,4].includes(k) ? "bg-[#10B981]/20 border-2 border-[#10B981]" : "bg-black/[0.04] border-2 border-black/10"}`} />))}</div>
                           </div>
@@ -799,7 +799,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "guides" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Latest guides</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Latest guides</div>
                             <div className="mt-3 space-y-2">
                               {["Thermodynamics", "Modern History", "Cell Biology"].map((t, k) => (
                                 <div key={k} className="flex items-start gap-2">
@@ -817,7 +817,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "flashcards" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your deck</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Your deck</div>
                             <div className="font-mono text-3xl font-black text-[#16213E] mt-1">48 <span className="text-lg text-[#5A6478]">cards</span></div>
                             <div className="mt-4 space-y-2">
                               <div className="bg-[#A855F7]/10 border-2 border-[#A855F7] rounded-lg p-3 text-center">
@@ -834,7 +834,7 @@ export function LandingEmergent() {
                         )}
                         {mode.preview === "english" && (
                           <div>
-                            <div className="text-xs uppercase tracking-widest font-bold text-[#5A6478]">Your progress</div>
+                            <div className="text-xs uppercase font-bold text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>Your progress</div>
                             <div className="mt-3 space-y-2">
                               <div>
                                 <div className="flex justify-between text-xs mb-1">
@@ -930,7 +930,7 @@ export function LandingEmergent() {
                     <div className="text-xs text-[#5A6478] font-mono">{exam.learners}</div>
                   </div>
                   <div className="relative mt-6">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#5A6478]">
+                    <div className="text-xs font-bold uppercase text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>
                       {exam.tagline}
                     </div>
                     <div className="font-heading text-2xl sm:text-3xl font-black text-[#16213E] mt-1">
@@ -1142,7 +1142,7 @@ export function LandingEmergent() {
 
                     {/* Date Display */}
                     <div className="bg-gradient-to-br from-[rgba(242, 106, 75, 0.08)] to-[#FEFAF9] rounded-lg p-3 text-center border border-[rgba(242, 106, 75, 0.08)]">
-                      <div className="text-xs text-[#F26A4B] font-bold uppercase mb-1 flex items-center justify-center gap-1 tracking-wider">
+                      <div className="text-xs text-[#F26A4B] font-bold uppercase mb-1 flex items-center justify-center gap-1" style={{ letterSpacing: '0.2em' }}>
                         <CalendarIcon className="w-3 h-3" />
                         Exam Date
                       </div>
@@ -1182,7 +1182,7 @@ export function LandingEmergent() {
 
                     {/* Date Display */}
                     <div className="bg-gradient-to-br from-[rgba(242, 106, 75, 0.08)] to-[#FEFAF9] rounded-lg p-3 text-center border border-[rgba(242, 106, 75, 0.08)]">
-                      <div className="text-xs text-[#F26A4B] font-bold uppercase mb-1 flex items-center justify-center gap-1 tracking-wider">
+                      <div className="text-xs text-[#F26A4B] font-bold uppercase mb-1 flex items-center justify-center gap-1" style={{ letterSpacing: '0.2em' }}>
                         <CalendarIcon className="w-3 h-3" />
                         Exam Date
                       </div>

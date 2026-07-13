@@ -280,7 +280,7 @@ export function LandingPageV3() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/5 shadow-[0_8px_30px_rgba(22,33,62,0.06)] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2E8B57] animate-pulse" />
-              <span className="text-xs font-semibold tracking-wider uppercase text-[#5A6478]">
+              <span className="text-xs font-semibold uppercase text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>
                 1.2M+ questions · 74 exams · AI tutor
               </span>
             </div>
@@ -361,7 +361,7 @@ export function LandingPageV3() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#16213E]/70 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 text-white">
-                <div className="text-xs font-semibold uppercase tracking-widest opacity-80">
+                <div className="text-xs font-semibold uppercase opacity-80" style={{ letterSpacing: '0.2em' }}>
                   ALL EXAMS. ONE PLATFORM.
                 </div>
                 <div className="font-heading text-2xl font-bold mt-1">
@@ -392,7 +392,7 @@ export function LandingPageV3() {
         <section id="features" className="py-16 bg-[#FAF8F5]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+              <div className="text-xs font-bold uppercase text-[#F26A4B] mb-2" style={{ letterSpacing: '0.2em' }}>
                 STUDY MODES
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E]">
@@ -529,7 +529,7 @@ export function LandingPageV3() {
         <section id="exams" className="py-8" data-testid="exam-categories-section">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B]">
+              <div className="text-xs font-bold uppercase text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>
                 Pick your battle
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mt-2">
@@ -571,7 +571,7 @@ export function LandingPageV3() {
                     <div className="text-xs text-[#5A6478] font-mono">{exam.learners}</div>
                   </div>
                   <div className="relative mt-6">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#5A6478]">
+                    <div className="text-xs font-bold uppercase text-[#5A6478]" style={{ letterSpacing: '0.2em' }}>
                       {exam.tagline}
                     </div>
                     <div className="font-heading text-2xl sm:text-3xl font-black text-[#16213E] mt-1">
@@ -600,7 +600,7 @@ export function LandingPageV3() {
         {/* 5. WHAT MAKES DIFFERENT - Snake Pattern */}
         <section className="pt-8 md:pt-16 pb-12 md:pb-20">
           <div className="text-center mb-12 md:mb-16">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+            <div className="text-xs font-bold uppercase text-[#F26A4B] mb-2" style={{ letterSpacing: '0.2em' }}>
               WHY KRAKKIFY
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#16213E] mb-3 md:mb-4">
@@ -908,7 +908,7 @@ export function LandingPageV3() {
 
         {/* 8. TESTIMONIALS */}
         <section className="py-16">
-          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#F26A4B] mb-2">
+          <div className="text-xs font-bold uppercase text-[#F26A4B] mb-2" style={{ letterSpacing: '0.2em' }}>
             STUDENT STORIES
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl font-black text-[#16213E] mb-8">

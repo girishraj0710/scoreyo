@@ -55,7 +55,7 @@ export async function POST(
       }
 
       // Can't rate your own deck
-      if (deck.rows[0].user_id === parseInt(userId)) {
+      if (deck.rows[0].user_id === userId) {
         return NextResponse.json(
           { error: 'Cannot rate your own deck' },
           { status: 400 }
@@ -71,7 +71,7 @@ export async function POST(
            rating = $3,
            review_text = $4,
            updated_at = NOW()`,
-        [deckId, parseInt(userId), rating, reviewText || null]
+        [deckId, userId, rating, reviewText || null]
       );
 
       // Recalculate average rating
@@ -128,12 +128,16 @@ export async function GET(
     const cookieStore = await cookies();
     const userId = cookieStore.get('krakkify-user-id')?.value;
 
+    console.log('🔍 [GET RATING] Checking if user rated deck');
+    console.log('   User ID:', userId);
+
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const resolvedParams = await params;
     const deckId = parseInt(resolvedParams.deckId);
+    console.log('   Deck ID:', deckId);
 
     const pool = getPool();
     const client = await pool.connect();
@@ -143,8 +147,15 @@ export async function GET(
         `SELECT rating, review_text, created_at, updated_at
          FROM flashcard_deck_ratings
          WHERE deck_id = $1 AND user_id = $2`,
-        [deckId, parseInt(userId)]
+        [deckId, userId]
       );
+
+      console.log('   Query result:', result.rows.length, 'rows');
+      if (result.rows.length > 0) {
+        console.log('   ✅ User has rated:', result.rows[0].rating, 'stars');
+      } else {
+        console.log('   ❌ User has not rated this deck');
+      }
 
       if (result.rows.length === 0) {
         return NextResponse.json({ hasRated: false });
@@ -161,7 +172,7 @@ export async function GET(
       client.release();
     }
   } catch (error) {
-    console.error('Error fetching user rating:', error);
+    console.error('❌ Error fetching user rating:', error);
     return NextResponse.json(
       { error: 'Failed to fetch rating' },
       { status: 500 }

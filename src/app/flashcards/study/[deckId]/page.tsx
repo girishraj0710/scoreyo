@@ -16,6 +16,8 @@ import {
   XCircle,
   Minus,
   ThumbsUp,
+  Star,
+  User,
 } from "lucide-react";
 
 interface Card {
@@ -42,6 +44,18 @@ export default function FlashcardStudyPage() {
   const [studiedCount, setStudiedCount] = useState(0);
   const [showExitModal, setShowExitModal] = useState(false);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [showRatingPrompt, setShowRatingPrompt] = useState(false);
+  const [deckRating, setDeckRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [ratingSuccess, setRatingSuccess] = useState(false);
+
+  // Deck metadata
+  const [creatorName, setCreatorName] = useState<string>("");
+  const [creatorId, setCreatorId] = useState<string>("");
+  const [averageRating, setAverageRating] = useState<number>(0);
+  const [ratingCount, setRatingCount] = useState<number>(0);
+  const [userHasRated, setUserHasRated] = useState<boolean>(false);
+  const [userPreviousRating, setUserPreviousRating] = useState<number>(0);
 
   // Track ratings for summary
   const [ratingStats, setRatingStats] = useState({
@@ -71,7 +85,47 @@ export default function FlashcardStudyPage() {
       const data = await response.json();
       setCards(data.deck.cards);
       setDeckTitle(data.deck.title);
+      setCreatorName(data.deck.creator_name || "Anonymous");
+      setCreatorId(data.deck.user_id); // Store creator's user ID
+      setAverageRating(Number(data.deck.average_rating) || 0);
+      setRatingCount(Number(data.deck.rating_count) || 0);
       setLoading(false);
+
+      // Debug: Check creator comparison
+      console.log('🔍 Creator Check:', {
+        currentUserId: user?.id,
+        creatorId: data.deck.user_id,
+        isCreator: user?.id === data.deck.user_id,
+        userIdType: typeof user?.id,
+        creatorIdType: typeof data.deck.user_id
+      });
+
+      // If user is the creator, hide rating prompt if it was somehow shown
+      if (user?.id === data.deck.user_id) {
+        console.log('👤 User is creator - hiding rating UI');
+        setShowRatingPrompt(false);
+        setUserHasRated(false); // Don't show "already rated" either
+      }
+
+      // Check if user has already rated this deck
+      console.log('🔍 Checking if user already rated deck:', deckId);
+      const ratingResponse = await fetch(`/api/flashcards/rate/${deckId}`);
+      console.log('   Response status:', ratingResponse.status);
+
+      if (ratingResponse.ok) {
+        const ratingData = await ratingResponse.json();
+        console.log('   Rating data:', ratingData);
+
+        if (ratingData.hasRated) {
+          console.log('   ✅ User HAS rated:', ratingData.rating, 'stars');
+          setUserHasRated(true);
+          setUserPreviousRating(ratingData.rating);
+        } else {
+          console.log('   ❌ User has NOT rated this deck');
+        }
+      } else {
+        console.log('   ❌ Failed to check rating:', await ratingResponse.text());
+      }
     } catch (error) {
       console.error("Error fetching deck:", error);
       router.push("/flashcards");
@@ -176,6 +230,49 @@ export default function FlashcardStudyPage() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [isFlipped, currentIndex, showExitModal]);
 
+  const handleSubmitRating = async () => {
+    if (deckRating === 0) return;
+
+    console.log('🎯 Submitting rating:', { deckId, rating: deckRating });
+
+    try {
+      const response = await fetch(`/api/flashcards/rate/${deckId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin', // Include cookies for auth
+        body: JSON.stringify({ rating: deckRating }),
+      });
+
+      console.log('📡 Response status:', response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('✅ Rating submitted successfully:', data);
+
+        // Update deck rating display
+        setAverageRating(data.rating.averageRating);
+        setRatingCount(data.rating.ratingCount);
+        setUserHasRated(true);
+        setUserPreviousRating(deckRating);
+
+        setShowRatingPrompt(false);
+        setDeckRating(0);
+        setRatingSuccess(true);
+        // Auto-hide success message after 3 seconds
+        setTimeout(() => setRatingSuccess(false), 3000);
+      } else {
+        const errorText = await response.text();
+        console.error('❌ Failed to submit rating:', errorText);
+        alert(`Failed to submit rating: ${errorText}`);
+      }
+    } catch (error) {
+      console.error('💥 Error submitting rating:', error);
+      alert('Error submitting rating. Please try again.');
+    }
+  };
+
   if (loading || userLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FAF8F5] dark:bg-slate-950">
@@ -222,7 +319,21 @@ export default function FlashcardStudyPage() {
             <h1 className="font-heading text-xl md:text-2xl font-bold text-[#16213E] dark:text-white mb-1">
               {deckTitle}
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+              {creatorName && (
+                <span className="flex items-center gap-1">
+                  <User className="w-3 h-3" />
+                  {creatorName}
+                </span>
+              )}
+              {ratingCount > 0 && (
+                <span className="flex items-center gap-1">
+                  <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                  {averageRating.toFixed(1)} ({ratingCount})
+                </span>
+              )}
+            </div>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               Card {currentIndex + 1} of {cards.length}
             </p>
           </div>
@@ -508,6 +619,87 @@ export default function FlashcardStudyPage() {
                   Next steps
                 </h3>
               </div>
+
+              {/* Rate this deck - only show if user hasn't rated yet AND is not the creator */}
+              {!userHasRated && !showRatingPrompt && !ratingSuccess && user?.id !== creatorId ? (
+                <button
+                  onClick={() => setShowRatingPrompt(true)}
+                  className="w-full px-4 py-3 mb-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <Star className="w-4 h-4" />
+                  Rate this deck
+                </button>
+              ) : userHasRated && !ratingSuccess && user?.id !== creatorId ? (
+                <div className="mb-4 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800">
+                  <div className="flex items-center justify-center gap-2">
+                    <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    <p className="text-sm font-semibold text-blue-700 dark:text-blue-300">
+                      You rated this deck {userPreviousRating} star{userPreviousRating !== 1 ? 's' : ''}
+                    </p>
+                  </div>
+                </div>
+              ) : ratingSuccess && user?.id !== creatorId ? (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-4 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800"
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-semibold text-green-700 dark:text-green-300">
+                      Thank you for rating this deck!
+                    </p>
+                  </div>
+                </motion.div>
+              ) : showRatingPrompt && user?.id !== creatorId ? (
+                <div className="mb-4 p-4 rounded-xl bg-slate-100 dark:bg-slate-800">
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 text-center">
+                    How would you rate this deck?
+                  </p>
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        onClick={() => setDeckRating(star)}
+                        onMouseEnter={() => setHoverRating(star)}
+                        onMouseLeave={() => setHoverRating(0)}
+                        className="transition-transform hover:scale-110"
+                      >
+                        <Star
+                          className={`w-8 h-8 ${
+                            star <= (hoverRating || deckRating)
+                              ? "fill-yellow-400 text-yellow-400"
+                              : "text-slate-300 dark:text-slate-600"
+                          }`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => {
+                        setShowRatingPrompt(false);
+                        setDeckRating(0);
+                      }}
+                      className="flex-1 px-4 py-2 rounded-lg text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleSubmitRating}
+                      disabled={deckRating === 0}
+                      className="flex-1 px-4 py-2 rounded-lg text-sm bg-[#F26A4B] text-white font-semibold hover:bg-[#E76F51] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              ) : null}
 
               {/* Actions */}
               <div className="flex flex-col gap-3">
