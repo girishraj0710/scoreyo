@@ -140,6 +140,40 @@ export default function StudyGuidesPage() {
     fetchExams();
   }, []);
 
+  // Auto-select user's current exam (for non-admin users)
+  useEffect(() => {
+    if (!user || !exams.length || selectedExamId) return;
+
+    // Admin/contributor users see all exams - no auto-selection
+    if (user.role === 'admin' || user.role === 'contributor') {
+      console.log('👑 Admin user - showing exam selection');
+      return;
+    }
+
+    // Regular users - auto-select their current exam
+    if (user.current_exam) {
+      // Map legacy exam IDs to current IDs (backward compatibility)
+      const examIdMap: Record<string, string> = {
+        'jee': 'jee-main',
+        'neet': 'neet-ug',
+        'upsc': 'upsc-cse',
+        'ssc': 'ssc-cgl',
+        'ibps': 'ibps-po',
+        'sbi': 'sbi-po'
+      };
+
+      const mappedExamId = examIdMap[user.current_exam] || user.current_exam;
+      const currentExamExists = filteredExams.some(e => e.id === mappedExamId);
+
+      if (currentExamExists) {
+        console.log(`✅ Auto-selecting user's current exam: ${mappedExamId} (from ${user.current_exam})`);
+        setSelectedExamId(mappedExamId);
+      } else {
+        console.warn(`⚠️  User's current exam (${user.current_exam} → ${mappedExamId}) not found in available exams`);
+      }
+    }
+  }, [user, exams, filteredExams, selectedExamId]);
+
   // Get selected exam
   const selectedExam = exams.find(exam => exam.id === selectedExamId);
 
