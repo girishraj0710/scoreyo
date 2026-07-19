@@ -55,18 +55,20 @@ export const metadata: Metadata = {
     "NCERT questions",
     "Krakkify",
   ],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://krakkify.in',
     siteName: 'Krakkify - Smart Exam Prep',
   },
+};
+
+// Viewport configuration (separate export required in Next.js 16+)
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useFilteredExams } from "@/hooks/use-exam-filter";
@@ -80,7 +80,8 @@ interface TopicContent {
   estimated_time_minutes?: number;
 }
 
-export default function StudyGuidesPage() {
+// Wrapper component that uses useSearchParams (must be wrapped in Suspense)
+function StudyGuidesContent() {
   const { user, isLoading } = useUser();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -1076,5 +1077,23 @@ export default function StudyGuidesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Main export with Suspense boundary
+export default function StudyGuidesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-[#FAF8F5] dark:bg-slate-950">
+          <div className="text-center">
+            <div className="w-12 h-12 border-4 border-[#F26A4B]/20 border-t-[#F26A4B] rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Loading study guides...</p>
+          </div>
+        </div>
+      }
+    >
+      <StudyGuidesContent />
+    </Suspense>
   );
 }
