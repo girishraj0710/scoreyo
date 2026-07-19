@@ -39,69 +39,109 @@ export function AuthLayout({ children, side = "right" }: AuthLayoutProps) {
             <span className="text-xl font-bold tracking-tight">Krakkify</span>
           </Link>
 
-          {/* Center - Illustration + Message */}
-          <div className="flex flex-col items-center justify-center space-y-8">
-            {/* Modern Illustration */}
-            <div className="relative w-full max-w-md">
-              <svg viewBox="0 0 400 320" className="w-full h-auto drop-shadow-2xl" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Background Circles */}
-                <circle cx="200" cy="160" r="140" fill="white" opacity="0.1" />
-                <circle cx="200" cy="160" r="110" fill="white" opacity="0.15" />
+          {/* Center - Floating UI Elements + Message */}
+          <div className="flex flex-col items-center justify-center space-y-12">
+            {/* Modern Floating Cards Design */}
+            <div className="relative w-full max-w-lg h-80">
+              {/* Background Glow */}
+              <div className="absolute inset-0 bg-white/5 rounded-3xl blur-3xl" />
 
-                {/* Main Book/Document */}
-                <g transform="translate(120, 80)">
-                  {/* Book Pages */}
-                  <rect x="0" y="20" width="160" height="180" rx="8" fill="white" opacity="0.95" />
-                  <rect x="5" y="25" width="150" height="170" rx="6" fill="#f8fafc" />
+              {/* Floating Card 1 - Progress Chart */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute top-8 left-8 w-48 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl"
+                style={{ transform: 'rotate(-6deg)' }}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500" />
+                  <span className="text-xs font-semibold text-gray-600">Your Progress</span>
+                </div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">87%</div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: '87%' }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+                  />
+                </div>
+              </motion.div>
 
-                  {/* Text Lines on Book */}
-                  <line x1="20" y1="50" x2="140" y2="50" stroke="#6366f1" strokeWidth="3" strokeLinecap="round" />
-                  <line x1="20" y1="70" x2="120" y2="70" stroke="#a5b4fc" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="20" y1="85" x2="135" y2="85" stroke="#a5b4fc" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="20" y1="100" x2="110" y2="100" stroke="#a5b4fc" strokeWidth="2.5" strokeLinecap="round" />
+              {/* Floating Card 2 - Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="absolute top-4 right-8 w-44 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl"
+                style={{ transform: 'rotate(4deg)' }}
+              >
+                <div className="text-sm text-gray-600 mb-2">Questions Solved</div>
+                <div className="text-4xl font-bold text-gray-900">2,847</div>
+                <div className="flex items-center gap-1 mt-2">
+                  <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  <span className="text-xs font-semibold text-green-600">+12% this week</span>
+                </div>
+              </motion.div>
 
-                  {/* Checkmark Circle */}
-                  <circle cx="80" cy="140" r="25" fill="#10b981" />
-                  <path d="M70 140 L77 147 L92 132" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                </g>
+              {/* Floating Card 3 - Streak */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="absolute bottom-8 left-12 w-40 bg-gradient-to-br from-orange-400 to-pink-500 rounded-2xl p-5 shadow-2xl"
+                style={{ transform: 'rotate(-3deg)' }}
+              >
+                <div className="text-white/90 text-sm mb-2">Daily Streak</div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C12 2 6 7 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 7 12 2 12 2ZM12 16C9.79 16 8 14.21 8 12C8 10.39 9 8.95 10.29 8.03C10.56 8.32 10.81 8.63 11.04 8.96C11.64 9.84 12 10.88 12 12C12 12.55 12.45 13 13 13C13.55 13 14 12.55 14 12C14 10.88 14.36 9.84 14.96 8.96C15.19 8.63 15.44 8.32 15.71 8.03C17 8.95 18 10.39 18 12C18 14.21 16.21 16 14 16H12Z" />
+                  </svg>
+                  <span className="text-4xl font-bold text-white">15</span>
+                </div>
+              </motion.div>
 
-                {/* Floating Elements */}
-                {/* Star 1 */}
-                <g transform="translate(60, 60)">
-                  <path d="M12 2 L14 10 L22 10 L16 15 L18 23 L12 18 L6 23 L8 15 L2 10 L10 10 Z" fill="#fbbf24" opacity="0.9" />
-                </g>
+              {/* Floating Card 4 - Achievement */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="absolute bottom-12 right-12 w-36 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl"
+                style={{ transform: 'rotate(5deg)' }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-2">
+                  <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                  </svg>
+                </div>
+                <div className="text-xs text-center font-semibold text-gray-900">Top 5%</div>
+                <div className="text-xs text-center text-gray-600">Nationwide</div>
+              </motion.div>
 
-                {/* Star 2 */}
-                <g transform="translate(320, 100)">
-                  <path d="M12 2 L14 10 L22 10 L16 15 L18 23 L12 18 L6 23 L8 15 L2 10 L10 10 Z" fill="#fbbf24" opacity="0.8" />
-                </g>
-
-                {/* Bulb Icon */}
-                <g transform="translate(300, 220)">
-                  <circle cx="20" cy="15" r="12" fill="white" opacity="0.9" />
-                  <circle cx="20" cy="15" r="8" fill="#fbbf24" />
-                  <rect x="17" y="25" width="6" height="4" rx="1" fill="white" opacity="0.8" />
-                </g>
-
-                {/* Trophy Icon */}
-                <g transform="translate(40, 220)">
-                  <ellipse cx="25" cy="35" rx="20" ry="4" fill="white" opacity="0.2" />
-                  <path d="M15 10 L15 20 Q15 28 25 32 L35 32 Q45 28 45 20 L45 10 Z" fill="white" opacity="0.95" />
-                  <rect x="22" y="32" width="6" height="8" fill="white" opacity="0.9" />
-                  <ellipse cx="25" cy="8" rx="10" ry="3" fill="#fbbf24" />
-                </g>
-
-                {/* Animated Particles */}
-                <circle cx="90" cy="140" r="3" fill="white" opacity="0.6">
-                  <animate attributeName="cy" values="140;120;140" dur="3s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="310" cy="180" r="2.5" fill="white" opacity="0.5">
-                  <animate attributeName="cy" values="180;160;180" dur="4s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="150" cy="60" r="2" fill="white" opacity="0.4">
-                  <animate attributeName="cy" values="60;40;60" dur="5s" repeatCount="indefinite" />
-                </circle>
-              </svg>
+              {/* Decorative Dots */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: [0.2, 0.5, 0.2],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 3,
+                    delay: i * 0.3,
+                    repeat: Infinity
+                  }}
+                  className="absolute w-2 h-2 bg-white rounded-full"
+                  style={{
+                    top: `${20 + Math.random() * 60}%`,
+                    left: `${10 + Math.random() * 80}%`,
+                  }}
+                />
+              ))}
             </div>
 
             {/* Text Content */}
@@ -112,7 +152,7 @@ export function AuthLayout({ children, side = "right" }: AuthLayoutProps) {
                 starts here
               </h1>
               <p className="text-lg text-white/90 leading-relaxed">
-                Smart preparation for every competitive exam
+                Join 10,000+ students achieving their exam goals
               </p>
             </div>
           </div>
