@@ -63,144 +63,185 @@ export function AuthLayout({ children, side = "right" }: AuthLayoutProps) {
             © 2026 Krakkify
           </div>
         </div>
+
+        {/* Floating Badges */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="absolute top-32 left-12 bg-white/10 backdrop-blur-md rounded-xl shadow-xl px-4 py-3 border border-white/20"
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-sm font-semibold text-white">10K+ Students</span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 1.3 }}
+          className="absolute bottom-32 left-12 bg-yellow-400/20 backdrop-blur-md rounded-xl shadow-xl px-4 py-3 border border-yellow-400/30"
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+            <span className="text-sm font-semibold text-white">Top Rated</span>
+          </div>
+        </motion.div>
+
+        {/* Large Colorful 3D Illustration - Bottom Right of Left Panel */}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              {/* Glow Effects */}
+              <defs>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <linearGradient id="bookGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FF6B9D" />
+                  <stop offset="100%" stopColor="#C44569" />
+                </linearGradient>
+                <linearGradient id="bookGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFA502" />
+                  <stop offset="100%" stopColor="#FF6348" />
+                </linearGradient>
+                <linearGradient id="bookGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFC312" />
+                  <stop offset="100%" stopColor="#F79F1F" />
+                </linearGradient>
+                <linearGradient id="tabletGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#6C5CE7" />
+                  <stop offset="100%" stopColor="#A29BFE" />
+                </linearGradient>
+              </defs>
+
+              {/* Large Tablet/Device - Center */}
+              <g transform="translate(150, 250)">
+                {/* Shadow */}
+                <rect x="10" y="310" width="300" height="20" rx="10" fill="#000000" opacity="0.2" />
+
+                {/* Tablet body */}
+                <rect x="0" y="0" width="300" height="280" rx="20" fill="url(#tabletGradient)" />
+                <rect x="0" y="0" width="300" height="280" rx="20" fill="#000000" opacity="0.1" />
+
+                {/* Screen bezel */}
+                <rect x="15" y="15" width="270" height="250" rx="12" fill="#1A1A2E" />
+
+                {/* Screen content */}
+                <rect x="25" y="25" width="250" height="230" rx="8" fill="#16213E" />
+
+                {/* Quiz interface on screen */}
+                <g opacity="0.9">
+                  {/* Question card */}
+                  <rect x="40" y="45" width="220" height="80" rx="8" fill="#0F3460" />
+                  <rect x="50" y="55" width="150" height="8" rx="4" fill="#E94560" opacity="0.8" />
+                  <rect x="50" y="70" width="180" height="6" rx="3" fill="#E94560" opacity="0.5" />
+                  <rect x="50" y="82" width="160" height="6" rx="3" fill="#E94560" opacity="0.5" />
+
+                  {/* Options */}
+                  <rect x="40" y="140" width="220" height="35" rx="8" fill="#FFC312" opacity="0.2" stroke="#FFC312" strokeWidth="2" />
+                  <rect x="40" y="185" width="220" height="35" rx="8" fill="#0F3460" stroke="#533483" strokeWidth="1" />
+                  <rect x="40" y="230" width="220" height="35" rx="8" fill="#0F3460" stroke="#533483" strokeWidth="1" />
+                </g>
+
+                {/* Home button */}
+                <circle cx="150" cy="295" r="8" fill="#0F3460" opacity="0.3" />
+              </g>
+
+              {/* Large Book Stack - Left Side */}
+              <g transform="translate(50, 380)">
+                {/* Bottom Book - Pink Gradient */}
+                <g>
+                  <rect x="5" y="85" width="180" height="15" rx="3" fill="#000000" opacity="0.15" />
+                  <path d="M0 20 L180 10 L180 80 L0 90 Z" fill="url(#bookGradient1)" />
+                  <path d="M0 20 L180 10 L195 20 L15 30 Z" fill="#FF8FA3" opacity="0.9" />
+                  <rect x="0" y="20" width="15" height="70" fill="#C44569" />
+                  {/* Book details */}
+                  <rect x="20" y="35" width="3" height="50" fill="#FFFFFF" opacity="0.3" />
+                </g>
+
+                {/* Middle Book - Orange Gradient */}
+                <g transform="translate(10, -35)">
+                  <path d="M0 20 L160 15 L160 75 L0 80 Z" fill="url(#bookGradient2)" />
+                  <path d="M0 20 L160 15 L172 23 L12 28 Z" fill="#FFB142" opacity="0.9" />
+                  <rect x="0" y="20" width="12" height="60" fill="#FF6348" />
+                </g>
+
+                {/* Top Book - Yellow Gradient */}
+                <g transform="translate(15, -65)">
+                  <path d="M0 20 L150 18 L150 68 L0 70 Z" fill="url(#bookGradient3)" />
+                  <path d="M0 20 L150 18 L160 24 L10 26 Z" fill="#FFD32A" opacity="0.9" />
+                  <rect x="0" y="20" width="10" height="50" fill="#EE5A6F" />
+                </g>
+              </g>
+
+              {/* Floating Notebook - Top Left */}
+              <g transform="translate(80, 150)">
+                <rect x="3" y="3" width="100" height="130" rx="6" fill="#000000" opacity="0.15" />
+                <rect x="0" y="0" width="100" height="130" rx="6" fill="#74B9FF" />
+                <rect x="0" y="0" width="15" height="130" rx="6" fill="#0984E3" />
+                {/* Spiral binding */}
+                <circle cx="12" cy="20" r="3" fill="#FFFFFF" opacity="0.4" />
+                <circle cx="12" cy="40" r="3" fill="#FFFFFF" opacity="0.4" />
+                <circle cx="12" cy="60" r="3" fill="#FFFFFF" opacity="0.4" />
+                <circle cx="12" cy="80" r="3" fill="#FFFFFF" opacity="0.4" />
+                <circle cx="12" cy="100" r="3" fill="#FFFFFF" opacity="0.4" />
+                {/* Lines */}
+                <line x1="25" y1="30" x2="85" y2="30" stroke="#FFFFFF" strokeWidth="2" opacity="0.6" />
+                <line x1="25" y1="45" x2="85" y2="45" stroke="#FFFFFF" strokeWidth="2" opacity="0.6" />
+                <line x1="25" y1="60" x2="85" y2="60" stroke="#FFFFFF" strokeWidth="2" opacity="0.6" />
+                <line x1="25" y1="75" x2="85" y2="75" stroke="#FFFFFF" strokeWidth="2" opacity="0.6" />
+              </g>
+
+              {/* Graduation Cap - Top Right */}
+              <g transform="translate(420, 120)">
+                <ellipse cx="60" cy="110" rx="50" ry="12" fill="#000000" opacity="0.15" />
+                <path d="M60 50 L120 58 L60 66 L0 58 Z" fill="#2C3E50" />
+                <path d="M60 50 L120 58 L120 63 L60 71 Z" fill="#34495E" />
+                <circle cx="60" cy="50" r="12" fill="#2C3E50" />
+                <line x1="60" y1="50" x2="60" y2="85" stroke="#FFC312" strokeWidth="3" />
+                <circle cx="60" cy="88" r="6" fill="#F79F1F" />
+                <path d="M57 90 L63 90 L60 95 Z" fill="#F79F1F" />
+              </g>
+
+              {/* Large Pen - Right Side */}
+              <g transform="translate(480, 340)">
+                <rect x="3" y="3" width="18" height="160" rx="9" fill="#000000" opacity="0.15" />
+                <rect x="0" y="0" width="18" height="160" rx="9" fill="#A29BFE" />
+                <rect x="0" y="0" width="18" height="40" rx="9" fill="#6C5CE7" />
+                <circle cx="9" cy="20" r="4" fill="#FFFFFF" opacity="0.4" />
+                <path d="M0 160 L9 175 L18 160 Z" fill="#2C3E50" />
+              </g>
+
+              {/* Colorful Sparkles */}
+              <g opacity="0.8" filter="url(#glow)">
+                <path d="M520 220 L524 232 L536 236 L524 240 L520 252 L516 240 L504 236 L516 232 Z" fill="#FFC312" />
+                <path d="M120 320 L123 328 L131 331 L123 334 L120 342 L117 334 L109 331 L117 328 Z" fill="#FF6B9D" />
+                <path d="M480 460 L484 472 L496 476 L484 480 L480 492 L476 480 L464 476 L476 472 Z" fill="#74B9FF" />
+                <path d="M200 120 L202 126 L208 128 L202 130 L200 136 L198 130 L192 128 L198 126 Z" fill="#A29BFE" />
+                <path d="M380 180 L382 185 L387 187 L382 189 L380 194 L378 189 L373 187 L378 185 Z" fill="#FFA502" />
+              </g>
+
+              {/* Floating circles for depth */}
+              <circle cx="550" cy="480" r="30" fill="#FFD32A" opacity="0.15" />
+              <circle cx="100" cy="480" r="40" fill="#FF6B9D" opacity="0.1" />
+              <circle cx="500" cy="280" r="25" fill="#74B9FF" opacity="0.12" />
+            </svg>
+          </motion.div>
+        </div>
       </motion.div>
 
-      {/* 3D Educational Illustration - Cuts through divider */}
-      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative w-[450px] h-[450px]"
-        >
-          {/* 3D Illustration Container */}
-          <div className="w-full h-full relative">
-            <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-              {/* Indigo Base Surface (matches left panel) */}
-              <ellipse cx="250" cy="400" rx="200" ry="30" fill="#4F46E5" opacity="0.3" />
-
-              {/* Book Stack - Bottom Book (Purple) */}
-              <g transform="translate(140, 300)">
-                {/* Shadow */}
-                <rect x="2" y="52" width="160" height="20" rx="2" fill="#000000" opacity="0.15" />
-                {/* Book spine */}
-                <path d="M0 10 L160 0 L160 50 L0 60 Z" fill="#7C3AED" />
-                {/* Book top */}
-                <path d="M0 10 L160 0 L170 5 L10 15 Z" fill="#8B5CF6" />
-                {/* Book front */}
-                <rect x="0" y="10" width="10" height="50" fill="#6D28D9" />
-              </g>
-
-              {/* Book Stack - Middle Book (Pink) */}
-              <g transform="translate(145, 270)">
-                {/* Book spine */}
-                <path d="M0 10 L150 5 L150 45 L0 50 Z" fill="#EC4899" />
-                {/* Book top */}
-                <path d="M0 10 L150 5 L160 10 L10 15 Z" fill="#F472B6" />
-                {/* Book front */}
-                <rect x="0" y="10" width="10" height="40" fill="#DB2777" />
-              </g>
-
-              {/* Book Stack - Top Book (Yellow) */}
-              <g transform="translate(150, 245)">
-                {/* Book spine */}
-                <path d="M0 10 L140 8 L140 38 L0 40 Z" fill="#FBBF24" />
-                {/* Book top */}
-                <path d="M0 10 L140 8 L148 12 L8 14 Z" fill="#FCD34D" />
-                {/* Book front */}
-                <rect x="0" y="10" width="8" height="30" fill="#F59E0B" />
-              </g>
-
-              {/* Tablet/iPad */}
-              <g transform="translate(200, 200)">
-                {/* Shadow */}
-                <rect x="4" y="124" width="140" height="10" rx="5" fill="#000000" opacity="0.2" />
-                {/* Tablet body */}
-                <rect x="0" y="0" width="140" height="120" rx="8" fill="#1F2937" stroke="#374151" strokeWidth="2" />
-                {/* Screen */}
-                <rect x="8" y="8" width="124" height="104" rx="4" fill="#4F46E5" />
-                {/* Screen content - lines */}
-                <rect x="18" y="20" width="80" height="4" rx="2" fill="#818CF8" opacity="0.8" />
-                <rect x="18" y="32" width="100" height="4" rx="2" fill="#818CF8" opacity="0.6" />
-                <rect x="18" y="44" width="90" height="4" rx="2" fill="#818CF8" opacity="0.6" />
-                <rect x="18" y="56" width="70" height="4" rx="2" fill="#818CF8" opacity="0.6" />
-                {/* Quiz icon on screen */}
-                <circle cx="100" cy="75" r="18" fill="#FCD34D" opacity="0.9" />
-                <path d="M95 70 L100 75 L105 65" stroke="#1F2937" strokeWidth="3" strokeLinecap="round" fill="none" />
-              </g>
-
-              {/* Graduation Cap */}
-              <g transform="translate(320, 180)">
-                {/* Shadow */}
-                <ellipse cx="40" cy="75" rx="35" ry="8" fill="#000000" opacity="0.15" />
-                {/* Cap base (board) */}
-                <path d="M40 40 L80 45 L40 50 L0 45 Z" fill="#1F2937" />
-                <path d="M40 40 L80 45 L80 48 L40 53 Z" fill="#374151" />
-                {/* Cap top (tassel holder) */}
-                <circle cx="40" cy="40" r="8" fill="#1F2937" />
-                {/* Tassel */}
-                <line x1="40" y1="40" x2="40" y2="60" stroke="#FBBF24" strokeWidth="2" />
-                <circle cx="40" cy="62" r="4" fill="#F59E0B" />
-              </g>
-
-              {/* Floating Notebook */}
-              <g transform="translate(100, 160)">
-                {/* Notebook */}
-                <rect x="0" y="0" width="60" height="80" rx="3" fill="#60A5FA" />
-                <rect x="0" y="0" width="8" height="80" fill="#3B82F6" />
-                {/* Lines */}
-                <line x1="15" y1="20" x2="50" y2="20" stroke="#DBEAFE" strokeWidth="1.5" />
-                <line x1="15" y1="30" x2="50" y2="30" stroke="#DBEAFE" strokeWidth="1.5" />
-                <line x1="15" y1="40" x2="50" y2="40" stroke="#DBEAFE" strokeWidth="1.5" />
-                <line x1="15" y1="50" x2="50" y2="50" stroke="#DBEAFE" strokeWidth="1.5" />
-              </g>
-
-              {/* Floating Pen */}
-              <g transform="translate(360, 240)">
-                <rect x="0" y="0" width="8" height="70" rx="4" fill="#8B5CF6" />
-                <rect x="0" y="0" width="8" height="20" rx="4" fill="#A78BFA" />
-                <path d="M0 70 L4 80 L8 70 Z" fill="#1F2937" />
-              </g>
-
-              {/* Sparkle Stars */}
-              <g opacity="0.6">
-                <path d="M420 120 L422 126 L428 128 L422 130 L420 136 L418 130 L412 128 L418 126 Z" fill="#FCD34D" />
-                <path d="M100 240 L101 244 L105 245 L101 246 L100 250 L99 246 L95 245 L99 244 Z" fill="#F472B6" />
-                <path d="M380 320 L382 325 L387 327 L382 329 L380 334 L378 329 L373 327 L378 325 Z" fill="#818CF8" />
-                <path d="M130 360 L131 363 L134 364 L131 365 L130 368 L129 365 L126 364 L129 363 Z" fill="#60A5FA" />
-              </g>
-            </svg>
-          </div>
-
-          {/* Floating badge - 10K+ Students */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-            className="absolute top-8 right-4 bg-white dark:bg-slate-800 rounded-xl shadow-xl px-4 py-3 border border-slate-100 dark:border-slate-700"
-          >
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-semibold text-slate-900 dark:text-white">10K+ Students</span>
-            </div>
-          </motion.div>
-
-          {/* Floating badge - Top Rated */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="absolute bottom-8 left-4 bg-[#4F46E5] rounded-xl shadow-xl px-4 py-3"
-          >
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-              </svg>
-              <span className="text-sm font-semibold text-white">Top Rated</span>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
 
       {/* Right Side - Clean Form */}
       <motion.div
