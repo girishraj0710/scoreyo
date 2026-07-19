@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef, Suspense } from 'react';
 import { useUser } from '@/context/user-context';
 import { useSearchParams } from 'next/navigation';
 import { getAllExams, getExamById, examCategories } from '@/lib/exams';
@@ -32,7 +32,8 @@ interface StudyMaterial {
 
 type Step = 'exam' | 'subject' | 'materials';
 
-export default function StudyMaterialsPage() {
+// Content component that uses useSearchParams (must be wrapped in Suspense)
+function StudyMaterialsContent() {
   const { user } = useUser();
   const searchParams = useSearchParams();
 
@@ -729,5 +730,23 @@ export default function StudyMaterialsPage() {
         )}
       </div>
     </AccessibilityWrapper>
+  );
+}
+
+// Main export with Suspense boundary
+export default function StudyMaterialsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-[#FAF8F5] dark:bg-slate-950">
+          <div className="text-center">
+            <div className="w-12 h-12 border-4 border-[#F26A4B]/20 border-t-[#F26A4B] rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Loading study materials...</p>
+          </div>
+        </div>
+      }
+    >
+      <StudyMaterialsContent />
+    </Suspense>
   );
 }
