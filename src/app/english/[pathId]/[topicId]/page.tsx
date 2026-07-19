@@ -6,6 +6,7 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPathById, getTopicById } from "@/lib/english-content";
 import { getTopicIcon } from "@/lib/english-icons";
+import { trackTopicVisit } from "@/lib/english-activity-tracker";
 import { ChevronLeft, Play, Clock, BookOpen, Award, Target, GraduationCap } from "lucide-react";
 
 export default function EnglishTopicPage() {
@@ -35,8 +36,17 @@ export default function EnglishTopicPage() {
   useEffect(() => {
     if (user && path && topic) {
       fetchProgress();
+
+      // Track activity when user visits this topic
+      trackTopicVisit(
+        user.id,
+        topicId,
+        topic.name,
+        pathId,
+        path.name
+      );
     }
-  }, [user, path, topic]);
+  }, [user, path, topic, pathId, topicId]);
 
   const fetchProgress = async () => {
     try {

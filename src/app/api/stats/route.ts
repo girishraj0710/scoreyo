@@ -12,7 +12,11 @@ import { getCached, setCached, CacheKeys } from "@/lib/redis";
 export async function GET(request: NextRequest) {
   const userId = request.cookies.get("krakkify-user-id")?.value;
 
+  console.log('[Stats API] === REQUEST START ===');
+  console.log('[Stats API] Cookie userId:', userId);
+
   if (!userId) {
+    console.log('[Stats API] ❌ No userId in cookie');
     return NextResponse.json(
       { error: "Authentication required" },
       { status: 401 }
@@ -20,26 +24,25 @@ export async function GET(request: NextRequest) {
   }
 
   const examId = request.nextUrl.searchParams.get("examId");
+  console.log('[Stats API] Exam filter:', examId || 'none');
 
   try {
-    // TEMPORARILY DISABLED CACHE FOR DEBUG
-    // Try cache first (5-minute TTL - balances freshness vs performance)
-    // const cacheKey = CacheKeys.userStats(userId);
-    // const cached = await getCached<any>(cacheKey);
-
-    // if (cached && (!examId || cached.examId === examId)) {
-    //   console.log(`[Stats API] ✓ Cache hit for user ${userId}`);
-    //   return NextResponse.json(cached);
-    // }
-
-    console.log(`[Stats API] CACHE DISABLED - Querying DB for user ${userId}`);
+    console.log('[Stats API] Querying DB for user:', userId);
 
     // Query from database
     const stats = await getUserStats(userId);
 
-    console.log(`[Stats API] getUserStats returned streak: ${stats.streak}, bestStreak: ${stats.bestStreak}`);
+    console.log('[Stats API] ✅ Stats received:', {
+      totalSessions: stats.totalSessions,
+      totalQuestions: stats.totalQuestions,
+      accuracy: stats.accuracy,
+      streak: stats.streak
+    });
+
     const recentSessions = await getRecentSessions(userId, 20);
     const reviewTopics = await getTopicsForReview(userId);
+
+    console.log('[Stats API] Recent sessions count:', recentSessions?.length || 0);
 
     let mastery: any[] = [];
     let weakTopics: any[] = [];
@@ -60,13 +63,12 @@ export async function GET(request: NextRequest) {
       examId: examId || null,
     };
 
-    // CACHE DISABLED FOR DEBUG
-    // Cache for 5 minutes (300 seconds)
-    // await setCached(cacheKey, response, 300);
+    console.log('[Stats API] === RESPONSE ===');
+    console.log('[Stats API] Sending response with totalSessions:', response.stats.totalSessions);
 
     return NextResponse.json(response);
   } catch (error) {
-    console.error("Stats error:", error);
+    console.error("[Stats API] ❌ ERROR:", error);
     return NextResponse.json(
       { error: "Failed to fetch stats" },
       { status: 500 }

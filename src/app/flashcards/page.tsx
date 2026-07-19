@@ -32,6 +32,49 @@ import { RatingModal } from "@/components/rating-modal";
 import { SuccessModal } from "@/components/success-modal";
 import { ErrorModal } from "@/components/error-modal";
 
+// Generate consistent color for user avatar based on name
+const getAvatarGradient = (name: string) => {
+  const colors = [
+    { from: '#E76F51', to: '#F4A261' }, // Coral to Sand
+    { from: '#2A9D8F', to: '#264653' }, // Teal to Navy
+    { from: '#E9C46A', to: '#F4A261' }, // Gold to Sand
+    { from: '#F26A4B', to: '#E76F51' }, // Orange to Coral
+    { from: '#8B5CF6', to: '#6366F1' }, // Purple to Indigo
+    { from: '#10B981', to: '#059669' }, // Green to Emerald
+    { from: '#F59E0B', to: '#D97706' }, // Amber to Yellow
+    { from: '#EF4444', to: '#DC2626' }, // Red to Rose
+    { from: '#3B82F6', to: '#2563EB' }, // Blue to Sky
+    { from: '#EC4899', to: '#DB2777' }, // Pink to Fuchsia
+  ];
+
+  // Generate index from name
+  const index = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;
+  return colors[index];
+};
+
+// Generate consistent background color for card decorative circle
+const getCardAccentColor = (subject: string, topic: string) => {
+  const colors = [
+    '#E76F51', // Coral
+    '#2A9D8F', // Teal
+    '#E9C46A', // Gold
+    '#F26A4B', // Orange
+    '#8B5CF6', // Purple
+    '#10B981', // Green
+    '#F59E0B', // Amber
+    '#EF4444', // Red
+    '#3B82F6', // Blue
+    '#EC4899', // Pink
+    '#06B6D4', // Cyan
+    '#84CC16', // Lime
+  ];
+
+  // Generate index from subject + topic for variety
+  const text = (subject + topic).toLowerCase();
+  const index = text.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;
+  return colors[index];
+};
+
 export default function FlashcardsPage() {
   const { user, isLoading } = useUser();
   const router = useRouter();
@@ -54,6 +97,13 @@ export default function FlashcardsPage() {
   const [isTypingExam, setIsTypingExam] = useState(false);
   const [isTypingSubject, setIsTypingSubject] = useState(false);
   const [isTypingTopic, setIsTypingTopic] = useState(false);
+
+  // Show all decks or just top 6
+  const [showAllDecks, setShowAllDecks] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const CARDS_PER_PAGE = 12; // 4 rows × 3 columns
 
   // Deck generation and display states
   const [isGenerating, setIsGenerating] = useState(false);
@@ -277,6 +327,26 @@ export default function FlashcardsPage() {
     if (deckFilter === 'popular') return (deck.analytics?.studiesToday || 0) > 5;
     return true;
   });
+
+  // Sort decks by most rated and most studied
+  const sortedDecks = [...filteredDecks].sort((a, b) => {
+    // Priority 1: Most rated (rating count)
+    const ratingDiff = (b.ratingCount || 0) - (a.ratingCount || 0);
+    if (ratingDiff !== 0) return ratingDiff;
+
+    // Priority 2: Most studied (unique students)
+    const studiedDiff = (b.analytics?.uniqueStudents || 0) - (a.analytics?.uniqueStudents || 0);
+    if (studiedDiff !== 0) return studiedDiff;
+
+    // Priority 3: Highest rating
+    return (b.averageRating || 0) - (a.averageRating || 0);
+  });
+
+  // Pagination logic
+  const totalPages = showAllDecks ? Math.ceil(sortedDecks.length / CARDS_PER_PAGE) : 1;
+  const startIndex = showAllDecks ? (currentPage - 1) * CARDS_PER_PAGE : 0;
+  const endIndex = showAllDecks ? startIndex + CARDS_PER_PAGE : 6;
+  const displayedDecks = sortedDecks.slice(startIndex, endIndex);
 
   // Count deck types
   const myDecksCount = realDecks.filter(d => d.isMine).length;
@@ -705,7 +775,7 @@ export default function FlashcardsPage() {
 
         {/* Filter Tabs */}
         {realDecks.length > 0 && (
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 relative z-10">
             <div className="flex gap-2">
               <button
                 onClick={() => setDeckFilter('all')}
@@ -741,12 +811,29 @@ export default function FlashcardsPage() {
                 </button>
               )}
             </div>
+
+            {/* Explore All Button */}
+            {!showAllDecks && sortedDecks.length > 6 && (
+              <div
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setShowAllDecks(true);
+                  setCurrentPage(1); // Reset to first page when exploring all
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-[#E76F51] text-[#E76F51] font-semibold text-sm hover:bg-[#E76F51] hover:text-white transition-all cursor-pointer select-none"
+                style={{ zIndex: 100, pointerEvents: 'auto' }}
+              >
+                Explore All ({sortedDecks.length})
+                <ChevronRight className="w-4 h-4" />
+              </div>
+            )}
           </div>
         )}
 
         {/* Deck Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {(filteredDecks.length > 0 ? filteredDecks : sampleDecks).map((deck, index) => (
+          {(displayedDecks.length > 0 ? displayedDecks : sampleDecks).map((deck, index) => (
             <motion.div
               key={deck.id || index}
               initial={{ opacity: 0, y: 12 }}
@@ -759,7 +846,7 @@ export default function FlashcardsPage() {
                 {/* Quarter Circle Decorative Element - Top Right */}
                 <div
                   className="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-15 group-hover:opacity-25 transition-opacity"
-                  style={{ backgroundColor: deck.examColor }}
+                  style={{ backgroundColor: getCardAccentColor(deck.subject || '', deck.topic || '') }}
                 />
 
                 {/* Content */}
@@ -768,7 +855,7 @@ export default function FlashcardsPage() {
                   <div className="flex items-center justify-between mb-2">
                     <p
                       className="text-[10px] font-bold uppercase transition-colors"
-                      style={{ letterSpacing: '0.2em', color: deck.examColor }}
+                      style={{ letterSpacing: '0.2em', color: getCardAccentColor(deck.subject || '', deck.topic || '') }}
                     >
                       {deck.exam}
                     </p>
@@ -833,9 +920,19 @@ export default function FlashcardsPage() {
                   <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
                     {deck.creator && (
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#F26A4B] to-[#E76F51] flex items-center justify-center text-white text-xs font-bold">
-                          {deck.creator.name?.[0] || '?'}
-                        </div>
+                        {(() => {
+                          const gradient = getAvatarGradient(deck.creator.name || deck.creator.username || 'User');
+                          return (
+                            <div
+                              className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                              style={{
+                                background: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`
+                              }}
+                            >
+                              {deck.creator.name?.[0] || '?'}
+                            </div>
+                          );
+                        })()}
                         <span className="text-sm text-slate-600 dark:text-slate-400">
                           {deck.isMine ? 'You' : deck.creator.username}
                         </span>
@@ -875,6 +972,42 @@ export default function FlashcardsPage() {
             </motion.div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {showAllDecks && totalPages > 1 && (
+          <div className="flex items-center justify-end gap-3 mt-8">
+            <span className="text-sm text-slate-600 dark:text-slate-400">
+              Page {currentPage} of {totalPages}
+            </span>
+
+            <div className="flex gap-2">
+              {/* Previous Button */}
+              <button
+                onClick={() => {
+                  setCurrentPage(prev => Math.max(1, prev - 1));
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={() => {
+                  setCurrentPage(prev => Math.min(totalPages, prev + 1));
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-lg bg-[#E76F51] hover:bg-[#d96043] text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Stats Section */}
         <div className="mt-12 grid md:grid-cols-3 gap-5">

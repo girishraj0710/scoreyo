@@ -67,9 +67,9 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedExamFilter, setSelectedExamFilter] = useState<string>("");
 
-  // Redirect contributors to contributor portal
+  // Redirect ONLY contributors (not admin) to contributor portal
   useEffect(() => {
-    if (!userLoading && user && (user.role === 'contributor' || isAdmin(user.role, user.email))) {
+    if (!userLoading && user && user.role === 'contributor') {
       router.push('/contributor');
     }
   }, [user, userLoading, router]);
@@ -77,7 +77,19 @@ export default function DashboardPage() {
   // Single-exam-focus: Set filter to current_exam for non-admin users
   useEffect(() => {
     if (user && !isAdminUser && user.current_exam) {
-      setSelectedExamFilter(user.current_exam);
+      // Map legacy exam IDs to current IDs (backward compatibility)
+      const examIdMap: Record<string, string> = {
+        'jee': 'jee-main',
+        'neet': 'neet-ug',
+        'upsc': 'upsc-cse',
+        'ssc': 'ssc-cgl',
+        'ibps': 'ibps-po',
+        'sbi': 'sbi-po'
+      };
+
+      const mappedExamId = examIdMap[user.current_exam] || user.current_exam;
+      console.log(`[Dashboard] Setting exam filter: ${user.current_exam} → ${mappedExamId}`);
+      setSelectedExamFilter(mappedExamId);
     }
   }, [user, isAdminUser]);
 
@@ -87,22 +99,39 @@ export default function DashboardPage() {
       const url = selectedExamFilter
         ? `/api/stats?examId=${selectedExamFilter}`
         : "/api/stats";
+      console.log('[Dashboard] Fetching stats from:', url);
       const res = await fetch(url);
+
+      if (!res.ok) {
+        console.error('[Dashboard] Stats API error:', res.status, res.statusText);
+        return;
+      }
+
       const data = await res.json();
+      console.log('[Dashboard] Stats received:', {
+        totalSessions: data.stats?.totalSessions,
+        totalQuestions: data.stats?.totalQuestions,
+        streak: data.stats?.streak,
+        examId: data.examId
+      });
+
       setStats(data.stats);
       setMastery(data.mastery || []);
       setRecentSessions(data.recentSessions || []);
       setWeakTopics(data.weakTopics || []);
-    } catch {
-      // ignore
+    } catch (error) {
+      console.error('[Dashboard] Failed to load stats:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    loadStats();
-  }, [selectedExamFilter]);
+    if (user) {
+      console.log('[Dashboard] Loading stats for user:', user.email, 'examFilter:', selectedExamFilter);
+      loadStats();
+    }
+  }, [selectedExamFilter, user]);
 
   // Pull-to-refresh for mobile
   usePullToRefresh(loadStats);
@@ -142,8 +171,8 @@ export default function DashboardPage() {
     );
   }
 
-  // Prevent contributors from seeing student dashboard
-  if (user && (user.role === 'contributor' || isAdmin(user.role, user.email))) {
+  // Prevent ONLY contributors (not admin) from seeing student dashboard
+  if (user && user.role === 'contributor') {
     return null;
   }
 

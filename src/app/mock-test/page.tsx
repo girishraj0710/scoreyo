@@ -49,26 +49,18 @@ export default function MockTestPage() {
   const router = useRouter();
   const examFilter = useExamFilter(); // Single-exam-focus
 
-  // Redirect contributors to contributor portal
+  // Redirect ONLY contributors (not admin) to contributor portal
   useEffect(() => {
-    if (!userLoading && user && ['contributor', 'admin'].includes(user.role || '')) {
+    if (!userLoading && user && user.role === 'contributor') {
       router.push('/contributor');
     }
   }, [user, userLoading, router]);
 
   const [pageState, setPageState] = useState<PageState>("select");
   const [testType, setTestType] = useState<TestType>("short");
-  // Modal-local Short/Full selection. Initialized from the page-level
-  // `testType` when the modal opens, but toggling inside the modal does
-  // NOT propagate back to the page tab.
-  const [modalTestType, setModalTestType] = useState<TestType>("short");
   const [configs, setConfigs] = useState<MockTestConfig[]>([]);
   const [history, setHistory] = useState<any[]>([]);
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
-  const [selectedExam, setSelectedExam] = useState<string | null>(null);
-  const [selectedTestNumber, setSelectedTestNumber] = useState<number>(1);
-  const [testCapacity, setTestCapacity] = useState<Record<string, number>>({});
-  const [showExamModal, setShowExamModal] = useState(false);
   const [showCustomBuilder, setShowCustomBuilder] = useState(false);
 
   // Test state
@@ -113,7 +105,7 @@ export default function MockTestPage() {
     return () => document.removeEventListener('click', handleGlobalClick, true);
   }, [pageState]);
 
-  // Load configs, capacity, and history
+  // Load configs and history
   useEffect(() => {
     if (!user) {
       setIsLoadingConfigs(false);
@@ -121,18 +113,13 @@ export default function MockTestPage() {
     }
     async function load() {
       try {
-        const [configsRes, capacityRes, historyRes] = await Promise.all([
+        const [configsRes, historyRes] = await Promise.all([
           fetch("/api/mock-test?action=configs"),
-          fetch("/api/mock-test?action=capacity"),
           fetch("/api/mock-test"),
         ]);
         if (configsRes.ok) {
           const data = await configsRes.json();
           setConfigs(data.configs);
-        }
-        if (capacityRes.ok) {
-          const data = await capacityRes.json();
-          setTestCapacity(data.capacity);
         }
         if (historyRes.ok) {
           const data = await historyRes.json();
@@ -170,26 +157,21 @@ export default function MockTestPage() {
     return configs;
   }, [configs, testType]);
 
-  // Group configs by examId (with single-exam-focus filtering)
-  const groupedConfigs = useMemo(() => {
-    const groups: { [key: string]: MockTestConfig[] } = {};
-
+  // Flatten configs - each test as a separate card (with single-exam-focus filtering)
+  const flattenedConfigs = useMemo(() => {
     // Filter configs by exam if user is not admin
     const filteredConfigs = examFilter
       ? displayConfigs.filter(config => config.examId === examFilter)
       : displayConfigs;
 
-    filteredConfigs.forEach((config) => {
-      if (!groups[config.examId]) {
-        groups[config.examId] = [];
+    // Sort by exam name, then test number
+    return filteredConfigs.sort((a, b) => {
+      if (a.examName !== b.examName) {
+        return a.examName.localeCompare(b.examName);
       }
-      groups[config.examId].push(config);
+      return a.testNumber - b.testNumber;
     });
-    Object.keys(groups).forEach((examId) => {
-      groups[examId].sort((a, b) => a.testNumber - b.testNumber);
-    });
-    return groups;
-  }, [displayConfigs]);
+  }, [displayConfigs, examFilter]);
 
   // Countdown timer
   useEffect(() => {
@@ -358,14 +340,14 @@ export default function MockTestPage() {
           <div className="flex gap-3 justify-center">
             <a href="/pricing" className="px-6 py-3 text-white font-semibold rounded-xl shadow-lg"
             style={{
-              backgroundColor: '#E76F51',
+              backgroundColor: '#16213E',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D65A3D';
+              e.currentTarget.style.backgroundColor = '#1a2744';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#E76F51';
+              e.currentTarget.style.backgroundColor = '#16213E';
             }}>
               {t("upgradeToPro")}
             </a>
@@ -389,14 +371,14 @@ export default function MockTestPage() {
           {/* Header */}
           <div className="p-6 text-white"
             style={{
-              backgroundColor: '#E76F51',
+              backgroundColor: '#16213E',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D65A3D';
+              e.currentTarget.style.backgroundColor = '#1a2744';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#E76F51';
+              e.currentTarget.style.backgroundColor = '#16213E';
             }}>
             <div className="flex items-center gap-3 mb-2">
               {exam && <ColorfulExamIcon examId={exam.id} size={64} className="text-white" />}
@@ -493,14 +475,14 @@ export default function MockTestPage() {
                 disabled={isGeneratingInBackground}
                 className="px-8 py-3 text-white font-bold rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             style={{
-              backgroundColor: '#E76F51',
+              backgroundColor: '#16213E',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D65A3D';
+              e.currentTarget.style.backgroundColor = '#1a2744';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#E76F51';
+              e.currentTarget.style.backgroundColor = '#16213E';
             }}
               >
                 {isGeneratingInBackground ? "Please wait..." : "Start Test →"}
@@ -580,13 +562,13 @@ export default function MockTestPage() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 text-white rounded-lg font-medium transition-all" style={{ backgroundColor: "#E76F51" }}
+            <button onClick={() => { setPageState("select"); setResults(null); }} className="px-6 py-2 text-white rounded-lg font-medium transition-all" style={{ backgroundColor: "#16213E" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#D65A3D";
+                e.currentTarget.style.backgroundColor = "#1a2744";
                 e.currentTarget.style.transform = "scale(1.02)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#E76F51";
+                e.currentTarget.style.backgroundColor = "#16213E";
                 e.currentTarget.style.transform = "scale(1)";
               }}
             >
@@ -785,15 +767,15 @@ export default function MockTestPage() {
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
                 className="px-5 py-2 text-sm font-medium text-white rounded-lg transition-all"
                 style={{
-                  background: "#E76F51",
-                  border: "1px solid rgba(66, 85, 255, 0.5)"
+                  background: "#16213E",
+                  border: "1px solid rgba(22, 33, 62, 0.5)"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#D65A3D";
-                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(66, 85, 255, 0.3)";
+                  e.currentTarget.style.background = "#1a2744";
+                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(22, 33, 62, 0.3)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#E76F51";
+                  e.currentTarget.style.background = "#16213E";
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
@@ -950,14 +932,14 @@ export default function MockTestPage() {
               onClick={() => setShowLoginModal(true)}
               className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
             style={{
-              backgroundColor: '#E76F51',
+              backgroundColor: '#16213E',
               transition: 'background-color 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D65A3D';
+              e.currentTarget.style.backgroundColor = '#1a2744';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#E76F51';
+              e.currentTarget.style.backgroundColor = '#16213E';
             }}
             >
               Start Mock Tests Now
@@ -1070,7 +1052,7 @@ export default function MockTestPage() {
             <p className="mb-8" style={{ color: "var(--foreground-secondary)" }}>JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="px-8 py-4 bg-[#E76F51] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#D65A3D] transition-all"
+              className="px-8 py-4 bg-[#16213E] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#1a2744] transition-all"
             >
               Get Started - It's Free
             </button>
@@ -1086,11 +1068,14 @@ export default function MockTestPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
       <div className="text-center mb-8">
+        <p className="text-sm font-semibold uppercase mb-2" style={{ color: "#E76F51", letterSpacing: "0.05em" }}>
+          MOCK TESTS
+        </p>
         <h1 className="text-4xl font-bold mb-3" style={{ color: "var(--foreground)" }}>
-          Mock Tests
+          Simulate the real thing.
         </h1>
-        <p className="max-w-2xl mx-auto" style={{ color: "var(--foreground-secondary)" }}>
-          Practice with full-length mock tests or take short practice tests to prepare for your exams
+        <p className="max-w-2xl mx-auto text-base" style={{ color: "var(--foreground-secondary)" }}>
+          Full exam interface, timed sections, and question palette. Analytics ship with your score.
         </p>
       </div>
 
@@ -1150,100 +1135,98 @@ export default function MockTestPage() {
       </div>
 
 
-      {/* Mock Test Cards */}
+      {/* Mock Test Cards - Flat List */}
       {isLoadingConfigs ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="rounded-xl p-6 h-64 shimmer" style={{ background: "var(--card-bg)" }} />
+            <div key={i} className="rounded-xl p-6 h-48 shimmer" style={{ background: "var(--card-bg)" }} />
           ))}
         </div>
-      ) : Object.keys(groupedConfigs).length === 0 ? (
+      ) : flattenedConfigs.length === 0 ? (
         <div className="text-center py-16">
           <div className="flex justify-center mb-4">
             <FileText className="w-20 h-20" style={{ color: "var(--muted)" }} />
           </div>
-          <p className="text-lg" style={{ color: "var(--muted)" }}>No mock tests found matching your search</p>
+          <p className="text-lg" style={{ color: "var(--muted)" }}>No mock tests found for your exam</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {Object.keys(groupedConfigs).map((examId) => {
-            const exam = getExamById(examId);
-            const testConfigs = groupedConfigs[examId];
-            const firstConfig = testConfigs[0];
-
-            const isSelected = selectedExam === examId;
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {flattenedConfigs.map((config) => {
+            const exam = getExamById(config.examId);
 
             return (
               <div
-                key={examId}
-                id={`exam-${examId}`}
-                onClick={() => {
-                  setSelectedExam(examId);
-                  setSelectedTestNumber(1);
-                  // Seed the modal's local Short/Full from the page-level
-                  // tab on open. Subsequent toggles inside the modal stay
-                  // local and do not bleed back into the page tab.
-                  setModalTestType(testType);
-                  setShowExamModal(true);
-                }}
+                key={`${config.examId}-${config.testNumber}`}
+                className="group rounded-xl p-5 border transition-all duration-200 hover:shadow-lg"
+                style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "0 12px 20px rgba(66, 85, 255, 0.15)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
                   e.currentTarget.style.borderColor = "#E76F51";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "initial";
                   e.currentTarget.style.borderColor = "var(--card-border)";
                 }}
-                className="group rounded-2xl p-6 border-2 transition-all duration-300 cursor-pointer"
-                style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
               >
-                {/* Header */}
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="w-16 h-16 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <ColorfulExamIcon
-                      examId={examId}
-                      size={64}
-                    />
+                {/* Exam Tag with Difficulty */}
+                <div className="flex items-center justify-between mb-1">
+                  <div className="text-xs font-semibold uppercase" style={{ color: "#E76F51" }}>
+                    {config.examName}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-lg mb-1" style={{ color: "var(--foreground)" }}>{firstConfig.examName}</h3>
-                    <p className="text-xs line-clamp-1" style={{ color: "var(--muted)" }}>{exam?.description || ""}</p>
-                  </div>
+                  <span
+                    className="text-xs font-medium px-2 py-0.5 rounded-full"
+                    style={testType === "short"
+                      ? { backgroundColor: "#EEE0C6", color: "#0F1E3D" } // Moderate: Gold bg, dark navy text
+                      : { backgroundColor: "#FEF2F2", color: "#E24948" }  // Hard: Light red bg, red text
+                    }
+                  >
+                    {testType === "short" ? "Moderate" : "Hard"}
+                  </span>
                 </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  <div className="bg-[#E3F2FD] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#0277BD]">{firstConfig.totalQuestions}</div>
-                    <div className="text-xs text-slate-500">Questions</div>
+                {/* Test Title */}
+                <h3 className="font-bold text-base mb-3" style={{ color: "var(--foreground)" }}>
+                  {testType === "short" ? "Mock Test" : "Full-Length"} #{config.testNumber}
+                </h3>
+
+                {/* Stats Row - All in one line including sections */}
+                <div className="flex items-center gap-1 mb-3 text-sm flex-wrap" style={{ color: "var(--foreground-secondary)" }}>
+                  <div className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{config.timeLimitMinutes} min</span>
                   </div>
-                  <div className="bg-[#BBDEFB] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#01579B]">{firstConfig.timeLimitMinutes}m</div>
-                    <div className="text-xs text-slate-500">Duration</div>
+                  <span className="mx-1">·</span>
+                  <div className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>{config.totalQuestions} Qs</span>
                   </div>
-                  <div className="bg-[#90CAF9] rounded-lg p-2 text-center">
-                    <div className="text-lg font-bold text-[#014F86]">{firstConfig.sections.length}</div>
-                    <div className="text-xs text-slate-500">Sections</div>
-                  </div>
+                  <span className="mx-1">·</span>
+                  <span>{config.sections.length} Section{config.sections.length !== 1 ? 's' : ''}</span>
                 </div>
 
-                {/* Subjects */}
-                <div className="flex flex-wrap gap-1.5 min-h-[52px]">
-                  {firstConfig.sections.slice(0, 3).map((s) => (
-                    <span key={s.subjectId} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
-                      {s.subjectName} ({s.questionCount})
-                    </span>
-                  ))}
-                  {firstConfig.sections.length > 3 && (
-                    <span className="text-xs bg-slate-100 text-slate-400 px-2 py-1 rounded-md">
-                      +{firstConfig.sections.length - 3} more
-                    </span>
-                  )}
-                </div>
-
-                {/* Available tests badge - removed */}
+                {/* Start Test Button */}
+                <button
+                  onClick={() => {
+                    startTest(config.examId, config.testNumber, testType === "full");
+                  }}
+                  className="px-4 py-2 text-white text-sm font-semibold rounded-lg transition-all flex items-center gap-2"
+                  style={{ backgroundColor: "#16213E" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#1a2744";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#16213E";
+                  }}
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                  </svg>
+                  <span>Start test</span>
+                </button>
               </div>
             );
           })}
@@ -1294,260 +1277,7 @@ export default function MockTestPage() {
         </div>
       )}
 
-      {/* Exam Details Modal */}
-      {showExamModal && selectedExam && groupedConfigs[selectedExam] && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowExamModal(false)}>
-          <div className="rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ background: "var(--card-bg)" }} onClick={(e) => e.stopPropagation()}>
-            {/* Header */}
-            <div className="sticky top-0 border-b px-6 py-4 flex items-center justify-between" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
-              <div className="flex items-center gap-3">
-                <div className="w-16 h-16 flex items-center justify-center">
-                  <ColorfulExamIcon examId={selectedExam} size={64} />
-                </div>
-                <div>
-                  <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>{groupedConfigs[selectedExam][0].examName}</h2>
-                  <p className="text-sm" style={{ color: "var(--muted)" }}>{getExamById(selectedExam)?.description || ""}</p>
-                </div>
-              </div>
-              <button
-                onClick={() => setShowExamModal(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
-                style={{ color: "var(--muted)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--primary-bg)";
-                  e.currentTarget.style.color = "var(--foreground)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.color = "var(--muted)";
-                }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Content. All test-stat and section displays derive from the
-                BASE (untransformed) config and the modal-local `modalTestType`
-                — never from `groupedConfigs`, which depends on the page tab. */}
-            {(() => {
-              const baseConfigForStats = configs.find(
-                (c) => c.examId === selectedExam && c.testNumber === 1
-              ) || groupedConfigs[selectedExam][0];
-              const isFull = modalTestType === "full";
-              const statsQuestions = isFull
-                ? baseConfigForStats.totalQuestions * 3
-                : baseConfigForStats.totalQuestions;
-              const statsDuration = isFull
-                ? Math.round(baseConfigForStats.timeLimitMinutes * 2.5)
-                : baseConfigForStats.timeLimitMinutes;
-              return (
-            <div className="p-6 space-y-6">
-              {/* Test Stats */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="rounded-xl p-4 text-center" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
-                  <div className="text-2xl font-bold text-[#E76F51]">{statsQuestions}</div>
-                  <div className="text-xs mt-1" style={{ color: "var(--foreground-secondary)" }}>Questions</div>
-                </div>
-                <div className="rounded-xl p-4 text-center" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
-                  <div className="text-2xl font-bold text-[#E76F51]">{statsDuration}m</div>
-                  <div className="text-xs mt-1" style={{ color: "var(--foreground-secondary)" }}>Duration</div>
-                </div>
-                <div className="rounded-xl p-4 text-center" style={{ background: "rgba(66, 85, 255, 0.1)" }}>
-                  <div className="text-2xl font-bold text-[#E76F51]">{baseConfigForStats.sections.length}</div>
-                  <div className="text-xs mt-1" style={{ color: "var(--foreground-secondary)" }}>Sections</div>
-                </div>
-              </div>
-
-              {/* Sections Covered */}
-              <div>
-                <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--foreground)" }}>Topics Covered</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  {baseConfigForStats.sections.map((s) => {
-                    const qPerSection = isFull ? s.questionCount * 3 : s.questionCount;
-                    return (
-                    <div key={s.subjectId} className="flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors" style={{ background: "rgba(66, 85, 255, 0.1)", borderColor: "rgba(66, 85, 255, 0.3)", color: "var(--foreground)" }}>
-                      <div className="w-2 h-2 rounded-full" style={{ background: "#E76F51" }}></div>
-                      <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>{s.subjectName}</span>
-                      <span className="text-xs ml-auto" style={{ color: "var(--foreground-secondary)" }}>({qPerSection}Q)</span>
-                    </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Available Tests Badge */}
-              {/* Unique tests badge - removed */}
-
-              {/* Test Selector */}
-              <div>
-                <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--foreground)" }}>Select Test Number</h3>
-                <div className="px-4 py-4 rounded-xl border transition-colors" style={{ background: "rgba(66, 85, 255, 0.05)", borderColor: "rgba(66, 85, 255, 0.2)" }}>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {Array.from({ length: Math.min(testCapacity[selectedExam] || 3, 10) }, (_, i) => i + 1).map((num) => (
-                      <button
-                        key={num}
-                        onClick={() => setSelectedTestNumber(num)}
-                        className="w-12 h-12 rounded-xl text-sm font-bold transition-all"
-                        style={selectedTestNumber === num
-                          ? { background: "#E76F51", color: "white", boxShadow: "0 4px 12px rgba(66, 85, 255, 0.3)", transform: "scale(1.1)" }
-                          : { background: "var(--card-bg)", color: "var(--foreground)", border: "2px solid var(--card-border)" }
-                        }
-                        onMouseEnter={(e) => {
-                          if (selectedTestNumber !== num) {
-                            e.currentTarget.style.background = "var(--hover-bg)";
-                            e.currentTarget.style.borderColor = "#E76F51";
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          if (selectedTestNumber !== num) {
-                            e.currentTarget.style.background = "var(--card-bg)";
-                            e.currentTarget.style.borderColor = "var(--card-border)";
-                          }
-                        }}
-                      >
-                        {num}
-                      </button>
-                    ))}
-                  </div>
-                  {testCapacity[selectedExam] > 10 && (
-                    <div className="mt-4 pt-4" style={{ borderTop: "1px solid rgba(66, 85, 255, 0.2)" }}>
-                      <div className="flex items-center gap-3 justify-center">
-                        <label htmlFor="test-number-input" className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
-                          Or enter test number:
-                        </label>
-                        <input
-                          id="test-number-input"
-                          type="number"
-                          min={1}
-                          max={testCapacity[selectedExam]}
-                          value={selectedTestNumber}
-                          onChange={(e) => {
-                            const num = parseInt(e.target.value);
-                            if (num >= 1 && num <= (testCapacity[selectedExam] || 3)) {
-                              setSelectedTestNumber(num);
-                            }
-                          }}
-                          className="w-20 px-3 py-2 text-center border-2 rounded-lg font-bold outline-none transition-colors"
-                          style={{ background: "var(--card-bg)", color: "var(--foreground)", borderColor: "var(--card-border)" }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = "#E76F51";
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = "var(--card-border)";
-                          }}
-                        />
-                        <span className="text-sm" style={{ color: "var(--foreground-secondary)" }}>of {testCapacity[selectedExam]}</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Test Type Toggle.
-                  Preview subtitles MUST use the base (untransformed) static
-                  config from `configs`, NOT `groupedConfigs` — the latter is
-                  derived from `displayConfigs` which is already multiplied by
-                  3x/2.5x when testType === "full". Reading from it would
-                  re-multiply on every toggle (the original bug: clicking Full
-                  showed 225Q/313m, then Short showed 75Q/125m). */}
-              {(() => {
-                const baseConfig = configs.find(
-                  (c) => c.examId === selectedExam && c.testNumber === 1
-                ) || groupedConfigs[selectedExam][0];
-                const shortQ = baseConfig.totalQuestions;
-                const shortMin = baseConfig.timeLimitMinutes;
-                const fullQ = shortQ * 3;
-                const fullMin = Math.round(shortMin * 2.5);
-                return (
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => setModalTestType("short")}
-                      className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
-                        modalTestType === "short"
-                          ? "bg-[#E76F51] text-white shadow-lg"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                        <span>Short Practice</span>
-                      </div>
-                      <div className="text-xs mt-1 opacity-90">{shortQ}Q · {shortMin}mins</div>
-                    </button>
-
-                    <button
-                      onClick={() => setModalTestType("full")}
-                      className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all ${
-                        modalTestType === "full"
-                          ? "bg-[#E76F51] text-white shadow-lg"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        <span>Full-Length</span>
-                      </div>
-                      <div className="text-xs mt-1 opacity-90">{fullQ}Q · {fullMin}mins</div>
-                    </button>
-                  </div>
-                );
-              })()}
-            </div>
-              );
-            })()}
-
-            {/* Footer Actions */}
-            <div className="sticky bottom-0 border-t px-6 py-4 flex items-center justify-between" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
-              <button
-                onClick={() => setShowExamModal(false)}
-                className="px-6 py-2 rounded-lg font-medium transition-colors"
-                style={{
-                  color: "var(--foreground-secondary)",
-                  background: "transparent"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--hover-bg)";
-                  e.currentTarget.style.color = "var(--foreground)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.color = "var(--foreground-secondary)";
-                }}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => {
-                  setShowExamModal(false);
-                  startTest(selectedExam, selectedTestNumber, modalTestType === "full");
-                }}
-                className="px-8 py-3 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
-            style={{
-              backgroundColor: '#16213E',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1a2744';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#16213E';
-            }}
-              >
-                <span>Start Test {selectedTestNumber}</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Exam Details Modal - REMOVED (tests now listed directly as cards) */}
 
       {/* Custom Mock Test Builder */}
       {showCustomBuilder && (

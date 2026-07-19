@@ -1,4 +1,5 @@
 "use client";
+// Updated: Topic selection with coral highlighting
 
 import { useState, useEffect } from "react";
 import { getExamById, examCategories } from "@/lib/exams";
@@ -235,19 +236,83 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                   Time Limit (minutes)
                 </label>
                 <div className="flex items-center gap-4">
-                  <input
-                    type="range"
-                    min="15"
-                    max="180"
-                    step="5"
-                    value={timeLimitMinutes}
-                    onChange={(e) => setTimeLimitMinutes(Number(e.target.value))}
-                    className="flex-1"
-                  />
+                  <div className="flex-1 relative">
+                    <input
+                      type="range"
+                      min="15"
+                      max="180"
+                      step="5"
+                      value={timeLimitMinutes}
+                      onChange={(e) => setTimeLimitMinutes(Number(e.target.value))}
+                      className="w-full time-slider"
+                    />
+                  </div>
                   <div className="w-20 text-right font-semibold" style={{ color: "var(--foreground)" }}>
                     {timeLimitMinutes} min
                   </div>
                 </div>
+                <style jsx>{`
+                  .time-slider {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    height: 8px;
+                    border-radius: 4px;
+                    background: linear-gradient(to right,
+                      #E76F51 0%,
+                      #E76F51 ${((timeLimitMinutes - 15) / (180 - 15)) * 100}%,
+                      #e5e7eb ${((timeLimitMinutes - 15) / (180 - 15)) * 100}%,
+                      #e5e7eb 100%
+                    );
+                    outline: none;
+                    cursor: pointer;
+                  }
+
+                  .time-slider::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: #E76F51;
+                    cursor: pointer;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                    transition: all 0.15s ease;
+                  }
+
+                  .time-slider::-webkit-slider-thumb:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 3px 8px rgba(231, 111, 81, 0.4);
+                  }
+
+                  .time-slider::-moz-range-thumb {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: #E76F51;
+                    cursor: pointer;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                    transition: all 0.15s ease;
+                  }
+
+                  .time-slider::-moz-range-thumb:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 3px 8px rgba(231, 111, 81, 0.4);
+                  }
+
+                  .time-slider::-webkit-slider-runnable-track {
+                    height: 8px;
+                    border-radius: 4px;
+                  }
+
+                  .time-slider::-moz-range-track {
+                    height: 8px;
+                    border-radius: 4px;
+                    background: transparent;
+                  }
+                `}</style>
                 <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>
                   Recommended: {Math.round(totalQuestions * 1.5)} minutes for {totalQuestions} questions
                 </p>
@@ -334,27 +399,41 @@ export function CustomMockTestBuilder({ onClose, onCreateTest }: CustomMockTestB
                               Select specific topics (optional)
                             </summary>
                             <div className="mt-2 grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 rounded-lg" style={{ background: "var(--primary-bg)" }}>
-                              {subject.topics.map(topic => (
-                                <label
-                                  key={topic}
-                                  className="flex items-center gap-2 p-1 rounded cursor-pointer transition-colors"
-                                  style={{ color: "var(--foreground)" }}
-                                  onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = "var(--card-bg)";
-                                  }}
-                                  onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = "transparent";
-                                  }}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    checked={section.selectedTopics.includes(topic)}
-                                    onChange={() => handleTopicToggle(section.subjectId, topic)}
-                                    className="rounded"
-                                  />
-                                  <span className="text-xs">{topic}</span>
-                                </label>
-                              ))}
+                              {subject.topics.map(topic => {
+                                const isSelected = section.selectedTopics.includes(topic);
+                                return (
+                                  <label
+                                    key={topic}
+                                    className="flex items-center gap-2 p-2 rounded-lg cursor-pointer transition-all border-2"
+                                    style={{
+                                      color: isSelected ? "#E76F51" : "var(--foreground)",
+                                      backgroundColor: isSelected ? "rgba(231, 111, 81, 0.1)" : "transparent",
+                                      borderColor: isSelected ? "#E76F51" : "transparent",
+                                      fontWeight: isSelected ? "600" : "400"
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      if (!isSelected) {
+                                        e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                                        e.currentTarget.style.borderColor = "var(--card-border)";
+                                      }
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      if (!isSelected) {
+                                        e.currentTarget.style.backgroundColor = "transparent";
+                                        e.currentTarget.style.borderColor = "transparent";
+                                      }
+                                    }}
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={isSelected}
+                                      onChange={() => handleTopicToggle(section.subjectId, topic)}
+                                      className="rounded w-4 h-4 accent-[#E76F51]"
+                                    />
+                                    <span className="text-xs">{topic}</span>
+                                  </label>
+                                );
+                              })}
                             </div>
                             <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>
                               {section.selectedTopics.length === 0

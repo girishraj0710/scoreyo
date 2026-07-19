@@ -8,6 +8,9 @@ module.exports = {
       letterSpacing: {
         'wider-custom': '0.2em',
       },
+      spacing: {
+        'safe': 'env(safe-area-inset-bottom)',
+      },
     },
   },
   plugins: [],

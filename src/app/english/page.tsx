@@ -1,32 +1,134 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/user-context';
 import {
   BookOpen, Trophy, Flame, Zap, Star, Clock, Bell,
   Brain, Layers, GraduationCap, ChevronRight, Play
 } from 'lucide-react';
+import EnglishAssessmentModal from '@/components/EnglishAssessmentModal';
+import { AssessmentResult } from '@/lib/english-assessment-algorithm';
 
 export default function EnglishLearningDashboard() {
   const router = useRouter();
-  const { user, isLoading } = useUser();
+  const { user, isLoading, isAdmin } = useUser();
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [showAssessmentModal, setShowAssessmentModal] = useState(false);
+  const [hasCompletedAssessment, setHasCompletedAssessment] = useState(false);
+  const [userLevel, setUserLevel] = useState<string>('B1'); // Default level
+  const [lastActivity, setLastActivity] = useState<{
+    topicTitle: string;
+    topicId: string;
+    pathName: string;
+    pathId: string;
+    visitedAt: string;
+  } | null>(null);
+  const [courseProgress, setCourseProgress] = useState<Record<string, number>>({
+    foundation: 0,
+    advanced: 0,
+    vocabulary: 0,
+    'ielts-toefl': 0,
+  });
+
+  // Redirect to login if not authenticated (MUST be before any returns)
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.push('/');
+    }
+  }, [isLoading, user, router]);
+
+  // Check if user has completed assessment and load last activity on mount
+  useEffect(() => {
+    if (user) {
+      // Check localStorage for assessment completion
+      const assessmentData = localStorage.getItem(`english_assessment_${user.id}`);
+      if (assessmentData) {
+        const data = JSON.parse(assessmentData);
+        setHasCompletedAssessment(true);
+        setUserLevel(data.level);
+      }
+
+      // Load last activity (from both courses and study plan)
+      const lastActivityData = localStorage.getItem(`english_last_activity_${user.id}`);
+      if (lastActivityData) {
+        setLastActivity(JSON.parse(lastActivityData));
+      }
+
+      // Fetch course progress
+      fetchCourseProgress();
+    }
+  }, [user]);
+
+  // Fetch dynamic course progress from API
+  const fetchCourseProgress = async () => {
+    try {
+      const res = await fetch('/api/english/course-progress');
+      if (res.ok) {
+        const data = await res.json();
+        setCourseProgress(data.progress);
+      }
+    } catch (error) {
+      console.error('Failed to fetch course progress:', error);
+    }
+  };
 
   // Show loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0F1419]">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
         <div className="w-12 h-12 border-4 border-[#E76F51] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
-  // Redirect to login if not authenticated
   if (!user) {
-    router.push('/');
     return null;
   }
+
+  // ────────────────────────────────────────────────────────────
+  // HELPER FUNCTIONS
+  // ────────────────────────────────────────────────────────────
+
+  // Determine if a level should be marked as "mastered" based on current level
+  const getLevelStatus = (checkLevel: string, currentLevel: string): 'locked' | 'active' | 'mastered' => {
+    const levelOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    const checkIndex = levelOrder.indexOf(checkLevel);
+    const currentIndex = levelOrder.indexOf(currentLevel);
+
+    if (checkIndex === -1 || currentIndex === -1) return 'locked';
+
+    // If assessment placed you at B1, then A1 and A2 are "mastered" (already proven proficiency)
+    if (checkIndex < currentIndex) return 'mastered';
+    if (checkIndex === currentIndex) return 'active';
+    return 'locked';
+  };
+
+  // Get personalized "Next Up" lesson title based on user's level
+  const getNextLessonTitle = (level: string): string => {
+    const lessonTitles: Record<string, string> = {
+      A1: 'Basic English & Vocabulary',
+      A2: 'Elementary Grammar Foundations',
+      B1: 'Intermediate Communication Skills',
+      B2: 'Advanced Grammar & Expression',
+      C1: 'Mastery & Professional English',
+      C2: 'IELTS/TOEFL Preparation'
+    };
+    return lessonTitles[level] || 'English Learning Path';
+  };
+
+  // Get personalized "Next Up" lesson description based on user's level
+  const getNextLessonDescription = (level: string): string => {
+    const lessonDescriptions: Record<string, string> = {
+      A1: 'Unit 1 — Alphabet, Phonetics & Basic Sentences',
+      A2: 'Unit 5 — Present Simple & Continuous Tenses',
+      B1: 'Unit 8 — Present Perfect & Conversational Phrases',
+      B2: 'Unit 12 — Conditional Structures & Complex Sentences',
+      C1: 'Unit 16 — Subjunctive Mood & Formal Writing',
+      C2: 'Test Prep — Academic Writing & Speaking Strategies'
+    };
+    return lessonDescriptions[level] || 'Continue your learning journey';
+  };
 
   // ────────────────────────────────────────────────────────────
   // ACTION HANDLERS
@@ -54,10 +156,12 @@ export default function EnglishLearningDashboard() {
     }
   };
 
-  // Resume current lesson
+  // Resume last activity (course or study plan)
   const handleContinueLesson = () => {
-    // Navigate to the last active topic
-    router.push('/learn/english/advanced/conditional-structures');
+    if (lastActivity) {
+      // Navigate to the exact last visited topic
+      router.push(`/learn/english/${lastActivity.pathId}/${lastActivity.topicId}`);
+    }
   };
 
   // Navigate to full learning path view
@@ -81,102 +185,165 @@ export default function EnglishLearningDashboard() {
     // Could open a modal or navigate to level-specific page
   };
 
-  return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0F1419]">
-      <div className="flex">
-        {/* MAIN CONTENT */}
-        <main className="flex-1 overflow-y-auto">
-          {/* Header */}
-          <header className="bg-white/50 dark:bg-[#1A1F2E]/50 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/40 px-8 py-5 sticky top-0 z-10">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Welcome back, {user.name?.split(' ')[0] || 'Alex'}</h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Sunday, June 22 — Keep the streak alive</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FFF4E6] dark:bg-[#7C2D12]/20 border border-[#FFE4C4]/60 dark:border-[#7C2D12]/40">
-                  <Flame className="w-4 h-4 text-[#FF8C42]" strokeWidth={2.5} />
-                  <span className="text-sm font-bold text-[#D97706] dark:text-[#FFA500]">45</span>
-                  <span className="text-sm text-[#B45309] dark:text-[#F59E0B]">day streak</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FEF5F3] dark:bg-[#8B4034]/20 border border-[#DBEAFE]/60 dark:border-[#8B4034]/40">
-                  <Zap className="w-4 h-4 text-[#E76F51]" strokeWidth={2.5} />
-                  <span className="text-sm font-bold text-[#E76F51] dark:text-[#F4A79D]">2,590</span>
-                  <span className="text-sm text-[#E76F51] dark:text-[#F4A79D]">XP</span>
-                </div>
-                <button className="relative p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                  <div className="w-2 h-2 bg-[#E76F51] rounded-full absolute top-1.5 right-1.5" />
-                  <Bell className="w-5 h-5 text-slate-600 dark:text-slate-300" strokeWidth={2} />
-                </button>
-              </div>
-            </div>
-          </header>
+  // Handle assessment completion
+  const handleAssessmentComplete = (result: AssessmentResult) => {
+    // Save to localStorage with full assessment data
+    const assessmentData = {
+      level: result.level,
+      levelName: result.levelName,
+      overallScore: result.overallScore,
+      skillScores: result.skillScores,
+      recommendations: result.recommendations,
+      completedAt: new Date().toISOString()
+    };
 
-          <div className="p-8 space-y-6">
+    localStorage.setItem(`english_assessment_${user?.id}`, JSON.stringify(assessmentData));
+
+    setHasCompletedAssessment(true);
+    setUserLevel(result.level);
+
+    // TODO: Save to database via API
+    // fetch('/api/english/assessment', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ userId: user?.id, result })
+    // });
+  };
+
+  return (
+    <div className="min-h-screen" style={{ background: "var(--background)" }}>
+      {/* Assessment Modal */}
+      <EnglishAssessmentModal
+        isOpen={showAssessmentModal}
+        onClose={() => setShowAssessmentModal(false)}
+        onComplete={handleAssessmentComplete}
+      />
+
+      {/* MAIN CONTENT */}
+      <main className="w-full overflow-y-auto">
+        <div className="max-w-7xl mx-auto p-8 pt-6 space-y-6">
             {/* Learning Path Progression */}
-            <section className="bg-white/70 dark:bg-[#1A1F2E]/70 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/40 p-6">
-              <div className="flex items-center justify-between mb-6">
+            <section className="bg-white/70 dark:bg-[#1A1F2E]/70 backdrop-blur-xl rounded-xl border border-slate-200/60 dark:border-slate-700/40 p-4">
+              <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">Your Learning Path</h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">Currently active at B1 / B2 Intermediate</p>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">Your Learning Path</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {hasCompletedAssessment
+                      ? `Currently active at ${userLevel} level`
+                      : 'Take the assessment to unlock your personalized path'
+                    }
+                  </p>
                 </div>
-                <button
-                  onClick={handleViewFullPath}
-                  className="text-sm font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center gap-1"
-                >
-                  Full path
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                <div className="flex items-center gap-2">
+                  {!hasCompletedAssessment && (
+                    <button
+                      onClick={() => setShowAssessmentModal(true)}
+                      className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#E76F51] hover:bg-[#d96043] text-white transition-colors"
+                    >
+                      Take Assessment
+                    </button>
+                  )}
+                  <button
+                    onClick={handleViewFullPath}
+                    className="text-xs font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center gap-1"
+                  >
+                    Full path
+                    <ChevronRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
 
               {/* Progress Nodes */}
-              <div className="flex items-center justify-between relative px-8">
-                {/* Connection Lines */}
-                <div className="absolute top-8 left-24 right-24 h-0.5 bg-slate-300 dark:bg-slate-600" style={{ zIndex: 0 }} />
+              <div className="relative h-24">
+                {/* Connection Line - Behind circles at their exact center height */}
+                <div className="absolute left-0 right-0 h-0.5 bg-slate-300 dark:bg-slate-600" style={{ top: '23px', zIndex: 0 }} />
 
-                <LevelNode title="Beginner" subtitle="A1" completed onClick={() => handleLevelClick('A1')} />
-                <LevelNode title="Elementary" subtitle="A2" completed onClick={() => handleLevelClick('A2')} />
-                <LevelNode title="Intermediate" subtitle="B1/B2" active onClick={() => handleLevelClick('B1/B2')} />
-                <LevelNode title="Advanced" subtitle="C1" onClick={() => handleLevelClick('C1')} />
-                <LevelNode title="Test Prep" subtitle="IELTS" onClick={() => handleLevelClick('IELTS')} />
-              </div>
-            </section>
-
-            {/* Next Up Card */}
-            <section className="rounded-2xl p-6 text-white relative overflow-hidden shadow-lg" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
-              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#E76F51]/10 blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#F4A261]/10 blur-3xl" />
-
-              <div className="relative flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-6 h-6 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <BookOpen className="w-4 h-4" strokeWidth={2.5} />
-                    </div>
-                    <span className="text-xs font-bold uppercase text-white/90" style={{ letterSpacing: '0.2em' }}>NEXT UP</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-1">Intermediate & Advanced Mastery</h3>
-                  <p className="text-base text-white/95 mb-4">Unit 12 — Conditional Structures</p>
-                  <div className="flex items-center gap-4 text-sm text-white/90">
-                    <div className="flex items-center gap-1.5">
-                      <Clock className="w-4 h-4" strokeWidth={2} />
-                      <span>25 min</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Zap className="w-4 h-4" strokeWidth={2} />
-                      <span>+40 XP</span>
-                    </div>
-                  </div>
+                {/* Dynamic Nodes - All greyed out if no assessment */}
+                <div className="absolute left-0 top-0" style={{ transform: 'translateX(0%)' }}>
+                  <LevelNode
+                    title="Beginner"
+                    subtitle="A1"
+                    completed={hasCompletedAssessment && getLevelStatus('A1', userLevel) === 'mastered'}
+                    active={hasCompletedAssessment && userLevel === 'A1'}
+                    onClick={() => hasCompletedAssessment ? handleLevelClick('A1') : setShowAssessmentModal(true)}
+                  />
                 </div>
-                <button
-                  onClick={handleContinueLesson}
-                  className="px-8 py-3 rounded-xl bg-white text-[#E76F51] font-bold hover:bg-[#FEF5F3] transition-colors flex items-center gap-2 shadow-xl"
-                >
-                  <Play className="w-5 h-5 fill-current" />
-                  Continue
-                </button>
+                <div className="absolute left-1/4 top-0" style={{ transform: 'translateX(-50%)' }}>
+                  <LevelNode
+                    title="Elementary"
+                    subtitle="A2"
+                    completed={hasCompletedAssessment && getLevelStatus('A2', userLevel) === 'mastered'}
+                    active={hasCompletedAssessment && userLevel === 'A2'}
+                    onClick={() => hasCompletedAssessment ? handleLevelClick('A2') : setShowAssessmentModal(true)}
+                  />
+                </div>
+                <div className="absolute left-1/2 top-0" style={{ transform: 'translateX(-50%)' }}>
+                  <LevelNode
+                    title="Intermediate"
+                    subtitle="B1/B2"
+                    completed={hasCompletedAssessment && getLevelStatus('B1', userLevel) === 'mastered'}
+                    active={hasCompletedAssessment && ['B1', 'B2'].includes(userLevel)}
+                    onClick={() => hasCompletedAssessment ? handleLevelClick('B1/B2') : setShowAssessmentModal(true)}
+                  />
+                </div>
+                <div className="absolute left-3/4 top-0" style={{ transform: 'translateX(-50%)' }}>
+                  <LevelNode
+                    title="Advanced"
+                    subtitle="C1"
+                    completed={hasCompletedAssessment && getLevelStatus('C1', userLevel) === 'mastered'}
+                    active={hasCompletedAssessment && userLevel === 'C1'}
+                    onClick={() => hasCompletedAssessment ? handleLevelClick('C1') : setShowAssessmentModal(true)}
+                  />
+                </div>
+                <div className="absolute right-0 top-0" style={{ transform: 'translateX(0%)' }}>
+                  <LevelNode
+                    title="Test Prep"
+                    subtitle="IELTS"
+                    completed={false}
+                    active={hasCompletedAssessment && userLevel === 'C2'}
+                    onClick={() => hasCompletedAssessment ? handleLevelClick('IELTS') : setShowAssessmentModal(true)}
+                  />
+                </div>
               </div>
             </section>
+
+            {/* Next Up Card - Based on Last Activity (NOT assessment) */}
+            {lastActivity ? (
+              // Show "Continue" card when user has recent activity
+              <section className="rounded-2xl p-8 text-white relative overflow-hidden shadow-lg min-h-[200px]" style={{ background: 'linear-gradient(135deg, #16213E 0%, #1a2744 50%, #1e2a45 100%)' }}>
+                <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#E76F51]/10 blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#F4A261]/10 blur-3xl" />
+
+                <div className="relative flex items-center justify-between gap-8">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <BookOpen className="w-5 h-5" strokeWidth={2.5} />
+                      </div>
+                      <span className="text-sm font-bold uppercase text-white/90" style={{ letterSpacing: '0.2em' }}>CONTINUE LEARNING</span>
+                    </div>
+                    <h3 className="text-3xl font-bold mb-2">
+                      {lastActivity.topicTitle}
+                    </h3>
+                    <p className="text-lg text-white/95 mb-6">
+                      {lastActivity.pathName}
+                    </p>
+                    <div className="flex items-center gap-6 text-base text-white/90">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-5 h-5" strokeWidth={2} />
+                        <span>Resume where you left off</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={handleContinueLesson}
+                    className="px-10 py-4 rounded-xl bg-white text-[#E76F51] font-bold hover:bg-[#FEF5F3] transition-colors flex items-center gap-2 shadow-xl text-base"
+                  >
+                    <Play className="w-5 h-5 fill-current" />
+                    Continue
+                  </button>
+                </div>
+              </section>
+            ) : null}
 
             {/* Course Tracks */}
             <section>
@@ -191,7 +358,7 @@ export default function EnglishLearningDashboard() {
                   tag="CEFR A1-A2 Level"
                   title="Basic English & Vocabulary"
                   description="Build your core grammar, everyday conversational vocabulary, and sentence structures from scratch."
-                  progress={85}
+                  progress={courseProgress.foundation}
                   color="blue"
                   courseId="foundation"
                   onResume={handleCourseClick}
@@ -202,7 +369,7 @@ export default function EnglishLearningDashboard() {
                   tag="CEFR B1-C1 Level"
                   title="Intermediate & Advanced Mastery"
                   description="Master complex grammar, nuanced vocabulary expressions, professional business writing, and confident rhetoric."
-                  progress={60}
+                  progress={courseProgress.advanced}
                   color="purple"
                   courseId="advanced"
                   onResume={handleCourseClick}
@@ -213,7 +380,7 @@ export default function EnglishLearningDashboard() {
                   tag="All Levels"
                   title="Dedicated Vocabulary Builder"
                   description="Learn 5,000+ high-frequency words, contextual idioms, phrasal verbs, and professional jargon via smart flashcards."
-                  progress={32}
+                  progress={courseProgress.vocabulary}
                   color="amber"
                   courseId="vocabulary"
                   onResume={handleCourseClick}
@@ -224,145 +391,67 @@ export default function EnglishLearningDashboard() {
                   tag="Exam Track"
                   title="Standardized Test Prep: IELTS & TOEFL"
                   description="Targeted strategies, practice questions, mock tests, and evaluation tools to crack academic reading, writing, listening, and speaking modules."
-                  progress={10}
+                  progress={courseProgress['ielts-toefl']}
                   color="teal"
                   courseId="ielts-toefl"
                   onResume={handleCourseClick}
                 />
               </div>
             </section>
-          </div>
-        </main>
 
-        {/* RIGHT SIDEBAR */}
-        <aside className="w-80 min-h-screen bg-white/50 dark:bg-[#1A1F2E]/50 backdrop-blur-xl border-l border-slate-200/60 dark:border-slate-700/40 p-6 space-y-6 overflow-y-auto">
-          {/* Daily Goal */}
-          <div className="bg-white/90 dark:bg-[#1A1F2E]/90 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/40 p-6">
-            <h4 className="text-xs font-bold mb-4" style={{ color: "#475569" }}>Daily Goal</h4>
-            <div className="flex flex-col items-center">
-              <div className="relative w-32 h-32">
-                <svg className="transform -rotate-90 w-32 h-32">
-                  <circle cx="64" cy="64" r="56" stroke="#E2E8F0" className="dark:stroke-slate-700" strokeWidth="8" fill="none" />
-                  <circle
-                    cx="64" cy="64" r="56"
-                    stroke="url(#blueGradient)"
-                    strokeWidth="8"
-                    fill="none"
-                    strokeDasharray={`${2 * Math.PI * 56}`}
-                    strokeDashoffset={`${2 * Math.PI * 56 * (1 - 0.68)}`}
-                    strokeLinecap="round"
-                  />
-                  <defs>
-                    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#E76F51" />
-                      <stop offset="100%" stopColor="#D65A3D" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-xl font-bold" style={{ color: "#0d1117" }}>68%</span>
-                  <span className="text-[10px] font-medium" style={{ color: "#94a3b8" }}>of 30 min</span>
+            {/* Why Choose Our English Hub */}
+            <section className="bg-white dark:bg-[#1A1F2E] rounded-2xl border border-slate-200 dark:border-slate-700 p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Why Choose Our English Hub?</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* AI-Powered Learning */}
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">AI-Powered Learning</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      Personalized recommendations based on your performance and goals
+                    </p>
+                  </div>
+                </div>
+
+                {/* Daily Practice */}
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Daily Practice</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      10-minute daily sessions to build habits and maintain streaks
+                    </p>
+                  </div>
+                </div>
+
+                {/* Rich Explanations */}
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Rich Explanations</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      Detailed explanations with examples, traps, and common mistakes
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-2 mt-6 w-full">
-                <StatItem label="Lessons" value="3/5" icon={<BookOpen className="w-3.5 h-3.5" />} color="#2563eb" />
-                <StatItem label="Words" value="12/20" icon={<Brain className="w-3.5 h-3.5" />} color="#6d28d9" />
-                <StatItem label="XP Today" value="85" icon={<Zap className="w-3.5 h-3.5" />} color="#d97706" />
-              </div>
-            </div>
-          </div>
-
-          {/* Weekly XP */}
-          <div className="bg-white/90 dark:bg-[#1A1F2E]/90 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/40 p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="text-xs font-bold" style={{ color: "#475569" }}>Weekly XP</h4>
-              <span className="text-xs font-semibold text-[#10B981] dark:text-[#34D399]">+23% this week</span>
-            </div>
-            <div className="flex items-end justify-between h-32 gap-2">
-              {[
-                { day: 'M', height: 40 },
-                { day: 'T', height: 55 },
-                { day: 'W', height: 60 },
-                { day: 'T', height: 45 },
-                { day: 'F', height: 65 },
-                { day: 'S', height: 70 },
-                { day: 'S', height: 100, active: true },
-              ].map((bar, i) => (
-                <div key={i} className="flex-1 flex flex-col items-center gap-2">
-                  <div
-                    className={`w-full rounded-lg transition-all ${
-                      bar.active
-                        ? 'bg-gradient-to-t from-[#E76F51] to-[#F4A79D]'
-                        : 'bg-slate-200 dark:bg-slate-700'
-                    }`}
-                    style={{ height: `${bar.height}%` }}
-                  />
-                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{bar.day}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Leaderboard */}
-          <div className="bg-white/90 dark:bg-[#1A1F2E]/90 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/40 p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="text-xs font-bold" style={{ color: "#475569" }}>Leaderboard</h4>
-              <Trophy className="w-3.5 h-3.5" style={{ color: "#d97706" }} />
-            </div>
-            <div className="space-y-3">
-              <LeaderboardItem rank="1st" name="Yuki T." country="JP" xp="2,840" isTop />
-              <LeaderboardItem rank="#2" name="Sofia M." country="BR" xp="2,710" />
-              <LeaderboardItem rank="#3" name={`${user.name?.split(' ')[0] || 'Alex'} (You)`} country="US" xp="2,590" isUser />
-              <LeaderboardItem rank="#4" name="Arjun P." country="IN" xp="2,430" />
-            </div>
-            <button
-              onClick={handleViewLeaderboard}
-              className="mt-4 w-full text-sm font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center justify-center gap-1"
-            >
-              Full leaderboard
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Achievements */}
-          <div className="bg-white/90 dark:bg-[#1A1F2E]/90 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/40 p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="text-xs font-bold" style={{ color: "#475569" }}>Achievements</h4>
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-              </svg>
-            </div>
-            <div className="space-y-3">
-              <AchievementCard
-                icon={<Flame className="w-5 h-5 text-white" strokeWidth={2.5} />}
-                title="45-Day Streak!"
-                description="Consistency champion"
-                gradient="from-[#FF8C42] to-[#F97316]"
-                featured
-              />
-              <AchievementCard
-                icon={<Zap className="w-4 h-4 text-[#F59E0B]" strokeWidth={2.5} />}
-                title="Speed Learner"
-                description="Completed in record time"
-                gradient="from-[#FEF3C7] to-[#FDE68A] dark:from-[#78350F]/20 dark:to-[#92400E]/20"
-              />
-              <AchievementCard
-                icon={<Star className="w-4 h-4 text-[#E76F51]" strokeWidth={2.5} />}
-                title="Perfect Score"
-                description="100% on Grammar Quiz"
-                gradient="from-[#DBEAFE] to-[#BFDBFE] dark:from-[#8B4034]/20 dark:to-[#1E40AF]/20"
-              />
-            </div>
-            <button
-              onClick={handleViewAchievements}
-              className="mt-4 w-full text-sm font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center justify-center gap-1"
-            >
-              View all achievements
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </aside>
-      </div>
+            </section>
+        </div>
+      </main>
     </div>
   );
 }
@@ -378,33 +467,33 @@ function LevelNode({ title, subtitle, completed = false, active = false, onClick
   return (
     <button
       onClick={onClick}
-      className="flex flex-col items-center relative z-10 hover:scale-110 transition-transform cursor-pointer"
+      className="flex flex-col items-center relative z-10 hover:scale-105 transition-transform cursor-pointer"
     >
       <div
-        className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all ${
+        className={`w-12 h-12 rounded-full flex items-center justify-center border-3 transition-all ${
           active
-            ? 'bg-[#E76F51] border-[#F4A79D] shadow-lg shadow-[#E76F51]/40'
+            ? 'bg-[#E76F51] border-[#F4A79D] shadow-md shadow-[#E76F51]/30'
             : completed
             ? 'bg-[#10B981] border-[#6EE7B7]'
             : 'bg-slate-200 dark:bg-slate-700 border-slate-300 dark:border-slate-600'
         }`}
       >
         {completed ? (
-          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         ) : active ? (
-          <span className="text-base font-bold text-white">{subtitle}</span>
+          <span className="text-sm font-bold text-white">{subtitle}</span>
         ) : (
           <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">{subtitle}</span>
         )}
       </div>
-      <div className="mt-3 text-center">
-        <p className={`text-sm font-semibold ${active ? 'text-[#E76F51] dark:text-[#F4A79D]' : completed ? 'text-[#10B981] dark:text-[#34D399]' : 'text-slate-500 dark:text-slate-400'}`}>
+      <div className="mt-2 text-center">
+        <p className={`text-xs font-semibold ${active ? 'text-[#E76F51] dark:text-[#F4A79D]' : completed ? 'text-[#10B981] dark:text-[#34D399]' : 'text-slate-500 dark:text-slate-400'}`}>
           {title}
         </p>
         {!completed && !active && (
-          <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{subtitle}</p>
+          <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{subtitle}</p>
         )}
       </div>
     </button>
@@ -574,7 +663,7 @@ function CourseCard({
           }}
         >
           <Play className="w-3.5 h-3.5 fill-white" />
-          Resume
+          {progress > 0 ? 'Resume' : 'Start'}
         </button>
       </div>
     </div>

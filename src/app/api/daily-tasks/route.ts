@@ -30,6 +30,7 @@ export async function GET(req: NextRequest) {
         tag: task.taskData.tag,
         link: task.taskData.link,
         priority: task.priority,
+        taskType: task.taskType, // Add task type for time estimation
         meta: task.taskData.meta
       })),
       stats: {

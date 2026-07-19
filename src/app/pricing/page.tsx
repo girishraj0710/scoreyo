@@ -34,9 +34,9 @@ export default function PricingPage() {
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<"free" | "monthly" | "quarterly">("quarterly");
 
-  // Redirect contributors to contributor portal
+  // Redirect ONLY contributors (not admin) to contributor portal
   useEffect(() => {
-    if (!userLoading && user && ['contributor', 'admin'].includes(user.role || '')) {
+    if (!userLoading && user && user.role === 'contributor') {
       router.push('/contributor');
     }
   }, [user, userLoading, router]);

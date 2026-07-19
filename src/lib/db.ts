@@ -1187,22 +1187,46 @@ export async function getCachedQuestionCount(examId: string, subjectId: string, 
 // ─── Stats functions ─────────────────────────────────────
 
 export async function getUserStats(userId: string) {
+  console.log('[getUserStats] START - userId:', userId);
+
   const totalSessions = await queryOne(
     "SELECT COUNT(*) as count FROM quiz_sessions WHERE user_id = $1",
     [userId]
   );
 
-  const totalQuestions = await queryOne(
+  console.log('[getUserStats] totalSessions raw:', totalSessions);
+
+  // Count questions from BOTH exam quizzes AND English practice
+  const examQuestions = await queryOne(
     "SELECT COALESCE(SUM(total_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM quiz_sessions WHERE user_id = $1",
     [userId]
   );
 
-  // Get questions answered today
+  const englishQuestions = await queryOne(
+    "SELECT COALESCE(SUM(completed_questions), 0) as total, COALESCE(SUM(correct_answers), 0) as correct FROM english_progress WHERE user_id = $1",
+    [userId]
+  );
+
+  const totalQuestions = {
+    total: parseInt(examQuestions.total) + parseInt(englishQuestions.total),
+    correct: parseInt(examQuestions.correct) + parseInt(englishQuestions.correct)
+  };
+
+  // Get questions answered today (from BOTH systems)
   const today = new Date().toISOString().split("T")[0];
-  const questionsToday = await queryOne(
+  const examQuestionsToday = await queryOne(
     "SELECT COALESCE(SUM(total_questions), 0) as total FROM quiz_sessions WHERE user_id = $1 AND DATE(created_at) = $2",
     [userId, today]
   );
+
+  const englishQuestionsToday = await queryOne(
+    "SELECT COALESCE(SUM(questions_completed), 0) as total FROM english_daily_practice WHERE user_id = $1 AND date = $2",
+    [userId, today]
+  );
+
+  const questionsToday = {
+    total: parseInt(examQuestionsToday.total) + parseInt(englishQuestionsToday.total)
+  };
 
   // Get personal best (most questions in a single day)
   const personalBest = await queryOne(
@@ -1210,16 +1234,29 @@ export async function getUserStats(userId: string) {
     [userId]
   );
 
-  // Get activity from ALL sources (quiz, flashcards, study sessions)
+  // Get activity from ALL sources (exam quizzes + English learning + flashcards + study sessions)
   const streakData = await queryAll(
     `SELECT DISTINCT day FROM (
+      -- Exam activities
       SELECT DATE(created_at) as day FROM quiz_sessions WHERE user_id = $1
       UNION
-      SELECT DATE(studied_at) as day FROM flashcard_study_sessions WHERE user_id = $1
+      SELECT DATE(created_at) as day FROM flashcard_study_sessions WHERE user_id = $1
       UNION
       SELECT DATE(created_at) as day FROM user_quiz_levels WHERE user_id = $1
       UNION
       SELECT DATE(created_at) as day FROM user_exam_levels WHERE user_id = $1
+
+      -- English learning activities (CAST date TEXT to DATE)
+      UNION
+      SELECT CAST(date AS DATE) as day FROM english_daily_practice WHERE user_id = $1
+      UNION
+      SELECT DATE(last_practiced) as day FROM english_progress
+      WHERE user_id = $1 AND last_practiced IS NOT NULL
+
+      -- Study reading sessions (both English and Exam)
+      UNION
+      SELECT DATE(start_time) as day FROM study_reading_sessions
+      WHERE user_id = $1 AND start_time IS NOT NULL
     ) AS all_activity
     ORDER BY day DESC`,
     [userId]
@@ -1331,7 +1368,7 @@ export async function getUserStats(userId: string) {
     [userId]
   );
 
-  return {
+  const result = {
     totalSessions: (totalSessions?.count as number) || 0,
     totalQuestions: (totalQuestions?.total as number) || 0,
     totalCorrect: (totalQuestions?.correct as number) || 0,
@@ -1347,6 +1384,14 @@ export async function getUserStats(userId: string) {
     questionsContributed: (contributorStats?.questions_contributed as number) || 0,
     contributionPoints: (contributorStats?.contribution_points as number) || 0,
   };
+
+  console.log('[getUserStats] RESULT:', {
+    totalSessions: result.totalSessions,
+    totalQuestions: result.totalQuestions,
+    accuracy: result.accuracy
+  });
+
+  return result;
 }
 
 // ─── Review functions ───────────────────────────────────
@@ -3731,28 +3776,55 @@ async function generateDailyTasks(userId: string, date: string): Promise<DailyTa
     });
   }
 
-  // 4. Study guide task (only if < 3 tasks) - simple English foundation topic
-  if (tasks.length < 3) {
+  // 4. Study guide task - English foundation topic
+  tasks.push({
+    taskType: 'study_guide',
+    taskData: {
+      label: 'Study English Grammar basics',
+      link: '/learn/english/foundation/verbs-basics',
+      tag: 'Study Guide',
+      meta: {
+        subject_id: 'english',
+        path_id: 'foundation',
+        topic_id: 'verbs-basics'
+      }
+    },
+    priority: 6
+  });
+
+  // 5. Review mistakes task (if user has reported questions)
+  const mistakeCount = await queryOne(
+    `SELECT COUNT(*) as count
+     FROM reported_questions
+     WHERE user_id = $1 AND status = 'pending'
+     LIMIT 1`,
+    [userId]
+  );
+
+  if (mistakeCount && parseInt(mistakeCount.count) > 0) {
     tasks.push({
-      taskType: 'study_guide',
+      taskType: 'review_mistakes',
       taskData: {
-        label: 'Study English Grammar basics',
-        link: '/learn/english/foundation/verbs-basics',
-        tag: 'Study Guide',
+        label: `Review ${mistakeCount.count} flagged questions`,
+        link: '/mistakes',
+        tag: 'Review',
         meta: {
-          subject_id: 'english',
-          path_id: 'foundation',
-          topic_id: 'verbs-basics'
+          mistake_count: parseInt(mistakeCount.count)
         }
       },
       priority: 5
     });
   }
 
+  // Limit to max 5 tasks and sort by priority (highest first)
+  const sortedTasks = tasks
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, 5);
+
   // Insert tasks into database
   const insertedTasks: DailyTask[] = [];
 
-  for (const task of tasks) {
+  for (const task of sortedTasks) {
     const result = await queryOne(
       `INSERT INTO user_daily_tasks (user_id, date, task_type, task_data, priority, generated_by, status)
        VALUES ($1, $2, $3, $4, $5, 'auto', 'pending')
@@ -3827,6 +3899,367 @@ function mapDailyTask(row: any): DailyTask {
     createdAt: new Date(row.created_at),
     updatedAt: new Date(row.updated_at)
   };
+}
+
+/**
+ * Get "Continue Learning" data - last incomplete activity
+ * Returns the most recent incomplete quiz or study session
+ */
+export async function getContinueLearning(userId: string): Promise<{
+  type: 'quiz' | 'study' | 'english';
+  examId?: string;
+  examName?: string;
+  subject?: string;
+  subjectName?: string;
+  topic?: string;
+  topicName?: string;
+  progress: number;
+  minsLeft: number;
+  accent: string;
+  link: string;
+  lastActivity: Date;
+} | null> {
+  // Check 1: Most recent incomplete English study session (has progress but not mastered)
+  const englishProgress = await queryOne(
+    `SELECT ep.*, fd.title as path_title
+     FROM english_progress ep
+     LEFT JOIN (
+       SELECT 'foundation' as id, 'Foundation English' as title
+       UNION ALL SELECT 'advanced', 'Advanced English'
+       UNION ALL SELECT 'ielts-toefl', 'IELTS/TOEFL Prep'
+       UNION ALL SELECT 'real-world', 'Real-world English'
+     ) fd ON ep.path_id = fd.id
+     WHERE ep.user_id = $1
+       AND ep.completed_questions > 0
+       AND ep.mastery_score < 0.9
+     ORDER BY ep.last_practiced DESC
+     LIMIT 1`,
+    [userId]
+  );
+
+  if (englishProgress) {
+    const progress = Math.round(englishProgress.mastery_score * 100);
+    const minsLeft = Math.max(5, Math.round((100 - progress) / 10)); // Estimate: 10% = 1 min
+
+    return {
+      type: 'english',
+      examId: 'english',
+      examName: 'Learn English',
+      subject: englishProgress.path_title || 'English',
+      subjectName: englishProgress.path_title || 'English',
+      topic: englishProgress.topic_id,
+      topicName: formatTopicName(englishProgress.topic_id),
+      progress,
+      minsLeft,
+      accent: '#2A9D8F',
+      link: `/learn/english/${englishProgress.path_id}/${englishProgress.topic_id}`,
+      lastActivity: new Date(englishProgress.last_practiced)
+    };
+  }
+
+  // Check 2: Most recent quiz session (incomplete or low accuracy)
+  const quizSession = await queryOne(
+    `SELECT qs.*, qs.exam_id, qs.subject_id, qs.created_at
+     FROM quiz_sessions qs
+     WHERE qs.user_id = $1
+       AND (
+         qs.total_questions < 10
+         OR (qs.correct_answers::float / NULLIF(qs.total_questions, 0)) < 0.7
+       )
+     ORDER BY qs.created_at DESC
+     LIMIT 1`,
+    [userId]
+  );
+
+  if (quizSession) {
+    const accuracy = quizSession.total_questions > 0
+      ? Math.round((quizSession.correct_answers / quizSession.total_questions) * 100)
+      : 0;
+    const progress = Math.min(accuracy, 90); // Cap at 90% for incomplete
+    const minsLeft = Math.max(10, Math.round((100 - progress) / 5));
+
+    // Get exam and subject names
+    const examNames: Record<string, string> = {
+      'jee-main': 'JEE Main',
+      'jee-advanced': 'JEE Advanced',
+      'neet': 'NEET',
+      'upsc': 'UPSC',
+      'ssc-cgl': 'SSC CGL',
+      'banking': 'Banking',
+      'cat': 'CAT'
+    };
+
+    const subjectNames: Record<string, string> = {
+      'physics': 'Physics',
+      'chemistry': 'Chemistry',
+      'mathematics': 'Mathematics',
+      'biology': 'Biology',
+      'history': 'History',
+      'geography': 'Geography',
+      'polity': 'Polity',
+      'economics': 'Economics',
+      'reasoning': 'Reasoning',
+      'english': 'English',
+      'quantitative': 'Quantitative Aptitude'
+    };
+
+    // Get exam color
+    const examColors: Record<string, string> = {
+      'jee-main': '#E76F51',
+      'jee-advanced': '#E76F51',
+      'neet': '#2A9D8F',
+      'upsc': '#E9C46A',
+      'ssc-cgl': '#264653',
+      'banking': '#287271',
+      'cat': '#F4A261'
+    };
+
+    return {
+      type: 'quiz',
+      examId: quizSession.exam_id,
+      examName: examNames[quizSession.exam_id] || 'Quiz',
+      subject: quizSession.subject_id,
+      subjectName: subjectNames[quizSession.subject_id] || 'Practice',
+      topic: quizSession.topic_id,
+      topicName: 'Continue Practice',
+      progress,
+      minsLeft,
+      accent: examColors[quizSession.exam_id] || '#E76F51',
+      link: `/quiz?exam=${quizSession.exam_id}&subject=${quizSession.subject_id}`,
+      lastActivity: new Date(quizSession.created_at)
+    };
+  }
+
+  // Check 3: Any recent quiz activity (fallback)
+  const anyRecentQuiz = await queryOne(
+    `SELECT qs.*
+     FROM quiz_sessions qs
+     WHERE qs.user_id = $1
+     ORDER BY qs.created_at DESC
+     LIMIT 1`,
+    [userId]
+  );
+
+  if (anyRecentQuiz) {
+    const examNames: Record<string, string> = {
+      'jee-main': 'JEE Main',
+      'jee-advanced': 'JEE Advanced',
+      'neet': 'NEET',
+      'upsc': 'UPSC',
+      'ssc-cgl': 'SSC CGL',
+      'banking': 'Banking',
+      'cat': 'CAT'
+    };
+
+    const subjectNames: Record<string, string> = {
+      'physics': 'Physics',
+      'chemistry': 'Chemistry',
+      'mathematics': 'Mathematics',
+      'biology': 'Biology',
+      'history': 'History',
+      'geography': 'Geography',
+      'polity': 'Polity',
+      'economics': 'Economics',
+      'reasoning': 'Reasoning',
+      'english': 'English',
+      'quantitative': 'Quantitative Aptitude'
+    };
+
+    const examColors: Record<string, string> = {
+      'jee-main': '#E76F51',
+      'jee-advanced': '#E76F51',
+      'neet': '#2A9D8F',
+      'upsc': '#E9C46A',
+      'ssc-cgl': '#264653',
+      'banking': '#287271',
+      'cat': '#F4A261'
+    };
+
+    return {
+      type: 'quiz',
+      examId: anyRecentQuiz.exam_id,
+      examName: examNames[anyRecentQuiz.exam_id] || 'Quiz',
+      subject: anyRecentQuiz.subject_id,
+      subjectName: subjectNames[anyRecentQuiz.subject_id] || 'Practice',
+      topic: anyRecentQuiz.topic_id,
+      topicName: 'Start New Quiz',
+      progress: 0,
+      minsLeft: 15,
+      accent: examColors[anyRecentQuiz.exam_id] || '#E76F51',
+      link: `/quiz?exam=${anyRecentQuiz.exam_id}&subject=${anyRecentQuiz.subject_id}`,
+      lastActivity: new Date(anyRecentQuiz.created_at)
+    };
+  }
+
+  return null;
+}
+
+/**
+ * Format topic ID into readable name
+ */
+function formatTopicName(topicId: string): string {
+  return topicId
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+/**
+ * Get top 3 recent learning activities (any type: quiz, flashcard, English study)
+ */
+export async function getRecentActivities(userId: string): Promise<Array<{
+  type: 'quiz' | 'flashcard' | 'english';
+  exam: string;
+  subject: string;
+  cards?: number;
+  progress: number;
+  accent: string;
+  link: string;
+  lastActivity: Date;
+}>> {
+  const pool = getPool();
+  const client = await pool.connect();
+
+  try {
+    const activities: Array<{
+      type: 'quiz' | 'flashcard' | 'english';
+      exam: string;
+      subject: string;
+      cards?: number;
+      progress: number;
+      accent: string;
+      link: string;
+      lastActivity: Date;
+    }> = [];
+
+    // 1. English study progress
+    const englishResult = await client.query(
+      `SELECT ep.path_id, ep.topic_id, ep.completed_questions, ep.mastery_score, ep.last_practiced,
+              fd.title as path_title
+       FROM english_progress ep
+       LEFT JOIN (
+         SELECT 'foundation' as id, 'Foundation English' as title
+         UNION ALL SELECT 'advanced', 'Advanced English'
+         UNION ALL SELECT 'ielts-toefl', 'IELTS/TOEFL Prep'
+         UNION ALL SELECT 'real-world', 'Real-world English'
+       ) fd ON ep.path_id = fd.id
+       WHERE ep.user_id = $1 AND ep.completed_questions > 0
+       ORDER BY ep.last_practiced DESC
+       LIMIT 3`,
+      [userId]
+    );
+
+    englishResult.rows.forEach(row => {
+      activities.push({
+        type: 'english',
+        exam: 'Learn English',
+        subject: formatTopicName(row.topic_id),
+        cards: row.completed_questions,
+        progress: Math.round(row.mastery_score * 100),
+        accent: '#2A9D8F',
+        link: `/learn/english/${row.path_id}/${row.topic_id}`,
+        lastActivity: new Date(row.last_practiced)
+      });
+    });
+
+    // 2. Quiz sessions
+    const quizResult = await client.query(
+      `SELECT qs.exam_id, qs.subject_id, qs.total_questions, qs.correct_answers, qs.created_at
+       FROM quiz_sessions qs
+       WHERE qs.user_id = $1 AND qs.total_questions > 0
+       ORDER BY qs.created_at DESC
+       LIMIT 3`,
+      [userId]
+    );
+
+    const examNames: Record<string, string> = {
+      'jee-main': 'JEE',
+      'jee-advanced': 'JEE',
+      'neet': 'NEET',
+      'upsc': 'UPSC',
+      'ssc-cgl': 'SSC CGL',
+      'banking': 'Banking',
+      'cat': 'CAT'
+    };
+
+    const subjectNames: Record<string, string> = {
+      'physics': 'Physics',
+      'chemistry': 'Chemistry',
+      'mathematics': 'Mathematics',
+      'biology': 'Biology',
+      'history': 'History',
+      'geography': 'Geography',
+      'polity': 'Polity',
+      'economics': 'Economics',
+      'reasoning': 'Reasoning',
+      'english': 'English',
+      'quantitative': 'Quantitative Aptitude'
+    };
+
+    const examColors: Record<string, string> = {
+      'jee-main': '#E76F51',
+      'jee-advanced': '#E76F51',
+      'neet': '#264653',
+      'upsc': '#E9C46A',
+      'ssc-cgl': '#287271',
+      'banking': '#2A9D8F',
+      'cat': '#F4A261'
+    };
+
+    quizResult.rows.forEach(row => {
+      const accuracy = row.total_questions > 0
+        ? Math.round((row.correct_answers / row.total_questions) * 100)
+        : 0;
+
+      activities.push({
+        type: 'quiz',
+        exam: examNames[row.exam_id] || 'Quiz',
+        subject: subjectNames[row.subject_id] || row.subject_id,
+        cards: row.total_questions,
+        progress: accuracy,
+        accent: examColors[row.exam_id] || '#E76F51',
+        link: `/quiz?exam=${row.exam_id}&subject=${row.subject_id}`,
+        lastActivity: new Date(row.created_at)
+      });
+    });
+
+    // 3. Flashcard sessions
+    const flashcardResult = await client.query(
+      `SELECT fss.deck_id, fss.cards_studied, fss.cards_correct, fss.updated_at,
+              fd.title as deck_title, fd.exam_id, fd.subject_id
+       FROM flashcard_study_sessions fss
+       LEFT JOIN flashcard_decks fd ON fss.deck_id = fd.id
+       WHERE fss.user_id = $1 AND fss.cards_studied > 0
+       ORDER BY fss.updated_at DESC
+       LIMIT 3`,
+      [userId]
+    );
+
+    flashcardResult.rows.forEach(row => {
+      const accuracy = row.cards_studied > 0
+        ? Math.round((row.cards_correct / row.cards_studied) * 100)
+        : 0;
+
+      activities.push({
+        type: 'flashcard',
+        exam: examNames[row.exam_id] || 'Flashcards',
+        subject: row.deck_title || subjectNames[row.subject_id] || 'Study',
+        cards: row.cards_studied,
+        progress: accuracy,
+        accent: examColors[row.exam_id] || '#E76F51',
+        link: `/flashcards?deck=${row.deck_id}`,
+        lastActivity: new Date(row.updated_at)
+      });
+    });
+
+    // Sort all activities by lastActivity and return top 3
+    activities.sort((a, b) => b.lastActivity.getTime() - a.lastActivity.getTime());
+
+    return activities.slice(0, 3);
+
+  } finally {
+    client.release();
+  }
 }
 
 // ============================================================================

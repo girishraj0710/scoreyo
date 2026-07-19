@@ -7,7 +7,7 @@
 // These users will be set to admin role on login if they're not already admin
 export const ADMIN_EMAILS = [
   // "girish.raj0710@gmail.com", // Owner/developer account - keep as student to test all features
-  "grgowda07.1992@gmail.com",
+  // "grgowda07.1992@gmail.com", // Commented out to test as student
   "admin@krakkify.in",
 ];
 

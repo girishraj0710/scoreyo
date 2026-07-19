@@ -13,18 +13,32 @@ const AVATAR_COLORS = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#
 
 // GET - Get current user
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get(COOKIE_NAME)?.value;
+  try {
+    const userId = request.cookies.get(COOKIE_NAME)?.value;
 
-  if (userId) {
-    const user = await getUser(userId);
-    if (user) {
-      // Fetch enrolled exams for single-exam-focus architecture
-      const userWithExams = await getUserWithEnrolledExams(user);
-      return NextResponse.json({ user: userWithExams });
+    if (userId) {
+      const user = await getUser(userId);
+      if (user) {
+        // Fetch enrolled exams for single-exam-focus architecture
+        const userWithExams = await getUserWithEnrolledExams(user);
+        return NextResponse.json({ user: userWithExams });
+      }
     }
-  }
 
-  return NextResponse.json({ user: null });
+    return NextResponse.json({ user: null });
+  } catch (error) {
+    console.error('[Auth GET] Error fetching user:', error);
+    // Return error details in development, generic message in production
+    return NextResponse.json(
+      {
+        error: "Failed to fetch user data",
+        message: process.env.NODE_ENV === 'development'
+          ? (error instanceof Error ? error.message : String(error))
+          : "Authentication error"
+      },
+      { status: 500 }
+    );
+  }
 }
 
 // Helper: Add enrolled exams to user object
@@ -51,9 +65,10 @@ async function getUserWithEnrolledExams(user: any) {
       current_exam: currentExam,
       enrolled_exams: enrolledExams,
     };
-  } catch (error) {
-    console.error("Error fetching enrolled exams:", error);
+  } catch (error: any) {
+    console.error("[Auth] Error fetching enrolled exams:", error?.message || error);
     // Fallback: use exam_preparing_for if table doesn't exist yet
+    // This is normal during initial database setup
     return {
       ...user,
       current_exam: user.exam_preparing_for,

@@ -5,6 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import { BookOpen, CheckCircle, ArrowRight, ArrowLeft, Clock, Target } from "lucide-react";
 import { StudyMaterialContent } from "@/components/study-material-content-v2";
 import { getPathById, getTopicById } from "@/lib/english-content";
+import { trackTopicVisit } from "@/lib/english-activity-tracker";
+import { useUser } from "@/context/user-context";
 
 interface StudyMaterial {
   id: number;
@@ -26,6 +28,7 @@ interface StudyMaterial {
 export default function StudyMaterialPage() {
   const params = useParams();
   const router = useRouter();
+  const { user } = useUser();
 
   const pathId = params.pathId as string;
   const topicId = params.topicId as string;
@@ -42,6 +45,19 @@ export default function StudyMaterialPage() {
   useEffect(() => {
     fetchStudyMaterial();
   }, [pathId, topicId]);
+
+  // Track activity when user visits this topic
+  useEffect(() => {
+    if (user && topic && path && studyMaterial) {
+      trackTopicVisit(
+        user.id,
+        topicId,
+        topic.name,
+        pathId,
+        path.name
+      );
+    }
+  }, [user, topic, path, studyMaterial, topicId, pathId]);
 
   const fetchStudyMaterial = async () => {
     try {

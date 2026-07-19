@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { AppHeader } from "@/components/app-header";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -11,7 +12,15 @@ import { RoleSelectionChecker } from "@/components/role-selection-checker";
 
 export function ConditionalLayout({ children }: { children: ReactNode }) {
   const { user, isLoading } = useUser();
+  const pathname = usePathname();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Full-screen routes (no sidebar, header, or footer)
+  const isFullScreenRoute =
+    pathname === "/blocks" ||
+    pathname === "/match" ||
+    pathname === "/blast-game" ||
+    pathname.startsWith("/level-mode"); // Matches /level-mode AND /level-mode/[examId]
 
   // Listen for sidebar collapse state changes
   useEffect(() => {
@@ -24,7 +33,12 @@ export function ConditionalLayout({ children }: { children: ReactNode }) {
 
   // Show header/footer only for logged-in users
   // Landing page (for non-logged users) has its own header built-in
-  const showHeaderFooter = !isLoading && user;
+  const showHeaderFooter = !isLoading && user && !isFullScreenRoute;
+
+  // Full-screen routes render without any layout
+  if (isFullScreenRoute) {
+    return <>{children}</>;
+  }
 
   // Compute main content classes
   const mainContentClasses = [

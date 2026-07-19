@@ -1,7 +1,7 @@
 "use client";
 
 import { useUser } from "@/context/user-context";
-import { EXAMS } from "@/lib/exams";
+import { getAllExams } from "@/lib/exams";
 import { ChevronDown, Check } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
@@ -15,6 +15,7 @@ export default function ExamSwitcher() {
     return null;
   }
 
+  const EXAMS = getAllExams();
   const currentExam = user.current_exam || user.enrolled_exams[0];
   const currentExamData = EXAMS.find((e) => e.id === currentExam);
 

@@ -464,11 +464,19 @@ export default function FlashcardStudyPage() {
           </button>
 
           <button
-            onClick={() => (isFlipped ? handleRating("good") : goToNext())}
-            disabled={currentIndex === cards.length - 1 && !isFlipped}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#E76F51] hover:bg-[#D65A3D] text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
+            onClick={() => {
+              if (isFlipped) {
+                handleRating("good");
+              } else if (currentIndex < cards.length - 1) {
+                goToNext();
+              } else {
+                // Last card, not flipped - show completion
+                setShowCompletionModal(true);
+              }
+            }}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#E76F51] hover:bg-[#D65A3D] text-white transition-colors font-semibold"
           >
-            <span>Next</span>
+            <span>{currentIndex === cards.length - 1 && !isFlipped ? "Finish" : "Next"}</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

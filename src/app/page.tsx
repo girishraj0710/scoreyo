@@ -16,6 +16,88 @@ import {
   GraduationCap, Puzzle, Timer, Rocket, Award, Medal, Crown, Star, Layers, Gamepad2, Upload,
 } from "lucide-react";
 
+// Trending Topics Grid Component (Dynamic)
+function TrendingTopicsGrid({ examId }: { examId: string }) {
+  const [topics, setTopics] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [dataSource, setDataSource] = useState<string>("loading");
+
+  useEffect(() => {
+    const fetchTrendingTopics = async () => {
+      try {
+        const response = await fetch(`/api/trending-topics?examId=${examId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setTopics(data.topics.slice(0, 4)); // Show top 4
+          setDataSource(data.dataSource);
+        }
+      } catch (err) {
+        console.error("Error fetching trending topics:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTrendingTopics();
+  }, [examId]);
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="rounded-2xl bg-[#FAF8F5] dark:bg-slate-800 border border-black/5 p-4 animate-pulse">
+            <div className="h-3 bg-gray-300 dark:bg-slate-600 rounded w-20 mb-2"></div>
+            <div className="h-4 bg-gray-300 dark:bg-slate-600 rounded w-full mb-2"></div>
+            <div className="h-3 bg-gray-300 dark:bg-slate-600 rounded w-24"></div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {topics.map((row, i) => {
+        // Build link: Always go to study-guides (universal route)
+        // Pass subject and topic as search params for filtering
+        const topicLink = `/study-guides?highlight=${encodeURIComponent(row.topic)}`;
+
+        return (
+          <a
+            key={i}
+            href={topicLink}
+            className="rounded-2xl bg-[#FAF8F5] dark:bg-slate-800 border border-black/5 p-4 hover:border-[#F26A4B]/40 hover:-translate-y-0.5 transition-all group relative"
+          >
+            {/* Real-time indicator */}
+            {dataSource === "realtime" && i === 0 && (
+              <div className="absolute top-2 right-2">
+                <Flame className="w-4 h-4 text-[#F26A4B] animate-pulse" />
+              </div>
+            )}
+
+            <div className="text-[10px] uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>
+              {row.subject}
+            </div>
+            <div className="font-heading font-bold text-[#16213E] dark:text-white mt-1 group-hover:text-[#F26A4B] transition-colors line-clamp-2">
+              {row.topic}
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <div className="text-xs text-[#5A6478] dark:text-slate-400">
+                {row.learners.toLocaleString()} learners
+              </div>
+              {row.errorRate && row.errorRate > 40 && (
+                <div className="text-[10px] font-bold text-[#F26A4B] bg-[#F26A4B]/10 px-2 py-0.5 rounded">
+                  {row.errorRate}% errors
+                </div>
+              )}
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  );
+}
+
 // Flashcard Daily Goal Banner Component (Compact)
 function FlashcardDailyGoalBanner() {
   const [dailyGoal, setDailyGoal] = useState<{
@@ -134,18 +216,10 @@ function HomePageContent() {
   }>>([]);
   const [achievements, setAchievements] = useState<any>(null);
   const [weeklyStats, setWeeklyStats] = useState<any>(null);
+  const [continueData, setContinueData] = useState<any>(null);
+  const [recentActivities, setRecentActivities] = useState<any[]>([]);
 
-  const CONTINUE = {
-    examId: "upsc",
-    examName: "UPSC",
-    subject: "Indian Polity",
-    topic: "Fundamental Rights",
-    progress: 64,
-    minsLeft: 12,
-    accent: "#E76F51",
-  };
-
-  // Fetch stats, achievements, and weekly stats
+  // Fetch stats, achievements, weekly stats, continue learning, and recent activities
   useEffect(() => {
     if (!user) return;
 
@@ -155,15 +229,21 @@ function HomePageContent() {
       fetch(statsUrl).then(r => r.json()),
       fetch("/api/achievements").then(r => r.json()),
       fetch("/api/weekly-stats").then(r => r.json()),
-    ]).then(([statsData, achievementsData, weeklyData]) => {
+      fetch("/api/continue-learning").then(r => r.json()),
+      fetch("/api/recent-activities").then(r => r.json()),
+    ]).then(([statsData, achievementsData, weeklyData, continueResponse, activitiesResponse]) => {
       setStats(statsData);
       setAchievements(achievementsData);
       setWeeklyStats(weeklyData);
+      setContinueData(continueResponse?.continue || null);
+      setRecentActivities(activitiesResponse?.activities || []);
 
       // Check if user has any activity
       const hasAnyActivity = (statsData?.stats?.totalQuizzes || 0) > 0 ||
                              (statsData?.stats?.totalQuestionsAnswered || 0) > 0 ||
-                             (statsData?.stats?.streak || 0) > 0;
+                             (statsData?.stats?.streak || 0) > 0 ||
+                             continueResponse?.continue !== null ||
+                             (activitiesResponse?.activities || []).length > 0;
       setHasActivity(hasAnyActivity);
 
       // Format recent activity from sessions
@@ -226,7 +306,22 @@ function HomePageContent() {
   };
 
   const completed = tasks.filter((t) => t.done).length;
-  const pct = Math.round((completed / tasks.length) * 100);
+  const pct = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
+
+  // Calculate estimated time for today's plan
+  const TASK_TIME_ESTIMATES: Record<string, number> = {
+    flashcard_review: 10,   // ~10 min for flashcard review
+    quiz_practice: 15,      // ~15 min for daily quiz goal
+    weak_topic: 20,         // ~20 min for weak topic practice
+    study_guide: 15,        // ~15 min to read study guide
+    review_mistakes: 12,    // ~12 min to review mistakes
+    dpp_practice: 10        // ~10 min for Daily Practice Problems
+  };
+
+  const totalMinutes = tasks.reduce((sum, task: any) => {
+    const taskType = task.taskType || 'quiz_practice';
+    return sum + (TASK_TIME_ESTIMATES[taskType] || 15);
+  }, 0);
 
   // Map badge IDs to UI icons
   const getBadgeIcon = (badgeId: string) => {
@@ -368,50 +463,55 @@ function HomePageContent() {
         </motion.div>
 
         {/* Continue + Today's plan row */}
-        <div className={`grid ${hasActivity ? 'lg:grid-cols-3' : 'lg:grid-cols-1'} gap-5 mb-6`}>
-          {/* Continue learning (only show if user has activity) */}
-          {hasActivity && (
+        <div className={`grid ${hasActivity && continueData ? 'lg:grid-cols-3' : 'lg:grid-cols-1'} gap-5 mb-6 lg:items-stretch`}>
+          {/* Continue learning (only show if user has activity and continue data) */}
+          {hasActivity && continueData && (
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="lg:col-span-2 rounded-3xl bg-[#16213E] text-white p-6 md:p-8 shadow-soft relative overflow-hidden"
+            className="lg:col-span-2 rounded-3xl bg-[#16213E] text-white p-6 md:p-8 shadow-soft relative overflow-hidden flex flex-col"
           >
-            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl" style={{ backgroundColor: `${CONTINUE.accent}55` }} />
-            <div className="relative">
+            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl" style={{ backgroundColor: `${continueData.accent}55` }} />
+            <div className="relative flex-1 flex flex-col">
               <div className="flex items-center gap-2 text-xs uppercase text-white/60 font-bold" style={{ letterSpacing: '0.2em' }}>
                 <PlayCircle className="w-3.5 h-3.5" /> Pick up where you left off
               </div>
-              <div className="mt-4 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                <div>
-                  <div className="text-xs uppercase font-semibold" style={{ letterSpacing: '0.2em', color: CONTINUE.accent }}>
-                    {CONTINUE.examName} · {CONTINUE.subject}
+
+              {/* Spacer that grows to push content apart */}
+              <div className="flex-1 flex flex-col justify-center min-h-[80px]">
+                <div className="mt-4 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                  <div>
+                    <div className="text-xs uppercase font-semibold" style={{ letterSpacing: '0.2em', color: continueData.accent }}>
+                      {continueData.examName} · {continueData.subjectName}
+                    </div>
+                    <h2 className="font-heading text-3xl md:text-4xl font-black mt-1">{continueData.topicName}</h2>
+                    <div className="mt-3 flex items-center gap-2 text-sm text-white/70">
+                      <Clock className="w-4 h-4" />
+                      <span>~{continueData.minsLeft} min to complete this topic</span>
+                    </div>
                   </div>
-                  <h2 className="font-heading text-3xl md:text-4xl font-black mt-1">{CONTINUE.topic}</h2>
-                  <div className="mt-3 flex items-center gap-2 text-sm text-white/70">
-                    <Clock className="w-4 h-4" />
-                    <span>~{CONTINUE.minsLeft} min to complete this topic</span>
-                  </div>
+                  <button
+                    onClick={() => router.push(continueData.link)}
+                    className="rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold gap-2 h-11 px-5 flex items-center justify-center transition-all duration-500 flex-shrink-0"
+                  >
+                    Resume <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => router.push('/study-guides')}
-                  className="rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold gap-2 h-11 px-5 flex items-center justify-center transition-all duration-500"
-                >
-                  Resume <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
+
               <div className="mt-5">
                 <div className="flex items-center justify-between text-xs text-white/60 mb-1.5 font-semibold">
                   <span>Topic progress</span>
-                  <span className="font-mono">{CONTINUE.progress}%</span>
+                  <span className="font-mono">{continueData.progress}%</span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
-                    animate={{ width: `${CONTINUE.progress}%` }}
+                    animate={{ width: `${continueData.progress}%` }}
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="h-full rounded-full"
-                    style={{ backgroundColor: CONTINUE.accent }}
+                    style={{ backgroundColor: continueData.accent }}
                   />
                 </div>
               </div>
@@ -420,21 +520,23 @@ function HomePageContent() {
           )}
 
           {/* Today's plan (only show if user has activity) */}
-          {hasActivity && (
+          {hasActivity && tasks.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft"
+            className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft flex flex-col"
           >
             <div className="flex items-center justify-between mb-4">
               <div>
                 <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>Today's plan</div>
-                <div className="font-heading text-lg font-bold mt-0.5 text-[#16213E] dark:text-white">4 tasks · ~60 min</div>
+                <div className="font-heading text-lg font-bold mt-0.5 text-[#16213E] dark:text-white">
+                  {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} · ~{totalMinutes} min
+                </div>
               </div>
               <Target className="w-5 h-5 text-[#F26A4B]" />
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-2 flex-1">
               {tasks.map((t) => (
                 <li key={t.id}>
                   <button
@@ -496,51 +598,55 @@ function HomePageContent() {
         </div>
 
         {/* Daily 10 Questions + Recent activity + Daily Goal */}
-        <div className="grid lg:grid-cols-3 gap-5 mb-6">
-          <div className="lg:col-span-2">
+        <div className="grid lg:grid-cols-3 gap-5 mb-6 lg:items-stretch">
+          <div className="lg:col-span-2 flex">
             <DailyTenQuestions />
           </div>
 
           {/* Right column: Recent Activity + Daily Goal stacked */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 flex-1">
             {/* Recent activity */}
-            <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft">
+            <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 shadow-soft flex flex-col flex-1">
               <div className="flex items-center justify-between mb-4">
                 <div className="text-xs uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>Recent activity</div>
                 <Clock className="w-4 h-4 text-[#F26A4B]" />
               </div>
-              {recentActivity.length > 0 ? (
-                <>
-                  <ul className="space-y-3">
-                    {recentActivity.map((activity, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
-                        <div className="flex-1">
-                          <div className="text-sm font-semibold text-[#16213E] dark:text-white leading-snug">{activity.text}</div>
-                          <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5 font-mono">{activity.time}</div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="/dashboard"
-                    className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
-                  >
-                    View full dashboard <ChevronRight className="w-3 h-3" />
-                  </a>
-                </>
-              ) : (
-                <div className="text-center py-6">
-                  <div className="text-sm text-[#5A6478] dark:text-slate-400">
-                    No recent activity yet
+              <div className="flex-1 flex flex-col min-h-[120px]">
+                {recentActivity.length > 0 ? (
+                  <>
+                    <ul className="space-y-3">
+                      {recentActivity.map((activity, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="w-2 h-2 rounded-full bg-[#F26A4B] mt-1.5 flex-shrink-0" />
+                          <div className="flex-1">
+                            <div className="text-sm font-semibold text-[#16213E] dark:text-white leading-snug">{activity.text}</div>
+                            <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5 font-mono">{activity.time}</div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-6 flex-1">
+                    <div className="text-sm text-[#5A6478] dark:text-slate-400">
+                      No recent activity yet
+                    </div>
+                    <a
+                      href="/quiz"
+                      className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
+                    >
+                      Start your first quiz <ChevronRight className="w-3 h-3" />
+                    </a>
                   </div>
-                  <a
-                    href="/quiz"
-                    className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline"
-                  >
-                    Start your first quiz <ChevronRight className="w-3 h-3" />
-                  </a>
-                </div>
+                )}
+              </div>
+              {recentActivity.length > 0 && (
+                <a
+                  href="/dashboard"
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#F26A4B] hover:underline flex-shrink-0"
+                >
+                  View full dashboard <ChevronRight className="w-3 h-3" />
+                </a>
               )}
             </div>
 
@@ -563,7 +669,7 @@ function HomePageContent() {
                   <circle cx="60" cy="60" r="52" stroke="rgba(0,0,0,0.06)" strokeWidth="10" fill="none" />
                   <circle cx="60" cy="60" r="52" stroke="#E76F51" strokeWidth="10" strokeLinecap="round" fill="none"
                     strokeDasharray={2 * Math.PI * 52}
-                    strokeDashoffset={(2 * Math.PI * 52) * (1 - (weeklyStats.percentage / 100))} />
+                    strokeDashoffset={(2 * Math.PI * 52) * (1 - ((weeklyStats.percentage || 0) / 100))} />
                 </svg>
                 <div>
                   <div className="font-mono font-black text-4xl text-[#16213E] dark:text-white leading-none">
@@ -656,15 +762,15 @@ function HomePageContent() {
           <div className="flex items-end justify-between mb-5">
             <div>
               <div className="text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>Study modes</div>
-              <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">Pick how you want to learn today.</h3>
+              <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">Play your way to mastery with fun games.</h3>
             </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
-              { icon: Gamepad2, label: "Level Mode", sub: "Progressive challenges", tint: "#E76F51", to: "/level-mode", badge: "30 Levels" },
-              { icon: Puzzle, label: "Match", sub: "Speed pairing game", tint: "#2A9D8F", to: "/flashcards" },
-              { icon: Timer, label: "Test", sub: "Timed 10 Qs", tint: "#264653", to: "/mock-test" },
-              { icon: Rocket, label: "Blast", sub: "60-sec fast recall", tint: "#E9C46A", to: "/sprint" },
+              { icon: Gamepad2, label: "Level Mode", sub: "Progressive challenges", tint: "#E76F51", to: "/level-mode" },
+              { icon: Puzzle, label: "Match", sub: "Speed pairing game", tint: "#2A9D8F", to: "/match" },
+              { icon: Zap, label: "Blocks", sub: "Tetris-style learning", tint: "#F4A261", to: "/blocks" },
+              { icon: Rocket, label: "Blast", sub: "Space shooter quiz", tint: "#3b82f6", to: "/blast-game" },
             ].map((m, i) => {
               const Icon = m.icon;
               return (
@@ -680,11 +786,11 @@ function HomePageContent() {
                     </div>
                     <div className="font-heading text-xl font-bold mt-4 text-[#16213E] dark:text-white">{m.label}</div>
                     <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-0.5">{m.sub}</div>
-                    {'badge' in m && (
+                    {('badge' in m) ? (
                       <div className="mt-2 inline-block px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: `${m.tint}15`, color: m.tint }}>
-                        {m.badge}
+                        {String((m as any).badge)}
                       </div>
-                    )}
+                    ) : null}
                     <div className="mt-3 text-xs font-semibold text-[#16213E] dark:text-white group-hover:text-[#F26A4B] flex items-center gap-1">
                       Start <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -696,43 +802,43 @@ function HomePageContent() {
         </div>
 
         {/* Recently studied (only show if user has activity) */}
-        {hasActivity && (
+        {recentActivities.length > 0 && (
         <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft mb-6">
           <div className="flex items-end justify-between mb-5">
             <div>
               <div className="text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>Recently studied</div>
               <h3 className="font-heading text-2xl font-bold mt-1 text-[#16213E] dark:text-white">Jump back in.</h3>
             </div>
-            <a href="/flashcards" className="text-xs font-semibold text-[#16213E] dark:text-white hover:text-[#F26A4B] flex items-center gap-1">
-              All decks <ArrowRight className="w-3 h-3" />
+            <a href="/dashboard" className="text-xs font-semibold text-[#16213E] dark:text-white hover:text-[#F26A4B] flex items-center gap-1">
+              All activity <ArrowRight className="w-3 h-3" />
             </a>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              { exam: "UPSC", subject: "Indian Polity", cards: 6, progress: 82, accent: "#E76F51" },
-              { exam: "JEE", subject: "Physics · Kinematics", cards: 6, progress: 54, accent: "#2A9D8F" },
-              { exam: "NEET", subject: "Biology · Cell", cards: 6, progress: 38, accent: "#264653" },
-            ].map((d, i) => (
+            {recentActivities.map((activity, i) => (
               <a
                 key={i}
-                href="/flashcards"
+                href={activity.link}
                 className="group rounded-2xl border border-black/5 bg-[#FAF8F5] dark:bg-slate-800 p-5 hover:-translate-y-1 hover:shadow-pop transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] uppercase font-bold" style={{ letterSpacing: '0.2em', color: d.accent }}>
-                    {d.exam}
+                  <div className="text-[10px] uppercase font-bold" style={{ letterSpacing: '0.2em', color: activity.accent }}>
+                    {activity.exam}
                   </div>
                   <Layers className="w-4 h-4 text-[#5A6478] dark:text-slate-400" />
                 </div>
-                <div className="font-heading text-lg font-bold mt-2 text-[#16213E] dark:text-white">{d.subject}</div>
-                <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-1">{d.cards} cards</div>
+                <div className="font-heading text-lg font-bold mt-2 text-[#16213E] dark:text-white">{activity.subject}</div>
+                {activity.cards && (
+                  <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-1">
+                    {activity.cards} {activity.type === 'flashcard' ? 'cards' : activity.type === 'quiz' ? 'questions' : 'exercises'}
+                  </div>
+                )}
                 <div className="mt-4">
                   <div className="flex items-center justify-between text-xs font-semibold text-[#5A6478] dark:text-slate-400 mb-1.5">
-                    <span>Progress</span>
-                    <span className="font-mono">{d.progress}%</span>
+                    <span>{activity.type === 'quiz' ? 'Accuracy' : 'Progress'}</span>
+                    <span className="font-mono">{activity.progress}%</span>
                   </div>
                   <div className="h-1.5 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${d.progress}%`, backgroundColor: d.accent }} />
+                    <div className="h-full rounded-full" style={{ width: `${activity.progress}%`, backgroundColor: activity.accent }} />
                   </div>
                 </div>
               </a>
@@ -756,59 +862,7 @@ function HomePageContent() {
               All topics <ArrowRight className="w-3 h-3" />
             </a>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {(() => {
-              // Define trending topics for different exams
-              const trendingByExam: Record<string, Array<{subject: string, topic: string, learners: number}>> = {
-                'UPSC CSE': [
-                  { subject: "INDIAN POLITY", topic: "Constitution", learners: 2843 },
-                  { subject: "MODERN HISTORY", topic: "Freedom Struggle", learners: 3304 },
-                  { subject: "GEOGRAPHY", topic: "Physical Geography", learners: 1956 },
-                  { subject: "ECONOMY", topic: "Budget & Taxation", learners: 2124 },
-                ],
-                'JEE Main': [
-                  { subject: "PHYSICS", topic: "Thermodynamics", learners: 4521 },
-                  { subject: "CHEMISTRY", topic: "Organic Chemistry", learners: 3890 },
-                  { subject: "MATHEMATICS", topic: "Calculus", learners: 5234 },
-                  { subject: "PHYSICS", topic: "Electromagnetism", learners: 4102 },
-                ],
-                'NEET': [
-                  { subject: "BIOLOGY", topic: "Cell Biology", learners: 3456 },
-                  { subject: "PHYSICS", topic: "Optics", learners: 2890 },
-                  { subject: "CHEMISTRY", topic: "Chemical Bonding", learners: 3123 },
-                  { subject: "BIOLOGY", topic: "Genetics", learners: 4012 },
-                ],
-                'CAT': [
-                  { subject: "QUANT", topic: "Number Systems", learners: 2345 },
-                  { subject: "VERBAL", topic: "Reading Comprehension", learners: 2890 },
-                  { subject: "LRDI", topic: "Data Interpretation", learners: 2567 },
-                  { subject: "QUANT", topic: "Geometry", learners: 2123 },
-                ],
-                'GATE': [
-                  { subject: "DATA STRUCTURES", topic: "Trees & Graphs", learners: 3456 },
-                  { subject: "ALGORITHMS", topic: "Dynamic Programming", learners: 2987 },
-                  { subject: "OS", topic: "Process Management", learners: 2654 },
-                  { subject: "DBMS", topic: "Normalization", learners: 2890 },
-                ],
-              };
-
-              // Get trending topics based on user's exam or show default
-              const userExam = user?.exam_preparing_for || 'UPSC CSE';
-              const topics = trendingByExam[userExam] || trendingByExam['UPSC CSE'];
-
-              return topics.map((row, i) => (
-              <a
-                key={i}
-                href="/study-guides"
-                className="rounded-2xl bg-[#FAF8F5] dark:bg-slate-800 border border-black/5 p-4 hover:border-[#F26A4B]/40 hover:-translate-y-0.5 transition-all group"
-              >
-                <div className="text-[10px] uppercase font-bold text-[#5A6478] dark:text-slate-400" style={{ letterSpacing: '0.2em' }}>{row.subject}</div>
-                <div className="font-heading font-bold text-[#16213E] dark:text-white mt-1 group-hover:text-[#F26A4B] transition-colors">{row.topic}</div>
-                <div className="text-xs text-[#5A6478] dark:text-slate-400 mt-2">Trending · {row.learners} learners</div>
-              </a>
-              ));
-            })()}
-          </div>
+          <TrendingTopicsGrid examId={user?.current_exam || examFilter || 'upsc-cse'} />
         </div>
       </div>
     </AccessibilityWrapper>

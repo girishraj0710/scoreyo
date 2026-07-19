@@ -40,9 +40,9 @@ export default function SprintPage() {
   const { user, isLoading: userLoading } = useUser();
   const examFilter = useExamFilter(); // Single-exam-focus
 
-  // Redirect contributors to contributor portal
+  // Redirect ONLY contributors (not admin) to contributor portal
   useEffect(() => {
-    if (!userLoading && user && ["contributor", "admin"].includes(user.role || "")) {
+    if (!userLoading && user && user.role === 'contributor') {
       router.push("/contributor");
     }
   }, [user, userLoading, router]);

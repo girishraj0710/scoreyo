@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useUser } from "@/context/user-context";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useFilteredExams } from "@/hooks/use-exam-filter";
 import {
   Search,
@@ -19,7 +19,8 @@ import {
   TrendingUp,
   Lightbulb,
   List,
-  Award
+  Award,
+  FileText
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { ContentRenderer } from "@/components/study-guides/ContentRenderer";
@@ -82,6 +83,7 @@ interface TopicContent {
 export default function StudyGuidesPage() {
   const { user, isLoading } = useUser();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   // State management
   const [exams, setExams] = useState<Exam[]>([]);
@@ -173,6 +175,116 @@ export default function StudyGuidesPage() {
       }
     }
   }, [user, exams, filteredExams, selectedExamId]);
+
+  // Handle highlight parameter from hot topics
+  useEffect(() => {
+    const highlightTopic = searchParams.get('highlight');
+    if (!highlightTopic || !exams.length) {
+      return;
+    }
+
+    console.log(`🔍 Looking for topic: "${highlightTopic}"`);
+
+    // If no exam is selected, search ALL exams to find the topic
+    const examsToSearch = selectedExamId
+      ? [exams.find(e => e.id === selectedExamId)].filter(Boolean)
+      : exams;
+
+    console.log(`📚 Searching ${examsToSearch.length} exam(s)...`);
+
+    // Search through exams
+    for (const exam of examsToSearch) {
+      if (!exam) continue;
+      console.log(`  Checking exam: ${exam.name}`);
+
+      for (const subject of exam.subjects) {
+        if (subject.topics && subject.topics.length > 0) {
+          for (const topic of subject.topics) {
+            if (topic.name.toLowerCase().includes(highlightTopic.toLowerCase()) ||
+                highlightTopic.toLowerCase().includes(topic.name.toLowerCase())) {
+              console.log(`✅ Found topic "${topic.name}" in ${exam.name} → ${subject.name}`);
+
+              // Auto-select the exam if not already selected
+              if (!selectedExamId) {
+                console.log(`📌 Auto-selecting exam: ${exam.id}`);
+                setSelectedExamId(exam.id);
+              }
+
+              // Expand the subject
+              setExpandedSubjects(prev => {
+                const newSet = new Set(prev);
+                newSet.add(subject.id);
+                return newSet;
+              });
+
+              // Select the topic
+              setSelectedTopic({
+                examId: exam.id,
+                subjectId: subject.id,
+                subjectName: subject.name,
+                topicName: topic.name
+              });
+
+              // Remove the highlight param from URL
+              const newUrl = window.location.pathname;
+              window.history.replaceState({}, '', newUrl);
+
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    console.warn(`⚠️ Topic "${highlightTopic}" not found in any exam`);
+  }, [searchParams, exams, selectedExamId]);
+
+  // Load content when topic is selected
+  useEffect(() => {
+    if (!selectedTopic) return;
+
+    const loadTopicContent = async () => {
+      setIsContentLoading(true);
+      setActiveTOCSection("");
+
+      try {
+        const response = await fetch(
+          `/api/study-content?exam=${selectedTopic.examId}&subject=${selectedTopic.subjectId}&topic=${encodeURIComponent(selectedTopic.topicName)}`
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setTopicContent(data.material || data);
+
+          // Start time tracking session
+          try {
+            const sessionRes = await fetch('/api/study/start-session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                subjectId: selectedTopic.subjectId,
+                topicId: selectedTopic.topicName,
+                pathId: selectedTopic.examId
+              })
+            });
+            if (sessionRes.ok) {
+              const sessionData = await sessionRes.json();
+              setReadingSessionId(sessionData.sessionId);
+              setSectionsViewed(new Set());
+            }
+          } catch {
+            // Time tracking is optional
+          }
+        }
+      } catch (error) {
+        console.error('Error loading topic content:', error);
+      } finally {
+        setIsContentLoading(false);
+      }
+    };
+
+    loadTopicContent();
+  }, [selectedTopic]);
 
   // Get selected exam
   const selectedExam = exams.find(exam => exam.id === selectedExamId);
@@ -412,7 +524,39 @@ export default function StudyGuidesPage() {
     <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-950">
       {/* Top Header - Sticky */}
       <div className="sticky top-0 md:top-[96px] z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 relative">
+          {/* Study Materials Button - Absolute Top Right (Always visible for students & admins) */}
+          {(selectedExamId || user?.current_exam || user?.role === 'admin') && (
+            <button
+              onClick={() => {
+                // Admin-specific: If no exam selected, show all materials
+                if (user?.role === 'admin' && !selectedExamId) {
+                  router.push('/study-materials');
+                  return;
+                }
+
+                // Use selected exam or fallback to user's current exam
+                const examId = selectedExamId || user?.current_exam;
+                // Map legacy IDs
+                const examIdMap: Record<string, string> = {
+                  'jee': 'jee-main',
+                  'neet': 'neet-ug',
+                  'upsc': 'upsc-cse',
+                  'ssc': 'ssc-cgl',
+                  'ibps': 'ibps-po',
+                  'sbi': 'sbi-po'
+                };
+                const mappedExamId = examId ? (examIdMap[examId] || examId) : 'upsc-cse';
+                router.push(`/study-materials?examId=${mappedExamId}`);
+              }}
+              className="absolute top-1/2 right-6 -translate-y-1/2 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#2A9D8F] to-[#21867A] hover:from-[#21867A] hover:to-[#1A6F65] text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg z-10"
+            >
+              <FileText className="w-4 h-4" />
+              <span className="hidden sm:inline">Study Materials</span>
+              <span className="sm:hidden">Materials</span>
+            </button>
+          )}
+
           {/* Breadcrumb & Title */}
           <div className="mb-4">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-1" style={{ letterSpacing: '0.2em' }}>

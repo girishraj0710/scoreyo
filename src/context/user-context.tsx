@@ -84,7 +84,20 @@ export function UserProvider({ children }: { children: ReactNode }) {
           "Pragma": "no-cache",
         }
       });
-      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(`Auth API returned ${res.status}`);
+      }
+
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (parseError) {
+        console.error('[UserContext] Failed to parse JSON response:', text.substring(0, 200));
+        throw new Error('Invalid JSON response from auth API');
+      }
+
       if (data.user) {
         console.log('[UserContext] fetchUser: User authenticated', data.user.email);
         setUser(data.user);

@@ -80,16 +80,22 @@ export default function LevelModePage() {
   const router = useRouter();
   const [examProgress, setExamProgress] = useState<Record<string, ExamProgress>>({});
   const [loadingProgress, setLoadingProgress] = useState(false);
+  const [showInstructionModal, setShowInstructionModal] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   // Single-exam-focus: Redirect regular users directly to their current exam
   useEffect(() => {
     if (!user || isLoading) return;
 
-    // Admin: Show landing page with all exams (current behavior)
-    if (isAdmin) return;
+    // Admin: Show instruction modal (not exam selection)
+    if (isAdmin) {
+      setShowInstructionModal(true);
+      return;
+    }
 
     // Regular users: Redirect to current exam gaming console
     if (user.current_exam) {
+      setIsRedirecting(true);
       router.push(`/level-mode/${user.current_exam}`);
     }
   }, [user, isLoading, isAdmin, router]);
@@ -183,6 +189,116 @@ export default function LevelModePage() {
   };
 
   const stats = getTotalStats();
+
+  // Show loading screen while redirecting students
+  if (isRedirecting) {
+    return (
+      <AccessibilityWrapper>
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center">
+          <div className="text-center">
+            <Gamepad2 className="w-20 h-20 text-[#DAB661] mx-auto mb-6 animate-bounce" />
+            <div className="w-12 h-12 border-4 border-[#90CAF9] border-t-indigo-600 rounded-full animate-spin mx-auto"></div>
+            <p className="text-slate-300 mt-4">Loading your level mode...</p>
+          </div>
+        </div>
+      </AccessibilityWrapper>
+    );
+  }
+
+  // Instruction Modal for Admin
+  if (showInstructionModal && isAdmin) {
+    return (
+      <AccessibilityWrapper>
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center px-4">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="max-w-3xl w-full bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl"
+          >
+            {/* Header */}
+            <div className="text-center mb-8">
+              <Gamepad2 className="w-16 h-16 text-[#DAB661] mx-auto mb-4" />
+              <h2 className="text-3xl font-bold text-white mb-2">Level Mode</h2>
+              <p className="text-slate-300">Progressive challenges with 30 levels per exam</p>
+            </div>
+
+            {/* How Level Mode Works */}
+            <div className="mb-8">
+              <h3 className="text-xl font-bold text-[#DAB661] mb-4">How Level Mode Works</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border-2 border-emerald-500/50">
+                    <Award className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm mb-2">30 Levels Per Exam</h4>
+                  <p className="text-xs text-slate-400">
+                    Progress from basics (Lv 1-10) → intermediate (Lv 11-20) → advanced (Lv 21-30)
+                  </p>
+                </div>
+                <div className="text-center bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border-2 border-amber-500/50">
+                    <Crown className="w-6 h-6 text-amber-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm mb-2">Boss Levels</h4>
+                  <p className="text-xs text-slate-400">
+                    Every 10th level is a boss challenge (20-25 questions). Score 80% to progress.
+                  </p>
+                </div>
+                <div className="text-center bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border-2 border-purple-500/50">
+                    <Flame className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm mb-2">Earn Stars & Rewards</h4>
+                  <p className="text-xs text-slate-400">
+                    Score 90%+ for 3 stars. Unlock badges, compete on leaderboards.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Instructions */}
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10 mb-6">
+              <h3 className="text-lg font-bold text-white mb-3">📋 Instructions</h3>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-400 mt-1">✓</span>
+                  <span>Each level has 10-25 questions covering all subjects of the exam</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-400 mt-1">✓</span>
+                  <span>Complete levels in order to unlock the next challenge</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-400 mt-1">✓</span>
+                  <span>Boss levels (10, 20, 30) require 80% score to pass</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-400 mt-1">✓</span>
+                  <span>Replay any level to improve your star rating</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => router.push("/")}
+                className="flex-1 px-6 py-3 bg-white/10 text-white rounded-xl hover:bg-white/20 transition-all border border-white/20"
+              >
+                Back to Home
+              </button>
+              <button
+                onClick={() => setShowInstructionModal(false)}
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-[#E76F51] to-[#F4A261] text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-[#E76F51]/50 transition-all"
+              >
+                Select Exam
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </AccessibilityWrapper>
+    );
+  }
 
   return (
     <AccessibilityWrapper>

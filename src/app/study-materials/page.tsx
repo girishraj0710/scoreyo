@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useUser } from '@/context/user-context';
+import { useSearchParams } from 'next/navigation';
 import { getAllExams, getExamById, examCategories } from '@/lib/exams';
 import {
   Download,
@@ -33,6 +34,7 @@ type Step = 'exam' | 'subject' | 'materials';
 
 export default function StudyMaterialsPage() {
   const { user } = useUser();
+  const searchParams = useSearchParams();
 
   const [step, setStep] = useState<Step>('exam');
   const [selectedExam, setSelectedExam] = useState<string | null>(null);
@@ -61,6 +63,45 @@ export default function StudyMaterialsPage() {
   const subjectName = useMemo(() => selectedSubject
     ? subjects.find((s) => s.id === selectedSubject)?.name
     : null, [selectedSubject, subjects]);
+
+  // Auto-select exam from URL parameter or user's current exam
+  useEffect(() => {
+    if (selectedExam) return; // Already selected
+
+    // Priority 1: URL parameter (from Study Guides button)
+    const examIdFromUrl = searchParams.get('examId');
+    if (examIdFromUrl) {
+      const examExists = exams.find(e => e.id === examIdFromUrl);
+      if (examExists) {
+        console.log(`✅ Auto-selecting exam from URL: ${examIdFromUrl}`);
+        setSelectedExam(examIdFromUrl);
+        setStep('subject');
+        return;
+      }
+    }
+
+    // Priority 2: User's current exam (for regular users)
+    if (user?.current_exam && user.role !== 'admin' && user.role !== 'contributor') {
+      // Map legacy exam IDs to current IDs
+      const examIdMap: Record<string, string> = {
+        'jee': 'jee-main',
+        'neet': 'neet-ug',
+        'upsc': 'upsc-cse',
+        'ssc': 'ssc-cgl',
+        'ibps': 'ibps-po',
+        'sbi': 'sbi-po'
+      };
+
+      const mappedExamId = examIdMap[user.current_exam] || user.current_exam;
+      const examExists = exams.find(e => e.id === mappedExamId);
+
+      if (examExists) {
+        console.log(`✅ Auto-selecting user's current exam: ${mappedExamId}`);
+        setSelectedExam(mappedExamId);
+        setStep('subject');
+      }
+    }
+  }, [user, exams, selectedExam, searchParams]);
 
   // Handle click outside to close search results
   useEffect(() => {
@@ -236,6 +277,24 @@ export default function StudyMaterialsPage() {
   return (
     <AccessibilityWrapper>
       <div className="max-w-5xl mx-auto px-4 py-8">
+        {/* Back Button */}
+        <button
+          onClick={() => window.history.back()}
+          className="mb-6 flex items-center gap-2 text-sm font-medium transition-colors hover:gap-3"
+          style={{ color: "var(--muted)" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "var(--primary)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "var(--muted)";
+          }}
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          <span>Back</span>
+        </button>
+
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
@@ -259,8 +318,8 @@ export default function StudyMaterialsPage() {
               }}
               onFocus={(e) => {
                 setShowSearchDropdown(true);
-                e.currentTarget.style.borderColor = 'var(--primary)';
-                e.currentTarget.style.boxShadow = '0 0 0 3px rgba(99, 102, 241, 0.2)';
+                e.currentTarget.style.borderColor = '#E76F51';
+                e.currentTarget.style.boxShadow = '0 0 0 3px rgba(231, 111, 81, 0.2)';
               }}
               onBlur={(e) => {
                 e.currentTarget.style.borderColor = 'var(--card-border)';
@@ -349,7 +408,7 @@ export default function StudyMaterialsPage() {
         <div className="flex items-center gap-2 mb-8 justify-center flex-wrap">
           <div className={`flex items-center gap-2 ${step !== 'exam' ? 'opacity-60' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
-              step === 'exam' ? 'bg-[#4255FF]' : 'bg-slate-300'
+              step === 'exam' ? 'bg-[#E76F51]' : 'bg-slate-300'
             }`}>
               1
             </div>
@@ -358,7 +417,7 @@ export default function StudyMaterialsPage() {
           <ChevronRight className="w-5 h-5" style={{ color: "var(--card-border)" }} />
           <div className={`flex items-center gap-2 ${step !== 'subject' ? 'opacity-60' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
-              step === 'subject' ? 'bg-[#4255FF]' : 'bg-slate-300'
+              step === 'subject' ? 'bg-[#E76F51]' : 'bg-slate-300'
             }`}>
               2
             </div>
@@ -367,7 +426,7 @@ export default function StudyMaterialsPage() {
           <ChevronRight className="w-5 h-5" style={{ color: "var(--card-border)" }} />
           <div className={`flex items-center gap-2 ${step !== 'materials' ? 'opacity-60' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
-              step === 'materials' ? 'bg-[#4255FF]' : 'bg-slate-300'
+              step === 'materials' ? 'bg-[#E76F51]' : 'bg-slate-300'
             }`}>
               3
             </div>
@@ -393,7 +452,7 @@ export default function StudyMaterialsPage() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-2px)";
                     e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
-                    e.currentTarget.style.borderColor = "#4255FF";
+                    e.currentTarget.style.borderColor = "#E76F51";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "translateY(0)";
@@ -424,8 +483,8 @@ export default function StudyMaterialsPage() {
         {/* Step 2: Select Subject */}
         {step === 'subject' && examName && (
           <div className="space-y-6">
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background: "rgba(66, 85, 255, 0.1)", borderLeft: "4px solid #4255FF" }}>
-              <FileText className="w-6 h-6 flex-shrink-0" style={{ color: "#4255FF" }} />
+            <div className="flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background: "rgba(231, 111, 81, 0.1)", borderLeft: "4px solid #E76F51" }}>
+              <FileText className="w-6 h-6 flex-shrink-0" style={{ color: "#E76F51" }} />
               <p style={{ color: "var(--foreground)" }}>
                 Selected: <span className="font-semibold">{examName}</span>
               </p>
@@ -446,7 +505,7 @@ export default function StudyMaterialsPage() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-2px)";
                     e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
-                    e.currentTarget.style.borderColor = "#4255FF";
+                    e.currentTarget.style.borderColor = "#E76F51";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "translateY(0)";
@@ -475,7 +534,7 @@ export default function StudyMaterialsPage() {
                 setSearchQuery('');
               }}
               className="font-medium"
-              style={{ color: "#4255FF" }}
+              style={{ color: "#E76F51" }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
@@ -524,7 +583,7 @@ export default function StudyMaterialsPage() {
             {isLoading && (
               <div className="flex justify-center py-12">
                 <div className="flex flex-col items-center gap-3">
-                  <Loader className="w-8 h-8 animate-spin" style={{ color: "#4255FF" }} />
+                  <Loader className="w-8 h-8 animate-spin" style={{ color: "#E76F51" }} />
                   <p style={{ color: "var(--muted)" }}>Loading materials...</p>
                 </div>
               </div>
@@ -570,7 +629,7 @@ export default function StudyMaterialsPage() {
                     style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
-                      e.currentTarget.style.borderColor = "#4255FF";
+                      e.currentTarget.style.borderColor = "#E76F51";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.boxShadow = "none";
@@ -581,7 +640,7 @@ export default function StudyMaterialsPage() {
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start gap-4">
-                          <div className="px-3 py-2 rounded font-bold flex-shrink-0" style={{ background: "rgba(66, 85, 255, 0.1)", color: "#4255FF" }}>
+                          <div className="px-3 py-2 rounded font-bold flex-shrink-0" style={{ background: "rgba(231, 111, 81, 0.1)", color: "#E76F51" }}>
                             {getFileIcon(material.file_type)}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -624,15 +683,15 @@ export default function StudyMaterialsPage() {
                         onClick={() => handleDownload(material.id)}
                         disabled={downloadingIds.has(material.id)}
                         className="px-7 py-3 text-white rounded-lg font-medium flex items-center gap-2 transition-all flex-shrink-0 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
-                        style={{ backgroundColor: downloadingIds.has(material.id) ? "#9ca3af" : "#4255FF" }}
+                        style={{ backgroundColor: downloadingIds.has(material.id) ? "#9ca3af" : "#E76F51" }}
                         onMouseEnter={(e) => {
                           if (!downloadingIds.has(material.id)) {
-                            e.currentTarget.style.backgroundColor = "#3242CC";
+                            e.currentTarget.style.backgroundColor = "#d96043";
                             e.currentTarget.style.transform = "scale(1.02)";
                           }
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = "#4255FF";
+                          e.currentTarget.style.backgroundColor = "#E76F51";
                           e.currentTarget.style.transform = "scale(1)";
                         }}
                       >
@@ -660,7 +719,7 @@ export default function StudyMaterialsPage() {
                 setSelectedSubject(null);
               }}
               className="font-medium"
-              style={{ color: "#4255FF" }}
+              style={{ color: "#E76F51" }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >

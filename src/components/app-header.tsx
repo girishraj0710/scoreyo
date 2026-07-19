@@ -13,7 +13,7 @@ import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriang
 import { Icon3DTeacher } from "@/components/premium-3d-icons";
 
 export function AppHeader() {
-  const { user, isLoading, logout, setShowLoginModal } = useUser();
+  const { user, isLoading, logout, setShowLoginModal, isAdmin } = useUser();
   const { t } = useLocale();
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === "dark";
@@ -117,12 +117,15 @@ export function AppHeader() {
                 <Link href="/study-materials" className={navLinkClass("/study-materials")} style={navLinkStyle("/study-materials")} {...navHoverProps("/study-materials")}>
                   Study Materials
                 </Link>
-                <Link href="/pricing" className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50" : "text-amber-600 hover:text-amber-700 hover:bg-amber-50"}`}>
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  Upgrade
-                </Link>
+                {/* Show Upgrade only for students with free subscription */}
+                {user?.subscription_status !== 'pro' && (
+                  <Link href="/pricing" className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors ${isActive("/pricing") ? "text-amber-700 bg-amber-50" : "text-amber-600 hover:text-amber-700 hover:bg-amber-50"}`}>
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    Upgrade
+                  </Link>
+                )}
               </>
             )}
           </nav>
