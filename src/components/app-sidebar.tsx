@@ -8,7 +8,7 @@ import { useLocale } from "@/context/locale-context";
 import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
-import { isAdmin } from "@/lib/admin";
+import { isAdmin as checkIsAdmin } from "@/lib/admin";
 import {
   Home,
   RotateCcw,
@@ -212,7 +212,7 @@ export function AppSidebar() {
                 </div>
 
                 {/* Admin Links */}
-                {isAdmin(user?.role, user?.email) && (
+                {checkIsAdmin(user?.role, user?.email) && (
                   <div className="py-2 border-b border-slate-200 dark:border-slate-800">
                     <Link
                       href="/admin"

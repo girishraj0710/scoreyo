@@ -8,7 +8,7 @@ import { useLocale } from "@/context/locale-context";
 import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
-import { isAdmin } from "@/lib/admin";
+import { isAdmin as checkIsAdmin } from "@/lib/admin";
 import ExamSwitcher from "./ExamSwitcher";
 import {
   Bell,
@@ -116,7 +116,7 @@ export function TopNav() {
             </div>
 
             {/* Admin Links */}
-            {isAdmin(user.role, user.email) && (
+            {checkIsAdmin(user.role, user.email) && (
               <div className="py-2 border-b border-slate-200 dark:border-slate-800">
                 <Link href="/admin" className={menuItemClass} onClick={() => setShowMenu(false)}>
                   <BarChart3 className="w-5 h-5 flex-shrink-0 text-slate-500" />
