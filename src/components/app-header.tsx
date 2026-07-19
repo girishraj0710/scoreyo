@@ -8,7 +8,7 @@ import { useLocale } from "@/context/locale-context";
 import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
-import { isAdmin } from "@/lib/admin";
+import { isAdmin as checkIsAdmin } from "@/lib/admin";
 import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriangle, FileText } from "lucide-react";
 import { Icon3DTeacher } from "@/components/premium-3d-icons";
 
@@ -277,7 +277,7 @@ export function AppHeader() {
                     </div>
                   )}
                   {/* Admin Links (if admin role) */}
-                  {isAdmin(user.role, user.email) && (
+                  {checkIsAdmin(user.role, user.email) && (
                     <div className="py-2" style={{ borderBottom: '1px solid var(--card-border)' }}>
                       <Link
                         href="/admin"
