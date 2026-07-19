@@ -147,7 +147,7 @@ const TESTIMONIALS = [
 ];
 
 export function LandingPageV3() {
-  // Auth redirects handled by signup/login pages now
+  const { setShowLoginModal } = useUser();
   const [carouselIndex, setCarouselIndex] = useState(4); // Start at position 4 (first real card after clones)
   const [isTransitioning, setIsTransitioning] = useState(true);
   const carouselTrackRef = useRef<HTMLDivElement>(null);

@@ -711,6 +711,55 @@ export async function getUserByEmail(email: string) {
   return queryOne("SELECT * FROM users WHERE email = $1", [email.toLowerCase().trim()]);
 }
 
+// ─── OAuth functions ─────────────────────────────────────
+
+export async function findUserByGoogleId(googleId: string) {
+  return queryOne("SELECT * FROM users WHERE google_id = $1", [googleId]);
+}
+
+export async function createUserWithGoogle({
+  googleId,
+  email,
+  name,
+  profilePicture,
+}: {
+  googleId: string;
+  email: string;
+  name: string;
+  profilePicture: string | null;
+}) {
+  const id = require('uuid').v4();
+  const avatarColor = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#14b8a6"][
+    Math.floor(Math.random() * 8)
+  ];
+
+  await execute(
+    `INSERT INTO users (
+      id, name, email, avatar_color, auth_provider, google_id, profile_picture, role
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    [id, name, email.toLowerCase().trim(), avatarColor, 'google', googleId, profilePicture, 'student']
+  );
+
+  return getUser(id);
+}
+
+export async function linkGoogleToUser(userId: string, googleId: string, profilePicture?: string | null) {
+  const updates = ["auth_provider = $1", "google_id = $2"];
+  const values: any[] = ['google', googleId];
+
+  if (profilePicture) {
+    updates.push("profile_picture = $3");
+    values.push(profilePicture);
+  }
+
+  values.push(userId);
+
+  return execute(
+    `UPDATE users SET ${updates.join(", ")}, updated_at = CURRENT_TIMESTAMP WHERE id = $${values.length}`,
+    values
+  );
+}
+
 // ─── OTP functions ──────────────────────────────────────
 
 export async function saveOtp(email: string, code: string, expiresMinutes: number = 10) {

@@ -22,8 +22,6 @@ interface User {
 interface UserContextType {
   user: User | null;
   isLoading: boolean;
-  showLoginModal: boolean;
-  setShowLoginModal: (show: boolean) => void;
   sendOtp: (email: string, action?: "login" | "signup") => Promise<{ success: boolean; error?: string; shouldLogin?: boolean; shouldSignup?: boolean }>;
   verifyOtp: (email: string, code: string) => Promise<{ success: boolean; error?: string }>;
   completeLogin: (
@@ -57,7 +55,6 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     fetchUser();
@@ -105,21 +102,11 @@ export function UserProvider({ children }: { children: ReactNode }) {
         console.log('[UserContext] fetchUser: No user found, clearing state');
         // Ensure user is cleared
         setUser(null);
-        // Only auto-show modal if NOT on homepage (landing page has inline form)
-        const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
-        if (!isHomePage) {
-          setShowLoginModal(true);
-        }
       }
     } catch (error) {
       console.error("Fetch user error:", error);
       // Ensure user is cleared on error
       setUser(null);
-      // Only auto-show modal if NOT on homepage
-      const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
-      if (!isHomePage) {
-        setShowLoginModal(true);
-      }
     } finally {
       setIsLoading(false);
     }
@@ -195,7 +182,6 @@ export function UserProvider({ children }: { children: ReactNode }) {
       }
       if (data.user) {
         setUser(data.user);
-        setShowLoginModal(false);
 
         // CRITICAL: Force a context refresh after login to ensure cookies are loaded
         // This prevents the "logged out on navigation" bug
@@ -223,7 +209,6 @@ export function UserProvider({ children }: { children: ReactNode }) {
     } finally {
       // Always clear local state regardless of API response
       setUser(null);
-      setShowLoginModal(false);
     }
   }
 
@@ -301,8 +286,6 @@ export function UserProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         isLoading,
-        showLoginModal,
-        setShowLoginModal,
         sendOtp,
         verifyOtp,
         completeLogin,

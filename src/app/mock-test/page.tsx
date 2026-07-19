@@ -44,7 +44,7 @@ type PageState = "select" | "instructions" | "loading" | "test" | "results" | "p
 type TestType = "short" | "full";
 
 export default function MockTestPage() {
-  const { user, setShowLoginModal, isLoading: userLoading } = useUser();
+  const { user, isLoading: userLoading } = useUser();
   const { t } = useLocale();
   const router = useRouter();
   const examFilter = useExamFilter(); // Single-exam-focus
@@ -929,7 +929,7 @@ export default function MockTestPage() {
               Practice with realistic exam simulations for JEE, NEET, UPSC, Banking, SSC, and 55+ other competitive exams
             </p>
             <button
-              onClick={() => setShowLoginModal(true)}
+              onClick={() => router.push('/login')}
               className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
             style={{
               backgroundColor: '#16213E',
@@ -1051,7 +1051,7 @@ export default function MockTestPage() {
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Available for 60+ Exams</h2>
             <p className="mb-8" style={{ color: "var(--foreground-secondary)" }}>JEE, NEET, UPSC, SSC, Banking, Railways, State PSC, Defence, Law, and many more</p>
             <button
-              onClick={() => setShowLoginModal(true)}
+              onClick={() => router.push('/login')}
               className="px-8 py-4 bg-[#16213E] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#1a2744] transition-all"
             >
               Get Started - It's Free

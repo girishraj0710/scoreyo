@@ -13,7 +13,7 @@ import { Moon, Sun, BarChart3, TrendingUp, Trophy, Settings, LogOut, AlertTriang
 import { Icon3DTeacher } from "@/components/premium-3d-icons";
 
 export function AppHeader() {
-  const { user, isLoading, logout, setShowLoginModal, isAdmin } = useUser();
+  const { user, isLoading, logout, isAdmin } = useUser();
   const { t } = useLocale();
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === "dark";
@@ -144,14 +144,14 @@ export function AppHeader() {
           {!user && !isLoading && (
             <div className="flex items-center gap-3 ml-2">
               <button
-                onClick={() => setShowLoginModal(true)}
+                onClick={() => router.push('/login')}
                 className="w-24 px-4 py-2 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 style={{ color: 'var(--foreground-secondary)', backgroundColor: 'var(--hover-bg)', borderColor: 'var(--card-border)' }}
               >
                 Log in
               </button>
               <button
-                onClick={() => setShowLoginModal(true)}
+                onClick={() => router.push('/login')}
                 className="w-24 px-4 py-2 text-white font-medium rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2"
                 style={{ backgroundColor: 'var(--primary)', borderColor: 'var(--primary)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary-dark)')}

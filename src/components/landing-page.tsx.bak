@@ -13,7 +13,7 @@ import {
 import { ColorfulExamIcon } from "@/lib/colorful-exam-icons";
 
 export function LandingPage() {
-  // Auth redirects handled by signup/login pages now
+  const { setShowLoginModal } = useUser();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
 
