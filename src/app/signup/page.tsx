@@ -213,15 +213,15 @@ function SignupContent() {
 
   return (
     <AuthLayout>
-      <div className="space-y-7">
+      <div className="space-y-8">
         {/* Header */}
         <div className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif', letterSpacing: '-0.02em' }}>
             {step === "form" && "Create your account"}
             {step === "otp" && "Verify your email"}
             {step === "success" && "Welcome aboard! 🎉"}
           </h1>
-          <p className="text-base text-gray-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-base text-gray-600 dark:text-slate-400 leading-relaxed font-normal">
             {step === "form" && "Join thousands of students preparing for exams"}
             {step === "otp" && `We sent a code to ${email}`}
             {step === "success" && "Your account has been created successfully"}
