@@ -25,10 +25,10 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
       <button
         onClick={handleGoogleSignIn}
         disabled={isLoading !== null}
-        className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-750 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
       >
         {isLoading === "google" ? (
-          <div className="w-5 h-5 border-2 border-[#4285F4] border-t-transparent rounded-full animate-spin" />
+          <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
         ) : (
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             <path
@@ -49,7 +49,7 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
             />
           </svg>
         )}
-        <span className="text-[15px] font-medium text-gray-700 dark:text-gray-300">
+        <span className="text-[15px] font-medium text-slate-700 dark:text-slate-200">
           {mode === "signup" ? "Continue with Google" : "Log in with Google"}
         </span>
       </button>
@@ -57,11 +57,11 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
       {/* Divider */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200 dark:border-slate-700"></div>
+          <div className="w-full border-t border-slate-200 dark:border-slate-800"></div>
         </div>
         <div className="relative flex justify-center text-xs">
-          <span className="px-3 bg-white dark:bg-slate-950 text-gray-500 dark:text-slate-400 uppercase tracking-wider">
-            or
+          <span className="px-3 bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-medium">
+            Or continue with
           </span>
         </div>
       </div>
