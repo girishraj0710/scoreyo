@@ -246,7 +246,7 @@ function LoginContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px] shadow-sm"
+                className="w-full py-2.5 bg-[#4F46E5] text-white font-medium rounded-lg hover:bg-[#4338CA] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
               >
                 {isSubmitting ? (
                   <>
@@ -262,7 +262,7 @@ function LoginContent() {
             {/* Signup Link */}
             <p className="text-center text-sm text-slate-600 dark:text-slate-400">
               Don't have an account?{" "}
-              <Link href="/signup" className="text-blue-600 font-medium hover:underline">
+              <Link href="/signup" className="text-[#4F46E5] font-medium hover:underline">
                 Sign up
               </Link>
             </p>
@@ -301,7 +301,7 @@ function LoginContent() {
             <button
               onClick={handleVerifyOtp}
               disabled={isSubmitting || otp.join("").length !== 6}
-              className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px] shadow-sm"
+              className="w-full py-2.5 bg-[#4F46E5] text-white font-medium rounded-lg hover:bg-[#4338CA] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
             >
               {isSubmitting ? (
                 <>

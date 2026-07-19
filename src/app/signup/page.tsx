@@ -301,11 +301,11 @@ function SignupContent() {
                 />
                 <label htmlFor="terms" className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
                   I agree to the{" "}
-                  <Link href="/terms" className="text-blue-600 hover:underline">
+                  <Link href="/terms" className="text-[#4F46E5] hover:underline">
                     Terms
                   </Link>{" "}
                   and{" "}
-                  <Link href="/privacy" className="text-blue-600 hover:underline">
+                  <Link href="/privacy" className="text-[#4F46E5] hover:underline">
                     Privacy Policy
                   </Link>
                 </label>
@@ -322,7 +322,7 @@ function SignupContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px] shadow-sm"
+                className="w-full py-2.5 bg-[#4F46E5] text-white font-medium rounded-lg hover:bg-[#4338CA] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
               >
                 {isSubmitting ? (
                   <>
@@ -338,7 +338,7 @@ function SignupContent() {
             {/* Login Link */}
             <p className="text-center text-sm text-slate-600 dark:text-slate-400">
               Already have an account?{" "}
-              <Link href="/login" className="text-blue-600 font-medium hover:underline">
+              <Link href="/login" className="text-[#4F46E5] font-medium hover:underline">
                 Log in
               </Link>
             </p>
@@ -377,7 +377,7 @@ function SignupContent() {
             <button
               onClick={handleVerifyOtp}
               disabled={isSubmitting || otp.join("").length !== 6}
-              className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px] shadow-sm"
+              className="w-full py-2.5 bg-[#4F46E5] text-white font-medium rounded-lg hover:bg-[#4338CA] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
             >
               {isSubmitting ? (
                 <>
