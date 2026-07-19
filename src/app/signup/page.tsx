@@ -213,17 +213,17 @@ function SignupContent() {
 
   return (
     <AuthLayout>
-      <div className="space-y-8">
+      <div className="space-y-7">
         {/* Header */}
-        <div className="space-y-2">
-          <h1 className="text-3xl font-heading font-bold text-[#16213E] dark:text-white">
+        <div className="space-y-3">
+          <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             {step === "form" && "Create your account"}
             {step === "otp" && "Verify your email"}
             {step === "success" && "Welcome aboard! 🎉"}
           </h1>
-          <p className="text-gray-600 dark:text-slate-400">
-            {step === "form" && "Join thousands of students mastering competitive exams"}
-            {step === "otp" && `We sent a 6-digit code to ${email}`}
+          <p className="text-base text-gray-600 dark:text-slate-400 leading-relaxed">
+            {step === "form" && "Join thousands of students preparing for exams"}
+            {step === "otp" && `We sent a code to ${email}`}
             {step === "success" && "Your account has been created successfully"}
           </p>
         </div>
@@ -239,7 +239,7 @@ function SignupContent() {
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
-                  Full Name <span className="text-red-500">*</span>
+                  Full Name
                 </label>
                 <input
                   type="text"
@@ -247,7 +247,7 @@ function SignupContent() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-3 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:border-[#3b82f6] focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/50 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-400 text-[15px]"
                   required
                 />
               </div>
@@ -255,7 +255,7 @@ function SignupContent() {
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
-                  Email Address <span className="text-red-500">*</span>
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -263,7 +263,7 @@ function SignupContent() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:border-[#3b82f6] focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/50 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-400 text-[15px]"
                   required
                 />
               </div>
@@ -271,13 +271,13 @@ function SignupContent() {
               {/* Exam Selection */}
               <div>
                 <label htmlFor="exam" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
-                  Which exam are you preparing for? <span className="text-red-500">*</span>
+                  Exam you're preparing for
                 </label>
                 <select
                   id="exam"
                   value={examPreparingFor}
                   onChange={(e) => setExamPreparingFor(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:border-[#3b82f6] focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/50 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white text-[15px]"
                   required
                 >
                   <option value="">Select an exam</option>
@@ -290,19 +290,19 @@ function SignupContent() {
               </div>
 
               {/* Terms Checkbox */}
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 pt-1">
                 <input
                   type="checkbox"
                   id="terms"
                   checked={termsAccepted}
                   onChange={(e) => setTermsAccepted(e.target.checked)}
-                  className="mt-1 w-4 h-4 text-[#3b82f6] border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                  className="mt-0.5 w-4 h-4 text-[#3b82f6] border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
                   required
                 />
-                <label htmlFor="terms" className="text-sm text-gray-600 dark:text-slate-400">
-                  I accept Krakkify's{" "}
+                <label htmlFor="terms" className="text-[13px] text-gray-600 dark:text-slate-400 leading-snug">
+                  I accept the{" "}
                   <Link href="/terms" className="text-[#3b82f6] hover:underline">
-                    Terms of Service
+                    Terms
                   </Link>{" "}
                   and{" "}
                   <Link href="/privacy" className="text-[#3b82f6] hover:underline">
@@ -313,7 +313,7 @@ function SignupContent() {
 
               {/* Error Message */}
               {error && (
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-600 dark:text-red-400">
+                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-600 dark:text-red-400">
                   {error}
                 </div>
               )}
@@ -322,7 +322,7 @@ function SignupContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white font-medium rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="w-full py-3.5 bg-[#3b82f6] text-white font-semibold rounded-lg hover:bg-[#2563eb] hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
               >
                 {isSubmitting ? (
                   <>
@@ -330,10 +330,7 @@ function SignupContent() {
                     Sending code...
                   </>
                 ) : (
-                  <>
-                    <Mail className="w-5 h-5" />
-                    Sign up with Email
-                  </>
+                  "Sign up"
                 )}
               </button>
             </form>
@@ -341,7 +338,7 @@ function SignupContent() {
             {/* Login Link */}
             <p className="text-center text-sm text-gray-600 dark:text-slate-400">
               Already have an account?{" "}
-              <Link href="/login" className="text-[#3b82f6] font-medium hover:underline">
+              <Link href="/login" className="text-[#3b82f6] font-semibold hover:underline">
                 Log in
               </Link>
             </p>
@@ -380,7 +377,7 @@ function SignupContent() {
             <button
               onClick={handleVerifyOtp}
               disabled={isSubmitting || otp.join("").length !== 6}
-              className="w-full py-3 bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white font-medium rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#3b82f6] text-white font-semibold rounded-lg hover:bg-[#2563eb] hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
             >
               {isSubmitting ? (
                 <>

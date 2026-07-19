@@ -20,12 +20,12 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {/* Google Button */}
       <button
         onClick={handleGoogleSignIn}
         disabled={isLoading !== null}
-        className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 rounded-xl hover:border-[#4285F4] hover:bg-blue-50 dark:hover:bg-slate-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+        className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading === "google" ? (
           <div className="w-5 h-5 border-2 border-[#4285F4] border-t-transparent rounded-full animate-spin" />
@@ -49,19 +49,19 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
             />
           </svg>
         )}
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#4285F4] transition-colors">
+        <span className="text-[15px] font-medium text-gray-700 dark:text-gray-300">
           {mode === "signup" ? "Continue with Google" : "Log in with Google"}
         </span>
       </button>
 
       {/* Divider */}
-      <div className="relative">
+      <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-200 dark:border-slate-700"></div>
         </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-white dark:bg-slate-900 text-gray-500 dark:text-slate-400">
-            or email
+        <div className="relative flex justify-center text-xs">
+          <span className="px-3 bg-white dark:bg-slate-950 text-gray-500 dark:text-slate-400 uppercase tracking-wider">
+            or
           </span>
         </div>
       </div>

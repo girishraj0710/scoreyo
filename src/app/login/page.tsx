@@ -195,17 +195,17 @@ function LoginContent() {
 
   return (
     <AuthLayout>
-      <div className="space-y-8">
+      <div className="space-y-7">
         {/* Header */}
-        <div className="space-y-2">
-          <h1 className="text-3xl font-heading font-bold text-[#16213E] dark:text-white">
+        <div className="space-y-3">
+          <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             {step === "email" && "Welcome back"}
             {step === "otp" && "Verify your email"}
             {step === "success" && "Welcome back! 🎉"}
           </h1>
-          <p className="text-gray-600 dark:text-slate-400">
-            {step === "email" && "Log in to continue your learning journey"}
-            {step === "otp" && `We sent a 6-digit code to ${email}`}
+          <p className="text-base text-gray-600 dark:text-slate-400 leading-relaxed">
+            {step === "email" && "Log in to continue"}
+            {step === "otp" && `We sent a code to ${email}`}
             {step === "success" && "Logging you in..."}
           </p>
         </div>
@@ -229,7 +229,7 @@ function LoginContent() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:border-[#3b82f6] focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/50 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-400 text-[15px]"
                   required
                   autoFocus
                 />
@@ -237,7 +237,7 @@ function LoginContent() {
 
               {/* Error Message */}
               {error && (
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-600 dark:text-red-400">
+                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-600 dark:text-red-400">
                   {error}
                 </div>
               )}
@@ -246,7 +246,7 @@ function LoginContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white font-medium rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="w-full py-3.5 bg-[#3b82f6] text-white font-semibold rounded-lg hover:bg-[#2563eb] hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
               >
                 {isSubmitting ? (
                   <>
@@ -254,10 +254,7 @@ function LoginContent() {
                     Sending code...
                   </>
                 ) : (
-                  <>
-                    <Mail className="w-5 h-5" />
-                    Continue with Email
-                  </>
+                  "Continue"
                 )}
               </button>
             </form>
@@ -265,8 +262,8 @@ function LoginContent() {
             {/* Signup Link */}
             <p className="text-center text-sm text-gray-600 dark:text-slate-400">
               Don't have an account?{" "}
-              <Link href="/signup" className="text-[#3b82f6] font-medium hover:underline">
-                Sign up for free
+              <Link href="/signup" className="text-[#3b82f6] font-semibold hover:underline">
+                Sign up
               </Link>
             </p>
           </>
@@ -304,7 +301,7 @@ function LoginContent() {
             <button
               onClick={handleVerifyOtp}
               disabled={isSubmitting || otp.join("").length !== 6}
-              className="w-full py-3 bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white font-medium rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#3b82f6] text-white font-semibold rounded-lg hover:bg-[#2563eb] hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
             >
               {isSubmitting ? (
                 <>
