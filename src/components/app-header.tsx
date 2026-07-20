@@ -74,8 +74,10 @@ export function AppHeader() {
     <header className="md:hidden sticky top-0 z-50 border-b shadow-sm" style={{ background: 'var(--card-bg)', borderBottomColor: 'var(--card-border)' }}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 mr-8 lg:mr-12">
-          <div className="w-9 h-9 bg-[#E76F51] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
-            K
+          <div className="w-9 h-9 bg-[#E76F51] rounded-xl flex items-center justify-center text-white shadow-md">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="butt" strokeLinejoin="miter" className="w-5 h-5">
+              <path d="M17 7 H8 V11.5 H16 V17 H7" />
+            </svg>
           </div>
           <span className="text-xl font-bold bg-[#E76F51] bg-clip-text text-transparent">
             Scoreyo

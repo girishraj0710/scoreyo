@@ -121,8 +121,10 @@ export function AppSidebar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white font-bold text-base">
-              K
+            <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="butt" strokeLinejoin="miter" className="w-5 h-5">
+                <path d="M17 7 H8 V11.5 H16 V17 H7" />
+              </svg>
             </div>
             <span className="text-lg font-bold text-[#16213E] dark:text-white">Scoreyo</span>
           </a>
