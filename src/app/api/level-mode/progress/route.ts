@@ -4,7 +4,7 @@ import { queryAll } from "@/lib/db";
 // GET /api/level-mode/progress?examId=jee
 // Returns user's progress for a specific exam (holistic - all subjects combined)
 export async function GET(req: NextRequest) {
-  const userId = req.cookies.get("krakkify-user-id")?.value;
+  const userId = req.cookies.get("scoreyo-user-id")?.value;
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

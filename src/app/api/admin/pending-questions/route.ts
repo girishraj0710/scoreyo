@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   try {
     // TODO: Add admin role check
     // For now, any logged-in user can view (for testing)
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json(
         { error: "Authentication required" },

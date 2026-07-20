@@ -345,7 +345,7 @@ async function main() {
   console.log(`   1. Review generated JSON/SQL files in ${outputDir}`);
   console.log(`   2. Test a sample (10%) manually for quality`);
   console.log(`   3. Run SQL files in Supabase SQL Editor to insert questions`);
-  console.log(`   4. Verify on frontend: https://krakkify.in/english/foundation/[topic]/practice`);
+  console.log(`   4. Verify on frontend: https://scoreyo.in/english/foundation/[topic]/practice`);
 
   await pool.end();
 }

@@ -118,7 +118,7 @@ export async function uploadFile(
   file: File,
   examId: string | number,
   subjectId: string | number,
-  bucketName: string = 'krakkify-study-materials'
+  bucketName: string = 'scoreyo-study-materials'
 ): Promise<{ path: string; size: number }> {
   try {
     const validation = validateFile(file);
@@ -166,7 +166,7 @@ export async function uploadFiles(
   files: File[],
   examId: string | number,
   subjectId: string | number,
-  bucketName: string = 'krakkify-study-materials'
+  bucketName: string = 'scoreyo-study-materials'
 ): Promise<Array<{ path: string; size: number; name: string }>> {
   if (files.length === 0) {
     throw new Error('No files provided');
@@ -213,7 +213,7 @@ export async function uploadFiles(
  */
 export async function deleteFile(
   filePath: string,
-  bucketName: string = 'krakkify-study-materials'
+  bucketName: string = 'scoreyo-study-materials'
 ): Promise<void> {
   try {
     const { error } = await supabase.storage
@@ -237,7 +237,7 @@ export async function deleteFile(
  */
 export function getPublicUrl(
   filePath: string,
-  bucketName: string = 'krakkify-study-materials'
+  bucketName: string = 'scoreyo-study-materials'
 ): string {
   const { data } = supabase.storage.from(bucketName).getPublicUrl(filePath);
   return data.publicUrl;

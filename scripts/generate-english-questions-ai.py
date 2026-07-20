@@ -101,8 +101,8 @@ Generate {topic_config['target_questions']} questions now:"""
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://krakkify.in",
-        "X-Title": "Krakkify English Question Generator"
+        "HTTP-Referer": "https://scoreyo.in",
+        "X-Title": "Scoreyo English Question Generator"
     }
 
     payload = {

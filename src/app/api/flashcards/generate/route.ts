@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     console.log('🎯 [FLASHCARD GENERATE] Request received');
 
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
     console.log('👤 User ID:', userId);
 
     if (!userId) {
@@ -174,8 +174,8 @@ Generate ${count} flashcards now for: ${topic} ${subjectContext} ${examContext}`
       headers: {
         'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://krakkify.in',
-        'X-Title': 'Krakkify Flashcards',
+        'HTTP-Referer': 'https://scoreyo.in',
+        'X-Title': 'Scoreyo Flashcards',
       },
       body: JSON.stringify({
         model: 'google/gemini-2.5-flash-lite', // Cheapest Gemini model: $0.0001/M prompt, $0.0004/M completion

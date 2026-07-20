@@ -8,7 +8,7 @@ import { getRedis } from "@/lib/redis";
 import { POST as securePOST, PATCH as securePATCH } from "./route-secure";
 import { isAdminEmail, determineUserRole } from "@/lib/admin";
 
-const COOKIE_NAME = "krakkify-user-id";
+const COOKIE_NAME = "scoreyo-user-id";
 const AVATAR_COLORS = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#14b8a6"];
 
 // GET - Get current user
@@ -43,9 +43,18 @@ export async function GET(request: NextRequest) {
 
 // Helper: Add enrolled exams to user object
 async function getUserWithEnrolledExams(user: any) {
-  try {
-    const { queryAll } = await import("@/lib/db");
+  const { queryAll, isOnboardingCompleted } = await import("@/lib/db");
 
+  // Onboarding flag is independent of the enrollment lookup — resolve it first
+  // so the gate can always read it even if the enrollment table errors.
+  let onboardingCompleted = false;
+  try {
+    onboardingCompleted = await isOnboardingCompleted(user.id);
+  } catch (error: any) {
+    console.error("[Auth] Error fetching onboarding status:", error?.message || error);
+  }
+
+  try {
     // Get enrolled exams
     const enrollments = await queryAll(
       `SELECT exam_id, is_primary
@@ -64,6 +73,7 @@ async function getUserWithEnrolledExams(user: any) {
       ...user,
       current_exam: currentExam,
       enrolled_exams: enrolledExams,
+      onboarding_completed: onboardingCompleted,
     };
   } catch (error: any) {
     console.error("[Auth] Error fetching enrolled exams:", error?.message || error);
@@ -73,6 +83,7 @@ async function getUserWithEnrolledExams(user: any) {
       ...user,
       current_exam: user.exam_preparing_for,
       enrolled_exams: user.exam_preparing_for ? [user.exam_preparing_for] : [],
+      onboarding_completed: onboardingCompleted,
     };
   }
 }

@@ -1,14 +1,14 @@
-# ✅ OTP Email Fixed - krakkify.in Working!
+# ✅ OTP Email Fixed - scoreyo.in Working!
 
 ## Issue
 OTP emails were not being delivered because:
-1. Code was trying to send from `noreply@krakkify.in`
-2. Domain `krakkify.in` was not verified in Resend
+1. Code was trying to send from `noreply@scoreyo.in`
+2. Domain `scoreyo.in` was not verified in Resend
 3. DNS records were missing
 
 ## Solution Applied
 
-### 1. Added krakkify.in Domain to Resend
+### 1. Added scoreyo.in Domain to Resend
 - Domain ID: `95956875-8e3f-44c1-866e-1f4d668cb34f`
 - Region: us-east-1
 
@@ -17,10 +17,10 @@ Since DNS is managed by Vercel (not GoDaddy), we added records via Vercel CLI an
 
 ```bash
 # DKIM record (added via CLI)
-vercel dns add krakkify.in resend._domainkey TXT "p=MIGfMA0GCS..."
+vercel dns add scoreyo.in resend._domainkey TXT "p=MIGfMA0GCS..."
 
 # SPF record (added via CLI)
-vercel dns add krakkify.in send TXT "v=spf1 include:amazonses.com ~all"
+vercel dns add scoreyo.in send TXT "v=spf1 include:amazonses.com ~all"
 
 # MX record (added via Vercel dashboard)
 Type: MX
@@ -31,26 +31,26 @@ Priority: 10
 
 ### 3. Verified DNS Propagation
 All records confirmed propagated globally via Google DNS (8.8.8.8):
-- ✅ DKIM TXT: `resend._domainkey.krakkify.in`
-- ✅ SPF TXT: `send.krakkify.in`
-- ✅ MX: `send.krakkify.in`
+- ✅ DKIM TXT: `resend._domainkey.scoreyo.in`
+- ✅ SPF TXT: `send.scoreyo.in`
+- ✅ MX: `send.scoreyo.in`
 
 ### 4. Tested Email Sending
 Successfully sent test email via Resend API:
 - Email ID: `2972df77-8f12-4179-b1e7-65d2418bc2ad`
-- From: `Krakkify <noreply@krakkify.in>`
+- From: `Scoreyo <noreply@scoreyo.in>`
 - Status: ✅ **Delivered**
 
 ## Current Status
 
-**✅ OTP emails working with krakkify.in domain**
+**✅ OTP emails working with scoreyo.in domain**
 
 ### Test Results
 ```bash
 # Direct API test
 curl https://api.resend.com/emails \
   -H "Authorization: Bearer $RESEND_API_KEY" \
-  -d '{"from":"Krakkify <noreply@krakkify.in>", ...}'
+  -d '{"from":"Scoreyo <noreply@scoreyo.in>", ...}'
 # Result: {"id":"2972df77-8f12-4179-b1e7-65d2418bc2ad"} ✅
 
 # App OTP test
@@ -62,7 +62,7 @@ curl -X POST http://localhost:3000/api/auth/otp \
 ## Usage
 
 ### 1. Login Flow
-1. Go to http://localhost:3000 or https://krakkify.in
+1. Go to http://localhost:3000 or https://scoreyo.in
 2. Click "Login"
 3. Enter email
 4. Check email for 6-digit OTP code
@@ -73,7 +73,7 @@ The OTP route now has detailed logging:
 ```
 [OTP] 📧 Attempting to send email to user@example.com with code 123456
 [OTP] 📧 Resend API Key exists: true
-[OTP] 📧 From: Krakkify <noreply@krakkify.in>
+[OTP] 📧 From: Scoreyo <noreply@scoreyo.in>
 [OTP] ✅ Email sent successfully! ID: abc123...
 ```
 
@@ -100,26 +100,26 @@ Now that OTP is working:
 
 If emails stop working:
 1. Check Resend domain status (see command above)
-2. Check DNS records: `vercel dns ls krakkify.in | grep -E "(resend|send)"`
+2. Check DNS records: `vercel dns ls scoreyo.in | grep -E "(resend|send)"`
 3. Check Resend API key is valid in `.env.local`
 4. Check dev server logs for detailed error messages
 
 ## Files Modified
-- `src/app/api/auth/otp/route.ts` - Changed sender to noreply@krakkify.in, added detailed logging
+- `src/app/api/auth/otp/route.ts` - Changed sender to noreply@scoreyo.in, added detailed logging
 - DNS records added to Vercel (not in code)
 
 ## DNS Records Reference
 ```
 DKIM (TXT):
-  resend._domainkey.krakkify.in
+  resend._domainkey.scoreyo.in
   p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlxlCUHO2GvN9NFQwV1WzZUHbO01IRAj6k5aKgtCHncf3I4AjLxk/21w9kEt6EUiTd3+AR6KF8NGeUl5669GvlpJs3wUgxEfjVXj1lnljb63X33u1gpvI7iTTywk3a8wv4nPRbVUdMTaJsQ8B2SoPj5XNTHeDZAochewwzDoMvewIDAQAB
 
 SPF (TXT):
-  send.krakkify.in
+  send.scoreyo.in
   v=spf1 include:amazonses.com ~all
 
 MX:
-  send.krakkify.in
+  send.scoreyo.in
   10 feedback-smtp.us-east-1.amazonses.com
 ```
 

@@ -19,7 +19,7 @@ import { logger } from "@/lib/logger";
 import { generateCsrfToken, CSRF_COOKIE_NAME } from "@/lib/csrf";
 import { getRedis } from "@/lib/redis";
 
-const COOKIE_NAME = "krakkify-user-id";
+const COOKIE_NAME = "scoreyo-user-id";
 const AVATAR_COLORS = [
   "#6366f1", "#8b5cf6", "#ec4899", "#f59e0b",
   "#10b981", "#3b82f6", "#ef4444", "#14b8a6"

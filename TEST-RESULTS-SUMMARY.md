@@ -1,4 +1,4 @@
-# 🧪 Krakkify System Health Check - Quick Summary
+# 🧪 Scoreyo System Health Check - Quick Summary
 
 **Date**: May 12, 2026  
 **Overall Status**: ✅ **96.6% PASS** (56/58 tests)
@@ -94,4 +94,4 @@ npx tsx scripts/test-api-endpoints.ts
 
 ---
 
-**✅ Conclusion**: Krakkify is production-ready with excellent system health!
+**✅ Conclusion**: Scoreyo is production-ready with excellent system health!

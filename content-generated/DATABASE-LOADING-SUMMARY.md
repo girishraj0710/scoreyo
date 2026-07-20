@@ -287,7 +287,7 @@ ORDER BY topic_id, difficulty;
 ### 2. Test on Production
 
 **Study Materials Test:**
-1. Open https://krakkify.in/english
+1. Open https://scoreyo.in/english
 2. Click "Foundation Builder"
 3. Click "Parts of Speech"
 4. Click "📖 Study First" button
@@ -299,7 +299,7 @@ ORDER BY topic_id, difficulty;
    - Time estimate shows "30 mins"
 
 **Questions Test:**
-1. Open https://krakkify.in/english
+1. Open https://scoreyo.in/english
 2. Click "Foundation Builder"
 3. Click "Pronunciation"
 4. Click "Start Quiz"
@@ -516,7 +516,7 @@ Progress: 150 questions inserted...
 
 ## 🚀 Next Steps After Loading
 
-1. **✅ Verify on production** (https://krakkify.in/english)
+1. **✅ Verify on production** (https://scoreyo.in/english)
 2. **✅ Update Task #34** status to completed
 3. **✅ Test quiz flow** with new questions
 4. **✅ Test study flow** with new materials

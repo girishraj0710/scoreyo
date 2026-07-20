@@ -5,7 +5,7 @@ import { queryOne, queryAll, execute } from "@/lib/db";
 // Get current active sprint or create a new one
 export async function GET() {
   try {
-    const userId = (await cookies()).get("krakkify-user-id")?.value;
+    const userId = (await cookies()).get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -92,7 +92,7 @@ export async function GET() {
 // Submit sprint completion
 export async function POST(request: Request) {
   try {
-    const userId = (await cookies()).get("krakkify-user-id")?.value;
+    const userId = (await cookies()).get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

@@ -8,7 +8,7 @@
 
 ### Option A: Supabase Dashboard (Easiest)
 1. Open: https://supabase.com/dashboard
-2. Select your Krakkify project
+2. Select your Scoreyo project
 3. Go to **SQL Editor** (left sidebar)
 4. Click **"New Query"**
 5. Copy-paste entire content from:

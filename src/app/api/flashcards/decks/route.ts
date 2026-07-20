@@ -13,7 +13,7 @@ import {
 export async function GET(req: NextRequest) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -157,7 +157,7 @@ function getExamColor(examIdOrName: string): string {
 export async function POST(req: NextRequest) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

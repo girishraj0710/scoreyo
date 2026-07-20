@@ -163,12 +163,12 @@ psql $POSTGRES_URL -f scripts/output/articles-questions-2026-06-16.sql
 
 **Questions:**
 ```
-https://krakkify.in/english/foundation/articles/practice?count=10
+https://scoreyo.in/english/foundation/articles/practice?count=10
 ```
 
 **Study Materials:**
 ```
-https://krakkify.in/study?examId=english&subjectId=articles
+https://scoreyo.in/study?examId=english&subjectId=articles
 ```
 
 ---

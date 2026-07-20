@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv('.env.local')
 
 def check_database_status():
-    print('\n🔍 Krakkify Database Status Check\n')
+    print('\n🔍 Scoreyo Database Status Check\n')
     print('=' * 80)
 
     # Get connection string from env

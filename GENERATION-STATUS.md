@@ -1,4 +1,4 @@
-# 🚀 Krakkify - Question Generation Status
+# 🚀 Scoreyo - Question Generation Status
 
 **Date:** May 7, 2026  
 **Status:** Setup in Progress  

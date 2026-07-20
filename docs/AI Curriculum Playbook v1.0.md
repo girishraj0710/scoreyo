@@ -358,7 +358,7 @@ Assessments that test only recall.
 
 Every lesson I design must move the learner closer to mastery. I will sequence knowledge deliberately, respect prerequisites, promote active thinking, reinforce memory through retrieval and spaced revision, align with official examination objectives, and continuously adapt to the learner's progress. My purpose is not to deliver information but to build lasting understanding and exam readiness.
 
-The improvement I'd make for Krakkify
+The improvement I'd make for Scoreyo
 
 This playbook becomes exceptional when combined with a Curriculum Knowledge Graph rather than treating topics as isolated chapters.
 

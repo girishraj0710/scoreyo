@@ -1,4 +1,4 @@
-# Krakkify Question Seeding - Status Report
+# Scoreyo Question Seeding - Status Report
 
 **Started:** May 24, 2026 at 1:14 AM  
 **Status:** ✅ Running in background  
@@ -40,13 +40,13 @@ The `fill:gaps` script is automatically:
 
 ### Quick Check (1 command)
 ```bash
-cd ~/krakkify
+cd ~/scoreyo
 ./scripts/monitor-seeding.sh
 ```
 
 ### Manual Check
 ```bash
-cd ~/krakkify
+cd ~/scoreyo
 export PATH="/opt/homebrew/bin:$PATH"
 npx tsx scripts/check-progress.ts
 ```
@@ -58,7 +58,7 @@ ps aux | grep fill-question-gaps | grep -v grep
 
 ### Watch Question Count Live
 ```bash
-cd ~/krakkify
+cd ~/scoreyo
 watch -n 60 'npx tsx scripts/check-progress.ts'
 ```
 (Updates every 60 seconds)
@@ -74,7 +74,7 @@ pkill -f 'fill-question-gaps'
 
 ### Restart Seeding
 ```bash
-cd ~/krakkify
+cd ~/scoreyo
 export PATH="/opt/homebrew/bin:$PATH"
 npm run fill:gaps
 ```
@@ -146,7 +146,7 @@ Every generated question includes:
 ps aux | grep fill-question
 
 # Restart if needed
-cd ~/krakkify
+cd ~/scoreyo
 export PATH="/opt/homebrew/bin:$PATH"
 npm run fill:gaps
 ```
@@ -187,7 +187,7 @@ After seeding completes:
    ```
 
 2. **Test Questions:**
-   - Go to https://krakkify.co.in
+   - Go to https://scoreyo.in
    - Start a quiz
    - Verify question quality
 

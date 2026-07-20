@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Require authentication for quiz generation
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json(
         { error: "Authentication required to generate quizzes" },
@@ -546,9 +546,11 @@ export async function PUT(request: NextRequest) {
       questions,
       answers,
       timeTaken,
+      perQuestionTimeMs, // number[] | undefined — decision time per question (ms)
+      perQuestionChanges, // number[] | undefined — answer-change count per question
     } = body;
 
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
 
     if (!userId) {
       return NextResponse.json(
@@ -570,11 +572,17 @@ export async function PUT(request: NextRequest) {
     const { ensureUserExists } = await import("@/lib/db");
     await ensureUserExists(userId);
 
+    // Per-question behavioral signals (optional; older clients omit them).
+    const timeMsArr: (number | null)[] = Array.isArray(perQuestionTimeMs) ? perQuestionTimeMs : [];
+    const changesArr: (number | null)[] = Array.isArray(perQuestionChanges) ? perQuestionChanges : [];
+
     // Calculate score
     let correct = 0;
     const attempts = questions.map((q: any, i: number) => {
       const isCorrect = answers[i] === q.correctAnswer;
       if (isCorrect) correct++;
+      const timeMs = typeof timeMsArr[i] === "number" && timeMsArr[i]! >= 0 ? Math.round(timeMsArr[i]!) : null;
+      const answerChanges = typeof changesArr[i] === "number" && changesArr[i]! >= 0 ? Math.round(changesArr[i]!) : null;
       return {
         sessionId,
         userId,
@@ -587,6 +595,8 @@ export async function PUT(request: NextRequest) {
         userAnswer: answers[i] ?? null,
         isCorrect,
         explanation: q.explanation,
+        timeMs,
+        answerChanges,
       };
     });
 
@@ -676,8 +686,45 @@ export async function PUT(request: NextRequest) {
     const dayOfWeek = new Date().getDay();
     if (dayOfWeek === 0 || dayOfWeek === 6) badgeUpdates.weekendSessions = 1;
 
-    // Process badges in background (don't block response)
+    // Per-question seconds for the model: prefer REAL measured decision time
+    // (captured in the quiz UI). Fall back to an even split of session time for
+    // older clients that don't send per-question timing.
+    const evenSplitSeconds =
+      timeInSeconds > 0 && questions.length > 0 ? timeInSeconds / questions.length : null;
+    const modelAttempts = questions.map((q: any, i: number) => {
+      const measuredMs = attempts[i]?.timeMs;
+      const seconds = typeof measuredMs === "number" && measuredMs > 0 ? measuredMs / 1000 : evenSplitSeconds;
+      return {
+        isCorrect: answers[i] === q.correctAnswer,
+        difficulty: (q.difficulty === "easy" || q.difficulty === "hard" ? q.difficulty : "medium") as
+          | "easy"
+          | "medium"
+          | "hard",
+        seconds,
+        answerChanges: attempts[i]?.answerChanges ?? null,
+      };
+    });
+
+    // Process badges + behavior-driven learner model in background (don't block response)
     after(async () => {
+      // ── Behavior-driven learner model (the "heart and soul" engine) ──
+      // Updates per-topic skill state (BKT + forgetting curve + Elo), the
+      // Mistake Map, and the evolving learner profile / readiness.
+      try {
+        const { processQuizForLearnerModel } = await import("@/lib/learner-model-service");
+        await processQuizForLearnerModel({
+          userId,
+          examId,
+          subjectId,
+          topic,
+          attempts: modelAttempts,
+          nowMs: Date.now(),
+        });
+        console.log(`[Quiz Submit Background] ✓ Learner model updated`);
+      } catch (error) {
+        console.error("[Quiz Submit Background] Learner model update failed:", error);
+      }
+
       try {
         // Update badge stats if any achievements earned this quiz
         if (Object.keys(badgeUpdates).length > 0) {

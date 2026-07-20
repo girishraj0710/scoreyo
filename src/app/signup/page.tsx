@@ -2,11 +2,12 @@
 
 import { useState, useRef, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { AuthLayout } from "@/components/auth/AuthLayout";
+import { AuthTabs } from "@/components/auth/AuthTabs";
 import { OAuthButtons } from "@/components/auth/OAuthButtons";
 import { Mail, Eye, EyeOff, CheckCircle2, Loader2 } from "lucide-react";
-import { getAllExams } from "@/lib/exams";
 
 type Step = "form" | "otp" | "success";
 
@@ -17,7 +18,6 @@ function SignupContent() {
   const [step, setStep] = useState<Step>("form");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [examPreparingFor, setExamPreparingFor] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -34,9 +34,6 @@ function SignupContent() {
     return () => clearTimeout(timer);
   }, [countdown]);
 
-  // Get exams for dropdown
-  const exams = getAllExams();
-
   // Handle email signup
   const handleEmailSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,10 +45,6 @@ function SignupContent() {
     }
     if (!email.trim() || !email.includes("@")) {
       setError("Please enter a valid email");
-      return;
-    }
-    if (!examPreparingFor) {
-      setError("Please select an exam you're preparing for");
       return;
     }
     if (!termsAccepted) {
@@ -160,7 +153,6 @@ function SignupContent() {
         body: JSON.stringify({
           email: email.trim().toLowerCase(),
           name: name.trim(),
-          examPreparingFor,
           role: "student",
         }),
       });
@@ -212,21 +204,29 @@ function SignupContent() {
   };
 
   return (
-    <AuthLayout>
-      <div className="space-y-8">
-        {/* Header */}
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white" style={{ letterSpacing: '-0.02em' }}>
-            {step === "form" && "Create your account"}
-            {step === "otp" && "Verify your email"}
-            {step === "success" && "Welcome! 🎉"}
-          </h1>
-          <p className="text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed">
-            {step === "form" && "Start your exam preparation journey today"}
-            {step === "otp" && `Enter the code we sent to ${email}`}
-            {step === "success" && "Your account is ready"}
-          </p>
-        </div>
+    <AuthLayout mascotSrc="/images/auth-mascot-yeti-wave-v2.png">
+      <motion.div
+        key="signup"
+        initial={{ opacity: 0, x: -32 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-8"
+      >
+        {/* Tabs (form step) or header (otp/success) */}
+        {step === "form" ? (
+          <AuthTabs active="signup" />
+        ) : (
+          <div className="space-y-2">
+            <h1 className="font-heading text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+              {step === "otp" && "Verify your email"}
+              {step === "success" && "Welcome! 🎉"}
+            </h1>
+            <p className="text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed">
+              {step === "otp" && `Enter the code we sent to ${email}`}
+              {step === "success" && "Your account is ready"}
+            </p>
+          </div>
+        )}
 
         {/* Form Content */}
         {step === "form" && (
@@ -235,10 +235,10 @@ function SignupContent() {
             <OAuthButtons mode="signup" />
 
             {/* Email Form */}
-            <form onSubmit={handleEmailSignup} className="space-y-4">
+            <form onSubmit={handleEmailSignup} className="space-y-5">
               {/* Name */}
-              <div>
-                <label htmlFor="name" className="block text-[13px] font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <div className="space-y-2">
+                <label htmlFor="name" className="font-heading text-sm font-semibold text-slate-700 dark:text-slate-300">
                   Full Name
                 </label>
                 <input
@@ -247,14 +247,14 @@ function SignupContent() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 text-[15px]"
+                  className="w-full px-4 py-3.5 bg-[#F6F7FB] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#344974]/10 focus:border-[#344974] transition-all"
                   required
                 />
               </div>
 
               {/* Email */}
-              <div>
-                <label htmlFor="email" className="block text-[13px] font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <div className="space-y-2">
+                <label htmlFor="email" className="font-heading text-sm font-semibold text-slate-700 dark:text-slate-300">
                   Email
                 </label>
                 <input
@@ -263,49 +263,28 @@ function SignupContent() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 text-[15px]"
+                  className="w-full px-4 py-3.5 bg-[#F6F7FB] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#344974]/10 focus:border-[#344974] transition-all"
                   required
                 />
               </div>
 
-              {/* Exam Selection */}
-              <div>
-                <label htmlFor="exam" className="block text-[13px] font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Target Exam
-                </label>
-                <select
-                  id="exam"
-                  value={examPreparingFor}
-                  onChange={(e) => setExamPreparingFor(e.target.value)}
-                  className="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-[15px]"
-                  required
-                >
-                  <option value="">Select your exam</option>
-                  {exams.map((exam) => (
-                    <option key={exam.id} value={exam.id}>
-                      {exam.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
               {/* Terms Checkbox */}
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-3 pt-2">
                 <input
                   type="checkbox"
                   id="terms"
                   checked={termsAccepted}
                   onChange={(e) => setTermsAccepted(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-1 focus:ring-blue-500"
+                  className="mt-0.5 w-4 h-4 accent-[#344974] border-slate-300 rounded"
                   required
                 />
-                <label htmlFor="terms" className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
-                  I agree to the{" "}
-                  <Link href="/terms" className="text-[#4F46E5] hover:underline">
-                    Terms
+                <label htmlFor="terms" className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  I accept Scoreyo's{" "}
+                  <Link href="/terms" className="text-[#344974] hover:underline">
+                    Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link href="/privacy" className="text-[#4F46E5] hover:underline">
+                  <Link href="/privacy" className="text-[#344974] hover:underline">
                     Privacy Policy
                   </Link>
                 </label>
@@ -322,7 +301,7 @@ function SignupContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 bg-[#4F46E5] text-white font-medium rounded-lg hover:bg-[#4338CA] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
+                className="w-full py-4 bg-[#344974] text-white text-base font-heading font-bold rounded-2xl hover:bg-[#2A3B5E] active:scale-[0.98] transition-all shadow-lg hover:shadow-xl mt-8 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -336,9 +315,9 @@ function SignupContent() {
             </form>
 
             {/* Login Link */}
-            <p className="text-center text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-center text-sm text-slate-600 dark:text-slate-400 mt-8">
               Already have an account?{" "}
-              <Link href="/login" className="text-[#4F46E5] font-medium hover:underline">
+              <Link href="/login" className="text-[#344974] font-semibold hover:underline">
                 Log in
               </Link>
             </p>
@@ -361,7 +340,7 @@ function SignupContent() {
                   onChange={(e) => handleOtpChange(index, e.target.value)}
                   onKeyDown={(e) => handleOtpKeyDown(index, e)}
                   onPaste={index === 0 ? handleOtpPaste : undefined}
-                  className="w-12 h-14 text-center text-2xl font-bold border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
+                  className="w-12 h-14 text-center text-2xl font-bold border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#344974] focus:ring-4 focus:ring-[#344974]/10 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
                 />
               ))}
             </div>
@@ -377,7 +356,7 @@ function SignupContent() {
             <button
               onClick={handleVerifyOtp}
               disabled={isSubmitting || otp.join("").length !== 6}
-              className="w-full py-2.5 bg-[#4F46E5] text-white font-medium rounded-lg hover:bg-[#4338CA] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-[15px]"
+              className="w-full py-4 bg-[#344974] text-white text-base font-heading font-bold rounded-2xl hover:bg-[#2A3B5E] active:scale-[0.98] transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isSubmitting ? (
                 <>
@@ -402,7 +381,7 @@ function SignupContent() {
                 <button
                   onClick={handleResendOtp}
                   disabled={isSubmitting}
-                  className="text-sm text-[#3b82f6] font-medium hover:underline disabled:opacity-50"
+                  className="text-sm text-[#344974] font-medium hover:underline disabled:opacity-50"
                 >
                   Resend code
                 </button>
@@ -434,7 +413,7 @@ function SignupContent() {
             </p>
           </div>
         )}
-      </div>
+      </motion.div>
     </AuthLayout>
   );
 }
@@ -442,9 +421,9 @@ function SignupContent() {
 export default function SignupPage() {
   return (
     <Suspense fallback={
-      <AuthLayout>
+      <AuthLayout mascotSrc="/images/auth-mascot-yeti-wave-v2.png">
         <div className="flex items-center justify-center py-12">
-          <Loader2 className="w-8 h-8 animate-spin text-[#3b82f6]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#344974]" />
         </div>
       </AuthLayout>
     }>

@@ -1,4 +1,4 @@
-package com.krakkify.app;
+package com.scoreyo.app;
 
 import com.getcapacitor.BridgeActivity;
 

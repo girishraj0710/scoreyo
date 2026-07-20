@@ -112,7 +112,7 @@ The dimensional model migration to enable question sharing across all 75 competi
 2. **db.ts:** Query functions updated to use shared subjects
 3. **quiz-generator.ts:** AI generation uses shared subject pools
 4. **api/quiz/route.ts:** Subject ID transformation layer
-5. **All deployed to production** (https://krakkify.in)
+5. **All deployed to production** (https://scoreyo.in)
 
 ### Validation Completed ✅
 
@@ -276,7 +276,7 @@ ORDER BY physics_questions DESC;
 
 ✅ **Mission Accomplished**
 
-All 75 exams on the Krakkify platform now use shared subjects. Question sharing is working in production. No exam was left behind. The platform is now more scalable, maintainable, and valuable for students preparing for multiple competitive exams.
+All 75 exams on the Scoreyo platform now use shared subjects. Question sharing is working in production. No exam was left behind. The platform is now more scalable, maintainable, and valuable for students preparing for multiple competitive exams.
 
 **Platform Status:** Production-ready, fully validated, zero critical issues.
 
@@ -288,6 +288,6 @@ All 75 exams on the Krakkify platform now use shared subjects. Question sharing 
 
 **Migration Lead:** Claude (AI Assistant)  
 **Validation:** Comprehensive (10 tests, all passed)  
-**Deployment:** Vercel production (https://krakkify.in)  
+**Deployment:** Vercel production (https://scoreyo.in)  
 **Status:** ✅ Complete and Operational
 

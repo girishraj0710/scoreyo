@@ -1,4 +1,4 @@
-# 📋 Krakkify Session Summary - May 7, 2026 (Evening Session)
+# 📋 Scoreyo Session Summary - May 7, 2026 (Evening Session)
 
 ## 🎉 What We Accomplished
 
@@ -213,7 +213,7 @@ watch -n 60 'wc -l .agents/artifacts/ollama-generated/*.csv'
 ps aux | grep generate-all-exams
 
 # View latest output
-tail -100 /private/tmp/claude-501/-Users-girish-raj-krakkify/13a9dacf-d66c-4bce-92a3-88515ac7104b/tasks/bufxziovx.output
+tail -100 /private/tmp/claude-501/-Users-girish-raj-scoreyo/13a9dacf-d66c-4bce-92a3-88515ac7104b/tasks/bufxziovx.output
 ```
 
 ### Expected Progress:
@@ -278,7 +278,7 @@ git commit -m "feat: Add 9,000 AI-generated questions across 18 exams
 git push origin main
 
 # Verify deployment
-# Visit: https://krakkify.co.in
+# Visit: https://scoreyo.in
 ```
 
 ---
@@ -473,7 +473,7 @@ git push origin main
 1. Check if complete: `wc -l .agents/artifacts/ollama-generated/*.csv`
 2. Review quality: Look at a few sample questions
 3. Deploy: `npm run build && git push`
-4. Done! 9,000 questions live on krakkify.co.in
+4. Done! 9,000 questions live on scoreyo.in
 
 **Adding more later:**
 ```bash

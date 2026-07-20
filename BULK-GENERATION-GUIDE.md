@@ -1,4 +1,4 @@
-# 🚀 Krakkify - Bulk Question Generation Guide
+# 🚀 Scoreyo - Bulk Question Generation Guide
 
 This guide shows you how to generate ALL questions in one go, then append more later.
 
@@ -234,7 +234,7 @@ node scripts/generate-with-ollama-append.js --exam jee-main --count 100
    git commit -m "feat: Add bulk generated questions"
    git push origin main
    
-   # Auto-deploys to krakkify.co.in
+   # Auto-deploys to scoreyo.in
    ```
 
 ---

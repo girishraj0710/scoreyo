@@ -38,8 +38,8 @@
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project or select existing:
-   - Name: **Krakkify**
-   - Project ID: `krakkify-prod`
+   - Name: **Scoreyo**
+   - Project ID: `scoreyo-prod`
 
 ### Step 2: Enable Google OAuth API
 
@@ -52,16 +52,16 @@
 1. Go to **APIs & Services** → **OAuth consent screen**
 2. Choose **External** (for public users)
 3. Fill in details:
-   - **App name:** Krakkify
-   - **User support email:** admin@krakkify.in
+   - **App name:** Scoreyo
+   - **User support email:** admin@scoreyo.in
    - **Developer contact:** girish.raj0710@gmail.com
-   - **App logo:** Upload Krakkify logo (512x512 PNG)
-   - **App domain:** https://krakkify.in
+   - **App logo:** Upload Scoreyo logo (512x512 PNG)
+   - **App domain:** https://scoreyo.in
    - **Authorized domains:** 
-     - `krakkify.in`
+     - `scoreyo.in`
      - `vercel.app` (for preview deployments)
-   - **Privacy Policy:** https://krakkify.in/privacy
-   - **Terms of Service:** https://krakkify.in/terms
+   - **Privacy Policy:** https://scoreyo.in/privacy
+   - **Terms of Service:** https://scoreyo.in/terms
 
 4. **Scopes:** Add these OAuth scopes:
    - `openid` (required)
@@ -79,21 +79,21 @@
 1. Go to **APIs & Services** → **Credentials**
 2. Click **+ CREATE CREDENTIALS** → **OAuth client ID**
 3. **Application type:** Web application
-4. **Name:** Krakkify Web App
+4. **Name:** Scoreyo Web App
 5. **Authorized JavaScript origins:**
    ```
    http://localhost:3000
-   https://krakkify.in
-   https://www.krakkify.in
-   https://krakkify.vercel.app
+   https://scoreyo.in
+   https://www.scoreyo.in
+   https://scoreyo.vercel.app
    ```
 
 6. **Authorized redirect URIs:**
    ```
    http://localhost:3000/api/auth/callback/google
-   https://krakkify.in/api/auth/callback/google
-   https://www.krakkify.in/api/auth/callback/google
-   https://krakkify.vercel.app/api/auth/callback/google
+   https://scoreyo.in/api/auth/callback/google
+   https://www.scoreyo.in/api/auth/callback/google
+   https://scoreyo.vercel.app/api/auth/callback/google
    ```
 
 7. Click **CREATE**
@@ -237,7 +237,7 @@ Redirect to dashboard (/)
   - Custom SVG illustrations (books, trophy, flashcards, stars)
   - Motivational copy
   - Platform stats
-  - Krakkify logo
+  - Scoreyo logo
 
 - **Right Side (60%):**
   - Clean white form area
@@ -322,8 +322,8 @@ CREATE INDEX idx_users_auth_provider ON users(auth_provider);
 ## 📞 Support
 
 **Questions?** Contact:
-- Email: admin@krakkify.in
-- GitHub: https://github.com/girishraj0710/krakkify
+- Email: admin@scoreyo.in
+- GitHub: https://github.com/girishraj0710/scoreyo
 
 **Google OAuth Issues:**
 - Google Cloud Console: https://console.cloud.google.com/

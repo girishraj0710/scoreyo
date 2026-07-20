@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-I've built **4 fully functional question scrapers** for Krakkify that can extract **5,000+ high-quality MCQs** from legal, free sources for **under $2 total cost**.
+I've built **4 fully functional question scrapers** for Scoreyo that can extract **5,000+ high-quality MCQs** from legal, free sources for **under $2 total cost**.
 
 ---
 
@@ -198,7 +198,7 @@ npm run scrape-openstax -- --all
 
 ---
 
-## Integration with Krakkify
+## Integration with Scoreyo
 
 ### Automatic Quiz Integration
 

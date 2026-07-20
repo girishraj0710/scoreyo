@@ -271,7 +271,7 @@ question,option_a,option_b,option_c,option_d,correct_answer,explanation,difficul
 
 ### **App Store Description:**
 ```
-Krakkify - Smart Exam Prep
+Scoreyo - Smart Exam Prep
 
 📚 9,000+ Practice Questions Across 18 Exams
 🤖 AI-Generated Exam-Style Questions (Clearly Labeled)

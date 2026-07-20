@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   try {
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
 
     if (!userId) {
       return NextResponse.json({

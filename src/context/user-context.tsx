@@ -17,6 +17,7 @@ interface User {
   current_exam?: string;          // Currently selected exam (e.g., 'jee', 'neet')
   enrolled_exams?: string[];      // All exams user has enrolled in
   subscription_status?: 'free' | 'pro';
+  onboarding_completed?: boolean; // AI Assessment Interview finished
 }
 
 interface UserContextType {
@@ -45,6 +46,7 @@ interface UserContextType {
   // Single-exam-focus architecture
   switchExam: (examId: string) => Promise<void>;
   addExam: (examId: string) => Promise<{ success: boolean; error?: string }>;
+  refreshUser: () => Promise<void>;
   isAdmin: boolean;
   canSwitchExams: boolean;
   canAddExams: boolean;
@@ -293,6 +295,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
         updateProfile,
         switchExam,
         addExam,
+        refreshUser: fetchUser,
         isAdmin,
         canSwitchExams,
         canAddExams,

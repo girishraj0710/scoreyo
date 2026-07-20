@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Krakkify</string>
-    <string name="title_activity_main">Krakkify</string>
-    <string name="package_name">com.krakkify.app</string>
-    <string name="custom_url_scheme">com.krakkify.app</string>
+    <string name="app_name">Scoreyo</string>
+    <string name="title_activity_main">Scoreyo</string>
+    <string name="package_name">com.scoreyo.app</string>
+    <string name="custom_url_scheme">com.scoreyo.app</string>
 </resources>

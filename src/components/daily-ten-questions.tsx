@@ -113,7 +113,7 @@ export function DailyTenQuestions() {
 
   if (loading) {
     return (
-      <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex items-center justify-center">
+      <div className="w-full rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-[#E76F51]/20 border-t-[#E76F51] rounded-full animate-spin"></div>
       </div>
     );
@@ -121,7 +121,7 @@ export function DailyTenQuestions() {
 
   if (!data || data.questions.length === 0) {
     return (
-      <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex items-center justify-center">
+      <div className="w-full rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex items-center justify-center">
         <p className="text-slate-500 dark:text-slate-400 text-sm">
           No questions available today
         </p>
@@ -135,7 +135,7 @@ export function DailyTenQuestions() {
   // Completion card
   if (completed) {
     return (
-      <div className="rounded-3xl bg-gradient-to-br from-[#E76F51]/5 via-white to-[#E76F51]/10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border border-black/5 p-8 md:p-12 shadow-soft relative overflow-hidden h-full flex items-center justify-center">
+      <div className="w-full rounded-3xl bg-gradient-to-br from-[#E76F51]/5 via-white to-[#E76F51]/10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border border-black/5 p-8 md:p-12 shadow-soft relative overflow-hidden h-full flex items-center justify-center">
         {/* Decorative background pattern */}
         <div className="absolute inset-0 opacity-5">
           <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +180,7 @@ export function DailyTenQuestions() {
   }
 
   return (
-    <div className="rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex flex-col">
+    <div className="w-full rounded-3xl bg-white dark:bg-slate-900 border border-black/5 p-6 md:p-8 shadow-soft h-full flex flex-col">
       {/* Header */}
       <div className="mb-3">
         <div className="flex items-center gap-2 text-xs uppercase font-bold text-[#F26A4B]" style={{ letterSpacing: '0.2em' }}>

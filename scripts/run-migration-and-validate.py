@@ -330,7 +330,7 @@ if tests_failed == 0 and tests_warning == 0:
     print("✅ Safe to proceed with production testing.")
     print()
     print("Next steps:")
-    print("1. Test quiz generation: https://krakkify.in")
+    print("1. Test quiz generation: https://scoreyo.in")
     print("2. Generate JEE Physics quiz")
     print("3. Generate NEET Physics quiz")
     print("4. Check that both share questions")

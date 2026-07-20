@@ -177,7 +177,7 @@ export function validateQueryParams<T>(
  * Returns user ID if authenticated, error response otherwise
  */
 export function requireAuth(request: NextRequest): { success: true; userId: string } | ValidationFailure {
-  const userId = request.cookies.get('krakkify-user-id')?.value;
+  const userId = request.cookies.get('scoreyo-user-id')?.value;
 
   if (!userId) {
     return {

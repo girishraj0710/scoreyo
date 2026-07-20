@@ -16,7 +16,7 @@ The comprehensive **4,330-question English curriculum** (matching British Counci
 5. **Select**: "Foundation Builder - Complete Institute Course 🏗️"
 
 ### Production
-1. **Open**: https://krakkify.co.in
+1. **Open**: https://scoreyo.in
 2. **Login**
 3. **Navigate**: Learn English → Foundation Builder
 
@@ -192,7 +192,7 @@ Using **AI SDK with model racing** (same as quiz generator):
 - Covers 6 months of intensive learning
 
 ### Better Than Paid Courses
-| Feature | Krakkify | British Council | Wall Street |
+| Feature | Scoreyo | British Council | Wall Street |
 |---------|-----------|----------------|-------------|
 | **Topics** | 40 | 35-40 | 40+ |
 | **Questions** | 4,330 | 3,000+ | 4,000+ |
@@ -239,7 +239,7 @@ Using **AI SDK with model racing** (same as quiz generator):
 
 ## 🎉 Success!
 
-The **complete institute-level English curriculum is now live** in your Krakkify app!
+The **complete institute-level English curriculum is now live** in your Scoreyo app!
 
 **What changed**:
 - Foundation Builder path expanded from 4 topics to **40 topics**

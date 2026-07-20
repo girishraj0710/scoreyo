@@ -1,5 +1,5 @@
 async function testAPI() {
-  const response = await fetch('https://krakkify.in/api/study-content?subjectId=english&pathId=ielts-toefl&topicId=ielts-reading');
+  const response = await fetch('https://scoreyo.in/api/study-content?subjectId=english&pathId=ielts-toefl&topicId=ielts-reading');
   const data = await response.json();
   
   if (data.studyMaterial) {

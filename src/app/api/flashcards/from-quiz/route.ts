@@ -12,7 +12,7 @@ const nanoid = customAlphabet('0123456789abcdefghijklmnopqrstuvwxyz', 8);
 export async function POST(req: NextRequest) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

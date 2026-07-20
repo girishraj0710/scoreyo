@@ -18,7 +18,7 @@ Supabase **automatically pauses inactive projects** after 1 week of inactivity (
 
 2. **Find your project:**
    - Look for project with ID: `zomcofptwlumqkeffbht`
-   - Or project name related to "PrepGenie" or "Krakkify"
+   - Or project name related to "PrepGenie" or "Scoreyo"
 
 3. **Check project status:**
    - If you see **"PAUSED"** or **"INACTIVE"** badge → Project is paused
@@ -146,7 +146,7 @@ If your project was deleted or you can't restore it:
 
 1. Go to https://supabase.com/dashboard
 2. Click **"New Project"**
-3. Name: `krakkify-prod` (or similar)
+3. Name: `scoreyo-prod` (or similar)
 4. Region: **Mumbai** (aws-ap-south-1) for best performance
 5. Database Password: Use a strong password
 6. Wait 2-3 minutes for provisioning

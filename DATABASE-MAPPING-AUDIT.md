@@ -1,4 +1,4 @@
-# Database Mapping Audit - Krakkify
+# Database Mapping Audit - Scoreyo
 **Date:** June 14, 2026  
 **Purpose:** Verify consistency between code, API, and database before content generation
 

@@ -65,7 +65,7 @@
 - `view_count` (track views)
 
 **Features**:
-- Shareable URL: `krakkify.in/deck/abc123`
+- Shareable URL: `scoreyo.in/deck/abc123`
 - Public view (no auth required)
 - Card preview (first 5 cards)
 - QR code generation (UI pending)

@@ -45,7 +45,7 @@ WHERE email = 'girish.raj@salesforce.com';
 
 **How Authentication Works:**
 
-1. User logs in → Cookie `krakkify-user-id` is set with user ID
+1. User logs in → Cookie `scoreyo-user-id` is set with user ID
 2. Page loads → `/api/auth` GET endpoint reads cookie
 3. API fetches **fresh user data from database** (including role)
 4. UserContext updates with latest data
@@ -67,7 +67,7 @@ WHERE email = 'girish.raj@salesforce.com';
 3. Fresh session will have `admin` role
 
 ### Option 3: Navigate to Home
-1. Click on "Home" or Krakkify logo in top bar
+1. Click on "Home" or Scoreyo logo in top bar
 2. Page reloads → UserContext fetches fresh data
 3. Should see dashboard with admin access
 
@@ -135,7 +135,7 @@ Can access:
 - Values: `'student'`, `'contributor'`, `'admin'`
 
 **Session:**
-- Cookie: `krakkify-user-id`
+- Cookie: `scoreyo-user-id`
 - API: `/api/auth` GET
 - Fetches: Fresh user data from DB on every page load
 - Cache: `no-store` (no caching)

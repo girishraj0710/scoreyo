@@ -182,8 +182,8 @@ Generate 15 flashcards now for: {topic_data['topic']} in {topic_data['subject']}
             headers={
                 'Authorization': f'Bearer {OPENROUTER_KEY}',
                 'Content-Type': 'application/json',
-                'HTTP-Referer': 'https://krakkify.in',
-                'X-Title': 'Krakkify Flashcard Library',
+                'HTTP-Referer': 'https://scoreyo.in',
+                'X-Title': 'Scoreyo Flashcard Library',
             },
             json={
                 'model': 'google/gemini-2.5-flash-lite',

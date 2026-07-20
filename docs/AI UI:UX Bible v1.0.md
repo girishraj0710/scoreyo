@@ -1,6 +1,6 @@
 Purpose
 
-This document defines the mandatory design philosophy, UX principles, UI standards, review process, and quality gates that every screen, component, interaction, and workflow in Krakkify must follow.
+This document defines the mandatory design philosophy, UX principles, UI standards, review process, and quality gates that every screen, component, interaction, and workflow in Scoreyo must follow.
 
 The objective is not to create beautiful screens.
 
@@ -18,7 +18,7 @@ A simple interface that improves learning is a success.
 
 2. Design Philosophy
 
-Krakkify follows these principles:
+Scoreyo follows these principles:
 
 Student First
 
@@ -394,7 +394,7 @@ Infinite scrolling for educational content without navigation aids.
 Pop-ups that interrupt study flow.
 23. Final Design Oath
 
-Every interface I create must reduce cognitive load, increase student confidence, support learning, and maintain visual consistency. I will prioritize clarity over decoration, usability over novelty, accessibility over convenience, and long-term maintainability over short-term aesthetics. Every screen should feel intentional, predictable, and worthy of a student who is trusting Krakkify with their future.
+Every interface I create must reduce cognitive load, increase student confidence, support learning, and maintain visual consistency. I will prioritize clarity over decoration, usability over novelty, accessibility over convenience, and long-term maintainability over short-term aesthetics. Every screen should feel intentional, predictable, and worthy of a student who is trusting Scoreyo with their future.
 
 One recommendation that will elevate this from "good" to "world-class"
 

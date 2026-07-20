@@ -8,6 +8,7 @@ import { useUser } from "@/context/user-context";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { DailyTenQuestions } from "@/components/daily-ten-questions";
+import { SuccessPlanBanner } from "@/components/home/SuccessPlanBanner";
 import { isNative } from "@/lib/capacitor";
 import { useExamFilter } from "@/hooks/use-exam-filter";
 import {
@@ -399,6 +400,20 @@ function HomePageContent() {
     }
   }, [user]);
 
+  // Onboarding gate: students who haven't finished the AI Assessment Interview
+  // are routed there before they can reach the home dashboard. Admins and
+  // contributors are exempt (contributors redirect above).
+  useEffect(() => {
+    if (
+      user &&
+      user.role !== 'admin' &&
+      user.role !== 'contributor' &&
+      user.onboarding_completed === false
+    ) {
+      router.replace('/onboarding');
+    }
+  }, [user, router]);
+
   // Show minimal loading state while checking auth
   if (isLoading) {
     return (
@@ -421,6 +436,15 @@ function HomePageContent() {
           <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--card-border)", borderTopColor: "var(--primary)" }}></div>
           <p style={{ color: "var(--foreground-secondary)" }}>Redirecting to Contributor Portal...</p>
         </div>
+      </div>
+    );
+  }
+
+  // Hold the dashboard while redirecting students into onboarding (prevents flash)
+  if (user.role !== 'admin' && user.onboarding_completed === false) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
+        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--card-border)", borderTopColor: "var(--primary)" }}></div>
       </div>
     );
   }
@@ -461,6 +485,9 @@ function HomePageContent() {
             </div>
           </div>
         </motion.div>
+
+        {/* Personalized success plan (from onboarding) */}
+        <SuccessPlanBanner />
 
         {/* Continue + Today's plan row */}
         <div className={`grid ${hasActivity && continueData ? 'lg:grid-cols-3' : 'lg:grid-cols-1'} gap-5 mb-6 lg:items-stretch`}>

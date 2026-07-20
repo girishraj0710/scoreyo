@@ -1,4 +1,4 @@
-# Krakkify Content Generation System
+# Scoreyo Content Generation System
 
 **Last Updated:** 2026-06-16  
 **Purpose:** Central hub for all content generation workflows

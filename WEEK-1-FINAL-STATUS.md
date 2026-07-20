@@ -80,7 +80,7 @@ If the agent outputs are too long to scroll/copy, regenerate them using the Agen
 ### Option C: Load What You Have (Partial Completion)
 
 The 4 loaded materials are already live on production. You can:
-- Test them immediately at https://krakkify.in/english
+- Test them immediately at https://scoreyo.in/english
 - Use Week 1 content as-is (57% of study materials, 100% of questions)
 - Add the remaining 3 materials later when time permits
 
@@ -182,7 +182,7 @@ Expected output:
 
 ### Test Study Materials:
 ```
-https://krakkify.in/english
+https://scoreyo.in/english
 → Foundation Builder
 → Parts of Speech
 → Click "📖 Study First"
@@ -190,7 +190,7 @@ https://krakkify.in/english
 
 ### Test Questions:
 ```
-https://krakkify.in/english
+https://scoreyo.in/english
 → Foundation Builder
 → Pronunciation
 → Click "Start Quiz"
@@ -220,7 +220,7 @@ SELECT COUNT(*) FROM english_questions WHERE path_id = 'foundation';
    - Result: 7/7 materials loaded ✅
 
 2. **Test What's Live** (5 mins):
-   - Go to https://krakkify.in/english
+   - Go to https://scoreyo.in/english
    - Test the 4 loaded study materials
    - Take quizzes with new questions
    - Verify everything works
@@ -236,5 +236,5 @@ SELECT COUNT(*) FROM english_questions WHERE path_id = 'foundation';
 
 **Last Updated:** June 15, 2026, 12:10 PM  
 **Database Status:** ✅ LIVE  
-**Production URL:** https://krakkify.in/english  
+**Production URL:** https://scoreyo.in/english  
 **Content Status:** 4/7 study materials + 374 questions = FUNCTIONAL but INCOMPLETE

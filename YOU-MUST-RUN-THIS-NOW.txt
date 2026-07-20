@@ -30,7 +30,7 @@ WHAT IT DOES:
 AFTER RUNNING THE COMMAND:
 
 1. Wait 2 minutes for Vercel deployment to complete
-2. Refresh: https://krakkify.in/english/foundation/parts-of-speech/study
+2. Refresh: https://scoreyo.in/english/foundation/parts-of-speech/study
 3. Navigate to Card 8 (last card)
 4. Click "Start Practice Problems" button
 5. You will see practice questions!

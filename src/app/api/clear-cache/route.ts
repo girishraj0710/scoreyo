@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
  * Clear user stats cache
  */
 export async function POST(request: NextRequest) {
-  const userId = request.cookies.get("krakkify-user-id")?.value;
+  const userId = request.cookies.get("scoreyo-user-id")?.value;
 
   if (!userId) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });

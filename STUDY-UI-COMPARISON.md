@@ -9,12 +9,12 @@
 
 ### Old UI (v1)
 ```
-https://krakkify.in/study?exam=jee-main&subject=physics&topic=thermodynamics
+https://scoreyo.in/study?exam=jee-main&subject=physics&topic=thermodynamics
 ```
 
 ### New Premium UI (v2)
 ```
-https://krakkify.in/study-v2?exam=jee-main&subject=physics&topic=thermodynamics
+https://scoreyo.in/study-v2?exam=jee-main&subject=physics&topic=thermodynamics
 ```
 
 **To test:** Open both URLs in separate tabs and compare the experience.
@@ -269,7 +269,7 @@ src/app/globals.css  (+2 lines for --card-bg-rgb)
 ## 🎨 Design System Tokens Used
 
 ### Colors
-- Primary: `#4255FF` (Krakkify brand indigo)
+- Primary: `#4255FF` (Scoreyo brand indigo)
 - Success: `#10B981` (emerald for completion)
 - Warning: `#F59E0B` (amber for intermediate)
 - Danger: `#EF4444` (red for mistakes/advanced)

@@ -4,7 +4,7 @@ import { queryAll } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("krakkify-user-id")?.value;
+  const userId = request.cookies.get("scoreyo-user-id")?.value;
 
   if (!userId) {
     return NextResponse.json(

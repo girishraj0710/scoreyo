@@ -1,8 +1,8 @@
-# Krakkify Mobile App - Quick Start
+# Scoreyo Mobile App - Quick Start
 
 **Status**: ✅ Code complete, ready for testing  
 **Platform**: Capacitor 8.4 (iOS + Android)  
-**Mode**: Hybrid (loads from https://krakkify.in)
+**Mode**: Hybrid (loads from https://scoreyo.in)
 
 ---
 
@@ -52,7 +52,7 @@ npm run mobile:ios
 # 3. Click Run ▶️
 ```
 
-**Expected**: App launches → loads krakkify.in → login works → quiz runs
+**Expected**: App launches → loads scoreyo.in → login works → quiz runs
 
 ---
 

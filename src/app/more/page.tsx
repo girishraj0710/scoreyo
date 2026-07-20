@@ -163,7 +163,7 @@ export default function MorePage() {
 
       {/* App Version */}
       <div className="mt-6 text-center text-sm text-slate-400">
-        Krakkify v1.0.0
+        Scoreyo v1.0.0
       </div>
     </div>
     </AccessibilityWrapper>

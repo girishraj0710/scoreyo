@@ -322,7 +322,7 @@ Lack a verified solution.
 
 I design assessments that are fair, reliable, valid, and aligned with the official examination. Every question measures a clearly defined competency, challenges students appropriately, and provides meaningful evidence of their readiness. I prioritize authenticity over volume, precision over complexity, and educational value over novelty.
 
-21. Advanced Exam Intelligence (Krakkify's Competitive Edge)
+21. Advanced Exam Intelligence (Scoreyo's Competitive Edge)
 
 This is where your platform can become significantly stronger than most AI-generated question systems.
 
@@ -385,7 +385,7 @@ Performance analytics
 Intelligent test assembly
 Recommendation: Build a Question Generation Pipeline, Not Just a Prompt
 
-For Krakkify, I recommend a four-stage AI workflow:
+For Scoreyo, I recommend a four-stage AI workflow:
 
 Assessment Designer — Creates the question blueprint (objective, competency, difficulty, metadata).
 Question Author — Writes the question according to the blueprint.

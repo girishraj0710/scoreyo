@@ -102,13 +102,13 @@ export default function SettingsPage() {
 
   // Load preferences from localStorage
   useEffect(() => {
-    const savedGoal = localStorage.getItem("krakkify-daily-goal");
+    const savedGoal = localStorage.getItem("scoreyo-daily-goal");
     if (savedGoal) setDailyGoal(parseInt(savedGoal));
 
-    const savedDifficulty = localStorage.getItem("krakkify-difficulty");
+    const savedDifficulty = localStorage.getItem("scoreyo-difficulty");
     if (savedDifficulty) setDifficulty(savedDifficulty);
 
-    const savedDarkMode = localStorage.getItem("krakkify-theme");
+    const savedDarkMode = localStorage.getItem("scoreyo-theme");
     if (savedDarkMode === "dark") {
       setDarkMode(true);
     }
@@ -152,19 +152,19 @@ export default function SettingsPage() {
 
   const handleDailyGoalChange = (goal: number) => {
     setDailyGoal(goal);
-    localStorage.setItem("krakkify-daily-goal", goal.toString());
+    localStorage.setItem("scoreyo-daily-goal", goal.toString());
   };
 
   const handleDifficultyChange = (diff: string) => {
     setDifficulty(diff);
-    localStorage.setItem("krakkify-difficulty", diff);
+    localStorage.setItem("scoreyo-difficulty", diff);
   };
 
   const handleDarkModeToggle = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
     const theme = newMode ? "dark" : "light";
-    localStorage.setItem("krakkify-theme", theme);
+    localStorage.setItem("scoreyo-theme", theme);
     document.documentElement.setAttribute("data-theme", theme);
   };
 
@@ -198,7 +198,7 @@ export default function SettingsPage() {
         setModal({
           isOpen: true,
           title: "Contact Support",
-          message: "To delete your account, please email us at support@krakkify.in with your registered email address.",
+          message: "To delete your account, please email us at support@scoreyo.in with your registered email address.",
           type: "info",
           onConfirm: () => setModal(prev => ({ ...prev, isOpen: false })),
         });
@@ -898,19 +898,19 @@ export default function SettingsPage() {
               label="Daily Reminder"
               description="Get reminded to practice every day"
               defaultChecked={true}
-              storageKey="krakkify-notif-daily"
+              storageKey="scoreyo-notif-daily"
             />
             <NotificationToggle
               label="Streak Alerts"
               description="Alert when your streak is about to break"
               defaultChecked={true}
-              storageKey="krakkify-notif-streak"
+              storageKey="scoreyo-notif-streak"
             />
             <NotificationToggle
               label="New Features"
               description="Get notified about new features and updates"
               defaultChecked={false}
-              storageKey="krakkify-notif-features"
+              storageKey="scoreyo-notif-features"
             />
           </div>
 
@@ -973,7 +973,7 @@ export default function SettingsPage() {
         {/* App Version */}
         <div className="text-center py-4">
           <p className="text-xs" style={{ color: "var(--muted)" }}>
-            Krakkify v2.0 | Made with ❤️ in India
+            Scoreyo v2.0 | Made with ❤️ in India
           </p>
         </div>
 

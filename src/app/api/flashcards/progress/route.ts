@@ -9,7 +9,7 @@ import { recordFlashcardProgress, getFlashcardStats } from '@/lib/db';
 export async function POST(req: NextRequest) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

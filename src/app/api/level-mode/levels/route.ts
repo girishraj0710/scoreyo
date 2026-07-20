@@ -83,7 +83,7 @@ function generateHolisticLevels(examId: string) {
 // GET /api/level-mode/levels?examId=jee
 // Returns 30 holistic levels with user progress
 export async function GET(req: NextRequest) {
-  const userId = req.cookies.get("krakkify-user-id")?.value;
+  const userId = req.cookies.get("scoreyo-user-id")?.value;
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

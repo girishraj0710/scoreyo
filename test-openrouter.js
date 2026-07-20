@@ -26,8 +26,8 @@ async function testOpenRouter() {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://krakkify.in',
-        'X-Title': 'Krakkify Test',
+        'HTTP-Referer': 'https://scoreyo.in',
+        'X-Title': 'Scoreyo Test',
       },
       body: JSON.stringify({
         model: 'google/gemini-2.5-flash-lite',

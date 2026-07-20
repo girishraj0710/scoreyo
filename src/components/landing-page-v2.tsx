@@ -232,7 +232,7 @@ export function LandingPageV2() {
               <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#F26A4B' }}>
                 <span className="text-white font-semibold text-xl">K</span>
               </div>
-              <span className="font-semibold text-xl" style={{ color: "#0f172a" }}>Krakkify</span>
+              <span className="font-semibold text-xl" style={{ color: "#0f172a" }}>Scoreyo</span>
             </div>
 
             {/* Exams Dropdown */}
@@ -567,11 +567,11 @@ export function LandingPageV2() {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* What Makes Krakkify Different - Snake Pattern */}
+        {/* What Makes Scoreyo Different - Snake Pattern */}
         <section className="pt-8 md:pt-16 pb-12 md:pb-20">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
-              What makes Krakkify different
+              What makes Scoreyo different
             </h2>
             <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-2">
               Intelligent AI features designed specifically for Indian competitive exams
@@ -751,7 +751,7 @@ export function LandingPageV2() {
               Ready to ace your exam?
             </h2>
             <p className="text-base md:text-lg text-[rgba(242, 106, 75, 0.08)] mb-6 max-w-2xl mx-auto">
-              Join 50,000+ students who are already mastering their competitive exams with Krakkify
+              Join 50,000+ students who are already mastering their competitive exams with Scoreyo
             </p>
             <button
               onClick={() => window.location.href = "/signup"}
@@ -1001,7 +1001,7 @@ export function LandingPageV2() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-bold mb-3 text-slate-900">Krakkify</h3>
+              <h3 className="text-2xl font-bold mb-3 text-slate-900">Scoreyo</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
                 Smart exam preparation for 60+ Indian competitive exams with AI-powered learning.
               </p>
@@ -1061,8 +1061,8 @@ export function LandingPageV2() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:support@krakkify.in" className="text-slate-600 hover:text-slate-900 transition-colors">
-                    support@krakkify.in
+                  <a href="mailto:support@scoreyo.in" className="text-slate-600 hover:text-slate-900 transition-colors">
+                    support@scoreyo.in
                   </a>
                 </li>
               </ul>
@@ -1072,7 +1072,7 @@ export function LandingPageV2() {
           {/* Bottom Bar */}
           <div className="border-t border-slate-300 pt-6 text-center">
             <p className="text-slate-600 text-sm">
-              © {new Date().getFullYear()} Krakkify. All rights reserved.
+              © {new Date().getFullYear()} Scoreyo. All rights reserved.
             </p>
           </div>
         </div>

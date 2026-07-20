@@ -2,7 +2,7 @@
 
 **Date**: July 11, 2026  
 **Status**: ✅ Phase 1 Complete (Community Sharing) → Phase 2 In Progress  
-**Goal**: Make flashcards the most engaging feature on Krakkify
+**Goal**: Make flashcards the most engaging feature on Scoreyo
 
 ---
 
@@ -236,7 +236,7 @@ ADD COLUMN IF NOT EXISTS correct_streak_best INTEGER DEFAULT 0;
 **User Story**: "I want to share this great deck with my friends"
 
 **Implementation**:
-- Generate shareable URL: `krakkify.in/deck/abc123`
+- Generate shareable URL: `scoreyo.in/deck/abc123`
 - Public deck view page (no auth required)
 - QR code generation
 - Share buttons: WhatsApp, Telegram, Copy Link

@@ -4,7 +4,7 @@ Illustration Policy
 
 **MANDATORY**: ALL future icons MUST match the style shown in the canonical reference screenshot above.
 
-Krakkify does NOT use standard outline icons
+Scoreyo does NOT use standard outline icons
 for primary navigation or feature cards.
 
 Instead, every major feature must use
@@ -22,7 +22,7 @@ Each illustrated icon MUST:
 • feel friendly (approachable, not corporate)
 • feel premium (polished, high-quality gradients)
 • feel modern (glass-morphism, smooth transitions)
-• match the Krakkify Iconography System style
+• match the Scoreyo Iconography System style
 
 Every illustration should look like
 it belongs to the same illustration family
@@ -62,7 +62,7 @@ Use illustrated SVG icons with:
 
 Illustrations should communicate
 the feature visually AND match
-the Krakkify Iconography System style.
+the Scoreyo Iconography System style.
 Example (Based on Reference Screenshot)
 
 Instead of a plain Book icon
@@ -100,7 +100,7 @@ Claude should create
 - Shadow: shadow-sm
 - Hover: Brightens gradient
 - Matches: "Performance & Analytics" section in reference screenshot
-## Krakkify Illustration Bible (Based on Reference Screenshot)
+## Scoreyo Illustration Bible (Based on Reference Screenshot)
 
 **Color Coding System:**
 
@@ -140,11 +140,11 @@ Claude should create
 Now every illustration is generated from the same system
 AND matches the reference screenshot style exactly.
 
-Even Better (What I'd do if I were building Krakkify)
+Even Better (What I'd do if I were building Scoreyo)
 
 I wouldn't ask Claude to generate these icons at all.
 
-I'd create a dedicated Krakkify Illustration Design System with around 150–250 reusable illustrated SVG assets covering every feature, subject, achievement, state, and workflow. Every illustration would share the same:
+I'd create a dedicated Scoreyo Illustration Design System with around 150–250 reusable illustrated SVG assets covering every feature, subject, achievement, state, and workflow. Every illustration would share the same:
 
 Color palette
 Stroke style
@@ -159,7 +159,7 @@ Claude would then reuse this illustration library rather than generating new art
 In other words:
 
 ❌ AI generates a different icon every time.
-✅ AI selects from a curated Krakkify Illustration Library and only commissions new illustrations when a genuinely new concept is introduced.
+✅ AI selects from a curated Scoreyo Illustration Library and only commissions new illustrations when a genuinely new concept is introduced.
 
 ---
 
@@ -210,7 +210,7 @@ When ready to level up, create custom SVG illustrations that:
 2. Identify the feature category (Learning, Practice, Analytics, etc.)
 3. Use the corresponding color from the Illustration Bible table
 4. Apply the standard icon specification (w-12 h-12, rounded-xl, gradient, white icon, shadow)
-5. Ensure it looks like it belongs to the Krakkify family
+5. Ensure it looks like it belongs to the Scoreyo family
 6. Test hover states (gradient brightening)
 7. Verify accessibility (aria-labels, tooltips)
 

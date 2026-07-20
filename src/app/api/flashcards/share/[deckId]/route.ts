@@ -12,7 +12,7 @@ export async function POST(
 ) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -51,7 +51,7 @@ export async function POST(
         [deckId]
       );
 
-      const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'https://krakkify.in'}/deck/${deckData.share_slug}`;
+      const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'https://scoreyo.in'}/deck/${deckData.share_slug}`;
 
       return NextResponse.json({
         success: true,

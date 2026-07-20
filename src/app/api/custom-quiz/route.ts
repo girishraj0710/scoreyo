@@ -27,7 +27,7 @@ interface QuizQuestion {
  */
 export async function POST(request: NextRequest) {
   try {
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json(
         { error: "Authentication required" },

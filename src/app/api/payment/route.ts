@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Not logged in" }, { status: 401 });
     }
@@ -69,7 +69,7 @@ export async function PUT(request: NextRequest) {
   }
 
   try {
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Not logged in" }, { status: 401 });
     }
@@ -133,7 +133,7 @@ export async function PUT(request: NextRequest) {
       success: true,
       subscription,
       plan,
-      message: "Welcome to Krakkify Pro!",
+      message: "Welcome to Scoreyo Pro!",
     });
   } catch (error) {
     return handleApiError(error, "Payment Verification");

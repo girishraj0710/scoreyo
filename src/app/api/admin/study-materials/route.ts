@@ -7,7 +7,7 @@ import { logger } from '@/lib/logger';
 export async function GET(request: NextRequest) {
   try {
     // Get user from cookie
-    const userId = request.cookies.get('krakkify-user-id')?.value;
+    const userId = request.cookies.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json(

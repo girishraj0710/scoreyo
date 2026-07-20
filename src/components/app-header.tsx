@@ -78,7 +78,7 @@ export function AppHeader() {
             K
           </div>
           <span className="text-xl font-bold bg-[#E76F51] bg-clip-text text-transparent">
-            Krakkify
+            Scoreyo
           </span>
         </a>
 

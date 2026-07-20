@@ -131,19 +131,19 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     console.log(`[OTP] 📧 Attempting to send email to ${cleanEmail} with code ${code}`);
     console.log(`[OTP] 📧 Resend API Key exists: ${!!process.env.RESEND_API_KEY}`);
-    console.log(`[OTP] 📧 From: Krakkify <noreply@krakkify.in>`);
+    console.log(`[OTP] 📧 From: Scoreyo <noreply@scoreyo.in>`);
 
     const { data, error } = await resend.emails.send({
-      from: "Krakkify <noreply@prepgenie.co.in>",
+      from: "Scoreyo <noreply@prepgenie.co.in>",
       to: cleanEmail,
-      subject: `${code} is your Krakkify verification code`,
+      subject: `${code} is your Scoreyo verification code`,
       html: `
         <div style="font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 20px;">
             <div style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #9333ea); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; line-height: 50px;">K</div>
           </div>
           <h2 style="text-align: center; color: #1e293b; margin-bottom: 8px;">Your Verification Code</h2>
-          <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px;">Enter this code in Krakkify to sign in</p>
+          <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px;">Enter this code in Scoreyo to sign in</p>
           <div style="background: #f1f5f9; border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 24px;">
             <span style="font-size: 32px; font-weight: bold; letter-spacing: 8px; color: #6366f1;">${code}</span>
           </div>

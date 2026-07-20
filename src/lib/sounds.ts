@@ -6,13 +6,13 @@
 // Check if sound is enabled in localStorage
 function isSoundEnabled(): boolean {
   if (typeof window === "undefined") return false;
-  const setting = localStorage.getItem("krakkify-sound-enabled");
+  const setting = localStorage.getItem("scoreyo-sound-enabled");
   return setting === null ? true : setting === "true"; // Default: enabled
 }
 
 export function setSoundEnabled(enabled: boolean) {
   if (typeof window === "undefined") return;
-  localStorage.setItem("krakkify-sound-enabled", enabled.toString());
+  localStorage.setItem("scoreyo-sound-enabled", enabled.toString());
 }
 
 export function getSoundEnabled(): boolean {

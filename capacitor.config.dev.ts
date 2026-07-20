@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.krakkify.app',
-  appName: 'Krakkify',
+  appId: 'com.scoreyo.app',
+  appName: 'Scoreyo',
   webDir: 'out',
 
   // LOCAL DEVELOPMENT: Load from Mac's network IP

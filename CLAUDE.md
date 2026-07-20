@@ -1,10 +1,10 @@
-# Krakkify - Smart Exam Prep for Indian Competitive Exams
+# Scoreyo - Smart Exam Prep for Indian Competitive Exams
 
 ## 🧠 MANDATORY: Foundational Playbooks (READ BEFORE ANY WORK)
 
 **Claude MUST consult these documents before implementing ANY feature:**
 
-1. **[Krakkify Intelligence Architecture (KIA)](docs/Krakkify Intelligence Architecture (KIA).md)**
+1. **[Scoreyo Intelligence Architecture (KIA)](docs/Scoreyo Intelligence Architecture (KIA).md)**
    - **Purpose**: Your AI Operating System - defines all 10 layers (Mission → Memory)
    - **When to Read**: Start of EVERY session, before ANY feature work
    - **Key Concepts**: Decision engines, expert agents, review layers, quality gates
@@ -65,7 +65,7 @@ UI/Screen changes → Read: AI UI/UX Bible v1.0
 Database/API/Code → Read: AI Engineering Playbook v1.0
 Quiz questions → Read: AI Question Generation Playbook v1.0
 Study content → Read: AI Curriculum Playbook v1.0
-Any major decision → Read: Krakkify Intelligence Architecture (KIA)
+Any major decision → Read: Scoreyo Intelligence Architecture (KIA)
 ```
 
 ---
@@ -340,7 +340,7 @@ Claude:
 - **AI**: OpenRouter API (Gemini) for question generation
 - **Payments**: Razorpay (test mode)
 - **Email OTP**: Resend
-- **Auth**: Cookie-based (`krakkify-user-id`)
+- **Auth**: Cookie-based (`scoreyo-user-id`)
 
 ## Key Files
 - `src/lib/db.ts` — All database functions (async, PostgreSQL via pg pool)
@@ -396,7 +396,7 @@ POSTGRES_URL=postgresql://...
 ```
 
 ## GitHub
-- Repo: https://github.com/girishraj0710/krakkify (private)
+- Repo: https://github.com/girishraj0710/scoreyo (private)
 - Branch: main
 
 ## Current Status (June 2026)
@@ -404,11 +404,11 @@ POSTGRES_URL=postgresql://...
 - ✅ Phase 2: OTP email auth, multilingual support (8 languages)
 - ✅ Phase 3: Razorpay payments, mock tests, performance reports
 - ✅ Database migrated from Turso to Supabase PostgreSQL (cloud, production-ready)
-- ✅ Deployed to Vercel: https://krakkify.in
-- ✅ **PRIMARY DOMAIN**: https://krakkify.in (GoDaddy + Vercel, DNS synced)
-- ✅ **ALTERNATE DOMAIN**: https://crackify.in (redirects to krakkify.in via 308 permanent redirect)
-- ✅ **LEGACY DOMAIN**: https://krakkify.co.in (kept for backward compatibility, can redirect later)
-- ✅ Custom email domain: noreply@krakkify.in (Resend verified, admin: admin@krakkify.in)
+- ✅ Deployed to Vercel: https://scoreyo.in
+- ✅ **PRIMARY DOMAIN**: https://scoreyo.in (GoDaddy + Vercel, DNS synced)
+- ✅ **ALTERNATE DOMAIN**: https://crackify.in (redirects to scoreyo.in via 308 permanent redirect)
+- ✅ **LEGACY DOMAIN**: https://scoreyo.in (kept for backward compatibility, can redirect later)
+- ✅ Custom email domain: noreply@scoreyo.in (Resend verified, admin: admin@scoreyo.in)
 - ✅ Production code cleanup: Removed debug logs, security fixes, all hardcoded admin emails updated
 - ✅ Multilingual: 8 Indian languages (English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada)
 - ✅ **NEW: Gemini AI Recommendations Implemented (6 of 7 priorities = 86%):**
@@ -444,7 +444,7 @@ POSTGRES_URL=postgresql://...
     - ✅ **Verification**: All topics from user screenshots confirmed working (imperative-mood, verbs-basics, common-mistakes, debate-discussion)
   - ⏳ Content generation: Need to add more topics (Chemistry, Biology, History, etc.)
 - ✅ **Mobile App Conversion (Capacitor - iOS & Android)**
-  - ✅ Capacitor 8.4 integrated (hybrid mode - loads from https://krakkify.in)
+  - ✅ Capacitor 8.4 integrated (hybrid mode - loads from https://scoreyo.in)
   - ✅ iOS platform configured (requires Xcode + CocoaPods for building)
   - ✅ Android platform configured (requires Android Studio + SDK for building)
   - ✅ Native plugins: StatusBar, Keyboard, SplashScreen, Haptics, Browser, App
@@ -683,6 +683,6 @@ When creating NEW English topics:
 /Users/girish.raj/prepgenie/docs/AI Question Generation Playbook v1.0.md
 /Users/girish.raj/prepgenie/docs/AI Engineering Playbook v1.0.md
 /Users/girish.raj/prepgenie/docs/AI Curriculum Playbook v1.0.md
-/Users/girish.raj/prepgenie/docs/Krakkify Intelligence Architecture (KIA).md
+/Users/girish.raj/prepgenie/docs/Scoreyo Intelligence Architecture (KIA).md
 /Users/girish.raj/prepgenie/docs/AI UI/UX Bible v2.0
 /Users/girish.raj/prepgenie/docs/Icon generation.md

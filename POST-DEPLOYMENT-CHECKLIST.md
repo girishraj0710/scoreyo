@@ -9,7 +9,7 @@
 ## ✅ Immediate Verification (Next 10 Minutes)
 
 ### 1. Production Access
-- [ ] Visit https://krakkify.co.in
+- [ ] Visit https://scoreyo.in
 - [ ] Clear browser cache (Cmd+Shift+R on Mac)
 - [ ] Verify page loads without errors
 - [ ] Check console for JavaScript errors (F12)
@@ -127,7 +127,7 @@ Test on at least 2 browsers:
   - [ ] question_answered
 
 ### Check Admin Dashboard
-- [ ] Login as admin: https://krakkify.co.in/admin
+- [ ] Login as admin: https://scoreyo.in/admin
 - [ ] Verify new exams appear in analytics
 - [ ] Check "Question Bank Coverage" widget
 - [ ] Monitor "Daily Activity" for new exam usage
@@ -158,7 +158,7 @@ Prepare announcements for:
 
 **Suggested copy**:
 ```
-🎉 Big Update! Krakkify now supports 7 MORE state engineering entrance exams!
+🎉 Big Update! Scoreyo now supports 7 MORE state engineering entrance exams!
 
 ✅ UPSEE (UP)
 ✅ BCECE (Bihar)
@@ -172,9 +172,9 @@ Now covering 14 states + 3 national exams = 17 total! 🚀
 
 The most comprehensive exam prep platform for engineering aspirants in India! 🇮🇳
 
-Try now: https://krakkify.co.in
+Try now: https://scoreyo.in
 
-#EngineeringExams #UPSEE #BCECE #OJEE #TNEA #Krakkify
+#EngineeringExams #UPSEE #BCECE #OJEE #TNEA #Scoreyo
 ```
 
 ### Email Campaign
@@ -185,7 +185,7 @@ Try now: https://krakkify.co.in
 
 ### SEO & Content
 - [ ] Create individual landing pages: /upsee, /bcece, etc.
-- [ ] Write blog post: "7 New State Exams Added to Krakkify"
+- [ ] Write blog post: "7 New State Exams Added to Scoreyo"
 - [ ] Update meta descriptions for homepage
 - [ ] Submit updated sitemap to Google
 
@@ -278,7 +278,7 @@ This feature is considered "DONE" when:
 5. Test in incognito mode (clear cache issues)
 
 ### Contact
-- **GitHub Issues**: https://github.com/girishraj0710/krakkify/issues
+- **GitHub Issues**: https://github.com/girishraj0710/scoreyo/issues
 - **Vercel Logs**: https://vercel.com/dashboard
 - **Database**: Turso Dashboard
 

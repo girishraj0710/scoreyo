@@ -1,4 +1,4 @@
-# Krakkify Quality-First Strategy
+# Scoreyo Quality-First Strategy
 
 **Philosophy Change:** Quality > Quantity
 **Goal:** 20,000 HIGH-QUALITY questions > 90,000 mediocre questions
@@ -12,7 +12,7 @@
 
 **New Thinking:**
 - ✅ Start with 15-20K VERIFIED questions (95%+ accuracy)
-- ✅ Students trust Krakkify as THE quality platform
+- ✅ Students trust Scoreyo as THE quality platform
 - ✅ Grow gradually with only verified sources
 - ✅ Every question has a source citation
 
@@ -139,7 +139,7 @@
 - ✅ Trust every question they practice
 - ✅ See official PYQ patterns
 - ✅ Know the source (builds confidence)
-- ✅ Krakkify = quality platform
+- ✅ Scoreyo = quality platform
 
 ### For You:
 - ✅ No expertise needed (sources are pre-verified)
@@ -197,7 +197,7 @@ Then you can:
 **Week 4 Goal:** 20,000 verified questions
 
 **Quality Target:** <5% error rate (based on user reports)
-**Trust Target:** "Krakkify has the most accurate questions" (user testimonials)
+**Trust Target:** "Scoreyo has the most accurate questions" (user testimonials)
 
 ---
 

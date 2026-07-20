@@ -8,7 +8,7 @@ import { checkBadges } from "@/lib/achievements";
 // Get today's DPP (or create if doesn't exist)
 export async function GET(request: Request) {
   try {
-    const userId = (await cookies()).get("krakkify-user-id")?.value;
+    const userId = (await cookies()).get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -60,7 +60,7 @@ export async function GET(request: Request) {
 // Submit DPP completion
 export async function POST(request: Request) {
   try {
-    const userId = (await cookies()).get("krakkify-user-id")?.value;
+    const userId = (await cookies()).get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

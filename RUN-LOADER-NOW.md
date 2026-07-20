@@ -182,7 +182,7 @@ RESULTS
 🎉 All content loaded successfully!
 
 Next steps:
-  1. Test on production: https://krakkify.in/english
+  1. Test on production: https://scoreyo.in/english
   2. Verify study materials appear on topic pages
   3. Start quiz and verify new questions appear
   4. Check Week 1 completion in dashboard
@@ -212,14 +212,14 @@ The loader will insert the 3 available files now. You can extract the other 4 la
 ### Verify on Production
 
 **Study Materials:**
-1. Go to https://krakkify.in/english
+1. Go to https://scoreyo.in/english
 2. Click "Foundation Builder"
 3. Click "Parts of Speech"
 4. Click "📖 Study First"
 5. You should see the full study material
 
 **Questions:**
-1. Go to https://krakkify.in/english
+1. Go to https://scoreyo.in/english
 2. Click "Foundation Builder"
 3. Click "Pronunciation"
 4. Click "Start Quiz"

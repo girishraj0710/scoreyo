@@ -28,5 +28,5 @@ export function verifyCsrfToken(headerToken: string | null, cookieToken: string 
   return headerToken === cookieToken;
 }
 
-export const CSRF_COOKIE_NAME = "krakkify-csrf-token";
+export const CSRF_COOKIE_NAME = "scoreyo-csrf-token";
 export const CSRF_HEADER_NAME = "x-csrf-token";

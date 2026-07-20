@@ -24,7 +24,7 @@ git add .
 git commit -m "Content updates"
 git push origin main
 ```
-Vercel auto-deploys to https://krakkify.in
+Vercel auto-deploys to https://scoreyo.in
 
 ---
 
@@ -96,8 +96,8 @@ Full details in: `.agents/artifacts/`
 
 ## Production URLs
 
-- **Live Site**: https://krakkify.in
-- **Vercel Dashboard**: https://vercel.com/girishraj0710s-projects/krakkify
+- **Live Site**: https://scoreyo.in
+- **Vercel Dashboard**: https://vercel.com/girishraj0710s-projects/scoreyo
 - **GitHub**: https://github.com/girishraj0710/prepgenie
 
 ---

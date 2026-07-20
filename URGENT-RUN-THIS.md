@@ -40,7 +40,7 @@ npx tsx scripts/load-study-materials.ts
 
 ## After Running, Refresh Browser
 
-Visit: https://krakkify.in/english/foundation/parts-of-speech/study
+Visit: https://scoreyo.in/english/foundation/parts-of-speech/study
 
 **You will see:**
 - ✅ No dots: "Nouns (Person, Place, Thing)" (not ". Nouns")

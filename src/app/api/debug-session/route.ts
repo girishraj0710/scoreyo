@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUser } from "@/lib/db";
 
-const COOKIE_NAME = "krakkify-user-id";
+const COOKIE_NAME = "scoreyo-user-id";
 
 export async function GET(request: NextRequest) {
   const userId = request.cookies.get(COOKIE_NAME)?.value;

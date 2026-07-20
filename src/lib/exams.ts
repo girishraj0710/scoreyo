@@ -1,4 +1,4 @@
-// Krakkify - Complete Exam Database for India
+// Scoreyo - Complete Exam Database for India
 // Covers all major competitive exams across categories
 
 export interface Subject {

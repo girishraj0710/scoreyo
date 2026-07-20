@@ -54,7 +54,7 @@ if [ $exit_code -eq 0 ]; then
     echo "Wait 2 minutes for Vercel deploy (commit d37e032) to complete"
     echo ""
     echo "Then test at:"
-    echo "  https://krakkify.in/english/foundation/parts-of-speech/study"
+    echo "  https://scoreyo.in/english/foundation/parts-of-speech/study"
     echo ""
     echo "Navigate to Card 8 (Interjections) and click 'Start Practice Problems'"
     echo ""

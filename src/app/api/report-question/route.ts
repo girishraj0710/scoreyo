@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { queryOne, queryAll, execute } from "@/lib/db";
 
 // Admin emails from environment - uses ADMIN_EMAILS env var
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@krakkify.in").split(",").map(e => e.trim());
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@scoreyo.in").split(",").map(e => e.trim());
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {
@@ -15,7 +15,7 @@ async function isAdmin(userId: string): Promise<boolean> {
 
 export async function POST(req: NextRequest) {
   try {
-    const userId = req.cookies.get("krakkify-user-id")?.value;
+    const userId = req.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
 // GET: Fetch reports (admin only)
 export async function GET(req: NextRequest) {
   try {
-    const userId = req.cookies.get("krakkify-user-id")?.value;
+    const userId = req.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -147,7 +147,7 @@ export async function GET(req: NextRequest) {
 // PATCH: Update report status (admin only)
 export async function PATCH(req: NextRequest) {
   try {
-    const userId = req.cookies.get("krakkify-user-id")?.value;
+    const userId = req.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

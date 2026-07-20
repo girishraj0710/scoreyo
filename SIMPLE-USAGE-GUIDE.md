@@ -1,4 +1,4 @@
-# 🚀 Krakkify Question Generation - SIMPLE GUIDE
+# 🚀 Scoreyo Question Generation - SIMPLE GUIDE
 
 ## The ONLY Command You Need to Run
 
@@ -168,7 +168,7 @@ bash scripts/generate-all-exams.sh 100
 $ bash scripts/generate-all-exams.sh 20
 
 ╔═══════════════════════════════════════════════════════════════╗
-║     Krakkify - Generating Questions for ALL Exams            ║
+║     Scoreyo - Generating Questions for ALL Exams            ║
 ╚═══════════════════════════════════════════════════════════════╝
 
 📊 Configuration:

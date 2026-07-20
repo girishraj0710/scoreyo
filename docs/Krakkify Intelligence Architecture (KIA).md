@@ -1,4 +1,4 @@
-Krakkify Intelligence Architecture (KIA)
+Scoreyo Intelligence Architecture (KIA)
 
 Codename: KAIOS v2.0
 
@@ -101,7 +101,7 @@ Values
 Ethics
 Product Philosophy
 
-This becomes the soul of Krakkify.
+This becomes the soul of Scoreyo.
 
 Layer 1
 Constitution Layer
@@ -478,7 +478,7 @@ The Repository
 
 This is how I'd organize it.
 
-krakkify/
+scoreyo/
 
 │
 

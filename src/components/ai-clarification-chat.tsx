@@ -105,7 +105,7 @@ export function AIClarificationChat({
         className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 rounded-xl transition-all font-medium text-sm"
         style={{ background: "var(--primary-bg)", borderColor: "rgba(231, 111, 81, 0.3)", color: "#E76F51" }}
       >
-        <span>Still confused? Ask Krakkify AI for help</span>
+        <span>Still confused? Ask Scoreyo AI for help</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>
@@ -117,7 +117,7 @@ export function AIClarificationChat({
     <div className="p-4 rounded-xl border-2" style={{ background: "var(--primary-bg)", borderColor: "rgba(231, 111, 81, 0.3)" }}>
       <div className="flex items-center gap-2 mb-3">
         <div>
-          <div className="text-sm font-semibold" style={{ color: "white" }}>Krakkify AI</div>
+          <div className="text-sm font-semibold" style={{ color: "white" }}>Scoreyo AI</div>
           <div className="text-xs" style={{ color: "rgba(255, 255, 255, 0.7)" }}>Get instant clarification</div>
         </div>
       </div>
@@ -136,7 +136,7 @@ export function AIClarificationChat({
               style={{ background: msg.type === 'user' ? "var(--card-bg)" : "var(--card-bg)", borderColor: "rgba(66, 85, 255, 0.2)" }}
             >
               <div className="text-xs font-semibold mb-1" style={{ color: msg.type === 'ai' ? '#E76F51' : 'var(--foreground)' }}>
-                {msg.type === 'ai' ? 'Krakkify AI:' : 'You:'}
+                {msg.type === 'ai' ? 'Scoreyo AI:' : 'You:'}
               </div>
               <div className="text-sm leading-relaxed whitespace-pre-wrap" style={{ color: "var(--foreground)" }}>
                 {msg.text}

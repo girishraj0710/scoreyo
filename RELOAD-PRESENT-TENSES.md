@@ -59,7 +59,7 @@ mv content-generated/study-materials/parts-of-speech.md.bak content-generated/st
 
 ## Verify After Reload
 
-1. Visit: https://krakkify.in/english/foundation/present-simple/study
+1. Visit: https://scoreyo.in/english/foundation/present-simple/study
 2. Navigate to "Core Concepts" section
 3. **Check Card Titles** - NO dots:
    - ✅ "Present Simple Tense" (not ". Present Simple Tense")
@@ -113,4 +113,4 @@ mv content-generated/study-materials/parts-of-speech.md.bak content-generated/st
 
 ---
 
-**After reload, test at:** https://krakkify.in/english/foundation/present-simple/study
+**After reload, test at:** https://scoreyo.in/english/foundation/present-simple/study

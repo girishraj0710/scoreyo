@@ -53,7 +53,7 @@ Choose one library and remain consistent.
 
 Default Library
 
-For Krakkify:
+For Scoreyo:
 
 Lucide
 
@@ -371,7 +371,7 @@ No component may import an icon directly from an icon library. All icons must be
 
 ---
 
-## **Implementation Status - Krakkify (June 23, 2026)**
+## **Implementation Status - Scoreyo (June 23, 2026)**
 
 ### **Recent Work: English Learning Dashboard & Path Pages**
 
@@ -522,7 +522,7 @@ import { Icons } from '@/lib/icons';
 
 ## **Chapter 19 — Illustrated Icon System (June 24, 2026)**
 
-### **🎯 CANONICAL REFERENCE: Krakkify Iconography System**
+### **🎯 CANONICAL REFERENCE: Scoreyo Iconography System**
 
 **Reference Screenshot Path:** `/Users/girish.raj/Downloads/ChatGPT Image Jun 24, 2026, 05_00_46 PM.png`
 
@@ -532,7 +532,7 @@ import { Icons } from '@/lib/icons';
 
 ### **Mission Statement**
 
-Krakkify uses **illustrated gradient icons** for primary features, not plain outline icons.
+Scoreyo uses **illustrated gradient icons** for primary features, not plain outline icons.
 
 Every major feature card, navigation element, and learning path MUST use illustrated icons that:
 - Are colorful with gradient backgrounds
@@ -881,7 +881,7 @@ Before committing any icon implementation, verify:
 - [ ] Accessibility labels are present (aria-label, title, or sr-only text)
 - [ ] Layout matches reference screenshot (horizontal for cards, vertical for hero)
 - [ ] No emojis are used anywhere
-- [ ] Icon looks like it belongs to the Krakkify family
+- [ ] Icon looks like it belongs to the Scoreyo family
 
 ---
 

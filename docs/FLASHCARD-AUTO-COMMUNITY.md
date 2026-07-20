@@ -96,7 +96,7 @@ await client.query(
 // src/app/api/flashcards/decks/route.ts
 
 export async function GET(req: NextRequest) {
-  const userId = cookieStore.get('krakkify-user-id')?.value;
+  const userId = cookieStore.get('scoreyo-user-id')?.value;
   
   // Get user's preferred exam
   const userResult = await client.query(
@@ -367,7 +367,7 @@ export function DeckCard({ deck }: { deck: Deck }) {
 
 ### Flow 1: First-Time User
 
-**Student A joins Krakkify:**
+**Student A joins Scoreyo:**
 1. During signup: "Which exam are you preparing for?" → Selects **GATE**
 2. Goes to Flashcards page
 3. Sees: "FLASHCARDS FOR GATE STUDENTS"

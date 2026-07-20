@@ -1,8 +1,8 @@
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export const metadata = {
-  title: "Terms of Service | Krakkify",
-  description: "Terms of Service for Krakkify - AI-powered exam preparation platform",
+  title: "Terms of Service | Scoreyo",
+  description: "Terms of Service for Scoreyo - AI-powered exam preparation platform",
 };
 
 export default function TermsPage() {
@@ -18,11 +18,11 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>1. Acceptance of Terms</h2>
             <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>
-              By accessing or using Krakkify (&quot;Service&quot;), you agree to be bound by these Terms of Service.
+              By accessing or using Scoreyo (&quot;Service&quot;), you agree to be bound by these Terms of Service.
               If you do not agree to these terms, please do not use our Service.
             </p>
             <p style={{ color: "var(--foreground-secondary)" }}>
-              Krakkify is operated by Krakkify and provides AI-powered exam preparation services for
+              Scoreyo is operated by Scoreyo and provides AI-powered exam preparation services for
               competitive exams in India including JEE, NEET, UPSC, SSC, Banking, and others.
             </p>
           </section>
@@ -38,7 +38,7 @@ export default function TermsPage() {
               Notify us immediately of any unauthorized use.
             </p>
             <p style={{ color: "var(--foreground-secondary)" }}>
-              <strong>2.3 Age Requirement:</strong> You must be at least 13 years old to use Krakkify.
+              <strong>2.3 Age Requirement:</strong> You must be at least 13 years old to use Scoreyo.
               Users under 18 should use the Service under parental supervision.
             </p>
           </section>
@@ -94,14 +94,14 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>6. Content and Intellectual Property</h2>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
-              <strong>6.1 Our Content:</strong> All questions, explanations, reports, and materials provided by Krakkify
+              <strong>6.1 Our Content:</strong> All questions, explanations, reports, and materials provided by Scoreyo
               are protected by copyright and intellectual property laws.
             </p>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
               <strong>6.2 Prohibited Uses:</strong> You may not:
             </p>
             <ul className="list-disc list-inside mb-3 ml-4" style={{ color: "var(--foreground-secondary)" }}>
-              <li>Copy, distribute, or sell Krakkify content</li>
+              <li>Copy, distribute, or sell Scoreyo content</li>
               <li>Use automated tools to scrape or download content</li>
               <li>Share your account credentials with others</li>
               <li>Reverse engineer or attempt to extract our question bank</li>
@@ -115,7 +115,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>7. AI-Generated Content</h2>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
-              <strong>7.1 Question Sources:</strong> Krakkify uses a combination of:
+              <strong>7.1 Question Sources:</strong> Scoreyo uses a combination of:
             </p>
             <ul className="list-disc list-inside mb-3 ml-4" style={{ color: "var(--foreground-secondary)" }}>
               <li>Previous year questions (PYQs) from actual exams</li>
@@ -159,7 +159,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>10. Disclaimers</h2>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
-              <strong>10.1 Educational Tool:</strong> Krakkify is a study aid and practice platform. Success in actual
+              <strong>10.1 Educational Tool:</strong> Scoreyo is a study aid and practice platform. Success in actual
               exams depends on many factors beyond our control.
             </p>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
@@ -175,7 +175,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--foreground)" }}>11. Limitation of Liability</h2>
             <p className="mb-3" style={{ color: "var(--foreground-secondary)" }}>
-              To the maximum extent permitted by law, Krakkify shall not be liable for:
+              To the maximum extent permitted by law, Scoreyo shall not be liable for:
             </p>
             <ul className="list-disc list-inside mb-3 ml-4" style={{ color: "var(--foreground-secondary)" }}>
               <li>Any indirect, incidental, or consequential damages</li>
@@ -222,15 +222,15 @@ export default function TermsPage() {
               For questions about these Terms, please contact us:
             </p>
             <ul className="list-none ml-0" style={{ color: "var(--foreground-secondary)" }}>
-              <li className="mb-2">📧 Email: <a href="mailto:support@krakkify.in" className="text-[#E76F51] hover:underline">support@krakkify.in</a></li>
-              <li className="mb-2">🌐 Website: <a href="https://krakkify.in" className="text-[#E76F51] hover:underline">krakkify.in</a></li>
+              <li className="mb-2">📧 Email: <a href="mailto:support@scoreyo.in" className="text-[#E76F51] hover:underline">support@scoreyo.in</a></li>
+              <li className="mb-2">🌐 Website: <a href="https://scoreyo.in" className="text-[#E76F51] hover:underline">scoreyo.in</a></li>
               <li>📍 Address: Bangalore, Karnataka, India</li>
             </ul>
           </section>
 
           <div className="mt-12 p-6 rounded-xl border" style={{ background: "var(--primary-bg)", borderColor: "var(--card-border)" }}>
             <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
-              By using Krakkify, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+              By using Scoreyo, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
             </p>
           </div>
         </div>

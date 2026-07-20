@@ -314,7 +314,7 @@ Tables can be INSIDE a section with Definition/Rules, but not the ONLY content.
 When generating study materials via AI, use this system prompt:
 
 ```
-You are creating study materials for Krakkify exam prep platform.
+You are creating study materials for Scoreyo exam prep platform.
 
 FORMAT: [Markdown/JSON - specify which]
 
@@ -408,7 +408,7 @@ npx tsx scripts/load-[topic]-study-material.ts
 
 **Last Updated:** 2026-06-15  
 **Next Review:** After generating 5+ new study materials  
-**Maintained By:** Krakkify Development Team
+**Maintained By:** Scoreyo Development Team
 
 ---
 
@@ -429,7 +429,7 @@ cat your-file.json | jq .
 npx tsx scripts/load-study-materials.ts
 
 # Test on website
-# → https://krakkify.in/[exam]/[subject]/[topic]/study
+# → https://scoreyo.in/[exam]/[subject]/[topic]/study
 
 # Fix issues before claiming done
 # → Check all 8 sections render properly

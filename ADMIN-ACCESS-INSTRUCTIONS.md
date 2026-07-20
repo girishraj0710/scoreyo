@@ -22,7 +22,7 @@
 **Issue:** Your browser has **cached session data** with the old `contributor` role.
 
 **How Sessions Work:**
-1. Browser stores cookie: `krakkify-user-id=5277a374-8d10-4df3-a6f1-8c514217ceec`
+1. Browser stores cookie: `scoreyo-user-id=5277a374-8d10-4df3-a6f1-8c514217ceec`
 2. On page load, browser sends cookie to server
 3. Server looks up user in database → Gets role: `admin` ✅
 4. Server sends user data to frontend
@@ -40,7 +40,7 @@
    - Open DevTools (Press **F12**)
    - Go to **Application** tab (Chrome) or **Storage** tab (Firefox)
    - Click **Cookies** → `http://localhost:3000`
-   - Find `krakkify-user-id` cookie
+   - Find `scoreyo-user-id` cookie
    - Right-click → **Delete**
 
    **OR** easier way:
@@ -95,7 +95,7 @@ If you want to check what the browser is receiving:
    - If it says `contributor`, the cookie is wrong
 
 5. **Delete cookie and retry:**
-   - Go to Application tab → Cookies → Delete `krakkify-user-id`
+   - Go to Application tab → Cookies → Delete `scoreyo-user-id`
    - Refresh page
    - Login again
 
@@ -143,7 +143,7 @@ If you want to check what the browser is receiving:
 **Cause:** Browser cache not cleared
 
 **Fix:**
-1. Delete `krakkify-user-id` cookie
+1. Delete `scoreyo-user-id` cookie
 2. Hard refresh (Cmd+Shift+R)
 3. Login again
 

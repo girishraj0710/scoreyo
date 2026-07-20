@@ -63,7 +63,7 @@ npx tsx scripts/load-study-materials.ts
 
 ## After Running Command
 
-**Refresh:** https://krakkify.in/english/foundation/parts-of-speech/study
+**Refresh:** https://scoreyo.in/english/foundation/parts-of-speech/study
 
 **You will see:**
 1. ✅ **No dots** - "Nouns (Person, Place, Thing)" (not ". Nouns")
@@ -137,7 +137,7 @@ cat .env.local | grep POSTGRES_URL
 
 ## Test Checklist After Reload
 
-Visit: https://krakkify.in/english/foundation/parts-of-speech/study
+Visit: https://scoreyo.in/english/foundation/parts-of-speech/study
 
 - [ ] Card 1 title: "Nouns (Person, Place, Thing)" (no dot)
 - [ ] Rules show bold text (not `**text**`)

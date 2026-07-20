@@ -87,7 +87,7 @@
 
 **Option A: Using Supabase Dashboard**
 1. Go to https://supabase.com/dashboard
-2. Select your Krakkify project
+2. Select your Scoreyo project
 3. Go to SQL Editor
 4. Copy entire content from `migrations/flashcards-schema.sql`
 5. Click "Run"

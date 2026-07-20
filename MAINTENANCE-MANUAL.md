@@ -1,4 +1,4 @@
-# 🔧 Krakkify Maintenance Manual
+# 🔧 Scoreyo Maintenance Manual
 
 **Purpose:** Complete guide for all manual maintenance tasks after launch  
 **Last Updated:** May 17, 2026  
@@ -681,14 +681,14 @@ console.table(result.rows);
 
 **Steps:**
 
-1. **Domain renewal** (krakkify.co.in):
+1. **Domain renewal** (scoreyo.in):
    - Registrar: (your domain provider)
    - Cost: ~₹1,000/year
    - Action: Enable auto-renewal ✅
 
 2. **SSL certificate**:
    - Vercel handles automatically ✅
-   - Check: https://krakkify.co.in (should show 🔒)
+   - Check: https://scoreyo.in (should show 🔒)
    - No action needed (auto-renews)
 
 **Set calendar reminder:**
@@ -867,15 +867,15 @@ UPDATE reported_questions SET status = 'resolved' WHERE id = 123
 
 ### **Site Down**
 
-**Symptoms:** Users can't access krakkify.co.in
+**Symptoms:** Users can't access scoreyo.in
 
 **Steps:**
 1. Check Vercel status: https://www.vercel-status.com/
 2. If Vercel is down: Wait (usually <30 min)
 3. If Vercel is up:
    - Check deployment: Vercel Dashboard
-   - Check DNS: `dig krakkify.co.in`
-   - Check SSL: `curl -I https://krakkify.co.in`
+   - Check DNS: `dig scoreyo.in`
+   - Check SSL: `curl -I https://scoreyo.in`
 4. If recent deployment caused it:
    - Rollback: Vercel Dashboard → Previous deployment → Promote
 5. Notify users (if downtime > 1 hour):

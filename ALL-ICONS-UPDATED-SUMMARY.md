@@ -1,7 +1,7 @@
 # ✅ ALL ICONS UPDATED - Complete Professional Icon System
 
 ## Summary
-Successfully replaced **ALL emoji icons** across the entire Krakkify application with **professional, contextually-appropriate Lucide icons**.
+Successfully replaced **ALL emoji icons** across the entire Scoreyo application with **professional, contextually-appropriate Lucide icons**.
 
 ---
 
@@ -329,7 +329,7 @@ import { NewIcon } from "lucide-react";
 
 ## 🚀 Result
 
-### Your Krakkify app now:
+### Your Scoreyo app now:
 ✅ **Matches industry leaders** (PW.live, Unacademy, Coursera)  
 ✅ **Looks professional** and trustworthy  
 ✅ **Uses industry-standard** icon library (Lucide)  
@@ -368,7 +368,7 @@ import { NewIcon } from "lucide-react";
 
 ## 🎓 Conclusion
 
-Krakkify now has a **complete professional icon system** that:
+Scoreyo now has a **complete professional icon system** that:
 - Eliminates all emoji usage
 - Provides contextually appropriate icons
 - Matches industry standards

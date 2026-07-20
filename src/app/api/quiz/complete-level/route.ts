@@ -5,7 +5,7 @@ import { checkBadges } from "@/lib/achievements";
 
 // POST /api/quiz/complete-level
 export async function POST(req: NextRequest) {
-  const userId = req.cookies.get("krakkify-user-id")?.value;
+  const userId = req.cookies.get("scoreyo-user-id")?.value;
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

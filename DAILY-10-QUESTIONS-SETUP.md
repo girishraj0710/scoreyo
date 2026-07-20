@@ -133,7 +133,7 @@ WHERE date = CURRENT_DATE;
 
 ```bash
 curl http://localhost:3000/api/daily-questions \
-  -H "Cookie: krakkify-user-id=YOUR_USER_ID" \
+  -H "Cookie: scoreyo-user-id=YOUR_USER_ID" \
   -v
 ```
 
@@ -167,7 +167,7 @@ curl http://localhost:3000/api/daily-questions \
 
 ```bash
 curl -X POST http://localhost:3000/api/daily-questions \
-  -H "Cookie: krakkify-user-id=YOUR_USER_ID" \
+  -H "Cookie: scoreyo-user-id=YOUR_USER_ID" \
   -H "Content-Type: application/json" \
   -d '{
     "answers": [2, 1, 3, 0, 2, 1, 3, 2, 0, 1]
@@ -228,7 +228,7 @@ GROUP BY exam_id;
 
 **Fix:**
 - Check browser console for errors
-- Verify `krakkify-user-id` cookie exists
+- Verify `scoreyo-user-id` cookie exists
 - Check Network tab for API response
 - Verify database connection in `.env.local`
 
@@ -335,7 +335,7 @@ git push origin main
 # (Use Supabase SQL Editor or psql with production POSTGRES_URL)
 
 # 4. Verify deployment
-# Visit https://krakkify.in and test the feature
+# Visit https://scoreyo.in and test the feature
 ```
 
 ---

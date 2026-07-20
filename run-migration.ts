@@ -130,7 +130,7 @@ async function main() {
     if (failed === 0) {
       console.log('🎉 MIGRATION SUCCESSFUL!');
       console.log('✅ All validation tests passed');
-      console.log('\nNext: Test on https://krakkify.in');
+      console.log('\nNext: Test on https://scoreyo.in');
     } else {
       console.log('⚠️  Migration completed with warnings');
       console.log(`Passed: ${passed}/${tests.length}`);

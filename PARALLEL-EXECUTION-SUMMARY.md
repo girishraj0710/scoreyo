@@ -450,7 +450,7 @@ content-generated/
 
 6. **Insert into database** using provided scripts
 
-7. **Test on production** (https://krakkify.in/english)
+7. **Test on production** (https://scoreyo.in/english)
 
 ---
 

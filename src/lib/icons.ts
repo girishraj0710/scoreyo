@@ -1,5 +1,5 @@
 /**
- * Centralized Icon Registry for Krakkify
+ * Centralized Icon Registry for Scoreyo
  *
  * Purpose: Single source of truth for all icons used across the application
  * Library: Lucide React (professional, consistent, accessible)

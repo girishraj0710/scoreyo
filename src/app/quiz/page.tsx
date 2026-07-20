@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo, Suspense } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef, Suspense } from "react";
 import { useUser } from "@/context/user-context";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -247,6 +247,31 @@ function QuizContent() {
   // Time tracking session ID
   const [timeTrackingSessionId, setTimeTrackingSessionId] = useState<number | null>(null);
 
+  // ── Per-question behavioral capture (feeds the learner model) ──
+  // Refs, not state, so tracking never triggers re-renders.
+  //  - onScreenMs: total time a question was visible (robust to back/forward nav)
+  //  - decisionMs: time from first appearance until the FIRST answer was picked
+  //                (true "think time" — the model's speed signal, excludes time
+  //                spent re-reading the explanation afterward)
+  //  - changes:    how many times the answer was changed (indecision signal)
+  const perQOnScreenMsRef = useRef<number[]>([]);
+  const perQDecisionMsRef = useRef<(number | null)[]>([]);
+  const perQChangesRef = useRef<number[]>([]);
+  const timedQuestionRef = useRef<number>(0); // which index the clock is on
+  const questionShownAtRef = useRef<number>(0); // Date.now() when it appeared
+  const timingReadyRef = useRef<boolean>(false); // guards against pre-init flush
+
+  // Move accumulated on-screen time onto the currently-timed question and
+  // restart the clock. Safe to call repeatedly.
+  const flushTiming = useCallback(() => {
+    if (!timingReadyRef.current) return;
+    const idx = timedQuestionRef.current;
+    if (perQOnScreenMsRef.current[idx] == null) perQOnScreenMsRef.current[idx] = 0;
+    const now = Date.now();
+    perQOnScreenMsRef.current[idx] += Math.max(0, now - questionShownAtRef.current);
+    questionShownAtRef.current = now;
+  }, []);
+
   // Calculate max time for pressure mode based on questions and difficulty
   const calculateMaxTime = (numQuestions: number, difficultyLevel: string) => {
     // Base time per question by difficulty
@@ -428,9 +453,46 @@ function QuizContent() {
     }
   }, [isSubmitted, results]);
 
+  // Initialize per-question timing arrays once the quiz's questions are known,
+  // and start the clock on the first question.
+  useEffect(() => {
+    if (!quizData) return;
+    const n = quizData.questions.length;
+    perQOnScreenMsRef.current = new Array(n).fill(0);
+    perQDecisionMsRef.current = new Array(n).fill(null);
+    perQChangesRef.current = new Array(n).fill(0);
+    timedQuestionRef.current = 0;
+    questionShownAtRef.current = Date.now();
+    timingReadyRef.current = true;
+  }, [quizData]);
+
+  // When the visible question changes, bank the time spent on the previous one
+  // and hand the clock to the new question.
+  useEffect(() => {
+    if (!timingReadyRef.current) return;
+    flushTiming();
+    timedQuestionRef.current = currentQuestion;
+    questionShownAtRef.current = Date.now();
+  }, [currentQuestion, flushTiming]);
+
   const selectAnswer = useCallback(
     (optionIndex: number) => {
       if (showExplanation) return;
+
+      // Record decision time on the FIRST selection for this question; count
+      // subsequent selections as answer changes (indecision signal).
+      if (timingReadyRef.current) {
+        if (perQDecisionMsRef.current[currentQuestion] == null) {
+          perQDecisionMsRef.current[currentQuestion] = Math.max(
+            0,
+            Date.now() - questionShownAtRef.current
+          );
+        } else if (answers[currentQuestion] !== optionIndex) {
+          perQChangesRef.current[currentQuestion] =
+            (perQChangesRef.current[currentQuestion] || 0) + 1;
+        }
+      }
+
       const newAnswers = [...answers];
       newAnswers[currentQuestion] = optionIndex;
       setAnswers(newAnswers);
@@ -499,6 +561,18 @@ function QuizContent() {
   const submitQuiz = async () => {
     if (!quizData) return;
     setIsSubmitting(true);
+    // Bank the time spent on the question currently on screen before building
+    // the payload, so the last question's timing isn't lost.
+    flushTiming();
+    // Prefer measured decision time per question; fall back to total on-screen
+    // time when the student never explicitly picked (shouldn't happen once
+    // answered, but keeps the array well-formed).
+    const perQuestionTimeMs = quizData.questions.map((_, i) =>
+      perQDecisionMsRef.current[i] ?? perQOnScreenMsRef.current[i] ?? null
+    );
+    const perQuestionChanges = quizData.questions.map(
+      (_, i) => perQChangesRef.current[i] ?? 0
+    );
     try {
       // Custom mode: Calculate results locally, don't save to database
       if (mode === "custom") {
@@ -552,6 +626,8 @@ function QuizContent() {
           questions: quizData.questions,
           answers,
           timeTaken: timeElapsed,
+          perQuestionTimeMs,
+          perQuestionChanges,
         }),
       });
 

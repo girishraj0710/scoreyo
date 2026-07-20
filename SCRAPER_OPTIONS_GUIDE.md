@@ -1,6 +1,6 @@
 # 🎓 Complete Question Scraping Guide - All Options
 
-You now have **4 powerful scraping tools** to build Krakkify's question bank!
+You now have **4 powerful scraping tools** to build Scoreyo's question bank!
 
 ## Overview
 
@@ -72,7 +72,7 @@ Math:       https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/mathem
 Create folders and name files correctly:
 
 ```bash
-cd /Users/girish.raj/krakkify
+cd /Users/girish.raj/scoreyo
 
 # Create folders
 mkdir -p ncert-exemplar/physics
@@ -317,7 +317,7 @@ GROUP BY subject;
 **Start now with the easiest option:**
 
 ```bash
-cd /Users/girish.raj/krakkify
+cd /Users/girish.raj/scoreyo
 
 # This works right now, no setup needed!
 npm run scrape -- --subject physics --class 12 --all

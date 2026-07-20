@@ -26,7 +26,7 @@ interface ScrapeResponse {
 export async function POST(req: NextRequest) {
   try {
     // TODO: Add auth check (admin only)
-    // const userId = req.cookies.get('krakkify-user-id')?.value;
+    // const userId = req.cookies.get('scoreyo-user-id')?.value;
 
     const body: ScrapeRequest = await req.json();
     const exam = body.exam || 'IELTS';

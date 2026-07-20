@@ -310,7 +310,7 @@ if (user && user.role === 'contributor') {
 - Pushed: ✅
 - Auto-deployed to Vercel: ✅
 
-**Live URL:** https://krakkify.in
+**Live URL:** https://scoreyo.in
 
 **Verification Steps:**
 1. Login as admin → See dashboard ✅

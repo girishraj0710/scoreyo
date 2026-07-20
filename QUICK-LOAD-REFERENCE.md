@@ -42,8 +42,8 @@ psql "$POSTGRES_URL" -c "SELECT topic_id, COUNT(*) FROM english_questions WHERE 
 ```
 
 ### Test on Production
-- https://krakkify.in/english → Foundation Builder → Parts of Speech → Study First
-- https://krakkify.in/english → Foundation Builder → Pronunciation → Start Quiz
+- https://scoreyo.in/english → Foundation Builder → Parts of Speech → Study First
+- https://scoreyo.in/english → Foundation Builder → Pronunciation → Start Quiz
 
 ---
 

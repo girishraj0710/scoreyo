@@ -1,8 +1,8 @@
 #!/bin/bash
 # cleanup-orphaned-pages.sh
-# Removes orphaned pages from Krakkify platform
+# Removes orphaned pages from Scoreyo platform
 
-echo "🧹 Cleaning up orphaned pages from Krakkify..."
+echo "🧹 Cleaning up orphaned pages from Scoreyo..."
 echo ""
 
 # Change to project root

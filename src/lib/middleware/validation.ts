@@ -178,7 +178,7 @@ export function withAuth(
   handler: (request: NextRequest, userId: string) => Promise<NextResponse>
 ): (request: NextRequest) => Promise<NextResponse> {
   return async (request: NextRequest) => {
-    const userId = request.cookies.get('krakkify-user-id')?.value;
+    const userId = request.cookies.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       logger.warn('Unauthorized request', {

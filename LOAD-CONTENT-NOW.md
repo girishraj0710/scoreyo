@@ -171,8 +171,8 @@ pool.query('SELECT COUNT(*) FROM english_questions WHERE path_id = \\'foundation
 ```
 
 ### Test on production
-- https://krakkify.in/english → Foundation Builder → Parts of Speech → **Study First**
-- https://krakkify.in/english → Foundation Builder → Pronunciation → **Start Quiz**
+- https://scoreyo.in/english → Foundation Builder → Parts of Speech → **Study First**
+- https://scoreyo.in/english → Foundation Builder → Pronunciation → **Start Quiz**
 
 ---
 

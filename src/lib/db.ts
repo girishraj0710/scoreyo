@@ -23,7 +23,7 @@ export function getPool(): Pool {
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 10000,
       maxUses: 7500,  // Recycle connections (prevents memory leaks)
-      application_name: 'krakkify-api',
+      application_name: 'scoreyo-api',
     });
 
     pool.on('error', (err) => {
@@ -711,6 +711,66 @@ export async function getUserByEmail(email: string) {
   return queryOne("SELECT * FROM users WHERE email = $1", [email.toLowerCase().trim()]);
 }
 
+// ─── Onboarding / Learner Profile functions ──────────────
+// Backs the "One Student. One Goal. One AI Coach." AI Assessment Interview.
+
+export async function getLearnerProfile(userId: string) {
+  return queryOne("SELECT * FROM learner_profiles WHERE user_id = $1", [userId]);
+}
+
+/**
+ * Returns onboarding_completed for a user. Defaults to false when no profile
+ * row exists yet (new user or table not yet backfilled), so the gate always
+ * routes them through onboarding.
+ */
+export async function isOnboardingCompleted(userId: string): Promise<boolean> {
+  try {
+    const row = await getLearnerProfile(userId);
+    return row?.onboarding_completed === true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Upsert the learner profile. `profile` is the full JSONB blob of interview
+ * answers + evolving fields. When `completed` is provided it sets the
+ * onboarding gate flag.
+ */
+export async function saveLearnerProfile(
+  userId: string,
+  examId: string,
+  profile: Record<string, any>,
+  completed?: boolean
+) {
+  return execute(
+    `INSERT INTO learner_profiles (user_id, exam_id, profile, onboarding_completed, updated_at)
+     VALUES (?, ?, ?::jsonb, ?, CURRENT_TIMESTAMP)
+     ON CONFLICT (user_id) DO UPDATE SET
+       exam_id = EXCLUDED.exam_id,
+       profile = EXCLUDED.profile,
+       onboarding_completed = COALESCE(?, learner_profiles.onboarding_completed),
+       updated_at = CURRENT_TIMESTAMP`,
+    [userId, examId, JSON.stringify(profile), completed ?? false, completed ?? null]
+  );
+}
+
+export async function saveStudyPlan(userId: string, examId: string, plan: Record<string, any>) {
+  return execute(
+    `INSERT INTO study_plans (user_id, exam_id, plan, updated_at)
+     VALUES (?, ?, ?::jsonb, CURRENT_TIMESTAMP)
+     ON CONFLICT (user_id) DO UPDATE SET
+       exam_id = EXCLUDED.exam_id,
+       plan = EXCLUDED.plan,
+       updated_at = CURRENT_TIMESTAMP`,
+    [userId, examId, JSON.stringify(plan)]
+  );
+}
+
+export async function getStudyPlan(userId: string) {
+  return queryOne("SELECT * FROM study_plans WHERE user_id = $1", [userId]);
+}
+
 // ─── OAuth functions ─────────────────────────────────────
 
 export async function findUserByGoogleId(googleId: string) {
@@ -870,6 +930,8 @@ export async function saveQuestionAttempts(
     userAnswer: number | null;
     isCorrect: boolean;
     explanation: string | { logic: string; formula?: string | null; calculation?: string | null; trapAlerts: string[]; commonMistakes: string[]; };
+    timeMs?: number | null;
+    answerChanges?: number | null;
   }>
 ) {
   await ensureInitialized();
@@ -887,8 +949,8 @@ export async function saveQuestionAttempts(
         ? item.explanation
         : JSON.stringify(item.explanation);
 
-      const sql = `INSERT INTO question_attempts (session_id, user_id, exam_id, subject_id, topic, question_text, options, correct_answer, user_answer, is_correct, explanation)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
+      const sql = `INSERT INTO question_attempts (session_id, user_id, exam_id, subject_id, topic, question_text, options, correct_answer, user_answer, is_correct, explanation, time_ms, answer_changes)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`;
 
       const params = [
         item.sessionId,
@@ -902,6 +964,8 @@ export async function saveQuestionAttempts(
         item.userAnswer,
         item.isCorrect,
         explanationStr,
+        item.timeMs ?? null,
+        item.answerChanges ?? null,
       ];
 
       await client.query(sql, params);
@@ -990,6 +1054,97 @@ export async function getTopicsForReview(userId: string) {
   return queryAll(
     "SELECT * FROM topic_mastery WHERE user_id = ? AND next_review <= CURRENT_TIMESTAMP ORDER BY mastery_score ASC",
     [userId]
+  );
+}
+
+// ─── Behavior-driven skill state (learner-model engine) ──────────────────
+// Persists the full evolving SkillState per topic. See src/lib/learner-model.ts.
+
+export interface SkillStateRow {
+  p_known: number;
+  stability: number;
+  difficulty: number;
+  attempts: number;
+  correct: number;
+  streak: number;
+  ewma_accuracy: number;
+  ewma_speed_ratio: number;
+  err_calculation: number;
+  err_concept: number;
+  err_time: number;
+  err_careless: number;
+  last_seen: string | null;
+  next_review: string | null;
+}
+
+export async function getSkillState(userId: string, examId: string, subjectId: string, topic: string) {
+  return queryOne(
+    "SELECT * FROM topic_skill_state WHERE user_id = ? AND exam_id = ? AND subject_id = ? AND topic = ?",
+    [userId, examId, subjectId, topic]
+  );
+}
+
+export async function getAllSkillState(userId: string, examId: string) {
+  return queryAll(
+    "SELECT * FROM topic_skill_state WHERE user_id = ? AND exam_id = ? ORDER BY p_known ASC",
+    [userId, examId]
+  );
+}
+
+/**
+ * Upsert a topic's full skill state. Called by the engine after each quiz.
+ * lastSeen/nextReview are ISO strings (or null).
+ */
+export async function upsertSkillState(
+  userId: string,
+  examId: string,
+  subjectId: string,
+  topic: string,
+  s: {
+    pKnown: number;
+    stability: number;
+    difficulty: number;
+    attempts: number;
+    correct: number;
+    streak: number;
+    ewmaAccuracy: number;
+    ewmaSpeedRatio: number;
+    errors: { calculation: number; concept: number; time: number; careless: number };
+    lastSeen: string | null;
+    nextReview: string | null;
+  }
+) {
+  return execute(
+    `INSERT INTO topic_skill_state (
+      user_id, exam_id, subject_id, topic,
+      p_known, stability, difficulty, attempts, correct, streak,
+      ewma_accuracy, ewma_speed_ratio,
+      err_calculation, err_concept, err_time, err_careless,
+      last_seen, next_review, updated_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT (user_id, exam_id, subject_id, topic) DO UPDATE SET
+      p_known = EXCLUDED.p_known,
+      stability = EXCLUDED.stability,
+      difficulty = EXCLUDED.difficulty,
+      attempts = EXCLUDED.attempts,
+      correct = EXCLUDED.correct,
+      streak = EXCLUDED.streak,
+      ewma_accuracy = EXCLUDED.ewma_accuracy,
+      ewma_speed_ratio = EXCLUDED.ewma_speed_ratio,
+      err_calculation = EXCLUDED.err_calculation,
+      err_concept = EXCLUDED.err_concept,
+      err_time = EXCLUDED.err_time,
+      err_careless = EXCLUDED.err_careless,
+      last_seen = EXCLUDED.last_seen,
+      next_review = EXCLUDED.next_review,
+      updated_at = CURRENT_TIMESTAMP`,
+    [
+      userId, examId, subjectId, topic,
+      s.pKnown, s.stability, s.difficulty, s.attempts, s.correct, s.streak,
+      s.ewmaAccuracy, s.ewmaSpeedRatio,
+      s.errors.calculation, s.errors.concept, s.errors.time, s.errors.careless,
+      s.lastSeen, s.nextReview,
+    ]
   );
 }
 

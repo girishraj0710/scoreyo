@@ -247,7 +247,7 @@ export function LandingPageV3() {
             <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white font-bold text-base">
               K
             </div>
-            <span className="text-lg font-bold text-[#16213E]">Krakkify</span>
+            <span className="text-lg font-bold text-[#16213E]">Scoreyo</span>
           </a>
 
           {/* Nav Links */}
@@ -601,10 +601,10 @@ export function LandingPageV3() {
         <section className="pt-8 md:pt-16 pb-12 md:pb-20">
           <div className="text-center mb-12 md:mb-16">
             <div className="text-xs font-bold uppercase text-[#F26A4B] mb-2" style={{ letterSpacing: '0.2em' }}>
-              WHY KRAKKIFY
+              WHY SCOREYO
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#16213E] mb-3 md:mb-4">
-              What makes Krakkify different
+              What makes Scoreyo different
             </h2>
             <p className="text-[#5A6478] text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-2">
               Intelligent AI features designed specifically for Indian competitive exams
@@ -943,7 +943,7 @@ export function LandingPageV3() {
         {/* Footer */}
         <footer className="py-12 border-t border-black/5">
           <div className="text-center text-sm text-[#5A6478]">
-            <p>© 2026 Krakkify — built for Indian aspirants.</p>
+            <p>© 2026 Scoreyo — built for Indian aspirants.</p>
             <div className="flex items-center justify-center gap-6 mt-4">
               <a href="/privacy" className="hover:text-[#16213E] transition-colors">
                 Privacy

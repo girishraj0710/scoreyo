@@ -235,7 +235,7 @@ npx tsx scripts/load-study-materials.ts
 
 **Status:** ✅ All deployed to production (Vercel)
 
-**Test URL:** https://krakkify.in/english/foundation/parts-of-speech/study
+**Test URL:** https://scoreyo.in/english/foundation/parts-of-speech/study
 
 ---
 

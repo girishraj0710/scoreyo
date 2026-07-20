@@ -8,7 +8,7 @@
 
 ## 🎉 Overview
 
-The single-exam-focus architecture is **100% COMPLETE** and live on https://krakkify.in
+The single-exam-focus architecture is **100% COMPLETE** and live on https://scoreyo.in
 
 **Goal:** Give users a focused, clutter-free experience by showing content for only ONE exam at a time, while allowing Pro users to enroll in multiple exams and switch between them.
 
@@ -233,7 +233,7 @@ src/app/settings/page.tsx                 Exam Management UI
 ## 🚀 Deployment
 
 ### Production URL
-**Live:** https://krakkify.in
+**Live:** https://scoreyo.in
 
 ### Git History
 ```

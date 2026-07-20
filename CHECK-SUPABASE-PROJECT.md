@@ -15,7 +15,7 @@
 1. Open: **https://supabase.com/dashboard**
 2. Log in with your account
 3. Find project with ID: `zomcofptwlumqkeffbht`
-   - Or look for project name "PrepGenie" / "Krakkify"
+   - Or look for project name "PrepGenie" / "Scoreyo"
 
 ### Check Status
 
@@ -213,7 +213,7 @@ Before running loader:
 **How to prevent future pauses:**
 - Upgrade to Pro ($25/month) - never pauses
 - Set up a cron job to ping database every 6 days
-- Use your production app regularly (your app at https://krakkify.in should keep it active)
+- Use your production app regularly (your app at https://scoreyo.in should keep it active)
 
 ---
 
@@ -223,7 +223,7 @@ Before running loader:
 2. ✅ Run connection test script
 3. ✅ Run content loader
 4. ✅ Verify content appears in database
-5. ✅ Test on production site: https://krakkify.in/english
+5. ✅ Test on production site: https://scoreyo.in/english
 
 ---
 

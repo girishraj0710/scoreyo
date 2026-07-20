@@ -4,10 +4,10 @@ I've set up everything! Here's what you need to do in your **terminal** (outside
 
 ## Step 1: Install Dependencies
 
-Open your terminal in the Krakkify directory and run:
+Open your terminal in the Scoreyo directory and run:
 
 ```bash
-cd /Users/girish.raj/krakkify
+cd /Users/girish.raj/scoreyo
 npm install
 ```
 
@@ -25,7 +25,7 @@ npm run test-scraper
 
 You should see output like:
 ```
-🧪 Testing Krakkify NCERT Scraper
+🧪 Testing Scoreyo NCERT Scraper
 ============================================================
 
 1️⃣  Checking environment variables...

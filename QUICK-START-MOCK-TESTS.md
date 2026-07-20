@@ -1,4 +1,4 @@
-# 🚀 Krakkify Mock Tests - Quick Reference
+# 🚀 Scoreyo Mock Tests - Quick Reference
 
 ## ✅ Generation: IN PROGRESS
 

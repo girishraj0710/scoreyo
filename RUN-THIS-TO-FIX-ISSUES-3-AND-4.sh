@@ -37,7 +37,7 @@ echo "════════════════════════�
 echo ""
 echo "Wait 2 minutes for Vercel to deploy commit d37e032"
 echo ""
-echo "Then refresh: https://krakkify.in/english/foundation/parts-of-speech/study"
+echo "Then refresh: https://scoreyo.in/english/foundation/parts-of-speech/study"
 echo ""
 echo "What you should see:"
 echo "  ✅ No duplicate '1' badge (Issue #1)"

@@ -43,7 +43,7 @@ export function AppFooter() {
             <h3 className="font-semibold mb-3 text-sm" style={{ color: 'var(--foreground)' }}>Support</h3>
             <ul className="space-y-2 text-xs" style={{ color: 'var(--foreground-secondary)' }}>
               <li><a href="/contact" className="hover:text-[#E76F51] transition-colors">Contact Us</a></li>
-              <li><a href="mailto:support@krakkify.in" className="hover:text-[#E76F51] transition-colors">Email Support</a></li>
+              <li><a href="mailto:support@scoreyo.in" className="hover:text-[#E76F51] transition-colors">Email Support</a></li>
             </ul>
           </div>
           <div>

@@ -10,7 +10,7 @@ import { queryAll, queryOne } from "@/lib/db";
  * 4. Fresh users: Based on preferred exam
  */
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("krakkify-user-id")?.value;
+  const userId = request.cookies.get("scoreyo-user-id")?.value;
 
   console.log('[Blast Content API] User ID:', userId);
 

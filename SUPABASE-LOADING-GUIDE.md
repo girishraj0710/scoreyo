@@ -585,14 +585,14 @@ Expected output:
 ### 2. Test on Production
 
 **Study Materials:**
-1. Go to https://krakkify.in/english
+1. Go to https://scoreyo.in/english
 2. Click "Foundation Builder"
 3. Click "Parts of Speech"
 4. Click "📖 Study First" button
 5. You should see the full study material with 11 sections
 
 **Questions:**
-1. Go to https://krakkify.in/english
+1. Go to https://scoreyo.in/english
 2. Click "Foundation Builder"
 3. Click "Pronunciation" (or any Week 1 topic)
 4. Click "Start Quiz"
@@ -647,7 +647,7 @@ Questions: 5,852 total (+427 new, 7.9% increase)
 
 After successful loading:
 
-1. **Test thoroughly** on production (https://krakkify.in/english)
+1. **Test thoroughly** on production (https://scoreyo.in/english)
 2. **Mark Task #34 complete** ("Insert approved content into database")
 3. **Update user dashboard** to show Week 1 progress
 4. **Plan Week 2 execution** (7 more materials, 626 more questions)

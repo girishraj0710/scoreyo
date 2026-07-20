@@ -419,7 +419,7 @@ async function main() {
   console.log(`   1. Review generated JSON files in ${outputDir}`);
   console.log(`   2. Check formatting (especially Core Concepts flashcards)`);
   console.log(`   3. Run SQL files in Supabase SQL Editor to insert materials`);
-  console.log(`   4. Test on frontend: https://krakkify.in/study?examId=english&subjectId=[topic]`);
+  console.log(`   4. Test on frontend: https://scoreyo.in/study?examId=english&subjectId=[topic]`);
 }
 
 main().catch(console.error);

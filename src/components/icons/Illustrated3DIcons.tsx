@@ -1,5 +1,5 @@
 /**
- * 3D Illustrated Icons - Krakkify Premium Style
+ * 3D Illustrated Icons - Scoreyo Premium Style
  *
  * True 3D illustrated SVG icons with:
  * - Isometric/perspective views

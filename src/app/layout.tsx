@@ -39,7 +39,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Krakkify - Smart Exam Prep for India",
+  title: "Scoreyo - Smart Exam Prep for India",
   description:
     "Expert-curated exam preparation for JEE, NEET, UPSC, SSC, Banking, CAT and 20+ Indian competitive exams. Previous year questions, NCERT-based practice, smart progress tracking.",
   keywords: [
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     "competitive exams India",
     "previous year questions",
     "NCERT questions",
-    "Krakkify",
+    "Scoreyo",
   ],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://krakkify.in',
-    siteName: 'Krakkify - Smart Exam Prep',
+    url: 'https://scoreyo.in',
+    siteName: 'Scoreyo - Smart Exam Prep',
   },
 };
 

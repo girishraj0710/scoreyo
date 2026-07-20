@@ -1,8 +1,8 @@
-# Krakkify Mobile App Setup Guide
+# Scoreyo Mobile App Setup Guide
 
 ## Overview
 
-Krakkify mobile app uses **Capacitor** to wrap the Next.js web app into native iOS and Android apps. This is a **hybrid approach** where the app loads the live website (`https://krakkify.in`) inside a native container.
+Scoreyo mobile app uses **Capacitor** to wrap the Next.js web app into native iOS and Android apps. This is a **hybrid approach** where the app loads the live website (`https://scoreyo.in`) inside a native container.
 
 ### Architecture
 
@@ -74,7 +74,7 @@ npm run mobile:sync
 
 #### Option A: Test with Live Server (Recommended)
 
-The app is already configured to load from `https://krakkify.in`:
+The app is already configured to load from `https://scoreyo.in`:
 
 ```bash
 # Open iOS in Xcode
@@ -115,7 +115,7 @@ Then click **Run** in Xcode/Android Studio.
 4. **When done, revert to production**:
    ```typescript
    server: {
-     url: 'https://krakkify.in',
+     url: 'https://scoreyo.in',
      cleartext: false,
    }
    ```
@@ -134,10 +134,10 @@ Then click **Run** in Xcode/Android Studio.
 2. **Configure App**:
    - In Xcode, select `App` target
    - **General** tab:
-     - Bundle Identifier: `com.krakkify.app`
+     - Bundle Identifier: `com.scoreyo.app`
      - Version: `1.0.0` (increment for updates)
      - Build: `1` (increment for each build)
-     - Display Name: `Krakkify`
+     - Display Name: `Scoreyo`
    - **Signing & Capabilities**:
      - Team: Select your Apple Developer account
      - Provisioning Profile: Automatic
@@ -148,8 +148,8 @@ Then click **Run** in Xcode/Android Studio.
    - Submit for review
 
 **Deep Links (iOS)**: Handled automatically via `associated-domains` capability:
-- Add domain: `applinks:krakkify.in`
-- Upload `apple-app-site-association` to `https://krakkify.in/.well-known/`
+- Add domain: `applinks:scoreyo.in`
+- Upload `apple-app-site-association` to `https://scoreyo.in/.well-known/`
 
 ### Android (Play Store)
 
@@ -163,7 +163,7 @@ Then click **Run** in Xcode/Android Studio.
      ```gradle
      android {
        defaultConfig {
-         applicationId "com.krakkify.app"
+         applicationId "com.scoreyo.app"
          versionCode 1      // Increment for each release
          versionName "1.0.0"
        }
@@ -174,8 +174,8 @@ Then click **Run** in Xcode/Android Studio.
    - Build → Generate Signed Bundle / APK
    - Create keystore (first time):
      ```bash
-     keytool -genkey -v -keystore krakkify-release.keystore \
-       -alias krakkify -keyalg RSA -keysize 2048 -validity 10000
+     keytool -genkey -v -keystore scoreyo-release.keystore \
+       -alias scoreyo -keyalg RSA -keysize 2048 -validity 10000
      ```
    - Select **Android App Bundle (AAB)** for Play Store
    - Upload AAB to Play Console
@@ -186,7 +186,7 @@ Then click **Run** in Xcode/Android Studio.
   <action android:name="android.intent.action.VIEW" />
   <category android:name="android.intent.category.DEFAULT" />
   <category android:name="android.intent.category.BROWSABLE" />
-  <data android:scheme="https" android:host="krakkify.in" />
+  <data android:scheme="https" android:host="scoreyo.in" />
 </intent-filter>
 ```
 
@@ -350,13 +350,13 @@ sdk.dir=/Users/yourname/Library/Android/sdk
 
 ### App Store Metadata
 
-**App Name**: Krakkify - Smart Exam Prep  
+**App Name**: Scoreyo - Smart Exam Prep  
 **Subtitle**: JEE, NEET, UPSC & 20+ Exams  
 **Keywords**: exam prep, JEE, NEET, UPSC, SSC, banking, CAT, GATE, mock tests, previous year questions  
 **Category**: Education  
 **Age Rating**: 4+  
-**Privacy Policy**: https://krakkify.in/privacy  
-**Support URL**: https://krakkify.in/support  
+**Privacy Policy**: https://scoreyo.in/privacy  
+**Support URL**: https://scoreyo.in/support  
 
 **Description** (use from web version, emphasize):
 - 20+ exams supported

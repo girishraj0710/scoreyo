@@ -1,7 +1,7 @@
 # Question Generation System
 
 **Last Updated:** 2026-06-16  
-**Purpose:** Generate high-quality MCQ questions for all 74+ exams on Krakkify
+**Purpose:** Generate high-quality MCQ questions for all 74+ exams on Scoreyo
 
 ---
 

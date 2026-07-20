@@ -1,4 +1,4 @@
-// Krakkify - AI Quiz Generator using OpenRouter (FREE)
+// Scoreyo - AI Quiz Generator using OpenRouter (FREE)
 // Races all free models in parallel — fastest valid response wins
 import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";

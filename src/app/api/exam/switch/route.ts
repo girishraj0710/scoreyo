@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { execute, queryAll } from "@/lib/db";
 
-const COOKIE_NAME = "krakkify-user-id";
+const COOKIE_NAME = "scoreyo-user-id";
 
 // POST /api/exam/switch - Switch between enrolled exams
 export async function POST(request: NextRequest) {

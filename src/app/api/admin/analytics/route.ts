@@ -21,7 +21,7 @@ const db = {
   }
 };
 
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@krakkify.in").split(",").map(e => e.trim());
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@scoreyo.in").split(",").map(e => e.trim());
 
 async function isAdmin(userId: string): Promise<boolean> {
   try {
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
   const examFilter = searchParams.get("examId") || null;
 
   try {
-    const userId = req.cookies.get("krakkify-user-id")?.value;
+    const userId = req.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

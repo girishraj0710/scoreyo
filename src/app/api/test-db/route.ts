@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { queryOne } from "@/lib/db";
 
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("krakkify-user-id")?.value;
+  const userId = request.cookies.get("scoreyo-user-id")?.value;
 
   console.log('[Test DB] userId:', userId);
 

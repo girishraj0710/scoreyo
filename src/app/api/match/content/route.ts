@@ -6,7 +6,7 @@ import { queryAll, queryOne } from "@/lib/db";
  * Simplified version for debugging - will build up complexity
  */
 export async function GET(request: NextRequest) {
-  const userId = request.cookies.get("krakkify-user-id")?.value;
+  const userId = request.cookies.get("scoreyo-user-id")?.value;
 
   console.log('[Match Content API] User ID:', userId);
 

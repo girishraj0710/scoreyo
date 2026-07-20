@@ -87,7 +87,7 @@ async function testDailyTasks() {
     // Trigger task generation by making actual API call
     const response = await fetch(`http://localhost:3005/api/daily-tasks`, {
       headers: {
-        'Cookie': `krakkify-user-id=${TEST_USER_ID}`
+        'Cookie': `scoreyo-user-id=${TEST_USER_ID}`
       }
     });
 

@@ -1,7 +1,7 @@
 # Study Material Generation System
 
 **Last Updated:** 2026-06-16  
-**Purpose:** Generate comprehensive study materials for all topics on Krakkify
+**Purpose:** Generate comprehensive study materials for all topics on Scoreyo
 
 ---
 

@@ -25,7 +25,7 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
       <button
         onClick={handleGoogleSignIn}
         disabled={isLoading !== null}
-        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-750 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+        className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#F6F7FB] dark:bg-slate-800 border border-transparent dark:border-slate-700 rounded-2xl hover:bg-[#EEF0F6] dark:hover:bg-slate-700 hover:shadow-sm active:scale-[0.99] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading === "google" ? (
           <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
@@ -49,21 +49,18 @@ export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" })
             />
           </svg>
         )}
-        <span className="text-[15px] font-medium text-slate-700 dark:text-slate-200">
+        <span className="font-heading text-[15px] font-semibold text-slate-700 dark:text-slate-200">
           {mode === "signup" ? "Continue with Google" : "Log in with Google"}
         </span>
       </button>
 
       {/* Divider */}
-      <div className="relative my-6">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-slate-200 dark:border-slate-800"></div>
-        </div>
-        <div className="relative flex justify-center text-xs">
-          <span className="px-3 bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-medium">
-            Or continue with
-          </span>
-        </div>
+      <div className="relative flex items-center my-8">
+        <div className="flex-grow border-t border-slate-200 dark:border-slate-800"></div>
+        <span className="flex-shrink mx-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+          or email
+        </span>
+        <div className="flex-grow border-t border-slate-200 dark:border-slate-800"></div>
       </div>
     </div>
   );

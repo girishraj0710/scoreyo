@@ -277,7 +277,7 @@ All features now follow single-exam-focus pattern correctly:
 
 ## 🚀 Deployment Status
 
-**Live URL:** https://krakkify.in/study-guides
+**Live URL:** https://scoreyo.in/study-guides
 
 **Git Status:**
 - Branch: main

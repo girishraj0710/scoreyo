@@ -14,7 +14,7 @@ export async function GET(
     console.log('🎯 [GET DECK] Request received');
 
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
     console.log('👤 User ID:', userId);
 
     if (!userId) {
@@ -58,7 +58,7 @@ export async function DELETE(
 ) {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('krakkify-user-id')?.value;
+    const userId = cookieStore.get('scoreyo-user-id')?.value;
 
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

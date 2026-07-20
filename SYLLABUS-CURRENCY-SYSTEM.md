@@ -172,7 +172,7 @@ This added the columns. **No need to run again.**
 npx tsx scripts/annual-syllabus-update.ts
 
 # Or trigger via API (with CRON_SECRET)
-curl -X POST https://krakkify.co.in/api/cron/annual-syllabus-update \
+curl -X POST https://scoreyo.in/api/cron/annual-syllabus-update \
   -H "Authorization: Bearer YOUR_CRON_SECRET"
 ```
 
@@ -394,7 +394,7 @@ npx tsx scripts/annual-syllabus-update.ts
 npx tsx scripts/comprehensive-seed-generator.ts
 
 # Check distribution
-sqlite3 data/krakkify.db "SELECT exam_id, syllabus_year, is_current_syllabus, COUNT(*) FROM exam_questions GROUP BY exam_id, syllabus_year, is_current_syllabus;"
+sqlite3 data/scoreyo.db "SELECT exam_id, syllabus_year, is_current_syllabus, COUNT(*) FROM exam_questions GROUP BY exam_id, syllabus_year, is_current_syllabus;"
 ```
 
 ### Annual Checklist:
@@ -437,4 +437,4 @@ sqlite3 data/krakkify.db "SELECT exam_id, syllabus_year, is_current_syllabus, CO
 - Test: Generate a quiz and inspect questions
 - Verify: Database query to check distribution
 
-**This system ensures Krakkify stays current with exam patterns forever!** 🚀
+**This system ensures Scoreyo stays current with exam patterns forever!** 🚀

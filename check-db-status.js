@@ -14,7 +14,7 @@ async function checkDatabaseStatus() {
     ssl: { rejectUnauthorized: false },
   });
 
-  console.log('\n🔍 Krakkify Database Status Check\n');
+  console.log('\n🔍 Scoreyo Database Status Check\n');
   console.log('=' .repeat(80));
 
   try {

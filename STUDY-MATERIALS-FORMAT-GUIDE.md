@@ -1,6 +1,6 @@
 # Study Materials Format Guide
 
-This guide defines the **standard formats** for creating study materials that work with Krakkify's rendering system.
+This guide defines the **standard formats** for creating study materials that work with Scoreyo's rendering system.
 
 ---
 
@@ -387,4 +387,4 @@ Before creating new study materials:
 ---
 
 **Last Updated:** 2026-06-15
-**Maintained By:** Krakkify Development Team
+**Maintained By:** Scoreyo Development Team

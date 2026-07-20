@@ -6,7 +6,7 @@ const FREE_QUIZ_LIMIT = 3;
 // GET - Get user's subscription status
 export async function GET(request: NextRequest) {
   try {
-    const userId = request.cookies.get("krakkify-user-id")?.value;
+    const userId = request.cookies.get("scoreyo-user-id")?.value;
     if (!userId) {
       return NextResponse.json({ error: "Not logged in" }, { status: 401 });
     }

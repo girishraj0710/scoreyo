@@ -154,7 +154,7 @@ WHERE s.subject_code = 'physics';
 
 ## 🧪 Step 6: Test Quiz Generation
 
-Go to your live site: https://krakkify.in
+Go to your live site: https://scoreyo.in
 
 1. **Test JEE Main Physics** → Generate a quiz → Should work ✅
 2. **Test NEET Physics** → Generate a quiz → Should work ✅

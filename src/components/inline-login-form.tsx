@@ -183,7 +183,7 @@ export function InlineLoginForm() {
 
           <div className="pt-4" style={{ borderTop: "1px solid var(--card-border)" }}>
             <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
-              By continuing, you agree to Krakkify's{" "}
+              By continuing, you agree to Scoreyo's{" "}
               <a href="/terms" className="text-[#E76F51] hover:underline">Terms</a> & {" "}
               <a href="/privacy" className="text-[#E76F51] hover:underline">Privacy Policy</a>.
             </p>

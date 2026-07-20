@@ -2,7 +2,7 @@
 
 ## Database Architecture Clarification
 
-Your Krakkify uses a **proper dimensional model** with two tables:
+Your Scoreyo uses a **proper dimensional model** with two tables:
 
 ### 1. `exam_questions` (Staging/Raw Data)
 - **Count**: 45,937 questions

@@ -309,7 +309,7 @@ Vercel: ⏳ Deploying automatically (~5 min)
 ### **Test 1: Topic Mapping**
 ```bash
 # JEE Main Physics - Kinematics
-1. Go to https://krakkify.co.in
+1. Go to https://scoreyo.in
 2. Select: JEE Main → Physics → Kinematics
 3. Generate quiz (5 questions)
 
@@ -322,7 +322,7 @@ Expected:
 ### **Test 2: Source Labels**
 ```bash
 # Check dashboard analytics
-1. Go to https://krakkify.co.in/dashboard
+1. Go to https://scoreyo.in/dashboard
 2. Look for "Question Sources" widget
 
 Expected:
@@ -496,7 +496,7 @@ npx tsx -e "
 
 ```
 ╔════════════════════════════════════════════════════════╗
-║           Krakkify Question Bank Status               ║
+║           Scoreyo Question Bank Status               ║
 ╠════════════════════════════════════════════════════════╣
 ║                                                        ║
 ║  Total Questions:              50,711 ✅              ║
@@ -539,8 +539,8 @@ npx tsx -e "
 
 **Deployment Status**: ✅ Both fixes pushed to production  
 **ETA**: Live in ~5 minutes  
-**Monitor**: https://vercel.com/girishraj0710/krakkify  
-**Test**: https://krakkify.co.in
+**Monitor**: https://vercel.com/girishraj0710/scoreyo  
+**Test**: https://scoreyo.in
 
 ---
 

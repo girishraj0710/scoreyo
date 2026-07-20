@@ -2,7 +2,7 @@
 
 ## 🎉 What Was Delivered
 
-I've just implemented **Phase 1** of your million-user scaling plan and created a complete 4-phase roadmap to take Krakkify from 1K → 1M users.
+I've just implemented **Phase 1** of your million-user scaling plan and created a complete 4-phase roadmap to take Scoreyo from 1K → 1M users.
 
 ---
 
@@ -98,7 +98,7 @@ I've just implemented **Phase 1** of your million-user scaling plan and created 
 ### **STEP 1: Run Setup Script (5 minutes)**
 
 ```bash
-cd /Users/girish.raj/krakkify
+cd /Users/girish.raj/scoreyo
 
 # Install dependencies
 npm install

@@ -157,7 +157,7 @@ After deleting incomplete questions, if some topics have too few questions:
 
 1. **Go to Learn English practice:**
    ```
-   https://krakkify.in/english/foundation/parts-of-speech/practice?count=5
+   https://scoreyo.in/english/foundation/parts-of-speech/practice?count=5
    ```
 
 2. **Test each topic:**

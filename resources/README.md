@@ -1,4 +1,4 @@
-# Krakkify App Assets
+# Scoreyo App Assets
 
 Place the following files here to generate mobile app icons and splash screens:
 
@@ -13,7 +13,7 @@ Place the following files here to generate mobile app icons and splash screens:
 2. **splash.png** (2732x2732px, PNG)
    - Splash screen source
    - Centered logo on solid background
-   - Background color: #4F46E5 (Indigo-600, Krakkify brand color)
+   - Background color: #4F46E5 (Indigo-600, Scoreyo brand color)
    - Logo should fit in center 1200x1200px area
 
 ## Generate Assets
@@ -34,6 +34,6 @@ Assets not yet created. Using default Capacitor placeholders for now.
 ## Design Guidelines
 
 - **Icon**: Simple, recognizable at small sizes (60x60px)
-- **Colors**: Krakkify brand colors (Indigo #4F46E5, Amber accent)
+- **Colors**: Scoreyo brand colors (Indigo #4F46E5, Amber accent)
 - **Style**: Modern, professional, EdTech aesthetic
 - **Text**: Avoid text in icon (illegible at small sizes)

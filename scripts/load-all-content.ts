@@ -83,7 +83,7 @@ async function main() {
     console.log('🎉 All content loaded successfully!');
     console.log();
     console.log('Next steps:');
-    console.log('  1. Test on production: https://krakkify.in/english');
+    console.log('  1. Test on production: https://scoreyo.in/english');
     console.log('  2. Verify study materials appear on topic pages');
     console.log('  3. Start quiz and verify new questions appear');
     console.log('  4. Check Week 1 completion in dashboard');

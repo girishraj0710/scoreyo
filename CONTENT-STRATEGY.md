@@ -1,4 +1,4 @@
-# Krakkify Content Strategy: Unlimited Questions for All Topics
+# Scoreyo Content Strategy: Unlimited Questions for All Topics
 
 ## Core Philosophy
 **"Every student matters. Every topic matters. Unlimited practice for all."**
@@ -132,7 +132,7 @@ Students should NEVER:
 - Freshness: Current affairs updated daily
 
 ### User Trust Metrics
-- Students practice only on Krakkify: >80%
+- Students practice only on Scoreyo: >80%
 - Average questions per user session: >50
 - Return rate: >70%
 - Recommendation rate: >60%
@@ -172,5 +172,5 @@ Students should NEVER:
 2. All topics >100 questions
 3. Launch user contribution
 
-**Vision:** Krakkify becomes THE platform for exam practice in India
+**Vision:** Scoreyo becomes THE platform for exam practice in India
 **Promise:** Unlimited questions, forever FREE for students

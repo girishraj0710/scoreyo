@@ -1,5 +1,5 @@
 /**
- * Illustrated Icons - Krakkify Style
+ * Illustrated Icons - Scoreyo Style
  *
  * Based on reference screenshot: ChatGPT Image Jun 24, 2026, 05_00_46 PM.png
  *

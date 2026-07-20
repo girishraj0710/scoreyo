@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { execute, queryAll } from "@/lib/db";
 import { v4 as uuidv4 } from "uuid";
 
-const COOKIE_NAME = "krakkify-user-id";
+const COOKIE_NAME = "scoreyo-user-id";
 
 // POST /api/exam/add - Add new exam enrollment (Pro only)
 export async function POST(request: NextRequest) {

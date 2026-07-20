@@ -6,11 +6,11 @@ export function PrivacyPolicyContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">1. Introduction</h2>
         <p className="text-slate-600 mb-3">
-          Krakkify (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains
+          Scoreyo (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains
           how we collect, use, disclose, and safeguard your information when you use our Service.
         </p>
         <p className="text-slate-600">
-          By using Krakkify, you agree to the collection and use of information in accordance with this policy.
+          By using Scoreyo, you agree to the collection and use of information in accordance with this policy.
         </p>
       </section>
 
@@ -82,8 +82,8 @@ export function PrivacyPolicyContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">7. Contact Us</h2>
         <p className="text-slate-600">
-          📧 Email: <a href="mailto:support@krakkify.in" className="text-[#E76F51] hover:underline">support@krakkify.in</a><br />
-          🌐 Website: krakkify.in<br />
+          📧 Email: <a href="mailto:support@scoreyo.in" className="text-[#E76F51] hover:underline">support@scoreyo.in</a><br />
+          🌐 Website: scoreyo.in<br />
           📍 Address: Bangalore, Karnataka, India
         </p>
       </section>
@@ -99,8 +99,8 @@ export function TermsContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">1. Acceptance of Terms</h2>
         <p className="text-slate-600 mb-3">
-          By accessing or using Krakkify, you agree to be bound by these Terms of Service.
-          Krakkify provides AI-powered exam preparation services for competitive exams in India.
+          By accessing or using Scoreyo, you agree to be bound by these Terms of Service.
+          Scoreyo provides AI-powered exam preparation services for competitive exams in India.
         </p>
       </section>
 
@@ -145,7 +145,7 @@ export function TermsContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">6. Intellectual Property</h2>
         <p className="text-slate-600 mb-3">
-          All content, questions, explanations, and materials are owned by Krakkify.
+          All content, questions, explanations, and materials are owned by Scoreyo.
           You receive a limited license to use the Service for personal exam preparation only.
         </p>
       </section>
@@ -161,7 +161,7 @@ export function TermsContent() {
       <section className="mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-3">8. Contact</h2>
         <p className="text-slate-600">
-          📧 <a href="mailto:support@krakkify.in" className="text-[#E76F51] hover:underline">support@krakkify.in</a>
+          📧 <a href="mailto:support@scoreyo.in" className="text-[#E76F51] hover:underline">support@scoreyo.in</a>
         </p>
       </section>
     </div>

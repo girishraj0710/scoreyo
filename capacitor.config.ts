@@ -1,13 +1,13 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.krakkify.app',
-  appName: 'Krakkify',
+  appId: 'com.scoreyo.app',
+  appName: 'Scoreyo',
   webDir: 'out',
 
-  // Using latest Vercel deployment (with landing page skip)
+  // Loads the live production site (hybrid mode)
   server: {
-    url: 'https://krakkify-52ykfabc7-girishraj0710-1629s-projects.vercel.app',
+    url: 'https://scoreyo.in',
     cleartext: false,
     androidScheme: 'https',
     iosScheme: 'https',

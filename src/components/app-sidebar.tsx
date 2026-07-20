@@ -124,7 +124,7 @@ export function AppSidebar() {
             <div className="w-8 h-8 bg-[#F26A4B] rounded-lg flex items-center justify-center text-white font-bold text-base">
               K
             </div>
-            <span className="text-lg font-bold text-[#16213E] dark:text-white">Krakkify</span>
+            <span className="text-lg font-bold text-[#16213E] dark:text-white">Scoreyo</span>
           </a>
         </div>
 

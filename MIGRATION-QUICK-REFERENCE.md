@@ -45,7 +45,7 @@
 **Latest deployment shows "Ready"?** → Proceed  
 **Still building?** → Wait
 
-**Test current site:** https://krakkify.in
+**Test current site:** https://scoreyo.in
 - Generate a JEE Physics quiz
 - ✅ Works? → Proceed
 
@@ -97,7 +97,7 @@ cd /Users/girish.raj/prepgenie
 
 ### 5️⃣ TEST PRODUCTION (5 minutes)
 
-**Go to https://krakkify.in**
+**Go to https://scoreyo.in**
 
 **Test these:**
 1. ✅ Generate JEE Main Physics quiz
@@ -212,7 +212,7 @@ neet → physics (1200+ questions SHARED)
 
 - **Supabase Dashboard:** https://supabase.com/dashboard/project/zomcofptwlumqkeffbht
 - **Vercel Deployments:** https://vercel.com/girishraj0710/prepgenie/deployments
-- **Production Site:** https://krakkify.in
+- **Production Site:** https://scoreyo.in
 - **GitHub Repo:** https://github.com/girishraj0710/prepgenie
 
 ---
