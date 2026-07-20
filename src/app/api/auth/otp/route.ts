@@ -134,13 +134,13 @@ export async function POST(request: NextRequest) {
     console.log(`[OTP] 📧 From: Scoreyo <noreply@scoreyo.in>`);
 
     const { data, error } = await resend.emails.send({
-      from: "Scoreyo <noreply@prepgenie.co.in>",
+      from: "Scoreyo <noreply@scoreyo.in>",
       to: cleanEmail,
       subject: `${code} is your Scoreyo verification code`,
       html: `
         <div style="font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #9333ea); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; line-height: 50px;">K</div>
+            <div style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #9333ea); border-radius: 12px; color: white; font-size: 24px; font-weight: bold; line-height: 50px;">S</div>
           </div>
           <h2 style="text-align: center; color: #1e293b; margin-bottom: 8px;">Your Verification Code</h2>
           <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px;">Enter this code in Scoreyo to sign in</p>
