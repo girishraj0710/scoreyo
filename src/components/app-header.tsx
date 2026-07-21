@@ -345,10 +345,11 @@ export function AppHeader() {
                     </button>
                   </div>
                   <button
-                    onClick={async () => {
+                    onClick={() => {
                       setShowMenu(false);
-                      await logout();
-                      router.push("/");
+                      // logout() redirects itself; no router.push (it would race
+                      // and cancel the logout request, leaving the user logged in).
+                      logout();
                     }}
                     className="w-full text-left px-6 py-3 text-sm flex items-center gap-3 transition-colors"
                     style={{ color: 'var(--foreground-secondary)', backgroundColor: 'transparent' }}

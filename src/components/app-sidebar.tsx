@@ -271,9 +271,11 @@ export function AppSidebar() {
                 <div className="py-2">
                   <button
                     onClick={() => {
-                      logout();
+                      // logout() redirects to /api/auth/logout itself; a
+                      // router.push here would race and cancel it, leaving the
+                      // user logged in.
                       setShowProfileMenu(false);
-                      router.push("/");
+                      logout();
                     }}
                     className="w-full flex items-center gap-3 px-4 py-3 text-sm transition-colors text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950"
                   >

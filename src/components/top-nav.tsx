@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
@@ -26,7 +25,6 @@ export function TopNav() {
   const { t } = useLocale();
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === "dark";
-  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -153,10 +151,11 @@ export function TopNav() {
             </div>
 
             <button
-              onClick={async () => {
+              onClick={() => {
                 setShowMenu(false);
-                await logout();
-                router.push("/");
+                // logout() redirects itself; no router.push (it would race
+                // and cancel the logout request, leaving the user logged in).
+                logout();
               }}
               className={`w-full text-left ${menuItemClass}`}
               aria-label="Logout"

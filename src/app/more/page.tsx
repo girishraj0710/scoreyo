@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useUser } from "@/context/user-context";
-import { useRouter } from "next/navigation";
 import {
   FileText,
   Trophy,
@@ -20,11 +19,11 @@ import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 
 export default function MorePage() {
   const { user, logout } = useUser();
-  const router = useRouter();
 
   const handleLogout = () => {
+    // logout() redirects to /api/auth/logout itself; a router.push here would
+    // race and cancel it, leaving the user logged in.
     logout();
-    router.push("/");
   };
 
   const menuSections = [

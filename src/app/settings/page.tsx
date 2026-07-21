@@ -180,8 +180,10 @@ export default function SettingsPage() {
       type: "confirm",
       onConfirm: async () => {
         setModal(prev => ({ ...prev, isOpen: false }));
-        await logout();
-        window.location.href = "/";
+        // logout() performs the redirect to /api/auth/logout itself. Do not add
+        // a navigation here — it would race and cancel the logout request,
+        // leaving the cookie intact (lands on home still logged in).
+        logout();
       },
     });
   };
