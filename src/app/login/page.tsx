@@ -7,6 +7,7 @@ import Link from "next/link";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 import { AuthTabs } from "@/components/auth/AuthTabs";
 import { OAuthButtons } from "@/components/auth/OAuthButtons";
+import { useUser } from "@/context/user-context";
 import { Mail, CheckCircle2, Loader2 } from "lucide-react";
 
 type Step = "email" | "otp" | "success";
@@ -14,6 +15,12 @@ type Step = "email" | "otp" | "success";
 function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { user } = useUser();
+
+  // Already logged in? Don't show the auth form — go home.
+  useEffect(() => {
+    if (user) window.location.href = "/";
+  }, [user]);
 
   const [step, setStep] = useState<Step>("email");
   const [email, setEmail] = useState(searchParams?.get("email") || "");
@@ -156,11 +163,13 @@ function LoginContent() {
         return;
       }
 
-      // Success!
+      // Success! Hard-navigate so UserProvider remounts and reads the freshly
+      // set auth cookie. A soft router.push leaves stale user=null in context,
+      // which renders the landing page until a later refetch/refresh (the
+      // "success but bounced to landing" bug).
       setStep("success");
       setTimeout(() => {
-        router.push("/");
-        router.refresh();
+        window.location.href = "/";
       }, 1500);
     } catch (err) {
       setError("Network error. Please try again.");
