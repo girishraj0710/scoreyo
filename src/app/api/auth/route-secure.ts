@@ -163,7 +163,8 @@ export const POST = withValidation(
           return NextResponse.json(
             {
               error: "Name required",
-              message: "Please provide your name to complete registration"
+              message: "Please provide your name to complete registration",
+              needsSignup: true,
             },
             { status: 400 }
           );

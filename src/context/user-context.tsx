@@ -176,11 +176,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
       const data = await res.json();
       console.log('[UserContext] completeLogin response:', { status: res.status, data });
 
-      if (!res.ok) {
-        return { success: false, error: data.error || "Login failed" };
-      }
+      // Check needsSignup BEFORE res.ok: the API returns it with a 400 status
+      // for new emails, so testing res.ok first would swallow the flag and show
+      // the raw "Name required" error instead of advancing to the name step.
       if (data.needsSignup) {
         return { success: false, needsSignup: true };
+      }
+      if (!res.ok) {
+        return { success: false, error: data.error || "Login failed" };
       }
       if (data.user) {
         setUser(data.user);
