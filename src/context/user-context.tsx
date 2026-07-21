@@ -202,15 +202,22 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   async function logout() {
     try {
-      const res = await fetch("/api/auth", { method: "DELETE" });
+      const res = await fetch("/api/auth", {
+        method: "DELETE",
+        credentials: "same-origin", // ensure the auth cookie is sent + Set-Cookie clear is applied
+      });
       if (!res.ok) {
         console.error("Logout API returned error:", res.status);
       }
     } catch (error) {
       console.error("Logout API error:", error);
     } finally {
-      // Always clear local state regardless of API response
+      // Clear local state, then hard-navigate home. A full page load forces the
+      // browser to commit the cleared cookie before the next auth check, so a
+      // refresh can't re-authenticate from a stale cookie (soft router.push in
+      // some menus skipped that server round-trip and logged the user back in).
       setUser(null);
+      window.location.href = "/";
     }
   }
 

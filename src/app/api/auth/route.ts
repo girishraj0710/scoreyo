@@ -381,11 +381,12 @@ export async function PUT(request: NextRequest) {
 export async function DELETE() {
   const response = NextResponse.json({ success: true });
 
-  // Clear user ID cookie
+  // Clear user ID cookie. Attributes (sameSite/secure/path) must match how the
+  // cookie was SET on login so the browser reliably overwrites/expires it.
   response.cookies.set(COOKIE_NAME, "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "lax",
     maxAge: 0,
     path: "/",
   });
@@ -394,7 +395,7 @@ export async function DELETE() {
   response.cookies.set(CSRF_COOKIE_NAME, "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "lax",
     maxAge: 0,
     path: "/",
   });
@@ -402,7 +403,7 @@ export async function DELETE() {
   response.cookies.set(`${CSRF_COOKIE_NAME}-client`, "", {
     httpOnly: false,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "lax",
     maxAge: 0,
     path: "/",
   });
