@@ -11,6 +11,18 @@ import { isAdminEmail, determineUserRole } from "@/lib/admin";
 const COOKIE_NAME = "scoreyo-user-id";
 const AVATAR_COLORS = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#14b8a6"];
 
+// This route is per-user and must never be cached: right after login a stale
+// {user:null} response (captured before the auth cookie existed) would be
+// replayed from the edge for its TTL, bouncing the user back to the landing
+// page until the cache expired (~1 min).
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+// Response headers that stop the CDN and browser from caching the auth check.
+const NO_STORE_HEADERS = {
+  "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+} as const;
+
 // GET - Get current user
 export async function GET(request: NextRequest) {
   try {
@@ -21,11 +33,11 @@ export async function GET(request: NextRequest) {
       if (user) {
         // Fetch enrolled exams for single-exam-focus architecture
         const userWithExams = await getUserWithEnrolledExams(user);
-        return NextResponse.json({ user: userWithExams });
+        return NextResponse.json({ user: userWithExams }, { headers: NO_STORE_HEADERS });
       }
     }
 
-    return NextResponse.json({ user: null });
+    return NextResponse.json({ user: null }, { headers: NO_STORE_HEADERS });
   } catch (error) {
     console.error('[Auth GET] Error fetching user:', error);
     // Return error details in development, generic message in production
