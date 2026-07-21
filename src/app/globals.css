@@ -547,6 +547,13 @@ textarea:focus-visible,
   outline-offset: 2px;
 }
 
+/* Auth fields provide their own on-brand focus ring; suppress the global blue outline */
+input.auth-field:focus-visible,
+[data-theme="dark"] input.auth-field:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
 /* Horizontal scroll container */
 .horizontal-scroll {
   display: flex;

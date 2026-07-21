@@ -247,7 +247,7 @@ function SignupContent() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3.5 bg-[#F6F7FB] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#344974]/10 focus:border-[#344974] transition-all"
+                  className="auth-field w-full px-4 py-3.5 bg-[#F6F7FB] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#344974]/10 focus:border-[#344974] transition-all"
                   required
                 />
               </div>
@@ -263,7 +263,7 @@ function SignupContent() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3.5 bg-[#F6F7FB] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#344974]/10 focus:border-[#344974] transition-all"
+                  className="auth-field w-full px-4 py-3.5 bg-[#F6F7FB] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#344974]/10 focus:border-[#344974] transition-all"
                   required
                 />
               </div>
@@ -340,7 +340,7 @@ function SignupContent() {
                   onChange={(e) => handleOtpChange(index, e.target.value)}
                   onKeyDown={(e) => handleOtpKeyDown(index, e)}
                   onPaste={index === 0 ? handleOtpPaste : undefined}
-                  className="w-12 h-14 text-center text-2xl font-bold border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#344974] focus:ring-4 focus:ring-[#344974]/10 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
+                  className="auth-field w-12 h-14 text-center text-2xl font-bold border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-[#344974] focus:ring-4 focus:ring-[#344974]/10 outline-none transition-all bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
                 />
               ))}
             </div>
