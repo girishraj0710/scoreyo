@@ -103,6 +103,10 @@ export function InlineLoginForm() {
       if (result.success) {
         const loginResult = await completeLogin(email.trim());
         if (loginResult.success) {
+          // Hard navigation to home so the just-set auth cookie is read on a
+          // fresh load. Avoids the first-login race where a background refetch
+          // fires before the cookie is committed (bounces user back to landing).
+          window.location.href = "/";
           return;
         }
         if (loginResult.needsSignup) {
@@ -147,9 +151,11 @@ export function InlineLoginForm() {
     setIsSubmitting(true);
     try {
       const result = await completeLogin(email.trim(), name.trim());
-      if (!result.success) {
-        setError(result.error || "Registration failed");
+      if (result.success) {
+        window.location.href = "/";
+        return;
       }
+      setError(result.error || "Registration failed");
     } finally {
       setIsSubmitting(false);
     }
