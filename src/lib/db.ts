@@ -4135,14 +4135,16 @@ export async function getContinueLearning(userId: string): Promise<{
      ) fd ON ep.path_id = fd.id
      WHERE ep.user_id = $1
        AND ep.completed_questions > 0
-       AND ep.mastery_score < 0.9
+       AND ep.mastery_score < 90
      ORDER BY ep.last_practiced DESC
      LIMIT 1`,
     [userId]
   );
 
   if (englishProgress) {
-    const progress = Math.round(englishProgress.mastery_score * 100);
+    // mastery_score is already a 0–100 percentage (see updateEnglishProgress);
+    // do not multiply by 100 again.
+    const progress = Math.round(englishProgress.mastery_score);
     const minsLeft = Math.max(5, Math.round((100 - progress) / 10)); // Estimate: 10% = 1 min
 
     return {
@@ -4359,7 +4361,9 @@ export async function getRecentActivities(userId: string): Promise<Array<{
         exam: 'Learn English',
         subject: formatTopicName(row.topic_id),
         cards: row.completed_questions,
-        progress: Math.round(row.mastery_score * 100),
+        // mastery_score is already stored as a 0–100 percentage (see
+        // updateEnglishProgress), so it must NOT be multiplied by 100 again.
+        progress: Math.round(row.mastery_score),
         accent: '#2A9D8F',
         link: `/learn/english/${row.path_id}/${row.topic_id}`,
         lastActivity: new Date(row.last_practiced)

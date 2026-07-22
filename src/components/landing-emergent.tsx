@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect, useMemo } from "react";
+import { AnimatePresence } from "framer-motion";
 import { useUser } from "@/context/user-context";
+import { AuthOverlay } from "@/components/auth/AuthOverlay";
 import Image from "next/image";
 import {
   Sparkles,
@@ -172,6 +174,20 @@ export function LandingEmergent() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const examsDropdownRef = useRef<HTMLDivElement>(null);
 
+  // Auth overlay (animated swipe-in signup/login over the landing page).
+  const [authMode, setAuthMode] = useState<"signup" | "login" | null>(null);
+  const openAuth = (mode: "signup" | "login" = "signup") => setAuthMode(mode);
+
+  // Preload + decode the overlay's mascot image while the user is still on the
+  // landing page. Otherwise the browser decodes this large full-bleed image on
+  // the overlay's first animation frame, stalling the swipe-in ("stuck then
+  // fast"). Decoding ahead of time keeps the open transition smooth.
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = "/images/auth-mascot-yeti-wave-v2.png";
+    if (img.decode) img.decode().catch(() => {});
+  }, []);
+
   const upcomingExams = getUpcomingExams(15);
 
   // Close exams dropdown when clicking outside
@@ -271,7 +287,7 @@ export function LandingEmergent() {
     <div className="min-h-screen bg-[#FAF8F5]">
       {/* Top Navigation Bar - Keep as is from existing */}
       <nav className="border-b border-black/5 bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+        <div className="w-full px-6 md:px-10 h-16 flex items-center justify-between">
           {/* Logo + Exams Dropdown */}
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center gap-2">
@@ -339,7 +355,7 @@ export function LandingEmergent() {
                                 key={exam.id}
                                 onClick={() => {
                                   setShowExamsDropdown(false);
-                                  window.location.href = "/signup";
+                                  openAuth("signup");
                                 }}
                                 className="flex items-center gap-3 p-2.5 rounded-lg border border-[#e2e8f0] hover:border-[#F26A4B] hover:bg-[rgba(242,106,75,0.08)] transition-all group"
                               >
@@ -371,10 +387,10 @@ export function LandingEmergent() {
               Pricing
             </a>
             <button
-              onClick={() => window.location.href = "/signup"}
+              onClick={() => openAuth("signup")}
               className="h-10 px-5 rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold text-sm"
             >
-              Sign in
+              Sign up
             </button>
           </div>
         </div>
@@ -424,13 +440,13 @@ export function LandingEmergent() {
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap gap-3">
               <button
-                onClick={() => window.location.href = "/signup"}
+                onClick={() => openAuth("signup")}
                 className="h-12 px-6 rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold shadow-[0_20px_60px_-20px_rgba(242,106,75,0.35)] flex items-center gap-2 transition-all"
               >
                 Start learning free <ArrowRight className="w-4 h-4" />
               </button>
               <button
-                onClick={() => window.location.href = "/signup"}
+                onClick={() => openAuth("signup")}
                 className="h-12 px-6 rounded-xl border border-black/10 hover:border-[#409464] bg-white hover:bg-[#409464] font-semibold text-[#16213E] hover:text-white flex items-center gap-2 transition-all duration-500 ease-in-out"
               >
                 <PlayCircle className="w-4 h-4" /> Take a mock test
@@ -537,7 +553,7 @@ export function LandingEmergent() {
                     style={{ width: 'calc(85vw)' }}
                   >
                     <button
-                      onClick={() => window.location.href = "/signup"}
+                      onClick={() => openAuth("signup")}
                       className="w-full text-left rounded-[28px] overflow-hidden shadow-[0_20px_50px_-20px_rgba(22,33,62,0.25)] hover:shadow-[0_30px_70px_-15px_rgba(22,33,62,0.35)] transition-shadow duration-500 ease-in-out h-full flex flex-col group relative"
                       style={{ backgroundColor: mode.headerColor }}
                     >
@@ -720,7 +736,7 @@ export function LandingEmergent() {
                     style={{ width: 'calc(25% - 18px)' }}
                   >
                     <button
-                      onClick={() => window.location.href = "/signup"}
+                      onClick={() => openAuth("signup")}
                       className="w-full text-left rounded-[28px] overflow-hidden shadow-[0_20px_50px_-20px_rgba(22,33,62,0.25)] hover:-translate-y-2 hover:shadow-[0_30px_70px_-15px_rgba(22,33,62,0.35)] transition-all duration-500 h-full flex flex-col group relative"
                       style={{
                         backgroundColor: mode.headerColor,
@@ -915,7 +931,7 @@ export function LandingEmergent() {
               return (
                 <button
                   key={exam.id}
-                  onClick={() => window.location.href = "/signup"}
+                  onClick={() => openAuth("signup")}
                   data-testid={`exam-card-${exam.id}`}
                   className={`text-left group relative rounded-3xl border border-black/5 bg-white p-6 shadow-[0_8px_30px_rgba(22,33,62,0.06)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(242,106,75,0.35)] overflow-hidden ${
                     featured ? "lg:col-span-2 xl:col-span-2" : ""
@@ -1091,7 +1107,7 @@ export function LandingEmergent() {
                 Join thousands of aspirants who study smarter — not longer.
               </p>
               <button
-                onClick={() => window.location.href = "/signup"}
+                onClick={() => openAuth("signup")}
                 className="mt-6 h-12 px-6 rounded-xl bg-[#F26A4B] hover:bg-[#E15838] text-white font-semibold flex items-center gap-2 transition-all"
               >
                 Open my dashboard <ArrowRight className="w-4 h-4" />
@@ -1202,7 +1218,7 @@ export function LandingEmergent() {
           {/* View Full Calendar Button */}
           <div className="text-center mt-10">
             <button
-              onClick={() => window.location.href = "/signup"}
+              onClick={() => openAuth("signup")}
               className="text-[#F26A4B] font-semibold hover:text-[#E15838] transition-colors"
             >
               View full calendar →
@@ -1306,6 +1322,16 @@ export function LandingEmergent() {
           </div>
         </footer>
       </div>
+
+      {/* Animated auth overlay (signup/login) */}
+      <AnimatePresence>
+        {authMode && (
+          <AuthOverlay
+            initialMode={authMode}
+            onClose={() => setAuthMode(null)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Marquee animation */}
       <style jsx>{`

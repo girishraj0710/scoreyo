@@ -10,27 +10,59 @@ const wavyUnderline: React.CSSProperties = {
   backgroundPosition: "bottom",
 };
 
-export function AuthTabs({ active }: { active: "signup" | "login" }) {
+interface AuthTabsProps {
+  active: "signup" | "login";
+  /**
+   * When provided, tabs switch mode in-place (used inside AuthOverlay) instead
+   * of navigating to a new route. When omitted, tabs are plain <Link> anchors
+   * (used by the standalone /signup and /login pages).
+   */
+  onSelect?: (mode: "signup" | "login") => void;
+}
+
+export function AuthTabs({ active, onSelect }: AuthTabsProps) {
+  const tabClass = (mode: "signup" | "login") =>
+    `font-heading text-[26px] font-bold tracking-tight pb-2 transition-colors ${
+      active === mode
+        ? "text-slate-900 dark:text-white"
+        : "text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+    }`;
+
+  if (onSelect) {
+    return (
+      <div className="flex items-center gap-8 mb-10">
+        <button
+          type="button"
+          onClick={() => onSelect("signup")}
+          className={tabClass("signup")}
+          style={active === "signup" ? wavyUnderline : undefined}
+        >
+          Sign up
+        </button>
+        <button
+          type="button"
+          onClick={() => onSelect("login")}
+          className={tabClass("login")}
+          style={active === "login" ? wavyUnderline : undefined}
+        >
+          Log in
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center gap-8 mb-10">
       <Link
         href="/signup"
-        className={`font-heading text-[26px] font-bold tracking-tight pb-2 transition-colors ${
-          active === "signup"
-            ? "text-slate-900 dark:text-white"
-            : "text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-        }`}
+        className={tabClass("signup")}
         style={active === "signup" ? wavyUnderline : undefined}
       >
         Sign up
       </Link>
       <Link
         href="/login"
-        className={`font-heading text-[26px] font-bold tracking-tight pb-2 transition-colors ${
-          active === "login"
-            ? "text-slate-900 dark:text-white"
-            : "text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-        }`}
+        className={tabClass("login")}
         style={active === "login" ? wavyUnderline : undefined}
       >
         Log in

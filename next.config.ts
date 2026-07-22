@@ -115,6 +115,24 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Auth/user endpoints are per-user and must NEVER be cached. A shared
+      // `public` cache would replay a logged-out {user:null} response to a
+      // freshly-logged-in request (there is no Vary:Cookie), bouncing the user
+      // back to the landing page until the cache expired (~5 min). This rule
+      // MUST come AFTER the generic /api rule above: when multiple header rules
+      // match the same path, Next.js lets the LATER rule win for a given key.
+      {
+        source: "/api/auth/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store, no-cache, must-revalidate, max-age=0" },
+        ],
+      },
+      {
+        source: "/api/auth",
+        headers: [
+          { key: "Cache-Control", value: "no-store, no-cache, must-revalidate, max-age=0" },
+        ],
+      },
     ];
   },
 };

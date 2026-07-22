@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useUser } from "@/context/user-context";
-import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
 import { DailyTenQuestions } from "@/components/daily-ten-questions";
 import { SuccessPlanBanner } from "@/components/home/SuccessPlanBanner";
@@ -190,9 +189,15 @@ function FlashcardDailyGoalBanner() {
   );
 }
 
-// Dynamic import landing page
+// Dynamic import landing page. While the chunk loads we show a clean full-page
+// spinner (matching the auth screens) rather than a generic card skeleton — the
+// old skeleton used an off-palette blue that read as an "older design" flash.
 const LandingPage = dynamic(() => import("@/components/landing-emergent").then(mod => ({ default: mod.LandingEmergent })), {
-  loading: () => <LoadingSkeleton type="page" />,
+  loading: () => (
+    <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
+      <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--card-border)", borderTopColor: "var(--primary)" }}></div>
+    </div>
+  ),
   ssr: false,
 });
 
