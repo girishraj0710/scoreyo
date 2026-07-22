@@ -18,6 +18,37 @@ export async function GET(request: NextRequest) {
   const topicName = searchParams.get("topic");
   const pathId = searchParams.get("path"); // For English multi-path content
 
+  // Direct-lookup mode (e.g. Learn English): the caller knows the exact
+  // subject_id/topic_id/path_id and does NOT go through the exam→dim-table
+  // mapping. Used by /english/[pathId]/[topicId]/study which calls with
+  // ?subject=english&topic=<topicId>&path=<pathId> and no exam code.
+  if (!examCode && subjectCode && topicName) {
+    try {
+      const pool = getPool();
+      const result = await pool.query(
+        `SELECT * FROM topic_study_content
+         WHERE subject_id = $1 AND topic_id = $2 AND path_id = $3
+         LIMIT 1`,
+        [subjectCode, topicName, pathId]
+      );
+
+      if (result.rows.length === 0) {
+        return NextResponse.json(
+          { success: false, error: "Content not yet available" },
+          { status: 404 }
+        );
+      }
+
+      return NextResponse.json({ success: true, material: result.rows[0] });
+    } catch (error) {
+      console.error("❌ [STUDY-CONTENT] Direct lookup error:", error);
+      return NextResponse.json(
+        { error: "Failed to fetch study material" },
+        { status: 500 }
+      );
+    }
+  }
+
   if (!examCode || !subjectCode || !topicName) {
     return NextResponse.json(
       { error: "Missing exam, subject, or topic parameter" },
