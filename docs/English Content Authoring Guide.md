@@ -28,40 +28,47 @@ section in `CLAUDE.md`.
 
 ---
 
-## 0. Target architecture decision (2026-07-22)
+## 0. Storage architecture — DONE (2026-07-22)
 
-**English study content will move to its own table — `english_study_content` —
-separate from exam content.** Rationale: English and exam are distinct domains and
-must not mix; they are related only by `user_id`. This mirrors how
-questions/progress are already separated (`english_questions`/`english_progress`
-vs `fact_exam_questions`/`cached_questions`/`question_attempts`).
+**English study content lives in its own table — `english_study_content` —
+separate from exam content (`topic_study_content`).** English and exam are
+distinct domains and do not mix; they relate only by `user_id`. This mirrors the
+already-separated questions/progress (`english_questions`/`english_progress` vs
+`fact_exam_questions`/`cached_questions`/`question_attempts`).
 
-Planned content-phase steps (deferred until frontend work is complete):
-1. Create `english_study_content` (same schema as §2, minus exam-only concerns).
-2. Author fresh, Cambridge-aligned content directly into it for the full English
-   topic set (the existing 116 rows are below standard and will be recreated, not
-   migrated).
-3. Repoint the English study API (`/api/study-content` direct mode, or a new
-   `/api/english/study-content`) and `db.ts` helpers at the new table.
-4. Purge the 116 English rows from `topic_study_content`, leaving that table
-   exam-only.
+Completed split (plumbing done ahead of content creation so context isn't lost):
+1. ✅ Created `english_study_content` (schema in §2), unique index on
+   `(path_id, topic_id)` + lookup index.
+   Script: `scripts/create-english-study-content-table.mjs`.
+2. ✅ Copied the 116 existing English rows into it (no blank period on the site).
+3. ✅ Added dedicated API `GET /api/english/study-content?path=&topic=` reading
+   from the new table; repointed the study page
+   (`/english/[pathId]/[topicId]/study`) to it.
+4. ✅ Reverted `/api/study-content` to exam-only and deleted the 116 English rows
+   from `topic_study_content` (now exam-only, 3 rows).
+   Script: `scripts/delete-english-from-topic-study-content.mjs`.
 
-Until then, §2 below describes the CURRENT (shared) storage. Do not migrate the
-soon-to-be-deleted rows; the split happens once, when new content is ready.
-
-**Current domain separation (verified):**
+**Domain separation (verified, live):**
 - Questions: English → `english_questions`; Exam → `fact_exam_questions` +
-  `cached_questions`. Fully separate tables.
+  `cached_questions`.
 - Progress: English → `english_progress`; Exam → `question_attempts`,
-  `quiz_sessions`, `topic_mastery`. Fully separate.
-- Study content: currently SHARED in `topic_study_content` (segmented by
-  `subject_id`). This is the only overlap, and it is what §0 resolves.
+  `quiz_sessions`, `topic_mastery`.
+- Study content: English → `english_study_content` (API `/api/english/study-content`);
+  Exam → `topic_study_content` (API `/api/study-content`).
+
+### STILL TODO — content recreation (deferred)
+The 116 copied rows are the OLD, below-standard content. They keep the site
+working, but must be **recreated** with better Cambridge-aligned content, and the
+**32 new C1/C2 topics** must be authored (they have no rows yet → "coming soon").
+Author fresh content INTO `english_study_content` per §3–§7, overwriting old rows
+in place via upsert. Production writes require explicit authorization.
 
 ---
 
-## 2. Where content lives (current, shared — pre-split)
+## 2. Where content lives
 
-Table: `topic_study_content` (Supabase Postgres, production).
+Table: **`english_study_content`** (Supabase Postgres, production). Schema below;
+`topic_study_content` (exam-only) has the same shape plus a `subject_id` column.
 
 | Column                   | Type      | Notes |
 |--------------------------|-----------|-------|

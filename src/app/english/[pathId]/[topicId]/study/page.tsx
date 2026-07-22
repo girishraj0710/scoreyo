@@ -64,7 +64,7 @@ export default function StudyMaterialPage() {
       setIsLoading(true);
       setError(null);
 
-      const res = await fetch(`/api/study-content?subject=english&topic=${topicId}&path=${pathId}`);
+      const res = await fetch(`/api/english/study-content?topic=${topicId}&path=${pathId}`);
 
       if (!res.ok) {
         throw new Error("Study material not found");
