@@ -16,6 +16,7 @@ export default function EnglishLearningDashboard() {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [showAssessmentModal, setShowAssessmentModal] = useState(false);
   const [hasCompletedAssessment, setHasCompletedAssessment] = useState(false);
+  const [assessmentChecked, setAssessmentChecked] = useState(false); // API check done
   const [userLevel, setUserLevel] = useState<string>('B1'); // Default level
   const [lastActivity, setLastActivity] = useState<{
     topicTitle: string;
@@ -38,27 +39,89 @@ export default function EnglishLearningDashboard() {
     }
   }, [isLoading, user, router]);
 
-  // Check if user has completed assessment and load last activity on mount
+  // Check if user has completed assessment and load last activity on mount.
+  // Source of truth is the DB (survives across devices/deploys); localStorage
+  // is only a synchronous fallback so returning users don't flash the prompt.
   useEffect(() => {
-    if (user) {
-      // Check localStorage for assessment completion
-      const assessmentData = localStorage.getItem(`english_assessment_${user.id}`);
-      if (assessmentData) {
-        const data = JSON.parse(assessmentData);
+    if (!user) return;
+
+    // Optimistic local read (instant, avoids a flash of the "not taken" state).
+    const cached = localStorage.getItem(`english_assessment_${user.id}`);
+    if (cached) {
+      try {
+        const data = JSON.parse(cached);
         setHasCompletedAssessment(true);
         setUserLevel(data.level);
+      } catch {
+        /* ignore malformed cache */
       }
-
-      // Load last activity (from both courses and study plan)
-      const lastActivityData = localStorage.getItem(`english_last_activity_${user.id}`);
-      if (lastActivityData) {
-        setLastActivity(JSON.parse(lastActivityData));
-      }
-
-      // Fetch course progress
-      fetchCourseProgress();
     }
+
+    // Authoritative check against the server.
+    (async () => {
+      try {
+        const res = await fetch('/api/english/assessment');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.completed) {
+            setHasCompletedAssessment(true);
+            setUserLevel(data.level);
+            // Refresh the local cache for the next instant paint.
+            localStorage.setItem(
+              `english_assessment_${user.id}`,
+              JSON.stringify({ level: data.level, levelName: data.levelName })
+            );
+          } else if (cached) {
+            // Back-compat: this user placed before we persisted server-side, so
+            // their result lives only in localStorage. Backfill the DB rather
+            // than downgrade them (which would re-pop the assessment).
+            try {
+              const local = JSON.parse(cached);
+              await fetch('/api/english/assessment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  level: local.level,
+                  levelName: local.levelName || local.level,
+                  overallScore: local.overallScore ?? 0,
+                  skillScores: local.skillScores ?? {},
+                  recommendations: local.recommendations ?? [],
+                }),
+              });
+              setHasCompletedAssessment(true);
+              setUserLevel(local.level);
+            } catch {
+              setHasCompletedAssessment(false);
+            }
+          } else {
+            setHasCompletedAssessment(false);
+          }
+        }
+      } catch {
+        /* keep optimistic state on network error */
+      } finally {
+        setAssessmentChecked(true);
+      }
+    })();
+
+    // Load last activity (from both courses and study plan)
+    const lastActivityData = localStorage.getItem(`english_last_activity_${user.id}`);
+    if (lastActivityData) {
+      setLastActivity(JSON.parse(lastActivityData));
+    }
+
+    // Fetch course progress
+    fetchCourseProgress();
   }, [user]);
+
+  // Auto-open the assessment on first landing when the user hasn't placed yet.
+  // Only after the server check completes, so we never pop the modal for a user
+  // who has already taken it (which would happen if we trusted initial state).
+  useEffect(() => {
+    if (assessmentChecked && !hasCompletedAssessment) {
+      setShowAssessmentModal(true);
+    }
+  }, [assessmentChecked, hasCompletedAssessment]);
 
   // Fetch dynamic course progress from API
   const fetchCourseProgress = async () => {
@@ -112,7 +175,7 @@ export default function EnglishLearningDashboard() {
       B1: 'Intermediate Communication Skills',
       B2: 'Advanced Grammar & Expression',
       C1: 'Mastery & Professional English',
-      C2: 'IELTS/TOEFL Preparation'
+      C2: 'Expert Proficiency (C2)'
     };
     return lessonTitles[level] || 'English Learning Path';
   };
@@ -125,7 +188,7 @@ export default function EnglishLearningDashboard() {
       B1: 'Unit 8 — Present Perfect & Conversational Phrases',
       B2: 'Unit 12 — Conditional Structures & Complex Sentences',
       C1: 'Unit 16 — Subjunctive Mood & Formal Writing',
-      C2: 'Test Prep — Academic Writing & Speaking Strategies'
+      C2: 'Expert — Nuance, Idiom & Effortless Fluency'
     };
     return lessonDescriptions[level] || 'Continue your learning journey';
   };
@@ -201,12 +264,22 @@ export default function EnglishLearningDashboard() {
 
     setHasCompletedAssessment(true);
     setUserLevel(result.level);
+    setShowAssessmentModal(false);
 
-    // TODO: Save to database via API
-    // fetch('/api/english/assessment', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ userId: user?.id, result })
-    // });
+    // Persist to the database so the placement follows the account across
+    // devices and deployments (localStorage above is just the fast local cache).
+    fetch('/api/english/assessment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        level: result.level,
+        levelName: result.levelName,
+        overallScore: result.overallScore,
+        skillScores: result.skillScores,
+        recommendations: result.recommendations,
+        confidence: result.confidence,
+      }),
+    }).catch((err) => console.error('Failed to persist assessment:', err));
   };
 
   return (
@@ -234,14 +307,9 @@ export default function EnglishLearningDashboard() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  {!hasCompletedAssessment && (
-                    <button
-                      onClick={() => setShowAssessmentModal(true)}
-                      className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#E76F51] hover:bg-[#d96043] text-white transition-colors"
-                    >
-                      Take Assessment
-                    </button>
-                  )}
+                  {/* "Full path" is always visible. The assessment is offered via
+                      the auto-opening modal (and re-takeable from the full-path
+                      page) — no standalone "Take Assessment" button here. */}
                   <button
                     onClick={handleViewFullPath}
                     className="text-xs font-semibold text-[#E76F51] dark:text-[#F4A79D] hover:text-[#D65A3D] dark:hover:text-[#F4A79D] flex items-center gap-1"
@@ -296,11 +364,11 @@ export default function EnglishLearningDashboard() {
                 </div>
                 <div className="absolute right-0 top-0" style={{ transform: 'translateX(0%)' }}>
                   <LevelNode
-                    title="Test Prep"
-                    subtitle="IELTS"
-                    completed={false}
+                    title="Expert"
+                    subtitle="C2"
+                    completed={hasCompletedAssessment && getLevelStatus('C2', userLevel) === 'mastered'}
                     active={hasCompletedAssessment && userLevel === 'C2'}
-                    onClick={() => hasCompletedAssessment ? handleLevelClick('IELTS') : setShowAssessmentModal(true)}
+                    onClick={() => hasCompletedAssessment ? handleLevelClick('C2') : setShowAssessmentModal(true)}
                   />
                 </div>
               </div>

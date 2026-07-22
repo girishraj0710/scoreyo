@@ -771,6 +771,55 @@ export async function getStudyPlan(userId: string) {
   return queryOne("SELECT * FROM study_plans WHERE user_id = $1", [userId]);
 }
 
+// ─── English CEFR assessment (Learn English placement) ───
+// One row per user: the result of the English placement assessment. Previously
+// this lived only in localStorage (per-origin, per-device), so a user's level
+// vanished across devices/deployments. Persisting it here makes the placement
+// follow the account. Schema: scripts/create-english-assessment-table.mjs.
+
+export interface EnglishAssessmentInput {
+  level: string;
+  levelName: string;
+  overallScore: number;
+  skillScores: Record<string, number>;
+  recommendations: string[];
+  confidence?: string;
+  /** Generated personalized study path (StudyPath from english-study-path.ts). */
+  studyPath?: unknown;
+}
+
+export async function getEnglishAssessment(userId: string) {
+  return queryOne("SELECT * FROM user_english_assessment WHERE user_id = $1", [userId]);
+}
+
+export async function saveEnglishAssessment(userId: string, result: EnglishAssessmentInput) {
+  return execute(
+    `INSERT INTO user_english_assessment
+       (user_id, level, level_name, overall_score, skill_scores, recommendations, confidence, study_path, completed_at, updated_at)
+     VALUES (?, ?, ?, ?, ?::jsonb, ?::jsonb, ?, ?::jsonb, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+     ON CONFLICT (user_id) DO UPDATE SET
+       level = EXCLUDED.level,
+       level_name = EXCLUDED.level_name,
+       overall_score = EXCLUDED.overall_score,
+       skill_scores = EXCLUDED.skill_scores,
+       recommendations = EXCLUDED.recommendations,
+       confidence = EXCLUDED.confidence,
+       study_path = EXCLUDED.study_path,
+       completed_at = CURRENT_TIMESTAMP,
+       updated_at = CURRENT_TIMESTAMP`,
+    [
+      userId,
+      result.level,
+      result.levelName,
+      result.overallScore,
+      JSON.stringify(result.skillScores ?? {}),
+      JSON.stringify(result.recommendations ?? []),
+      result.confidence ?? null,
+      result.studyPath != null ? JSON.stringify(result.studyPath) : null,
+    ]
+  );
+}
+
 // ─── OAuth functions ─────────────────────────────────────
 
 export async function findUserByGoogleId(googleId: string) {
@@ -2008,6 +2057,16 @@ export async function getEnglishProgress(userId: string, pathId: string) {
     "SELECT * FROM english_progress WHERE user_id = ? AND path_id = ? ORDER BY last_practiced DESC",
     [userId, pathId]
   );
+}
+
+// Topic ids the user has made progress on, across every English path. Used by
+// the full learning-path view to mark generated topics complete.
+export async function getCompletedEnglishTopicIds(userId: string): Promise<string[]> {
+  const rows = await queryAll(
+    "SELECT DISTINCT topic_id FROM english_progress WHERE user_id = ? AND completed_questions > 0",
+    [userId]
+  );
+  return rows.map((r: { topic_id: string }) => r.topic_id);
 }
 
 export async function getEnglishTopicProgress(userId: string, pathId: string, topicId: string) {
