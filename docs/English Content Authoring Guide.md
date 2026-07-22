@@ -28,7 +28,38 @@ section in `CLAUDE.md`.
 
 ---
 
-## 2. Where content lives
+## 0. Target architecture decision (2026-07-22)
+
+**English study content will move to its own table — `english_study_content` —
+separate from exam content.** Rationale: English and exam are distinct domains and
+must not mix; they are related only by `user_id`. This mirrors how
+questions/progress are already separated (`english_questions`/`english_progress`
+vs `fact_exam_questions`/`cached_questions`/`question_attempts`).
+
+Planned content-phase steps (deferred until frontend work is complete):
+1. Create `english_study_content` (same schema as §2, minus exam-only concerns).
+2. Author fresh, Cambridge-aligned content directly into it for the full English
+   topic set (the existing 116 rows are below standard and will be recreated, not
+   migrated).
+3. Repoint the English study API (`/api/study-content` direct mode, or a new
+   `/api/english/study-content`) and `db.ts` helpers at the new table.
+4. Purge the 116 English rows from `topic_study_content`, leaving that table
+   exam-only.
+
+Until then, §2 below describes the CURRENT (shared) storage. Do not migrate the
+soon-to-be-deleted rows; the split happens once, when new content is ready.
+
+**Current domain separation (verified):**
+- Questions: English → `english_questions`; Exam → `fact_exam_questions` +
+  `cached_questions`. Fully separate tables.
+- Progress: English → `english_progress`; Exam → `question_attempts`,
+  `quiz_sessions`, `topic_mastery`. Fully separate.
+- Study content: currently SHARED in `topic_study_content` (segmented by
+  `subject_id`). This is the only overlap, and it is what §0 resolves.
+
+---
+
+## 2. Where content lives (current, shared — pre-split)
 
 Table: `topic_study_content` (Supabase Postgres, production).
 
