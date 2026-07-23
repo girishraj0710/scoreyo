@@ -505,8 +505,8 @@ export const foundationPathComplete: EnglishPath = {
     // ==================== MODULE 7: Complex Structures (B1-B2) ====================
     {
       id: "complex-structures",
-      name: "Module 7: Complex Structures",
-      description: "Reported speech, conditionals, relative clauses",
+      name: "Module 7: Complex Structures & Connecting Ideas",
+      description: "Reported speech, conditionals, relative clauses, and linking ideas smoothly",
       icon: "🏛️",
       level: "intermediate",
       topics: [
@@ -562,17 +562,6 @@ export const foundationPathComplete: EnglishPath = {
           questionCount: 80,
           prerequisite: ["relative-clauses"],
         },
-      ],
-    },
-
-    // ==================== MODULE 8: Connecting Ideas (A2-B1) ====================
-    {
-      id: "connecting-ideas",
-      name: "Module 8: Connecting Ideas",
-      description: "Link sentences smoothly with conjunctions and connectors",
-      icon: "🔗",
-      level: "intermediate",
-      topics: [
         {
           id: "conjunctions-connectors",
           name: "Conjunctions & Connectors",
@@ -605,7 +594,7 @@ export const foundationPathComplete: EnglishPath = {
     // ==================== MODULE 9: Vocabulary Building (A2-B1) ====================
     {
       id: "vocabulary-building",
-      name: "Module 9: Vocabulary Building",
+      name: "Module 8: Vocabulary Building",
       description: "1000+ essential words, synonyms, phrasal verbs, idioms",
       icon: "📖",
       level: "intermediate",
@@ -668,7 +657,7 @@ export const foundationPathComplete: EnglishPath = {
     // ==================== MODULE 10: Practical English (A2-B1) ====================
     {
       id: "practical-english",
-      name: "Module 10: Practical English",
+      name: "Module 9: Practical English",
       description: "Real-world communication - speaking, writing, common mistakes",
       icon: "💼",
       level: "intermediate",
