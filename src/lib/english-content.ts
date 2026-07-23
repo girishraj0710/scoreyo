@@ -169,8 +169,8 @@ export const englishPaths: EnglishPath[] = [
         questionCount: 50,
       },
       {
-        id: "academic-vocabulary",
-        name: "Academic Vocabulary",
+        id: "ielts-academic-vocabulary",
+        name: "Academic Vocabulary (IELTS/TOEFL)",
         description: "3000+ essential academic words for IELTS/TOEFL",
         icon: "🎓",
         level: "intermediate",
