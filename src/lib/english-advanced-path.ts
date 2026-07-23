@@ -1179,6 +1179,7 @@ type ExportedEnglishTopic = {
   description: string;
   icon: string;
   level: "beginner" | "intermediate" | "advanced";
+  cefrLevel: "B2" | "C1" | "C2";
   category: "ielts-toefl" | "foundation" | "advanced" | "real-world";
   subtopics: string[];
   estimatedTime: number;
@@ -1194,6 +1195,7 @@ export const getAllAdvancedTopics = (): ExportedEnglishTopic[] => {
       description: topic.description,
       icon: topic.icon,
       level: topic.level as "intermediate" | "advanced", // Already correct
+      cefrLevel: topic.cefrLevel,
       category: "advanced" as const,
       subtopics: topic.subtopics,
       estimatedTime: topic.estimatedTime,
@@ -1213,6 +1215,7 @@ export const getAdvancedTopicsByLevel = (level: "B2" | "C1" | "C2"): ExportedEng
       description: topic.description,
       icon: topic.icon,
       level: topic.level as "intermediate" | "advanced",
+      cefrLevel: topic.cefrLevel,
       category: "advanced" as const,
       subtopics: topic.subtopics,
       estimatedTime: topic.estimatedTime,

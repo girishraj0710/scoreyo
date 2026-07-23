@@ -7,12 +7,15 @@ import { advancedEnglishPath, getAllAdvancedTopics } from './english-advanced-pa
 export type EnglishLevel = "beginner" | "intermediate" | "advanced";
 export type EnglishGoal = "ielts-toefl" | "foundation" | "advanced" | "real-world";
 
+export type CEFRLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+
 export interface EnglishTopic {
   id: string;
   name: string;
   description: string;
   icon: string;
   level: EnglishLevel;
+  cefrLevel?: CEFRLevel; // Precise CEFR level for grouping/badges
   category: EnglishGoal;
   subtopics: string[];
   estimatedTime: number; // minutes
