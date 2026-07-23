@@ -5,10 +5,15 @@ import { createSubscription, getUserSubscription } from "@/lib/db";
 import { handleApiError, logError, logInfo } from "@/lib/error-handler";
 import { POST as securePOST, PUT as securePUT } from "./route-secure";
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET!,
-});
+// Instantiate lazily: constructing at module load throws when the Razorpay
+// keys are absent (e.g. Vercel build/preview env), which fails `next build`
+// while collecting page data for this route.
+function getRazorpay(): Razorpay {
+  return new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID!,
+    key_secret: process.env.RAZORPAY_KEY_SECRET!,
+  });
+}
 
 const PLANS = {
   monthly: { amount: 7900, label: "Pro Monthly", duration: "monthly" },
@@ -37,7 +42,7 @@ export async function POST(request: NextRequest) {
 
     const planDetails = PLANS[plan as keyof typeof PLANS];
 
-    const order = await razorpay.orders.create({
+    const order = await getRazorpay().orders.create({
       amount: planDetails.amount,
       currency: "INR",
       receipt: `pg_${userId.slice(0, 8)}_${Date.now()}`,
@@ -89,7 +94,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // Step 2: Fetch order from Razorpay server-side to get TRUE plan
-    const order = await razorpay.orders.fetch(razorpay_order_id);
+    const order = await getRazorpay().orders.fetch(razorpay_order_id);
 
     // Step 3: Get plan from immutable order notes (not client request)
     const plan = order.notes?.plan as string;
