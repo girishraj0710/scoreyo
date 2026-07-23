@@ -22,7 +22,7 @@ const RECOMMENDED_ITEMS: SearchResult[] = [
     title: "English Grammar Fundamentals",
     subtitle: "Foundation Path • 43 topics",
     category: "Learn English",
-    href: "/learn/english/foundation",
+    href: "/english/foundation",
     icon: BookOpen,
   },
   {

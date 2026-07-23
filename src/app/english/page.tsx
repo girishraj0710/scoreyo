@@ -203,19 +203,20 @@ export default function EnglishLearningDashboard() {
     // Route to the specific course path
     switch (courseId) {
       case 'foundation':
-        router.push('/learn/english/foundation');
+        router.push('/english/foundation');
         break;
       case 'advanced':
-        router.push('/learn/english/advanced');
+        router.push('/english/advanced');
         break;
       case 'vocabulary':
+        // No dedicated vocabulary path yet — keep the placeholder page.
         router.push('/learn/english/vocabulary');
         break;
       case 'ielts-toefl':
-        router.push('/learn/english/ielts-toefl');
+        router.push('/english/ielts-toefl');
         break;
       default:
-        router.push('/learn/english');
+        router.push('/english');
     }
   };
 
@@ -223,7 +224,7 @@ export default function EnglishLearningDashboard() {
   const handleContinueLesson = () => {
     if (lastActivity) {
       // Navigate to the exact last visited topic
-      router.push(`/learn/english/${lastActivity.pathId}/${lastActivity.topicId}`);
+      router.push(`/english/${lastActivity.pathId}/${lastActivity.topicId}`);
     }
   };
 

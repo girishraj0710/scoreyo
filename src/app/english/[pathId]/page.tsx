@@ -5,7 +5,8 @@ import { useUser } from "@/context/user-context";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPathById, type EnglishTopic, type CEFRLevel } from "@/lib/english-content";
-import { getPathIcon, getTopicIcon } from "@/lib/english-icons";
+import { getPathIcon } from "@/lib/english-icons";
+import { getPremiumTopicIcon } from "@/lib/english-topic-icons";
 import { ChevronLeft, Clock, BookOpen, Award, CheckCircle2, Crown } from "lucide-react";
 
 // CEFR level metadata for grouping (natural learning order).
@@ -118,7 +119,7 @@ export default function EnglishPathPage() {
     const topicProgress = getTopicProgress(topic.id);
     const isStarted = topicProgress.completed > 0;
     const isCompleted = topicProgress.mastery >= 90;
-    const TopicIcon = getTopicIcon(topic.id);
+    const TopicIcon = getPremiumTopicIcon(topic.id);
 
     return (
       <Link key={topic.id} href={`/english/${pathId}/${topic.id}`}>
@@ -137,9 +138,9 @@ export default function EnglishPathPage() {
           }}
         >
           <div className="flex items-start gap-4">
-            {/* Icon */}
-            <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:transition-colors" style={{ background: "var(--hover-bg)" }}>
-              <TopicIcon className="w-7 h-7 text-[#E76F51]" />
+            {/* Premium 3D icon (renders its own colors) */}
+            <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0">
+              <TopicIcon className="w-12 h-12" />
             </div>
 
             {/* Content */}

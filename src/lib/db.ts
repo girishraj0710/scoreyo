@@ -4044,7 +4044,7 @@ async function generateDailyTasks(userId: string, date: string): Promise<DailyTa
     taskType: 'study_guide',
     taskData: {
       label: 'Study English Grammar basics',
-      link: '/learn/english/foundation/verbs-basics',
+      link: '/english/foundation/verbs-basics',
       tag: 'Study Guide',
       meta: {
         subject_id: 'english',
@@ -4217,7 +4217,7 @@ export async function getContinueLearning(userId: string): Promise<{
       progress,
       minsLeft,
       accent: '#2A9D8F',
-      link: `/learn/english/${englishProgress.path_id}/${englishProgress.topic_id}`,
+      link: `/english/${englishProgress.path_id}/${englishProgress.topic_id}`,
       lastActivity: new Date(englishProgress.last_practiced)
     };
   }
@@ -4424,7 +4424,7 @@ export async function getRecentActivities(userId: string): Promise<Array<{
         // updateEnglishProgress), so it must NOT be multiplied by 100 again.
         progress: Math.round(row.mastery_score),
         accent: '#2A9D8F',
-        link: `/learn/english/${row.path_id}/${row.topic_id}`,
+        link: `/english/${row.path_id}/${row.topic_id}`,
         lastActivity: new Date(row.last_practiced)
       });
     });
