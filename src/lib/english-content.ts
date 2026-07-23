@@ -2,7 +2,7 @@
 // Foundation: A1-B1 (43 topics) | Advanced: B2-C1 (22 topics)
 
 import { foundationPathComplete, getAllFoundationTopics } from './english-foundation-complete-43';
-import { advancedEnglishPath, getAllAdvancedTopics } from './english-advanced-path';
+import { advancedEnglishPath, getAllAdvancedTopics, getAdvancedModules } from './english-advanced-path';
 
 export type EnglishLevel = "beginner" | "intermediate" | "advanced";
 export type EnglishGoal = "ielts-toefl" | "foundation" | "advanced" | "real-world";
@@ -32,6 +32,15 @@ export interface EnglishPath {
   topics: EnglishTopic[];
   totalQuestions: number;
   estimatedWeeks: number;
+}
+
+// A group of topics within a path (Module 1, Module 2, ...). Used by the track
+// UI to render module-grouped cards.
+export interface EnglishModule {
+  id: string;
+  name: string;
+  description: string;
+  topics: EnglishTopic[];
 }
 
 // Flatten all modules into topics arrays
@@ -536,6 +545,41 @@ export function getTopicById(pathId: string, topicId: string): EnglishTopic | un
 
 export function getAllTopics(): EnglishTopic[] {
   return englishPaths.flatMap((path) => path.topics);
+}
+
+// Returns the module grouping for a path so the UI can render module-based
+// sections. Foundation and Advanced have real modules in their source
+// libraries; IELTS/TOEFL and Real-world are flat, so each is wrapped in a
+// single module using the path's own name/description.
+export function getPathModules(pathId: string): EnglishModule[] {
+  if (pathId === "foundation") {
+    return foundationPathComplete.modules.map((m) => ({
+      id: m.id,
+      name: m.name,
+      description: m.description,
+      topics: m.topics as EnglishTopic[],
+    }));
+  }
+
+  if (pathId === "advanced") {
+    return getAdvancedModules().map((m) => ({
+      id: m.id,
+      name: m.name,
+      description: m.description,
+      topics: m.topics as EnglishTopic[],
+    }));
+  }
+
+  const path = getPathById(pathId);
+  if (!path) return [];
+  return [
+    {
+      id: `${path.id}-all`,
+      name: path.name,
+      description: path.description,
+      topics: path.topics,
+    },
+  ];
 }
 
 export function getTopicsByLevel(level: EnglishLevel): EnglishTopic[] {

@@ -4,21 +4,9 @@ import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
-import { getPathById, type EnglishTopic, type CEFRLevel } from "@/lib/english-content";
-import { getPathIcon } from "@/lib/english-icons";
+import { getPathById, getPathModules, type EnglishTopic, type EnglishModule } from "@/lib/english-content";
 import { getPremiumTopicIcon } from "@/lib/english-topic-icons";
-import { ChevronLeft, Clock, BookOpen, Award, CheckCircle2, Crown } from "lucide-react";
-
-// CEFR level metadata for grouping (natural learning order).
-const CEFR_META: Record<CEFRLevel, { name: string; color: string }> = {
-  A1: { name: "Beginner", color: "#10b981" },
-  A2: { name: "Elementary", color: "#22c55e" },
-  B1: { name: "Intermediate", color: "#fb923c" },
-  B2: { name: "Upper-Intermediate", color: "#f97316" },
-  C1: { name: "Advanced", color: "#ef4444" },
-  C2: { name: "Expert", color: "#a855f7" },
-};
-const CEFR_ORDER: CEFRLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
+import { ChevronLeft, Clock, Target, CheckCircle2 } from "lucide-react";
 
 interface TopicProgress {
   topicId: string;
@@ -37,6 +25,8 @@ export default function EnglishPathPage() {
   const [loading, setLoading] = useState(true);
 
   const path = getPathById(pathId);
+  const modules: EnglishModule[] = getPathModules(pathId);
+  const accent = path?.color ?? "#E76F51";
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -67,7 +57,7 @@ export default function EnglishPathPage() {
   if (isLoading || !user || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--card-bg)" }}>
-        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--muted)", borderTopColor: "var(--foreground)" }}></div>
+        <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--muted)", borderTopColor: accent }}></div>
       </div>
     );
   }
@@ -85,121 +75,97 @@ export default function EnglishPathPage() {
     );
   }
 
-  const getTopicProgress = (topicId: string): TopicProgress => {
-    return progress.find(p => p.topicId === topicId) || {
+  const getTopicProgress = (topicId: string): TopicProgress =>
+    progress.find((p) => p.topicId === topicId) || {
       topicId,
       completed: 0,
       total: 0,
       accuracy: 0,
-      mastery: 0
+      mastery: 0,
     };
-  };
 
-  const getLevelBadgeColor = (level: string) => {
-    switch (level) {
-      case "beginner": return { background: "rgba(16, 185, 129, 0.1)", color: "#10b981", border: "1px solid rgba(16, 185, 129, 0.3)" };
-      case "intermediate": return { background: "rgba(251, 146, 60, 0.1)", color: "#fb923c", border: "1px solid rgba(251, 146, 60, 0.3)" };
-      case "advanced": return { background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", border: "1px solid rgba(239, 68, 68, 0.3)" };
-      default: return { background: "var(--primary-bg)", color: "var(--foreground)", border: "1px solid var(--card-border)" };
-    }
-  };
+  const totalTopics = modules.reduce((acc, m) => acc + m.topics.length, 0);
 
-  // Group topics by CEFR level, preserving library order within each group.
-  const groupedByCefr: { level: CEFRLevel; topics: EnglishTopic[] }[] = CEFR_ORDER
-    .map((level) => ({
-      level,
-      topics: path.topics.filter((t) => t.cefrLevel === level),
-    }))
-    .filter((g) => g.topics.length > 0);
-
-  // Any topic missing a cefrLevel still shows, under an "Other" group.
-  const ungrouped = path.topics.filter((t) => !t.cefrLevel);
-
-  const renderTopicCard = (topic: EnglishTopic, cefrColor: string) => {
-    const topicProgress = getTopicProgress(topic.id);
-    const isStarted = topicProgress.completed > 0;
-    const isCompleted = topicProgress.mastery >= 90;
+  const renderTopicCard = (topic: EnglishTopic) => {
+    const tp = getTopicProgress(topic.id);
+    const isStarted = tp.completed > 0;
+    const isCompleted = tp.mastery >= 90;
     const TopicIcon = getPremiumTopicIcon(topic.id);
+    const progressPct = topic.questionCount > 0
+      ? Math.min(100, Math.round((tp.completed / topic.questionCount) * 100))
+      : 0;
 
     return (
-      <Link key={topic.id} href={`/english/${pathId}/${topic.id}`}>
+      <Link key={topic.id} href={`/english/${pathId}/${topic.id}`} className="block h-full">
         <div
-          className="rounded-xl p-6 shadow-sm border-2 transition-all cursor-pointer group"
+          className="group relative h-full p-5 rounded-xl border-2 transition-all text-left"
           style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "var(--primary)";
-            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.12)";
+            e.currentTarget.style.borderColor = accent;
+            e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.10)";
             e.currentTarget.style.transform = "translateY(-2px)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = "var(--card-border)";
-            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
+            e.currentTarget.style.boxShadow = "none";
             e.currentTarget.style.transform = "translateY(0)";
           }}
         >
-          <div className="flex items-start gap-4">
-            {/* Premium 3D icon (renders its own colors) */}
-            <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0">
-              <TopicIcon className="w-12 h-12" />
+          {/* CEFR badge — top right */}
+          {topic.cefrLevel && (
+            <div
+              className="absolute top-4 right-4 px-2 py-0.5 rounded-md text-[10px] font-bold"
+              style={{ background: `${accent}15`, color: accent }}
+            >
+              {topic.cefrLevel}
             </div>
+          )}
 
-            {/* Content */}
-            <div className="flex-1">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h3 className="text-lg font-bold group-hover:text-[#E76F51] transition-colors" style={{ color: "var(--foreground)" }}>
-                    {topic.name}
-                  </h3>
-                  <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{topic.description}</p>
-                </div>
-                {isCompleted && (
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0" />
-                )}
-              </div>
+          {/* Icon + title */}
+          <div className="grid grid-cols-[3rem_1fr] gap-3 items-center mb-3">
+            <TopicIcon className="w-12 h-12" />
+            <h3
+              className="font-semibold text-sm leading-tight pr-10 break-words transition-colors"
+              style={{ color: "var(--foreground)" }}
+            >
+              {topic.name}
+            </h3>
+          </div>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2 mb-3">
-                {topic.cefrLevel && (
-                  <span
-                    className="px-3 py-1 text-xs font-bold rounded-full"
-                    style={{ background: `${cefrColor}15`, color: cefrColor, border: `1px solid ${cefrColor}40` }}
-                  >
-                    {topic.cefrLevel}
-                  </span>
-                )}
-                <span className="px-3 py-1 text-xs font-medium rounded-full" style={getLevelBadgeColor(topic.level)}>
-                  {topic.level}
-                </span>
-                <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
-                  {topic.questionCount} questions
-                </span>
-                <span className="px-3 py-1 text-xs font-medium rounded-full" style={{ background: "var(--hover-bg)", color: "var(--foreground)" }}>
-                  ~{topic.estimatedTime} min
-                </span>
-              </div>
+          {/* Description */}
+          <p className="text-xs mb-4 line-clamp-2 leading-relaxed" style={{ color: "var(--foreground-secondary)" }}>
+            {topic.description}
+          </p>
 
-              {/* Progress Bar */}
-              {isStarted && (
-                <div className="mb-2">
-                  <div className="flex items-center justify-between text-xs mb-1" style={{ color: "var(--foreground-secondary)" }}>
-                    <span>Progress: {topicProgress.completed}/{topic.questionCount}</span>
-                    <span>Mastery: {topicProgress.mastery.toFixed(0)}%</span>
-                  </div>
-                  <div className="w-full rounded-full h-2 overflow-hidden" style={{ background: "var(--hover-bg)" }}>
-                    <div
-                      className="h-full bg-gradient-to-r from-[#E76F51] to-purple-500 transition-all"
-                      style={{ width: `${(topicProgress.completed / topic.questionCount) * 100}%` }}
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Subtopics */}
-              <div className="text-xs" style={{ color: "var(--muted)" }}>
-                <span className="font-medium">Covers:</span> {topic.subtopics.slice(0, 3).join(", ")}
-                {topic.subtopics.length > 3 && ` +${topic.subtopics.length - 3} more`}
+          {/* Progress bar (only once started) */}
+          {isStarted && (
+            <div className="mb-3">
+              <div className="w-full rounded-full h-1.5 overflow-hidden" style={{ background: "var(--hover-bg)" }}>
+                <div className="h-full rounded-full transition-all" style={{ width: `${progressPct}%`, background: accent }} />
               </div>
             </div>
+          )}
+
+          {/* Meta + status */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 text-xs" style={{ color: "var(--muted)" }}>
+              <span className="flex items-center gap-1" title="Estimated time">
+                <Clock className="w-3.5 h-3.5" />
+                {topic.estimatedTime}m
+              </span>
+              <span className="flex items-center gap-1" title="Practice questions">
+                <Target className="w-3.5 h-3.5" />
+                {topic.questionCount}Q
+              </span>
+            </div>
+
+            {isCompleted ? (
+              <CheckCircle2 className="w-5 h-5 text-emerald-500" aria-label="Mastered" />
+            ) : isStarted ? (
+              <span className="text-[11px] font-semibold" style={{ color: accent }}>
+                {tp.mastery.toFixed(0)}%
+              </span>
+            ) : null}
           </div>
         </div>
       </Link>
@@ -208,9 +174,8 @@ export default function EnglishPathPage() {
 
   return (
     <div className="min-h-screen" style={{ background: "var(--card-bg)" }}>
-
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Back Button */}
+        {/* Back button */}
         <Link href="/english">
           <button className="flex items-center gap-2 mb-6 transition-colors" style={{ color: "var(--foreground-secondary)" }}>
             <ChevronLeft className="w-5 h-5" />
@@ -218,97 +183,56 @@ export default function EnglishPathPage() {
           </button>
         </Link>
 
-        {/* Path Header */}
-        <div
-          className="mb-8 rounded-2xl p-8 shadow-sm transition-all"
-          style={{ background: "var(--card-bg)", borderColor: "var(--card-border)", borderWidth: "1px", borderStyle: "solid" }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
-            e.currentTarget.style.transform = "translateY(-2px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-        >
-          <div className="flex items-start gap-6">
-            {(() => {
-              const PathIcon = getPathIcon(path.id);
-              return (
-                <div
-                  className="w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: `${path.color}15` }}
-                >
-                  <PathIcon className="w-10 h-10" style={{ color: path.color }} />
-                </div>
-              );
-            })()}
-            <div className="flex-1">
-              <h1 className="text-3xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{path.name}</h1>
-              <p className="mb-4" style={{ color: "var(--foreground-secondary)" }}>{path.description}</p>
-              <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
-                  <BookOpen className="w-4 h-4 text-[#E76F51]" />
-                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
-                    {path.topics.length} topics
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
-                  <Award className="w-4 h-4 text-emerald-600" />
-                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
-                    {path.totalQuestions}+ questions
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: "var(--hover-bg)" }}>
-                  <Clock className="w-4 h-4 text-purple-600" />
-                  <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
-                    ~{path.estimatedWeeks} weeks
-                  </span>
-                </div>
-              </div>
+        {/* Path header */}
+        <div className="flex items-start justify-between gap-6 mb-8">
+          <div>
+            <h1 className="text-3xl font-bold mb-2" style={{ color: "var(--foreground)" }}>{path.name}</h1>
+            <p style={{ color: "var(--foreground-secondary)" }}>{path.description}</p>
+          </div>
+          <div className="flex items-center gap-6 flex-shrink-0">
+            <div className="text-right">
+              <p className="text-xs" style={{ color: "var(--muted)" }}>Total Topics</p>
+              <p className="text-lg font-bold" style={{ color: accent }}>{totalTopics}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs" style={{ color: "var(--muted)" }}>Est. Time</p>
+              <p className="text-lg font-bold text-emerald-500">{path.estimatedWeeks} weeks</p>
             </div>
           </div>
         </div>
 
-        {/* Topics grouped by CEFR level */}
-        <div className="space-y-10">
-          {groupedByCefr.map((group) => {
-            const meta = CEFR_META[group.level];
-            return (
-              <section key={group.level}>
-                {/* Level header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-sm font-bold"
-                    style={{ background: `${meta.color}15`, color: meta.color }}
-                  >
-                    {group.level === "C2" && <Crown className="w-4 h-4" />}
-                    {group.level}
-                  </span>
-                  <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>
-                    {meta.name}
-                  </h2>
-                  <span className="text-sm" style={{ color: "var(--foreground-secondary)" }}>
-                    {group.topics.length} topics
-                  </span>
+        {/* Modules */}
+        <div className="space-y-6">
+          {modules.map((module, moduleIndex) => (
+            <section
+              key={module.id}
+              className="rounded-2xl border p-6"
+              style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}
+            >
+              {/* Module header */}
+              <div className="flex items-center gap-4 mb-6">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${accent}15` }}
+                >
+                  <span className="text-xl font-bold" style={{ color: accent }}>{moduleIndex + 1}</span>
                 </div>
-
-                {/* Topic cards */}
-                <div className="space-y-4">
-                  {group.topics.map((topic) => renderTopicCard(topic, meta.color))}
+                <div className="flex-1">
+                  <h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>{module.name}</h2>
+                  <p className="text-sm" style={{ color: "var(--foreground-secondary)" }}>{module.description}</p>
                 </div>
-              </section>
-            );
-          })}
+                <div className="text-right flex-shrink-0">
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>Topics</p>
+                  <p className="text-lg font-semibold" style={{ color: "var(--foreground)" }}>{module.topics.length}</p>
+                </div>
+              </div>
 
-          {ungrouped.length > 0 && (
-            <section>
-              <h2 className="text-xl font-bold mb-4" style={{ color: "var(--foreground)" }}>More Topics</h2>
-              <div className="space-y-4">
-                {ungrouped.map((topic) => renderTopicCard(topic, "#64748b"))}
+              {/* Topics grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {module.topics.map((topic) => renderTopicCard(topic))}
               </div>
             </section>
-          )}
+          ))}
         </div>
       </main>
     </div>

@@ -1204,6 +1204,37 @@ export const getAllAdvancedTopics = (): ExportedEnglishTopic[] => {
   );
 };
 
+// A module with its topics converted to the exported EnglishTopic shape.
+export type ExportedEnglishModule = {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  topics: ExportedEnglishTopic[];
+};
+
+// Helper to expose the module grouping (name, description, topics) for the UI.
+export const getAdvancedModules = (): ExportedEnglishModule[] => {
+  return advancedEnglishPath.modules.map(module => ({
+    id: module.id,
+    name: module.name,
+    description: module.description,
+    icon: module.icon,
+    topics: module.topics.map(topic => ({
+      id: topic.id,
+      name: topic.name,
+      description: topic.description,
+      icon: topic.icon,
+      level: topic.level as "intermediate" | "advanced",
+      cefrLevel: topic.cefrLevel,
+      category: "advanced" as const,
+      subtopics: topic.subtopics,
+      estimatedTime: topic.estimatedTime,
+      questionCount: topic.questionCount,
+    })),
+  }));
+};
+
 // Helper to get topics by CEFR level (internal use)
 export const getAdvancedTopicsByLevel = (level: "B2" | "C1" | "C2"): ExportedEnglishTopic[] => {
   const allTopics = advancedEnglishPath.modules.flatMap(module => module.topics);
