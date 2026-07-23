@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { BookOpen, CheckCircle, ArrowRight, ArrowLeft, Clock, Target } from "lucide-react";
+import { BookOpen, CheckCircle, ArrowRight, ArrowLeft, Clock, Target, Wand2 } from "lucide-react";
 import { StudyMaterialContent } from "@/components/study-material-content-v2";
 import { getPathById, getTopicById } from "@/lib/english-content";
 import { trackTopicVisit } from "@/lib/english-activity-tracker";
 import { useUser } from "@/context/user-context";
+import { ConvertModal } from "@/components/convert/ConvertModal";
 
 interface StudyMaterial {
   id: number;
@@ -41,6 +42,7 @@ export default function StudyMaterialPage() {
   const [completedSections, setCompletedSections] = useState(new Set<number>());
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [convertOpen, setConvertOpen] = useState(false);
 
   useEffect(() => {
     fetchStudyMaterial();
@@ -179,6 +181,13 @@ export default function StudyMaterialPage() {
             >
               {studyMaterial.difficulty_level}
             </span>
+            <button
+              onClick={() => setConvertOpen(true)}
+              className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold border-2 border-[#E76F51] text-[#E76F51] hover:bg-[#E76F51]/5 transition-colors"
+            >
+              <Wand2 className="w-3.5 h-3.5" />
+              Turn into Deck / Quiz / Game
+            </button>
           </div>
         </div>
       </div>
@@ -255,6 +264,14 @@ export default function StudyMaterialPage() {
         </div>
       </div>
 
+      {/* Convert Modal — turn this English lesson into any study mode */}
+      <ConvertModal
+        isOpen={convertOpen}
+        onClose={() => setConvertOpen(false)}
+        source={{ sourceType: "guide", pathId, topicId }}
+        sourceLabel={studyMaterial.title}
+        allowedModes={["deck", "quiz", "match", "blocks", "blast"]}
+      />
     </div>
   );
 }

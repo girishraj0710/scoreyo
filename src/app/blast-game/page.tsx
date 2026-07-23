@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useUser } from "@/context/user-context";
 import GameIntroScreen from "@/components/common/GameIntroScreen";
 
 // Import PREMIUM Blast component with no SSR (Phaser only works client-side)
@@ -15,9 +16,84 @@ const BlastGame = dynamic(() => import("@/components/games/BlastGamePremium"), {
   ),
 });
 
-export default function BlastGamePage() {
+interface BlastQuestion {
+  id: string;
+  question: string;
+  answer: string;
+  options: string[];
+  topic: string;
+  subject: string;
+  source: string;
+}
+
+// Derive 4-option MCQs from term/definition pairs.
+// Prompt = definition, correct answer = term, distractors = other terms.
+function pairsToQuestions(
+  pairs: { term: string; definition: string }[],
+  title: string
+): BlastQuestion[] {
+  const valid = pairs.filter((p) => p.term && p.definition);
+  const allTerms = valid.map((p) => p.term);
+
+  return valid.map((p, i) => {
+    const distractors = allTerms.filter((t) => t !== p.term).slice(0, 3);
+    // Deterministic placement: rotate the correct answer through the 4 slots.
+    const options = [...distractors];
+    const correctIndex = i % (options.length + 1);
+    options.splice(correctIndex, 0, p.term);
+
+    return {
+      id: `art_${i}`,
+      question: p.definition,
+      answer: p.term,
+      options,
+      topic: "General",
+      subject: title,
+      source: "generated",
+    };
+  });
+}
+
+function BlastGameContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const artifactSlug = searchParams.get("artifact");
+  const { user, isLoading } = useUser();
   const [gameStarted, setGameStarted] = useState(false);
+  const [artifactQuestions, setArtifactQuestions] = useState<BlastQuestion[] | null>(null);
+  const [artifactTitle, setArtifactTitle] = useState("");
+  const [artifactLoading, setArtifactLoading] = useState(!!artifactSlug);
+  const [artifactError, setArtifactError] = useState("");
+
+  // Gate anonymous users: playing requires an account.
+  useEffect(() => {
+    if (isLoading || user) return;
+    const dest = artifactSlug ? `/blast-game?artifact=${artifactSlug}` : "/blast-game";
+    router.push(`/login?redirect=${encodeURIComponent(dest)}`);
+  }, [isLoading, user, artifactSlug, router]);
+
+  // Load generated artifact pairs → MCQs.
+  useEffect(() => {
+    if (!artifactSlug) return;
+    (async () => {
+      try {
+        const res = await fetch(`/api/generated/${artifactSlug}`);
+        if (!res.ok) throw new Error("Artifact not found");
+        const data = await res.json();
+        const questions = pairsToQuestions(data.pairs || [], data.title || "Study Set");
+        if (questions.length < 2) {
+          setArtifactError("This study set doesn't have enough pairs to play Blast.");
+        } else {
+          setArtifactQuestions(questions);
+          setArtifactTitle(data.title || "Study Set");
+        }
+      } catch {
+        setArtifactError("Failed to load this study set.");
+      } finally {
+        setArtifactLoading(false);
+      }
+    })();
+  }, [artifactSlug]);
 
   const handleExit = () => {
     router.push("/");
@@ -27,7 +103,30 @@ export default function BlastGamePage() {
     setGameStarted(true);
   };
 
-  console.log("🚀 BlastGamePage rendering - Updated version with GameIntroScreen");
+  if (isLoading || !user || artifactLoading) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center bg-gradient-to-b from-[#0A0820] to-[#000000]">
+        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (artifactError) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center bg-gradient-to-b from-[#0A0820] to-[#000000] px-6">
+        <div className="text-center max-w-md">
+          <h2 className="text-white text-2xl font-bold mb-3">Oops!</h2>
+          <p className="text-gray-400 mb-6">{artifactError}</p>
+          <button
+            onClick={handleExit}
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+          >
+            Back to Home
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (!gameStarted) {
     return (
@@ -115,7 +214,7 @@ export default function BlastGamePage() {
           </svg>
         }
         title="Blast"
-        subtitle="GENERAL"
+        subtitle={artifactTitle ? artifactTitle.toUpperCase() : "GENERAL"}
         description="Blast asteroids with correct answers before time runs out!"
         instructions={[
           { text: "• Move your mouse to aim the cannon at moving asteroids" },
@@ -133,5 +232,19 @@ export default function BlastGamePage() {
     );
   }
 
-  return <BlastGame onExit={handleExit} />;
+  return <BlastGame onExit={handleExit} initialQuestions={artifactQuestions ?? undefined} />;
+}
+
+export default function BlastGamePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="w-full h-screen flex items-center justify-center bg-gradient-to-b from-[#0A0820] to-[#000000]">
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      }
+    >
+      <BlastGameContent />
+    </Suspense>
+  );
 }

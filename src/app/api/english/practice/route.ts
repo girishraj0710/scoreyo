@@ -98,6 +98,8 @@ export async function POST(request: NextRequest) {
 
       // Academic Vocabulary → academic-vocabulary (5Q) + essential-vocabulary (5Q)
       'academic-vocabulary': 'academic-vocabulary',
+      // IELTS/TOEFL Academic Vocabulary (renamed to avoid id clash with the Advanced topic)
+      'ielts-academic-vocabulary': 'academic-vocabulary',
 
       // ===== COMPETITIVE EXAM TOPICS =====
       // Sentence Improvement → common-mistakes (131Q) - perfect for error detection

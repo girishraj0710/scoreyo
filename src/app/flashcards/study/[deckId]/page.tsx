@@ -18,7 +18,9 @@ import {
   ThumbsUp,
   Star,
   User,
+  Wand2,
 } from "lucide-react";
+import { ConvertModal } from "@/components/convert/ConvertModal";
 
 interface Card {
   id: number;
@@ -48,6 +50,7 @@ export default function FlashcardStudyPage() {
   const [deckRating, setDeckRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [ratingSuccess, setRatingSuccess] = useState(false);
+  const [convertOpen, setConvertOpen] = useState(false);
 
   // Deck metadata
   const [creatorName, setCreatorName] = useState<string>("");
@@ -338,13 +341,22 @@ export default function FlashcardStudyPage() {
             </p>
           </div>
 
-          <button
-            onClick={handleShuffle}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
-            title="Shuffle cards"
-          >
-            <Shuffle className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setConvertOpen(true)}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+              title="Turn this deck into a quiz, game or mock test"
+            >
+              <Wand2 className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+            </button>
+            <button
+              onClick={handleShuffle}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+              title="Shuffle cards"
+            >
+              <Shuffle className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+            </button>
+          </div>
         </div>
 
         {/* Progress bar */}
@@ -712,14 +724,11 @@ export default function FlashcardStudyPage() {
               {/* Actions */}
               <div className="flex flex-col gap-3">
                 <button
-                  onClick={() => {
-                    // TODO: Navigate to quiz with same topic
-                    alert("Quiz feature coming soon! This will generate a quiz with the same cards.");
-                  }}
+                  onClick={() => setConvertOpen(true)}
                   className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-[#F26A4B] to-[#E76F51] hover:from-[#E76F51] hover:to-[#D35D42] text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
-                  <RotateCcw className="w-5 h-5" />
-                  Take Quiz
+                  <Wand2 className="w-5 h-5" />
+                  Turn into Quiz / Game / Mock
                 </button>
                 <button
                   onClick={handleRestart}
@@ -738,6 +747,15 @@ export default function FlashcardStudyPage() {
           </motion.div>
         </div>
       )}
+
+      {/* Convert Modal — turn this deck into a quiz/game/mock */}
+      <ConvertModal
+        isOpen={convertOpen}
+        onClose={() => setConvertOpen(false)}
+        source={{ sourceType: "deck", sourceRef: deckId }}
+        sourceLabel={deckTitle}
+        allowedModes={["quiz", "match", "blocks", "blast"]}
+      />
     </div>
   );
 }

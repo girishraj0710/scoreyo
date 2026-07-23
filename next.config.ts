@@ -31,6 +31,39 @@ const nextConfig: NextConfig = {
 
   // Security Headers + Performance Headers
   async headers() {
+    // Aggressive asset caching is production-only. In dev it makes the browser
+    // pin `/_next/static` chunks as `immutable` for a year, so edited code never
+    // re-fetches (you keep running a stale bundle). Guard the cache rules on
+    // NODE_ENV so dev always serves fresh chunks.
+    const isProd = process.env.NODE_ENV === "production";
+    const cacheRules = isProd
+      ? [
+          // Cache static assets aggressively (1 year)
+          {
+            source: "/_next/static/:path*",
+            headers: [
+              { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+            ],
+          },
+          // Cache public assets (images, fonts, etc.) for 1 year
+          {
+            source: "/public/:path*",
+            headers: [
+              { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+            ],
+          },
+          // Cache API responses briefly (5 minutes)
+          {
+            source: "/api/:path*",
+            headers: [
+              {
+                key: "Cache-Control",
+                value: "public, max-age=300, s-maxage=300, stale-while-revalidate=60",
+              },
+            ],
+          },
+        ]
+      : [];
     return [
       {
         source: "/:path*",
@@ -85,36 +118,8 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Cache static assets aggressively (1 year)
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      // Cache public assets (images, fonts, etc.) for 1 year
-      {
-        source: "/public/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      // Cache API responses briefly (5 minutes)
-      {
-        source: "/api/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=300, s-maxage=300, stale-while-revalidate=60",
-          },
-        ],
-      },
+      // Production-only aggressive asset/API caching (empty in dev).
+      ...cacheRules,
       // Auth/user endpoints are per-user and must NEVER be cached. A shared
       // `public` cache would replay a logged-out {user:null} response to a
       // freshly-logged-in request (there is no Vary:Cookie), bouncing the user

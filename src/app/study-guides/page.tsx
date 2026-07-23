@@ -20,10 +20,12 @@ import {
   Lightbulb,
   List,
   Award,
-  FileText
+  FileText,
+  Wand2
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { ContentRenderer } from "@/components/study-guides/ContentRenderer";
+import { ConvertModal } from "@/components/convert/ConvertModal";
 
 // Popular exam quick filters
 const EXAM_FILTERS = [
@@ -111,6 +113,7 @@ function StudyGuidesContent() {
   // Time tracking
   const [readingSessionId, setReadingSessionId] = useState<number | null>(null);
   const [sectionsViewed, setSectionsViewed] = useState(new Set<string>());
+  const [convertOpen, setConvertOpen] = useState(false);
 
   // Auth check
   useEffect(() => {
@@ -1038,6 +1041,14 @@ function StudyGuidesContent() {
                   </button>
 
                   <button
+                    onClick={() => setConvertOpen(true)}
+                    className="flex items-center gap-2 px-6 py-3 border-2 border-[#E76F51] text-[#E76F51] hover:bg-[#E76F51]/5 rounded-lg font-semibold transition-colors"
+                  >
+                    <Wand2 className="w-5 h-5" />
+                    <span>Turn into Deck / Game / Mock</span>
+                  </button>
+
+                  <button
                     onClick={() => router.push("/review")}
                     className="flex items-center gap-2 px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-semibold transition-colors"
                   >
@@ -1076,6 +1087,22 @@ function StudyGuidesContent() {
           </aside>
         )}
       </div>
+
+      {/* Convert Modal — turn this study guide into any study mode */}
+      {selectedTopic && (
+        <ConvertModal
+          isOpen={convertOpen}
+          onClose={() => setConvertOpen(false)}
+          source={{
+            sourceType: "guide",
+            examCode: selectedTopic.examId,
+            subjectCode: selectedTopic.subjectId,
+            topicName: selectedTopic.topicName,
+          }}
+          sourceLabel={selectedTopic.topicName}
+          allowedModes={["deck", "quiz", "match", "blocks", "blast"]}
+        />
+      )}
     </div>
   );
 }

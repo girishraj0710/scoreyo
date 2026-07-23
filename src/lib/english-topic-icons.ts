@@ -106,6 +106,7 @@ const TOPIC_ICON_ALIASES: Record<string, string> = {
   "ielts-listening": "ielts-toefl-listening",
   "ielts-speaking": "ielts-toefl-speaking",
   "toefl-integrated": "ielts-toefl-reading",
+  "ielts-academic-vocabulary": "academic-vocabulary",
 
   // ---- Real-world ----
   "job-interviews": "workplace-communication",

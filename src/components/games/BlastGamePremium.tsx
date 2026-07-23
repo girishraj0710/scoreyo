@@ -10,6 +10,8 @@ import VirtualJoystick from "./VirtualJoystick";
 
 interface BlastGameProps {
   onExit?: () => void;
+  /** When provided, play these questions instead of fetching from the exam bank. */
+  initialQuestions?: Question[];
 }
 
 interface Question {
@@ -31,12 +33,12 @@ interface GameStats {
   isPersonalBest: boolean;
 }
 
-export default function BlastGamePremium({ onExit }: BlastGameProps) {
+export default function BlastGamePremium({ onExit, initialQuestions }: BlastGameProps) {
   const gameRef = useRef<HTMLDivElement>(null);
   const phaserGameRef = useRef<Phaser.Game | null>(null);
   const { user } = useUser();
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [questions, setQuestions] = useState<Question[]>(initialQuestions ?? []);
+  const [loading, setLoading] = useState(!initialQuestions);
   const [error, setError] = useState<string | null>(null);
   const [gameComplete, setGameComplete] = useState(false);
   const [gameStats, setGameStats] = useState<GameStats | null>(null);
@@ -45,8 +47,10 @@ export default function BlastGamePremium({ onExit }: BlastGameProps) {
   const [touchAngle, setTouchAngle] = useState<number>(0); // Current cannon angle for touch controls
   const [useJoystick, setUseJoystick] = useState<boolean>(true); // Toggle between buttons and joystick
 
-  // Fetch questions from API
+  // Fetch questions from API (skipped when caller supplies a generated set)
   useEffect(() => {
+    if (initialQuestions) return;
+
     async function fetchQuestions() {
       if (!user?.current_exam) {
         setError("Please select an exam first");

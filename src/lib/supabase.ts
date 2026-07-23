@@ -233,6 +233,22 @@ export async function deleteFile(
 }
 
 /**
+ * Download a stored file as raw bytes (server-side). Used by the convert
+ * pipeline to re-read an approved study material for study-mode generation.
+ */
+export async function downloadFileBytes(
+  filePath: string,
+  bucketName: string = 'scoreyo-study-materials'
+): Promise<Uint8Array> {
+  const { data, error } = await supabase.storage.from(bucketName).download(filePath);
+  if (error || !data) {
+    throw new Error(`Download failed: ${error?.message || 'no data'}`);
+  }
+  const arrayBuffer = await data.arrayBuffer();
+  return new Uint8Array(arrayBuffer);
+}
+
+/**
  * Get public URL for approved material
  */
 export function getPublicUrl(

@@ -114,11 +114,11 @@ export const advancedEnglishPath: AdvancedPathInternal = {
       ],
     },
 
-    // ==================== MODULE 2: Advanced Relative Clauses (B2) ====================
+    // ==================== MODULE 2: Advanced Relative Clauses & Modals (B2-C1) ====================
     {
       id: "advanced-relatives",
-      name: "Module 2: Advanced Relative Clauses",
-      description: "Non-defining clauses and complex structures",
+      name: "Module 2: Advanced Relative Clauses & Modals",
+      description: "Non-defining clauses, reduced clauses, and complex modal usage",
       icon: "🔗",
       level: "advanced",
       topics: [
@@ -158,17 +158,6 @@ export const advancedEnglishPath: AdvancedPathInternal = {
           questionCount: 50,
           prerequisite: ["non-defining-relative-clauses"],
         },
-      ],
-    },
-
-    // ==================== MODULE 3: Advanced Modals (B2-C1) ====================
-    {
-      id: "advanced-modals",
-      name: "Module 3: Advanced Modal Verbs",
-      description: "Past modals and complex modal usage",
-      icon: "🎭",
-      level: "advanced",
-      topics: [
         {
           id: "past-modals",
           name: "Past Modals (Modal + have + V3)",
@@ -213,7 +202,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // ==================== MODULE 4: Advanced Tenses (B2) ====================
     {
       id: "advanced-tenses",
-      name: "Module 4: Advanced Tense Usage",
+      name: "Module 3: Advanced Tense Usage",
       description: "Complex tense combinations and narrative tenses",
       icon: "⏱️",
       level: "advanced",
@@ -296,7 +285,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // ==================== MODULE 5: Advanced Vocabulary (B2-C1) ====================
     {
       id: "advanced-vocabulary",
-      name: "Module 5: Advanced Vocabulary",
+      name: "Module 4: Advanced Vocabulary",
       description: "Academic words, collocations, and formal language",
       icon: "📚",
       level: "advanced",
@@ -376,11 +365,11 @@ export const advancedEnglishPath: AdvancedPathInternal = {
       ],
     },
 
-    // ==================== MODULE 6: Advanced Writing (B2-C1) ====================
+    // ==================== MODULE 6: Advanced Writing & Speaking (B2-C1) ====================
     {
       id: "advanced-writing",
-      name: "Module 6: Advanced Writing Skills",
-      description: "Essays, reports, and formal correspondence",
+      name: "Module 5: Advanced Writing & Speaking Skills",
+      description: "Essays, reports, formal correspondence, presentations, and debates",
       icon: "✍️",
       level: "advanced",
       topics: [
@@ -441,17 +430,6 @@ export const advancedEnglishPath: AdvancedPathInternal = {
           questionCount: 40,
           prerequisite: ["writing-basics"],
         },
-      ],
-    },
-
-    // ==================== MODULE 7: Advanced Speaking (B2-C1) ====================
-    {
-      id: "advanced-speaking",
-      name: "Module 7: Advanced Speaking Skills",
-      description: "Presentations, debates, and professional communication",
-      icon: "🎤",
-      level: "advanced",
-      topics: [
         {
           id: "presentations-advanced",
           name: "Professional Presentations",
@@ -498,7 +476,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // a full Advanced curriculum before Proficiency.
     {
       id: "c1-advanced-structures",
-      name: "Module 8: Advanced Sentence Structures (C1)",
+      name: "Module 6: Advanced Sentence Structures (C1)",
       description: "Cleft sentences, fronting, participle clauses, and emphasis",
       icon: "🏛️",
       level: "advanced",
@@ -604,7 +582,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // ==================== MODULE 9: C1 Advanced Expression ====================
     {
       id: "c1-advanced-expression",
-      name: "Module 9: Advanced Expression & Style (C1)",
+      name: "Module 7: Advanced Expression & Style (C1)",
       description: "Nominalisation, hedging, cohesion, and discourse control",
       icon: "🎨",
       level: "advanced",
@@ -729,7 +707,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // ==================== MODULE 10: C1 Advanced Skills ====================
     {
       id: "c1-advanced-skills",
-      name: "Module 10: Advanced Writing & Reading (C1)",
+      name: "Module 8: Advanced Writing & Reading (C1)",
       description: "Extended writing genres and reading for inference",
       icon: "🖋️",
       level: "advanced",
@@ -798,7 +776,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // Cambridge C2 (Proficiency / CPE) — the Expert tier. Authored from scratch.
     {
       id: "c2-mastery-structures",
-      name: "Module 11: Expert Structures (C2)",
+      name: "Module 9: Expert Structures (C2)",
       description: "Stylistic inversion, complex fronting, and nuanced modality",
       icon: "👑",
       level: "advanced",
@@ -923,7 +901,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // ==================== MODULE 12: C2 Mastery — Vocabulary ====================
     {
       id: "c2-mastery-vocabulary",
-      name: "Module 12: Expert Vocabulary (C2)",
+      name: "Module 10: Expert Vocabulary (C2)",
       description: "Idiomatic mastery, figurative language, and precise word choice",
       icon: "💎",
       level: "advanced",
@@ -1048,7 +1026,7 @@ export const advancedEnglishPath: AdvancedPathInternal = {
     // ==================== MODULE 13: C2 Mastery — Communication ====================
     {
       id: "c2-mastery-communication",
-      name: "Module 13: Expert Communication (C2)",
+      name: "Module 11: Expert Communication (C2)",
       description: "Formality gradation, pragmatics, and proficiency-level skills",
       icon: "🎓",
       level: "advanced",

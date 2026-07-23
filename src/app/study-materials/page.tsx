@@ -15,9 +15,11 @@ import {
   Loader,
   Search,
   Library,
+  Wand2,
 } from 'lucide-react';
 import { AccessibilityWrapper } from '@/components/accessibility-wrapper';
 import { ColorfulExamIcon, ColorfulSubjectIcon } from '@/lib/colorful-exam-icons';
+import { ConvertModal } from '@/components/convert/ConvertModal';
 
 interface StudyMaterial {
   id: string;
@@ -45,6 +47,7 @@ function StudyMaterialsContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [downloadingIds, setDownloadingIds] = useState<Set<string>>(new Set());
+  const [convertMaterial, setConvertMaterial] = useState<{ id: string; title: string } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredExams, setFilteredExams] = useState<any[]>([]);
   const [filteredSubjects, setFilteredSubjects] = useState<any[]>([]);
@@ -679,35 +682,47 @@ function StudyMaterialsContent() {
                         </div>
                       </div>
 
-                      {/* Download Button */}
-                      <button
-                        onClick={() => handleDownload(material.id)}
-                        disabled={downloadingIds.has(material.id)}
-                        className="px-7 py-3 text-white rounded-lg font-medium flex items-center gap-2 transition-all flex-shrink-0 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
-                        style={{ backgroundColor: downloadingIds.has(material.id) ? "#9ca3af" : "#E76F51" }}
-                        onMouseEnter={(e) => {
-                          if (!downloadingIds.has(material.id)) {
-                            e.currentTarget.style.backgroundColor = "#d96043";
-                            e.currentTarget.style.transform = "scale(1.02)";
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = "#E76F51";
-                          e.currentTarget.style.transform = "scale(1)";
-                        }}
-                      >
-                        {downloadingIds.has(material.id) ? (
-                          <>
-                            <Loader className="w-5 h-5 animate-spin" />
-                            Downloading...
-                          </>
-                        ) : (
-                          <>
-                            <Download className="w-5 h-5" />
-                            Download
-                          </>
-                        )}
-                      </button>
+                      {/* Actions */}
+                      <div className="flex flex-col gap-2 flex-shrink-0">
+                        {/* Download Button */}
+                        <button
+                          onClick={() => handleDownload(material.id)}
+                          disabled={downloadingIds.has(material.id)}
+                          className="px-7 py-3 text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                          style={{ backgroundColor: downloadingIds.has(material.id) ? "#9ca3af" : "#E76F51" }}
+                          onMouseEnter={(e) => {
+                            if (!downloadingIds.has(material.id)) {
+                              e.currentTarget.style.backgroundColor = "#d96043";
+                              e.currentTarget.style.transform = "scale(1.02)";
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = "#E76F51";
+                            e.currentTarget.style.transform = "scale(1)";
+                          }}
+                        >
+                          {downloadingIds.has(material.id) ? (
+                            <>
+                              <Loader className="w-5 h-5 animate-spin" />
+                              Downloading...
+                            </>
+                          ) : (
+                            <>
+                              <Download className="w-5 h-5" />
+                              Download
+                            </>
+                          )}
+                        </button>
+
+                        {/* Convert Button — turn this material into a study mode */}
+                        <button
+                          onClick={() => setConvertMaterial({ id: material.id, title: material.title })}
+                          className="px-7 py-2.5 rounded-lg font-medium flex items-center justify-center gap-2 transition-all whitespace-nowrap border-2 border-[#E76F51] text-[#E76F51] hover:bg-[#E76F51]/5"
+                        >
+                          <Wand2 className="w-5 h-5" />
+                          Turn into study set
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -729,6 +744,17 @@ function StudyMaterialsContent() {
           </div>
         )}
       </div>
+
+      {/* Convert Modal — turn a downloadable material into any study mode */}
+      {convertMaterial && (
+        <ConvertModal
+          isOpen={!!convertMaterial}
+          onClose={() => setConvertMaterial(null)}
+          source={{ sourceType: "material", materialId: convertMaterial.id }}
+          sourceLabel={convertMaterial.title}
+          allowedModes={["deck", "quiz", "match", "blocks", "blast", "mock"]}
+        />
+      )}
     </AccessibilityWrapper>
   );
 }
