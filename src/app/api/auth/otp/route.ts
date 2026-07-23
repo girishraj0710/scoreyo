@@ -6,7 +6,12 @@ import { saveOTPToCache, verifyOTPFromCache } from "@/lib/otp-cache";
 import { isEmergencyAuthMode, checkUserExistsInCache } from "@/lib/user-cache";
 import { POST as securePOST, PUT as securePUT } from "./route-secure";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Instantiate lazily: constructing at module load throws when RESEND_API_KEY
+// is absent (e.g. Vercel build/preview env), which fails `next build` while
+// collecting page data for this route.
+function getResend(): Resend {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 function generateOtp(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -133,7 +138,7 @@ export async function POST(request: NextRequest) {
     console.log(`[OTP] 📧 Resend API Key exists: ${!!process.env.RESEND_API_KEY}`);
     console.log(`[OTP] 📧 From: Scoreyo <noreply@scoreyo.in>`);
 
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: "Scoreyo <noreply@scoreyo.in>",
       to: cleanEmail,
       subject: `${code} is your Scoreyo verification code`,

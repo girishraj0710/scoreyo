@@ -17,7 +17,12 @@ import { logger } from "@/lib/logger";
 import { getRedis } from "@/lib/redis";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Instantiate lazily: constructing at module load throws when RESEND_API_KEY
+// is absent (e.g. Vercel build/preview env), which fails `next build` while
+// collecting page data for this route.
+function getResend(): Resend {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 const OTP_EXPIRY_MINUTES = 10;
 const MAX_OTP_ATTEMPTS = 5;
 
@@ -86,7 +91,7 @@ export const POST = withValidation(
 
       // ── STEP 5: Send Email ──────────────────────────────────
       try {
-        await resend.emails.send({
+        await getResend().emails.send({
           from: "Scoreyo <noreply@scoreyo.in>",
           to: cleanEmail,
           subject: "Your Scoreyo OTP Code",
