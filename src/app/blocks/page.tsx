@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, useRef, useCallback, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useUser } from "@/context/user-context";
 import { useExamFilter } from "@/hooks/use-exam-filter";
@@ -309,8 +309,10 @@ const adjustBrightness = (color: string, percent: number): string => {
   return "#" + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
 };
 
-export default function BlocksPage() {
+function BlocksGame() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const artifactSlug = searchParams.get("artifact");
   const { user, isLoading } = useUser();
   const examId = useExamFilter() || "jee-main";
   const inputRef = useRef<HTMLInputElement>(null);
@@ -407,6 +409,45 @@ export default function BlocksPage() {
 
   // Load content
   const loadContent = async () => {
+    // Generated artifact: convert term/definition pairs into questions.
+    // Question = definition (the prompt), answer = term (what you type).
+    if (artifactSlug) {
+      try {
+        const res = await fetch(`/api/generated/${artifactSlug}`);
+        if (!res.ok) throw new Error("Artifact not found");
+        const data = await res.json();
+        const pairs: { term: string; definition: string }[] = data.pairs || [];
+        const questions: QuestionData[] = pairs
+          .filter((p) => p.term && p.definition && isSimpleQuestion(p.definition, p.term))
+          .map((p, i) => ({
+            id: `art_${i}`,
+            question: p.definition,
+            answer: p.term,
+            topic: "General",
+            subject: data.title || "Study Set",
+          }));
+        // Fallback: if the simple-question filter drops everything, keep them all.
+        const finalQuestions =
+          questions.length > 0
+            ? questions
+            : pairs
+                .filter((p) => p.term && p.definition)
+                .map((p, i) => ({
+                  id: `art_${i}`,
+                  question: p.definition,
+                  answer: p.term,
+                  topic: "General",
+                  subject: data.title || "Study Set",
+                }));
+        setQuestionQueue(finalQuestions);
+        setContentSource("generated");
+        setSubjectName(data.title || "Study Set");
+      } catch (error) {
+        console.error("Error loading blocks artifact:", error);
+      }
+      return;
+    }
+
     try {
       const response = await fetch(`/api/match/content?examId=${examId}`);
       const data = await response.json();
@@ -460,6 +501,8 @@ export default function BlocksPage() {
 
   // Load more questions
   const loadMoreQuestions = useCallback(async () => {
+    // Generated artifacts are a finite set — don't top up from the exam bank.
+    if (artifactSlug) return 0;
     try {
       const response = await fetch(`/api/match/content?examId=${examId}`);
       const data = await response.json();
@@ -950,7 +993,8 @@ export default function BlocksPage() {
   }
 
   if (!user) {
-    router.push("/auth");
+    const dest = artifactSlug ? `/blocks?artifact=${artifactSlug}` : "/blocks";
+    router.push(`/login?redirect=${encodeURIComponent(dest)}`);
     return null;
   }
 
@@ -1192,5 +1236,19 @@ export default function BlocksPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BlocksPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
+          <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: "var(--card-border)", borderTopColor: "var(--primary)" }}></div>
+        </div>
+      }
+    >
+      <BlocksGame />
+    </Suspense>
   );
 }

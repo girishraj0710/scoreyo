@@ -3,14 +3,7 @@ import { generateText } from "ai";
 import { openrouter } from "@openrouter/ai-sdk-provider";
 import { classifyContent, calculateQualityScore, checkDuplicate } from "@/lib/classify-content";
 import { queryAll, execute } from "@/lib/db";
-
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-const ALLOWED_TYPES = [
-  'application/pdf',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-  'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-  'text/plain'
-];
+import { extractTextFromUpload, ExtractionError } from "@/lib/content-extraction";
 
 interface QuizQuestion {
   question: string;
@@ -66,97 +59,17 @@ export async function POST(request: NextRequest) {
     // Check if user uploaded a file
     else if (file) {
       console.log('[Custom Quiz] Processing file upload:', file.name, file.type);
-
-      // Validate file
-      if (file.size > MAX_FILE_SIZE) {
-        return NextResponse.json(
-          { error: "File too large. Maximum size is 10MB" },
-          { status: 400 }
-        );
+      try {
+        const extracted = await extractTextFromUpload(file);
+        extractedText = extracted.text;
+        console.log('[Custom Quiz] Extracted', extracted.wordCount, 'words from', extracted.kind);
+      } catch (extractError) {
+        const message =
+          extractError instanceof ExtractionError
+            ? extractError.message
+            : "Could not extract text from file. Please ensure the file is not corrupted.";
+        return NextResponse.json({ error: message }, { status: 400 });
       }
-
-      if (!ALLOWED_TYPES.includes(file.type)) {
-        return NextResponse.json(
-          { error: "Unsupported file type. Please upload PDF, DOCX, PPTX, or TXT" },
-          { status: 400 }
-        );
-      }
-
-      // Extract text from file
-      const buffer = await file.arrayBuffer();
-      const uint8Array = new Uint8Array(buffer);
-
-    try {
-      if (file.type === 'text/plain') {
-        // Text file - simple conversion
-        extractedText = new TextDecoder().decode(uint8Array);
-      } else if (file.type === 'application/pdf') {
-        // PDF - extract text using pdfjs-dist (better serverless support)
-        console.log('[Custom Quiz] Processing PDF file...', file.name, file.size);
-
-        try {
-          // Use pdfjs-dist which works in serverless environments
-          const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');
-
-          const loadingTask = pdfjsLib.getDocument({
-            data: uint8Array,
-            useSystemFonts: true,
-            standardFontDataUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@latest/standard_fonts/',
-          });
-
-          const pdfDocument = await loadingTask.promise;
-          const numPages = pdfDocument.numPages;
-          console.log('[Custom Quiz] PDF has', numPages, 'pages');
-
-          const textParts: string[] = [];
-
-          // Extract text from each page
-          for (let pageNum = 1; pageNum <= numPages; pageNum++) {
-            const page = await pdfDocument.getPage(pageNum);
-            const textContent = await page.getTextContent();
-            const pageText = textContent.items
-              .map((item: any) => item.str)
-              .join(' ');
-            textParts.push(pageText);
-          }
-
-          extractedText = textParts.join('\n\n');
-          console.log('[Custom Quiz] PDF text extracted:', extractedText.length, 'characters');
-
-          // Check if PDF is scanned/image-based
-          if (!extractedText || extractedText.trim().length < 50) {
-            throw new Error('PDF appears to be scanned or has no extractable text');
-          }
-        } catch (pdfError: any) {
-          console.error('[Custom Quiz] PDF parsing error:', pdfError?.message || pdfError);
-          return NextResponse.json(
-            {
-              error: "Could not extract text from PDF. This might be a scanned/image-based PDF. Please try a text-based PDF or paste the content directly.",
-              details: pdfError?.message
-            },
-            { status: 400 }
-          );
-        }
-      } else {
-        // DOCX/PPTX - for now, return error
-        return NextResponse.json(
-          {
-            error: "DOCX/PPTX processing coming soon! For now, please use PDF or paste text",
-            temporaryWorkaround: true
-          },
-          { status: 400 }
-        );
-      }
-    } catch (extractError: any) {
-      console.error('[Custom Quiz] Text extraction error:', extractError?.message || extractError);
-      return NextResponse.json(
-        {
-          error: "Could not extract text from file. Please ensure the file is not corrupted.",
-          details: extractError?.message
-        },
-        { status: 400 }
-      );
-    }
     }
     // Neither file nor text provided
     else {
@@ -174,11 +87,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Limit text length
-    const maxWords = 50000;
+    // Cap the text sent to the model so token cost/latency stay bounded.
     const words = extractedText.split(/\s+/).length;
-    if (words > maxWords) {
-      extractedText = extractedText.split(/\s+/).slice(0, maxWords).join(' ');
+    const MAX_PROMPT_CHARS = 30000;
+    if (extractedText.length > MAX_PROMPT_CHARS) {
+      extractedText = extractedText.slice(0, MAX_PROMPT_CHARS);
     }
 
     // Generate questions using AI
@@ -187,7 +100,7 @@ export async function POST(request: NextRequest) {
 IMPORTANT: The material may contain LaTeX equations (\\omega, \\vec{}, etc.) and mathematical symbols. Read them as math notation.
 
 STUDY MATERIAL:
-${extractedText.slice(0, 15000)}
+${extractedText}
 
 TASK:
 Generate exactly ${numQuestions} multiple-choice questions at ${difficulty} difficulty level.

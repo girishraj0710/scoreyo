@@ -1,9 +1,9 @@
 "use client";
 // VERSION: SALESFORCE-BLUE-2026-06-01-v2
 
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef, Suspense } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { useLocale } from "@/context/locale-context";
 import { getExamById } from "@/lib/exams";
@@ -43,11 +43,15 @@ interface Question {
 type PageState = "select" | "instructions" | "loading" | "test" | "results" | "pro-required";
 type TestType = "short" | "full";
 
-export default function MockTestPage() {
+function MockTestContent() {
   const { user, isLoading: userLoading } = useUser();
   const { t } = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const artifactSlug = searchParams.get("artifact") || "";
   const examFilter = useExamFilter(); // Single-exam-focus
+  // Generated mock artifacts grade locally (no server test record).
+  const isArtifactRef = useRef(false);
 
   // Redirect ONLY contributors (not admin) to contributor portal
   useEffect(() => {
@@ -300,11 +304,81 @@ export default function MockTestPage() {
     }
   }
 
+  // Load a converted mock test by its share slug and grade it locally.
+  useEffect(() => {
+    if (!artifactSlug) return;
+    let cancelled = false;
+    (async () => {
+      setPageState("loading");
+      try {
+        const res = await fetch(`/api/generated/${artifactSlug}`);
+        const data = await res.json();
+        if (!res.ok || cancelled) {
+          if (!cancelled) { alert(data.error || "Could not load this test."); setPageState("select"); }
+          return;
+        }
+        const qs: Question[] = (data.questions || []).map((q: any) => ({
+          question: q.question,
+          options: q.options,
+          correctAnswer: q.correctAnswer,
+          explanation: q.explanation || "",
+          difficulty: data.difficulty || "medium",
+          subjectId: "generated",
+          subjectName: "Generated",
+        }));
+        const seconds = (data.durationMinutes || Math.max(10, qs.length)) * 60;
+        isArtifactRef.current = true;
+        setTestId(`artifact-${artifactSlug}`);
+        setExamName(data.title || "Mock Test");
+        setQuestions(qs);
+        setAnswers(new Array(qs.length).fill(null));
+        setTimeLimitSeconds(seconds);
+        setTimeRemaining(seconds);
+        setCurrentQuestion(0);
+        setPageState("test");
+      } catch {
+        if (!cancelled) { alert("Something went wrong loading this test."); setPageState("select"); }
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [artifactSlug]);
+
   const handleSubmit = useCallback(async () => {
     if (isSubmitting) return;
     setIsSubmitting(true);
     try {
       const timeTaken = timeLimitSeconds - timeRemaining;
+
+      // Generated artifact: grade locally, no server test record.
+      if (isArtifactRef.current) {
+        const perQuestion = questions.map((q, i) => ({
+          question: q.question,
+          options: q.options,
+          correctAnswer: q.correctAnswer,
+          userAnswer: answers[i] ?? -1,
+          isCorrect: answers[i] === q.correctAnswer,
+          explanation: q.explanation,
+          subjectId: "generated",
+          subjectName: "Generated",
+        }));
+        const correctAnswers = perQuestion.filter((r) => r.isCorrect).length;
+        const total = questions.length;
+        setResults({
+          accuracy: total > 0 ? Math.round((correctAnswers / total) * 100) : 0,
+          correctAnswers,
+          totalQuestions: total,
+          timeTaken,
+          sectionResults: {
+            generated: { subjectName: "Generated", correct: correctAnswers, total },
+          },
+          results: perQuestion,
+        });
+        setPageState("results");
+        sounds.submit();
+        setIsSubmitting(false);
+        return;
+      }
+
       const res = await fetch("/api/mock-test", {
         method: "PUT",
         headers: getHeadersWithCsrf(),
@@ -323,7 +397,7 @@ export default function MockTestPage() {
     } finally {
       setIsSubmitting(false);
     }
-  }, [testId, answers, timeLimitSeconds, timeRemaining, isSubmitting]);
+  }, [testId, answers, questions, timeLimitSeconds, timeRemaining, isSubmitting]);
 
   // Pro required screen
   if (pageState === "pro-required") {
@@ -1288,5 +1362,13 @@ export default function MockTestPage() {
       )}
     </div>
     </AccessibilityWrapper>
+  );
+}
+
+export default function MockTestPage() {
+  return (
+    <Suspense fallback={null}>
+      <MockTestContent />
+    </Suspense>
   );
 }

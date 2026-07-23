@@ -1,5 +1,6 @@
 import { Pool, type PoolClient } from 'pg';
 import { logger } from '@/lib/logger';
+import { customAlphabet as _groupCustomAlphabet } from 'nanoid';
 
 let pool: Pool | null = null;
 let initialized = false;
@@ -3293,7 +3294,7 @@ export async function getPendingStudyMaterials(
       FROM study_materials sm
       LEFT JOIN dim_exams de ON sm.exam_id = de.id
       LEFT JOIN dim_subjects ds ON sm.subject_id = ds.id
-      LEFT JOIN users u ON sm.contributor_id = u.id
+      LEFT JOIN users u ON sm.contributor_id::text = u.id
       WHERE sm.status = 'pending'
       ORDER BY sm.created_at ASC
       LIMIT $1 OFFSET $2
@@ -3331,7 +3332,7 @@ export async function getStudyMaterialsByExamSubject(
         sm.created_at,
         u.name as contributor_name
       FROM study_materials sm
-      LEFT JOIN users u ON sm.contributor_id = u.id
+      LEFT JOIN users u ON sm.contributor_id::text = u.id
       WHERE sm.exam_id = $1
         AND sm.subject_id = $2
         AND sm.status = 'approved'
@@ -3460,8 +3461,8 @@ export async function getStudyMaterial(id: string): Promise<any> {
       FROM study_materials sm
       LEFT JOIN dim_exams de ON sm.exam_id = de.id
       LEFT JOIN dim_subjects ds ON sm.subject_id = ds.id
-      LEFT JOIN users u ON sm.contributor_id = u.id
-      WHERE sm.id = $1
+      LEFT JOIN users u ON sm.contributor_id::text = u.id
+      WHERE sm.id = $1::uuid
       `,
       [id]
     );
@@ -4770,4 +4771,291 @@ export async function getWeeklyStudyTimeDetailed(
   } finally {
     client.release();
   }
+}
+
+// ─── Group Study functions (Phase 1: groups + invite/join) ──────────────────
+// Study groups let students invite friends via a short join code and study
+// together. user_id/owner_id are TEXT and reference users(id) (canonical id).
+const _groupJoinCode = _groupCustomAlphabet('0123456789abcdefghijklmnopqrstuvwxyz', 8);
+
+// Generate a join code that isn't already taken (retries on the rare collision).
+async function generateUniqueJoinCode(): Promise<string> {
+  for (let i = 0; i < 5; i++) {
+    const code = _groupJoinCode();
+    const existing = await queryOne('SELECT id FROM study_groups WHERE join_code = $1', [code]);
+    if (!existing) return code;
+  }
+  throw new Error('Could not generate a unique join code');
+}
+
+export async function createStudyGroup(
+  ownerId: string,
+  name: string,
+  description = '',
+  examId: string | null = null
+): Promise<any> {
+  const { randomUUID } = await import('crypto');
+  const groupId = randomUUID();
+  const joinCode = await generateUniqueJoinCode();
+
+  await execute(
+    `INSERT INTO study_groups (id, name, description, owner_id, join_code, exam_id)
+     VALUES ($1, $2, $3, $4, $5, $6)`,
+    [groupId, name, description, ownerId, joinCode, examId]
+  );
+  // Owner is automatically a member.
+  await execute(
+    `INSERT INTO group_members (id, group_id, user_id, role)
+     VALUES ($1, $2, $3, 'owner')`,
+    [randomUUID(), groupId, ownerId]
+  );
+
+  return queryOne('SELECT * FROM study_groups WHERE id = $1', [groupId]);
+}
+
+// All groups a user belongs to, with member count.
+export async function getUserGroups(userId: string): Promise<any[]> {
+  return queryAll(
+    `SELECT g.*,
+            (SELECT COUNT(*) FROM group_members m2 WHERE m2.group_id = g.id) AS member_count,
+            gm.role AS my_role
+     FROM study_groups g
+     JOIN group_members gm ON gm.group_id = g.id AND gm.user_id = $1
+     ORDER BY g.created_at DESC`,
+    [userId]
+  );
+}
+
+export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
+  const row = await queryOne(
+    'SELECT 1 FROM group_members WHERE group_id = $1 AND user_id = $2',
+    [groupId, userId]
+  );
+  return !!row;
+}
+
+// Group detail for a member (returns undefined if the user is not a member).
+export async function getGroupByIdForMember(groupId: string, userId: string): Promise<any | undefined> {
+  return queryOne(
+    `SELECT g.*, gm.role AS my_role
+     FROM study_groups g
+     JOIN group_members gm ON gm.group_id = g.id AND gm.user_id = $2
+     WHERE g.id = $1`,
+    [groupId, userId]
+  );
+}
+
+export async function getGroupByJoinCode(joinCode: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM study_groups WHERE join_code = $1', [joinCode]);
+}
+
+export async function getGroupMembers(groupId: string): Promise<any[]> {
+  return queryAll(
+    `SELECT gm.user_id, gm.role, gm.joined_at, u.name, u.avatar_color
+     FROM group_members gm
+     JOIN users u ON u.id = gm.user_id
+     WHERE gm.group_id = $1
+     ORDER BY gm.joined_at ASC`,
+    [groupId]
+  );
+}
+
+// Add a user to a group by join code. Idempotent: returns the group either way.
+// Returns { group, alreadyMember } or null if the code is invalid.
+export async function joinGroupByCode(
+  joinCode: string,
+  userId: string
+): Promise<{ group: any; alreadyMember: boolean } | null> {
+  const group = await getGroupByJoinCode(joinCode);
+  if (!group) return null;
+
+  const already = await isGroupMember(group.id, userId);
+  if (already) return { group, alreadyMember: true };
+
+  const { randomUUID } = await import('crypto');
+  await execute(
+    `INSERT INTO group_members (id, group_id, user_id, role)
+     VALUES ($1, $2, $3, 'member')
+     ON CONFLICT (group_id, user_id) DO NOTHING`,
+    [randomUUID(), group.id, userId]
+  );
+  return { group, alreadyMember: false };
+}
+
+// Leave a group. The owner cannot leave (must keep an owner); returns false then.
+export async function leaveGroup(groupId: string, userId: string): Promise<boolean> {
+  const group = await queryOne('SELECT owner_id FROM study_groups WHERE id = $1', [groupId]);
+  if (!group) return false;
+  if (group.owner_id === userId) return false; // owner can't leave in Phase 1
+  await execute('DELETE FROM group_members WHERE group_id = $1 AND user_id = $2', [groupId, userId]);
+  return true;
+}
+
+// ─── Generated study artifacts (Convert feature) ────────────────────────────
+// On-demand, user-owned material generated from any source. Decks reuse the
+// flashcard tables; quizzes/games/mocks get their own tables here. user_id is
+// TEXT and references users(id), matching the group-study tables.
+const _artifactSlug = _groupCustomAlphabet('0123456789abcdefghijklmnopqrstuvwxyz', 10);
+
+// A share slug unique across all three artifact tables (they share a public
+// /shared/[slug] namespace), retrying on the rare collision.
+async function generateUniqueShareSlug(): Promise<string> {
+  for (let i = 0; i < 5; i++) {
+    const slug = _artifactSlug();
+    const hit = await queryOne(
+      `SELECT 1 FROM generated_quizzes WHERE share_slug = $1
+       UNION ALL SELECT 1 FROM generated_games WHERE share_slug = $1
+       UNION ALL SELECT 1 FROM generated_mock_tests WHERE share_slug = $1
+       LIMIT 1`,
+      [slug]
+    );
+    if (!hit) return slug;
+  }
+  throw new Error('Could not generate a unique share slug');
+}
+
+export interface QuizQuestionRow {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+}
+
+export async function createGeneratedQuiz(params: {
+  userId: string;
+  title: string;
+  mode?: 'quiz' | 'mock';
+  questions: QuizQuestionRow[];
+  difficulty?: string | null;
+  sourceType: string;
+  sourceRef?: string | null;
+}): Promise<any> {
+  const { randomUUID } = await import('crypto');
+  const id = randomUUID();
+  const slug = await generateUniqueShareSlug();
+  await execute(
+    `INSERT INTO generated_quizzes
+       (id, user_id, title, mode, questions, question_count, difficulty, source_type, source_ref, share_slug)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+    [
+      id,
+      params.userId,
+      params.title,
+      params.mode ?? 'quiz',
+      JSON.stringify(params.questions),
+      params.questions.length,
+      params.difficulty ?? null,
+      params.sourceType,
+      params.sourceRef ?? null,
+      slug,
+    ]
+  );
+  return queryOne('SELECT * FROM generated_quizzes WHERE id = $1', [id]);
+}
+
+export async function createGeneratedGame(params: {
+  userId: string;
+  title: string;
+  gameType?: 'match' | 'blocks' | 'blast';
+  pairs: { term: string; definition: string }[];
+  sourceType: string;
+  sourceRef?: string | null;
+}): Promise<any> {
+  const { randomUUID } = await import('crypto');
+  const id = randomUUID();
+  const slug = await generateUniqueShareSlug();
+  await execute(
+    `INSERT INTO generated_games
+       (id, user_id, title, game_type, pairs, pair_count, source_type, source_ref, share_slug)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+    [
+      id,
+      params.userId,
+      params.title,
+      params.gameType ?? 'match',
+      JSON.stringify(params.pairs),
+      params.pairs.length,
+      params.sourceType,
+      params.sourceRef ?? null,
+      slug,
+    ]
+  );
+  return queryOne('SELECT * FROM generated_games WHERE id = $1', [id]);
+}
+
+export async function createGeneratedMockTest(params: {
+  userId: string;
+  title: string;
+  questions: QuizQuestionRow[];
+  durationMinutes?: number;
+  difficulty?: string | null;
+  sourceType: string;
+  sourceRef?: string | null;
+}): Promise<any> {
+  const { randomUUID } = await import('crypto');
+  const id = randomUUID();
+  const slug = await generateUniqueShareSlug();
+  await execute(
+    `INSERT INTO generated_mock_tests
+       (id, user_id, title, questions, question_count, duration_minutes, difficulty, source_type, source_ref, share_slug)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+    [
+      id,
+      params.userId,
+      params.title,
+      JSON.stringify(params.questions),
+      params.questions.length,
+      params.durationMinutes ?? 30,
+      params.difficulty ?? null,
+      params.sourceType,
+      params.sourceRef ?? null,
+      slug,
+    ]
+  );
+  return queryOne('SELECT * FROM generated_mock_tests WHERE id = $1', [id]);
+}
+
+// Owner-scoped fetch (returns undefined if not owned by userId).
+export async function getGeneratedQuiz(id: string, userId: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM generated_quizzes WHERE id = $1 AND user_id = $2', [id, userId]);
+}
+export async function getGeneratedGame(id: string, userId: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM generated_games WHERE id = $1 AND user_id = $2', [id, userId]);
+}
+export async function getGeneratedMockTest(id: string, userId: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM generated_mock_tests WHERE id = $1 AND user_id = $2', [id, userId]);
+}
+
+// Public fetch by share slug (no owner check — used by shareable links).
+export async function getGeneratedQuizBySlug(slug: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM generated_quizzes WHERE share_slug = $1', [slug]);
+}
+export async function getGeneratedGameBySlug(slug: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM generated_games WHERE share_slug = $1', [slug]);
+}
+export async function getGeneratedMockTestBySlug(slug: string): Promise<any | undefined> {
+  return queryOne('SELECT * FROM generated_mock_tests WHERE share_slug = $1', [slug]);
+}
+
+// A user's generated artifacts of one kind, newest first.
+export async function getUserGeneratedQuizzes(userId: string): Promise<any[]> {
+  return queryAll(
+    `SELECT id, title, mode, question_count, difficulty, source_type, share_slug, created_at
+     FROM generated_quizzes WHERE user_id = $1 ORDER BY created_at DESC`,
+    [userId]
+  );
+}
+export async function getUserGeneratedGames(userId: string): Promise<any[]> {
+  return queryAll(
+    `SELECT id, title, game_type, pair_count, source_type, share_slug, created_at
+     FROM generated_games WHERE user_id = $1 ORDER BY created_at DESC`,
+    [userId]
+  );
+}
+export async function getUserGeneratedMockTests(userId: string): Promise<any[]> {
+  return queryAll(
+    `SELECT id, title, question_count, duration_minutes, difficulty, source_type, share_slug, created_at
+     FROM generated_mock_tests WHERE user_id = $1 ORDER BY created_at DESC`,
+    [userId]
+  );
 }

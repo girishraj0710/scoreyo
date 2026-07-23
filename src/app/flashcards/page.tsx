@@ -31,6 +31,8 @@ import { InteractiveStarRating } from "@/components/interactive-star-rating";
 import { RatingModal } from "@/components/rating-modal";
 import { SuccessModal } from "@/components/success-modal";
 import { ErrorModal } from "@/components/error-modal";
+import { ConvertModal, type ConvertSource } from "@/components/convert/ConvertModal";
+import { Wand2 } from "lucide-react";
 
 // Generate consistent color for user avatar based on name
 const getAvatarGradient = (name: string) => {
@@ -142,6 +144,10 @@ export default function FlashcardsPage() {
     title: string;
     message: string;
   } | null>(null);
+
+  // Convert Modal State — "turn this deck into a quiz/game/mock"
+  const [convertSource, setConvertSource] = useState<ConvertSource | null>(null);
+  const [convertLabel, setConvertLabel] = useState("");
 
   // Redirect if not logged in
   useEffect(() => {
@@ -950,6 +956,22 @@ export default function FlashcardsPage() {
                         </div>
                       )}
 
+                      {/* Convert button — turn this deck into a quiz/game/mock */}
+                      {deck.id && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const label = deck.title || `${deck.subject} - ${deck.topic}`;
+                            setConvertSource({ sourceType: "deck", sourceRef: String(deck.id) });
+                            setConvertLabel(label);
+                          }}
+                          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                          title="Turn this deck into a quiz, game or mock test"
+                        >
+                          <Wand2 className="w-4 h-4 text-slate-500 hover:text-[#E76F51]" />
+                        </button>
+                      )}
+
                       {/* Share button (only for user's decks) */}
                       {deck.isMine && deck.id && (
                         <button
@@ -1178,6 +1200,17 @@ export default function FlashcardsPage() {
           message={errorData?.message || "Something went wrong"}
           actionLabel="Try Again"
         />
+
+        {/* Convert Modal */}
+        {convertSource && (
+          <ConvertModal
+            isOpen={!!convertSource}
+            onClose={() => setConvertSource(null)}
+            source={convertSource}
+            sourceLabel={convertLabel}
+            allowedModes={["quiz", "match", "blocks", "blast"]}
+          />
+        )}
       </div>
     </div>
   );
