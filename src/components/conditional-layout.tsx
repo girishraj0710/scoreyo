@@ -20,6 +20,7 @@ export function ConditionalLayout({ children }: { children: ReactNode }) {
     pathname === "/blocks" ||
     pathname === "/match" ||
     pathname === "/blast-game" ||
+    pathname === "/onboarding" || // Onboarding is a standalone flow — no app chrome, no escape until complete
     pathname.startsWith("/level-mode"); // Matches /level-mode AND /level-mode/[examId]
 
   // Listen for sidebar collapse state changes
