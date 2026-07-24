@@ -191,17 +191,6 @@ export default function SharedArtifactPage({
             )}
           </div>
           <h1 className="font-heading text-3xl md:text-4xl font-bold text-[#16213E] dark:text-white">
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-950 px-6 md:px-10 py-8">
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <p
-            className="text-xs font-bold uppercase text-[#F26A4B] mb-3"
-            style={{ letterSpacing: "0.2em" }}
-          >
-            SHARED {meta.label.toUpperCase()}
-          </p>
-          <h1 className="font-heading text-4xl md:text-5xl font-black text-[#16213E] dark:text-white mb-4">
             {artifact.title}
           </h1>
         </div>
@@ -251,99 +240,16 @@ export default function SharedArtifactPage({
           >
             Telegram
           </a>
-        {/* Info Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 mb-8"
-        >
-          {/* Meta row */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#F26A4B]/10 text-[#F26A4B] rounded-lg text-sm font-semibold">
-              <Icon className="w-4 h-4" />
-              {meta.label}
-            </span>
-            <span className="text-slate-400">•</span>
-            <span className="text-sm text-slate-600 dark:text-slate-400">
-              {itemCount} {itemLabel}
-            </span>
-            {artifact.difficulty && (
-              <>
-                <span className="text-slate-400">•</span>
-                <span className="text-sm text-slate-600 dark:text-slate-400 capitalize">
-                  {artifact.difficulty}
-                </span>
-              </>
-            )}
-            {artifact.type === "mock" && artifact.durationMinutes && (
-              <>
-                <span className="text-slate-400">•</span>
-                <span className="inline-flex items-center gap-1 text-sm text-slate-600 dark:text-slate-400">
-                  <Clock className="w-4 h-4" />
-                  {artifact.durationMinutes} min
-                </span>
-              </>
-            )}
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex gap-3">
-            <button
-              onClick={handlePlay}
-              className="flex-1 px-6 py-3 bg-[#F26A4B] hover:bg-[#E76F51] text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
-            >
-              <Play className="w-5 h-5" />
-              {user ? `Play ${meta.label}` : `Login to Play`}
-            </button>
-            <button
-              onClick={handleCopyLink}
-              className="px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-lg font-semibold flex items-center gap-2 transition-colors"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-5 h-5" />
-                  Copied!
-                </>
-              ) : (
-                <>
-                  <Copy className="w-5 h-5" />
-                  Copy Link
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* Share via */}
-          <div className="mt-4 grid grid-cols-2 gap-2">
-            <a
-              href={`https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-3 bg-[#25D366] hover:bg-[#1DA851] text-white rounded-lg text-sm font-semibold text-center transition-colors"
-            >
-              WhatsApp
-            </a>
-            <a
-              href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-lg text-sm font-semibold text-center transition-colors"
-            >
-              Telegram
-            </a>
-          </div>
         </motion.div>
 
         {/* Preview */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
           <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-3">
-          <h2 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-4">
             Preview
           </h2>
 
@@ -352,21 +258,12 @@ export default function SharedArtifactPage({
               {(artifact.pairs ?? []).slice(0, 5).map((pair, i) => (
                 <div key={i} className="p-4 flex items-center gap-4">
                   <span className="shrink-0 w-6 text-sm font-medium text-slate-400 tabular-nums">
-            <div className="space-y-3">
-              {(artifact.pairs ?? []).slice(0, 5).map((pair, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 flex items-center gap-3"
-                >
-                  <span className="shrink-0 w-8 h-8 rounded-full bg-[#F26A4B] text-white flex items-center justify-center text-sm font-bold">
                     {i + 1}
                   </span>
                   <span className="flex-1 text-slate-900 dark:text-white font-medium">
                     {pair.term}
                   </span>
                   <span className="flex-1 text-sm text-slate-500 dark:text-slate-400 text-right">
-                  <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span className="flex-1 text-sm text-slate-600 dark:text-slate-400 text-right">
                     {pair.definition}
                   </span>
                 </div>
@@ -381,14 +278,6 @@ export default function SharedArtifactPage({
                 >
                   <div className="flex items-start gap-3">
                     <span className="shrink-0 w-6 text-sm font-medium text-slate-400 tabular-nums pt-0.5">
-            <div className="space-y-4">
-              {(artifact.questions ?? []).slice(0, 3).map((q, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="shrink-0 w-8 h-8 rounded-full bg-[#F26A4B] text-white flex items-center justify-center text-sm font-bold">
                       {i + 1}
                     </span>
                     <div className="flex-1">
@@ -401,7 +290,6 @@ export default function SharedArtifactPage({
                             <div
                               key={oi}
                               className="text-sm text-slate-500 dark:text-slate-400 pl-3 border-l-2 border-slate-100 dark:border-slate-700"
-                              className="text-sm text-slate-600 dark:text-slate-400 pl-4 border-l-2 border-slate-200 dark:border-slate-700"
                             >
                               {opt}
                             </div>
@@ -424,18 +312,6 @@ export default function SharedArtifactPage({
               {user ? "play to see all" : "log in to see all"}
               <ChevronRight className="w-4 h-4" />
             </button>
-            <div className="text-center py-6 mt-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-dashed border-slate-300 dark:border-slate-700">
-              <p className="text-slate-600 dark:text-slate-400 mb-3">
-                {itemCount - (artifact.type === "game" ? 5 : 3)} more {itemLabel} hidden
-              </p>
-              <button
-                onClick={handlePlay}
-                className="px-6 py-2 bg-[#F26A4B] hover:bg-[#E76F51] text-white rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
-              >
-                {user ? "Play to see all" : "Login to see all"}
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
           )}
         </motion.div>
 

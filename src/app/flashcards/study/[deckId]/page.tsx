@@ -20,8 +20,6 @@ import {
   Wand2,
   Maximize,
   Minimize,
-  User,
-  Wand2,
 } from "lucide-react";
 import { ConvertModal } from "@/components/convert/ConvertModal";
 
@@ -351,29 +349,6 @@ export default function FlashcardStudyPage() {
             >
               <Wand2 className="w-4 h-4 text-slate-700 dark:text-slate-300" />
             </button>
-            <button
-              onClick={handleShuffle}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
-              title="Shuffle cards"
-            >
-              <Shuffle className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-            </button>
-          </div>
-        </div>
-
-        {/* Progress bar */}
-        <div className="mb-8">
-          <div className="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-gradient-to-r from-[#E76F51] to-[#F4A79D]"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
-          <div className="flex justify-between items-center mt-2 text-xs text-slate-500 dark:text-slate-400">
-            <span>{progress}% complete</span>
-            <span>{studiedCount} studied</span>
           </div>
         </div>
 
