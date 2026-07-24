@@ -18,10 +18,19 @@ import { withAuth, withAuthAndValidation } from "@/lib/middleware/validation";
 import { paymentCreateSchema, paymentVerifySchema } from "@/lib/validation/schemas";
 import { logger } from "@/lib/logger";
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET!,
-});
+// Lazily instantiate so importing this module never throws when the keys are
+// absent (e.g. during `next build` page-data collection). Razorpay's
+// constructor throws when key_id/key_secret are missing.
+let razorpayClient: Razorpay | null = null;
+function getRazorpay(): Razorpay {
+  if (!razorpayClient) {
+    razorpayClient = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID!,
+      key_secret: process.env.RAZORPAY_KEY_SECRET!,
+    });
+  }
+  return razorpayClient;
+}
 
 const PLANS = {
   monthly: { amount: 7900, label: "Pro Monthly", duration: 30 },
@@ -59,7 +68,7 @@ export const POST = withAuthAndValidation(
       }
 
       // Create Razorpay order
-      const order = await razorpay.orders.create({
+      const order = await getRazorpay().orders.create({
         amount,
         currency: "INR",
         receipt: `pg_${userId.slice(0, 8)}_${Date.now()}`,
@@ -134,7 +143,7 @@ export const PUT = withAuthAndValidation(
 
       // ── STEP 2: Fetch Order from Razorpay ────────────────────
       // SECURITY: Never trust client data - fetch from Razorpay server
-      const order = await razorpay.orders.fetch(razorpay_order_id);
+      const order = await getRazorpay().orders.fetch(razorpay_order_id);
       const plan = order.notes?.plan as string;
 
       if (!plan || !(plan in PLANS)) {

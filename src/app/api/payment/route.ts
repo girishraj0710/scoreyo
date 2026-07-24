@@ -5,10 +5,19 @@ import { createSubscription, getUserSubscription } from "@/lib/db";
 import { handleApiError, logError, logInfo } from "@/lib/error-handler";
 import { POST as securePOST, PUT as securePUT } from "./route-secure";
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET!,
-});
+// Lazily instantiate so importing this module never throws when the keys are
+// absent (e.g. during `next build` page-data collection). Razorpay's
+// constructor throws when key_id/key_secret are missing.
+let razorpayClient: Razorpay | null = null;
+function getRazorpay(): Razorpay {
+  if (!razorpayClient) {
+    razorpayClient = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID!,
+      key_secret: process.env.RAZORPAY_KEY_SECRET!,
+    });
+  }
+  return razorpayClient;
+}
 
 const PLANS = {
   monthly: { amount: 7900, label: "Pro Monthly", duration: "monthly" },
@@ -37,7 +46,7 @@ export async function POST(request: NextRequest) {
 
     const planDetails = PLANS[plan as keyof typeof PLANS];
 
-    const order = await razorpay.orders.create({
+    const order = await getRazorpay().orders.create({
       amount: planDetails.amount,
       currency: "INR",
       receipt: `pg_${userId.slice(0, 8)}_${Date.now()}`,
@@ -89,7 +98,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // Step 2: Fetch order from Razorpay server-side to get TRUE plan
-    const order = await razorpay.orders.fetch(razorpay_order_id);
+    const order = await getRazorpay().orders.fetch(razorpay_order_id);
 
     // Step 3: Get plan from immutable order notes (not client request)
     const plan = order.notes?.plan as string;
