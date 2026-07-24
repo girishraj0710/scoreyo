@@ -442,7 +442,7 @@ export default function CustomQuizPage() {
             <button
               onClick={handleGenerate}
               disabled={isProcessing}
-              className="w-full py-4 bg-gradient-to-r from-[#E76F51] to-[#D65A3D] text-white rounded-xl font-semibold text-lg hover:from-[#D65A3D] hover:to-[#C4502F] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+              className="w-full py-4 bg-[#16213E] hover:bg-[#1a2744] text-white rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
             >
               {isProcessing ? (
                 <>

@@ -12,7 +12,6 @@ import {
   Rocket,
   GraduationCap,
   FolderOpen,
-  Play,
   Copy,
   Check,
   Sparkles,
@@ -21,8 +20,8 @@ import {
 /**
  * /library — "Your Library": every study set the signed-in student has created
  * via the "Turn this into…" convert flow (quizzes / games / mock tests) plus
- * their flashcard decks. Fetches GET /api/library and lets them jump back into
- * any set (Play) or grab its share link (Copy).
+ * their flashcard decks. Fetches GET /api/library; clicking a card jumps back
+ * into that set, and the Copy button grabs its share link.
  */
 
 type Kind = "deck" | "quiz" | "match" | "blocks" | "blast" | "mock";
@@ -196,7 +195,16 @@ export default function LibraryPage() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(i * 0.03, 0.3) }}
-                  className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 flex flex-col"
+                  onClick={() => router.push(item.href)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      router.push(item.href);
+                    }
+                  }}
+                  className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 flex flex-col cursor-pointer hover:border-[#F26A4B]/40 hover:-translate-y-0.5 hover:shadow-pop transition-all"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div
@@ -225,17 +233,13 @@ export default function LibraryPage() {
                     {item.count} {meta.unit}
                   </p>
 
-                  <div className="mt-auto flex gap-2">
-                    <button
-                      onClick={() => router.push(item.href)}
-                      className="flex-1 px-3 py-2 bg-[#F26A4B] hover:bg-[#E76F51] text-white rounded-lg text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors"
-                    >
-                      <Play className="w-4 h-4" />
-                      Open
-                    </button>
-                    {item.shareSlug && (
+                  {item.shareSlug && (
+                    <div className="mt-auto flex justify-end">
                       <button
-                        onClick={() => handleCopy(item)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCopy(item);
+                        }}
                         className="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition-colors"
                         title="Copy share link"
                       >
@@ -245,8 +249,8 @@ export default function LibraryPage() {
                           <Copy className="w-4 h-4" />
                         )}
                       </button>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </motion.div>
               );
             })}

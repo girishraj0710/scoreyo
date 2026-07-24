@@ -10,6 +10,8 @@ interface FlashcardFlipProps {
   hint?: string;
   difficulty?: string;
   onFlip?: (isFlipped: boolean) => void;
+  /** Tailwind height class for the card. Defaults to a fixed 400px. */
+  heightClassName?: string;
 }
 
 export function FlashcardFlip({
@@ -18,6 +20,7 @@ export function FlashcardFlip({
   hint,
   difficulty,
   onFlip,
+  heightClassName = "h-[400px]",
 }: FlashcardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [showHint, setShowHint] = useState(false);
@@ -38,7 +41,7 @@ export function FlashcardFlip({
   return (
     <div className="perspective-1000 w-full">
       <motion.div
-        className="relative w-full h-[400px] cursor-pointer"
+        className={`relative w-full ${heightClassName} cursor-pointer`}
         onClick={handleFlip}
         style={{ transformStyle: "preserve-3d" }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}

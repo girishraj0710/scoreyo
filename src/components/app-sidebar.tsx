@@ -26,7 +26,8 @@ import {
   FolderOpen,
   Layers,
   Users,
-  Menu,
+  PanelLeftClose,
+  PanelLeftOpen,
   Bell,
   Settings,
   LogOut,
@@ -117,10 +118,14 @@ export function AppSidebar() {
           {/* Hamburger button */}
           <button
             onClick={toggleSidebar}
-            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
+            className="-ml-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
             aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
-            <Menu className="w-5 h-5" />
+            {isCollapsed ? (
+              <PanelLeftOpen className="w-5 h-5" />
+            ) : (
+              <PanelLeftClose className="w-5 h-5" />
+            )}
           </button>
 
           {/* Logo */}
