@@ -21,6 +21,8 @@ import {
 /**
  * /library — "Your Library": every study set the signed-in student has created
  * via the "Turn this into…" convert flow (quizzes / games / mock tests) plus
+ * their flashcard decks. Fetches GET /api/library; clicking a card jumps back
+ * into that set, and the Copy button grabs its share link.
  * their flashcard decks. Fetches GET /api/library and lets them jump back into
  * any set (Play) or grab its share link (Copy).
  */
@@ -196,6 +198,16 @@ export default function LibraryPage() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(i * 0.03, 0.3) }}
+                  onClick={() => router.push(item.href)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      router.push(item.href);
+                    }
+                  }}
+                  className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 flex flex-col cursor-pointer hover:border-[#F26A4B]/40 hover:-translate-y-0.5 hover:shadow-pop transition-all"
                   className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -225,6 +237,13 @@ export default function LibraryPage() {
                     {item.count} {meta.unit}
                   </p>
 
+                  {item.shareSlug && (
+                    <div className="mt-auto flex justify-end">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCopy(item);
+                        }}
                   <div className="mt-auto flex gap-2">
                     <button
                       onClick={() => router.push(item.href)}
@@ -245,6 +264,8 @@ export default function LibraryPage() {
                           <Copy className="w-4 h-4" />
                         )}
                       </button>
+                    </div>
+                  )}
                     )}
                   </div>
                 </motion.div>

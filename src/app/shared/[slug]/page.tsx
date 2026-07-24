@@ -165,6 +165,32 @@ export default function SharedArtifactPage({
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   return (
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-950 px-6 md:px-10 py-10">
+      <div className="max-w-3xl mx-auto">
+        {/* Header — compact, left-aligned */}
+        <div className="mb-6">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400 mb-2">
+            <Icon className="w-4 h-4" />
+            <span>{meta.label}</span>
+            <span className="text-slate-300 dark:text-slate-600">•</span>
+            <span>{itemCount} {itemLabel}</span>
+            {artifact.difficulty && (
+              <>
+                <span className="text-slate-300 dark:text-slate-600">•</span>
+                <span className="capitalize">{artifact.difficulty}</span>
+              </>
+            )}
+            {artifact.type === "mock" && artifact.durationMinutes && (
+              <>
+                <span className="text-slate-300 dark:text-slate-600">•</span>
+                <span className="inline-flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5" />
+                  {artifact.durationMinutes} min
+                </span>
+              </>
+            )}
+          </div>
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-[#16213E] dark:text-white">
     <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-950 px-6 md:px-10 py-8">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
@@ -180,6 +206,51 @@ export default function SharedArtifactPage({
           </h1>
         </div>
 
+        {/* Actions — one primary, quiet secondary controls */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-wrap items-center gap-2 mb-10"
+        >
+          <button
+            onClick={handlePlay}
+            className="px-5 py-2.5 bg-[#16213E] hover:bg-[#1a2744] text-white rounded-full text-sm font-semibold flex items-center gap-2 transition-colors"
+          >
+            <Play className="w-4 h-4" />
+            {user ? `Play ${meta.label}` : `Login to Play`}
+          </button>
+          <button
+            onClick={handleCopyLink}
+            className="px-4 py-2.5 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium flex items-center gap-2 transition-colors"
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4 text-green-600" />
+                Copied
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4" />
+                Copy link
+              </>
+            )}
+          </button>
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium transition-colors"
+          >
+            WhatsApp
+          </a>
+          <a
+            href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium transition-colors"
+          >
+            Telegram
+          </a>
         {/* Info Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -265,16 +336,22 @@ export default function SharedArtifactPage({
 
         {/* Preview */}
         <motion.div
+          initial={{ opacity: 0, y: 12 }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-3">
           <h2 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-4">
             Preview
           </h2>
 
           {artifact.type === "game" ? (
+            <div className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800">
+              {(artifact.pairs ?? []).slice(0, 5).map((pair, i) => (
+                <div key={i} className="p-4 flex items-center gap-4">
+                  <span className="shrink-0 w-6 text-sm font-medium text-slate-400 tabular-nums">
             <div className="space-y-3">
               {(artifact.pairs ?? []).slice(0, 5).map((pair, i) => (
                 <div
@@ -287,6 +364,7 @@ export default function SharedArtifactPage({
                   <span className="flex-1 text-slate-900 dark:text-white font-medium">
                     {pair.term}
                   </span>
+                  <span className="flex-1 text-sm text-slate-500 dark:text-slate-400 text-right">
                   <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
                   <span className="flex-1 text-sm text-slate-600 dark:text-slate-400 text-right">
                     {pair.definition}
@@ -295,6 +373,14 @@ export default function SharedArtifactPage({
               ))}
             </div>
           ) : (
+            <div className="space-y-3">
+              {(artifact.questions ?? []).slice(0, 3).map((q, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 text-sm font-medium text-slate-400 tabular-nums pt-0.5">
             <div className="space-y-4">
               {(artifact.questions ?? []).slice(0, 3).map((q, i) => (
                 <div
@@ -314,6 +400,7 @@ export default function SharedArtifactPage({
                           {q.options.map((opt, oi) => (
                             <div
                               key={oi}
+                              className="text-sm text-slate-500 dark:text-slate-400 pl-3 border-l-2 border-slate-100 dark:border-slate-700"
                               className="text-sm text-slate-600 dark:text-slate-400 pl-4 border-l-2 border-slate-200 dark:border-slate-700"
                             >
                               {opt}
@@ -329,6 +416,14 @@ export default function SharedArtifactPage({
           )}
 
           {itemCount > (artifact.type === "game" ? 5 : 3) && (
+            <button
+              onClick={handlePlay}
+              className="w-full mt-3 py-3 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#16213E] dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 transition-colors inline-flex items-center justify-center gap-1.5"
+            >
+              {itemCount - (artifact.type === "game" ? 5 : 3)} more {itemLabel} —{" "}
+              {user ? "play to see all" : "log in to see all"}
+              <ChevronRight className="w-4 h-4" />
+            </button>
             <div className="text-center py-6 mt-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-dashed border-slate-300 dark:border-slate-700">
               <p className="text-slate-600 dark:text-slate-400 mb-3">
                 {itemCount - (artifact.type === "game" ? 5 : 3)} more {itemLabel} hidden

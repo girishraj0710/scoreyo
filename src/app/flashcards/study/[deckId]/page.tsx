@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { FlashcardFlip } from "@/components/flashcards/FlashcardFlip";
@@ -17,6 +17,9 @@ import {
   Minus,
   ThumbsUp,
   Star,
+  Wand2,
+  Maximize,
+  Minimize,
   User,
   Wand2,
 } from "lucide-react";
@@ -41,6 +44,8 @@ export default function FlashcardStudyPage() {
   const [cards, setCards] = useState<Card[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [trackProgress, setTrackProgress] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [deckTitle, setDeckTitle] = useState("");
   const [studiedCount, setStudiedCount] = useState(0);
@@ -187,6 +192,10 @@ export default function FlashcardStudyPage() {
     setIsFlipped(false);
   };
 
+  // In-app immersive mode — overlays the app's sidebar/top-nav (like Quizlet's
+  // fullscreen), but stays a normal page. Not the browser Fullscreen API.
+  const toggleFullscreen = () => setIsFullscreen((v) => !v);
+
   const handleRestart = () => {
     setCurrentIndex(0);
     setIsFlipped(false);
@@ -212,26 +221,27 @@ export default function FlashcardStudyPage() {
         e.preventDefault();
         setIsFlipped(!isFlipped);
       } else if (e.key === "ArrowRight") {
-        if (isFlipped) handleRating("good");
+        if (trackProgress && isFlipped) handleRating("good");
         else goToNext();
       } else if (e.key === "ArrowLeft") {
         goToPrev();
       } else if (e.key === "Escape") {
-        handleExit();
-      } else if (e.key === "1") {
-        if (isFlipped) handleRating("again");
-      } else if (e.key === "2") {
-        if (isFlipped) handleRating("hard");
-      } else if (e.key === "3") {
-        if (isFlipped) handleRating("good");
-      } else if (e.key === "4") {
-        if (isFlipped) handleRating("easy");
+        if (isFullscreen) setIsFullscreen(false);
+        else handleExit();
+      } else if (trackProgress && isFlipped && e.key === "1") {
+        handleRating("again");
+      } else if (trackProgress && isFlipped && e.key === "2") {
+        handleRating("hard");
+      } else if (trackProgress && isFlipped && e.key === "3") {
+        handleRating("good");
+      } else if (trackProgress && isFlipped && e.key === "4") {
+        handleRating("easy");
       }
     };
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [isFlipped, currentIndex, showExitModal]);
+  }, [isFlipped, currentIndex, showExitModal, trackProgress]);
 
   const handleSubmitRating = async () => {
     if (deckRating === 0) return;
@@ -303,11 +313,20 @@ export default function FlashcardStudyPage() {
   }
 
   const currentCard = cards[currentIndex];
-  const progress = Math.round(((currentIndex + 1) / cards.length) * 100);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-950 px-6 py-8">
-      <div className="max-w-4xl mx-auto">
+    <div
+      className={`bg-[#FAF8F5] dark:bg-slate-950 px-6 py-8 overflow-y-auto ${
+        isFullscreen ? "fixed inset-0 z-50 h-screen" : "min-h-screen"
+      }`}
+    >
+      <div
+        className={
+          isFullscreen
+            ? "max-w-6xl mx-auto flex flex-col h-full"
+            : "max-w-4xl mx-auto"
+        }
+      >
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <button
@@ -318,27 +337,10 @@ export default function FlashcardStudyPage() {
             <span className="font-semibold">Exit</span>
           </button>
 
-          <div className="text-center flex-1">
-            <h1 className="font-heading text-xl md:text-2xl font-bold text-[#16213E] dark:text-white mb-1">
+          <div className="text-center flex-1 min-w-0 px-4">
+            <h1 className="font-heading text-xl md:text-2xl font-bold text-[#16213E] dark:text-white truncate">
               {deckTitle}
             </h1>
-            <div className="flex items-center justify-center gap-3 text-xs text-slate-500 dark:text-slate-400">
-              {creatorName && (
-                <span className="flex items-center gap-1">
-                  <User className="w-3 h-3" />
-                  {creatorName}
-                </span>
-              )}
-              {ratingCount > 0 && (
-                <span className="flex items-center gap-1">
-                  <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                  {averageRating.toFixed(1)} ({ratingCount})
-                </span>
-              )}
-            </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Card {currentIndex + 1} of {cards.length}
-            </p>
           </div>
 
           <div className="flex items-center gap-2">
@@ -383,7 +385,7 @@ export default function FlashcardStudyPage() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.3 }}
-            className="mb-8"
+            className={isFullscreen ? "flex-1 min-h-0 mb-6 flex" : "mb-8"}
           >
             <FlashcardFlip
               front={currentCard.front}
@@ -391,113 +393,140 @@ export default function FlashcardStudyPage() {
               hint={currentCard.hint}
               difficulty={currentCard.difficulty}
               onFlip={setIsFlipped}
+              heightClassName={isFullscreen ? "h-full" : "h-[400px]"}
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Rating buttons (show only when flipped) */}
-        {isFlipped && (
+        {/* Rating row — enabled only when tracking is on and the card is flipped */}
+        {trackProgress && isFlipped && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"
+            className="flex flex-wrap items-center justify-center gap-2 mb-6"
           >
             <button
               onClick={() => handleRating("again")}
-              className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-900 border-2 border-red-200 dark:border-red-900 hover:border-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all group"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-red-200 dark:border-red-900/60 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 text-sm font-semibold transition-colors"
             >
-              <XCircle className="w-6 h-6 text-red-500" />
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                Again
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400">
-                &lt;1 min
-              </span>
+              <XCircle className="w-4 h-4" />
+              Again
             </button>
-
             <button
               onClick={() => handleRating("hard")}
-              className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-900 border-2 border-orange-200 dark:border-orange-900 hover:border-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all group"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-orange-200 dark:border-orange-900/60 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 text-sm font-semibold transition-colors"
             >
-              <Minus className="w-6 h-6 text-orange-500" />
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                Hard
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400">
-                1 day
-              </span>
+              <Minus className="w-4 h-4" />
+              Hard
             </button>
-
             <button
               onClick={() => handleRating("good")}
-              className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-900 border-2 border-green-200 dark:border-green-900 hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all group"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-green-200 dark:border-green-900/60 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm font-semibold transition-colors"
             >
-              <CheckCircle2 className="w-6 h-6 text-green-500" />
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                Good
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400">
-                3 days
-              </span>
+              <CheckCircle2 className="w-4 h-4" />
+              Good
             </button>
-
             <button
               onClick={() => handleRating("easy")}
-              className="flex flex-col items-center gap-2 px-4 py-4 rounded-xl bg-white dark:bg-slate-900 border-2 border-blue-200 dark:border-blue-900 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all group"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 dark:border-blue-900/60 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-sm font-semibold transition-colors"
             >
-              <ThumbsUp className="w-6 h-6 text-blue-500" />
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                Easy
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400">
-                7 days
-              </span>
+              <ThumbsUp className="w-4 h-4" />
+              Easy
             </button>
           </motion.div>
         )}
 
-        {/* Navigation */}
-        <div className="flex items-center justify-between">
+        {/* Bottom control bar — track toggle · arrows + counter · shuffle */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Track progress switcher */}
           <button
-            onClick={goToPrev}
-            disabled={currentIndex === 0}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            onClick={() => setTrackProgress((v) => !v)}
+            className="flex items-center gap-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 shrink-0"
+            title="Track progress with Again / Hard / Good / Easy"
           >
-            <ChevronLeft className="w-5 h-5" />
-            <span className="font-semibold">Prev</span>
+            <span className="hidden sm:inline">Track progress</span>
+            <span
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                trackProgress ? "bg-[#E76F51]" : "bg-slate-300 dark:bg-slate-700"
+              }`}
+            >
+              <span
+                className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+                  trackProgress ? "translate-x-5" : "translate-x-0.5"
+                }`}
+              />
+            </span>
           </button>
 
-          <button
-            onClick={handleRestart}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
-            title="Restart from beginning"
-          >
-            <RotateCcw className="w-4 h-4" />
-          </button>
+          {/* Arrows + counter */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={goToPrev}
+              disabled={currentIndex === 0}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              aria-label="Previous card"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <span className="text-sm font-semibold text-slate-600 dark:text-slate-300 tabular-nums min-w-[3.5rem] text-center">
+              {currentIndex + 1} / {cards.length}
+            </span>
+            <button
+              onClick={() => {
+                if (currentIndex < cards.length - 1) {
+                  goToNext();
+                } else {
+                  setShowCompletionModal(true);
+                }
+              }}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Next card"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
 
-          <button
-            onClick={() => {
-              if (isFlipped) {
-                handleRating("good");
-              } else if (currentIndex < cards.length - 1) {
-                goToNext();
-              } else {
-                // Last card, not flipped - show completion
-                setShowCompletionModal(true);
-              }
-            }}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#E76F51] hover:bg-[#D65A3D] text-white transition-colors font-semibold"
-          >
-            <span>{currentIndex === cards.length - 1 && !isFlipped ? "Finish" : "Next"}</span>
-            <ChevronRight className="w-5 h-5" />
-          </button>
+          {/* Shuffle + restart */}
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={handleRestart}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 active:bg-[#E76F51]/15 active:text-[#E76F51] transition-colors"
+              title="Restart from beginning"
+              aria-label="Restart"
+            >
+              <RotateCcw className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleShuffle}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 active:bg-[#E76F51]/15 active:text-[#E76F51] transition-colors"
+              title="Shuffle cards"
+              aria-label="Shuffle"
+            >
+              <Shuffle className="w-5 h-5" />
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              className={`w-12 h-12 flex items-center justify-center rounded-full transition-colors ${
+                isFullscreen
+                  ? "bg-[#E76F51]/15 text-[#E76F51]"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              }`}
+              title={isFullscreen ? "Exit full screen" : "Full screen"}
+              aria-label={isFullscreen ? "Exit full screen" : "Full screen"}
+            >
+              {isFullscreen ? (
+                <Minimize className="w-5 h-5" />
+              ) : (
+                <Maximize className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Keyboard shortcuts hint */}
         <div className="mt-8 text-center text-xs text-slate-400 dark:text-slate-500">
-          <p className="font-semibold mb-1">Keyboard shortcuts:</p>
           <p>
-            Space: Flip • ← →: Navigate • 1-4: Rate • Esc: Exit
+            Space: Flip • ← →: Navigate{trackProgress ? " • 1-4: Rate" : ""} • Esc: Exit
           </p>
         </div>
       </div>
