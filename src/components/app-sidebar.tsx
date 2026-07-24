@@ -9,6 +9,7 @@ import { useTheme } from "@/context/theme-context";
 import { LanguageSelector } from "./language-selector";
 import { SoundToggle } from "./sound-toggle";
 import { isAdmin as checkIsAdmin } from "@/lib/admin";
+import { getHeadersWithCsrf } from "@/lib/csrf-client";
 import {
   Home,
   RotateCcw,
@@ -61,7 +62,7 @@ export function AppSidebar() {
   const isDarkMode = theme === "dark";
   const pathname = usePathname();
   const router = useRouter();
-  const [userFolders, setUserFolders] = useState<string[]>([]);
+  const [userFolders, setUserFolders] = useState<{ id: number; name: string }[]>([]);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
@@ -86,16 +87,45 @@ export function AppSidebar() {
     return () => document.removeEventListener("mousedown", handleClick, true);
   }, [showProfileMenu]);
 
+  // Load the user's folders from the API once they're logged in.
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    fetch("/api/folders")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data?.folders) setUserFolders(data.folders);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
   const isActive = (href: string) => {
     if (!pathname) return false;
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(href + "/");
   };
 
-  const handleCreateFolder = () => {
+  const handleCreateFolder = async () => {
     const folderName = prompt("Enter folder name:");
-    if (folderName?.trim()) {
-      setUserFolders([...userFolders, folderName.trim()]);
+    const trimmed = folderName?.trim();
+    if (!trimmed) return;
+    try {
+      const res = await fetch("/api/folders", {
+        method: "POST",
+        headers: getHeadersWithCsrf(),
+        body: JSON.stringify({ name: trimmed }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data?.folder) setUserFolders((prev) => [...prev, data.folder]);
+      } else if (res.status === 409) {
+        alert("A folder with that name already exists.");
+      }
+    } catch {
+      // no-op: network error, folder not created
     }
   };
 
@@ -431,14 +461,14 @@ export function AppSidebar() {
                 {/* User Created Folders */}
                 {userFolders.length > 0 && (
                   <ul className="space-y-1">
-                    {userFolders.map((folderName, index) => (
-                      <li key={index}>
+                    {userFolders.map((folder) => (
+                      <li key={folder.id}>
                         <Link
-                          href={`/folders/${encodeURIComponent(folderName)}`}
+                          href={`/folders/${folder.id}`}
                           className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
                         >
                           <Folder className="w-5 h-5 flex-shrink-0" strokeWidth={2} />
-                          <span className="truncate">{folderName}</span>
+                          <span className="truncate">{folder.name}</span>
                         </Link>
                       </li>
                     ))}

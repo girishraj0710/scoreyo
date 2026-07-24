@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { isAdmin } from '@/lib/admin';
-import { getUserByEmail, rejectStudyMaterial, getStudyMaterial } from '@/lib/db';
+import { requireAdmin } from '@/lib/admin-guard';
+import { rejectStudyMaterial, getStudyMaterial } from '@/lib/db';
 import { logger } from '@/lib/logger';
 
 export async function POST(
@@ -10,24 +10,10 @@ export async function POST(
   try {
     const { id } = await params;
 
-    // Get user from cookie
+    const denied = await requireAdmin(request);
+    if (denied) return denied;
+
     const userId = request.cookies.get('scoreyo-user-id')?.value;
-
-    if (!userId) {
-      return NextResponse.json(
-        { error: 'Authentication required' },
-        { status: 401 }
-      );
-    }
-
-    // Check admin status
-    const user = await getUserByEmail(userId);
-    if (!isAdmin(user?.role, user?.email)) {
-      return NextResponse.json(
-        { error: 'Admin access required' },
-        { status: 403 }
-      );
-    }
 
     // Parse request body
     const body = await request.json();

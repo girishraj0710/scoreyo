@@ -8,6 +8,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { execute, queryOne, queryAll } from '@/lib/db';
+import { requireAdmin } from '@/lib/admin-guard';
 
 interface ScrapedQuestion {
   exam: 'IELTS' | 'TOEFL' | 'Cambridge';
@@ -40,7 +41,8 @@ interface SaveResponse {
 
 export async function POST(req: NextRequest) {
   try {
-    // TODO: Add auth check (admin only)
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const body: SaveRequest = await req.json();
     const { questions, source, batchId } = body;

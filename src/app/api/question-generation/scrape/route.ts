@@ -8,6 +8,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { execute, queryOne } from '@/lib/db';
+import { requireAdmin } from '@/lib/admin-guard';
 
 interface ScrapeRequest {
   exam?: 'IELTS' | 'TOEFL' | 'Cambridge';
@@ -25,8 +26,8 @@ interface ScrapeResponse {
 
 export async function POST(req: NextRequest) {
   try {
-    // TODO: Add auth check (admin only)
-    // const userId = req.cookies.get('scoreyo-user-id')?.value;
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const body: ScrapeRequest = await req.json();
     const exam = body.exam || 'IELTS';

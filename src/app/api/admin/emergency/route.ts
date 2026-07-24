@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { enableEmergencyAuthMode, disableEmergencyAuthMode, isEmergencyAuthMode } from "@/lib/user-cache";
+import { requireAdminSecret } from "@/lib/admin-guard";
 
 // Admin secret key (from env)
-const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY || "default-key-change-me";
+const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY;
 
 // GET - Check emergency mode status
 export async function GET(request: NextRequest) {
@@ -11,9 +12,8 @@ export async function GET(request: NextRequest) {
 
   const providedKey = authHeader?.replace("Bearer ", "") || urlKey;
 
-  if (providedKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const denied = requireAdminSecret(providedKey, ADMIN_KEY);
+  if (denied) return denied;
 
   const isEnabled = await isEmergencyAuthMode();
 
@@ -32,9 +32,8 @@ export async function POST(request: NextRequest) {
 
   const providedKey = authHeader?.replace("Bearer ", "") || body.key || urlKey;
 
-  if (providedKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const denied = requireAdminSecret(providedKey, ADMIN_KEY);
+  if (denied) return denied;
 
   await enableEmergencyAuthMode();
 
@@ -58,9 +57,8 @@ export async function DELETE(request: NextRequest) {
 
   const providedKey = authHeader?.replace("Bearer ", "") || urlKey;
 
-  if (providedKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const denied = requireAdminSecret(providedKey, ADMIN_KEY);
+  if (denied) return denied;
 
   await disableEmergencyAuthMode();
 

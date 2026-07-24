@@ -51,7 +51,7 @@ export default function MorePage() {
     {
       title: "Account",
       items: [
-        { href: "/profile", icon: User, label: "Profile" },
+        { href: "/settings", icon: User, label: "Profile" },
         { href: "/pricing", icon: CreditCard, label: "Upgrade to Pro" },
         { href: "/settings", icon: Settings, label: "Settings" },
       ],
