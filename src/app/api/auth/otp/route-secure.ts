@@ -17,7 +17,16 @@ import { logger } from "@/lib/logger";
 import { getRedis } from "@/lib/redis";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazily instantiate so importing this module never throws when the key is
+// absent (e.g. during `next build` page-data collection). Resend's constructor
+// throws on a missing key.
+let resendClient: Resend | null = null;
+function getResend(): Resend {
+  if (!resendClient) {
+    resendClient = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resendClient;
+}
 const OTP_EXPIRY_MINUTES = 10;
 const MAX_OTP_ATTEMPTS = 5;
 
@@ -86,7 +95,7 @@ export const POST = withValidation(
 
       // ── STEP 5: Send Email ──────────────────────────────────
       try {
-        await resend.emails.send({
+        await getResend().emails.send({
           from: "Scoreyo <noreply@scoreyo.in>",
           to: cleanEmail,
           subject: "Your Scoreyo OTP Code",
