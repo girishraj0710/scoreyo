@@ -15,18 +15,20 @@ import { getPool } from "@/lib/db";
 interface TopicActivity {
   subject_id: string;
   subject_name: string;
-  topic_id: string;
   topic_name: string;
   quiz_attempts: number;
-  study_sessions: number;
-  flashcard_reviews: number;
-  avg_score: number;
   error_rate: number;
   unique_learners: number;
   recent_activity_7d: number;
-  difficulty_score: number;
-  syllabus_importance: number;
   trending_score: number;
+}
+
+// Subject ids are stored as `<examcode>-<subject>` codes (e.g. "jee-physics"),
+// not as dim_subjects PKs, so derive a display label from the code itself.
+function subjectLabel(subjectId: string): string {
+  const parts = String(subjectId).split("-");
+  const sub = parts.length > 1 ? parts.slice(1).join(" ") : subjectId;
+  return sub.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export async function GET(req: NextRequest) {
@@ -36,130 +38,55 @@ export async function GET(req: NextRequest) {
 
     const pool = getPool();
 
-    // Step 1: Get topic activity from quiz sessions
+    // Trending topics are derived from real quiz activity. quiz_sessions is the
+    // only table carrying the needed signal — it stores `topic` (name) and
+    // `subject_id` (an `<examcode>-<subject>` text code), plus correct/total
+    // counts for an error rate. There is no topic_id/score column and the dim_*
+    // tables don't key on these codes, so we compute everything from this table.
     const activityQuery = `
       SELECT
         qs.subject_id,
-        ds.name as subject_name,
-        qs.topic_id,
-        dt.name as topic_name,
-        COUNT(DISTINCT qs.id) as quiz_attempts,
-        COUNT(DISTINCT CASE WHEN qs.created_at >= NOW() - INTERVAL '7 days' THEN qs.id END) as recent_activity_7d,
-        COUNT(DISTINCT qs.user_id) as unique_learners,
-        AVG(qs.score) as avg_score,
-        (1 - AVG(COALESCE(qs.score, 0) / 100.0)) as error_rate
+        qs.topic,
+        COUNT(DISTINCT qs.id) AS quiz_attempts,
+        COUNT(DISTINCT qs.user_id) AS unique_learners,
+        COUNT(DISTINCT CASE WHEN qs.created_at >= NOW() - INTERVAL '7 days' THEN qs.id END) AS recent_activity_7d,
+        1 - (SUM(qs.correct_answers)::numeric / NULLIF(SUM(qs.total_questions), 0)) AS error_rate
       FROM quiz_sessions qs
-      LEFT JOIN dim_subjects ds ON ds.id = qs.subject_id
-      LEFT JOIN dim_topics dt ON dt.id = qs.topic_id
       WHERE qs.exam_id = $1
         AND qs.created_at >= NOW() - INTERVAL '30 days'
-        AND qs.topic_id IS NOT NULL
-      GROUP BY qs.subject_id, ds.name, qs.topic_id, dt.name
+        AND qs.topic IS NOT NULL
+      GROUP BY qs.subject_id, qs.topic
       HAVING COUNT(DISTINCT qs.id) >= 3
     `;
 
     const activityResult = await pool.query(activityQuery, [examId]);
 
-    // Step 2: Get study session data
-    const studyQuery = `
-      SELECT
-        subject_id,
-        topic_id,
-        COUNT(*) as study_sessions
-      FROM study_reading_sessions
-      WHERE exam_id = $1
-        AND created_at >= NOW() - INTERVAL '30 days'
-      GROUP BY subject_id, topic_id
-    `;
-
-    const studyResult = await pool.query(studyQuery, [examId]);
-    const studyMap = new Map(
-      studyResult.rows.map((r: any) => [`${r.subject_id}_${r.topic_id}`, r.study_sessions])
-    );
-
-    // Step 3: Get flashcard review data
-    const flashcardQuery = `
-      SELECT
-        fd.subject_id,
-        fd.topic_id,
-        COUNT(*) as flashcard_reviews
-      FROM flashcard_progress fp
-      JOIN flashcards f ON f.id = fp.flashcard_id
-      JOIN flashcard_decks fd ON fd.id = f.deck_id
-      WHERE fd.exam_id = $1
-        AND fp.last_reviewed >= NOW() - INTERVAL '30 days'
-      GROUP BY fd.subject_id, fd.topic_id
-    `;
-
-    const flashcardResult = await pool.query(flashcardQuery, [examId]);
-    const flashcardMap = new Map(
-      flashcardResult.rows.map((r: any) => [`${r.subject_id}_${r.topic_id}`, r.flashcard_reviews])
-    );
-
-    // Step 4: Get topic metadata from dim_topics
-    const metadataQuery = `
-      SELECT
-        id as topic_id,
-        difficulty_level,
-        importance_level
-      FROM dim_topics
-      WHERE exam_id = $1
-    `;
-
-    const metadataResult = await pool.query(metadataQuery, [examId]);
-    const metadataMap = new Map(
-      metadataResult.rows.map((r: any) => [
-        r.topic_id,
-        {
-          difficulty: difficultyToScore(r.difficulty_level),
-          importance: parseInt(r.importance_level) || 5,
-          prerequisites: 0,
-        },
-      ])
-    );
-
-    // Step 5: Calculate trending score for each topic
+    // Calculate a trending score for each topic from real signals only.
     const topics: TopicActivity[] = activityResult.rows.map((row: any) => {
-      const key = `${row.subject_id}_${row.topic_id}`;
-      const studySessions = studyMap.get(key) || 0;
-      const flashcardReviews = flashcardMap.get(key) || 0;
-      const metadata = metadataMap.get(row.topic_id) || { difficulty: 5, importance: 5, prerequisites: 0 };
+      const quizAttempts = parseInt(row.quiz_attempts) || 0;
+      const uniqueLearners = parseInt(row.unique_learners) || 0;
+      const recentActivity = parseInt(row.recent_activity_7d) || 0;
+      const errorRate = parseFloat(row.error_rate) || 0;
 
-      // Smart trending score calculation
-      const activityScore = (
-        row.quiz_attempts * 1.0 +
-        studySessions * 0.8 +
-        flashcardReviews * 0.6
-      );
-
-      const momentumScore = row.recent_activity_7d / Math.max(row.quiz_attempts, 1); // Recent vs total
-      const difficultyBoost = metadata.difficulty * 1.5; // Complex topics get visibility
-      const importanceBoost = metadata.importance * 2.0; // Core syllabus topics prioritized
-      const errorBoost = row.error_rate * 10; // High error rate = needs attention
-      const popularityScore = Math.log10(row.unique_learners + 1) * 5; // Logarithmic to avoid dominance
+      const activityScore = quizAttempts * 1.0;
+      const momentumScore = recentActivity / Math.max(quizAttempts, 1); // recent vs total
+      const errorBoost = errorRate * 10; // high error rate = needs attention
+      const popularityScore = Math.log10(uniqueLearners + 1) * 5; // log to avoid dominance
 
       const trendingScore =
-        activityScore * 0.3 +
-        momentumScore * 0.15 +
-        difficultyBoost * 0.15 +
-        importanceBoost * 0.2 +
-        errorBoost * 0.1 +
-        popularityScore * 0.1;
+        activityScore * 0.4 +
+        momentumScore * 0.2 +
+        errorBoost * 0.2 +
+        popularityScore * 0.2;
 
       return {
         subject_id: row.subject_id,
-        subject_name: row.subject_name,
-        topic_id: row.topic_id,
-        topic_name: row.topic_name,
-        quiz_attempts: parseInt(row.quiz_attempts),
-        study_sessions: studySessions,
-        flashcard_reviews: flashcardReviews,
-        avg_score: parseFloat(row.avg_score) || 0,
-        error_rate: parseFloat(row.error_rate) || 0,
-        unique_learners: parseInt(row.unique_learners),
-        recent_activity_7d: parseInt(row.recent_activity_7d),
-        difficulty_score: metadata.difficulty,
-        syllabus_importance: metadata.importance,
+        subject_name: subjectLabel(row.subject_id),
+        topic_name: row.topic,
+        quiz_attempts: quizAttempts,
+        error_rate: errorRate,
+        unique_learners: uniqueLearners,
+        recent_activity_7d: recentActivity,
         trending_score: trendingScore,
       };
     });
@@ -181,10 +108,9 @@ export async function GET(req: NextRequest) {
       subject: t.subject_name.toUpperCase(),
       subjectId: t.subject_id,
       topic: t.topic_name,
-      topicId: t.topic_id,
+      topicId: t.topic_name,
       learners: t.unique_learners,
       trendingScore: Math.round(t.trending_score * 10) / 10,
-      difficultyLevel: scoreToDifficulty(t.difficulty_score),
       errorRate: Math.round(t.error_rate * 100),
       recentActivity: t.recent_activity_7d,
     }));
@@ -204,27 +130,6 @@ export async function GET(req: NextRequest) {
       dataSource: "fallback",
     });
   }
-}
-
-// Helper: Convert difficulty level string to numeric score
-function difficultyToScore(level: string | null): number {
-  const map: Record<string, number> = {
-    beginner: 2,
-    easy: 3,
-    medium: 5,
-    hard: 7,
-    expert: 9,
-  };
-  return map[level?.toLowerCase() || "medium"] || 5;
-}
-
-// Helper: Convert numeric score back to difficulty level
-function scoreToDifficulty(score: number): string {
-  if (score <= 2) return "Beginner";
-  if (score <= 4) return "Easy";
-  if (score <= 6) return "Medium";
-  if (score <= 8) return "Hard";
-  return "Expert";
 }
 
 // Helper: Get curated defaults when no user data exists

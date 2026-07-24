@@ -3,14 +3,23 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
-export function OAuthButtons({ mode = "signup" }: { mode?: "signup" | "login" }) {
+export function OAuthButtons({
+  mode = "signup",
+  redirectTo = "/",
+}: {
+  mode?: "signup" | "login";
+  redirectTo?: string;
+}) {
   const [isLoading, setIsLoading] = useState<string | null>(null);
 
   const handleGoogleSignIn = async () => {
     setIsLoading("google");
     try {
+      // Route through the OAuth bridge so the app's `scoreyo-user-id` cookie
+      // gets set from the NextAuth session, then land on the intended page.
+      const bridge = `/api/auth/oauth-bridge?redirect=${encodeURIComponent(redirectTo)}`;
       await signIn("google", {
-        callbackUrl: "/",
+        callbackUrl: bridge,
         redirect: true,
       });
     } catch (error) {

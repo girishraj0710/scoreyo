@@ -37,6 +37,11 @@ interface AuthPanelProps {
    * to true for the standalone /signup and /login pages.
    */
   active?: boolean;
+  /**
+   * Post-auth destination (internal path). After a successful login/signup the
+   * user lands here instead of the home page. Already sanitized by the caller.
+   */
+  redirectTo?: string;
 }
 
 export function AuthPanel({
@@ -46,6 +51,7 @@ export function AuthPanel({
   onEmailChange,
   onSwitchMode,
   active = true,
+  redirectTo = "/",
 }: AuthPanelProps) {
   const router = useRouter();
   const isSignup = mode === "signup";
@@ -81,8 +87,11 @@ export function AuthPanel({
     if (onSwitchMode) {
       onSwitchMode(target, email);
     } else {
-      const q = email ? `?email=${encodeURIComponent(email)}` : "";
-      router.push(`/${target}${q}`);
+      const params = new URLSearchParams();
+      if (email) params.set("email", email);
+      if (redirectTo && redirectTo !== "/") params.set("redirect", redirectTo);
+      const q = params.toString();
+      router.push(`/${target}${q ? `?${q}` : ""}`);
     }
   };
 
@@ -221,7 +230,7 @@ export function AuthPanel({
       // set auth cookie. A soft router.push leaves stale user=null in context.
       setStep("success");
       setTimeout(() => {
-        window.location.href = "/";
+        window.location.href = redirectTo;
       }, 1500);
     } catch {
       setError("Network error. Please try again.");
@@ -284,7 +293,7 @@ export function AuthPanel({
       {/* FORM STEP */}
       {step === "form" && (
         <>
-          <OAuthButtons mode={mode} />
+          <OAuthButtons mode={mode} redirectTo={redirectTo} />
 
           <form onSubmit={handleFormSubmit} className="space-y-5">
             {/* Name (signup only) */}

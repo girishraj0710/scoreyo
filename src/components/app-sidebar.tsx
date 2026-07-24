@@ -24,8 +24,11 @@ import {
   Trophy,
   Plus,
   Folder,
+  FolderOpen,
   Layers,
-  Menu,
+  Users,
+  PanelLeftClose,
+  PanelLeftOpen,
   Bell,
   Settings,
   LogOut,
@@ -41,6 +44,7 @@ const PRIMARY_NAV = [
   { href: "/", labelKey: "home" as const, fallback: "Home", icon: Home },
   { href: "/study-guides", labelKey: null, fallback: "Study Guides", icon: BookOpen },
   { href: "/flashcards", labelKey: null, fallback: "Flashcards", icon: Layers },
+  { href: "/groups", labelKey: null, fallback: "Study Groups", icon: Users },
   { href: "/review", labelKey: "review" as const, fallback: "Review", icon: RotateCcw },
   { href: "/mock-test", labelKey: "mockTests" as const, fallback: "Mock Tests", icon: FileText },
   { href: "/sprint", labelKey: null, fallback: "Sprint", icon: Zap },
@@ -50,6 +54,7 @@ const PRIMARY_NAV = [
 
 // Analytics group
 const ANALYTICS_NAV = [
+  { href: "/library", labelKey: null, fallback: "Your Library", icon: FolderOpen },
   { href: "/dashboard", labelKey: null, fallback: "Dashboard", icon: BarChart3 },
   { href: "/reports", labelKey: null, fallback: "Reports", icon: TrendingUp },
   { href: "/achievements", labelKey: null, fallback: "Achievements", icon: Trophy },
@@ -143,10 +148,14 @@ export function AppSidebar() {
           {/* Hamburger button */}
           <button
             onClick={toggleSidebar}
-            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
+            className="-ml-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
             aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
-            <Menu className="w-5 h-5" />
+            {isCollapsed ? (
+              <PanelLeftOpen className="w-5 h-5" />
+            ) : (
+              <PanelLeftClose className="w-5 h-5" />
+            )}
           </button>
 
           {/* Logo */}

@@ -473,7 +473,14 @@ function HomePageContent() {
               Hey {userName.split(" ")[0]}, ready to move the needle?
             </h1>
             <p className="text-[#5A6478] dark:text-slate-400 mt-2 max-w-xl">
-              You're <span className="font-mono font-bold text-[#F26A4B]">{completed}/{tasks.length}</span> on today's plan — one more push and you're done.
+              {tasks.length > 0 ? (
+                <>
+                  You're <span className="font-mono font-bold text-[#F26A4B]">{completed}/{tasks.length}</span> on today's plan
+                  {completed === tasks.length ? " — all done, great work! 🎉" : " — check it off below to stay on track."}
+                </>
+              ) : (
+                <>Your personalized plan is loading — let's move the needle today.</>
+              )}
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -551,8 +558,9 @@ function HomePageContent() {
           </motion.div>
           )}
 
-          {/* Today's plan (only show if user has activity) */}
-          {hasActivity && tasks.length > 0 && (
+          {/* Today's plan — always shown once tasks exist (seeded from onboarding
+              for new users, then adapts to real activity as the day progresses) */}
+          {tasks.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}

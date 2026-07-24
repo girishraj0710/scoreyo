@@ -200,6 +200,7 @@ function QuizContent() {
   const count = parseInt(searchParams.get("count") || "5");
   const difficulty = searchParams.get("difficulty") || "mixed";
   const pressureMode = searchParams.get("pressureMode") === "true";
+  const artifactSlug = searchParams.get("artifact") || "";
 
   // Level mode parameters
   const mode = searchParams.get("mode") || "random"; // "level", "sprint", or "random"
@@ -324,6 +325,28 @@ function QuizContent() {
       try {
         setIsLoading(true);
 
+        // Generated artifact: load a converted quiz by its share slug.
+        if (artifactSlug) {
+          const res = await fetch(`/api/generated/${artifactSlug}`);
+          if (!res.ok) {
+            throw new Error("This study set could not be loaded. It may have been removed.");
+          }
+          const data = await res.json();
+          const artifactQuestions = data.questions || [];
+          setQuizData({
+            sessionId: `artifact-${artifactSlug}`,
+            examId: "custom",
+            subjectId: "custom",
+            topic: data.title || "Study set",
+            examName: data.title || "Study set",
+            subjectName: "Generated",
+            questions: artifactQuestions,
+          });
+          setAnswers(new Array(artifactQuestions.length).fill(null));
+          setIsLoading(false);
+          return;
+        }
+
         // Custom mode: Load from sessionStorage
         if (mode === "custom") {
           const customQuizJson = sessionStorage.getItem('customQuiz');
@@ -444,7 +467,7 @@ function QuizContent() {
       }
     }
     loadQuiz();
-  }, [mode, examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber, isSprintMode, sprintId]);
+  }, [mode, examId, subjectId, topic, count, difficulty, isLevelMode, levelNumber, isSprintMode, sprintId, artifactSlug]);
 
   // Scroll to top when results are shown
   useEffect(() => {
@@ -574,8 +597,8 @@ function QuizContent() {
       (_, i) => perQChangesRef.current[i] ?? 0
     );
     try {
-      // Custom mode: Calculate results locally, don't save to database
-      if (mode === "custom") {
+      // Custom mode / generated artifact: results are local, not saved to DB.
+      if (mode === "custom" || artifactSlug) {
         const correctAnswers = quizData.questions.filter(
           (q, i) => answers[i] === q.correctAnswer
         ).length;
@@ -1878,6 +1901,28 @@ export default function QuizPage() {
       router.push("/contributor");
     }
   }, [user, userLoading, router]);
+
+  // Playing requires an account. Anonymous visitors (e.g. following a shared
+  // /shared/[slug] link) are sent to login and returned here afterwards.
+  useEffect(() => {
+    if (!userLoading && !user) {
+      const dest = window.location.pathname + window.location.search;
+      router.push(`/login?redirect=${encodeURIComponent(dest)}`);
+    }
+  }, [user, userLoading, router]);
+
+  if (userLoading || !user) {
+    return (
+      <AccessibilityWrapper>
+        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+          <div className="rounded-2xl p-12 shadow-lg border" style={{ background: "var(--card-bg)", borderColor: "var(--card-border)" }}>
+            <div className="w-12 h-12 mx-auto border-4 rounded-full animate-spin" style={{ borderColor: "var(--card-border)", borderTopColor: "var(--primary)" }}></div>
+          </div>
+        </div>
+      </AccessibilityWrapper>
+    );
+  }
+
   return (
     <AccessibilityWrapper>
       <Suspense

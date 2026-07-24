@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@/context/user-context";
 import { useRouter } from "next/navigation";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Wand2 } from "lucide-react";
 import { AccessibilityWrapper } from "@/components/accessibility-wrapper";
+import { ConvertModal, type ConvertSource } from "@/components/convert/ConvertModal";
 
 interface QuizQuestion {
   question: string;
@@ -33,6 +34,15 @@ export default function CustomQuizPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dragActive, setDragActive] = useState(false);
+  const [convertSource, setConvertSource] = useState<ConvertSource | null>(null);
+
+  const openConvert = () => {
+    if (activeTab === "upload" && file) {
+      setConvertSource({ sourceType: "upload", file });
+    } else if (activeTab === "paste" && pastedText.trim()) {
+      setConvertSource({ sourceType: "text", text: pastedText });
+    }
+  };
 
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
@@ -432,7 +442,7 @@ export default function CustomQuizPage() {
             <button
               onClick={handleGenerate}
               disabled={isProcessing}
-              className="w-full py-4 bg-gradient-to-r from-[#E76F51] to-[#D65A3D] text-white rounded-xl font-semibold text-lg hover:from-[#D65A3D] hover:to-[#C4502F] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+              className="w-full py-4 bg-[#16213E] hover:bg-[#1a2744] text-white rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
             >
               {isProcessing ? (
                 <>
@@ -447,6 +457,16 @@ export default function CustomQuizPage() {
               )}
             </button>
 
+            {/* Convert into any study mode (flashcards / game / mock) */}
+            <button
+              onClick={openConvert}
+              disabled={isProcessing}
+              className="w-full py-3 rounded-xl font-semibold border-2 border-[#E76F51] text-[#E76F51] hover:bg-[#E76F51]/5 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+            >
+              <Wand2 className="w-5 h-5" />
+              Or turn this into flashcards, a game, or a mock test
+            </button>
+
             {isProcessing && (
               <p className="text-center text-sm" style={{ color: "var(--muted)" }}>
                 This may take 30-60 seconds. Please wait...
@@ -455,6 +475,17 @@ export default function CustomQuizPage() {
           </div>
         )}
       </div>
+
+      {/* Convert Modal — all four study modes from this source */}
+      {convertSource && (
+        <ConvertModal
+          isOpen={!!convertSource}
+          onClose={() => setConvertSource(null)}
+          source={convertSource}
+          sourceLabel={activeTab === "upload" && file ? file.name : "Pasted text"}
+          allowedModes={["deck", "quiz", "match", "blocks", "blast", "mock"]}
+        />
+      )}
     </div>
     </AccessibilityWrapper>
   );

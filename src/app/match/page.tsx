@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, useRef, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useUser } from "@/context/user-context";
 import { useExamFilter } from "@/hooks/use-exam-filter";
@@ -187,14 +187,18 @@ function MatchCompletion({ timeSeconds, mistakes, onPlayAgain, onExit, isPersona
   );
 }
 
-export default function MatchPage() {
+function MatchGame() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const artifactSlug = searchParams.get("artifact") || "";
   const { user, isLoading } = useUser();
   const examFilter = useExamFilter();
+  const isArtifactRef = useRef(false);
   const [gameState, setGameState] = useState<"intro" | "playing" | "complete">("intro");
   const [cards, setCards] = useState<Card[]>([]);
   const [selectedCards, setSelectedCards] = useState<string[]>([]);
   const [matchedPairs, setMatchedPairs] = useState<number[]>([]);
+  const [totalPairs, setTotalPairs] = useState(6);
   const [mistakes, setMistakes] = useState(0);
   const [startTime, setStartTime] = useState<number>(0);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -217,12 +221,32 @@ export default function MatchPage() {
   // Load content
   const loadContent = async () => {
     try {
+      // Generated game artifact: build cards from term/definition pairs.
+      if (artifactSlug) {
+        const response = await fetch(`/api/generated/${artifactSlug}`);
+        if (!response.ok) throw new Error("Failed to fetch study set");
+        const data = await response.json();
+        isArtifactRef.current = true;
+        const pairs = (data.pairs || []).slice(0, 6);
+        const cards: Card[] = pairs.flatMap(
+          (p: { term: string; definition: string }, i: number) => [
+            { id: `q-${i}`, type: "question" as const, content: p.term, pairId: i, subject: data.title || "Study set" },
+            { id: `a-${i}`, type: "answer" as const, content: p.definition, pairId: i, subject: data.title || "Study set" },
+          ]
+        );
+        setCards(cards);
+        setTotalPairs(pairs.length);
+        setSubjectName(data.title || "Study set");
+        return;
+      }
+
       const response = await fetch(`/api/match/content?examId=${examFilter || user?.current_exam || "upsc-cse"}`);
       if (!response.ok) throw new Error("Failed to fetch content");
 
       const data = await response.json();
       setCards(data.cards);
       setContentSource(data.contentSource);
+      setTotalPairs(Math.floor((data.cards?.length || 12) / 2));
 
       // Set subject name from first card
       if (data.cards.length > 0) {
@@ -234,10 +258,15 @@ export default function MatchPage() {
   };
 
   useEffect(() => {
+    if (artifactSlug) {
+      loadContent();
+      return;
+    }
     if (user && !isLoading) {
       loadContent();
     }
-  }, [user, isLoading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, isLoading, artifactSlug]);
 
   const handleStart = () => {
     setGameState("playing");
@@ -289,7 +318,7 @@ export default function MatchPage() {
           setIsCheckingMatch(false);
 
           // Check if game complete
-          if (newMatchedPairs.length === 6) {
+          if (newMatchedPairs.length === totalPairs) {
             handleGameComplete();
           }
         }, 600); // Longer delay to show green animation
@@ -306,6 +335,12 @@ export default function MatchPage() {
 
   const handleGameComplete = async () => {
     const finalTime = Math.floor((Date.now() - startTime) / 1000);
+
+    // Generated game artifacts aren't tied to an exam — skip the leaderboard save.
+    if (isArtifactRef.current) {
+      setGameState("complete");
+      return;
+    }
 
     try {
       const response = await fetch("/api/match/save", {
@@ -356,7 +391,8 @@ export default function MatchPage() {
   }
 
   if (!user) {
-    router.push("/auth");
+    const dest = artifactSlug ? `/match?artifact=${artifactSlug}` : "/match";
+    router.push(`/login?redirect=${encodeURIComponent(dest)}`);
     return null;
   }
 
@@ -477,7 +513,7 @@ export default function MatchPage() {
               Matched
             </div>
             <div className="font-mono font-bold text-xl text-[#16213E] dark:text-white mt-1">
-              {matchedPairs.length} / 6
+              {matchedPairs.length} / {totalPairs}
             </div>
           </div>
           <div className="text-center">
@@ -503,5 +539,13 @@ export default function MatchPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function MatchPage() {
+  return (
+    <Suspense fallback={null}>
+      <MatchGame />
+    </Suspense>
   );
 }
