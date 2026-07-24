@@ -18,6 +18,17 @@ export function proxy(request: NextRequest) {
   // Add performance headers for all requests
   response.headers.set('X-DNS-Prefetch-Control', 'on');
 
+  // Block test endpoints in production (they leak data with no auth).
+  // The app-facing debug-* routes were deleted; these two test routes remain.
+  if (process.env.NODE_ENV === 'production') {
+    const isDebugPath =
+      pathname === '/api/match/test' ||
+      pathname === '/api/cron/test-sprint';
+    if (isDebugPath) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+  }
+
   // CSRF Protection: Only check for state-changing methods
   if (!["POST", "PUT", "DELETE", "PATCH"].includes(method)) {
     return response;

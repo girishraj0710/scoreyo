@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPool } from "@/lib/db";
+import { requireAdminSecret } from "@/lib/admin-guard";
 
 export const dynamic = "force-dynamic";
 
@@ -13,12 +14,8 @@ export async function POST(request: NextRequest) {
     const url = new URL(request.url);
     const secretParam = url.searchParams.get('secret');
 
-    if (secretParam !== process.env.ADMIN_SECRET) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
-    }
+    const denied = requireAdminSecret(secretParam, process.env.ADMIN_SECRET);
+    if (denied) return denied;
 
     const pool = getPool();
     const client = await pool.connect();

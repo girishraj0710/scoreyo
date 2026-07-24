@@ -1,30 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { queryOne, queryAll, execute } from "@/lib/db";
-
-// Simple admin check (you can enhance this later with proper admin roles)
-// Move admin emails to environment variable for security
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "admin@scoreyo.in").split(",").map(e => e.trim());
-
-async function isAdmin(userId: string): Promise<boolean> {
-  try {
-    const user = await queryOne("SELECT email FROM users WHERE id = ?", [userId]);
-    return user && ADMIN_EMAILS.includes(user.email);
-  } catch {
-    return false;
-  }
-}
+import { requireAdmin } from "@/lib/admin-guard";
 
 // GET: Fetch all reported questions with pagination
 export async function GET(req: NextRequest) {
   try {
-    const userId = req.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    if (!(await isAdmin(userId))) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
-    }
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const { searchParams } = new URL(req.url);
     const status = searchParams.get("status") || "pending";
@@ -119,14 +101,8 @@ export async function GET(req: NextRequest) {
 // PUT: Update a question (admin edit)
 export async function PUT(req: NextRequest) {
   try {
-    const userId = req.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    if (!(await isAdmin(userId))) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
-    }
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const body = await req.json();
     const {
@@ -222,14 +198,8 @@ export async function PUT(req: NextRequest) {
 // PATCH: Update report status
 export async function PATCH(req: NextRequest) {
   try {
-    const userId = req.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    if (!(await isAdmin(userId))) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
-    }
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const body = await req.json();
     const { reportId, status, adminNotes } = body;

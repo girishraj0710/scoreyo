@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getRedis } from "@/lib/redis";
 import { getUserByEmail } from "@/lib/db";
+import { requireAdminSecret } from "@/lib/admin-guard";
 import { Pool } from 'pg';
 
-const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY || "default-key";
+const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY;
 
 async function syncUsersFromRedis() {
   const redis = getRedis();
@@ -99,9 +100,8 @@ export async function GET(request: NextRequest) {
   const urlKey = request.nextUrl.searchParams.get("key");
   const action = request.nextUrl.searchParams.get("action");
 
-  if (urlKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const denied = requireAdminSecret(urlKey, ADMIN_KEY);
+  if (denied) return denied;
 
   if (action !== "sync") {
     return NextResponse.json({
@@ -122,9 +122,8 @@ export async function POST(request: NextRequest) {
 
   const providedKey = authHeader?.replace("Bearer ", "") || body.key || urlKey;
 
-  if (providedKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const denied = requireAdminSecret(providedKey, ADMIN_KEY);
+  if (denied) return denied;
 
   return await syncUsersFromRedis();
 }

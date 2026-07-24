@@ -6,11 +6,15 @@ import { saveOTPToCache, verifyOTPFromCache } from "@/lib/otp-cache";
 import { isEmergencyAuthMode, checkUserExistsInCache } from "@/lib/user-cache";
 import { POST as securePOST, PUT as securePUT } from "./route-secure";
 
-// Instantiate lazily: constructing at module load throws when RESEND_API_KEY
-// is absent (e.g. Vercel build/preview env), which fails `next build` while
-// collecting page data for this route.
+// Lazily instantiate so importing this module never throws when the key is
+// absent (e.g. during `next build` page-data collection). Resend's constructor
+// throws on a missing key.
+let resendClient: Resend | null = null;
 function getResend(): Resend {
-  return new Resend(process.env.RESEND_API_KEY);
+  if (!resendClient) {
+    resendClient = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resendClient;
 }
 
 function generateOtp(): string {

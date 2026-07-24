@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { queryOne, queryAll } from "@/lib/db";
+import { requireAdmin } from "@/lib/admin-guard";
 import { Pool } from 'pg';
 
 // Temporary PostgreSQL wrapper for admin analytics (to be fully migrated)
@@ -21,31 +21,14 @@ const db = {
   }
 };
 
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@scoreyo.in").split(",").map(e => e.trim());
-
-async function isAdmin(userId: string): Promise<boolean> {
-  try {
-    const user = await queryOne("SELECT email FROM users WHERE id = ?", [userId]);
-    return user && ADMIN_EMAILS.includes(user.email);
-  } catch {
-    return false;
-  }
-}
-
 export async function GET(req: NextRequest) {
   // Get optional exam filter from query params (declare outside try-catch for error handling)
   const { searchParams } = new URL(req.url);
   const examFilter = searchParams.get("examId") || null;
 
   try {
-    const userId = req.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    if (!(await isAdmin(userId))) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
-    }
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     if (examFilter) {
       console.log("[Admin Analytics] Filtering by exam:", examFilter);

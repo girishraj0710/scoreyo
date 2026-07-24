@@ -18,14 +18,18 @@ import { withAuth, withAuthAndValidation } from "@/lib/middleware/validation";
 import { paymentCreateSchema, paymentVerifySchema } from "@/lib/validation/schemas";
 import { logger } from "@/lib/logger";
 
-// Instantiate lazily: constructing at module load throws when the Razorpay
-// keys are absent (e.g. Vercel build/preview env), which fails `next build`
-// while collecting page data for this route.
+// Lazily instantiate so importing this module never throws when the keys are
+// absent (e.g. during `next build` page-data collection). Razorpay's
+// constructor throws when key_id/key_secret are missing.
+let razorpayClient: Razorpay | null = null;
 function getRazorpay(): Razorpay {
-  return new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID!,
-    key_secret: process.env.RAZORPAY_KEY_SECRET!,
-  });
+  if (!razorpayClient) {
+    razorpayClient = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID!,
+      key_secret: process.env.RAZORPAY_KEY_SECRET!,
+    });
+  }
+  return razorpayClient;
 }
 
 const PLANS = {

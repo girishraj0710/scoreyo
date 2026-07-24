@@ -10,6 +10,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateText } from 'ai';
 import { openrouter } from '@openrouter/ai-sdk-provider';
 import { execute, queryAll } from '@/lib/db';
+import { requireAdmin } from '@/lib/admin-guard';
 
 interface GenerateRequest {
   exam: string;
@@ -23,6 +24,9 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
   try {
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
+
     const body: GenerateRequest = await req.json();
     const { exam, subject, topic, count, difficulty } = body;
 

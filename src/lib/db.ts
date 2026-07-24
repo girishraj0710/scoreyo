@@ -2281,194 +2281,6 @@ export async function getExamQuestions(
   }));
 }
 
-/**
- * DEPRECATED: Old dimensional function (now merged into getExamQuestions)
- * Keeping temporarily for reference, will be removed
- */
-async function getExamQuestionsDimensional_OLD(
-  examId: string,
-  subjectId: string,
-  topic: string,
-  difficulty: string = "mixed",
-  limit: number = 10
-) {
-  let rows: any[];
-
-  const currentYear = new Date().getFullYear();
-
-  // Step 1: Get dimension IDs for exam and subject
-  const examDim = await queryOne(
-    `SELECT id FROM dim_exams WHERE exam_code = ?`,
-    [examId]
-  );
-
-  const subjectDim = await queryOne(
-    `SELECT id FROM dim_subjects WHERE subject_code = ?`,
-    [subjectId]
-  );
-
-  if (!examDim || !subjectDim) {
-    console.warn(`⚠️ Exam or subject not found in dimensional model: exam=${examId}, subject=${subjectId}`);
-    return [];
-  }
-
-  const examDimId = examDim.id;
-  const subjectDimId = subjectDim.id;
-
-  // Step 2: Query based on topic
-  // Priority: verified sources first, then ai-cached, then others
-  // Within same source: higher quality_score, lower used_count (rotation)
-  const priorityOrder = `
-    CASE
-      WHEN q.source LIKE 'verified%' THEN 1
-      WHEN q.source = 'expert-curated' THEN 1
-      WHEN q.source LIKE 'ncert%' THEN 2
-      WHEN q.source = 'ai-cached' THEN 3
-      ELSE 4
-    END,
-    COALESCE(q.quality_score, 100) DESC,
-    COALESCE(q.used_count, 0) ASC,
-    RANDOM()
-  `;
-
-  if (!topic || topic.trim() === "") {
-    // Empty topic = sample across ALL topics for this exam-subject
-    if (difficulty === "mixed") {
-      rows = await queryAll(
-        `SELECT q.*
-         FROM fact_exam_questions q
-         JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
-         WHERE b.exam_id = ?
-           AND b.subject_id = ?
-           AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
-         ORDER BY ${priorityOrder}
-         LIMIT ?`,
-        [examDimId, subjectDimId, currentYear, currentYear, limit]
-      );
-    } else {
-      rows = await queryAll(
-        `SELECT q.*
-         FROM fact_exam_questions q
-         JOIN bridge_exam_subject_topic b ON q.topic_id = b.topic_id
-         WHERE b.exam_id = ?
-           AND b.subject_id = ?
-           AND q.difficulty = ?
-           AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
-         ORDER BY ${priorityOrder}
-         LIMIT ?`,
-        [examDimId, subjectDimId, difficulty, currentYear, currentYear, limit]
-      );
-    }
-  } else {
-    // Topic-specific query with fuzzy matching on normalized topics
-
-    // Find matching topic IDs for this exam-subject combo
-    const topicIds = await queryAll(
-      `SELECT DISTINCT t.id
-       FROM dim_topics t
-       JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
-       WHERE b.exam_id = ?
-         AND b.subject_id = ?
-         AND (t.topic_name = ? OR t.topic_name LIKE ?)`,
-      [examDimId, subjectDimId, topic, `%${topic}%`]
-    );
-
-    if (topicIds.length > 0) {
-      // Use parameterized placeholders instead of string interpolation
-      const topicIdValues = topicIds.map((t: any) => t.id);
-      const placeholders = topicIdValues.map(() => '?').join(',');
-
-      if (difficulty === "mixed") {
-        rows = await queryAll(
-          `SELECT q.*
-           FROM fact_exam_questions q
-           WHERE q.topic_id IN (${placeholders})
-             AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
-           ORDER BY ${priorityOrder}
-           LIMIT ?`,
-          [...topicIdValues, currentYear, currentYear, limit]
-        );
-      } else {
-        rows = await queryAll(
-          `SELECT q.*
-           FROM fact_exam_questions q
-           WHERE q.topic_id IN (${placeholders})
-             AND q.difficulty = ?
-             AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
-           ORDER BY ${priorityOrder}
-           ORDER BY RANDOM()
-           LIMIT ?`,
-          [...topicIdValues, difficulty, currentYear, currentYear, limit]
-        );
-      }
-    } else {
-      rows = [];
-    }
-
-    // Fallback: keyword-level fuzzy match on topic name
-    if (rows.length < limit && topic.length > 0) {
-      const keywords = topic.toLowerCase().split(/[&\s]+/).filter((w: string) => w.length > 3);
-
-      for (const keyword of keywords) {
-        if (rows.length >= limit) break;
-        const remaining = limit - rows.length;
-
-        // Find topics matching this keyword
-        const keywordTopicIds = await queryAll(
-          `SELECT DISTINCT t.id
-           FROM dim_topics t
-           JOIN bridge_exam_subject_topic b ON t.id = b.topic_id
-           WHERE b.exam_id = ?
-             AND b.subject_id = ?
-             AND t.topic_name LIKE ?`,
-          [examDimId, subjectDimId, `%${keyword}%`]
-        );
-
-        if (keywordTopicIds.length > 0) {
-          // Use parameterized placeholders instead of string interpolation
-          const keywordIdValues = keywordTopicIds.map((t: any) => t.id);
-          const placeholders = keywordIdValues.map(() => '?').join(',');
-
-          const keywordRows = await queryAll(
-            difficulty === "mixed"
-              ? `SELECT q.* FROM fact_exam_questions q
-                 WHERE q.topic_id IN (${placeholders})
-                   AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
-                 ORDER BY ${priorityOrder} LIMIT ?`
-              : `SELECT q.* FROM fact_exam_questions q
-                 WHERE q.topic_id IN (${placeholders})
-                   AND q.difficulty = ?
-                   AND q.valid_from <= ? AND (q.valid_until IS NULL OR q.valid_until >= ?)
-                 ORDER BY ${priorityOrder} LIMIT ?`,
-            difficulty === "mixed"
-              ? [...keywordIdValues, currentYear, currentYear, remaining]
-              : [...keywordIdValues, difficulty, currentYear, currentYear, remaining]
-          );
-
-          rows = [...rows, ...keywordRows];
-        }
-      }
-    }
-  }
-
-  // Log if no questions found
-  if (rows.length === 0) {
-    console.warn(`⚠️ No questions found (dimensional): exam=${examId}, subject=${subjectId}, topic=${topic}, difficulty=${difficulty}, year=${currentYear}`);
-  }
-
-  // Map to same format as original function (include id for report functionality)
-  return rows.map((row: any) => ({
-    id: row.id,
-    question: row.question,
-    options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
-    correctAnswer: row.correct_answer,
-    explanation: row.explanation,
-    difficulty: row.difficulty,
-    source: row.source || 'dimensional',
-    ...(row.passage && { passage: row.passage }), // Include passage if present (for reading comprehension)
-  }));
-}
-
 export async function getEnglishQuestions(pathId: string, topicId: string, level: string, limit: number = 10) {
   const rows = await queryAll(
     "SELECT * FROM english_questions WHERE path_id = ? AND topic_id = ? AND level = ? ORDER BY RANDOM() LIMIT ?",
@@ -4768,6 +4580,191 @@ export async function getWeeklyStudyTimeDetailed(
         readings: parseInt(readingCount.rows[0].count)
       }
     };
+  } finally {
+    client.release();
+  }
+}
+
+// ============================================================
+// FOLDERS — organize flashcard decks into named folders
+// ============================================================
+
+let folderTablesEnsured = false;
+
+/**
+ * Create the folders tables if they don't exist. Runs once per process.
+ * Mirrors migrations/folders-schema.sql.
+ */
+export async function ensureFolderTables() {
+  if (folderTablesEnsured) return;
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS folders (
+        id SERIAL PRIMARY KEY,
+        user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        name TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW(),
+        updated_at TIMESTAMP DEFAULT NOW(),
+        UNIQUE(user_id, name)
+      );
+    `);
+    await client.query(`CREATE INDEX IF NOT EXISTS idx_folders_user ON folders(user_id);`);
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS folder_decks (
+        folder_id INTEGER NOT NULL REFERENCES folders(id) ON DELETE CASCADE,
+        deck_id INTEGER NOT NULL REFERENCES flashcard_decks(id) ON DELETE CASCADE,
+        added_at TIMESTAMP DEFAULT NOW(),
+        PRIMARY KEY (folder_id, deck_id)
+      );
+    `);
+    await client.query(`CREATE INDEX IF NOT EXISTS idx_folder_decks_folder ON folder_decks(folder_id);`);
+    await client.query(`CREATE INDEX IF NOT EXISTS idx_folder_decks_deck ON folder_decks(deck_id);`);
+    folderTablesEnsured = true;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get all folders for a user with deck counts.
+ */
+export async function getFolders(userId: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `SELECT f.id, f.name, f.created_at, f.updated_at,
+              COUNT(fld.deck_id) AS deck_count
+       FROM folders f
+       LEFT JOIN folder_decks fld ON fld.folder_id = f.id
+       WHERE f.user_id = $1
+       GROUP BY f.id
+       ORDER BY f.name ASC`,
+      [userId]
+    );
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Create a folder for a user. Returns the created row, or null if a folder
+ * with the same name already exists for this user.
+ */
+export async function createFolder(userId: string, name: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `INSERT INTO folders (user_id, name)
+       VALUES ($1, $2)
+       ON CONFLICT (user_id, name) DO NOTHING
+       RETURNING id, name, created_at, updated_at`,
+      [userId, name]
+    );
+    return result.rows[0] ?? null;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Delete a folder (only if it belongs to the user). folder_decks rows are
+ * removed via ON DELETE CASCADE. Returns true if a folder was deleted.
+ */
+export async function deleteFolder(folderId: number, userId: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `DELETE FROM folders WHERE id = $1 AND user_id = $2 RETURNING id`,
+      [folderId, userId]
+    );
+    return (result.rowCount ?? 0) > 0;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Get a single folder (owned by the user) along with the decks it contains.
+ * Returns null if the folder does not exist or is not owned by the user.
+ */
+export async function getFolderWithDecks(folderId: number, userId: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const folderResult = await client.query(
+      `SELECT id, name, created_at, updated_at
+       FROM folders WHERE id = $1 AND user_id = $2`,
+      [folderId, userId]
+    );
+    if (folderResult.rows.length === 0) return null;
+
+    const decksResult = await client.query(
+      `SELECT fd.id, fd.title, fd.description, fd.exam_id, fd.subject_id,
+              fd.topic, fd.card_count, fd.is_ai_generated, fd.updated_at
+       FROM folder_decks fld
+       JOIN flashcard_decks fd ON fd.id = fld.deck_id
+       WHERE fld.folder_id = $1
+       ORDER BY fld.added_at DESC`,
+      [folderId]
+    );
+
+    return { ...folderResult.rows[0], decks: decksResult.rows };
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Add a deck to a folder. Both must belong to the user. Idempotent.
+ * Returns true on success, false if the folder or deck is not owned by the user.
+ */
+export async function addDeckToFolder(folderId: number, deckId: number, userId: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    // Verify ownership of both folder and deck before linking.
+    const owns = await client.query(
+      `SELECT
+         (SELECT 1 FROM folders WHERE id = $1 AND user_id = $3) AS folder_ok,
+         (SELECT 1 FROM flashcard_decks WHERE id = $2 AND user_id = $3) AS deck_ok`,
+      [folderId, deckId, userId]
+    );
+    if (!owns.rows[0]?.folder_ok || !owns.rows[0]?.deck_ok) return false;
+
+    await client.query(
+      `INSERT INTO folder_decks (folder_id, deck_id)
+       VALUES ($1, $2)
+       ON CONFLICT (folder_id, deck_id) DO NOTHING`,
+      [folderId, deckId]
+    );
+    return true;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Remove a deck from a folder (only if the folder belongs to the user).
+ * Returns true if a link was removed.
+ */
+export async function removeDeckFromFolder(folderId: number, deckId: number, userId: string) {
+  const pool = getPool();
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `DELETE FROM folder_decks
+       WHERE folder_id = $1 AND deck_id = $2
+         AND folder_id IN (SELECT id FROM folders WHERE user_id = $3)
+       RETURNING folder_id`,
+      [folderId, deckId, userId]
+    );
+    return (result.rowCount ?? 0) > 0;
   } finally {
     client.release();
   }

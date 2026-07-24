@@ -1,17 +1,21 @@
 /**
- * Admin: Bulk Question Generation (No Auth Required)
- * Generates questions directly without authentication
+ * Admin: Bulk Question Generation
+ * Generates questions directly. Admin-only.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { generateQuiz } from '@/lib/quiz-generator';
 import { saveVerifiedQuestions } from '@/lib/db';
 import { getExamById, getSubjectById } from '@/lib/exams';
+import { requireAdmin } from '@/lib/admin-guard';
 
 export const maxDuration = 90;
 
 export async function POST(request: NextRequest) {
   try {
+    const denied = await requireAdmin(request);
+    if (denied) return denied;
+
     const { examId, subjectId, topic, numberOfQuestions = 10, difficulty = 'mixed' } = await request.json();
 
     // Get exam and subject info

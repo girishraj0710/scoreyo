@@ -1,17 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { queryOne, queryAll, execute } from "@/lib/db";
-
-// Admin emails from environment - uses ADMIN_EMAILS env var
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "girish.raj0710@gmail.com,admin@scoreyo.in").split(",").map(e => e.trim());
-
-async function isAdmin(userId: string): Promise<boolean> {
-  try {
-    const user = await queryOne("SELECT email FROM users WHERE id = ?", [userId]);
-    return user && ADMIN_EMAILS.includes(user.email);
-  } catch {
-    return false;
-  }
-}
+import { queryAll, execute } from "@/lib/db";
+import { requireAdmin } from "@/lib/admin-guard";
 
 export async function POST(req: NextRequest) {
   try {
@@ -79,14 +68,8 @@ export async function POST(req: NextRequest) {
 // GET: Fetch reports (admin only)
 export async function GET(req: NextRequest) {
   try {
-    const userId = req.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    if (!(await isAdmin(userId))) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
-    }
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const { searchParams } = new URL(req.url);
     const status = searchParams.get("status") || "pending";
@@ -147,14 +130,8 @@ export async function GET(req: NextRequest) {
 // PATCH: Update report status (admin only)
 export async function PATCH(req: NextRequest) {
   try {
-    const userId = req.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    if (!(await isAdmin(userId))) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
-    }
+    const denied = await requireAdmin(req);
+    if (denied) return denied;
 
     const body = await req.json();
     const { reportId, status, adminNotes } = body;

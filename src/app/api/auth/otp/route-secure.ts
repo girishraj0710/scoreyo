@@ -17,11 +17,15 @@ import { logger } from "@/lib/logger";
 import { getRedis } from "@/lib/redis";
 import { Resend } from "resend";
 
-// Instantiate lazily: constructing at module load throws when RESEND_API_KEY
-// is absent (e.g. Vercel build/preview env), which fails `next build` while
-// collecting page data for this route.
+// Lazily instantiate so importing this module never throws when the key is
+// absent (e.g. during `next build` page-data collection). Resend's constructor
+// throws on a missing key.
+let resendClient: Resend | null = null;
 function getResend(): Resend {
-  return new Resend(process.env.RESEND_API_KEY);
+  if (!resendClient) {
+    resendClient = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resendClient;
 }
 const OTP_EXPIRY_MINUTES = 10;
 const MAX_OTP_ATTEMPTS = 5;

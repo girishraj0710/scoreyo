@@ -1,29 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { isAdmin } from '@/lib/admin';
-import { getUserByEmail } from '@/lib/db';
+import { requireAdmin } from '@/lib/admin-guard';
 import { getPendingStudyMaterials } from '@/lib/db';
 import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
-    // Get user from cookie
-    const userId = request.cookies.get('scoreyo-user-id')?.value;
-
-    if (!userId) {
-      return NextResponse.json(
-        { error: 'Authentication required' },
-        { status: 401 }
-      );
-    }
-
-    // Check admin status
-    const user = await getUserByEmail(userId);
-    if (!isAdmin(user?.role, user?.email)) {
-      return NextResponse.json(
-        { error: 'Admin access required' },
-        { status: 403 }
-      );
-    }
+    const denied = await requireAdmin(request);
+    if (denied) return denied;
 
     // Get query params
     const limit = Math.min(

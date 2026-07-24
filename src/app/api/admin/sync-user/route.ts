@@ -1,18 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getRedis } from "@/lib/redis";
 import { getUserByEmail } from "@/lib/db";
+import { requireAdminSecret } from "@/lib/admin-guard";
 import { Pool } from 'pg';
 
-const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY || "default-key";
+const ADMIN_KEY = process.env.SCRAPER_ADMIN_KEY;
 
 // Sync a specific user with detailed error reporting
 export async function GET(request: NextRequest) {
   const urlKey = request.nextUrl.searchParams.get("key");
   const email = request.nextUrl.searchParams.get("email") || "girish.raj0710@gmail.com";
 
-  if (urlKey !== ADMIN_KEY) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const denied = requireAdminSecret(urlKey, ADMIN_KEY);
+  if (denied) return denied;
 
   const redis = getRedis();
   const pool = new Pool({

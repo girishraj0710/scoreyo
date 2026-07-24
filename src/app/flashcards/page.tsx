@@ -24,6 +24,8 @@ import {
   Copy,
   Check,
   Star,
+  FolderPlus,
+  Folder,
 } from "lucide-react";
 import { examCategories } from "@/lib/exams";
 import { getHeadersWithCsrf } from "@/lib/csrf-client";
@@ -144,6 +146,14 @@ export default function FlashcardsPage() {
     title: string;
     message: string;
   } | null>(null);
+
+  // "Add to folder" picker state
+  const [folderPickerDeck, setFolderPickerDeck] = useState<{
+    id: number;
+    title: string;
+  } | null>(null);
+  const [folders, setFolders] = useState<{ id: number; name: string }[]>([]);
+  const [addingToFolderId, setAddingToFolderId] = useState<number | null>(null);
 
   // Convert Modal State — "turn this deck into a quiz/game/mock"
   const [convertSource, setConvertSource] = useState<ConvertSource | null>(null);
@@ -428,6 +438,54 @@ export default function FlashcardsPage() {
   const handleRatingSuccess = () => {
     // Refresh decks to show updated rating
     fetchDecks();
+  };
+
+  const openFolderPicker = async (
+    e: React.MouseEvent,
+    deckId: number,
+    deckTitle: string
+  ) => {
+    e.stopPropagation(); // Prevent navigation to study page
+    setFolderPickerDeck({ id: deckId, title: deckTitle });
+    try {
+      const res = await fetch("/api/folders");
+      if (res.ok) {
+        const data = await res.json();
+        setFolders(data.folders || []);
+      }
+    } catch (error) {
+      console.error("Error fetching folders:", error);
+    }
+  };
+
+  const addDeckToFolder = async (folderId: number) => {
+    if (!folderPickerDeck) return;
+    setAddingToFolderId(folderId);
+    try {
+      const res = await fetch(`/api/folders/${folderId}/decks`, {
+        method: "POST",
+        headers: getHeadersWithCsrf(),
+        body: JSON.stringify({ deckId: folderPickerDeck.id }),
+      });
+      if (res.ok) {
+        setFolderPickerDeck(null);
+        setSuccessData({
+          title: "Added to folder",
+          message: `"${folderPickerDeck.title}" was added to the folder.`,
+        });
+        setSuccessModalOpen(true);
+      } else {
+        setErrorData({
+          title: "Couldn't add deck",
+          message: "Failed to add this deck to the folder. Please try again.",
+        });
+        setErrorModalOpen(true);
+      }
+    } catch (error) {
+      console.error("Error adding deck to folder:", error);
+    } finally {
+      setAddingToFolderId(null);
+    }
   };
 
   const handleGenerateDeck = async () => {
@@ -956,6 +1014,17 @@ export default function FlashcardsPage() {
                         </div>
                       )}
 
+                      {/* Add to folder button (only for user's decks) */}
+                      {deck.isMine && deck.id && (
+                        <button
+                          onClick={(e) => openFolderPicker(e, deck.id, deck.title || `${deck.subject} - ${deck.topic}`)}
+                          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                          title="Add to folder"
+                        >
+                          <FolderPlus className="w-4 h-4 text-slate-500 hover:text-[#E76F51]" />
+                        </button>
+                      )}
+
                       {/* Convert button — turn this deck into a quiz/game/mock */}
                       {deck.id && (
                         <button
@@ -1069,6 +1138,64 @@ export default function FlashcardsPage() {
             </div>
           </div>
         </div>
+
+        {/* Add to Folder Modal */}
+        {folderPickerDeck && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-heading text-xl font-bold text-slate-900 dark:text-white">
+                  Add to folder
+                </h3>
+                <button
+                  onClick={() => setFolderPickerDeck(null)}
+                  className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5 text-slate-500" />
+                </button>
+              </div>
+
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 truncate">
+                {folderPickerDeck.title}
+              </p>
+
+              {folders.length === 0 ? (
+                <div className="text-center py-8">
+                  <Folder className="w-10 h-10 mx-auto mb-3 text-slate-300 dark:text-slate-700" />
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    You don&apos;t have any folders yet.
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Create one from the sidebar first.
+                  </p>
+                </div>
+              ) : (
+                <ul className="space-y-1 max-h-72 overflow-y-auto">
+                  {folders.map((folder) => (
+                    <li key={folder.id}>
+                      <button
+                        onClick={() => addDeckToFolder(folder.id)}
+                        disabled={addingToFolderId !== null}
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors disabled:opacity-50"
+                      >
+                        <Folder className="w-5 h-5 flex-shrink-0 text-slate-500" />
+                        <span className="truncate">{folder.name}</span>
+                        {addingToFolderId === folder.id && (
+                          <span className="ml-auto w-4 h-4 border-2 border-[#F26A4B]/30 border-t-[#F26A4B] rounded-full animate-spin" />
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </motion.div>
+          </div>
+        )}
 
         {/* Share Modal */}
         {shareModalOpen && shareDeckData && (

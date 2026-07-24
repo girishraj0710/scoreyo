@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { queryAll, queryOne } from "@/lib/db";
+import { requireAdmin } from "@/lib/admin-guard";
 
 export const dynamic = "force-dynamic";
 
@@ -9,15 +10,8 @@ export const dynamic = "force-dynamic";
  */
 export async function GET(request: NextRequest) {
   try {
-    // TODO: Add admin role check
-    // For now, any logged-in user can view (for testing)
-    const userId = request.cookies.get("scoreyo-user-id")?.value;
-    if (!userId) {
-      return NextResponse.json(
-        { error: "Authentication required" },
-        { status: 401 }
-      );
-    }
+    const denied = await requireAdmin(request);
+    if (denied) return denied;
 
     // Get filter from query params
     const url = new URL(request.url);
