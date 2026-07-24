@@ -28,7 +28,6 @@ import {
   Users,
   PanelLeftClose,
   PanelLeftOpen,
-  Menu,
   Bell,
   Settings,
   LogOut,
